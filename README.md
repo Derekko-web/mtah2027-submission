@@ -125,7 +125,7 @@ docker run --rm --platform linux/amd64 -v "$PWD":/repo:ro -v /path/to/competitio
   sha256sum /out/submission.csv'
 ```
 
-On Nov 10 this produced the same SHA-256 under `linux/amd64` and `linux/arm64` as on macOS.
+On Nov 10 this produced the same SHA-256 under `linux/amd64` and `linux/arm64` as on macOS. On Nov 11, a fresh clone at commit `c8cdcad` (after D7 and D8) was rebuilt in four ways, and all four gave `f0b03d2c…` and passed the validator: twice on macOS in a fresh venv with Homebrew Python 3.12.13, and once each in the image above under `linux/arm64` and `linux/amd64` (Python 3.12.14). For these runs the bundle held only `tactical/`.
 
 Earlier versions remain available as fallbacks:
 - original models with the retuned decoder: `decoder_trial build` with `--trial dfl_submission/decoder_recipe`, SHA-256 `1cc8a858354df9c8ffc024540793caa045d845d321e144b6223ba1421a56ecc1`;
