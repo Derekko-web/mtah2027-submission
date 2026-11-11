@@ -23,10 +23,12 @@ The research history lives in a separate repository, available to the organisers
 
 ## Open items before submission (from the Nov 10 audit)
 
-1. **Lineage audit.**
-   - The XGBoost settings inherited by `experiments/dfl_transfer_teacher.PARAMS` match an earlier model trained on the public window.
-   - The ensemble recipe gives the fusion reference zero weight (`owner_mix = dead_mix = 1`). Confirm this by a rebuild without those heads.
-   - Check where the long-context hyperparameters and the island constants (0.68 and 0.82) came from.
+1. **Lineage audit: done Nov 11, passed.** See CONSTANTS.md. Findings:
+   - The XGBoost settings in `experiments/dfl_transfer_teacher.PARAMS` match an earlier model trained on the public window. Only the DFL-only and fusion reference heads use them, and the build never loads those heads.
+   - The long-context hyperparameters were hand-set on Nov 10 and never searched.
+   - Every decoder and blend constant came from an external development grid.
+   - The context-stage island constants are not on the final joint-decoder path.
+   - Still to disclose or fix: the 60% ball visibility, the `games.py` pitch size and the lineage of the feature formulas.
 2. **Corruption schedule.** The DFL degraded views keep the ball visible about 60% of the time, which matches DATA.md's published 41% missing. Disclose this, or follow the organisers' answer.
 3. **Linux/amd64 byte-identity.** So far the build is verified only on Apple Silicon.
 4. **Technical document** covering approach, training data, possession rules, constant provenance, limitations, development history and reproduction.
