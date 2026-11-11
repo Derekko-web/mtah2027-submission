@@ -1,6 +1,6 @@
 # D20 cloud runs: GRU and transformer on Kaggle
 
-`DECISIONS.md` D20 searches four model families. Its cloud amendment moves two of them, the bidirectional GRU and the transformer encoder, to Kaggle GPUs. The temporal network and the tree heads run on the Mac. The grids, folds, scoring and selection are D20's. Everything after training stays local: the NumPy export check, development scoring, the vetoes, the ensemble and the confirmation.
+`DECISIONS.md` D20 searches four model families. Its cloud amendment moves two of them, the bidirectional GRU and the transformer encoder, to Kaggle GPUs. Its tree amendment moves the tree heads' cross-validation to a Kaggle CPU session; their final trees are still fit on the Mac, so they refit byte for byte. The temporal network runs on the Mac. The grids, folds, scoring and selection are D20's. Everything after training stays local: the NumPy export check, development scoring, the vetoes, the ensemble and the confirmation.
 
 Derek uploads and runs everything here. Claude never runs the notebooks.
 
@@ -55,6 +55,17 @@ Derek uploads and runs everything here. Claude never runs the notebooks.
    - that the selection follows from the cross-validation record.
 
    It then exports each network locally with the NumPy check. Development scoring follows (`zoo member --family gru`).
+
+## The tree heads' cross-validation (`cloud/d20_trees.ipynb`)
+
+It runs the same way as the network notebooks, with three differences:
+- **Code dataset:** it needs a new version of `mtah-d20-code`, built by `make_bundles.sh` at the commit that adds the tree notebook. The sequences dataset is unchanged and is not uploaded again.
+- **Session:** no accelerator (a CPU session), with Internet on. It installs the build requirements (`dfl_submission/requirements.txt`, no PyTorch).
+- **Output:** `d20_trees_outputs.zip`, holding the cross-validation record, its logs, and the hashes of the 24 cross-validation models (the models themselves are not shipped).
+
+Import it with `zoo import-cloud --family trees …`. The local chain then fits the selected setting's four trees on the Mac and scores the member.
+
+The GRU and transformer runs were made with the code at `c3cf4b3`. Their import still checks their own training code only (`zoo.TRAINING`), and a test keeps that code identical to `c3cf4b3`.
 
 ## Timing and failures
 

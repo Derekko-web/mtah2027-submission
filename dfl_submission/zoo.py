@@ -1139,10 +1139,11 @@ def build(output, recipe=RECIPE, models=MODELS):
 
 # -- cloud runs of the GRU and transformer families (D20 amendment) --------------------------------
 
-CLOUD_FAMILIES = ("gru", "transformer")
+CLOUD_FAMILIES = ("gru", "transformer", "trees")
 CODE_PATHS = ("LICENSE", "LICENSE-SKILLCORNER", "dfl_submission", "evaluation", "experiments", "games.py", "starter")
 INPUT_FOLDERS = {"current": "train_data", "augmented": "sequences_augmented"}
 CLOUD_DEADLINE = "2026-11-13T08:00:00-05:00"
+KAGGLE_NETWORK_COMMIT = "c3cf4b3e6ca44ccb6eac9769928dddc5d043b84c"  # the code the GRU and transformer runs used
 TRAINING_CODE = (  # definitions in this module that a cloud run's training and cross-validation execute
     "FOLDS", "HALO", "CORE", "WINDOW", "CV_NETWORK", "NETWORKS", "SETS", "GRIDS", "ANCHORS", "DROPOUT",
     "TRANSFORMER_LAYERS", "TRANSFORMER_HEADS", "WARMUP_SHARE", "EPS", "CPU_THREADS", "DEAD", "name", "fold_of",
@@ -1152,6 +1153,14 @@ TRAINING_CODE = (  # definitions in this module that a cloud run's training and 
     "summarise_matches", "network_cv_losses", "run_complete", "network_cv", "select_cv", "fold_table",
     "check_original_source", "train_family")
 WHOLE_FILES = ("dfl_submission/temporal_network.py", "dfl_submission/temporal_cpu.py", "dfl_submission/train.py")
+TREE_TRAINING_CODE = (  # the tree family's cross-validation (D20 tree amendment)
+    "FOLDS", "GRIDS", "ANCHORS", "TREE_LEARNING_RATE", "EPS", "TREE_HEADS", "CV_TREE_JOBS", "name", "fold_of", "log_loss",
+    "select_cv", "fold_table", "check_original_source", "tree_params", "fit_head", "tree_rows", "head_probability",
+    "tree_fold_losses", "tree_cv")
+TREE_WHOLE_FILES = ("dfl_submission/long_context.py", "dfl_submission/aligned_trial.py", "dfl_submission/touch_trial.py",
+                    "dfl_submission/robust_features.py", "experiments/dfl_transfer_features.py")
+TRAINING = {"gru": (TRAINING_CODE, WHOLE_FILES), "transformer": (TRAINING_CODE, WHOLE_FILES),
+            "trees": (TREE_TRAINING_CODE, TREE_WHOLE_FILES)}
 
 
 def tree_hash(files):
@@ -1194,12 +1203,13 @@ def definitions(text):
     return result
 
 
-def training_code_matches(commit):
-    """Whether the training code at `commit` is the training code here (named definitions and whole files)."""
+def training_code_matches(commit, family):
+    """Whether a family's training code at `commit` is its training code here (named definitions and whole files)."""
+    names, files = TRAINING[family]
     old = definitions(git("show", f"{commit}:dfl_submission/zoo.py"))
     new = definitions((PACKAGE / "zoo.py").read_text())
-    same = {name: old.get(name) == new.get(name) and new.get(name) is not None for name in TRAINING_CODE}
-    same |= {path: git("show", f"{commit}:{path}") == (ROOT / path).read_text() for path in WHOLE_FILES}
+    same = {name: old.get(name) == new.get(name) and new.get(name) is not None for name in names}
+    same |= {path: git("show", f"{commit}:{path}") == (ROOT / path).read_text() for path in files}
     return same
 
 
@@ -1235,11 +1245,17 @@ def verify_inputs(sources, manifests=None):
     return identities
 
 
-def environment():
+def environment(family="gru"):
+    """The run's software and hardware; torch for the network families, XGBoost for the trees, never both."""
     import platform
+    import pandas
+    record = {"python": platform.python_version(), "platform": platform.platform(), "numpy": np.__version__,
+              "pandas": pandas.__version__, "cpus": os.cpu_count()}
+    if family == "trees":
+        import xgboost
+        return record | {"xgboost": xgboost.__version__}
     import torch
-    record = {"python": platform.python_version(), "platform": platform.platform(), "torch": torch.__version__,
-              "cuda": torch.version.cuda, "cuda_available": torch.cuda.is_available()}
+    record |= {"torch": torch.__version__, "cuda": torch.version.cuda, "cuda_available": torch.cuda.is_available()}
     if torch.cuda.is_available():
         record["gpu"] = torch.cuda.get_device_name(0)
     return record
@@ -1252,22 +1268,30 @@ def package_cloud(family, work, code, sources, output, *, recipe=RECIPE, manifes
     cv_record = recipe / f"cv_{family}.json"
     cv = json.loads(cv_record.read_text())
     files = {f"zoo_recipe/cv_{family}.json": cv_record}
-    for entry in cv["entries"]:
-        for fold in entry["runs"]:
-            files[f"cv_runs/{name(entry['setting'])}/fold{fold}/fit.json"] = work / "cv" / family / name(entry["setting"]) / f"fold{fold}" / "fit.json"
-    for model_set in SETS:
-        for slot in NETWORKS:
-            run = work / "networks" / family / model_set / slot
-            for path in sorted(run.iterdir()):
-                files[f"runs/{model_set}/{slot}/{path.name}"] = path
+    extra = {}
+    if family == "trees":
+        from dfl_submission import long_context
+        extra["cv_models"] = {path.name: digest(path) for path in sorted((work / "cv" / "trees").glob("*.ubj"))}
+        seeds = {"random_state": long_context.TREE_PARAMS["random_state"]}
+    else:
+        for entry in cv["entries"]:
+            for fold in entry["runs"]:
+                files[f"cv_runs/{name(entry['setting'])}/fold{fold}/fit.json"] = (
+                    work / "cv" / family / name(entry["setting"]) / f"fold{fold}" / "fit.json")
+        for model_set in SETS:
+            for slot in NETWORKS:
+                run = work / "networks" / family / model_set / slot
+                for path in sorted(run.iterdir()):
+                    files[f"runs/{model_set}/{slot}/{path.name}"] = path
+        seeds = {"cv": {"seed": CV_NETWORK[0], "boundary_boost": CV_NETWORK[1]},
+                 "full": {slot: list(value) for slot, value in NETWORKS.items()}}
     for path in sorted((work / "logs").glob("*.log")) if (work / "logs").exists() else ():
         files[f"logs/{path.name}"] = path
     record = {"protocol": PROTOCOL, "family": family, "code": json.loads(code.read_text()),
-              "environment": (environment if environment_of is None else environment_of)(),
-              "inputs": verify_inputs(sources, manifests), "seeds": {"cv": {"seed": CV_NETWORK[0], "boundary_boost": CV_NETWORK[1]},
-                                                         "full": {slot: list(value) for slot, value in NETWORKS.items()}},
+              "environment": environment(family) if environment_of is None else environment_of(),
+              "inputs": verify_inputs(sources, manifests), "seeds": seeds,
               "selected": cv["selected"], "outputs": {key: digest(path) for key, path in files.items()},
-              "created_at": time.strftime("%Y-%m-%d %H:%M %Z")}
+              "created_at": time.strftime("%Y-%m-%d %H:%M %Z")} | extra
     with zipfile.ZipFile(output, "w", compression=zipfile.ZIP_DEFLATED) as archive:
         for key, path in files.items():
             archive.write(path, key)
@@ -1298,10 +1322,12 @@ def check_cloud(family, folder, sources, scratch, manifests=None):
     commit = record["code"]["commit"]
     try:
         checks["code_tree"] = tree_hash(commit_files(commit)) == record["code"]["tree_sha256"]
-        checks["training_code"] = training_code_matches(commit)
+        checks["training_code"] = training_code_matches(commit, family)
     except subprocess.CalledProcessError:
         checks["code_tree"], checks["training_code"] = False, {"commit_missing": False}
     cv = json.loads((folder / "zoo_recipe" / f"cv_{family}.json").read_text())
+    if family == "trees":
+        return record, cv, checks | check_tree_record(record, cv, sources)
     checks["cv"] = (cv["family"] == family and cv["grid"] == list(GRIDS[family]) and cv["folds"] == fold_table(sources["current"])
                     and cv["source_manifest"] == digest(sources["current"] / "manifest.json")
                     and cv["cv_network"] == {"seed": CV_NETWORK[0], "boundary_boost": CV_NETWORK[1]}
@@ -1333,6 +1359,22 @@ def check_cloud(family, folder, sources, scratch, manifests=None):
     return record, cv, checks
 
 
+def check_tree_record(record, cv, sources):
+    """The tree family's CV record: D20's grid, folds and inputs, losses that average their folds, and the selection."""
+    heads = cv.get("heads", {})
+    expected_models = {f"{head}_depth{depth}_fold{fold}.ubj" for head in TREE_HEADS
+                       for depth in sorted({setting["max_depth"] for setting in GRIDS["trees"]}) for fold in range(FOLDS)}
+    return {"cv": (cv["protocol"] == PROTOCOL and cv["family"] == "trees" and cv["grid"] == list(GRIDS["trees"])
+                   and cv["anchor"] == ANCHORS["trees"] and cv["learning_rate"] == TREE_LEARNING_RATE
+                   and cv["folds"] == fold_table(sources["current"])
+                   and cv["source_manifest"] == digest(sources["current"] / "manifest.json") and set(heads) == set(TREE_HEADS)
+                   and all([entry["setting"] for entry in heads[head]] == list(GRIDS["trees"]) for head in TREE_HEADS)
+                   and all(len(entry["folds"]) == FOLDS and entry["summary"]["score"] == float(np.mean(entry["folds"]))
+                           for head in TREE_HEADS for entry in heads[head])
+                   and cv["selected"] == {head: select_cv(heads[head]) for head in TREE_HEADS} == record["selected"]),
+            "cv_models": set(record.get("cv_models", {})) == expected_models}
+
+
 def passed_checks(checks):
     return all(all(value.values()) if isinstance(value, dict) else value for value in checks.values())
 
@@ -1360,7 +1402,9 @@ def import_cloud(family, archive, folder, sources, scratch, *, recipe=RECIPE, mo
     passed = passed_checks(checks)
     exported = {}
     error = None
-    if passed:
+    if passed and family == "trees":
+        shutil.copyfile(folder / "zoo_recipe" / "cv_trees.json", recipe / "cv_trees.json")
+    elif passed:
         try:
             for model_set in SETS:
                 for slot in NETWORKS:

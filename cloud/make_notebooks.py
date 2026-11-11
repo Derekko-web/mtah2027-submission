@@ -1,4 +1,4 @@
-"""Write the D20 Kaggle notebooks (DECISIONS.md D20, cloud amendment): one per cloud family.
+"""Write the D20 Kaggle notebooks (DECISIONS.md D20, cloud and tree amendments): one per cloud family.
 
 Each notebook finds the two private datasets, checks every input hash, installs the pinned training
 requirements in a Python 3.12 environment, hashes the code tree, runs that family's four-fold
@@ -141,6 +141,44 @@ print(OUTPUT, sha256(OUTPUT))
 '''
 
 
+TREE_INTRO = """# D20 cloud run: tree heads (cross-validation only)
+
+This notebook runs the **tree family's** four-fold cross-validation exactly as `DECISIONS.md` D20 and its tree amendment prescribe: both heads, the 3 × 3 grid of depth and tree count. It runs the repository's own commands (`python -m dfl_submission.zoo cv --family trees`, then `package-cloud`), which refuse to run unless `MTAH_DATA_DIR` points to a directory that does not exist. The selected setting's final trees are fit on the Mac afterwards, not here.
+
+**Inputs:** attach two private datasets only.
+- `mtah-d20-sequences` holds the prepared external training sequences, derived from DFL (CC BY 4.0) and SkillCorner (MIT) alone.
+- `mtah-d20-code` holds the repository code at a committed revision.
+
+No competition data, public ground truth, PFF or Metrica file is used, or exists here.
+
+**Settings:** no accelerator (CPU). Turn on *Internet*, which pip needs. Use *Save Version → Save & Run All*.
+
+**Output:** `d20_trees_outputs.zip` in the Output tab, for the repo's `zoo import-cloud`.
+"""
+
+TREE_ENVIRONMENT = '''# A Python 3.12 environment with the pinned build requirements (no PyTorch; XGBoost as in the build).
+run([sys.executable, "-m", "pip", "install", "-q", "uv"], LOGS / "uv.log")
+VENV = WORK / "venv"
+run([sys.executable, "-m", "uv", "venv", "--python", "3.12", VENV], LOGS / "venv.log")
+PY = VENV / "bin" / "python"
+run([sys.executable, "-m", "uv", "pip", "install", "--python", PY, "-r", REPO / "dfl_submission" / "requirements.txt"],
+    LOGS / "install.log")
+ENV = dict(os.environ, MTAH_DATA_DIR="/nonexistent/mtah", PYTHONDONTWRITEBYTECODE="1")
+ENV.pop("PYTHONPATH", None)
+run([PY, "-c", "import os, sys, xgboost; print(sys.version); print('xgboost', xgboost.__version__, 'cpus', os.cpu_count())"],
+    LOGS / "cpu.log", cwd=REPO, env=ENV)
+run([PY, "-m", "dfl_submission.zoo", "code-tree", "--root", REPO, "--commit", COMMIT, "--out", RUN / "code_tree.json"],
+    LOGS / "code_tree.log", cwd=REPO, env=ENV)
+print(Path(RUN / "code_tree.json").read_text())
+'''
+
+TREE_CV = '''# Four-fold match-grouped cross-validation of both heads over the 3 x 3 grid (held-out weighted log-loss).
+run([PY, "-m", "dfl_submission.zoo", "cv", "--family", FAMILY, "--source", inputs["train_data"], "--scratch", RUN / "cv"],
+    LOGS / f"cv_{FAMILY}.log", cwd=REPO, env=ENV)
+print(json.loads((REPO / "dfl_submission" / "zoo_recipe" / f"cv_{FAMILY}.json").read_text())["selected"])
+'''
+
+
 def cell(kind, text):
     lines = text.strip("\n").splitlines(keepends=True)
     base = {"cell_type": kind, "metadata": {}, "source": lines}
@@ -149,15 +187,20 @@ def cell(kind, text):
 
 def notebook(family):
     manifests = json.dumps(MANIFESTS, indent=4)
-    cells = [cell("markdown", INTRO.format(family=family)), cell("code", SETUP.format(family=family, manifests=manifests)),
-             cell("code", INPUTS), cell("code", CODE), cell("code", ENVIRONMENT), cell("code", CV), cell("code", FIT),
-             cell("code", PACKAGE)]
+    if family == "trees":
+        cells = [cell("markdown", TREE_INTRO), cell("code", SETUP.format(family=family, manifests=manifests)),
+                 cell("code", INPUTS), cell("code", CODE), cell("code", TREE_ENVIRONMENT), cell("code", TREE_CV),
+                 cell("code", PACKAGE)]
+    else:
+        cells = [cell("markdown", INTRO.format(family=family)), cell("code", SETUP.format(family=family, manifests=manifests)),
+                 cell("code", INPUTS), cell("code", CODE), cell("code", ENVIRONMENT), cell("code", CV), cell("code", FIT),
+                 cell("code", PACKAGE)]
     return {"cells": cells, "metadata": {"kernelspec": {"display_name": "Python 3", "language": "python", "name": "python3"},
                                          "language_info": {"name": "python"}}, "nbformat": 4, "nbformat_minor": 4}
 
 
 if __name__ == "__main__":
-    for family in ("gru", "transformer"):
+    for family in ("gru", "transformer", "trees"):
         path = HERE / f"d20_{family}.ipynb"
         path.write_text(json.dumps(notebook(family), indent=1) + "\n")
         print(f"Wrote {path}")

@@ -443,7 +443,7 @@ def test_cloud_runs_are_checked_before_use():
         exported.append(raw)
 
     original = zoo.training_code_matches
-    zoo.training_code_matches = lambda commit: {"stub": True}
+    zoo.training_code_matches = lambda commit, family: {"stub": family == "gru"}
     try:
         with tempfile.TemporaryDirectory() as tmp:
             tmp = Path(tmp)
@@ -486,5 +486,96 @@ def test_cloud_runs_are_checked_before_use():
                 pass
             else:
                 raise AssertionError("past the deadline the family runs locally")
+    finally:
+        zoo.training_code_matches = original
+
+
+def test_training_code_checks_are_per_family():
+    assert set(zoo.TRAINING) == set(zoo.CLOUD_FAMILIES)
+    for family in zoo.CLOUD_FAMILIES:
+        names, files = zoo.TRAINING[family]
+        assert set(names) <= set(zoo.definitions((ROOT / "dfl_submission" / "zoo.py").read_text()))
+        assert all((ROOT / path).exists() for path in files)
+    assert "tree_cv" in zoo.TREE_TRAINING_CODE and "tree_cv" not in zoo.TRAINING_CODE
+    assert "train_network" in zoo.TRAINING_CODE and "train_network" not in zoo.TREE_TRAINING_CODE
+    # The GRU and transformer Kaggle runs used the code at c3cf4b3; later edits must keep their training code intact.
+    for family in ("gru", "transformer"):
+        matches = zoo.training_code_matches(zoo.KAGGLE_NETWORK_COMMIT, family)
+        assert all(matches.values()), [key for key, value in matches.items() if not value]
+
+
+def fake_tree_run(tmp):
+    """A Kaggle tree-CV work folder as `tree_cv` leaves it, packaged."""
+    current = synthetic_folder(tmp / "train_data", seed=0)
+    augmented = synthetic_folder(tmp / "sequences_augmented", seed=1)
+    sources = {"current": current, "augmented": augmented}
+    manifests = {key: digest(folder / "manifest.json") for key, folder in sources.items()}
+    recipe, work = tmp / "cloud_recipe", tmp / "work"
+    recipe.mkdir()
+    (work / "cv" / "trees").mkdir(parents=True)
+    (work / "logs").mkdir()
+    (work / "logs" / "cv_trees.log").write_text("D20 CV trees ...\n")
+    heads = {}
+    for k, head in enumerate(zoo.TREE_HEADS):
+        entries = []
+        for i, setting in enumerate(zoo.GRIDS["trees"]):
+            folds = [.3 + .01 * ((i * 7 + k) % 5) + .001 * fold for fold in range(zoo.FOLDS)]
+            entries.append({"setting": setting, "summary": {"score": float(np.mean(folds))}, "folds": folds})
+        heads[head] = entries
+        for depth in (3, 5, 7):
+            for fold in range(zoo.FOLDS):
+                (work / "cv" / "trees" / f"{head}_depth{depth}_fold{fold}.ubj").write_bytes(f"{head}{depth}{fold}".encode())
+    zoo.write_json(recipe / "cv_trees.json", {
+        "protocol": zoo.PROTOCOL, "family": "trees", "grid": list(zoo.GRIDS["trees"]), "anchor": zoo.ANCHORS["trees"],
+        "learning_rate": zoo.TREE_LEARNING_RATE, "cv_n_jobs": zoo.CV_TREE_JOBS, "source_manifest": manifests["current"],
+        "folds": zoo.fold_table(current), "heads": heads,
+        "selected": {head: zoo.select_cv(heads[head]) for head in zoo.TREE_HEADS}})
+    head_commit = zoo.git("rev-parse", "HEAD").strip()
+    code = tmp / "code.json"
+    zoo.write_json(code, {"commit": head_commit, "tree_sha256": zoo.tree_hash(zoo.commit_files(head_commit)), "files": 0})
+    archive = tmp / "trees.zip"
+    record = zoo.package_cloud("trees", work, code, sources, archive, recipe=recipe, manifests=manifests,
+                               environment_of=lambda: {"python": "test"})
+    assert len(record["cv_models"]) == 24 and record["seeds"] == {"random_state": 42}
+    return sources, manifests, recipe, archive
+
+
+def test_cloud_tree_cv_is_checked_and_adopted_without_any_tree():
+    import datetime
+    import zipfile
+    before = datetime.datetime(2026, 11, 12, 20, tzinfo=datetime.timezone.utc)
+    original = zoo.training_code_matches
+    zoo.training_code_matches = lambda commit, family: {"stub": family == "trees"}
+    try:
+        with tempfile.TemporaryDirectory() as tmp:
+            tmp = Path(tmp)
+            sources, manifests, recipe, archive = fake_tree_run(tmp)
+            calls = []
+            local = tmp / "local"
+            local.mkdir()
+            assert zoo.import_cloud("trees", archive, tmp / "x", sources, tmp / "scratch", recipe=local, models=tmp / "m",
+                                    manifests=manifests, exporter=lambda *a: calls.append(a), now=before)
+            assert not calls and not (tmp / "m").exists()
+            assert digest(local / "cv_trees.json") == digest(recipe / "cv_trees.json")
+            with zipfile.ZipFile(archive) as item:
+                contents = {key: item.read(key) for key in item.namelist()}
+            record = json.loads(contents["cloud_record.json"])
+            cv = json.loads(contents["zoo_recipe/cv_trees.json"])
+            wrong = {head: setting for head, setting in cv["selected"].items()}
+            wrong["ownership"] = next(s for s in zoo.GRIDS["trees"] if s != cv["selected"]["ownership"])
+            altered_cv = json.dumps(dict(cv, selected=wrong), indent=2, sort_keys=True).encode() + b"\n"
+            import hashlib
+            record["outputs"]["zoo_recipe/cv_trees.json"] = hashlib.sha256(altered_cv).hexdigest()
+            record["selected"] = wrong
+            bad = tmp / "bad.zip"
+            with zipfile.ZipFile(bad, "w") as item:
+                for key, value in contents.items():
+                    item.writestr(key, altered_cv if key == "zoo_recipe/cv_trees.json"
+                                  else json.dumps(record).encode() if key == "cloud_record.json" else value)
+            other = tmp / "other"
+            other.mkdir()
+            assert not zoo.import_cloud("trees", bad, tmp / "y", sources, tmp / "scratch", recipe=other, models=tmp / "m",
+                                        manifests=manifests, exporter=lambda *a: calls.append(a), now=before)
+            assert not (other / "cv_trees.json").exists()
     finally:
         zoo.training_code_matches = original

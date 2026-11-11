@@ -915,3 +915,17 @@ Code: `dfl_submission/zoo.py`. Cross-validation records go to `dfl_submission/zo
 
   It then exports and checks each network locally, at D15's tolerance. A family whose outputs fail a check is left out. A notebook that stops before writing its outputs may be run again.
 - **Fallback:** if a family's Kaggle outputs have not passed these checks by 2026-11-13 08:00 EST, that family runs locally instead, as first written (GRU on the CPU, transformer on MPS). Kaggle outputs that arrive later are not used. The 2026-11-14 12:00 EST cutoff is unchanged.
+
+*Cloud run note, 2026-11-11 (a record of how the runs were made; no rule changes).* At Derek's request, the coordinating Claude session made the uploads and started the runs through the Kaggle CLI, not Derek through the web interface.
+- **Bundle:** `cloud/make_bundles.sh` at commit `c3cf4b3`. SHA-256: `mtah-code.zip` `ba99275c…`, `train_data.zip` `1621b97b…`, `sequences_augmented.zip` `fe62038e…`. The coordinating session checked both bundles before upload: they hold code, models and records only, with no CSV, ground truth or cache.
+- **Datasets:** the private datasets `mtah-d20-code` and `mtah-d20-sequences`. Kaggle unzipped the archives into folders, a layout the notebooks accept.
+- **Runs:** the committed notebooks, unchanged, as private kernels `mtah-d20-gru` and `mtah-d20-transformer`, version 1. Each ran on a single NVIDIA T4 rather than the "T4 x2" that `cloud/README.md` suggests, which is enough because a notebook uses one CUDA GPU. GPU and Internet were enabled. Both started at about 17:25 EST.
+
+The outputs still go through every check in the cloud amendment (`zoo import-cloud`) before anything is used.
+
+*Amendment, 2026-11-11, before any tree-family run.* Derek decided, through the coordinating session, that the tree family's cross-validation runs in a Kaggle CPU session. Its local job would have queued behind the temporal-network cross-validation, which already loads this 8-core machine heavily.
+- **Unchanged:** the 3 × 3 grid, both heads, the folds, the loss, its weighting and the selection.
+- **The cloud step:** the four-fold fits and their held-out losses only. The notebook installs the build requirements (`dfl_submission/requirements.txt`, no PyTorch) and reads the same private sequences dataset.
+- **The final trees stay local.** The selected setting's four trees (both heads of both sets) are fit on this machine, so they refit byte for byte here, as D16's check showed for the published trees. XGBoost on Kaggle's x86 CPUs need not match this machine's arm64 bit for bit, and cross-validated losses are used only to select.
+- **Checks:** the record and checks are those of the cloud amendment, applied to the tree family's own training code, so the GRU and transformer archives are still checked against theirs.
+- **Fallback:** as in the cloud amendment. If the tree record has not passed its checks by 2026-11-13 08:00 EST, the tree cross-validation runs locally.
