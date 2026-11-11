@@ -1,0 +1,133 @@
+{
+  "accuracy": {
+    "aba3": {
+      "dropouts_only": {
+        "all": {
+          "frames": 81460,
+          "pathcrf_native": 0.8770562239135772
+        },
+        "ball_hidden": {
+          "frames": 32011,
+          "pathcrf_native": 0.8838836649901596
+        }
+      },
+      "noise_only": {
+        "all": {
+          "frames": 81460,
+          "pathcrf_native": 0.5462681070464032
+        },
+        "ball_hidden": {
+          "frames": 32011,
+          "pathcrf_native": 0.5581518852894317
+        }
+      }
+    },
+    "raw": {
+      "dropouts_only": {
+        "all": {
+          "frames": 81460,
+          "pathcrf_native": 0.8829977903265407
+        },
+        "ball_hidden": {
+          "frames": 32011,
+          "pathcrf_native": 0.889319296491831
+        }
+      },
+      "noise_only": {
+        "all": {
+          "frames": 81460,
+          "pathcrf_native": 0.5602136017677388
+        },
+        "ball_hidden": {
+          "frames": 32011,
+          "pathcrf_native": 0.575271000593546
+        }
+      }
+    }
+  },
+  "measurement_sha256": "7f8366abc636a69442265bb50af86ea8a8b097ba3b073b68896a4e24434ffdc8",
+  "pathcrf": {
+    "checkpoint": "saved/140/model/state_dict_best_acc.pt",
+    "commit": "1b7c6f85a6b78c92e4543fde72ca2b86a933f997",
+    "sha256": {
+      "LICENSE": "3f3d9e0024b1921b067d6f7f88deb4a60cbe7a78e76c64e3f1d7fc3b779b9d04",
+      "datatools/config.py": "4179ecaf6459a831f83676e433d4319cbaad0cfcf1e726eb0423526b9ad60db9",
+      "models/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "models/dynamic_dense_crf.py": "acd217ef153c60fc9a6c84f0b1ca4b72bef3a2ed132127e571b076539ba93ab1",
+      "models/dynamic_sparse_crf.py": "8eb08e643886c3d986c110d46ebe5e5d4307a8553fa9ee1bc3bc93c1a9f85869",
+      "models/set_lstm.py": "ad1690e14f7693d26e19f11fe549367dba45fb4f470bf70972259665b378e963",
+      "models/static_dense_crf.py": "0ba5b56d0a7caed8135a8d73303a7361332907cece3d872bc4ea589ef2e62385",
+      "models/static_sparse_crf.py": "bdad038a32a98335c5b8f8c89f697944e00b6e3e43a9fb49dd9b746614904639",
+      "models/utils.py": "511e69f52dc833941c922ebab84f981995a77a78d61d3cac26e555bc5f46f7b2",
+      "saved/140/args.json": "b83d9c47fd5817c816a163b709b93d51b873bfc0e4f59a6d0b2254cf486c2489",
+      "saved/140/model/state_dict_best_acc.pt": "55757d9dca9777d60356ba368dc315867ea1ae38e90c332e935b9c5be72d83c9",
+      "set_transformer/attention.py": "0f96a7c887bcf9040f91731479c6367e7abed60297f2d8224725009c6ebe25c3",
+      "set_transformer/blocks.py": "9f94aa29dec3d3f7431f82d75d9399799583964e8633325e7bc9cef7865b0611",
+      "set_transformer/model.py": "b072091111475b8928f5cedb482d712367613b30116551c3ef23505c49cc6060"
+    },
+    "trial": 140
+  },
+  "protocol": "DECISIONS.md D18 (post-hoc diagnostic)",
+  "reference": {
+    "aba3": {
+      "clean": {
+        "all": {
+          "d3": 0.9095506997299287,
+          "frames": 81460,
+          "hybrid": 0.8875767247728946,
+          "pathcrf_native": 0.888436042229315
+        },
+        "ball_hidden": {
+          "d3": null,
+          "frames": 0,
+          "hybrid": null,
+          "pathcrf_native": null
+        }
+      },
+      "masked": {
+        "all": {
+          "d3": 0.8843113184384974,
+          "frames": 81460,
+          "hybrid": 0.5851460839675915,
+          "pathcrf_native": 0.5968328013749079
+        },
+        "ball_hidden": {
+          "d3": 0.8702945862359813,
+          "frames": 32011,
+          "hybrid": 0.583424447846053,
+          "pathcrf_native": 0.5947955390334573
+        }
+      }
+    },
+    "raw": {
+      "clean": {
+        "all": {
+          "d3": 0.8973483918487601,
+          "frames": 81460,
+          "hybrid": 0.8937883623864473,
+          "pathcrf_native": 0.8942794009329732
+        },
+        "ball_hidden": {
+          "d3": null,
+          "frames": 0,
+          "hybrid": null,
+          "pathcrf_native": null
+        }
+      },
+      "masked": {
+        "all": {
+          "d3": 0.8742695801620427,
+          "frames": 81460,
+          "hybrid": 0.5953105818806776,
+          "pathcrf_native": 0.6072182666339307
+        },
+        "ball_hidden": {
+          "d3": 0.8583611883415077,
+          "frames": 32011,
+          "hybrid": 0.5971072443847427,
+          "pathcrf_native": 0.6083533785261317
+        }
+      }
+    }
+  }
+}

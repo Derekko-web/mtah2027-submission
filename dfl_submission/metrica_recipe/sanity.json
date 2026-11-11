@@ -1,0 +1,377 @@
+{
+  "attempts": [
+    {
+      "baseline": {
+        "1": {
+          "aba1.75": {
+            "macro_f1": 0.8355350689191102,
+            "spell_f1": 0.4670838548185231,
+            "spells": 479
+          },
+          "aba3": {
+            "macro_f1": 0.8341641770238547,
+            "spell_f1": 0.4431424766977363,
+            "spells": 479
+          },
+          "aba4": {
+            "macro_f1": 0.8302848233210813,
+            "spell_f1": 0.3988934993084371,
+            "spells": 479
+          },
+          "aba4.5": {
+            "macro_f1": 0.8302848233210813,
+            "spell_f1": 0.3988934993084371,
+            "spells": 479
+          },
+          "control": {
+            "macro_f1": 0.834808809844216,
+            "spell_f1": 0.4554785020804438,
+            "spells": 479
+          },
+          "raw": {
+            "macro_f1": 0.8347309025638904,
+            "spell_f1": 0.44774044032444965,
+            "spells": 479
+          }
+        },
+        "2": {
+          "aba1.75": {
+            "macro_f1": 0.8686438269762133,
+            "spell_f1": 0.4501981505944518,
+            "spells": 464
+          },
+          "aba3": {
+            "macro_f1": 0.8686195028125994,
+            "spell_f1": 0.4398340248962655,
+            "spells": 464
+          },
+          "aba4": {
+            "macro_f1": 0.8676211414096349,
+            "spell_f1": 0.4248236953455572,
+            "spells": 464
+          },
+          "aba4.5": {
+            "macro_f1": 0.86578235228591,
+            "spell_f1": 0.41377331420373037,
+            "spells": 464
+          },
+          "control": {
+            "macro_f1": 0.8687863285164514,
+            "spell_f1": 0.45877318116975746,
+            "spells": 464
+          },
+          "raw": {
+            "macro_f1": 0.8676614529302572,
+            "spell_f1": 0.420119760479042,
+            "spells": 464
+          }
+        },
+        "3": {
+          "aba1.75": {
+            "macro_f1": 0.8457272255859243,
+            "spell_f1": 0.4243632336655593,
+            "spells": 557
+          },
+          "aba3": {
+            "macro_f1": 0.844683457301691,
+            "spell_f1": 0.39858989424206814,
+            "spells": 557
+          },
+          "aba4": {
+            "macro_f1": 0.8443843780056582,
+            "spell_f1": 0.38996415770609316,
+            "spells": 557
+          },
+          "aba4.5": {
+            "macro_f1": 0.8426643333306604,
+            "spell_f1": 0.37920193470374847,
+            "spells": 557
+          },
+          "control": {
+            "macro_f1": 0.8462749726728259,
+            "spell_f1": 0.4136253041362531,
+            "spells": 557
+          },
+          "raw": {
+            "macro_f1": 0.8434226186421813,
+            "spell_f1": 0.40166493236212275,
+            "spells": 557
+          }
+        }
+      },
+      "conventions": {
+        "1": {
+          "flight_missing_share": 3.515679932498945e-05,
+          "passed": true,
+          "restarts_after_missing_share": 0.9733333333333334
+        },
+        "2": {
+          "flight_missing_share": 0.0,
+          "passed": true,
+          "restarts_after_missing_share": 0.9743589743589743
+        },
+        "3": {
+          "flight_missing_share": 2.3825407414466787e-05,
+          "passed": true,
+          "restarts_after_missing_share": 1.0
+        }
+      },
+      "inputs": {
+        "parsed": {
+          "1_1.npz": [
+            11437640,
+            "621c542c3489667f863b17ba8a5b68b2755dd97ef6d02fde55bf168fda4f38d4"
+          ],
+          "1_2.npz": [
+            11978450,
+            "7cfff7fcd4bc75ec72796eefaa2949b35c6de9124f12c52dfc6c261db656a2a3"
+          ],
+          "2_1.npz": [
+            11074975,
+            "2f5a409465c55cd2c66751711cfa0f7531dba4e220eb51e2c6ee9caeaadcabad"
+          ],
+          "2_2.npz": [
+            11619936,
+            "2a8171b42095c989bf3a99fd48347a9509ef84dee22b9e7bb616129581d7fbb0"
+          ],
+          "3_1.npz": [
+            11356108,
+            "a056be381b9cd41e982531ecdf0d128a1400aa3e29caef2355e1564b2d1f03d7"
+          ],
+          "3_2.npz": [
+            12468688,
+            "221f2378e0e9ff59db32a523c79b306651befa4d40bd90a9e93e04cdb9303e02"
+          ]
+        },
+        "reader_sha256": "2b3f6a9408299d5ed71c97d6cb96ea7756d8c4f08b2af51c83c7522c7f7bf445",
+        "sources_sha256": "1ee56af38873dc7572bdb8c04d00086a42e012389679e270030f8e67d0d9ee98"
+      },
+      "label_shares": {
+        "1": {
+          "control": {
+            "A": 0.2749729323411973,
+            "D": 0.36947871482066386,
+            "H": 0.3353217430882647,
+            "X": 0.020226609749874145
+          },
+          "raw": {
+            "A": 0.279876143910294,
+            "D": 0.36947871482066386,
+            "H": 0.33041853151916806,
+            "X": 0.020226609749874145
+          }
+        },
+        "2": {
+          "control": {
+            "A": 0.28589442960674993,
+            "D": 0.4005681616923001,
+            "H": 0.30614847297689807,
+            "X": 0.007388935724051942
+          },
+          "raw": {
+            "A": 0.2874388092691117,
+            "D": 0.4005681616923001,
+            "H": 0.3046040933145363,
+            "X": 0.007388935724051942
+          }
+        },
+        "3": {
+          "control": {
+            "A": 0.32833433035155324,
+            "D": 0.31386597292747737,
+            "H": 0.350398575423269,
+            "X": 0.007401121297700366
+          },
+          "raw": {
+            "A": 0.3306854384329656,
+            "D": 0.31386597292747737,
+            "H": 0.34804746734185665,
+            "X": 0.007401121297700366
+          }
+        }
+      },
+      "mean_raw_spell_f1": 0.4231750443885381,
+      "oriented": true,
+      "passed": true,
+      "reader_checks": {
+        "1_1.npz": {
+          "dropout_frames": 80,
+          "dropouts_filled": 25,
+          "first_seen": 0,
+          "flight_frames": 13491,
+          "flight_missing": 0,
+          "kick_off": 0,
+          "last_seen": 70577,
+          "restarts": 43,
+          "restarts_after_missing": 41,
+          "segments_without_marks": 0
+        },
+        "1_2.npz": {
+          "dropout_frames": 175,
+          "dropouts_filled": 30,
+          "first_seen": 866,
+          "flight_frames": 14953,
+          "flight_missing": 1,
+          "kick_off": 866,
+          "last_seen": 72361,
+          "restarts": 32,
+          "restarts_after_missing": 32,
+          "segments_without_marks": 0
+        },
+        "2_1.npz": {
+          "dropout_frames": 139,
+          "dropouts_filled": 36,
+          "first_seen": 50,
+          "flight_frames": 18907,
+          "flight_missing": 0,
+          "kick_off": 50,
+          "last_seen": 67856,
+          "restarts": 34,
+          "restarts_after_missing": 32,
+          "segments_without_marks": 0
+        },
+        "2_2.npz": {
+          "dropout_frames": 160,
+          "dropouts_filled": 25,
+          "first_seen": 50,
+          "flight_frames": 13739,
+          "flight_missing": 0,
+          "kick_off": 50,
+          "last_seen": 72356,
+          "restarts": 44,
+          "restarts_after_missing": 44,
+          "segments_without_marks": 0
+        },
+        "3_1.npz": {
+          "dropout_frames": 79,
+          "dropouts_filled": 24,
+          "first_seen": 360,
+          "flight_frames": 40960,
+          "flight_missing": 0,
+          "kick_off": 360,
+          "last_seen": 69593,
+          "restarts": 45,
+          "restarts_after_missing": 45,
+          "segments_without_marks": 0
+        },
+        "3_2.npz": {
+          "dropout_frames": 61,
+          "dropouts_filled": 29,
+          "first_seen": 428,
+          "flight_frames": 42984,
+          "flight_missing": 2,
+          "kick_off": 428,
+          "last_seen": 73891,
+          "restarts": 43,
+          "restarts_after_missing": 43,
+          "segments_without_marks": 0
+        }
+      },
+      "swapped": {
+        "1": {
+          "aba1.75": {
+            "macro_f1": 0.40139768394056446,
+            "spell_f1": 0.03254067584480601,
+            "spells": 479
+          },
+          "aba3": {
+            "macro_f1": 0.4028155806605224,
+            "spell_f1": 0.03568575233022637,
+            "spells": 479
+          },
+          "aba4": {
+            "macro_f1": 0.40660758230150024,
+            "spell_f1": 0.034854771784232366,
+            "spells": 479
+          },
+          "aba4.5": {
+            "macro_f1": 0.40660758230150024,
+            "spell_f1": 0.034854771784232366,
+            "spells": 479
+          },
+          "control": {
+            "macro_f1": 0.40170863084016273,
+            "spell_f1": 0.034951456310679606,
+            "spells": 479
+          },
+          "raw": {
+            "macro_f1": 0.4021509509896683,
+            "spell_f1": 0.03707995365005793,
+            "spells": 479
+          }
+        },
+        "2": {
+          "aba1.75": {
+            "macro_f1": 0.3644661394432321,
+            "spell_f1": 0.014266842800528404,
+            "spells": 464
+          },
+          "aba3": {
+            "macro_f1": 0.36449025752969205,
+            "spell_f1": 0.015491009681881048,
+            "spells": 464
+          },
+          "aba4": {
+            "macro_f1": 0.3654779535882844,
+            "spell_f1": 0.013540197461212974,
+            "spells": 464
+          },
+          "aba4.5": {
+            "macro_f1": 0.36732285338441145,
+            "spell_f1": 0.013773314203730274,
+            "spells": 464
+          },
+          "control": {
+            "macro_f1": 0.36432304866769405,
+            "spell_f1": 0.016547788873038517,
+            "spells": 464
+          },
+          "raw": {
+            "macro_f1": 0.36544601232359736,
+            "spell_f1": 0.017724550898203593,
+            "spells": 464
+          }
+        },
+        "3": {
+          "aba1.75": {
+            "macro_f1": 0.3723593862142658,
+            "spell_f1": 0.022148394241417495,
+            "spells": 557
+          },
+          "aba3": {
+            "macro_f1": 0.37344116938789335,
+            "spell_f1": 0.021151586368977675,
+            "spells": 557
+          },
+          "aba4": {
+            "macro_f1": 0.3737592420989819,
+            "spell_f1": 0.022461170848267625,
+            "spells": 557
+          },
+          "aba4.5": {
+            "macro_f1": 0.37548064908010864,
+            "spell_f1": 0.023216444981862157,
+            "spells": 557
+          },
+          "control": {
+            "macro_f1": 0.3718496478460938,
+            "spell_f1": 0.02335766423357664,
+            "spells": 557
+          },
+          "raw": {
+            "macro_f1": 0.37465498693221616,
+            "spell_f1": 0.028720083246618105,
+            "spells": 557
+          }
+        }
+      }
+    }
+  ],
+  "flight_missing_max": 0.01,
+  "protocol": "DECISIONS.md D19",
+  "range": [
+    0.15,
+    0.5
+  ],
+  "restart_missing_min": 0.9
+}

@@ -1,0 +1,51 @@
+{
+  "commit": "e706dd506b360d69d9d123d5b8026e7294b13996",
+  "files": {
+    "README.md": [
+      2901,
+      "fa4b178e62c4d3559e13b6d3a4fdd42e45293461c2ab656e05a13360a6adcbcf"
+    ],
+    "data/Sample_Game_1/Sample_Game_1_RawEventsData.csv": [
+      139446,
+      "097dda6345e17390dca095331458fd00e47960c480c76f4356fd4edf2575ef05"
+    ],
+    "data/Sample_Game_1/Sample_Game_1_RawTrackingData_Away_Team.csv": [
+      32782073,
+      "0a3df68a92af0290ede472e62de3b6489ddee29223da09bdf0cf76c8e0ab0618"
+    ],
+    "data/Sample_Game_1/Sample_Game_1_RawTrackingData_Home_Team.csv": [
+      32782961,
+      "0a3d0eff7785950379c587d3597b86a2d91c2492281b4652e1abb97c99b6b364"
+    ],
+    "data/Sample_Game_2/Sample_Game_2_RawEventsData.csv": [
+      153897,
+      "edf31a18599265b77a8baf150f2ce6d89456fb0324b62ea7a391229657a619ba"
+    ],
+    "data/Sample_Game_2/Sample_Game_2_RawTrackingData_Away_Team.csv": [
+      29627711,
+      "aa639f40762eade46c389020fe4458266b5ba14027b1e96e22e75db62803718b"
+    ],
+    "data/Sample_Game_2/Sample_Game_2_RawTrackingData_Home_Team.csv": [
+      31890338,
+      "3f9990ac204b07133e4202441d6fcbb386897c7c7f81e1bc3ce4d35bc8644694"
+    ],
+    "data/Sample_Game_3/Sample_Game_3_events.json": [
+      1709486,
+      "28a53bfe9eaf32535362335553d517cdce0eabb588af6166009081753751f4e0"
+    ],
+    "data/Sample_Game_3/Sample_Game_3_metadata.xml": [
+      81806,
+      "009c7dcfcb66192014917ca1559c158f612353e390eafb85f8214b06a1c7dec1"
+    ],
+    "data/Sample_Game_3/Sample_Game_3_tracking.txt": [
+      53443115,
+      "570e6ce82c2d93bc92723af331d93c31110bec1d6dc0be07c6d44ca3f981d658"
+    ],
+    "documentation/events-definitions.pdf": [
+      802916,
+      "5afb1ee34931447223ef8b9dc6a30b827fd0ba57ac9b6e2d7125ee87b083a866"
+    ]
+  },
+  "repository": "https://github.com/metrica-sports/sample-data",
+  "terms": "No licence file and no GitHub licence at the pinned commit, which is still the repository head (checked 2026-11-11). The README says the data is offered to potential clients and 'to the broader football analytics community' to play around with, asks users to 'be responsible with the use of this data' and to acknowledge the source in anything public. Metrica Sports, the owner, also organises the competition. Use: local evaluation only (D1's convention choice and the D19 benchmark and veto); nothing is trained on it, no file is redistributed, the repository holds code, hashes and averaged scores, and the technical document credits Metrica Sports."
+}

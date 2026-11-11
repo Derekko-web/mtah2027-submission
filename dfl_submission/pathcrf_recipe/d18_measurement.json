@@ -1,0 +1,1031 @@
+{
+  "accuracy": {
+    "groups": {
+      "aba3": {
+        "dfl_clean": {
+          "all": {
+            "d3": 0.9095506997299287,
+            "frames": 81460,
+            "hybrid": 0.8875767247728946,
+            "pathcrf_native": 0.888436042229315
+          },
+          "ball_hidden": {
+            "d3": null,
+            "frames": 0,
+            "hybrid": null,
+            "pathcrf_native": null
+          },
+          "ball_visible": {
+            "d3": 0.9095506997299287,
+            "frames": 81460,
+            "hybrid": 0.8875767247728946,
+            "pathcrf_native": 0.888436042229315
+          }
+        },
+        "dfl_dead_carried": {
+          "all": {
+            "d3": 0.8762705622391358,
+            "frames": 81460,
+            "hybrid": 0.5808249447581635,
+            "pathcrf_native": 0.5968328013749079
+          },
+          "ball_hidden": {
+            "d3": 0.8555184155446566,
+            "frames": 32011,
+            "hybrid": 0.5845490612601918,
+            "pathcrf_native": 0.5947955390334573
+          },
+          "ball_visible": {
+            "d3": 0.8897045440757144,
+            "frames": 49449,
+            "hybrid": 0.5784141236425407,
+            "pathcrf_native": 0.598151630973326
+          }
+        },
+        "dfl_masked": {
+          "all": {
+            "d3": 0.8843113184384974,
+            "frames": 81460,
+            "hybrid": 0.5851460839675915,
+            "pathcrf_native": 0.5968328013749079
+          },
+          "ball_hidden": {
+            "d3": 0.8702945862359813,
+            "frames": 32011,
+            "hybrid": 0.583424447846053,
+            "pathcrf_native": 0.5947955390334573
+          },
+          "ball_visible": {
+            "d3": 0.8933851038443649,
+            "frames": 49449,
+            "hybrid": 0.5862605917207628,
+            "pathcrf_native": 0.598151630973326
+          }
+        },
+        "dfl_team_swap": {
+          "all": {
+            "d3": 0.8437269825681316,
+            "frames": 81460,
+            "hybrid": 0.5503805548735575,
+            "pathcrf_native": 0.5599435305671495
+          },
+          "ball_hidden": {
+            "d3": 0.8387429321170847,
+            "frames": 32011,
+            "hybrid": 0.5415325981693793,
+            "pathcrf_native": 0.5552778732310768
+          },
+          "ball_visible": {
+            "d3": 0.8469534267629275,
+            "frames": 49449,
+            "hybrid": 0.5561083136160488,
+            "pathcrf_native": 0.5629638617565572
+          }
+        },
+        "skillcorner": {
+          "all": {
+            "d3": 0.9151852443759224,
+            "frames": 319119,
+            "hybrid": 0.8591841914771605,
+            "pathcrf_native": 0.8550258680930938
+          },
+          "ball_hidden": {
+            "d3": 0.7860344827586206,
+            "frames": 23200,
+            "hybrid": 0.735948275862069,
+            "pathcrf_native": 0.7097844827586207
+          },
+          "ball_visible": {
+            "d3": 0.9253106424393162,
+            "frames": 295919,
+            "hybrid": 0.8688458666053887,
+            "pathcrf_native": 0.866412768358909
+          }
+        }
+      },
+      "raw": {
+        "dfl_clean": {
+          "all": {
+            "d3": 0.8973483918487601,
+            "frames": 81460,
+            "hybrid": 0.8937883623864473,
+            "pathcrf_native": 0.8942794009329732
+          },
+          "ball_hidden": {
+            "d3": null,
+            "frames": 0,
+            "hybrid": null,
+            "pathcrf_native": null
+          },
+          "ball_visible": {
+            "d3": 0.8973483918487601,
+            "frames": 81460,
+            "hybrid": 0.8937883623864473,
+            "pathcrf_native": 0.8942794009329732
+          }
+        },
+        "dfl_dead_carried": {
+          "all": {
+            "d3": 0.865885096980113,
+            "frames": 81460,
+            "hybrid": 0.5920206236189541,
+            "pathcrf_native": 0.6072182666339307
+          },
+          "ball_hidden": {
+            "d3": 0.8483958639217769,
+            "frames": 32011,
+            "hybrid": 0.6012933054262597,
+            "pathcrf_native": 0.6083533785261317
+          },
+          "ball_visible": {
+            "d3": 0.8772068191469999,
+            "frames": 49449,
+            "hybrid": 0.5860179174503023,
+            "pathcrf_native": 0.606483447592469
+          }
+        },
+        "dfl_masked": {
+          "all": {
+            "d3": 0.8742695801620427,
+            "frames": 81460,
+            "hybrid": 0.5953105818806776,
+            "pathcrf_native": 0.6072182666339307
+          },
+          "ball_hidden": {
+            "d3": 0.8583611883415077,
+            "frames": 32011,
+            "hybrid": 0.5971072443847427,
+            "pathcrf_native": 0.6083533785261317
+          },
+          "ball_visible": {
+            "d3": 0.884567938684301,
+            "frames": 49449,
+            "hybrid": 0.5941475055107283,
+            "pathcrf_native": 0.606483447592469
+          }
+        },
+        "dfl_team_swap": {
+          "all": {
+            "d3": 0.8353056714952124,
+            "frames": 81460,
+            "hybrid": 0.5585317947458875,
+            "pathcrf_native": 0.568143874294132
+          },
+          "ball_hidden": {
+            "d3": 0.8268095342226109,
+            "frames": 32011,
+            "hybrid": 0.5538408672018994,
+            "pathcrf_native": 0.5646496516822342
+          },
+          "ball_visible": {
+            "d3": 0.8408056785779288,
+            "frames": 49449,
+            "hybrid": 0.5615684847014095,
+            "pathcrf_native": 0.5704058727173451
+          }
+        },
+        "skillcorner": {
+          "all": {
+            "d3": 0.9112556757823884,
+            "frames": 319119,
+            "hybrid": 0.863264174179538,
+            "pathcrf_native": 0.8595570931220015
+          },
+          "ball_hidden": {
+            "d3": 0.7883189655172413,
+            "frames": 23200,
+            "hybrid": 0.7463362068965518,
+            "pathcrf_native": 0.7203448275862069
+          },
+          "ball_visible": {
+            "d3": 0.9208938932613316,
+            "frames": 295919,
+            "hybrid": 0.872431307215826,
+            "pathcrf_native": 0.8704713114061619
+          }
+        }
+      }
+    },
+    "matches": {
+      "aba3": {
+        "dfl/WPY/clean": {
+          "all": {
+            "d3": 0.9095506997299287,
+            "frames": 81460,
+            "hybrid": 0.8875767247728946,
+            "pathcrf_native": 0.888436042229315
+          },
+          "ball_hidden": {
+            "d3": null,
+            "frames": 0,
+            "hybrid": null,
+            "pathcrf_native": null
+          },
+          "ball_visible": {
+            "d3": 0.9095506997299287,
+            "frames": 81460,
+            "hybrid": 0.8875767247728946,
+            "pathcrf_native": 0.888436042229315
+          }
+        },
+        "dfl/WPY/dead_carried": {
+          "all": {
+            "d3": 0.8762705622391358,
+            "frames": 81460,
+            "hybrid": 0.5808249447581635,
+            "pathcrf_native": 0.5968328013749079
+          },
+          "ball_hidden": {
+            "d3": 0.8555184155446566,
+            "frames": 32011,
+            "hybrid": 0.5845490612601918,
+            "pathcrf_native": 0.5947955390334573
+          },
+          "ball_visible": {
+            "d3": 0.8897045440757144,
+            "frames": 49449,
+            "hybrid": 0.5784141236425407,
+            "pathcrf_native": 0.598151630973326
+          }
+        },
+        "dfl/WPY/masked": {
+          "all": {
+            "d3": 0.8843113184384974,
+            "frames": 81460,
+            "hybrid": 0.5851460839675915,
+            "pathcrf_native": 0.5968328013749079
+          },
+          "ball_hidden": {
+            "d3": 0.8702945862359813,
+            "frames": 32011,
+            "hybrid": 0.583424447846053,
+            "pathcrf_native": 0.5947955390334573
+          },
+          "ball_visible": {
+            "d3": 0.8933851038443649,
+            "frames": 49449,
+            "hybrid": 0.5862605917207628,
+            "pathcrf_native": 0.598151630973326
+          }
+        },
+        "dfl/WPY/team_swap": {
+          "all": {
+            "d3": 0.8437269825681316,
+            "frames": 81460,
+            "hybrid": 0.5503805548735575,
+            "pathcrf_native": 0.5599435305671495
+          },
+          "ball_hidden": {
+            "d3": 0.8387429321170847,
+            "frames": 32011,
+            "hybrid": 0.5415325981693793,
+            "pathcrf_native": 0.5552778732310768
+          },
+          "ball_visible": {
+            "d3": 0.8469534267629275,
+            "frames": 49449,
+            "hybrid": 0.5561083136160488,
+            "pathcrf_native": 0.5629638617565572
+          }
+        },
+        "skillcorner/2007448/observed": {
+          "all": {
+            "d3": 0.9265428088865791,
+            "frames": 76970,
+            "hybrid": 0.8671950110432636,
+            "pathcrf_native": 0.8525919189294531
+          },
+          "ball_hidden": {
+            "d3": 0.8099320608217405,
+            "frames": 6182,
+            "hybrid": 0.8181818181818182,
+            "pathcrf_native": 0.701067615658363
+          },
+          "ball_visible": {
+            "d3": 0.936726563824377,
+            "frames": 70788,
+            "hybrid": 0.8714753913092614,
+            "pathcrf_native": 0.8658247160535684
+          }
+        },
+        "skillcorner/2007721/observed": {
+          "all": {
+            "d3": 0.9202832632851632,
+            "frames": 86845,
+            "hybrid": 0.8847141458921066,
+            "pathcrf_native": 0.8859001669641315
+          },
+          "ball_hidden": {
+            "d3": 0.7873310041014735,
+            "frames": 6583,
+            "hybrid": 0.7473796141576788,
+            "pathcrf_native": 0.7634816952757102
+          },
+          "ball_visible": {
+            "d3": 0.9311878597592883,
+            "frames": 80262,
+            "hybrid": 0.8959781714883756,
+            "pathcrf_native": 0.8959407938999776
+          }
+        },
+        "skillcorner/2010085/observed": {
+          "all": {
+            "d3": 0.9165991323830862,
+            "frames": 83908,
+            "hybrid": 0.8598345807312772,
+            "pathcrf_native": 0.8593936215855461
+          },
+          "ball_hidden": {
+            "d3": 0.7791344945232537,
+            "frames": 5569,
+            "hybrid": 0.7188005027832645,
+            "pathcrf_native": 0.711438319267373
+          },
+          "ball_visible": {
+            "d3": 0.9263712837794713,
+            "frames": 78339,
+            "hybrid": 0.8698604781781744,
+            "pathcrf_native": 0.8699115383142496
+          }
+        },
+        "skillcorner/2011166/observed": {
+          "all": {
+            "d3": 0.8950781556389714,
+            "frames": 71396,
+            "hybrid": 0.8187293405793041,
+            "pathcrf_native": 0.8149616224998599
+          },
+          "ball_hidden": {
+            "d3": 0.761816687217427,
+            "frames": 4866,
+            "hybrid": 0.6356350184956844,
+            "pathcrf_native": 0.646321413892314
+          },
+          "ball_visible": {
+            "d3": 0.9048248910266046,
+            "frames": 66530,
+            "hybrid": 0.8321208477378627,
+            "pathcrf_native": 0.8272959567112581
+          }
+        }
+      },
+      "raw": {
+        "dfl/WPY/clean": {
+          "all": {
+            "d3": 0.8973483918487601,
+            "frames": 81460,
+            "hybrid": 0.8937883623864473,
+            "pathcrf_native": 0.8942794009329732
+          },
+          "ball_hidden": {
+            "d3": null,
+            "frames": 0,
+            "hybrid": null,
+            "pathcrf_native": null
+          },
+          "ball_visible": {
+            "d3": 0.8973483918487601,
+            "frames": 81460,
+            "hybrid": 0.8937883623864473,
+            "pathcrf_native": 0.8942794009329732
+          }
+        },
+        "dfl/WPY/dead_carried": {
+          "all": {
+            "d3": 0.865885096980113,
+            "frames": 81460,
+            "hybrid": 0.5920206236189541,
+            "pathcrf_native": 0.6072182666339307
+          },
+          "ball_hidden": {
+            "d3": 0.8483958639217769,
+            "frames": 32011,
+            "hybrid": 0.6012933054262597,
+            "pathcrf_native": 0.6083533785261317
+          },
+          "ball_visible": {
+            "d3": 0.8772068191469999,
+            "frames": 49449,
+            "hybrid": 0.5860179174503023,
+            "pathcrf_native": 0.606483447592469
+          }
+        },
+        "dfl/WPY/masked": {
+          "all": {
+            "d3": 0.8742695801620427,
+            "frames": 81460,
+            "hybrid": 0.5953105818806776,
+            "pathcrf_native": 0.6072182666339307
+          },
+          "ball_hidden": {
+            "d3": 0.8583611883415077,
+            "frames": 32011,
+            "hybrid": 0.5971072443847427,
+            "pathcrf_native": 0.6083533785261317
+          },
+          "ball_visible": {
+            "d3": 0.884567938684301,
+            "frames": 49449,
+            "hybrid": 0.5941475055107283,
+            "pathcrf_native": 0.606483447592469
+          }
+        },
+        "dfl/WPY/team_swap": {
+          "all": {
+            "d3": 0.8353056714952124,
+            "frames": 81460,
+            "hybrid": 0.5585317947458875,
+            "pathcrf_native": 0.568143874294132
+          },
+          "ball_hidden": {
+            "d3": 0.8268095342226109,
+            "frames": 32011,
+            "hybrid": 0.5538408672018994,
+            "pathcrf_native": 0.5646496516822342
+          },
+          "ball_visible": {
+            "d3": 0.8408056785779288,
+            "frames": 49449,
+            "hybrid": 0.5615684847014095,
+            "pathcrf_native": 0.5704058727173451
+          }
+        },
+        "skillcorner/2007448/observed": {
+          "all": {
+            "d3": 0.9198648824217227,
+            "frames": 76970,
+            "hybrid": 0.869689489411459,
+            "pathcrf_native": 0.8574249707678316
+          },
+          "ball_hidden": {
+            "d3": 0.8134907796829505,
+            "frames": 6182,
+            "hybrid": 0.82012293756066,
+            "pathcrf_native": 0.7046263345195729
+          },
+          "ball_visible": {
+            "d3": 0.9291546589817483,
+            "frames": 70788,
+            "hybrid": 0.8740181951743233,
+            "pathcrf_native": 0.8707690569022998
+          }
+        },
+        "skillcorner/2007721/observed": {
+          "all": {
+            "d3": 0.9158270481893028,
+            "frames": 86845,
+            "hybrid": 0.8882722091081813,
+            "pathcrf_native": 0.8894121711094478
+          },
+          "ball_hidden": {
+            "d3": 0.7911286647425186,
+            "frames": 6583,
+            "hybrid": 0.751177274798724,
+            "pathcrf_native": 0.7672793559167552
+          },
+          "ball_visible": {
+            "d3": 0.9260546709526302,
+            "frames": 80262,
+            "hybrid": 0.8995165831900526,
+            "pathcrf_native": 0.8994293688171239
+          }
+        },
+        "skillcorner/2010085/observed": {
+          "all": {
+            "d3": 0.9144658435429279,
+            "frames": 83908,
+            "hybrid": 0.8645897888163226,
+            "pathcrf_native": 0.8635291033036182
+          },
+          "ball_hidden": {
+            "d3": 0.7784162327168253,
+            "frames": 5569,
+            "hybrid": 0.7464535823307595,
+            "pathcrf_native": 0.7390913988148681
+          },
+          "ball_visible": {
+            "d3": 0.9241374028261785,
+            "frames": 78339,
+            "hybrid": 0.8729879115127842,
+            "pathcrf_native": 0.872375189879881
+          }
+        },
+        "skillcorner/2011166/observed": {
+          "all": {
+            "d3": 0.8926410443162082,
+            "frames": 71396,
+            "hybrid": 0.8243599081181019,
+            "pathcrf_native": 0.8208723177769063
+          },
+          "ball_hidden": {
+            "d3": 0.7638717632552404,
+            "frames": 4866,
+            "hybrid": 0.6459103986847513,
+            "pathcrf_native": 0.6553637484586929
+          },
+          "ball_visible": {
+            "d3": 0.902059221403878,
+            "frames": 66530,
+            "hybrid": 0.8374116939726439,
+            "pathcrf_native": 0.8329776040883812
+          }
+        }
+      }
+    },
+    "skillcorner_ball_hidden_by_visible": {
+      "aba3": {
+        "11_to_14": {
+          "d3": 0.6177474402730375,
+          "frames": 1172,
+          "hybrid": 0.5656996587030717,
+          "pathcrf_native": 0.6561433447098977
+        },
+        "15_plus": {
+          "d3": 0.561662198391421,
+          "frames": 2984,
+          "hybrid": 0.5016756032171582,
+          "pathcrf_native": 0.5516085790884718
+        },
+        "under_11": {
+          "d3": 0.8315479941188826,
+          "frames": 19044,
+          "hybrid": 0.78313379542113,
+          "pathcrf_native": 0.7378701953371141
+        }
+      },
+      "raw": {
+        "11_to_14": {
+          "d3": 0.5887372013651877,
+          "frames": 1172,
+          "hybrid": 0.5947098976109215,
+          "pathcrf_native": 0.6851535836177475
+        },
+        "15_plus": {
+          "d3": 0.5807640750670241,
+          "frames": 2984,
+          "hybrid": 0.5328418230563002,
+          "pathcrf_native": 0.5807640750670241
+        },
+        "under_11": {
+          "d3": 0.8331232934257509,
+          "frames": 19044,
+          "hybrid": 0.7891199327872296,
+          "pathcrf_native": 0.7443814324721697
+        }
+      }
+    }
+  },
+  "contamination": {
+    "pathcrf_test": [
+      "WR9"
+    ],
+    "pathcrf_train": [
+      "WMX",
+      "WN1",
+      "WOH",
+      "WOY",
+      "WPY"
+    ],
+    "pathcrf_validation": [
+      "WQQ"
+    ],
+    "scored_here": [
+      "WPY",
+      "SkillCorner development"
+    ]
+  },
+  "d3_cache": "development",
+  "pathcrf": {
+    "checkpoint": "saved/140/model/state_dict_best_acc.pt",
+    "commit": "1b7c6f85a6b78c92e4543fde72ca2b86a933f997",
+    "sha256": {
+      "LICENSE": "3f3d9e0024b1921b067d6f7f88deb4a60cbe7a78e76c64e3f1d7fc3b779b9d04",
+      "datatools/config.py": "4179ecaf6459a831f83676e433d4319cbaad0cfcf1e726eb0423526b9ad60db9",
+      "models/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "models/dynamic_dense_crf.py": "acd217ef153c60fc9a6c84f0b1ca4b72bef3a2ed132127e571b076539ba93ab1",
+      "models/dynamic_sparse_crf.py": "8eb08e643886c3d986c110d46ebe5e5d4307a8553fa9ee1bc3bc93c1a9f85869",
+      "models/set_lstm.py": "ad1690e14f7693d26e19f11fe549367dba45fb4f470bf70972259665b378e963",
+      "models/static_dense_crf.py": "0ba5b56d0a7caed8135a8d73303a7361332907cece3d872bc4ea589ef2e62385",
+      "models/static_sparse_crf.py": "bdad038a32a98335c5b8f8c89f697944e00b6e3e43a9fb49dd9b746614904639",
+      "models/utils.py": "511e69f52dc833941c922ebab84f981995a77a78d61d3cac26e555bc5f46f7b2",
+      "saved/140/args.json": "b83d9c47fd5817c816a163b709b93d51b873bfc0e4f59a6d0b2254cf486c2489",
+      "saved/140/model/state_dict_best_acc.pt": "55757d9dca9777d60356ba368dc315867ea1ae38e90c332e935b9c5be72d83c9",
+      "set_transformer/attention.py": "0f96a7c887bcf9040f91731479c6367e7abed60297f2d8224725009c6ebe25c3",
+      "set_transformer/blocks.py": "9f94aa29dec3d3f7431f82d75d9399799583964e8633325e7bc9cef7865b0611",
+      "set_transformer/model.py": "b072091111475b8928f5cedb482d712367613b30116551c3ef23505c49cc6060"
+    },
+    "trial": 140
+  },
+  "primary": "aba3",
+  "protocol": "DECISIONS.md D18",
+  "reproduction": {
+    "groups": {
+      "aba3/dfl_clean": {
+        "oracle_stoppage": 0.7456000000000002,
+        "reproduced": true,
+        "spell_f1_mean": 0.7416
+      },
+      "aba3/dfl_dead_carried": {
+        "oracle_stoppage": 0.6613861386138614,
+        "reproduced": true,
+        "spell_f1_mean": 0.5655430711610487
+      },
+      "aba3/dfl_masked": {
+        "oracle_stoppage": 0.6795959595959595,
+        "reproduced": true,
+        "spell_f1_mean": 0.6620967741935484
+      },
+      "aba3/dfl_team_swap": {
+        "oracle_stoppage": 0.5980806142034549,
+        "reproduced": true,
+        "spell_f1_mean": 0.578544061302682
+      },
+      "aba3/skillcorner": {
+        "oracle_stoppage": 0.7259044655699263,
+        "reproduced": true,
+        "spell_f1_mean": 0.675576673224941
+      },
+      "raw/dfl_clean": {
+        "oracle_stoppage": 0.5575,
+        "reproduced": true,
+        "spell_f1_mean": 0.5549999999999999
+      },
+      "raw/dfl_dead_carried": {
+        "oracle_stoppage": 0.4967441860465116,
+        "reproduced": true,
+        "spell_f1_mean": 0.4231454005934718
+      },
+      "raw/dfl_masked": {
+        "oracle_stoppage": 0.511496062992126,
+        "reproduced": true,
+        "spell_f1_mean": 0.5012578616352201
+      },
+      "raw/dfl_team_swap": {
+        "oracle_stoppage": 0.4714069591527987,
+        "reproduced": true,
+        "spell_f1_mean": 0.46042296072507555
+      },
+      "raw/skillcorner": {
+        "oracle_stoppage": 0.6628148978526835,
+        "reproduced": true,
+        "spell_f1_mean": 0.6152930766972876
+      }
+    },
+    "passed": true
+  },
+  "sanity": {
+    "accuracy": 0.888436042229315,
+    "frames": 81460,
+    "minimum": 0.8,
+    "passed": true
+  },
+  "spells": {
+    "aba3": {
+      "groups": {
+        "dfl_clean": {
+          "d3": {
+            "macro_f1": 0.9308252052547316,
+            "spell_f1": 0.7416
+          },
+          "hybrid": {
+            "macro_f1": 0.9146624227530599,
+            "spell_f1": 0.5743283582089552
+          }
+        },
+        "dfl_dead_carried": {
+          "d3": {
+            "macro_f1": 0.829478237395849,
+            "spell_f1": 0.5655430711610487
+          },
+          "hybrid": {
+            "macro_f1": 0.6388783809856017,
+            "spell_f1": 0.08416608022519353
+          }
+        },
+        "dfl_masked": {
+          "d3": {
+            "macro_f1": 0.9021094671118872,
+            "spell_f1": 0.6620967741935484
+          },
+          "hybrid": {
+            "macro_f1": 0.6933221796793804,
+            "spell_f1": 0.09294871794871797
+          }
+        },
+        "dfl_team_swap": {
+          "d3": {
+            "macro_f1": 0.8730292225057085,
+            "spell_f1": 0.578544061302682
+          },
+          "hybrid": {
+            "macro_f1": 0.6761492043232331,
+            "spell_f1": 0.08282070517629408
+          }
+        },
+        "skillcorner": {
+          "d3": {
+            "macro_f1": 0.9135258755060832,
+            "spell_f1": 0.675576673224941
+          },
+          "hybrid": {
+            "macro_f1": 0.8759830810205755,
+            "spell_f1": 0.42081586230695744
+          }
+        }
+      },
+      "matches": {
+        "dfl/WPY/clean": {
+          "d3": {
+            "macro_f1": 0.9308252052547316,
+            "spell_f1": 0.7416,
+            "spells": 219
+          },
+          "hybrid": {
+            "macro_f1": 0.9146624227530599,
+            "spell_f1": 0.5743283582089552,
+            "spells": 389
+          }
+        },
+        "dfl/WPY/dead_carried": {
+          "d3": {
+            "macro_f1": 0.829478237395849,
+            "spell_f1": 0.5655430711610487,
+            "spells": 253
+          },
+          "hybrid": {
+            "macro_f1": 0.6388783809856017,
+            "spell_f1": 0.08416608022519353,
+            "spells": 1140
+          }
+        },
+        "dfl/WPY/masked": {
+          "d3": {
+            "macro_f1": 0.9021094671118872,
+            "spell_f1": 0.6620967741935484,
+            "spells": 215
+          },
+          "hybrid": {
+            "macro_f1": 0.6933221796793804,
+            "spell_f1": 0.09294871794871797,
+            "spells": 967
+          }
+        },
+        "dfl/WPY/team_swap": {
+          "d3": {
+            "macro_f1": 0.8730292225057085,
+            "spell_f1": 0.578544061302682,
+            "spells": 241
+          },
+          "hybrid": {
+            "macro_f1": 0.6761492043232331,
+            "spell_f1": 0.08282070517629408,
+            "spells": 1052
+          }
+        },
+        "skillcorner/2007448/observed": {
+          "d3": {
+            "macro_f1": 0.9224489044306176,
+            "spell_f1": 0.7112219451371572,
+            "spells": 182
+          },
+          "hybrid": {
+            "macro_f1": 0.8822976731918394,
+            "spell_f1": 0.40193861066235853,
+            "spells": 400
+          }
+        },
+        "skillcorner/2007721/observed": {
+          "d3": {
+            "macro_f1": 0.9169376168682537,
+            "spell_f1": 0.6883116883116883,
+            "spells": 203
+          },
+          "hybrid": {
+            "macro_f1": 0.8933544357803426,
+            "spell_f1": 0.5015673981191223,
+            "spells": 379
+          }
+        },
+        "skillcorner/2010085/observed": {
+          "d3": {
+            "macro_f1": 0.9161031431668714,
+            "spell_f1": 0.6486746987951808,
+            "spells": 189
+          },
+          "hybrid": {
+            "macro_f1": 0.8769834660369068,
+            "spell_f1": 0.4006319115323855,
+            "spells": 407
+          }
+        },
+        "skillcorner/2011166/observed": {
+          "d3": {
+            "macro_f1": 0.89861383755859,
+            "spell_f1": 0.6540983606557376,
+            "spells": 221
+          },
+          "hybrid": {
+            "macro_f1": 0.8512967490732133,
+            "spell_f1": 0.37912552891396334,
+            "spells": 442
+          }
+        }
+      },
+      "standard_combined": {
+        "d3": {
+          "macro_f1": 0.9126036276661259,
+          "spell_f1": 0.6820872613436533
+        },
+        "hybrid": {
+          "macro_f1": 0.8215426708622579,
+          "spell_f1": 0.3371122301712106
+        }
+      }
+    },
+    "raw": {
+      "groups": {
+        "dfl_clean": {
+          "d3": {
+            "macro_f1": 0.9220386299568685,
+            "spell_f1": 0.5549999999999999
+          },
+          "hybrid": {
+            "macro_f1": 0.9191072024671804,
+            "spell_f1": 0.6232098765432099
+          }
+        },
+        "dfl_dead_carried": {
+          "d3": {
+            "macro_f1": 0.8221752043037766,
+            "spell_f1": 0.4231454005934718
+          },
+          "hybrid": {
+            "macro_f1": 0.6459098223151472,
+            "spell_f1": 0.11249199231262012
+          }
+        },
+        "dfl_masked": {
+          "d3": {
+            "macro_f1": 0.894472766291151,
+            "spell_f1": 0.5012578616352201
+          },
+          "hybrid": {
+            "macro_f1": 0.7004658312415608,
+            "spell_f1": 0.13371757925072048
+          }
+        },
+        "dfl_team_swap": {
+          "d3": {
+            "macro_f1": 0.8666066239055095,
+            "spell_f1": 0.46042296072507555
+          },
+          "hybrid": {
+            "macro_f1": 0.6818198659203932,
+            "spell_f1": 0.11866938221317043
+          }
+        },
+        "skillcorner": {
+          "d3": {
+            "macro_f1": 0.9107535950925714,
+            "spell_f1": 0.6152930766972876
+          },
+          "hybrid": {
+            "macro_f1": 0.8786469661444228,
+            "spell_f1": 0.44459591500674667
+          }
+        }
+      },
+      "matches": {
+        "dfl/WPY/clean": {
+          "d3": {
+            "macro_f1": 0.9220386299568685,
+            "spell_f1": 0.5549999999999999,
+            "spells": 219
+          },
+          "hybrid": {
+            "macro_f1": 0.9191072024671804,
+            "spell_f1": 0.6232098765432099,
+            "spells": 389
+          }
+        },
+        "dfl/WPY/dead_carried": {
+          "d3": {
+            "macro_f1": 0.8221752043037766,
+            "spell_f1": 0.4231454005934718,
+            "spells": 253
+          },
+          "hybrid": {
+            "macro_f1": 0.6459098223151472,
+            "spell_f1": 0.11249199231262012,
+            "spells": 1140
+          }
+        },
+        "dfl/WPY/masked": {
+          "d3": {
+            "macro_f1": 0.894472766291151,
+            "spell_f1": 0.5012578616352201,
+            "spells": 215
+          },
+          "hybrid": {
+            "macro_f1": 0.7004658312415608,
+            "spell_f1": 0.13371757925072048,
+            "spells": 967
+          }
+        },
+        "dfl/WPY/team_swap": {
+          "d3": {
+            "macro_f1": 0.8666066239055095,
+            "spell_f1": 0.46042296072507555,
+            "spells": 241
+          },
+          "hybrid": {
+            "macro_f1": 0.6818198659203932,
+            "spell_f1": 0.11866938221317043,
+            "spells": 1052
+          }
+        },
+        "skillcorner/2007448/observed": {
+          "d3": {
+            "macro_f1": 0.9181002081147541,
+            "spell_f1": 0.6346067415730337,
+            "spells": 182
+          },
+          "hybrid": {
+            "macro_f1": 0.8840581969282998,
+            "spell_f1": 0.4265460030165912,
+            "spells": 400
+          }
+        },
+        "skillcorner/2007721/observed": {
+          "d3": {
+            "macro_f1": 0.913765784223021,
+            "spell_f1": 0.6382113821138212,
+            "spells": 203
+          },
+          "hybrid": {
+            "macro_f1": 0.8955477519425847,
+            "spell_f1": 0.5305389221556887,
+            "spells": 379
+          }
+        },
+        "skillcorner/2010085/observed": {
+          "d3": {
+            "macro_f1": 0.9145231696222157,
+            "spell_f1": 0.5918629550321199,
+            "spells": 189
+          },
+          "hybrid": {
+            "macro_f1": 0.8802578889243321,
+            "spell_f1": 0.4268613138686132,
+            "spells": 407
+          }
+        },
+        "skillcorner/2011166/observed": {
+          "d3": {
+            "macro_f1": 0.8966252184102944,
+            "spell_f1": 0.5964912280701755,
+            "spells": 221
+          },
+          "hybrid": {
+            "macro_f1": 0.8547240267824745,
+            "spell_f1": 0.3944374209860936,
+            "spells": 442
+          }
+        }
+      },
+      "standard_combined": {
+        "d3": {
+          "macro_f1": 0.9072074913028141,
+          "spell_f1": 0.5672324922270505
+        },
+        "hybrid": {
+          "macro_f1": 0.8259966272305951,
+          "spell_f1": 0.3707387966774818
+        }
+      }
+    }
+  },
+  "targets": {
+    "aba3": 3.0,
+    "raw": null
+  },
+  "trigger": {
+    "b2_triggered": false,
+    "tests": {
+      "T1_wpy_masked": {
+        "d3": 0.8702945862359813,
+        "difference": -0.27549904720252405,
+        "frames": 32011,
+        "passed": false,
+        "pathcrf_native": 0.5947955390334573
+      },
+      "T2_skillcorner": {
+        "d3": 0.7860344827586206,
+        "difference": -0.07624999999999993,
+        "frames": 23200,
+        "passed": false,
+        "pathcrf_native": 0.7097844827586207
+      }
+    }
+  }
+}

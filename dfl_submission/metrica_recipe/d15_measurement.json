@@ -1,0 +1,242 @@
+{
+  "candidate": "D15",
+  "change_against_d3": {
+    "passed": true,
+    "primary": 0.01955136627699261,
+    "targets": {
+      "aba1.75": 0.0635595787191593,
+      "aba3": 0.01955136627699261,
+      "aba4": -0.0034059994287681805,
+      "aba4.5": -0.010482649230049712,
+      "control": 0.004240243081796269,
+      "raw": 0.06780887650358258
+    },
+    "worst_game": 0.005596644410203799
+  },
+  "decision": null,
+  "identity": {
+    "inputs": {
+      "parsed": {
+        "1_1.npz": [
+          11437640,
+          "621c542c3489667f863b17ba8a5b68b2755dd97ef6d02fde55bf168fda4f38d4"
+        ],
+        "1_2.npz": [
+          11978450,
+          "7cfff7fcd4bc75ec72796eefaa2949b35c6de9124f12c52dfc6c261db656a2a3"
+        ],
+        "2_1.npz": [
+          11074975,
+          "2f5a409465c55cd2c66751711cfa0f7531dba4e220eb51e2c6ee9caeaadcabad"
+        ],
+        "2_2.npz": [
+          11619936,
+          "2a8171b42095c989bf3a99fd48347a9509ef84dee22b9e7bb616129581d7fbb0"
+        ],
+        "3_1.npz": [
+          11356108,
+          "a056be381b9cd41e982531ecdf0d128a1400aa3e29caef2355e1564b2d1f03d7"
+        ],
+        "3_2.npz": [
+          12468688,
+          "221f2378e0e9ff59db32a523c79b306651befa4d40bd90a9e93e04cdb9303e02"
+        ]
+      },
+      "reader_sha256": "2b3f6a9408299d5ed71c97d6cb96ea7756d8c4f08b2af51c83c7522c7f7bf445",
+      "sources_sha256": "1ee56af38873dc7572bdb8c04d00086a42e012389679e270030f8e67d0d9ee98"
+    },
+    "models": {
+      "networks": {
+        "augmented": {
+          "seed_models": "6e7a9cde797fd367ce1933c3da8538af9c6eb58d443d53ce0291a25d80ea53da",
+          "temporal_models": "edba839f1d59ba2f6a2c06824fa83b5c12e7c212a654efb09021e2d469f8efdc"
+        },
+        "current": {
+          "seed_models": "62c43439888abf8335864b858128d2d9e714df64d5eafb0441891106f730041c",
+          "temporal_models": "e62203c7f1eb441aea0dc3e6bfc84cd0da04e4f2f20a972c11b17f4a9ce33215"
+        }
+      },
+      "setting": [
+        96,
+        5400
+      ],
+      "trees": {
+        "augmented": "af0a9153b994cec629c7afb30cd26fe084ef5a0e966ada6814895b5adde7cdc3",
+        "current": "b313e25ee0ecf28490cb8f6d191b40ab2fb3d28c44019f05963a5effb2a7a19c"
+      }
+    },
+    "protocol": "DECISIONS.md D19",
+    "reference": "D15",
+    "scale_recipe_sha256": "51815250888cd9a072320e00dbbb1a3dc15b10448bea89f153ffafffc3e659b2",
+    "teacher_sha256": "1b800a8e3a6cc00d81773580dd1b379dc2199ae0bb60aaf29cbc59105ad67903"
+  },
+  "inputs": {
+    "parsed": {
+      "1_1.npz": [
+        11437640,
+        "621c542c3489667f863b17ba8a5b68b2755dd97ef6d02fde55bf168fda4f38d4"
+      ],
+      "1_2.npz": [
+        11978450,
+        "7cfff7fcd4bc75ec72796eefaa2949b35c6de9124f12c52dfc6c261db656a2a3"
+      ],
+      "2_1.npz": [
+        11074975,
+        "2f5a409465c55cd2c66751711cfa0f7531dba4e220eb51e2c6ee9caeaadcabad"
+      ],
+      "2_2.npz": [
+        11619936,
+        "2a8171b42095c989bf3a99fd48347a9509ef84dee22b9e7bb616129581d7fbb0"
+      ],
+      "3_1.npz": [
+        11356108,
+        "a056be381b9cd41e982531ecdf0d128a1400aa3e29caef2355e1564b2d1f03d7"
+      ],
+      "3_2.npz": [
+        12468688,
+        "221f2378e0e9ff59db32a523c79b306651befa4d40bd90a9e93e04cdb9303e02"
+      ]
+    },
+    "reader_sha256": "2b3f6a9408299d5ed71c97d6cb96ea7756d8c4f08b2af51c83c7522c7f7bf445",
+    "sources_sha256": "1ee56af38873dc7572bdb8c04d00086a42e012389679e270030f8e67d0d9ee98"
+  },
+  "matches": {
+    "1": {
+      "aba1.75": {
+        "macro_f1": 0.8949557804545044,
+        "spell_f1": 0.7648506151142355,
+        "spells": 249
+      },
+      "aba3": {
+        "macro_f1": 0.8945044863814083,
+        "spell_f1": 0.7654510556621881,
+        "spells": 249
+      },
+      "aba4": {
+        "macro_f1": 0.8905860782571849,
+        "spell_f1": 0.7188640973630831,
+        "spells": 249
+      },
+      "aba4.5": {
+        "macro_f1": 0.8905860782571849,
+        "spell_f1": 0.7188640973630831,
+        "spells": 249
+      },
+      "control": {
+        "macro_f1": 0.9023868973940957,
+        "spell_f1": 0.8268839103869654,
+        "spells": 249
+      },
+      "raw": {
+        "macro_f1": 0.8935487159773317,
+        "spell_f1": 0.6862559241706162,
+        "spells": 249
+      }
+    },
+    "2": {
+      "aba1.75": {
+        "macro_f1": 0.9466150785814526,
+        "spell_f1": 0.7818525519848772,
+        "spells": 236
+      },
+      "aba3": {
+        "macro_f1": 0.9471470832033639,
+        "spell_f1": 0.7894949494949495,
+        "spells": 236
+      },
+      "aba4": {
+        "macro_f1": 0.9457025372369348,
+        "spell_f1": 0.7825363825363826,
+        "spells": 236
+      },
+      "aba4.5": {
+        "macro_f1": 0.942659282108517,
+        "spell_f1": 0.760767590618337,
+        "spells": 236
+      },
+      "control": {
+        "macro_f1": 0.9470834294577385,
+        "spell_f1": 0.8093023255813954,
+        "spells": 236
+      },
+      "raw": {
+        "macro_f1": 0.9433870994203853,
+        "spell_f1": 0.684678747940692,
+        "spells": 236
+      }
+    },
+    "3": {
+      "aba1.75": {
+        "macro_f1": 0.9501249043631441,
+        "spell_f1": 0.7773828756058158,
+        "spells": 273
+      },
+      "aba3": {
+        "macro_f1": 0.9482663804347734,
+        "spell_f1": 0.7851851851851852,
+        "spells": 273
+      },
+      "aba4": {
+        "macro_f1": 0.9479926971907311,
+        "spell_f1": 0.7840867992766727,
+        "spells": 273
+      },
+      "aba4.5": {
+        "macro_f1": 0.9461686761878175,
+        "spell_f1": 0.7742173112338859,
+        "spells": 273
+      },
+      "control": {
+        "macro_f1": 0.9565247980211934,
+        "spell_f1": 0.8736059479553905,
+        "spells": 273
+      },
+      "raw": {
+        "macro_f1": 0.9473483896665607,
+        "spell_f1": 0.7078286558345643,
+        "spells": 273
+      }
+    }
+  },
+  "means": {
+    "aba1.75": {
+      "macro_f1": 0.9305652544663671,
+      "spell_f1": 0.7746953475683095
+    },
+    "aba3": {
+      "macro_f1": 0.9299726500065152,
+      "spell_f1": 0.7800437301141075
+    },
+    "aba4": {
+      "macro_f1": 0.9280937708949503,
+      "spell_f1": 0.7618290930587128
+    },
+    "aba4.5": {
+      "macro_f1": 0.9264713455178398,
+      "spell_f1": 0.7512829997384354
+    },
+    "control": {
+      "macro_f1": 0.9353317082910092,
+      "spell_f1": 0.8365973946412505
+    },
+    "raw": {
+      "macro_f1": 0.9280947350214258,
+      "spell_f1": 0.6929211093152908
+    }
+  },
+  "protocol": "DECISIONS.md D19",
+  "recipe": {
+    "cutoff": 0.53,
+    "dead_cost": 2,
+    "dead_mix": 0.5,
+    "discount": 0.8,
+    "method": "joint",
+    "owner_cost": 8,
+    "owner_mix": 0.5,
+    "variant": "seed_phase"
+  },
+  "reproduction": {
+    "d3": true
+  },
+  "teacher_sha256": "1b800a8e3a6cc00d81773580dd1b379dc2199ae0bb60aaf29cbc59105ad67903"
+}

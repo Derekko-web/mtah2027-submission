@@ -631,3 +631,220 @@ Code: `dfl_submission/touch_features.py` and `dfl_submission/touch_trial.py`. We
 - **Reported: segmentation at D15's recipe, against the N = 3 targets.** On clean DFL, ownership changes matched within one second rose from 68 of 184 (D3, D11) to 93 (D15) and 104 (tree-only stage). Predicted spells went from 219 to 263 and 282, against 281 true. Recall at IoU 0.5 for 3–5 s spells went from 0.53 to 0.69 and 0.76. On SkillCorner and PFF the tree-only stage changed almost nothing: 243 → 244 of 554 and 319 → 315 of 1,024 ownership changes matched.
 
 What it shows: the touch features help the trees follow touches on clean DFL, as the rule anticipated, but that does not carry over to the possession-based SkillCorner and PFF labels. Every setting lost at N = 4 and 4.5 and on team swaps. Most of the missed-change gap that D11 found was closed by D15's longer training, not by new inputs. The D16 trees are kept in `dfl_submission/touch_models/trees/` for reference. [Tree gate record](dfl_submission/touch_recipe/tree_gate.json)
+
+## D19 — Metrica sample-match benchmark (2026-11-11, written before any prediction or score on these games is computed)
+
+**Question.** Every labelled source so far comes from another vendor. The competition match is tracked by Metrica, and Metrica's three public sample matches follow the conventions CHALLENGE.md describes for its ground truth: corrected tracking in which the ball is absent while dead, and events that carry the team. How does frozen D3 score on them, and can they veto later candidates beside PFF? D19 is a measurement and a veto definition. It changes nothing in the submission.
+
+**Data and licence.** [metrica-sports/sample-data](https://github.com/metrica-sports/sample-data) at commit `e706dd50` (2021-04-15), still the repository head on 2026-11-11: games 1 and 2 (CSV tracking per team and CSV events), game 3 (FIFA EPTS metadata and tracking, JSON events), the README and Metrica's event definitions. Sizes and SHA-256 hashes are pinned in `dfl_submission/metrica_sources.json`. These are the same commit and hashes as the files D1 used for its convention choice, plus game 3's tracking and the definitions, fetched now.
+- *Licence finding:* the repository has no licence file, and GitHub reports none. The README offers the data to prospective clients and "to the broader football analytics community" to play around with. It asks users to be responsible with it and to acknowledge the source in anything public. Metrica Sports owns the data and also organises this competition.
+- *Our use:* local evaluation only, with no training. Nothing is redistributed: the repository holds code, hashes and averaged scores, and the technical document credits Metrica Sports.
+- *Judgement:* we read this use as within the README's terms, and it matches the D1 use already disclosed. The Nov 3 email allows "any dataset you have the rights to use". Derek can overrule this; if he does, D19 is withdrawn and nothing else changes.
+
+The sample games are anonymised and are not the competition match.
+
+**Reader** (`dfl_submission/metrica_sample.py`):
+- periods 1 and 2 at their native 25 Hz, with every player of both teams (a substitute is missing while off the pitch). Home is the first team: the CSV home file, or EPTS's local team, which is listed first;
+- coordinates are normalised, with (0, 0) at the top left of a 105 × 68 m pitch. The README states this for games 1–2, and game 3's metadata gives the same field size. They are converted exactly as the build converts the competition's Metrica EPTS export: multiplied by the pitch, then centred, with no axis flipped. Points more than 5 m outside the pitch are dropped;
+- game 3 follows each of its eleven player layouts, which change with substitutions. The CSV home and away files must agree on every frame and on the ball.
+
+**Targets.** Scored over both halves of a game, like every other source.
+- *Span:* each period is labelled from its kick-off to its last visible ball. Frames outside are `X`.
+- *Dead ball:* `D` where the tracking has no ball. A missing-ball run shorter than 1 s with the ball seen on both sides is a tracking dropout inside play and stays live.
+- *Team (raw):* set pieces, recoveries, passes, carries, shots, balls lost, balls out and faults received mark their team at their start frame. A ball lost also marks the opponent at its end frame: Metrica defines it as losing possession to an opponent. Challenges and cards mark nothing. Within each live segment, a frame takes the latest mark, ties in file order. Frames before the segment's first mark take the team at that mark, since a restart's set piece can follow the ball's reappearance by a few frames.
+- *Conventions:* N = 1.75, 3, 4 and 4.5 s via `decoder_trial.relabel` on the raw targets, as for every source.
+- *Control:* D1's control rule, applied to the raw targets. A team's spell counts as controlled if any of these holds:
+  - it is the first spell of its live segment;
+  - it contains that team's set piece, completed pass (Metrica logs failed passes as balls lost) or a carry of at least 0.5 s;
+  - the team holds the ball for at least 0.5 s from the spell's start to its first release (a pass, shot, ball lost or ball out).
+
+  Otherwise possession stays with the last team in control. The carry length is an amendment to D1's wording ("completed pass or carry"), made from event durations before any score. Game 3 logs carries as short as one frame: 40% of its 1,395 carries last under 0.5 s. Counting every carry kept 88 of its 298 interior spells through a carry alone, while games 1–2 log no carries. With the length rule, all three games relate the same way to the collapses (control spell counts 242, 237 and 265, next to N = 4–4.5's 244/244, 245/233 and 280/270).
+
+**What was seen before this rule.** Reader-level evidence only, with no prediction or score:
+- Ball missing on frames inside pass and carry flights: 0, 1, 0, 0, 0 and 2 frames in the six halves, out of 13,491–42,984 flight frames each.
+- Set pieces with the ball missing on more than half of the 2 s before them (excluding each period's opening kick-off): 73 of 75 in game 1, 76 of 78 in game 2 and 88 of 88 in game 3.
+- The first visible ball falls exactly on the kick-off frame in all six halves. In games 1–2 the last visible ball falls on the half's last event.
+- Missing-ball runs shorter than 1 s with play visible on both sides: 24–36 per half, 61–175 frames each. Every live segment contains at least one possession mark.
+- Raw label shares: `D` 28–51% per half, `X` 0.2–3.0%.
+- Spell counts per game: raw 384, 371 and 404; N = 3 272, 259 and 294.
+
+**Reader sanity gate.** All three conditions must hold before D3 is scored:
+1. *Dead-ball convention,* per game with both halves pooled. The ball is missing on at most 1% of frames inside pass and carry flights. At least 90% of set pieces other than each period's opening kick-off have the ball missing on more than half of the 2 s before them.
+2. *Smooth50 baseline* (`vendor_trial.baseline_prediction`: the nearest visible player to the visible ball, then a ±50-frame majority vote). Its mean raw spellF1 over the three games lies between 0.15 and 0.50 inclusive. The upper bound is wider than D7's 0.40 because this tracking is clean and the ball disappears exactly when dead, so the baseline should do better here than on any source so far. A gross misalignment still falls below 0.15.
+3. *Team orientation:* in every game, the baseline's raw macroF1 is higher than that of the same baseline with `H` and `A` swapped.
+
+If the gate fails, only the reader may be fixed, using reader-level evidence, and the gate is run again. Every attempt is kept in `dfl_submission/metrica_recipe/sanity.json`.
+
+**Measurement.** `python -m dfl_submission.metrica_sample measure` scores frozen D3 on all three games: the D3 blend, cutoff 0.53, ownership cost 6, stoppage cost 2 and discount 0.8. The teacher is `competition_adaptation.reference()`, and decoder inputs come from `diagnosis.half_signals`. It reports spellF1 and macroF1 over both halves of each game, averaged equally over games, against the raw targets, N = 1.75, 3, 4 and 4.5, and control. The record is written once to `dfl_submission/metrica_recipe/d3_measurement.json`. D3's decoder inputs are cached in `data/metrica_cache/` (gitignored). Nothing is selected.
+
+**Known biases.**
+- *Corrected tracking.* The tracking is corrected, not automatic: all players are present and unfragmented, and the ball is seen exactly when live. It flatters every model compared with the competition's automatic tracking, where the ball is missing on 41% of graded frames.
+- *Missing-ball shortcut.* Because the dead ball is exactly the missing ball, these games reward the shortcut D2 removed. A candidate that relies on it less, like D2's retrained set, can lose here for that reason alone. The veto limits such a loss; it never rewards a gain.
+- *Small sample.* Three matches, with 237–404 spells each depending on the target.
+
+**Veto for later candidates.** From this record on, a candidate's mean N = 3 spellF1 over the three games may drop by at most 0.01 against D3. `metrica_sample.veto` takes the candidate's labels, its decoder inputs, or a function of D3's cached inputs. It first checks that D3, decoded from the cache, reproduces `d3_measurement.json` exactly. Other targets and the worst game are reported, not gated. As with PFF, the Metrica games only veto: no value is chosen on them, and nothing is trained on them. The veto binds decisions written after D19. Decisions written earlier keep their own gates and may report their Metrica change.
+
+Every D19 command runs with `MTAH_DATA_DIR` set to a nonexistent path.
+
+**Outcome (2026-11-11).**
+- **Reader sanity gate:** passed on the first attempt.
+  - *Dead-ball convention:* the ball was missing on 0.004%, 0% and 0.002% of flight frames in games 1–3. 97.3%, 97.4% and 100% of later set pieces followed a missing ball.
+  - *Smooth50 baseline:* mean raw spellF1 0.4232 (games 0.448, 0.420 and 0.402). This is inside 0.15–0.50, and above its 0.345 on PFF and 0.25–0.26 on DFL and SkillCorner, as expected for clean tracking with an exact dead-ball signal.
+  - *Team orientation:* with `H` and `A` swapped, the baseline's raw macroF1 fell from 0.83–0.87 to 0.37–0.40 in every game.
+
+  [Record](dfl_submission/metrica_recipe/sanity.json)
+- **Frozen D3 on the three games:**
+
+  | Target | spellF1 | macroF1 | smooth50 spellF1 |
+  |---|---:|---:|---:|
+  | Raw event possession | 0.62511 | 0.91465 | 0.42318 |
+  | N = 1.75 s | 0.71114 | 0.91784 | |
+  | **N = 3 s (veto)** | **0.76049** | 0.92103 | 0.42719 |
+  | N = 4 s | 0.76524 | 0.92233 | |
+  | N = 4.5 s | 0.76177 | 0.92150 | |
+  | Control rule | 0.83236 | 0.92994 | 0.44263 |
+
+  N = 3 spellF1 per game was 0.7235, 0.7839 and 0.7741. [Record](dfl_submission/metrica_recipe/d3_measurement.json)
+- **Reading.** This is D3's highest N = 3 score on any source. For comparison: DFL clean 0.742, SkillCorner development 0.676, PFF development 0.626. That fits the biases above: corrected tracking, and a dead ball that is exactly the missing ball. D3 scores higher against the control-rule targets (0.832) than against any collapse. This is consistent with D11's finding that D3 under-segments: its spells are closer to the longer controlled-possession convention. The score is not an estimate of the competition score.
+- **Veto reference.** From here on, a candidate is vetoed if its mean N = 3 spellF1 on these games is below 0.75049. D3 passed through `veto` (as labels, as decoder inputs, and as a function of the cached inputs) reproduced the record with a change of exactly zero. The submission is unchanged.
+
+*Amendment, 2026-11-11, after D15 was adopted and before D15 is scored on these games:* while D19 ran, D15 (width 96, 5,400 steps, ownership cost 8) replaced D3 as the submission. The veto now compares a candidate with the submission standing when the candidate's rule is written, which from now on is D15.
+- *Measurement.* D15 is measured once, exactly as D3 was:
+  - on the same parsed inputs that passed the gate;
+  - with the model `scale_trial build` uses: D3's trees and blend with D15's networks and recipe;
+  - with decoder inputs from `diagnosis.half_signals`, cached under `data/metrica_cache/d15/`;
+  - against the same targets.
+
+  The record is written once to `dfl_submission/metrica_recipe/d15_measurement.json`. Before D15 is scored, D3 decoded from its cache must reproduce `d3_measurement.json` exactly; otherwise nothing is written.
+- *Veto.* `veto(candidate, reference=...)` takes `D15` by default and `D3` for decisions written while D3 was the submission. The veto line is the reference's mean N = 3 spellF1 minus 0.01. For a candidate given as decoder inputs, the default decoder recipe is the reference's.
+- *What it does not do.* D15's change against D3 here is reported only. It does not reopen D15, whose rule was written before D19, and nothing is selected.
+
+**Outcome of the amendment (2026-11-11).** D3 decoded from its cache reproduced `d3_measurement.json` exactly, and D15 was then measured once:
+
+| Target | D15 spellF1 | D15 macroF1 | Change against D3 (reported) |
+|---|---:|---:|---:|
+| Raw event possession | 0.69292 | 0.92809 | +0.0678 |
+| N = 1.75 s | 0.77470 | 0.93057 | +0.0636 |
+| **N = 3 s (veto)** | **0.78004** | 0.92997 | **+0.0196** |
+| N = 4 s | 0.76183 | 0.92809 | −0.0034 |
+| N = 4.5 s | 0.75128 | 0.92647 | −0.0105 |
+| Control rule | 0.83660 | 0.93533 | +0.0042 |
+
+- **Per game:** N = 3 spellF1 was 0.7655, 0.7895 and 0.7852, so every game improved on D3 (the smallest gain was +0.0056).
+- **Spells:** D15 predicts more of them than D3 (249, 236 and 273 against 214, 213 and 247). That is the recall gain D15 found on DFL, and it carries over: the shorter conventions gain most, while N = 4.5 drops slightly.
+- **Veto reference:** from here on it is D15, so a candidate is vetoed if its mean N = 3 spellF1 on these games is below 0.77004. Passed back through `veto`, D15 reproduced its record with a change of exactly zero.
+
+[Record](dfl_submission/metrica_recipe/d15_measurement.json)
+
+## D18 — PathCRF ball-free possession check (2026-11-11, written before any PathCRF output is computed or scored)
+
+**Question.** Does a published ball-free model infer team possession better than frozen D3 on frames where our ball is hidden? PathCRF (Kim et al., KDD 2026) picks one possession edge per time step from player trajectories alone, using a set-attention network and a CRF. Our ball is hidden on 41% of graded competition frames (DATA.md), and D3's features are built around the ball. D18 is round 4's Track B1. It is a measurement only and changes nothing in the submission. Its one consequence is whether B2 runs: retraining PathCRF on our four training matches with our degradations.
+
+**Code and checkpoint, vetted before anything was run.**
+- The repository is `github.com/hyunsungkim-ds/pathcrf` at commit `1b7c6f85a6b78c92e4543fde72ca2b86a933f997` (8 June 2026). It is cloned outside this repository and treated as untrusted. The code licence is MPL-2.0 (LICENSE SHA-256 `3f3d9e00…`), and the checkpoints ship in the same repository. No PathCRF code is copied here: `dfl_submission/pathcrf_trial.py` imports the model classes from the clone at run time.
+- One checkpoint only, fixed here: trial 140, `saved/140/model/state_dict_best_acc.pt` (SHA-256 `55757d9d…`), loaded with `weights_only=True`. Trial 140 is the dynamic masked CRF, the paper's main model and the one its tutorial uses. The other nine checkpoints are not scored, so no choice is made between them.
+- Inference follows the published pipeline: 25 Hz downsampled to 5 Hz, 10 s windows (50 steps) overlapping by half and blended linearly, then the CRF's Viterbi decode over each segment. It runs on CPU.
+
+**Leakage finding.** The paper does not name its split; the code fixes it. `train.py` sorts the seven DFL files and, for these checkpoints, trains on the first five, validates on the sixth and tests on the seventh. Trial 140 uses leave-one-match-out fold 6, which gives the same split. So every checkpoint was trained on WMX, WN1, WOH, WOY **and WPY**, picked its best epoch on **WQQ**, and was tested on WR9. This agrees with the tutorial, which evaluates on the last file (WR9), and with Table 1's five training matches, one validation match and one test match.
+- WPY is our only DFL development match, and it is in PathCRF's training set. Scores there are contaminated in PathCRF's favour.
+- WQQ and WR9 are our holdout, and neither is scored in D18. WR9 is the only DFL match PathCRF never saw. But the plan scores the holdout once, at the final confirmation, and a B2 decision taken on it would weaken that confirmation. WQQ chose PathCRF's checkpoint.
+- The four SkillCorner development matches are uncontaminated: PathCRF never saw SkillCorner. They are harsher than the competition in one respect. Broadcast tracking shows about 13 of 22 players per live frame, against a mean of 20.5 tracked objects per graded competition frame (DATA.md). Their ball is hidden on 5–9% of live frames.
+
+So D18 uses two sets with opposite biases. WPY is contaminated and favours PathCRF; its masked view shows about 17.6 of 22 players per frame. SkillCorner development is unseen and harsher for PathCRF.
+
+**Adaptor** (`dfl_submission/pathcrf_trial.py`). It has no learned or tuned values; every constant is set here.
+- **Halves** come from `augment.guard_halves(dfl, skill, "development", raw=True)`: DFL WPY clean, masked, dead ball carried and team swap, plus the four SkillCorner development matches (observed). The dead-ball-carried view moves only the ball, so PathCRF's input there is the masked view's.
+- **Coordinates:** centred metres, mapped linearly onto PathCRF's 105 × 68 m frame with the origin at a corner.
+- **Missing players:** each slot's gaps between its first and last observation in the half are filled by linear interpolation in time, with nothing extrapolated beyond them. This is required: the model cannot take a missing player, because its training dropped every episode that had one. Team-swap identity switches are left as they are, since they are the test.
+- **Features**, as in PathCRF's preprocessing, per slot over the half:
+  - frames implying more than 12 m/s are dropped and re-interpolated;
+  - velocity comes from a Savitzky–Golay filter (15 frames, order 2) on frame differences;
+  - acceleration magnitude comes from a second filter (9 frames, order 2);
+  - a slot observed on fewer than 17 frames uses plain differences.
+- **Per segment:**
+  - Each team's active slots are those with a position somewhere in the segment, at most 11, keeping the most observed. Frames outside a slot's observed span hold its nearest position, with zero velocity.
+  - The goalkeeper is the team's slot whose mean x lies farthest from the centre line over the half, among slots observed on at least 10% of the half's frames. The team whose goalkeeper is further left in the segment comes first.
+  - Four fixed outside nodes are added, then padding to 26 nodes, as in PathCRF.
+- **Team from the decoded edge** at each 5 Hz step, held until the next step:
+  - a player holding the ball, or passing to a teammate or out of play: that player's team;
+  - a ball in flight to an opponent: the passer's team for the first half of that edge's run and the receiver's for the second half (PathCRF's own "split" rule);
+  - the ball out of play: no team.
+
+**Runs.**
+- *Native:* PathCRF on each run of target-live frames. This is the setting in which it was trained and evaluated.
+- *Realistic:* PathCRF on each run of D3-live frames, so no target information reaches the model.
+
+**Targets and frames.** The N = 3 s controlled-possession targets are primary; the raw provider labels are also reported, as in D11. Frames are target-live frames: all of them, and those where the view's ball is hidden (not finite).
+
+**What is measured,** per view and group (DFL clean, masked, dead ball carried, team swap; SkillCorner).
+1. **Team-possession accuracy** on target-live frames, all and ball-hidden, pooled over frames. Both models get the true stoppages by D11's rule. A target-live frame with no predicted team takes the nearest predicted team in time within that live segment, the earlier one on ties. A live segment with no predicted team takes the team with the higher mean home probability. For D3 that is its blended home-ownership probability. For PathCRF it is 1 on home frames, 0 on away frames and 0.5 on frames with no team, with ties going home as in D11.
+   - D3's predictions are its cached decoded labels.
+   - PathCRF's come from the native run (1a) and from the realistic run (1b). The realistic run enters as a hybrid: D3's labels, with the team replaced by PathCRF's wherever both give one.
+2. **spellF1 and macroF1 of the hybrid** against both targets, next to D3's: per match, per group, and the standard combined aggregate (DFL 1/3 clean + 2/3 masked, SkillCorner mean).
+3. **SkillCorner ball-hidden accuracy by visible players per frame** (under 11, 11–14, 15 or more), reported only.
+
+**Pipeline checks, run before any PathCRF output is read.**
+- **D3 reproduction:** D3's numbers come from the D11 cache (`data/diagnosis_cache/development`), DFL and SkillCorner entries only. The PFF entries are never opened. Decoded from the cache, D3 must reproduce exactly D11's group spellF1 means and true-stoppage oracle means for the five DFL and SkillCorner groups, under both targets. The labels of every half built by `guard_halves` must equal the cached labels.
+- **Adaptor sanity gate:** on WPY clean, PathCRF's native team-possession accuracy on target-live frames against the N = 3 targets must be at least 0.80. WPY is a training match for PathCRF, and the paper reports 92.4% on its test match. If the gate fails, only the adaptor may be fixed (coordinates, orientation, node order, features), using adaptor-level evidence, and the gate is run again. Every attempt is recorded here. Nothing else is computed until the gate passes.
+
+**B2 trigger.** B2 runs only if PathCRF beats D3 on native team-possession accuracy against the N = 3 targets, on ball-hidden target-live frames pooled over the halves, in both of these sets:
+- **T1, the WPY masked view.** This is the trigger as first set for the track. It is contaminated in PathCRF's favour, so failing it is decisive.
+- **T2, the four SkillCorner development matches**, which are uncontaminated.
+
+"Beats" means strictly higher. Everything else is reported, not gated. B2 would get its own decision record, written before anything is trained, and D19's Metrica veto would bind it.
+
+**Record.** `dfl_submission/pathcrf_recipe/d18_measurement.json` is written once by `python -m dfl_submission.pathcrf_trial measure` and carries the PathCRF commit and file hashes. Every D18 command runs with `MTAH_DATA_DIR` set to a nonexistent path and calls `require_external_only()`. Inference runs on CPU, one job at a time.
+
+**Outcome (2026-11-11).** Both pipeline checks passed. Decoded from the cache, D3 reproduced D11's group means exactly under both targets, and every half's labels matched the cache. The adaptor sanity gate passed on the first attempt: 0.888 on WPY clean (81,460 target-live frames). **B2 is not triggered: PathCRF loses to D3 on both sets.**
+
+| Team-possession accuracy, N = 3 targets, target-live frames | Frames | D3 | PathCRF native | Hybrid |
+|---|---:|---:|---:|---:|
+| WPY clean, all | 81,460 | 0.910 | 0.888 | 0.888 |
+| **WPY masked, ball hidden (T1)** | 32,011 | **0.870** | **0.595** | 0.583 |
+| WPY masked, all | 81,460 | 0.884 | 0.597 | 0.585 |
+| WPY dead ball carried, ball hidden | 32,011 | 0.856 | 0.595 | 0.585 |
+| WPY team swap, ball hidden | 32,011 | 0.839 | 0.555 | 0.542 |
+| **SkillCorner, ball hidden (T2)** | 23,200 | **0.786** | **0.710** | 0.736 |
+| SkillCorner, all | 319,119 | 0.915 | 0.855 | 0.859 |
+
+WPY clean has no ball-hidden frames. The raw labels agree: T1 0.858 for D3 against 0.608 for PathCRF, and T2 0.788 against 0.720.
+- **Clean tracking:** on a match it was trained on, PathCRF comes close to D3 but does not beat it: 0.888 against 0.910, or 0.894 against 0.897 on raw labels.
+- **Masked view:** PathCRF falls to about 0.60, near a coin toss, on ball-hidden and ball-visible frames alike. It never sees the ball, so the drop comes from the degraded player tracks. Team swaps take it to 0.56.
+- **SkillCorner:** PathCRF holds up better (0.855 overall), even with about 9 interpolated players per frame, but still trails D3 by 0.060 overall and by 0.076 on ball-hidden frames. On ball-hidden frames, by visible players (reported only):
+  - under 11 visible: 0.738 against D3's 0.832 (19,044 frames);
+  - 11–14 visible: 0.656 against 0.618 (1,172 frames);
+  - 15 or more: 0.552 against 0.562 (2,984 frames).
+- **Hybrid spellF1 collapses:** standard combined 0.337 against D3's 0.682 at N = 3. PathCRF's team changes at every touch and at every pass in flight to an opponent. On clean WPY against the raw labels the hybrid beats D3 (0.623 against 0.555): it follows the touch-level changes that DFL records and that the controlled-possession convention removes.
+
+The submission is unchanged. WQQ, WR9 and PFF were not read. [Record](dfl_submission/pathcrf_recipe/d18_measurement.json) (SHA-256 `7f8366ab…`).
+
+*Post-hoc diagnostic, written after the record above and before the diagnostic is run.* The masked view adds two things to the clean tracks:
+- 0.2 m of independent noise on every frame;
+- 2 s dropouts on 20% of track blocks.
+
+PathCRF's velocity and acceleration features are frame differences, so the per-frame noise may matter more than the dropouts. To separate them, PathCRF's native run is repeated on WPY with each degradation alone:
+- *noise only:* the clean tracks plus exactly the masked view's noise, the first draw of its generator (`default_rng(270000 + 100 × 4 + half).normal(0, 0.2)`), checked equal to the masked view wherever the masked view has a position;
+- *dropouts only:* the clean tracks with exactly the masked view's missing blocks, and no noise.
+
+Accuracy is reported as above, with the ball-hidden frames of the masked view. The diagnostic is reported only. It cannot trigger B2, it changes nothing in the adaptor, and WPY remains a PathCRF training match. Record: `dfl_submission/pathcrf_recipe/d18_diagnostic.json`, written once by `python -m dfl_submission.pathcrf_trial diagnose`.
+
+*Diagnostic result (2026-11-11).* The noise-only view reproduced the masked view's noise exactly.
+
+| PathCRF native accuracy on WPY, N = 3 targets | All target-live frames | Ball hidden in the masked view |
+|---|---:|---:|
+| Clean | 0.888 | — |
+| Dropouts only | 0.877 | 0.884 |
+| Noise only | 0.546 | 0.558 |
+| Masked (both) | 0.597 | 0.595 |
+| *D3, masked view* | *0.884* | *0.870* |
+
+The raw labels agree: 0.883 with dropouts only, 0.560 with noise only.
+- **The per-frame noise causes the collapse.** PathCRF's features are frame differences. Under its 12 m/s outlier rule, independent 0.2 m noise floods them, and nothing in its training data was noisy.
+- **Dropouts are cheap for it.** Interpolated 2 s gaps on 20% of track blocks cost 0.011.
+- **Caveats:** WPY is a PathCRF training match, and D3 was not run on the dropouts-only view. So the 0.884 against 0.870 is not a like-for-like comparison and decides nothing.
+
+[Record](dfl_submission/pathcrf_recipe/d18_diagnostic.json) (SHA-256 `db3f758d…`).
+
+**What this means for B2 (not triggered).**
+- **Against a retrain:** retraining with noise and our degradations might recover the noise loss. But even fully recovered, it would at best restore PathCRF's clean-track level, which trails D3 on a match PathCRF was trained on. On the uncontaminated SkillCorner matches it trails D3 by 0.060 overall and by 0.076 on ball-hidden frames. Its touch-level output also halves the hybrid's spellF1 under the controlled-possession convention.
+- **The open question**, if anyone returns to this, is whether a noise-robust PathCRF beats D3 on ball-hidden frames of an unseen DFL match. Answering it needs a retrain that leaves out a match (WPY) and the holdout. That is B2's cost, and D18 gives no reason to pay it.
