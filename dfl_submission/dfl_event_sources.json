@@ -1,0 +1,48 @@
+{
+  "dataset": "https://doi.org/10.6084/m9.figshare.28196177.v1",
+  "license": "CC-BY-4.0",
+  "files": [
+    {
+      "name": "DFL_03_02_events_raw_DFL-COM-000001_DFL-MAT-J03WMX.xml",
+      "size": 776578,
+      "sha256": "6f9741ea62e9dee35b604942e1dad2ac0a4dc3fce14ef2f3858aa12b74dafe00",
+      "download_url": "https://ndownloader.figshare.com/files/51643493"
+    },
+    {
+      "name": "DFL_03_02_events_raw_DFL-COM-000001_DFL-MAT-J03WN1.xml",
+      "size": 612114,
+      "sha256": "d7fa1d4445e3215eb79ec62fabefa4779b4974e496195c2fdc25624c375a9b9b",
+      "download_url": "https://ndownloader.figshare.com/files/51643496"
+    },
+    {
+      "name": "DFL_03_02_events_raw_DFL-COM-000002_DFL-MAT-J03WOH.xml",
+      "size": 635747,
+      "sha256": "abc27e3268e6126fb3e6e90bff5cca8d4586a5e0cefe9bd59bf32871e89d8544",
+      "download_url": "https://ndownloader.figshare.com/files/51643499"
+    },
+    {
+      "name": "DFL_03_02_events_raw_DFL-COM-000002_DFL-MAT-J03WOY.xml",
+      "size": 683018,
+      "sha256": "dbb014df1b80d5c99b7fb806a278432c445a5fdd99f59d379d601f20eaf7e142",
+      "download_url": "https://ndownloader.figshare.com/files/51643502"
+    },
+    {
+      "name": "DFL_03_02_events_raw_DFL-COM-000002_DFL-MAT-J03WPY.xml",
+      "size": 698898,
+      "sha256": "e440a3adf9a38d3e4ce4289343a59a3b5f76018a78e97c765114f7817591fb3c",
+      "download_url": "https://ndownloader.figshare.com/files/51643505"
+    },
+    {
+      "name": "DFL_03_02_events_raw_DFL-COM-000002_DFL-MAT-J03WQQ.xml",
+      "size": 732186,
+      "sha256": "b79ccc1ee3de5ba662546a9a21304784642d00a791ccc1175550eaa463ea0074",
+      "download_url": "https://ndownloader.figshare.com/files/51643508"
+    },
+    {
+      "name": "DFL_03_02_events_raw_DFL-COM-000002_DFL-MAT-J03WR9.xml",
+      "size": 681050,
+      "sha256": "31735a2d7b9008c44cae9b6ac43ab38ddeaa435d0416265ec0ebfebf53b3c982",
+      "download_url": "https://ndownloader.figshare.com/files/51643511"
+    }
+  ]
+}

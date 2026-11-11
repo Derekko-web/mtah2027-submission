@@ -45,10 +45,7 @@ def features(positions, ball, teams, pitch):
     return owner, dead, extra
 
 
-def fit(frames, targets, groups, *, owner):
-    inputs = pd.concat(frames, ignore_index=True)
-    y = np.concatenate(targets)
-    group = np.concatenate(groups)
+def source_weights(y, group):
     weight = np.empty(len(y))
     for match in range(len(TRAIN)):
         for label in (0, 1):
@@ -56,6 +53,10 @@ def fit(frames, targets, groups, *, owner):
             if not member.any():
                 raise ValueError("DFL training match lacks both classes")
             weight[member] = len(y) / (2 * len(TRAIN) * member.sum())
+    return weight
+
+
+def fit_weighted(inputs, y, weight, *, owner):
     if owner:
         inputs = pd.concat([inputs, swap(inputs)], ignore_index=True)
         y = np.r_[y, 1 - y]
@@ -63,7 +64,14 @@ def fit(frames, targets, groups, *, owner):
     params = dict(PARAMS if owner else DEAD_PARAMS, max_depth=4, n_estimators=260)
     model = XGBClassifier(**params)
     model.fit(inputs, y, sample_weight=weight)
-    return model, len(y)
+    return model
+
+
+def fit(frames, targets, groups, *, owner):
+    inputs = pd.concat(frames, ignore_index=True)
+    y = np.concatenate(targets)
+    group = np.concatenate(groups)
+    return fit_weighted(inputs, y, source_weights(y, group), owner=owner), len(y) * (2 if owner else 1)
 
 
 def fit_models(raw, manifest):

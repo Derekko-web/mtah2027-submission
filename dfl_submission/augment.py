@@ -6,6 +6,8 @@ of ball visibility and cross-team identity swaps. Guard views use different sett
 evaluation does not test the model on its own simulation.
 """
 
+from dataclasses import replace
+
 import numpy as np
 
 from dfl_submission import external_benchmark as benchmark, fusion_trial, skillcorner
@@ -177,10 +179,8 @@ def guard_halves(dfl, skill, split, *, raw=False):
         moved = nearest_player(np.asarray(reference.positions, dtype=np.float32),
                                np.asarray(reference.ball, dtype=np.float32))
         carried[visible] = moved[visible] + rng.normal(0, NOISE, (int(visible.sum()), 2)).astype(np.float32)
-        yield benchmark.Half("dfl", half.match, "dead_carried", half.index, half.labels, half.positions, carried,
-                             half.teams, half.pitch)
+        yield replace(half, view="dead_carried", ball=carried)
         swapped = swap_teams(half.positions, half.teams, rng, every=GUARD_SWAP_EVERY,
                              frames=lambda _: GUARD_SWAP_FRAMES)
-        yield benchmark.Half("dfl", half.match, "team_swap", half.index, half.labels, swapped, half.ball,
-                             half.teams, half.pitch)
+        yield replace(half, view="team_swap", positions=swapped)
 

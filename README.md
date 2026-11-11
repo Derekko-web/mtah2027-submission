@@ -91,6 +91,10 @@ An equal blend of the original and retrained models was then tested under a new 
 
 The blend keeps the stoppage cutoff at 0.53. Records: [retrained models](dfl_submission/retrain_recipe/development.json) · [blend development](dfl_submission/blend_recipe/development.json) · [blend confirmation](dfl_submission/blend_recipe/external_validation.json)
 
+### Set-piece restart experiment
+
+D4 tested ten decoder settings on DFL WPY using simulated Smart Tagging inputs from the DFL event feed. The simulations included missing tags, timing errors and spurious tags. On the masked and dead-ball-carried views, the best setting scored 0.61376 spellF1 against the N = 3 targets, compared with 0.61382 for D3. The required gain was +0.003, so the experiment ended at development. See the [protocol](DECISIONS.md#d4--smart-tagging-restart-anchors-2026-11-11-written-before-scoring) and [full grid results](dfl_submission/restart_recipe/development.json).
+
 ## Reproduce the submission
 
 The build is verified to give the same file on Apple Silicon macOS and on Linux (x86_64 and arm64), with Python 3.12.14 and the pinned CPU dependencies. On macOS, XGBoost needs the system OpenMP runtime. Point `MTAH_DATA_DIR` at a directory containing `tactical/` with `BAR-ATH_tactical_atd.xml`, `BAR-ATH_tactical_atd.txt` and `BAR-ATH_tactical_homography.csv`; no other files are needed.
@@ -154,6 +158,37 @@ OMP_NUM_THREADS=1 .venv-train/bin/python -m dfl_submission.temporal_network expo
 The published weights are the reference for exact inference. Network training on Apple MPS reproduces them bit for bit. Training on CPU gives slightly different weights.
 
 To retrain the second model set, add `--augment` to `long_context` and to `temporal_network prepare`, then train the two networks with seeds 42 (boundary weight 0.5) and 97 (boundary weight 1.4) and export them into `retrain_models/`. The comparison and blend use `retrain_trial tune` and `retrain_trial confirm`, with `--weight 0.5` for the blend.
+
+To reproduce the D4 development grid, download the [DFL event XMLs](dfl_submission/dfl_event_sources.json) into a separate directory and keep `MTAH_DATA_DIR` set to a nonexistent path:
+
+```sh
+.venv/bin/python -m dfl_submission.restart_trial tune --dfl "$DFL_XML" \
+  --events /path/to/dfl-event-xml --trial data/restart_replay
+```
+
+The D5 external proxy adapts the DFL-only reference using labelled DFL matches and the tracking fields of the SkillCorner training matches. The development command scores the variants on separate SkillCorner matches. Keep `MTAH_DATA_DIR` set to a nonexistent path.
+
+```sh
+.venv/bin/python -m dfl_submission.adaptation_trial fit \
+  --dfl "$DFL_XML" --skill data/skillcorner --trial data/adaptation_d5
+.venv/bin/python -m dfl_submission.adaptation_trial tune \
+  --skill data/skillcorner --trial data/adaptation_d5
+```
+
+`confirm` requires a development winner and records one holdout attempt in the trial directory. [D5 protocol](DECISIONS.md#d5--label-free-transfer-from-dfl-to-skillcorner-2026-11-11-written-before-fitting-or-scoring)
+
+D6 starts from the frozen DFL + SkillCorner D3 ensemble. It continues the original ownership tree once per target match, using confident D3 ownership predictions and replay from the original external training matches. The proxy uses the nine 2019–20 SkillCorner matches at [revision 1b99d401](https://github.com/SkillCorner/opendata/tree/1b99d401ddc82e366c5c20d6860878668fd5858f). Its provider labels are read for scoring after each match is predicted. Keep `MTAH_DATA_DIR` set to a nonexistent path.
+
+```sh
+OMP_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 .venv/bin/python -m dfl_submission.competition_adaptation prepare-replay \
+  --dfl "$DFL_XML" --skill data/skillcorner --replay data/d6_replay.npz
+OMP_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 .venv/bin/python -m dfl_submission.competition_adaptation tune \
+  --legacy-raw data/skillcorner_2020/raw --replay data/d6_replay.npz --trial data/d6_replay_trial
+```
+
+The legacy JSON files are downloaded on demand and checked against the pinned Git blobs. `confirm` uses the same arguments and requires a development winner. The `build` subcommand requires a passed confirmation and written organiser approval for label-free fitting on the challenge tracking. D3 remains the active submission. [D6 protocol](DECISIONS.md#d6--label-free-ownership-adaptation-of-the-dfl--skillcorner-ensemble-2026-11-11-written-before-fitting-or-scoring)
+
+The best D6 setting scored 0.62431 spellF1 against the N = 3 targets over five development matches, up from D3's 0.62374. The +0.00056 gain missed the +0.005 gate, so the four confirmation matches went unscored. [Development scores](dfl_submission/competition_adaptation_recipe/development.json)
 
 The earlier stages have their own `train`/`tune`/`confirm` commands, which are subject to the same guard:
 - the extended-context XGBoost model (`long_context`)

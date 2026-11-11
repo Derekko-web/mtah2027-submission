@@ -19,6 +19,10 @@ from evaluation import possession_metrics as pm
 
 STRIDE = 5
 FILE_NAMES = models.MODEL_FILES
+TREE_PARAMS = dict(objective="binary:logistic", eval_metric="logloss", tree_method="hist",
+                   max_depth=5, n_estimators=420, learning_rate=.045, subsample=.82,
+                   colsample_bytree=.85, min_child_weight=30, reg_lambda=12,
+                   n_jobs=3, random_state=42)
 
 
 def interval_stats(values, width, future):
@@ -87,11 +91,7 @@ def features(positions, ball, teams, pitch):
     return frames, owner, invariant(owner)
 
 
-def fit_head(rows, *, ownership):
-    features, targets, match_keys = zip(*rows)
-    inputs = pd.concat(features, ignore_index=True)
-    y = np.concatenate(targets).astype(int)
-    groups = np.concatenate(match_keys)
+def source_weights(y, groups):
     weight = np.empty(len(y), dtype=np.float32)
     sources = {key.split(":", 1)[0] for key in groups}
     for source in sorted(sources):
@@ -102,13 +102,18 @@ def fit_head(rows, *, ownership):
                 if not members.any():
                     raise ValueError(f"External match lacks both labels: {key}")
                 weight[members] = len(y) / (len(sources) * len(keys) * 2 * members.sum())
+    return weight
+
+
+def fit_head(rows, *, ownership):
+    features, targets, match_keys = zip(*rows)
+    inputs = pd.concat(features, ignore_index=True)
+    y = np.concatenate(targets).astype(int)
+    weight = source_weights(y, np.concatenate(match_keys))
     if ownership:
         inputs = pd.concat([inputs, swap(inputs)], ignore_index=True)
         y, weight = np.r_[y, 1 - y], np.tile(weight, 2)
-    model = XGBClassifier(objective="binary:logistic", eval_metric="logloss", tree_method="hist",
-                          max_depth=5, n_estimators=420, learning_rate=.045, subsample=.82,
-                          colsample_bytree=.85, min_child_weight=30, reg_lambda=12,
-                          n_jobs=3, random_state=42)
+    model = XGBClassifier(**TREE_PARAMS)
     model.fit(inputs, y, sample_weight=weight)
     return model, len(y)
 

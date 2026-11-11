@@ -123,3 +123,87 @@ If the blend fails, the current models stay and no further variant is tried on t
 | Team swap | +0.0108 | +0.0090 | ≥ −0.01 |
 
 On the holdout, the standard loss was spread over all four SkillCorner matches (−0.003 to −0.010) and DFL WQQ masked (−0.010). The carried-ball gain held on both DFL matches (+0.050 and +0.073). The blend was adopted, with the metadata pitch size; the submission SHA-256 is `f0b03d2c…`.
+
+## D4 — Smart Tagging restart anchors (2026-11-11, written before scoring)
+
+**Candidate.** Keep the frozen D3 blend and D1 costs. Use only set-piece restart timestamps for throw-ins, corners, goal kicks, free kicks and kickoffs after a goal. Ignore the team and phase tags. In the external trial, read the DFL event `EventTime` on the corresponding tracking half's 25 Hz clock. Exclude opening kickoffs. For a competition build, use the midpoint of each supported Smart Tagging interval on the documented tactical-video clock, separately within each half. No information from the competition export is used to set the rule or select parameters.
+
+**Simulated tags.** Use the same noisy tag draws for every tracking view and candidate. Each half gets three draws per profile. The profiles are fixed stress scenarios, with values chosen before scoring.
+
+| Profile | Tag loss | Timing error | Spurious tags |
+|---|---:|---|---:|
+| Moderate | 50% | Gaussian with SD 1 s, clipped to ±2.5 s | 10% of retained in-half tags |
+| Heavy | 75% | Gaussian with SD 2 s, clipped to ±5 s | 25% of retained in-half tags |
+
+Drop each event independently, perturb the rest on the frame grid, and discard tags that move outside the half. Add the rounded number of spurious tags uniformly over the half. Use NumPy default RNG seeds `740000 + 1000 × DFL split-order match index + 100 × half index + 10 × profile index + draw index` with zero-based indices.
+
+**Grid.** Test two ways to use a tag in the joint Viterbi decoder. All offsets are relative to the 5 Hz decoder step start. Overlapping tags use the maximum support separately on each side.
+
+- **Stoppage evidence.** Raise the dead-ball log-odds before a restart and lower them after it. The triangular weights on each side are zero at the tag and the outside edge, and peak halfway between. Test a span of 2 or 4 s per side and a peak adjustment of 0.5, 1 or 2 log-odds units.
+- **Restart transition.** Discount the existing cost of the dead-to-live transition by a triangular weight centred on the tag, with no adjustment to the live-to-dead or ownership costs. Test a radius of 2 or 4 s and a peak discount of 0.5 or 1.
+
+**Selection and confirmation.** Use DFL WPY for development and DFL WQQ and WR9 for one confirmation of the selected setting. SkillCorner is excluded because there is no comparable restart event feed for those views. All comparisons use the same D3 blend with no anchors as the reference. Aggregate equally over matches and draws within each profile. For the primary score, average masked and dead-ball-carried tracking equally, then average the two profiles. Rank eligible candidates by primary spellF1 against N = 3 targets, then by primary macroF1, then by grid order above with smaller span and strength first.
+
+Apply all gates on development and again on the one-time confirmation:
+
+- The primary spellF1 must improve by at least 0.003. For each match separately the primary drop may be at most 0.01.
+- Heavy-profile primary spellF1 may drop by at most 0.005. Within each profile, the standard DFL score (one-third clean, two-thirds masked) and team-swap spellF1 may each drop by at most 0.01.
+- Primary spellF1 for N = 1.75, 4 and 4.5 may each drop by at most 0.01. Report raw provider scores.
+
+If no development candidate passes or the selected one fails confirmation, keep D3. D4 is a new decoder experiment on matches already used in D1–D3. Reuse makes its confirmation weaker than a fresh test. The tag simulation is an approximation and the two profiles do not establish the actual tag error distribution.
+
+**Outcome (added after development scoring, 2026-11-11).** D4 stopped at development. All ten settings scored below the D3 reference of 0.61382 on primary spellF1. The highest score was 0.61376 (−0.00006, against a required gain of +0.003), shared by the 2 s and 4 s restart-transition settings at a peak discount of 0.5. The best stoppage-evidence setting scored 0.61359. The development gate ended the experiment before holdout scoring. D3 is the submission. See the [complete development results](dfl_submission/restart_recipe/development.json).
+
+## D5 — Label-free transfer from DFL to SkillCorner (2026-11-11, written before fitting or scoring)
+
+**Scope.** Test whether adapting a DFL-only model to unlabelled SkillCorner tracking improves possession spells on separate SkillCorner matches. Fit from the four pinned DFL training matches and the tracking fields of the twelve pinned SkillCorner training matches. The fitting code never reads SkillCorner labels. The development and confirmation matches supply only evaluation data. All commands are external-only. This proxy grants no authority to fit anything on the challenge match.
+
+**Reference.** Start with the verified DFL-only `robust_models` heads. All entries use those features, a 5 Hz feature sample interpolated to the 25 Hz grid, and the same joint decoder (cutoff 0.53, ownership cost 6, stoppage cost 2, zero boundary evidence). Fit replacement heads with the existing robust-head XGBoost parameters and home/away symmetry. There is no decoder search.
+
+**Grid, in tie-break order.**
+
+1. **Speed alignment.** Map SkillCorner's eight extra ball-speed features (`speed_{3,12,30}_{0,1}`, `speed_mean_{12,50}`) to the reference DFL scale. Compute the median and IQR of `log1p` of positive, finite values, at 5 Hz. Pool the original masked and stress views of the DFL training matches and pool the observed SkillCorner training halves separately. Apply the DFL-to-SkillCorner IQR ratio clipped to [0.5, 2] and align the medians in log space, then invert and floor at zero. Leave zero and missing values unchanged. Skip a feature if either domain has no valid IQR. The DFL heads are frozen.
+2. **Matched corruption.** Refit with the original clean DFL view and two matched views replacing masked and stress. For each matched view, draw independent 60 s contiguous windows uniformly over donor halves, then uniformly over their valid starting frames, from the unlabelled SkillCorner training set. Replay the ball visibility and both visible player counts jointly. Cap counts at the number of DFL players available in each frame, keeping players by a random priority order fixed per view. Add Gaussian coordinate noise with standard deviation 0.2 m. Use NumPy default RNG with seed `810000 + 100 × DFL match index + 10 × half index + view index`, with zero-based indices and the existing training order. This matches missingness and co-visibility, with simplified player identities and window edges.
+3. **Self-training at 0.90 confidence.** On observed SkillCorner training tracking at 5 Hz, use the frozen reference to pseudo-label live/dead when either binary probability reaches 0.90. For ownership also require a pseudo-live frame and the same confidence on one team. Fit a student once on the original DFL clean, masked and stress views plus those pseudo-labels. DFL contributes 75% of the total head weight, shared equally over matches and classes as in the reference. SkillCorner contributes 25%, equally over its two pseudo-classes and uniformly within each class. If a pseudo-class is absent, the setting is ineligible. The student replaces both heads.
+4. **Self-training at 0.97 confidence.** Use the same rule at 0.97.
+
+**Selection and confirmation.** Compare each setting with the DFL-only reference on the four established SkillCorner development matches. Compute each match's spellF1 over both halves, then average the matches equally. Use the N = 3 s controlled-possession target as primary. A setting is eligible if its primary mean gain is at least +0.010, no match loses more than 0.020 on primary, and mean spellF1 for each of N = 1.75, 4 and 4.5 s drops by no more than 0.010. Report raw provider scores. Rank eligible settings by primary spellF1, then by mean primary macroF1, then by the grid order above. Freeze the one winner and run it and the reference once on the four established SkillCorner confirmation matches with the same gates. A development failure ends the trial without scoring confirmation. The confirmation matches have been used in earlier stages, so the result is weaker than confirmation on fresh matches. A pass would demonstrate transfer against the DFL-only reference on this proxy. D3 remains the submission, and any application to the challenge tracking depends on written organiser permission.
+
+**Outcome (added after confirmation, 2026-11-11).** Self-training at 0.90 confidence ranked first on development and passed the single holdout confirmation.
+
+| Development setting | N = 3 spellF1 | Gain | Raw spellF1 | Passed |
+|---|---:|---:|---:|---|
+| DFL-only reference | 0.49679 | — | 0.45179 | — |
+| Speed alignment | 0.49912 | +0.00233 | 0.45652 | No |
+| Matched corruption | 0.50771 | +0.01092 | 0.45853 | Yes |
+| Self-training at 0.90 | 0.58298 | +0.08619 | 0.52692 | Yes |
+| Self-training at 0.97 | 0.57876 | +0.08197 | 0.52099 | Yes |
+
+On confirmation, N = 3 spellF1 rose from **0.49322 to 0.57614 (+0.08292)**. All four matches improved, with gains from +0.06557 to +0.09762. The gains at N = 1.75, 4 and 4.5 were +0.08507, +0.08136 and +0.08221. Raw spellF1 rose from 0.44016 to 0.52152. The confirmation matches had been used in earlier stages. All variants shared the D1/D3 decoder settings. D3 is the active submission.
+
+[Fitting record](dfl_submission/adaptation_recipe/fit.json) · [Development scores](dfl_submission/adaptation_recipe/development.json) · [Confirmation scores](dfl_submission/adaptation_recipe/external_validation.json)
+
+## D6 — Label-free ownership adaptation of the DFL + SkillCorner ensemble (2026-11-11, written before fitting or scoring)
+
+**Reference and split.** Use the verified D3 ensemble, whose original and augmented model sets were both fit on DFL and the 2024–25 SkillCorner release. Use the nine independent 2019–20 SkillCorner matches at revision `1b99d401ddc82e366c5c20d6860878668fd5858f` (MIT) as the target proxy. Sort by numeric match ID and use the first five (2068, 2269, 2417, 2440, 2841) for development and the last four (3442, 3518, 3749, 4039) for one confirmation. For each match fit one student from its two tracking halves and score on those same halves after fitting, matching the proposed single-match use. The labels stay outside the adaptation code and are read only after prediction. The confirmation matches are fresh to this trial, and the within-match result measures transductive adaptation.
+
+**Inputs and targets.** Keep tracked observations associated with roster player IDs or the ball ID, use the metadata pitch, and apply the existing 25 Hz interpolation and five-metre outlier limit. Use provider home and away possession where supplied. Mark null or unrecognised ownership as X and exclude it from scoring. The legacy release supplies no usable dead-ball target, and ownership gaps split scoring runs. Report the share of the 25 Hz timeline with an H/A target for each match.
+
+**Fit.** At 5 Hz take pseudo-ownership from frozen D3 where its stoppage probability is at most 0.10 and one team has ownership probability of at least 0.90. If either team has zero examples across both halves, use D3 for every setting on that match and record the fallback. Continue the original D3 long-context ownership XGBoost checkpoint for 40 rounds with its original training parameters. Mix pseudo-labels with replay from the original long-context training views on the pinned DFL and 2024–25 SkillCorner fitting matches. Use the replay ownership targets at frame offsets divisible by 25 in each half. Give replay 75% of the weight, shared equally by dataset, match within dataset and team within match, as in the long-context fit. Give pseudo-labels 25%, shared equally by team. Mirror every row with the team features and label swapped, as in the original fit.
+
+**Grid.** Compute the continued tree's change in symmetric home-ownership probability from the original tree at 5 Hz, interpolate the change back to 25 Hz, and add it to D3's final home-ownership probability. Try multipliers 0.25, 0.5 and 1.0 in that order, clipping the resulting probability to [0, 1]. Use the same fitted student for all three. D3 is the reference with multiplier zero. Keep its stoppage and boundary signals and joint decoder fixed.
+
+**Selection and confirmation.** Compute spellF1 per match over the two halves, then average the matches equally. Primary is N = 3 s. A setting qualifies if mean primary spellF1 improves by at least 0.005, no match loses more than 0.020 primary spellF1, and mean spellF1 at N = 1.75, 4 and 4.5 s each drops by at most 0.010. Report raw provider scores. Rank eligible settings by primary spellF1, then mean primary H/A macroF1, then grid order. If no setting qualifies, stop after development. Otherwise freeze the winner, evaluate it and D3 once on confirmation, and apply the same gates. Both phases run with the external-only guard. D3 remains the submission. Applying adaptation to the challenge requires written organiser permission and a passed D6 confirmation.
+
+**Outcome (added after development scoring, 2026-11-11).** All five development matches supplied pseudo-labels for both teams, so each fit used its own student. Provider H/A targets covered 59.8%–72.0% of the evaluated timelines.
+
+| Ownership adjustment multiplier | N = 3 spellF1 | Gain vs. D3 | Raw spellF1 | Passed |
+|---|---:|---:|---:|---|
+| 0 (D3) | 0.62374 | — | 0.54793 | — |
+| 0.25 | 0.62431 | +0.00056 | 0.54852 | No |
+| 0.5 | 0.62429 | +0.00055 | 0.54825 | No |
+| 1.0 | 0.62272 | −0.00102 | 0.54698 | No |
+
+Every multiplier satisfied the per-match and alternate-convention loss limits. None reached the required +0.005 mean primary gain. Development selected no setting and the four confirmation matches went unscored. All adaptation ran on external data. D3 remains the submission.
+
+[Per-match scores, pseudo-label counts and input hashes](dfl_submission/competition_adaptation_recipe/development.json)

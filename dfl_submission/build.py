@@ -39,7 +39,7 @@ def dfl_labels(folder):
 METADATA_PITCH = (105.0, 68.0)
 
 
-def tactical_halves(decode_half, *, centered=False, pitch=None):
+def tactical_tracking_halves(*, centered=False, pitch=None):
     from broadcast_alignment import PITCH, load_source
 
     source = load_source("tactical")
@@ -57,13 +57,26 @@ def tactical_halves(decode_half, *, centered=False, pitch=None):
     if centered:
         positions, ball = positions - pitch / 2, ball - pitch / 2
 
-    labels = np.full(source_frames(), "X", dtype="<U1")
-    classes = np.array(pm.LABELS)
     for half, first, last in half_video_blocks(GAME):
         span = slice(first, last + 1)
-        print(f"Predicting tactical half {half}", flush=True)
-        labels[span] = classes[decode_half(positions[span], ball[span], source["teams"], pitch)]
+        yield half, span, (positions[span], ball[span], source["teams"], pitch)
+
+
+def tactical_labels(decoded):
+    labels = np.full(source_frames(), "X", dtype="<U1")
+    classes = np.array(pm.LABELS)
+    for span, codes in decoded:
+        labels[span] = classes[codes]
     return labels
+
+
+def tactical_halves(decode_half, *, centered=False, pitch=None):
+    def decoded():
+        for half, span, tracking in tactical_tracking_halves(centered=centered, pitch=pitch):
+            print(f"Predicting tactical half {half}", flush=True)
+            yield span, decode_half(*tracking)
+
+    return tactical_labels(decoded())
 
 
 def write_csv(output, labels):

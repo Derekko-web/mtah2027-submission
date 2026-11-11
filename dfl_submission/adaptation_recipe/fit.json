@@ -1,0 +1,92 @@
+{
+  "alignment": {
+    "speed_12_0": {
+      "scale": 1.4455932174584345,
+      "source_median": 1.1412013672155679,
+      "target_median": 1.7794329885442077
+    },
+    "speed_12_1": {
+      "scale": 1.4417302512758086,
+      "source_median": 1.1422482371737128,
+      "target_median": 1.7794639646211792
+    },
+    "speed_30_0": {
+      "scale": 1.9595661895334018,
+      "source_median": 1.0834166879861606,
+      "target_median": 1.8067715365565582
+    },
+    "speed_30_1": {
+      "scale": 1.9595661895334018,
+      "source_median": 1.0834166879861606,
+      "target_median": 1.8067715365565582
+    },
+    "speed_3_0": {
+      "scale": 0.8800361055782264,
+      "source_median": 1.792244851111118,
+      "target_median": 1.773457416384796
+    },
+    "speed_3_1": {
+      "scale": 0.8875568474559209,
+      "source_median": 1.7955076874399714,
+      "target_median": 1.7734417542235434
+    },
+    "speed_mean_12": {
+      "scale": 1.6726257652682277,
+      "source_median": 1.3881684812395492,
+      "target_median": 1.8323900239160857
+    },
+    "speed_mean_50": {
+      "scale": 2.0,
+      "source_median": 1.5374068433846808,
+      "target_median": 1.9279930746744314
+    }
+  },
+  "dfl_manifest_sha256": "230760f76b9a6f9d38f92c292fa26910fba25f1a44e8022ad85922491308f943",
+  "protocol": "DECISIONS.md D5",
+  "reference": {
+    "dead.ubj": "e8c41646384d16135ec3363251ffd77f1eca6e43b19323bb599090f873d01ef5",
+    "ownership.ubj": "f9f132ae313350756b34ad6a36874cfb267d7f8106e15faa8110531de6551481"
+  },
+  "settings": {
+    "matched_corruption": {
+      "models": {
+        "dead.ubj": "b509059fbd13778d9003533578cb3a7094e8284bb07acf59708c89684f737dcb",
+        "ownership.ubj": "29a90f55c0c7eede8128531f69a1f54fad30f72c3b635b3e401a589efb307e37"
+      },
+      "pseudo_class_counts": {}
+    },
+    "self_training_90": {
+      "models": {
+        "dead.ubj": "c7468dc426fe86ca30659a219a2d1a36609a4b4f8b5ebe22728d279ca1444a17",
+        "ownership.ubj": "5f727adda78f3e08b2155748abd70dd581a973d8e9a941e2a4513cab7166d391"
+      },
+      "pseudo_class_counts": {
+        "dead.ubj": [
+          203508,
+          21358
+        ],
+        "ownership.ubj": [
+          54036,
+          54857
+        ]
+      }
+    },
+    "self_training_97": {
+      "models": {
+        "dead.ubj": "7085ccbea7544e8b5b29da79d8e93be0c8d40ca1f8864acce8129f2b987ee788",
+        "ownership.ubj": "3ef587f008d5ccd42f3b4ce7949bf12b56f693b5f8946460f00d1f3587390c95"
+      },
+      "pseudo_class_counts": {
+        "dead.ubj": [
+          194230,
+          11527
+        ],
+        "ownership.ubj": [
+          24223,
+          23466
+        ]
+      }
+    }
+  },
+  "skill_manifest_sha256": "21f02036ba5b9cf9e16c44bf9eefefc0c717ecf5f6bb95938981f4a7f720f3e5"
+}

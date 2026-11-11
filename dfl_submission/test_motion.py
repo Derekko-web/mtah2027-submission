@@ -5,7 +5,7 @@ import unittest
 
 import numpy as np
 
-from dfl_submission import joint_decoder, motion_features
+from dfl_submission import joint_decoder, motion_features, restarts
 
 
 class MotionTests(unittest.TestCase):
@@ -14,15 +14,33 @@ class MotionTests(unittest.TestCase):
         dead_cost = np.array([0., .6, .1, .4])
         owner_cost = np.array([0., .1, .8, .2])
 
-        def objective(path):
-            value = emissions[np.arange(len(path)), path].sum()
-            for i in range(1, len(path)):
-                if path[i] != path[i - 1]:
-                    value -= dead_cost[i] if 2 in (path[i], path[i - 1]) else owner_cost[i]
-            return value
+        for restart_cost in (dead_cost, np.array([0., 0., 0., 0.])):
+            with self.subTest(restart_cost=restart_cost):
+                def objective(path):
+                    value = emissions[np.arange(len(path)), path].sum()
+                    for i in range(1, len(path)):
+                        if path[i] == path[i - 1]:
+                            continue
+                        if path[i - 1] == 2:
+                            value -= restart_cost[i]
+                        elif path[i] == 2:
+                            value -= dead_cost[i]
+                        else:
+                            value -= owner_cost[i]
+                    return value
 
-        best = max(objective(np.asarray(path)) for path in product(range(3), repeat=len(emissions)))
-        self.assertAlmostEqual(objective(joint_decoder.path(emissions, dead_cost, owner_cost)), best)
+                best = max(objective(np.asarray(path)) for path in product(range(3), repeat=len(emissions)))
+                decoded = joint_decoder.path(emissions, dead_cost, owner_cost, restart_cost)
+                self.assertAlmostEqual(objective(decoded), best)
+
+    def test_restart_evidence_stays_local_to_each_half(self):
+        args = dict(method="evidence", seconds=2, strength=1)
+        bias, discount = restarts.decoder_adjustment(151, [75], **args)
+        np.testing.assert_array_equal(bias[[4, 5, 10, 15, 20, 25, 26]], [0, 0, 1, 0, -1, 0, 0])
+        self.assertFalse(discount.any())
+        bias, _ = restarts.decoder_adjustment(101, [0], **args)
+        self.assertFalse((bias > 0).any())
+        self.assertIsNone(restarts.decoder_adjustment(101, [], **args))
 
     def test_player_tensors_follow_team_swap_and_player_permutation(self):
         rng = np.random.default_rng(13)

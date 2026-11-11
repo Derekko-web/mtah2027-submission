@@ -25,6 +25,7 @@ class Half:
     ball: np.ndarray
     teams: np.ndarray
     pitch: np.ndarray
+    start_time: float | None = None
 
     @property
     def key(self):
@@ -33,19 +34,34 @@ class Half:
 
 def halves(dfl, skill, split, *, raw=False):
     dfl_matches = {"train": TRAIN, "development": (DEVELOPMENT,), "holdout": HOLDOUT}[split]
-    skill_matches = {"train": skillcorner.TRAIN, "development": skillcorner.DEVELOPMENT,
-                     "holdout": skillcorner.HOLDOUT}[split]
     for match in dfl_matches:
         index = (*TRAIN, DEVELOPMENT, *HOLDOUT).index(match)
         source = fusion_trial.external_halves(dfl, match, raw=raw)
         for i, name in enumerate(SECTIONS):
             item = source[name]
             labels = pm.label_codes(item["labels"])
+            start_time = None
+            if raw:
+                timestamps = item["timestamps"]
+                first = np.flatnonzero(np.isfinite(timestamps))[0]
+                start_time = float(timestamps[first] - first / 25)
             for view, positions, ball in views(item, index, i):
-                yield Half("dfl", match, view, i, labels, positions, ball, item["teams"], item["pitch"])
+                yield Half("dfl", match, view, i, labels, positions, ball, item["teams"], item["pitch"], start_time)
             if split == "train":
                 positions, ball = stress(item["positions"], item["ball"], 370000 + 100 * index + i)
                 yield Half("dfl", match, "stress", i, labels, positions, ball, item["teams"], item["pitch"])
+    if skill is None:
+        return
+    for match, i, path in skillcorner_paths(skill, split):
+        with np.load(path, allow_pickle=False) as item:
+            labels = pm.label_codes(item["labels"])
+            yield Half("skillcorner", str(match), "observed", i, labels, item["positions"],
+                       item["ball"], item["teams"], item["pitch"])
+
+
+def skillcorner_paths(skill, split):
+    skill_matches = {"train": skillcorner.TRAIN, "development": skillcorner.DEVELOPMENT,
+                     "holdout": skillcorner.HOLDOUT}[split]
     manifest = json.loads((skill / "manifest.json").read_text())
     if manifest["revision"] != skillcorner.REVISION:
         raise ValueError("SkillCorner revision differs")
@@ -55,10 +71,7 @@ def halves(dfl, skill, split, *, raw=False):
             path = skill / name
             if skillcorner.identity(path) != tuple(manifest["parsed"][name]):
                 raise ValueError(f"SkillCorner input identity differs: {name}")
-            with np.load(path, allow_pickle=False) as item:
-                labels = pm.label_codes(item["labels"])
-                yield Half("skillcorner", str(match), "observed", i, labels, item["positions"],
-                           item["ball"], item["teams"], item["pitch"])
+            yield match, i, path
 
 
 def reference(folder):

@@ -64,10 +64,8 @@ def predictions(dfl, skill, split, reference, checkpoints, *, raw=False):
     return matches
 
 
-def decode(predicted, previous, recipe):
+def blend_signals(predicted, previous, recipe):
     baseline, candidates = predicted
-    if recipe["method"] == "reference":
-        return temporal_trial.decode(baseline, previous)
     trees, neural = baseline
     old_home, old_dead, dead_edge, owner_edge = neural[previous["variant"]]
     old_home = context_trial.blend(trees[0], old_home, previous["owner_mix"])
@@ -78,9 +76,20 @@ def decode(predicted, previous, recipe):
         old_dead = context_trial.blend(old_dead, dead, recipe["dead_mix"])
         dead_edge = context_trial.blend(dead_edge, de, recipe["dead_mix"])
         owner_edge = context_trial.blend(owner_edge, oe, recipe["owner_mix"])
+    return old_home, old_dead, dead_edge, owner_edge
+
+
+def decode(predicted, previous, recipe, *, restart=None):
+    if restart is not None and recipe["method"] != "joint":
+        raise ValueError("Restart anchors require the joint decoder")
+    if recipe["method"] == "reference":
+        return temporal_trial.decode(predicted[0], previous)
+    signals = blend_signals(predicted, previous, recipe)
     decoder = joint_decoder if recipe["method"] == "joint" else adaptive_decoder
-    return decoder.decode(old_home, old_dead, dead_edge, owner_edge, cutoff=recipe["cutoff"],
-                          dead_cost=recipe["dead_cost"], owner_cost=recipe["owner_cost"], discount=recipe["discount"])
+    extra = {} if restart is None else {"restart": restart}
+    return decoder.decode(*signals, cutoff=recipe["cutoff"],
+                          dead_cost=recipe["dead_cost"], owner_cost=recipe["owner_cost"], discount=recipe["discount"],
+                          **extra)
 
 
 def scores(matches, previous, recipe):

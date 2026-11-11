@@ -60,14 +60,18 @@ def fetch_match(folder, match):
     return paths
 
 
-def at_25hz(xy, labels):
+def sample_25hz(length):
+    numerator = np.arange(((length - 1) * 5) // 2 + 1) * 2
+    return divmod(numerator, 5)
+
+
+def at_25hz(xy, labels=None):
     """Resample 10 Hz observations without filling a missing native observation."""
-    numerator = np.arange(((len(labels) - 1) * 5) // 2 + 1) * 2
-    left, fraction = divmod(numerator, 5)
-    right = np.minimum(left + 1, len(labels) - 1)
+    left, fraction = sample_25hz(len(xy))
+    right = np.minimum(left + 1, len(xy) - 1)
     weight = (fraction / 5).reshape((-1,) + (1,) * (xy.ndim - 1))
     interpolated = np.where(weight == 0, xy[left], xy[left] * (1 - weight) + xy[right] * weight)
-    return interpolated.astype(np.float32), labels[left]
+    return interpolated.astype(np.float32), None if labels is None else labels[left]
 
 
 def parse_match(paths):

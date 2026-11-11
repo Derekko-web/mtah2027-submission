@@ -7,13 +7,15 @@ from dfl_submission.adaptive_decoder import STRIDE
 from dfl_submission.decoder import centered_mean
 
 
-def path(evidence, dead_cost, owner_cost):
+def path(evidence, dead_cost, owner_cost, restart_cost=None):
+    if restart_cost is None:
+        restart_cost = dead_cost
     back = np.empty((len(evidence), 3), dtype=np.uint8)
     h, a, d = evidence[0]
     for i, (observed_h, observed_a, observed_d) in enumerate(evidence[1:], 1):
-        oc, dc = owner_cost[i], dead_cost[i]
-        h_from_a, h_from_d = a - oc, d - dc
-        a_from_h, a_from_d = h - oc, d - dc
+        oc, dc, rc = owner_cost[i], dead_cost[i], restart_cost[i]
+        h_from_a, h_from_d = a - oc, d - rc
+        a_from_h, a_from_d = h - oc, d - rc
         d_from_h, d_from_a = h - dc, a - dc
         best_h = max(h, h_from_a, h_from_d)
         best_a = max(a_from_h, a, a_from_d)
@@ -29,7 +31,7 @@ def path(evidence, dead_cost, owner_cost):
     return labels
 
 
-def decode(home, dead, dead_edge, owner_edge, *, cutoff, dead_cost, owner_cost, discount):
+def decode(home, dead, dead_edge, owner_edge, *, cutoff, dead_cost, owner_cost, discount, restart=None):
     starts = np.arange(0, len(home), STRIDE)
 
     def evidence(values):
@@ -38,7 +40,12 @@ def decode(home, dead, dead_edge, owner_edge, *, cutoff, dead_cost, owner_cost, 
 
     ownership = evidence(home)
     stoppage = evidence(dead) - logit(cutoff)
+    dead_steps, owner_steps = (base * (1 - discount * np.maximum.reduceat(edge, starts))
+                               for base, edge in ((dead_cost, dead_edge), (owner_cost, owner_edge)))
+    restart_steps = None
+    if restart is not None:
+        stoppage_bias, restart_discount = restart
+        stoppage = stoppage + stoppage_bias
+        restart_steps = dead_steps * (1 - restart_discount)
     emissions = np.column_stack((np.minimum(ownership, 0), np.minimum(-ownership, 0), stoppage))
-    costs = (base * (1 - discount * np.maximum.reduceat(edge, starts))
-             for base, edge in ((dead_cost, dead_edge), (owner_cost, owner_edge)))
-    return np.repeat(path(emissions, *costs), STRIDE)[:len(home)]
+    return np.repeat(path(emissions, dead_steps, owner_steps, restart_steps), STRIDE)[:len(home)]
