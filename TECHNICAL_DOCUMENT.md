@@ -112,6 +112,20 @@ These are combined holdout spellF1 scores.
 
 The decoder retune improved all eight holdout match views on the primary target. The blend trades 0.005 on views that still contain the provider dead-ball artifacts for +0.062 when the dead ball moves (section 5).
 
+### Experiments that did not change the submission
+
+Each followed a rule written before scoring, and each outcome is recorded in [DECISIONS.md](DECISIONS.md) whether it passed or failed. Scores are spellF1 against the N = 3 targets.
+
+| Decision | What was tested | Result | Effect on the submission |
+|---|---|---|---|
+| D4 | Set-piece restart timestamps as decoder evidence. The tags were simulated from the DFL event feed with missing, late and spurious tags. | Best of ten settings: 0.61376 against D3's 0.61382 on development. A gain of +0.003 was required. | None. The build does not read Smart Tagging. |
+| D5 | Label-free transfer: DFL-only heads adapted to unlabelled SkillCorner tracking, by speed alignment, matched corruption or self-training on confident pseudo-labels. | Self-training at 0.90 confidence passed. On the four confirmation matches it raised spellF1 from 0.493 to 0.576 over the DFL-only reference. | None. It shows that label-free adaptation transfers across tracking providers on external data. Applying it to the provided game awaits the organisers' answer (section 8). |
+| D6 | The same idea applied to the submitted ensemble, adapted separately for each of five SkillCorner 2019–20 development matches. | Best setting +0.0006, against a required +0.005. Confirmation was not scored. | None. |
+
+### The one correctness check
+
+The public 5-minute window is used once, on the final file, under a procedure fixed in advance (DECISIONS.md C1). The check confirms that the file is well formed, that frames and halves are aligned, and that home and away are not swapped. It cannot choose between versions. A failure may only lead to a pipeline fix, never to a change of model or setting.
+
 ## 5. Dead-ball artifacts and the retrained model set
 
 Both providers mark dead ball in a way automatic tracking will not:
@@ -163,7 +177,7 @@ D3 was a second attempt on the same development matches, made after seeing the D
 **Dropped:**
 - **Tactical and broadcast video.** Ball detectors and locally run vision models were explored during earlier research and dropped. The submitted pipeline does not read the video.
 - **Broadcast ATD.** A camera-alignment prototype failed its external checks.
-- **Smart Tagging.** There is no external data to tune rules that read it.
+- **Smart Tagging.** No external data matches its format. D4 tested restart timestamps simulated from DFL events, and no setting improved on D3 (section 4).
 - **The public 5-minute ground truth.** The rules forbid training or tuning on it.
 
 **Development history.** Before the organisers' clarification of 3 November, part of our research trained and tuned models on the public 5-minute window. That included a TabPFN-based pipeline, described in an earlier, now archived repository. We also ran a short hand-annotation pilot on the provided game on 24 October; it was rejected and never used. None of that work, its models, thresholds or outputs is used in this submission. The earlier research repository is available to the organisers on request. Some feature formulas were first written during that period; they were re-implemented and fitted on external data only. During development we used hosted coding assistants in a workspace that contained the match data. Match data is now kept out of any AI tool's reach, and competition builds are run locally.
@@ -180,6 +194,7 @@ Two items we are disclosing:
 - **Short possessions.** Possessions of a second or two are hard to recover from noisy tracking. The decoder can merge them, or shift boundaries by a few frames.
 - **Identity errors.** Only cross-team swaps were simulated. Fragmented tracks and duplicate tracks are handled only through dropout in the degraded views.
 - **Holdout reuse.** The confirmation matches were reused across decisions, which makes the gains optimistic.
+- **No adaptation to the provided game.** D5 showed on external data that label-free adaptation helps across tracking providers. RULES.md allows learning without human labels on the provided game, but the organisers' 3 November clarification requires external data for all training. We asked on 11 November which applies. Until we have a written answer, nothing is fitted on the provided tracking.
 
 What we would do with more time:
 - train on more and noisier external tracking;

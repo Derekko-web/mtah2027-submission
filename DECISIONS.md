@@ -207,3 +207,63 @@ On confirmation, N = 3 spellF1 rose from **0.49322 to 0.57614 (+0.08292)**. All 
 Every multiplier satisfied the per-match and alternate-convention loss limits. None reached the required +0.005 mean primary gain. Development selected no setting and the four confirmation matches went unscored. All adaptation ran on external data. D3 remains the submission.
 
 [Per-match scores, pseudo-label counts and input hashes](dfl_submission/competition_adaptation_recipe/development.json)
+
+## C1 — The one correctness check on the public window (2026-11-11, written before any check is run)
+
+**Purpose.** RULES.md allows the public 5-minute window only for checking that the pipeline is correct: frames aligned, file well-formed, labels meaning what we think. This record fixes the only time we will score against it. It cannot choose between versions, files, models or settings.
+
+**When and who.** Derek runs it once, on the final frozen file, after the last rebuild matches `SUBMISSION_SHA256.txt` and before the final form edit. It runs in a fresh clone of the organisers' challenge repository, outside this repository. No AI tool sees the file, the window or the scores.
+
+**Procedure.**
+
+1. `python evaluation/validate_submission.py <team_name>.csv` in the organisers' clone.
+2. Copy `<team_name>.csv` into the clone's `evaluation/results/`. Next to it, write `swap_check.csv`, the same file with every `H` and `A` exchanged:
+   `awk -F, 'NR==1{print;next}{l=$2; if(l=="H")l="A"; else if(l=="A")l="H"; print $1","l}' <team_name>.csv > evaluation/results/swap_check.csv`
+3. `python evaluation/run_evaluation.py`, which scores everything in `evaluation/results/` against the public window by default.
+
+**Pass.** All three must hold:
+- the validator accepts the file;
+- the submission's public spellF1 is at least 0.25 and its macroF1 at least 0.50;
+- `swap_check.csv` scores lower than the submission on both metrics.
+
+These are floors that only a broken pipeline should miss, not targets. A team-orientation error fails the swap test, a frame offset or wrong half span fails the floors, and a malformed file fails the validator. The spellF1 floor sits below the organisers' smooth50 baseline on the same window (0.3256).
+
+**Reporting.** Derek reports PASS, or FAIL with the name of the failed criterion (validator, floors or swap). No number, count or label from the check is written to this repository or shown to an AI tool.
+
+**After a fail.** Only a pipeline fix is allowed: team orientation, frame offset or half spans. The defect must be found in the code or in the documented data format, never by trying variants against the window. Models, recipes, thresholds and decoder settings do not change. After a fix, the file is rebuilt twice, its SHA is updated, and the check runs once more under the same rule. If that second run also fails, nothing further is changed, the validated file that matches `SUBMISSION_SHA256.txt` is submitted, and both runs are disclosed in the technical document.
+
+**Outcome.** *(Added after the check: PASS or FAIL, the date, and the SHA-256 of the file checked.)*
+
+## D7 — Unseen-vendor benchmark on PFF World Cup tracking (2026-11-11, written before any PFF data is read or scored)
+
+**Question.** How does the frozen D3 submission score on tracking from a vendor that none of its models has seen? The competition match is tracked by Metrica, and every score we have so far is on DFL or SkillCorner, the two vendors the models were trained on. D7 is a measurement only. It changes nothing in the submission and serves as the reference for D8–D10.
+
+**Data.** PFF FC's 2022 FIFA World Cup release: broadcast tracking, metadata and rosters for 64 matches. Before anything is parsed, the licence terms and the access date are saved to `rules/PFF_TERMS.md`. If the terms do not allow this use, D7–D10 stop and D3 ships unchanged. File sizes and SHA-256 hashes are pinned in `dfl_submission/pff_sources.json` (`python -m dfl_submission.pff pin`), and every later step checks them.
+
+**Reader** (`dfl_submission/pff.py`, modelled on `skillcorner_2020.py`):
+- periods 1 and 2 only;
+- unsmoothed `homePlayers`, `awayPlayers` and `balls` points, kept only where the vendor marks them `VISIBLE`. Estimated points are dropped, so the input resembles detection-only tracking. A frame with two visible balls has no ball;
+- native 29.97 fps resampled by time to the 25 Hz grid, without filling a missing native point;
+- points more than 5 m outside the metadata pitch discarded;
+- players identified by team and shirt number from the roster. An unrostered visible shirt number is an error, not a silent drop. Home and away come from the metadata team ids.
+
+**Labels** (from the vendor's game events, carried forward from each event's `start_frame` within a period):
+- `FIRSTKICKOFF`, `SECONDKICKOFF` and `OTB` (on-the-ball) events start live play, owned by the home team when `home_ball` is true and by the away team when it is false. A missing `home_ball` keeps the previous team;
+- `OUT` starts a dead ball (`D`);
+- `END` and missing video (`VID`) make the following frames `X`;
+- other events (substitutions, ball staying in play, players on or off) change nothing;
+- frames before the period's kick-off, or without a vendor tracking frame, are `X`.
+
+The event names were taken from the open-source kloppy PFF reader and checked against its public PFF sample files. Once the data is downloaded, this mapping is checked against PFF's own data specification. If the specification disagrees, this record is amended before any score is computed, the sanity gate included. In particular, if fouls or offsides stop play without an `OUT` event, those stoppages remain live in the targets. The amendment then says so, and the D targets are a known underestimate.
+
+**Split.** Sort the 64 numeric game ids and deal them in turn to eight slots: development, confirmation A, confirmation B, confirmation C, training, training, training, untouched (`pff.split`). That gives 8 development, three confirmation sets of 8, 24 training and 8 untouched matches. Dealing in turn rather than in blocks keeps each set spread across group and knockout games, because the ids follow the tournament order. Both halves of a match stay together.
+
+**Reader sanity gate.** On the 8 development matches, the organisers' smooth50 baseline (nearest visible player to the visible ball, then a ±50-frame majority vote) must score a mean raw spellF1 between 0.15 and 0.40 inclusive. It scores 0.25–0.26 on DFL and SkillCorner. The gate checks alignment, team orientation and labels without using our models. If it fails, only the reader may be fixed, using reader-level evidence (label shares, visibility, event timing), and the gate is run again. Every attempt is recorded here. D3 is not scored until the gate passes.
+
+**Measurement.** `python -m dfl_submission.vendor_trial measure` scores frozen D3 (D1 costs, D3 blend, cutoff 0.53) on the 8 development matches: spellF1 and macroF1 over both halves of each match, averaged equally over matches, against the raw labels and the N = 1.75, 3, 4 and 4.5 s targets. Nothing is selected. The record goes to `dfl_submission/vendor_recipe/d7_measurement.json`, which is written once. The confirmation sets, training and untouched matches are not scored in D7.
+
+**What follows from it.** D9 is triggered only if D3's mean N = 3 spellF1 here is more than 0.04 below its 0.664 on the four SkillCorner holdout matches, that is, below 0.624. D8 uses this measurement as its reference.
+
+Every D7 command runs with `MTAH_DATA_DIR` set to a nonexistent path.
+
+**Outcome.** *(Added after the sanity gate and the measurement.)*

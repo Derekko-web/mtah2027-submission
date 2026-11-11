@@ -16,6 +16,10 @@ The submission build loads two sets of the same three model groups, and averages
 
 The DFL and SkillCorner reference heads in `models/`, `robust_models/`, `skillcorner_models/` and `fusion_recipe/` are never loaded at inference. They are read only when you re-run the context-stage tune or confirm audit, through `external_benchmark.reference`. The context stage itself selected `owner_mix = dead_mix = 1`, which gives the reference heads zero weight.
 
+**Disclosed lineage of the reference-head settings.** The XGBoost settings in `experiments/dfl_transfer_teacher.PARAMS` match an earlier model of ours that was trained on the public 5-minute window, before the organisers' 3 November clarification. Only heads the build never loads use them: the DFL-only, SkillCorner and fusion reference heads (through `train.py`, `robust.py` and `skillcorner_trial.py`) and the D5 students, which were fitted with the robust-head settings. The submitted heads use `long_context.TREE_PARAMS`, which were hand-set on Nov 10 and never searched.
+
+The context stage's island-suppression settings (`island_frames`, `island_confidence` in `context_trial.py`) are not on the joint-decoder path that produces the submission, so they are not listed below.
+
 ## Inference inputs
 
 | Constant | Value | Where | Source |

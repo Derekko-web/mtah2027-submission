@@ -190,6 +190,17 @@ The legacy JSON files are downloaded on demand and checked against the pinned Gi
 
 The best D6 setting scored 0.62431 spellF1 against the N = 3 targets over five development matches, up from D3's 0.62374. The +0.00056 gain missed the +0.005 gate, so the four confirmation matches went unscored. [Development scores](dfl_submission/competition_adaptation_recipe/development.json)
 
+D7 measures frozen D3 on PFF FC's 2022 World Cup broadcast tracking, from a vendor none of the models has seen. PFF distributes the data on request under its own terms, so it is not fetched automatically. Put the `Metadata/`, `Rosters/` and `Tracking Data/` folders in one directory. `pin` records their hashes in `dfl_submission/pff_sources.json`. `prepare` checks the files against those hashes and writes 25 Hz halves. `sanity` checks the reader with the organisers' smooth50 baseline. `measure` then scores D3 once on the eight development matches. Keep `MTAH_DATA_DIR` set to a nonexistent path.
+
+```sh
+.venv/bin/python -m dfl_submission.pff pin --raw data/pff/raw
+.venv/bin/python -m dfl_submission.pff prepare --raw data/pff/raw --out data/pff/parsed
+.venv/bin/python -m dfl_submission.vendor_trial sanity --parsed data/pff/parsed
+.venv/bin/python -m dfl_submission.vendor_trial measure --parsed data/pff/parsed
+```
+
+[D7 protocol](DECISIONS.md#d7--unseen-vendor-benchmark-on-pff-world-cup-tracking-2026-11-11-written-before-any-pff-data-is-read-or-scored)
+
 The earlier stages have their own `train`/`tune`/`confirm` commands, which are subject to the same guard:
 - the extended-context XGBoost model (`long_context`)
 - the first temporal network and context stages (`temporal_trial`, `context_trial`)
