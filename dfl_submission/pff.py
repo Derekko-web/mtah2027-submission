@@ -21,7 +21,6 @@ import numpy as np
 
 from dfl_submission.external_only import require_external_only
 from dfl_submission.skillcorner import identity
-from dfl_transfer_data import digest
 from evaluation import possession_metrics as pm
 
 
@@ -40,6 +39,11 @@ END_EVENTS = frozenset({"END"})
 MISSING_EVENTS = frozenset({"VID"})
 SPLIT_SIZE = 64
 SPLIT_ORDER = ("development", "confirm_a", "confirm_b", "confirm_c", "train", "train", "train", "untouched")
+
+
+def digest(path):
+    """SHA-256 of a file, the same value as `dfl_transfer_data.digest`."""
+    return identity(path)[1]
 
 
 def sample_points(length, fps):
@@ -159,11 +163,13 @@ def parse(metadata, roster, rows):
     teams = np.array([side for side, _ in keys], dtype=np.int8)
     size = metadata["stadium"]["pitches"][0]
     pitch = np.array([float(size["length"]), float(size["width"])])
+    # The v2.2 specification puts fps in a `videos` dict; released files carry it at the top level.
+    fps = float(metadata["fps"] if "fps" in metadata else metadata["videos"]["fps"])
     periods = {period: _Period() for period in PERIODS}
     for row in rows:
         if row.get("period") in periods:
             periods[row["period"]].add(row, slots)
-    return [periods[period].finish(len(slots), teams, pitch, float(metadata["fps"])) for period in PERIODS]
+    return [periods[period].finish(len(slots), teams, pitch, fps) for period in PERIODS]
 
 
 def files(raw, game):

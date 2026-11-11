@@ -1,0 +1,773 @@
+{
+  "files": {
+    "Metadata/10502.json": [
+      1013,
+      "b4b121e8e81c8c25bfb985e70c11ba43512f33a8d49df643c4aef9b9523e1e46"
+    ],
+    "Metadata/10503.json": [
+      990,
+      "589c3998594bb59dd5dd80c12f45e1d801209085a48b3a7f926d0661b266c460"
+    ],
+    "Metadata/10504.json": [
+      985,
+      "27c93c1fe35b370e130806f8b8a973e012692cd16bed11b0fc9901eda317b3c4"
+    ],
+    "Metadata/10505.json": [
+      983,
+      "ad5df7809235696008727f431161f8ac2bc86ede452a6b1bb32a8adeada26ff7"
+    ],
+    "Metadata/10506.json": [
+      955,
+      "94c37503e2c329f1f33aef3130e508ddb38b2d88d575b7cf280562802513ce11"
+    ],
+    "Metadata/10507.json": [
+      989,
+      "097d70bd7b3dca46d0ad18f3f8c291ca17bbc578a28042bb9cd8351c8ac1aeef"
+    ],
+    "Metadata/10508.json": [
+      960,
+      "8586c7242dde72efb3c60a1a25e00ad56e01278c56e0d4fc98e99a430d6a56c8"
+    ],
+    "Metadata/10509.json": [
+      988,
+      "2b47197f7925e1408d396c49a779986b5aee02ac8c2777bfead34c3de09b9198"
+    ],
+    "Metadata/10510.json": [
+      961,
+      "4ae9d5cde65ec4e26738f9f66f04982e0d9d2e97a0cfbd819425f00ff3e91eaa"
+    ],
+    "Metadata/10511.json": [
+      960,
+      "ce8cb53e1999e862f2949f875e4e036b49fd2099765240376ab577a7553352e6"
+    ],
+    "Metadata/10512.json": [
+      982,
+      "df97043d3ad1d1e3ddbf31589b1312759ee711414297f750b3d7cc5ae1476927"
+    ],
+    "Metadata/10513.json": [
+      982,
+      "d4dda4248b2e88257431faf90d58fe593ec14a31394798e1c5e3f9c8a46a1fc9"
+    ],
+    "Metadata/10514.json": [
+      983,
+      "a84474d6bb7df1f565030c24a55224d7d929be6fcac29be292cb97b875e223c7"
+    ],
+    "Metadata/10515.json": [
+      990,
+      "2e7f76327b64a149edf37bf93d44e76eabf890356ce1d397447bb3992eeb9bb7"
+    ],
+    "Metadata/10516.json": [
+      1004,
+      "d0f3c85fc79d576e47f1ce44de2ea98f9aa7f1ad8ada003422b29546a3836edf"
+    ],
+    "Metadata/10517.json": [
+      955,
+      "9416812b85807dc9c02a2e86e6269a5ef9def47d7ca353c70994626bcc5d417a"
+    ],
+    "Metadata/3812.json": [
+      992,
+      "fc3789d268e7c3e418980e234079f7a595bb30cde7089b30b2d5e91eaae7836c"
+    ],
+    "Metadata/3813.json": [
+      993,
+      "a71afff466ac489108dbd773c260b58a504b86c0a2e12a677077025cd4b46ead"
+    ],
+    "Metadata/3814.json": [
+      987,
+      "0105fe2f7971c19bb9f04e7aa04dcba73f851e2e09778d05f3791089559758b2"
+    ],
+    "Metadata/3815.json": [
+      998,
+      "0da996e2ca7dbc873e43df24cd8ddff94e8c43a70432138c7c27275b7e801de1"
+    ],
+    "Metadata/3816.json": [
+      982,
+      "991040955ce536a7c22c20ff597f360f1402db945e1941320ba66806ed74794d"
+    ],
+    "Metadata/3817.json": [
+      987,
+      "de78e952d80d325109596ddae41c04a7597fd177fd1bedb9086e64eeab04a951"
+    ],
+    "Metadata/3818.json": [
+      983,
+      "5edda42ffd3853d2fdd2ba15e6fff54691b8be230367d9273f116864644d62e3"
+    ],
+    "Metadata/3819.json": [
+      992,
+      "19d6c414653bcf8851dce5962d463e70a4e1421b387751eed9998dca768d5eaf"
+    ],
+    "Metadata/3820.json": [
+      985,
+      "7f5bb9cd1159103a82fbf2b6f9a5dbe9bc28eb9afaa8c58fb5179a4bf606c7c2"
+    ],
+    "Metadata/3821.json": [
+      1001,
+      "9ac48e5e6f8c6c25deb15a8883c16430d516b5760ec3500d32de1a560152ddb7"
+    ],
+    "Metadata/3822.json": [
+      986,
+      "69a78c4e1fbf368bd06f5685182eb85fa4710259be6ae570966fb5b2f152c95e"
+    ],
+    "Metadata/3823.json": [
+      995,
+      "c258c9428e3ec596e4e8c09f21f04e29eb880a0053384bf9b294939951ce4296"
+    ],
+    "Metadata/3824.json": [
+      997,
+      "da7116270916ed18bea8f58756d2bc54cd629d3da3405a98586211b46fd3e316"
+    ],
+    "Metadata/3825.json": [
+      1000,
+      "7697c957c6fa4dbe1a2c9c28c26ae2cc127f24ab320143f7d58d2a016c1b4f18"
+    ],
+    "Metadata/3826.json": [
+      978,
+      "7f5231a80bd845f240b352c90658f6eac64c1349b69de57515b9fe7d4ce59074"
+    ],
+    "Metadata/3827.json": [
+      981,
+      "d52868be3f95526c3aaacbdf08619e4028baf72db99a6585e10246f3281cab80"
+    ],
+    "Metadata/3828.json": [
+      986,
+      "8cf369595a3d2d1cd99d3dd79408c71224fc61a1458a5ff4d46f3cd9da35c962"
+    ],
+    "Metadata/3829.json": [
+      986,
+      "624669a61a4e14efb9c576f877d23ed87dbcf2a40196d22c372ecc984d9525a2"
+    ],
+    "Metadata/3830.json": [
+      1007,
+      "5697de3f4447bbef90c31e1e2ce2cd2fb7b5def214483285e92dce0988e28919"
+    ],
+    "Metadata/3831.json": [
+      987,
+      "05a72fac3fe52bb7ce3d87926f8f9e087aa2ed7599eb0af253bb5005e773b72b"
+    ],
+    "Metadata/3832.json": [
+      985,
+      "cad63a885b0d5f5dac2ac766df1ed1074ff87c802fb37367fb2a0cb25eb87734"
+    ],
+    "Metadata/3833.json": [
+      995,
+      "3b26840fd9bdd6df25833e034f684eb7ff964a26e292ad3d98c03e231293e31f"
+    ],
+    "Metadata/3834.json": [
+      984,
+      "0678a253b5111fe1037c374f0781ae2e096ad562635d0a2f9c4f55c5db356989"
+    ],
+    "Metadata/3835.json": [
+      988,
+      "e5170a0b7b918f519a66031aec7f856738ca9c3320313cb12ccc7910645e7c63"
+    ],
+    "Metadata/3836.json": [
+      995,
+      "bb3d0a42379fa4e65cded6e17969c47a338c3821068a83cf1442123aa5a2d65e"
+    ],
+    "Metadata/3837.json": [
+      985,
+      "0994fa90559465994d788410d44ca6c18cac097a17c34653e571f8649f3b182d"
+    ],
+    "Metadata/3838.json": [
+      995,
+      "2b6c4c6a3581f681a7e5176a58084a7cb433f20a451ac6d018e15e7782793866"
+    ],
+    "Metadata/3839.json": [
+      974,
+      "83456f051fa78f88837704bfd7a0360b405b4c5a5cd303be1924c57b1b87d43a"
+    ],
+    "Metadata/3840.json": [
+      993,
+      "b98faec64855cdb41371fa7368ce24369610cc1eae6d57b0a853a6e4cb1597d6"
+    ],
+    "Metadata/3841.json": [
+      988,
+      "8bdebe6064d825d999004de76692686f436a307cca4db487281a4af765d89eed"
+    ],
+    "Metadata/3842.json": [
+      987,
+      "63ec5ef6852c0900ff27c107756bb4c0e9dc5bb1a46a3c8734e03a9b0b4bef16"
+    ],
+    "Metadata/3843.json": [
+      988,
+      "57f8998a8339f4d5b6acab6a89fa12e1e309e933c14e96c3d444f44f41430521"
+    ],
+    "Metadata/3844.json": [
+      992,
+      "df55c810f7a0e4e8052fc22496822b29ef9d6192121da8bca0ac3692ed3929e2"
+    ],
+    "Metadata/3845.json": [
+      990,
+      "ddd2dd89fb0df273482264bd68b19532fd233fded4ed76f687d7e9ec8972c5fd"
+    ],
+    "Metadata/3846.json": [
+      985,
+      "71cd908951545244fe37c2fbc8b3f209e7e8b599d8bbdcad2effd435e6677394"
+    ],
+    "Metadata/3847.json": [
+      990,
+      "8b12b8da5e92e628c913e3127455d6dfb9d7f1c8ec83bc98d489b7dd4d4a7bef"
+    ],
+    "Metadata/3848.json": [
+      987,
+      "3a6a3f8adc0deee7bc640217c43cbc0901103d8dbfa697282e6a11ec8736fec1"
+    ],
+    "Metadata/3849.json": [
+      989,
+      "5cba97ea553cfe46a9fc851071cc21efca5944547011600f216ab33946792529"
+    ],
+    "Metadata/3850.json": [
+      986,
+      "69df22d9710cb879be09b599754e9e2310d8a7330ceeb096a24e7bd2f54ce6ad"
+    ],
+    "Metadata/3851.json": [
+      989,
+      "fe2c960b23225be049c8fd093dd64dfa8313f8d2ebf23e62e6aa14e642fe6a27"
+    ],
+    "Metadata/3852.json": [
+      989,
+      "a62536f0f00c88ad72c28f77cfdc7fc0113b393cc40e6482dd93443a5bf4e2b7"
+    ],
+    "Metadata/3853.json": [
+      991,
+      "baf8f30d6bd07014f241d644101317f63252a3f90aab69c40d771ab8b8a384fc"
+    ],
+    "Metadata/3854.json": [
+      991,
+      "96128da72d8f727b44c1e206858b5aa8a01f3a37cdfdc5b8d458102198a001be"
+    ],
+    "Metadata/3855.json": [
+      982,
+      "c54f155039a43a45f361c8705ad4c8f8f61b7cb876d4147632ded49c4bebf054"
+    ],
+    "Metadata/3856.json": [
+      988,
+      "e06e341d6f1f228068a101b5d0f906a652e7d6650eadf62e4319184b692a4604"
+    ],
+    "Metadata/3857.json": [
+      994,
+      "7e9254ee5306c9417294d6a325c06fa4ffea8ef753d98f48077b5bf062d1eb91"
+    ],
+    "Metadata/3858.json": [
+      975,
+      "6d093858986add1a4ba949f4b5b5d3facd0101f55a3084fa5114cc070fe43219"
+    ],
+    "Metadata/3859.json": [
+      983,
+      "080065929986102fcfd986a0b2a1d5da95ab834a318b36b79eeedb171c75fe1d"
+    ],
+    "Rosters/10502.json": [
+      7830,
+      "3cf5165b553ea3a07bc2ba0a0017d2c79becf6b6c2747430e8e05870a959f9ca"
+    ],
+    "Rosters/10503.json": [
+      7889,
+      "23e1f6b1c422088ac1845e143e7960b8816b43401ba5300ed647e9b9d4781679"
+    ],
+    "Rosters/10504.json": [
+      7497,
+      "569b934d9d8f9e0ad20214285ea584f099a2a1c6110f81f01003f4bced1f747c"
+    ],
+    "Rosters/10505.json": [
+      7086,
+      "38b791fa2d176bf4a0dcd7789fac67ff6920b92f01a684bc8b9b8eeb99f2cd24"
+    ],
+    "Rosters/10506.json": [
+      7046,
+      "e38979566818cdbb180c82addbb89218dfb802cd72dfade08842cbbe4d74bd41"
+    ],
+    "Rosters/10507.json": [
+      7273,
+      "e27385e17e5a50e6b67fa4e9545760cf193819ad7cc5a3bae1b41aa4d2ac8ed9"
+    ],
+    "Rosters/10508.json": [
+      7638,
+      "8bb2b673e721e5d0a80bb0443cb50b1f8b1020bd2c086ac683aed505fa557351"
+    ],
+    "Rosters/10509.json": [
+      7404,
+      "91418bb8430b56e038603801db6782a0d7b3221a62c54b0b0d1ff5015981596b"
+    ],
+    "Rosters/10510.json": [
+      7318,
+      "efccd29f528f5249aa0a5321f9125d449eddb6d588cfcc7edae1239fc5137cb8"
+    ],
+    "Rosters/10511.json": [
+      7963,
+      "2a8454c2eb104961241669b71e566c0c4f2c3795b17f31a433e3ec0b5749c5c1"
+    ],
+    "Rosters/10512.json": [
+      7176,
+      "cedfa69e27559936e1d2afcf690ce3801c39b07cac65d784bbbf0644469a630f"
+    ],
+    "Rosters/10513.json": [
+      7248,
+      "72968c25869b8171fa633608bea400f9bfadb3ad3c47086a099e9a167553fec8"
+    ],
+    "Rosters/10514.json": [
+      7379,
+      "9f0c1810e1ec5a7da59a3b2e73d79eb1198f055f4304e56fac3a35e317013d4e"
+    ],
+    "Rosters/10515.json": [
+      7049,
+      "57b0e39e2f36e70be3f2d2c430378db65c128280a895102e81442de15fd8e7db"
+    ],
+    "Rosters/10516.json": [
+      7605,
+      "e5eb536e8996e781fe2eb0658bfe380ab1d270c64f04395cacdad8f4f6346fc6"
+    ],
+    "Rosters/10517.json": [
+      7575,
+      "e7053ba5aa8d626a41dd725edc2e9d867fa283d3fdf138ab22918f3692bc0057"
+    ],
+    "Rosters/3812.json": [
+      7865,
+      "1063d8087e5b00d5e034a270d82723015d4d6c86be64af32fb1ab7a4b7412441"
+    ],
+    "Rosters/3813.json": [
+      7349,
+      "07453fd7f1b7f369b56235f6fac2a9cb12be8a875678827934eaaa3af5400964"
+    ],
+    "Rosters/3814.json": [
+      7785,
+      "ce6ce1b29f21a0da1b74deb86b88b45bb7388708187915e48b2982284f5c7dda"
+    ],
+    "Rosters/3815.json": [
+      7779,
+      "3c0286e130dec2ba73dbb518d83434ea4071b48f3583217b56387beb3d3447e8"
+    ],
+    "Rosters/3816.json": [
+      7901,
+      "197e62127728780a91cfc5f6aab0b5e8f7bf4b51c7abe10f53675527009e4b91"
+    ],
+    "Rosters/3817.json": [
+      7842,
+      "57d06598ecba555b783d3fa6917b108f510eadd7656d86981efb370dbc52bd0f"
+    ],
+    "Rosters/3818.json": [
+      7782,
+      "0a53884d9fcb1498d493225dadfc507e21cfb9ce61ee5d3cd4037e76748ffd16"
+    ],
+    "Rosters/3819.json": [
+      7662,
+      "88d47cf641d55fac38c4da711f7fafea0c631fa9af86223c64028cf2da828d3a"
+    ],
+    "Rosters/3820.json": [
+      7757,
+      "470ceee270c0a1cebbd1e7237128c13478974bd80e52d6fc5e8fe34ed7de1f00"
+    ],
+    "Rosters/3821.json": [
+      7679,
+      "bb40bf1213136b3f6d9f7eb5f00e21ffbfad11d3f17ab9acc7c286d10ac40e3f"
+    ],
+    "Rosters/3822.json": [
+      7723,
+      "47df56a2bc8e072a49204e377c23f5cf2bf0b8ec09627de070f83a9efbea7b14"
+    ],
+    "Rosters/3823.json": [
+      7595,
+      "fa4cfd40dd7d82382a3239626cdcfc59d208a9dd1591383080ca436744dcca55"
+    ],
+    "Rosters/3824.json": [
+      7784,
+      "2ef1e5177accb46c3eef328ef9dddf2fa1b8816389ff797644bbc010f8247e88"
+    ],
+    "Rosters/3825.json": [
+      7749,
+      "4ca4bafe36932a070b13f9df3628d760a5d95ccbf3ded064c6ddba2e51787401"
+    ],
+    "Rosters/3826.json": [
+      7563,
+      "baa94339d22d2e2642c4c340cc471a7966911692b2562e652fbbcdb94a5dad64"
+    ],
+    "Rosters/3827.json": [
+      7708,
+      "793bc4b3b2451bd8f0d27b35a978a40997bef8dc5a3333bae39841184c89647d"
+    ],
+    "Rosters/3828.json": [
+      7323,
+      "1ebbf10b28cb28e768675b3bbbb2edab3385392ce020049521b3e033b0e930ac"
+    ],
+    "Rosters/3829.json": [
+      7292,
+      "d145528b27da4a3a823c9a644e66401c44311fbc88a9dc50c08cfcc9b6010aba"
+    ],
+    "Rosters/3830.json": [
+      7905,
+      "6b580d58609dd0b1f56ebd07da592cd5c5a88d7c82959a7401a3e8695ab815aa"
+    ],
+    "Rosters/3831.json": [
+      7651,
+      "70be0f43d4595f96d513cf0bb9b328deb830bc973c8f93dea46bd531ee2af8bc"
+    ],
+    "Rosters/3832.json": [
+      7652,
+      "dfeef8745e3bbebddac23f8e015e24de04f8ef034c271eba9638625842de6dd9"
+    ],
+    "Rosters/3833.json": [
+      7507,
+      "c3c4ff09ebe779bb14129015dda4915f35605cfffffc5b57441fb5a3e57df3c6"
+    ],
+    "Rosters/3834.json": [
+      7391,
+      "0aef02ab2ef6ca228fbb72367ab0add28f498b169419c18a53cb774fb4e5d4c3"
+    ],
+    "Rosters/3835.json": [
+      7862,
+      "8feca90975b1b65e3a190f1f5897aee3ec9385db306c2f520baeded30c4d5261"
+    ],
+    "Rosters/3836.json": [
+      7754,
+      "56b7695ad29b3d77657a3ebc9c772914337bd48570be98c8b74f368dac2628e0"
+    ],
+    "Rosters/3837.json": [
+      7643,
+      "626d0ac19e1d1d07c843880083a88f356034c3b96e2daea6c18d95662842603d"
+    ],
+    "Rosters/3838.json": [
+      7563,
+      "bf5d843bafd4d460375a5a04400f003831a8b5b1aed791e101e711e2986efbe1"
+    ],
+    "Rosters/3839.json": [
+      7650,
+      "f85f7205e6ae5cfa6f665797dc890da9131f495c18ec50befce7b0e19749ca6e"
+    ],
+    "Rosters/3840.json": [
+      7770,
+      "ca9575e3d78acdef2ee9c090e58ae1431d29ca3f2b3a1391074189507a755a88"
+    ],
+    "Rosters/3841.json": [
+      7791,
+      "6d1661372c538d01b0f8e8c0623c1bc251a903fba9f127db3b767c2dbb8017cb"
+    ],
+    "Rosters/3842.json": [
+      7295,
+      "aad552179898e991aab2968c549131f4249ec95cab81df040fc905de823b7dce"
+    ],
+    "Rosters/3843.json": [
+      7376,
+      "70f0149a853a202567c353a7ec29780b60da664ac89b9b7103c23e3dc72222e1"
+    ],
+    "Rosters/3844.json": [
+      7496,
+      "3a987fdb86cf815bd2d4dc99db4e7bc753640655eab2bc6941965081f8da9978"
+    ],
+    "Rosters/3845.json": [
+      7696,
+      "e5b12c3456e1f2c69a451aa1306cec8aae7f48d775f853d8f77e0e6a49c94910"
+    ],
+    "Rosters/3846.json": [
+      7280,
+      "f388717ef75fc1b2458cd61c222fd6e9dee9044baafa244f6cbaa730f6178a98"
+    ],
+    "Rosters/3847.json": [
+      7548,
+      "db68768f9e5ae0f631ffc08884177269bf67e9b402d8d6431f04d6cc59527515"
+    ],
+    "Rosters/3848.json": [
+      7703,
+      "bb40b3865c9e0cc32cc3a6e1d22ec35f5cf8487f118da9dbee8b5252da6ce1c6"
+    ],
+    "Rosters/3849.json": [
+      7493,
+      "1072dbc18e341c7ea46e8f0646aab6463eb33cdfb946603d77f713ee4e8f9ab7"
+    ],
+    "Rosters/3850.json": [
+      7881,
+      "cf07b026d234290e4e95c8098e29e2a3fc3e9c3e4bbdc3c48e00d2ff0f607ce6"
+    ],
+    "Rosters/3851.json": [
+      7323,
+      "10b339a273ad17673179f925992628c15ab6d1a60093e1f976f39cdf1de10523"
+    ],
+    "Rosters/3852.json": [
+      7594,
+      "df246c14b5416e3447d1afcbd2ec9ecddaf1376b882c3fece08bc57d27e4637a"
+    ],
+    "Rosters/3853.json": [
+      7601,
+      "4d71e2b0c09b85f8ffec42e91f2e1aec495115aed13ef203f19730b5af1394cc"
+    ],
+    "Rosters/3854.json": [
+      7510,
+      "39ab66abf84bab0be2254fa577d531db4bebf3d20160a3d0cfd2331095fd0743"
+    ],
+    "Rosters/3855.json": [
+      7743,
+      "15be5b354781b970a683c79658ee7ddcbf118240be7674045413962a98775272"
+    ],
+    "Rosters/3856.json": [
+      7623,
+      "7f38e861171aa92aeab0fd07c46b27a7f64e84b761432dac1de68a24d99dbe41"
+    ],
+    "Rosters/3857.json": [
+      7393,
+      "bd86b75a905c0f0ab183256b235b8c1ff757af6708013abaf0512eebefebd2a0"
+    ],
+    "Rosters/3858.json": [
+      7478,
+      "feffd058269fa94798c583c5e2a020de4240902e596bc1829a9aef27251d39bb"
+    ],
+    "Rosters/3859.json": [
+      6676,
+      "0f816d22b57dacca5ebb84ad9f7fd7a8b0ad550acda7f7b950b4bf7fe2d55a5e"
+    ],
+    "Tracking Data/10502.jsonl.bz2": [
+      39967342,
+      "9ce40889d587737a16e701d9f1474e57b9926a074e50ffe245165fb5cf1e3f19"
+    ],
+    "Tracking Data/10503.jsonl.bz2": [
+      47867512,
+      "c0bfe17968ade6bd1ee5388c9eeb0def2651d5bbe2cec2fc15387afcbe391893"
+    ],
+    "Tracking Data/10504.jsonl.bz2": [
+      41203859,
+      "1616d31b957fc7e43e8ed097aeafc868130d0867f29c0e453b5ed6c8d9850844"
+    ],
+    "Tracking Data/10505.jsonl.bz2": [
+      39817067,
+      "46b5d55556fb2f37d730e47d4470d710315a52b995103496a924c6b3b52b01e8"
+    ],
+    "Tracking Data/10506.jsonl.bz2": [
+      61910213,
+      "43d9d915009b41ab580335eeaf432f09bc98c2e95100c72742cc4664b2246b03"
+    ],
+    "Tracking Data/10507.jsonl.bz2": [
+      46996047,
+      "41cd9896ef663fbcb811c2f97fd9bc7c5fdb92dcf75e1d66ff748a2ddba4acbe"
+    ],
+    "Tracking Data/10508.jsonl.bz2": [
+      62248967,
+      "559da14ae0e1c9de23197618909f0b519789eb0b90dc132d20c17137edcb03a3"
+    ],
+    "Tracking Data/10509.jsonl.bz2": [
+      39908943,
+      "bee42c9a50257327833ada4fd2280a336b0d661c0418ad68c8af6ce5ef399388"
+    ],
+    "Tracking Data/10510.jsonl.bz2": [
+      45444285,
+      "3ec85fb616794da6bfeccf9972d40a09a56409edc60b7d16cbd6a9751d86963a"
+    ],
+    "Tracking Data/10511.jsonl.bz2": [
+      51200035,
+      "7bf1753dc849ad526aac078d60eb72878077978dfdda2a399ad223f8a506f5bc"
+    ],
+    "Tracking Data/10512.jsonl.bz2": [
+      40666271,
+      "610852a02058302b2c91b4440b8ec1d67c1ec91c60d9876e0c3241b0c64e6b4a"
+    ],
+    "Tracking Data/10513.jsonl.bz2": [
+      42090106,
+      "2cea80c7d5cc86a9782ec053f519c0cffda8c222c84e84ff9cf82e2c68e4b543"
+    ],
+    "Tracking Data/10514.jsonl.bz2": [
+      40448557,
+      "b40db6bc9ae1747566f171f2f712021ffee50a152cc71ace0c45e5e8ebb88990"
+    ],
+    "Tracking Data/10515.jsonl.bz2": [
+      40559377,
+      "4256d04560d53bd71536f279234b73bbdbb2d3231c57a02f7a9466110372a19b"
+    ],
+    "Tracking Data/10516.jsonl.bz2": [
+      40026340,
+      "11f49b3e09f15f2fc623791cf2595592f7e60da631bd93d3a451e12e5cf8a09c"
+    ],
+    "Tracking Data/10517.jsonl.bz2": [
+      66646392,
+      "3c899b41eb5fcf4c74bf62c83853910a24098eb4b2485cc799fab6fce622a72c"
+    ],
+    "Tracking Data/3812.jsonl.bz2": [
+      48498962,
+      "0a127c9e30d08c81087e73eb8fdbbe271cb6f4d06c6200beef3561fa294ec107"
+    ],
+    "Tracking Data/3813.jsonl.bz2": [
+      45539933,
+      "e47f6f3e76bc6222dfefb0bc635370b154841bb9ee791132a4583ab043b005a7"
+    ],
+    "Tracking Data/3814.jsonl.bz2": [
+      40165119,
+      "6b4c7c86b1cb19e33656aa1ed6019f3572f6d76786477ff43eeece31ea2178e9"
+    ],
+    "Tracking Data/3815.jsonl.bz2": [
+      42505638,
+      "291ad87d4250848524c2e234738249551dd1a777883e56f6bca08c7c80c28824"
+    ],
+    "Tracking Data/3816.jsonl.bz2": [
+      44082883,
+      "0c45a695b45eba9b11ed3e20f5b5e0dec6aeebfe32032efe8aa0ecbb94c255d4"
+    ],
+    "Tracking Data/3817.jsonl.bz2": [
+      41416991,
+      "3b1028f44f6b083645785bb7e74a4a23f625837a3225e4c3b45669bad069961d"
+    ],
+    "Tracking Data/3818.jsonl.bz2": [
+      40266839,
+      "5975297ab6e381412f84b0c971bd4c169ac66da667e544a13f886ad044c96e6c"
+    ],
+    "Tracking Data/3819.jsonl.bz2": [
+      49036820,
+      "66fc17c0e0c6eb600db509a75dc666c747521ecbce0ce416187e32b6cd7d54bf"
+    ],
+    "Tracking Data/3820.jsonl.bz2": [
+      39639162,
+      "df1e79f674f7db65a72b6deba2720a79c44620c5f6749da66e28695d0331a71e"
+    ],
+    "Tracking Data/3821.jsonl.bz2": [
+      42212790,
+      "4245b0ddf5e1f4f7ac96b0dcf5138a694fcf393d3962eca2671d4af4c24233ec"
+    ],
+    "Tracking Data/3822.jsonl.bz2": [
+      42560268,
+      "b5c5078ca3c4de9cbfae1ecf4b5f4355a4407034fdd0fda51ac0dccbc7605512"
+    ],
+    "Tracking Data/3823.jsonl.bz2": [
+      40898735,
+      "be45b1c86708df15fb69c52b08f751c3655447fcf49f557797966dd69939a8d8"
+    ],
+    "Tracking Data/3824.jsonl.bz2": [
+      40573798,
+      "145b3b4e6b331f7835c4d81349e8a5e99dc7f9e43baa759a05fe85233cbd0bcb"
+    ],
+    "Tracking Data/3825.jsonl.bz2": [
+      40162268,
+      "7bec35ae1f4a48db9a1637bf598bd09323b1ab8c1c96036dcab9d282acee604f"
+    ],
+    "Tracking Data/3826.jsonl.bz2": [
+      41376312,
+      "36ed88922f4e5a06c2f9a8e000c6646f7feccaaceeccd02bf90acd5a170ddc15"
+    ],
+    "Tracking Data/3827.jsonl.bz2": [
+      46816975,
+      "2efcdf10c55a5998eac96a11722565194ff75a27f2fbe86a70fed78a89eca522"
+    ],
+    "Tracking Data/3828.jsonl.bz2": [
+      42859033,
+      "ef67aa11ad5b12be63e8b0925272e7440b228ae258f75d2966ba45eb1b55ee2c"
+    ],
+    "Tracking Data/3829.jsonl.bz2": [
+      42102666,
+      "c1bb8db0c08cada3cd3444113383d9ca55f74cf5eedc710f6ceecf1830cfbd86"
+    ],
+    "Tracking Data/3830.jsonl.bz2": [
+      40621027,
+      "5d1cd0d2728c8a2dc25f1a225bd0e3fe9ef25b4bd9cd8dd4a73e4c669c339a3c"
+    ],
+    "Tracking Data/3831.jsonl.bz2": [
+      39308786,
+      "5c462263c76bd5f651e11904b7a8e557c57e281cb8397acbaf8eceffeba3ef6e"
+    ],
+    "Tracking Data/3832.jsonl.bz2": [
+      41249125,
+      "36f866427b7ff951eabf28c08ea47601b94ea98fbdf0c1df272e7f004034a6af"
+    ],
+    "Tracking Data/3833.jsonl.bz2": [
+      42777385,
+      "f9dac7e96691a4be9127469d12bfdcf7292d1fadaebb8d085e8ddff11e0a859d"
+    ],
+    "Tracking Data/3834.jsonl.bz2": [
+      47718225,
+      "3cca88b3957a8d1fbd475e944ca3e2d11b5fa9332079340d4c4bda043147563c"
+    ],
+    "Tracking Data/3835.jsonl.bz2": [
+      41255439,
+      "9ac782759d7db724a670809755e17ac25ed53750a248064c90e481557d8a5c3f"
+    ],
+    "Tracking Data/3836.jsonl.bz2": [
+      39724395,
+      "8f2b89b28350b34745ba5498b5e4f21ebcb3cbc5404454c0050e90bdd0ec1d61"
+    ],
+    "Tracking Data/3837.jsonl.bz2": [
+      40283111,
+      "03626200a5789d825bacb94f2a92b791ef24a0c4951dbab3745247c3da258c4c"
+    ],
+    "Tracking Data/3838.jsonl.bz2": [
+      41297162,
+      "05d87e04fbb3c6de1ca8a274a13806342a34bc685e486229002f396017aa7535"
+    ],
+    "Tracking Data/3839.jsonl.bz2": [
+      39940794,
+      "9659e3bc94f0445413a443601da62100224b0f7f0d7fcd464fada12968fc2bf4"
+    ],
+    "Tracking Data/3840.jsonl.bz2": [
+      41761141,
+      "342ae91055f1f41115246ea8e4a66c724c450abda41b795bff1cb9c23ad4de8d"
+    ],
+    "Tracking Data/3841.jsonl.bz2": [
+      42553940,
+      "a728e471d1a7ab593fc2f3d1cac787ca29610749c0d1e2d033fccbfeaba502e9"
+    ],
+    "Tracking Data/3842.jsonl.bz2": [
+      46046775,
+      "fa9d57d6c924318b472b06ce191c4c40ee33f23c1841eeaecbae0e6712b5db8a"
+    ],
+    "Tracking Data/3843.jsonl.bz2": [
+      41693352,
+      "beac8b624a7248dea820979a2aa0e9474513caa98034636e5481829710acf538"
+    ],
+    "Tracking Data/3844.jsonl.bz2": [
+      40897190,
+      "e3b5989df13b3aaef9077e7c8f0743dd08260d50787738dfa53dcba0739f4e1b"
+    ],
+    "Tracking Data/3845.jsonl.bz2": [
+      40096802,
+      "f6edc0433f6261600fe294b27774aab2ec91bc87242fe2e4ae23e42f8c426f25"
+    ],
+    "Tracking Data/3846.jsonl.bz2": [
+      39667746,
+      "a22ccc0f070cf8572a5c01508b85508e70eacffc1b1e85e54749640881f6ae10"
+    ],
+    "Tracking Data/3847.jsonl.bz2": [
+      43605752,
+      "d48183354814ac01ef934afe1487b4d1ee3d34aa361fe0a1091567178139d321"
+    ],
+    "Tracking Data/3848.jsonl.bz2": [
+      47112319,
+      "dcfb3bde33659b07321390bd63263fda0343a6ff5b46761527ba3b1e00c1aff3"
+    ],
+    "Tracking Data/3849.jsonl.bz2": [
+      42069563,
+      "795cc4d0ad1dc866c998b2321c7457c0dd7a0cc88ca7cf29b3fb97d78856defa"
+    ],
+    "Tracking Data/3850.jsonl.bz2": [
+      40541916,
+      "a2fdd69c780c374ff3dd8ecec17af843b15d09c5fadf0a5ec33d5ae81d8d81b0"
+    ],
+    "Tracking Data/3851.jsonl.bz2": [
+      48909410,
+      "9041305fc5665aa4554125f3561c6280229cbbe06d5c1bb53731486a79253484"
+    ],
+    "Tracking Data/3852.jsonl.bz2": [
+      40302598,
+      "ddfb342a41bbce1fe35d1424a2cc928114adf51c33706156331002612096b12f"
+    ],
+    "Tracking Data/3853.jsonl.bz2": [
+      40244294,
+      "0d6296eb34a0f38c3abc4c6de467c4dd3f8a102590a5c719d14887f46c0d0fb5"
+    ],
+    "Tracking Data/3854.jsonl.bz2": [
+      40376238,
+      "ba148c83ce469e34f7c03124c4116e11df1021ce77765b02a00e6c9c0ce14917"
+    ],
+    "Tracking Data/3855.jsonl.bz2": [
+      41158209,
+      "761225ecbe88491cfb60caf0ba97e6378b4cfa9dae5067c2f8d12c1c26e095b6"
+    ],
+    "Tracking Data/3856.jsonl.bz2": [
+      42781732,
+      "32cb650315d4f03c09a51eea6dd612e30cb8419b83e08357ee5869c7c6a42762"
+    ],
+    "Tracking Data/3857.jsonl.bz2": [
+      40392472,
+      "fdb32802ccb0d8eecae0f67c91d1a03b3690ca4275fcd1e8bc97fca836660f9e"
+    ],
+    "Tracking Data/3858.jsonl.bz2": [
+      42001570,
+      "be77cacd80e666fe6eb1ef6d982f5a556ae46a50343de14d61401e76a3a6cc7d"
+    ],
+    "Tracking Data/3859.jsonl.bz2": [
+      41965190,
+      "723e716003d819fd38222fd10096e061e0f4f6362012964f740b2cb7bde23e36"
+    ]
+  },
+  "release": "PFF FC 2022 FIFA World Cup broadcast tracking, metadata and rosters"
+}

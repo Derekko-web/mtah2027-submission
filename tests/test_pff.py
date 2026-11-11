@@ -214,3 +214,22 @@ def test_sanity_attempts_accumulate_and_gate_the_measured_inputs():
         assert not vendor_trial.gate_passed(gate, first["inputs"])  # re-parsed data needs a new attempt
         vendor_trial.record_attempt(gate, first)
         assert not vendor_trial.gate_passed(gate, first["inputs"])
+
+
+def test_frame_rate_may_sit_in_the_videos_dict():
+    metadata = {key: value for key, value in METADATA.items() if key != "fps"}
+    metadata["videos"] = {"fps": FPS}
+    rows = [row(period, i, home=[player(9, 0.0, 0.0)]) for period in (1, 2) for i in range(31)]
+    first, _ = pff.parse(metadata, ROSTER, rows)
+    assert len(first["labels"]) == 26
+
+
+def test_command_line_entry_points_import_on_their_own():
+    import os
+    import subprocess
+    import sys
+    env = {key: value for key, value in os.environ.items() if key != "PYTHONPATH"}
+    for module in ("dfl_submission.pff", "dfl_submission.vendor_trial"):
+        result = subprocess.run([sys.executable, "-m", module, "--help"], cwd=ROOT_FOR_TESTS, env=env,
+                                capture_output=True, text=True)
+        assert result.returncode == 0, (module, result.stderr[-500:])

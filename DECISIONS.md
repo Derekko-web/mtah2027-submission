@@ -267,3 +267,8 @@ The event names were taken from the open-source kloppy PFF reader and checked ag
 Every D7 command runs with `MTAH_DATA_DIR` set to a nonexistent path.
 
 **Outcome.** *(Added after the sanity gate and the measurement.)*
+
+*Amendment, 2026-11-11, after reading PFF's Tracking Data Specification v2.2 and before any PFF tracking file was downloaded or scored:*
+- The specification lists exactly these game event types: `FIRSTKICKOFF`, `SECONDKICKOFF`, `END`, `G`, `OFF`, `ON`, `OTB`, `OUT`, `SUB` and `VID`. It defines `home_ball` as whether the home team has control of the ball during the possession sequence. The mapping above is unchanged.
+- The specification has no foul, offside or other stoppage event apart from `OUT` and `END`. Stoppages where the ball stays on the pitch therefore remain live in the D7 targets, owned by the last team. The `D` targets underestimate dead ball, and a predicted stoppage at a foul counts against every candidate scored on PFF, including the baseline.
+- The specification places the frame rate inside a `videos` dict, while the public sample has it at the top level. The reader accepts either.

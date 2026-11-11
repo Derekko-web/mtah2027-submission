@@ -14,7 +14,7 @@ import numpy as np
 
 from dfl_submission import decoder_trial, pff
 from dfl_submission.external_only import require_external_only
-from dfl_transfer_data import digest
+from dfl_submission.pff import digest
 from evaluation import possession_metrics as pm
 from starter import baseline
 
