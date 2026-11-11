@@ -1,0 +1,32 @@
+{
+  "long_context": {
+    "dead.ubj": "66a12423854091ae952139c1e718fdc39a35d09816528a04dbbeea95271a9a03",
+    "ownership.ubj": "57b283f4eb595e795e3665d5fba3d5e70ace547b5076918aaf8e7982bb4a783f"
+  },
+  "recipe": {
+    "dead_cutoff": 0.57,
+    "dead_mix": 1,
+    "dead_radius": 25,
+    "island_confidence": 0.82,
+    "island_frames": 40,
+    "owner_mix": 1,
+    "owner_radius": 25
+  },
+  "reference": {
+    "dfl_models": {
+      "dead.ubj": "e8c41646384d16135ec3363251ffd77f1eca6e43b19323bb599090f873d01ef5",
+      "ownership.ubj": "f9f132ae313350756b34ad6a36874cfb267d7f8106e15faa8110531de6551481"
+    },
+    "recipe": {
+      "dead_cutoff": 0.5,
+      "dead_radius": 50,
+      "dead_weight": 0.75,
+      "owner_radius": 50,
+      "owner_weight": 0
+    },
+    "skillcorner_models": {
+      "dead.ubj": "457bf7ba8df8408451e115b21eb49c95404c932ba00e6c624ebf2767d2a04ad7",
+      "ownership.ubj": "8cc179038e535cf98e444afaf4f6bfb9e5f722a05b6004accfabc2db1d2a71aa"
+    }
+  }
+}

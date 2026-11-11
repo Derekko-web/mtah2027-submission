@@ -1,0 +1,6424 @@
+{
+  "counts": {
+    "dead_rows": 340374,
+    "paired_owner_rows": 362334
+  },
+  "dataset_manifest_sha256": "230760f76b9a6f9d38f92c292fa26910fba25f1a44e8022ad85922491308f943",
+  "development": "WPY",
+  "development_search": [
+    {
+      "metrics": {
+        "clean": {
+          "dead_recall": 0.9998764497845594,
+          "macro_f1": 0.9150300942750184,
+          "spell_f1": 0.5482093663911847,
+          "spells": 305
+        },
+        "masked": {
+          "dead_recall": 0.9875986471251409,
+          "macro_f1": 0.8441974350839656,
+          "spell_f1": 0.38181818181818183,
+          "spells": 415
+        },
+        "stress": {
+          "dead_recall": 0.9372364905561305,
+          "macro_f1": 0.8196325726584112,
+          "spell_f1": 0.3561643835616438,
+          "spells": 455
+        }
+      },
+      "recipe": {
+        "dead_cutoff": 0.4,
+        "dead_radius": 25,
+        "dead_weight": 0.5,
+        "owner_radius": 25,
+        "owner_weight": 0.0
+      }
+    },
+    {
+      "metrics": {
+        "clean": {
+          "dead_recall": 0.9998764497845594,
+          "macro_f1": 0.9157863260351687,
+          "spell_f1": 0.5429411764705881,
+          "spells": 259
+        },
+        "masked": {
+          "dead_recall": 0.9875986471251409,
+          "macro_f1": 0.8463951746838011,
+          "spell_f1": 0.4068783068783069,
+          "spells": 335
+        },
+        "stress": {
+          "dead_recall": 0.9372364905561305,
+          "macro_f1": 0.8242725328244704,
+          "spell_f1": 0.3761118170266836,
+          "spells": 366
+        }
+      },
+      "recipe": {
+        "dead_cutoff": 0.4,
+        "dead_radius": 25,
+        "dead_weight": 0.5,
+        "owner_radius": 50,
+        "owner_weight": 0.0
+      }
+    },
+    {
+      "metrics": {
+        "clean": {
+          "dead_recall": 0.9998764497845594,
+          "macro_f1": 0.9128090644310479,
+          "spell_f1": 0.5219512195121951,
+          "spells": 235
+        },
+        "masked": {
+          "dead_recall": 0.9875986471251409,
+          "macro_f1": 0.8494291531055992,
+          "spell_f1": 0.4183844011142061,
+          "spells": 297
+        },
+        "stress": {
+          "dead_recall": 0.9372364905561305,
+          "macro_f1": 0.8258663643957188,
+          "spell_f1": 0.3776847977684798,
+          "spells": 296
+        }
+      },
+      "recipe": {
+        "dead_cutoff": 0.4,
+        "dead_radius": 25,
+        "dead_weight": 0.5,
+        "owner_radius": 75,
+        "owner_weight": 0.0
+      }
+    },
+    {
+      "metrics": {
+        "clean": {
+          "dead_recall": 0.9999227811153496,
+          "macro_f1": 0.9112060998207397,
+          "spell_f1": 0.5366528354080222,
+          "spells": 302
+        },
+        "masked": {
+          "dead_recall": 0.9880465166561134,
+          "macro_f1": 0.8413525986759671,
+          "spell_f1": 0.3807228915662651,
+          "spells": 409
+        },
+        "stress": {
+          "dead_recall": 0.9233834226498433,
+          "macro_f1": 0.814517766693073,
+          "spell_f1": 0.34937286202964646,
+          "spells": 456
+        }
+      },
+      "recipe": {
+        "dead_cutoff": 0.4,
+        "dead_radius": 50,
+        "dead_weight": 0.5,
+        "owner_radius": 25,
+        "owner_weight": 0.0
+      }
+    },
+    {
+      "metrics": {
+        "clean": {
+          "dead_recall": 0.9999227811153496,
+          "macro_f1": 0.9116028765744183,
+          "spell_f1": 0.5412816691505216,
+          "spells": 250
+        },
+        "masked": {
+          "dead_recall": 0.9880465166561134,
+          "macro_f1": 0.8438152959437906,
+          "spell_f1": 0.40693333333333326,
+          "spells": 329
+        },
+        "stress": {
+          "dead_recall": 0.9233834226498433,
+          "macro_f1": 0.8191809822749924,
+          "spell_f1": 0.3734355044699872,
+          "spells": 362
+        }
+      },
+      "recipe": {
+        "dead_cutoff": 0.4,
+        "dead_radius": 50,
+        "dead_weight": 0.5,
+        "owner_radius": 50,
+        "owner_weight": 0.0
+      }
+    },
+    {
+      "metrics": {
+        "clean": {
+          "dead_recall": 0.9999227811153496,
+          "macro_f1": 0.908489168965315,
+          "spell_f1": 0.5148148148148148,
+          "spells": 227
+        },
+        "masked": {
+          "dead_recall": 0.9880465166561134,
+          "macro_f1": 0.8454399864455612,
+          "spell_f1": 0.41011235955056174,
+          "spells": 291
+        },
+        "stress": {
+          "dead_recall": 0.9233834226498433,
+          "macro_f1": 0.8215655185344266,
+          "spell_f1": 0.3719887955182073,
+          "spells": 293
+        }
+      },
+      "recipe": {
+        "dead_cutoff": 0.4,
+        "dead_radius": 50,
+        "dead_weight": 0.5,
+        "owner_radius": 75,
+        "owner_weight": 0.0
+      }
+    },
+    {
+      "metrics": {
+        "clean": {
+          "dead_recall": 1.0,
+          "macro_f1": 0.907117458890368,
+          "spell_f1": 0.5348251748251748,
+          "spells": 294
+        },
+        "masked": {
+          "dead_recall": 0.9891739123720097,
+          "macro_f1": 0.8386598339550152,
+          "spell_f1": 0.37704517704517704,
+          "spells": 398
+        },
+        "stress": {
+          "dead_recall": 0.9101017744899693,
+          "macro_f1": 0.8094450104327194,
+          "spell_f1": 0.3414301929625426,
+          "spells": 460
+        }
+      },
+      "recipe": {
+        "dead_cutoff": 0.4,
+        "dead_radius": 75,
+        "dead_weight": 0.5,
+        "owner_radius": 25,
+        "owner_weight": 0.0
+      }
+    },
+    {
+      "metrics": {
+        "clean": {
+          "dead_recall": 1.0,
+          "macro_f1": 0.9067051917569252,
+          "spell_f1": 0.5331334332833585,
+          "spells": 246
+        },
+        "masked": {
+          "dead_recall": 0.9891739123720097,
+          "macro_f1": 0.8408518200914865,
+          "spell_f1": 0.4010869565217391,
+          "spells": 315
+        },
+        "stress": {
+          "dead_recall": 0.9101017744899693,
+          "macro_f1": 0.8140037500198442,
+          "spell_f1": 0.3657289002557545,
+          "spells": 361
+        }
+      },
+      "recipe": {
+        "dead_cutoff": 0.4,
+        "dead_radius": 75,
+        "dead_weight": 0.5,
+        "owner_radius": 50,
+        "owner_weight": 0.0
+      }
+    },
+    {
+      "metrics": {
+        "clean": {
+          "dead_recall": 1.0,
+          "macro_f1": 0.9034539416879611,
+          "spell_f1": 0.5074534161490682,
+          "spells": 223
+        },
+        "masked": {
+          "dead_recall": 0.9891739123720097,
+          "macro_f1": 0.841479368392475,
+          "spell_f1": 0.4034383954154728,
+          "spells": 277
+        },
+        "stress": {
+          "dead_recall": 0.9101017744899693,
+          "macro_f1": 0.8163879587150694,
+          "spell_f1": 0.3639943741209564,
+          "spells": 290
+        }
+      },
+      "recipe": {
+        "dead_cutoff": 0.4,
+        "dead_radius": 75,
+        "dead_weight": 0.5,
+        "owner_radius": 75,
+        "owner_weight": 0.0
+      }
+    },
+    {
+      "metrics": {
+        "clean": {
+          "dead_recall": 0.998023196552949,
+          "macro_f1": 0.917880385150692,
+          "spell_f1": 0.5554035567715457,
+          "spells": 310
+        },
+        "masked": {
+          "dead_recall": 0.9783632685209495,
+          "macro_f1": 0.8467918844834256,
+          "spell_f1": 0.3862068965517242,
+          "spells": 420
+        },
+        "stress": {
+          "dead_recall": 0.8883106052416179,
+          "macro_f1": 0.8027014071728628,
+          "spell_f1": 0.3320837927232635,
+          "spells": 486
+        }
+      },
+      "recipe": {
+        "dead_cutoff": 0.5,
+        "dead_radius": 25,
+        "dead_weight": 0.5,
+        "owner_radius": 25,
+        "owner_weight": 0.0
+      }
+    },
+    {
+      "metrics": {
+        "clean": {
+          "dead_recall": 0.998023196552949,
+          "macro_f1": 0.9191230811598761,
+          "spell_f1": 0.5457725947521865,
+          "spells": 265
+        },
+        "masked": {
+          "dead_recall": 0.9783632685209495,
+          "macro_f1": 0.8486310349291643,
+          "spell_f1": 0.4110381077529566,
+          "spells": 340
+        },
+        "stress": {
+          "dead_recall": 0.8883106052416179,
+          "macro_f1": 0.8072591279337563,
+          "spell_f1": 0.36045056320400504,
+          "spells": 378
+        }
+      },
+      "recipe": {
+        "dead_cutoff": 0.5,
+        "dead_radius": 25,
+        "dead_weight": 0.5,
+        "owner_radius": 50,
+        "owner_weight": 0.0
+      }
+    },
+    {
+      "metrics": {
+        "clean": {
+          "dead_recall": 0.998023196552949,
+          "macro_f1": 0.917084111013021,
+          "spell_f1": 0.5278538812785388,
+          "spells": 236
+        },
+        "masked": {
+          "dead_recall": 0.9783632685209495,
+          "macro_f1": 0.8511856847609588,
+          "spell_f1": 0.41894150417827297,
+          "spells": 297
+        },
+        "stress": {
+          "dead_recall": 0.8883106052416179,
+          "macro_f1": 0.8100110568166915,
+          "spell_f1": 0.35792349726775957,
+          "spells": 311
+        }
+      },
+      "recipe": {
+        "dead_cutoff": 0.5,
+        "dead_radius": 25,
+        "dead_weight": 0.5,
+        "owner_radius": 75,
+        "owner_weight": 0.0
+      }
+    },
+    {
+      "metrics": {
+        "clean": {
+          "dead_recall": 0.9978687587836481,
+          "macro_f1": 0.9181021618859139,
+          "spell_f1": 0.5554035567715457,
+          "spells": 310
+        },
+        "masked": {
+          "dead_recall": 0.9759231517659959,
+          "macro_f1": 0.8461637561109213,
+          "spell_f1": 0.3899159663865546,
+          "spells": 412
+        },
+        "stress": {
+          "dead_recall": 0.8656854720390419,
+          "macro_f1": 0.7951101076669946,
+          "spell_f1": 0.327433628318584,
+          "spells": 483
+        }
+      },
+      "recipe": {
+        "dead_cutoff": 0.5,
+        "dead_radius": 50,
+        "dead_weight": 0.5,
+        "owner_radius": 25,
+        "owner_weight": 0.0
+      }
+    },
+    {
+      "metrics": {
+        "clean": {
+          "dead_recall": 0.9978687587836481,
+          "macro_f1": 0.9193255154966371,
+          "spell_f1": 0.5465693430656934,
+          "spells": 264
+        },
+        "masked": {
+          "dead_recall": 0.9759231517659959,
+          "macro_f1": 0.84813727582999,
+          "spell_f1": 0.41542553191489356,
+          "spells": 331
+        },
+        "stress": {
+          "dead_recall": 0.8656854720390419,
+          "macro_f1": 0.7993534920641695,
+          "spell_f1": 0.35106117353308364,
+          "spells": 380
+        }
+      },
+      "recipe": {
+        "dead_cutoff": 0.5,
+        "dead_radius": 50,
+        "dead_weight": 0.5,
+        "owner_radius": 50,
+        "owner_weight": 0.0
+      }
+    },
+    {
+      "metrics": {
+        "clean": {
+          "dead_recall": 0.9978687587836481,
+          "macro_f1": 0.9172950893907229,
+          "spell_f1": 0.5262518968133535,
+          "spells": 238
+        },
+        "masked": {
+          "dead_recall": 0.9759231517659959,
+          "macro_f1": 0.850272575236957,
+          "spell_f1": 0.4174157303370786,
+          "spells": 291
+        },
+        "stress": {
+          "dead_recall": 0.8656854720390419,
+          "macro_f1": 0.8020074469434063,
+          "spell_f1": 0.3515151515151515,
+          "spells": 305
+        }
+      },
+      "recipe": {
+        "dead_cutoff": 0.5,
+        "dead_radius": 50,
+        "dead_weight": 0.5,
+        "owner_radius": 75,
+        "owner_weight": 0.0
+      }
+    },
+    {
+      "metrics": {
+        "clean": {
+          "dead_recall": 0.9954904171364148,
+          "macro_f1": 0.9170622416887282,
+          "spell_f1": 0.5554945054945055,
+          "spells": 307
+        },
+        "masked": {
+          "dead_recall": 0.9716915568871524,
+          "macro_f1": 0.8435509784900826,
+          "spell_f1": 0.38355501813784765,
+          "spells": 406
+        },
+        "stress": {
+          "dead_recall": 0.8387051937421816,
+          "macro_f1": 0.7854235029599831,
+          "spell_f1": 0.31946902654867254,
+          "spells": 483
+        }
+      },
+      "recipe": {
+        "dead_cutoff": 0.5,
+        "dead_radius": 75,
+        "dead_weight": 0.5,
+        "owner_radius": 25,
+        "owner_weight": 0.0
+      }
+    },
+    {
+      "metrics": {
+        "clean": {
+          "dead_recall": 0.9954904171364148,
+          "macro_f1": 0.9184184395721764,
+          "spell_f1": 0.5448680351906158,
+          "spells": 261
+        },
+        "masked": {
+          "dead_recall": 0.9716915568871524,
+          "macro_f1": 0.8458431121147667,
+          "spell_f1": 0.4085676037483267,
+          "spells": 326
+        },
+        "stress": {
+          "dead_recall": 0.8387051937421816,
+          "macro_f1": 0.7894989038588577,
+          "spell_f1": 0.3411320754716981,
+          "spells": 374
+        }
+      },
+      "recipe": {
+        "dead_cutoff": 0.5,
+        "dead_radius": 75,
+        "dead_weight": 0.5,
+        "owner_radius": 50,
+        "owner_weight": 0.0
+      }
+    },
+    {
+      "metrics": {
+        "clean": {
+          "dead_recall": 0.9954904171364148,
+          "macro_f1": 0.9162780473928621,
+          "spell_f1": 0.5217656012176559,
+          "spells": 236
+        },
+        "masked": {
+          "dead_recall": 0.9716915568871524,
+          "macro_f1": 0.8482085700361014,
+          "spell_f1": 0.4107193229901269,
+          "spells": 288
+        },
+        "stress": {
+          "dead_recall": 0.8387051937421816,
+          "macro_f1": 0.7918323587212933,
+          "spell_f1": 0.3338842975206612,
+          "spells": 305
+        }
+      },
+      "recipe": {
+        "dead_cutoff": 0.5,
+        "dead_radius": 75,
+        "dead_weight": 0.5,
+        "owner_radius": 75,
+        "owner_weight": 0.0
+      }
+    },
+    {
+      "metrics": {
+        "clean": {
+          "dead_recall": 0.9843091226390326,
+          "macro_f1": 0.9123966383571102,
+          "spell_f1": 0.5455040871934604,
+          "spells": 313
+        },
+        "masked": {
+          "dead_recall": 0.9650198452533552,
+          "macro_f1": 0.8441429419037859,
+          "spell_f1": 0.3791962174940898,
+          "spells": 425
+        },
+        "stress": {
+          "dead_recall": 0.756899507343516,
+          "macro_f1": 0.7534836748457181,
+          "spell_f1": 0.29344262295081963,
+          "spells": 555
+        }
+      },
+      "recipe": {
+        "dead_cutoff": 0.6,
+        "dead_radius": 25,
+        "dead_weight": 0.5,
+        "owner_radius": 25,
+        "owner_weight": 0.0
+      }
+    },
+    {
+      "metrics": {
+        "clean": {
+          "dead_recall": 0.9843091226390326,
+          "macro_f1": 0.9132719291500102,
+          "spell_f1": 0.5344927536231884,
+          "spells": 269
+        },
+        "masked": {
+          "dead_recall": 0.9650198452533552,
+          "macro_f1": 0.8465637499087754,
+          "spell_f1": 0.40842105263157896,
+          "spells": 339
+        },
+        "stress": {
+          "dead_recall": 0.756899507343516,
+          "macro_f1": 0.7576738478343831,
+          "spell_f1": 0.30652920962199315,
+          "spells": 452
+        }
+      },
+      "recipe": {
+        "dead_cutoff": 0.6,
+        "dead_radius": 25,
+        "dead_weight": 0.5,
+        "owner_radius": 50,
+        "owner_weight": 0.0
+      }
+    },
+    {
+      "metrics": {
+        "clean": {
+          "dead_recall": 0.9843091226390326,
+          "macro_f1": 0.9120805132149749,
+          "spell_f1": 0.5212669683257919,
+          "spells": 242
+        },
+        "masked": {
+          "dead_recall": 0.9650198452533552,
+          "macro_f1": 0.8491447583302566,
+          "spell_f1": 0.4132780082987552,
+          "spells": 302
+        },
+        "stress": {
+          "dead_recall": 0.756899507343516,
+          "macro_f1": 0.7596109774804513,
+          "spell_f1": 0.3005025125628141,
+          "spells": 375
+        }
+      },
+      "recipe": {
+        "dead_cutoff": 0.6,
+        "dead_radius": 25,
+        "dead_weight": 0.5,
+        "owner_radius": 75,
+        "owner_weight": 0.0
+      }
+    },
+    {
+      "metrics": {
+        "clean": {
+          "dead_recall": 0.9695757594477306,
+          "macro_f1": 0.9065494127362195,
+          "spell_f1": 0.5331529093369418,
+          "spells": 318
+        },
+        "masked": {
+          "dead_recall": 0.9523868357245447,
+          "macro_f1": 0.8405371643428275,
+          "spell_f1": 0.37591499409681234,
+          "spells": 426
+        },
+        "stress": {
+          "dead_recall": 0.7556022300813887,
+          "macro_f1": 0.7536220247107911,
+          "spell_f1": 0.30042553191489363,
+          "spells": 519
+        }
+      },
+      "recipe": {
+        "dead_cutoff": 0.6,
+        "dead_radius": 50,
+        "dead_weight": 0.5,
+        "owner_radius": 25,
+        "owner_weight": 0.0
+      }
+    },
+    {
+      "metrics": {
+        "clean": {
+          "dead_recall": 0.9695757594477306,
+          "macro_f1": 0.9069791290855477,
+          "spell_f1": 0.5250720461095101,
+          "spells": 273
+        },
+        "masked": {
+          "dead_recall": 0.9523868357245447,
+          "macro_f1": 0.8434511736537883,
+          "spell_f1": 0.40952380952380957,
+          "spells": 335
+        },
+        "stress": {
+          "dead_recall": 0.7556022300813887,
+          "macro_f1": 0.757536601773149,
+          "spell_f1": 0.312814371257485,
+          "spells": 414
+        }
+      },
+      "recipe": {
+        "dead_cutoff": 0.6,
+        "dead_radius": 50,
+        "dead_weight": 0.5,
+        "owner_radius": 50,
+        "owner_weight": 0.0
+      }
+    },
+    {
+      "metrics": {
+        "clean": {
+          "dead_recall": 0.9695757594477306,
+          "macro_f1": 0.9061751537133089,
+          "spell_f1": 0.5123123123123123,
+          "spells": 245
+        },
+        "masked": {
+          "dead_recall": 0.9523868357245447,
+          "macro_f1": 0.8463364561710058,
+          "spell_f1": 0.41161825726141077,
+          "spells": 302
+        },
+        "stress": {
+          "dead_recall": 0.7556022300813887,
+          "macro_f1": 0.759568316580404,
+          "spell_f1": 0.30615989515072084,
+          "spells": 342
+        }
+      },
+      "recipe": {
+        "dead_cutoff": 0.6,
+        "dead_radius": 50,
+        "dead_weight": 0.5,
+        "owner_radius": 75,
+        "owner_weight": 0.0
+      }
+    },
+    {
+      "metrics": {
+        "clean": {
+          "dead_recall": 0.9518926348627821,
+          "macro_f1": 0.8994827404942173,
+          "spell_f1": 0.521786197564276,
+          "spells": 318
+        },
+        "masked": {
+          "dead_recall": 0.937699803864033,
+          "macro_f1": 0.8360346184285392,
+          "spell_f1": 0.3632508833922262,
+          "spells": 428
+        },
+        "stress": {
+          "dead_recall": 0.7380117681580207,
+          "macro_f1": 0.7474449580051887,
+          "spell_f1": 0.29666307857911733,
+          "spells": 508
+        }
+      },
+      "recipe": {
+        "dead_cutoff": 0.6,
+        "dead_radius": 75,
+        "dead_weight": 0.5,
+        "owner_radius": 25,
+        "owner_weight": 0.0
+      }
+    },
+    {
+      "metrics": {
+        "clean": {
+          "dead_recall": 0.9518926348627821,
+          "macro_f1": 0.8997112244925084,
+          "spell_f1": 0.5077809798270894,
+          "spells": 273
+        },
+        "masked": {
+          "dead_recall": 0.937699803864033,
+          "macro_f1": 0.8388214267224213,
+          "spell_f1": 0.3989403973509934,
+          "spells": 334
+        },
+        "stress": {
+          "dead_recall": 0.7380117681580207,
+          "macro_f1": 0.7511728563073485,
+          "spell_f1": 0.3111650485436893,
+          "spells": 403
+        }
+      },
+      "recipe": {
+        "dead_cutoff": 0.6,
+        "dead_radius": 75,
+        "dead_weight": 0.5,
+        "owner_radius": 50,
+        "owner_weight": 0.0
+      }
+    },
+    {
+      "metrics": {
+        "clean": {
+          "dead_recall": 0.9518926348627821,
+          "macro_f1": 0.89915568012849,
+          "spell_f1": 0.49879518072289153,
+          "spells": 243
+        },
+        "masked": {
+          "dead_recall": 0.937699803864033,
+          "macro_f1": 0.8421202892151726,
+          "spell_f1": 0.4038781163434903,
+          "spells": 301
+        },
+        "stress": {
+          "dead_recall": 0.7380117681580207,
+          "macro_f1": 0.7532039352657232,
+          "spell_f1": 0.30346666666666666,
+          "spells": 329
+        }
+      },
+      "recipe": {
+        "dead_cutoff": 0.6,
+        "dead_radius": 75,
+        "dead_weight": 0.5,
+        "owner_radius": 75,
+        "owner_weight": 0.0
+      }
+    },
+    {
+      "metrics": {
+        "clean": {
+          "dead_recall": 0.9997683433460487,
+          "macro_f1": 0.9150420868466922,
+          "spell_f1": 0.5513812154696133,
+          "spells": 303
+        },
+        "masked": {
+          "dead_recall": 0.9887723741718275,
+          "macro_f1": 0.8458029810917491,
+          "spell_f1": 0.38229665071770336,
+          "spells": 415
+        },
+        "stress": {
+          "dead_recall": 0.9774366419051443,
+          "macro_f1": 0.826190027624742,
+          "spell_f1": 0.36055684454756387,
+          "spells": 441
+        }
+      },
+      "recipe": {
+        "dead_cutoff": 0.4,
+        "dead_radius": 25,
+        "dead_weight": 1.0,
+        "owner_radius": 25,
+        "owner_weight": 0.0
+      }
+    },
+    {
+      "metrics": {
+        "clean": {
+          "dead_recall": 0.9997683433460487,
+          "macro_f1": 0.9158313139184998,
+          "spell_f1": 0.5459379615952733,
+          "spells": 256
+        },
+        "masked": {
+          "dead_recall": 0.9887723741718275,
+          "macro_f1": 0.8482355103673456,
+          "spell_f1": 0.4068965517241379,
+          "spells": 333
+        },
+        "stress": {
+          "dead_recall": 0.9774366419051443,
+          "macro_f1": 0.8294361066250793,
+          "spell_f1": 0.3829015544041451,
+          "spells": 351
+        }
+      },
+      "recipe": {
+        "dead_cutoff": 0.4,
+        "dead_radius": 25,
+        "dead_weight": 1.0,
+        "owner_radius": 50,
+        "owner_weight": 0.0
+      }
+    },
+    {
+      "metrics": {
+        "clean": {
+          "dead_recall": 0.9997683433460487,
+          "macro_f1": 0.9127743173331687,
+          "spell_f1": 0.5255742725880551,
+          "spells": 232
+        },
+        "masked": {
+          "dead_recall": 0.9887723741718275,
+          "macro_f1": 0.8503069785603485,
+          "spell_f1": 0.41566433566433564,
+          "spells": 294
+        },
+        "stress": {
+          "dead_recall": 0.9774366419051443,
+          "macro_f1": 0.8311892611993162,
+          "spell_f1": 0.37686882933709454,
+          "spells": 288
+        }
+      },
+      "recipe": {
+        "dead_cutoff": 0.4,
+        "dead_radius": 25,
+        "dead_weight": 1.0,
+        "owner_radius": 75,
+        "owner_weight": 0.0
+      }
+    },
+    {
+      "metrics": {
+        "clean": {
+          "dead_recall": 0.9998764497845594,
+          "macro_f1": 0.9110850108549137,
+          "spell_f1": 0.5373961218836565,
+          "spells": 301
+        },
+        "masked": {
+          "dead_recall": 0.9907646213958086,
+          "macro_f1": 0.8433623376335397,
+          "spell_f1": 0.379783393501805,
+          "spells": 410
+        },
+        "stress": {
+          "dead_recall": 0.980957823045204,
+          "macro_f1": 0.8250639191329808,
+          "spell_f1": 0.35887850467289717,
+          "spells": 435
+        }
+      },
+      "recipe": {
+        "dead_cutoff": 0.4,
+        "dead_radius": 50,
+        "dead_weight": 1.0,
+        "owner_radius": 25,
+        "owner_weight": 0.0
+      }
+    },
+    {
+      "metrics": {
+        "clean": {
+          "dead_recall": 0.9998764497845594,
+          "macro_f1": 0.9115019852220737,
+          "spell_f1": 0.542089552238806,
+          "spells": 249
+        },
+        "masked": {
+          "dead_recall": 0.9907646213958086,
+          "macro_f1": 0.84537052552033,
+          "spell_f1": 0.410752688172043,
+          "spells": 323
+        },
+        "stress": {
+          "dead_recall": 0.980957823045204,
+          "macro_f1": 0.8288465672617346,
+          "spell_f1": 0.38169934640522873,
+          "spells": 344
+        }
+      },
+      "recipe": {
+        "dead_cutoff": 0.4,
+        "dead_radius": 50,
+        "dead_weight": 1.0,
+        "owner_radius": 50,
+        "owner_weight": 0.0
+      }
+    },
+    {
+      "metrics": {
+        "clean": {
+          "dead_recall": 0.9998764497845594,
+          "macro_f1": 0.9084802230388204,
+          "spell_f1": 0.5149922720247295,
+          "spells": 226
+        },
+        "masked": {
+          "dead_recall": 0.9907646213958086,
+          "macro_f1": 0.8469343759921655,
+          "spell_f1": 0.41763869132290177,
+          "spells": 282
+        },
+        "stress": {
+          "dead_recall": 0.980957823045204,
+          "macro_f1": 0.8308529804213344,
+          "spell_f1": 0.37653791130185976,
+          "spells": 278
+        }
+      },
+      "recipe": {
+        "dead_cutoff": 0.4,
+        "dead_radius": 50,
+        "dead_weight": 1.0,
+        "owner_radius": 75,
+        "owner_weight": 0.0
+      }
+    },
+    {
+      "metrics": {
+        "clean": {
+          "dead_recall": 0.9999536686692098,
+          "macro_f1": 0.9068410910856333,
+          "spell_f1": 0.5370786516853933,
+          "spells": 291
+        },
+        "masked": {
+          "dead_recall": 0.9925869870735587,
+          "macro_f1": 0.8408515727036477,
+          "spell_f1": 0.37899877899877893,
+          "spells": 398
+        },
+        "stress": {
+          "dead_recall": 0.9826257509536532,
+          "macro_f1": 0.8206165902222117,
+          "spell_f1": 0.35335689045936397,
+          "spells": 428
+        }
+      },
+      "recipe": {
+        "dead_cutoff": 0.4,
+        "dead_radius": 75,
+        "dead_weight": 1.0,
+        "owner_radius": 25,
+        "owner_weight": 0.0
+      }
+    },
+    {
+      "metrics": {
+        "clean": {
+          "dead_recall": 0.9999536686692098,
+          "macro_f1": 0.9061074469986895,
+          "spell_f1": 0.5315315315315315,
+          "spells": 245
+        },
+        "masked": {
+          "dead_recall": 0.9925869870735587,
+          "macro_f1": 0.843196689349401,
+          "spell_f1": 0.40871934604904625,
+          "spells": 313
+        },
+        "stress": {
+          "dead_recall": 0.9826257509536532,
+          "macro_f1": 0.8242658661828451,
+          "spell_f1": 0.37217847769028867,
+          "spells": 341
+        }
+      },
+      "recipe": {
+        "dead_cutoff": 0.4,
+        "dead_radius": 75,
+        "dead_weight": 1.0,
+        "owner_radius": 50,
+        "owner_weight": 0.0
+      }
+    },
+    {
+      "metrics": {
+        "clean": {
+          "dead_recall": 0.9999536686692098,
+          "macro_f1": 0.9029788674493759,
+          "spell_f1": 0.507620528771384,
+          "spells": 222
+        },
+        "masked": {
+          "dead_recall": 0.9925869870735587,
+          "macro_f1": 0.8448263657305851,
+          "spell_f1": 0.4143884892086331,
+          "spells": 274
+        },
+        "stress": {
+          "dead_recall": 0.9826257509536532,
+          "macro_f1": 0.8266850459387968,
+          "spell_f1": 0.36556671449067435,
+          "spells": 276
+        }
+      },
+      "recipe": {
+        "dead_cutoff": 0.4,
+        "dead_radius": 75,
+        "dead_weight": 1.0,
+        "owner_radius": 75,
+        "owner_weight": 0.0
+      }
+    },
+    {
+      "metrics": {
+        "clean": {
+          "dead_recall": 0.9985173974147118,
+          "macro_f1": 0.9181171350045171,
+          "spell_f1": 0.5546448087431693,
+          "spells": 311
+        },
+        "masked": {
+          "dead_recall": 0.9835523775694583,
+          "macro_f1": 0.8490486443553463,
+          "spell_f1": 0.3903961584633854,
+          "spells": 412
+        },
+        "stress": {
+          "dead_recall": 0.9648962950379145,
+          "macro_f1": 0.8265001713555206,
+          "spell_f1": 0.36527777777777776,
+          "spells": 443
+        }
+      },
+      "recipe": {
+        "dead_cutoff": 0.5,
+        "dead_radius": 25,
+        "dead_weight": 1.0,
+        "owner_radius": 25,
+        "owner_weight": 0.0
+      }
+    },
+    {
+      "metrics": {
+        "clean": {
+          "dead_recall": 0.9985173974147118,
+          "macro_f1": 0.919367474079761,
+          "spell_f1": 0.5448175182481751,
+          "spells": 264
+        },
+        "masked": {
+          "dead_recall": 0.9835523775694583,
+          "macro_f1": 0.8513438087365642,
+          "spell_f1": 0.4180371352785146,
+          "spells": 333
+        },
+        "stress": {
+          "dead_recall": 0.9648962950379145,
+          "macro_f1": 0.8301907347778492,
+          "spell_f1": 0.38606451612903225,
+          "spells": 354
+        }
+      },
+      "recipe": {
+        "dead_cutoff": 0.5,
+        "dead_radius": 25,
+        "dead_weight": 1.0,
+        "owner_radius": 50,
+        "owner_weight": 0.0
+      }
+    },
+    {
+      "metrics": {
+        "clean": {
+          "dead_recall": 0.9985173974147118,
+          "macro_f1": 0.9172622435063563,
+          "spell_f1": 0.5274658573596358,
+          "spells": 238
+        },
+        "masked": {
+          "dead_recall": 0.9835523775694583,
+          "macro_f1": 0.8542848446909203,
+          "spell_f1": 0.42629370629370633,
+          "spells": 294
+        },
+        "stress": {
+          "dead_recall": 0.9648962950379145,
+          "macro_f1": 0.8322209225315497,
+          "spell_f1": 0.3808988764044944,
+          "spells": 291
+        }
+      },
+      "recipe": {
+        "dead_cutoff": 0.5,
+        "dead_radius": 25,
+        "dead_weight": 1.0,
+        "owner_radius": 75,
+        "owner_weight": 0.0
+      }
+    },
+    {
+      "metrics": {
+        "clean": {
+          "dead_recall": 0.9984092909762011,
+          "macro_f1": 0.9182579462774397,
+          "spell_f1": 0.5546448087431693,
+          "spells": 311
+        },
+        "masked": {
+          "dead_recall": 0.9829809578230452,
+          "macro_f1": 0.8490325224196161,
+          "spell_f1": 0.39276236429433053,
+          "spells": 408
+        },
+        "stress": {
+          "dead_recall": 0.9651742830226561,
+          "macro_f1": 0.8267224800905953,
+          "spell_f1": 0.365661252900232,
+          "spells": 441
+        }
+      },
+      "recipe": {
+        "dead_cutoff": 0.5,
+        "dead_radius": 50,
+        "dead_weight": 1.0,
+        "owner_radius": 25,
+        "owner_weight": 0.0
+      }
+    },
+    {
+      "metrics": {
+        "clean": {
+          "dead_recall": 0.9984092909762011,
+          "macro_f1": 0.9194656083184624,
+          "spell_f1": 0.5448175182481751,
+          "spells": 264
+        },
+        "masked": {
+          "dead_recall": 0.9829809578230452,
+          "macro_f1": 0.8513648825366612,
+          "spell_f1": 0.41970705725699065,
+          "spells": 330
+        },
+        "stress": {
+          "dead_recall": 0.9651742830226561,
+          "macro_f1": 0.8305837402615496,
+          "spell_f1": 0.38495460440985735,
+          "spells": 350
+        }
+      },
+      "recipe": {
+        "dead_cutoff": 0.5,
+        "dead_radius": 50,
+        "dead_weight": 1.0,
+        "owner_radius": 50,
+        "owner_weight": 0.0
+      }
+    },
+    {
+      "metrics": {
+        "clean": {
+          "dead_recall": 0.9984092909762011,
+          "macro_f1": 0.9173787270899512,
+          "spell_f1": 0.5274658573596358,
+          "spells": 238
+        },
+        "masked": {
+          "dead_recall": 0.9829809578230452,
+          "macro_f1": 0.854090037640975,
+          "spell_f1": 0.426890756302521,
+          "spells": 293
+        },
+        "stress": {
+          "dead_recall": 0.9651742830226561,
+          "macro_f1": 0.8326832903752136,
+          "spell_f1": 0.38087201125175807,
+          "spells": 290
+        }
+      },
+      "recipe": {
+        "dead_cutoff": 0.5,
+        "dead_radius": 50,
+        "dead_weight": 1.0,
+        "owner_radius": 75,
+        "owner_weight": 0.0
+      }
+    },
+    {
+      "metrics": {
+        "clean": {
+          "dead_recall": 0.9983166283146206,
+          "macro_f1": 0.9180087406122525,
+          "spell_f1": 0.555068493150685,
+          "spells": 309
+        },
+        "masked": {
+          "dead_recall": 0.9810350419298544,
+          "macro_f1": 0.8484395881352667,
+          "spell_f1": 0.39224242424242417,
+          "spells": 404
+        },
+        "stress": {
+          "dead_recall": 0.9644020941761517,
+          "macro_f1": 0.8255631954256,
+          "spell_f1": 0.3646100116414436,
+          "spells": 438
+        }
+      },
+      "recipe": {
+        "dead_cutoff": 0.5,
+        "dead_radius": 75,
+        "dead_weight": 1.0,
+        "owner_radius": 25,
+        "owner_weight": 0.0
+      }
+    },
+    {
+      "metrics": {
+        "clean": {
+          "dead_recall": 0.9983166283146206,
+          "macro_f1": 0.919257336013838,
+          "spell_f1": 0.5436496350364963,
+          "spells": 264
+        },
+        "masked": {
+          "dead_recall": 0.9810350419298544,
+          "macro_f1": 0.8510537383140986,
+          "spell_f1": 0.4192771084337349,
+          "spells": 326
+        },
+        "stress": {
+          "dead_recall": 0.9644020941761517,
+          "macro_f1": 0.8293784471973731,
+          "spell_f1": 0.384354628422425,
+          "spells": 346
+        }
+      },
+      "recipe": {
+        "dead_cutoff": 0.5,
+        "dead_radius": 75,
+        "dead_weight": 1.0,
+        "owner_radius": 50,
+        "owner_weight": 0.0
+      }
+    },
+    {
+      "metrics": {
+        "clean": {
+          "dead_recall": 0.9983166283146206,
+          "macro_f1": 0.9171792570215699,
+          "spell_f1": 0.5270516717325229,
+          "spells": 237
+        },
+        "masked": {
+          "dead_recall": 0.9810350419298544,
+          "macro_f1": 0.853763073201475,
+          "spell_f1": 0.42366197183098586,
+          "spells": 289
+        },
+        "stress": {
+          "dead_recall": 0.9644020941761517,
+          "macro_f1": 0.831848198647568,
+          "spell_f1": 0.3795744680851064,
+          "spells": 284
+        }
+      },
+      "recipe": {
+        "dead_cutoff": 0.5,
+        "dead_radius": 75,
+        "dead_weight": 1.0,
+        "owner_radius": 75,
+        "owner_weight": 0.0
+      }
+    },
+    {
+      "metrics": {
+        "clean": {
+          "dead_recall": 0.9851430865932572,
+          "macro_f1": 0.9129115622715607,
+          "spell_f1": 0.5460490463215258,
+          "spells": 313
+        },
+        "masked": {
+          "dead_recall": 0.9713054624639001,
+          "macro_f1": 0.846472228264246,
+          "spell_f1": 0.38717339667458434,
+          "spells": 421
+        },
+        "stress": {
+          "dead_recall": 0.9503945885005637,
+          "macro_f1": 0.823967730075808,
+          "spell_f1": 0.3622119815668203,
+          "spells": 447
+        }
+      },
+      "recipe": {
+        "dead_cutoff": 0.6,
+        "dead_radius": 25,
+        "dead_weight": 1.0,
+        "owner_radius": 25,
+        "owner_weight": 0.0
+      }
+    },
+    {
+      "metrics": {
+        "clean": {
+          "dead_recall": 0.9851430865932572,
+          "macro_f1": 0.913794560634163,
+          "spell_f1": 0.5346879535558781,
+          "spells": 268
+        },
+        "masked": {
+          "dead_recall": 0.9713054624639001,
+          "macro_f1": 0.8489674389289542,
+          "spell_f1": 0.41524310118265434,
+          "spells": 340
+        },
+        "stress": {
+          "dead_recall": 0.9503945885005637,
+          "macro_f1": 0.8279328456235749,
+          "spell_f1": 0.3820512820512821,
+          "spells": 359
+        }
+      },
+      "recipe": {
+        "dead_cutoff": 0.6,
+        "dead_radius": 25,
+        "dead_weight": 1.0,
+        "owner_radius": 50,
+        "owner_weight": 0.0
+      }
+    },
+    {
+      "metrics": {
+        "clean": {
+          "dead_recall": 0.9851430865932572,
+          "macro_f1": 0.9125347075355235,
+          "spell_f1": 0.5222390317700454,
+          "spells": 240
+        },
+        "masked": {
+          "dead_recall": 0.9713054624639001,
+          "macro_f1": 0.8520850937072185,
+          "spell_f1": 0.42333333333333334,
+          "spells": 299
+        },
+        "stress": {
+          "dead_recall": 0.9503945885005637,
+          "macro_f1": 0.8298870026695346,
+          "spell_f1": 0.38148667601683034,
+          "spells": 292
+        }
+      },
+      "recipe": {
+        "dead_cutoff": 0.6,
+        "dead_radius": 25,
+        "dead_weight": 1.0,
+        "owner_radius": 75,
+        "owner_weight": 0.0
+      }
+    },
+    {
+      "metrics": {
+        "clean": {
+          "dead_recall": 0.970378835848095,
+          "macro_f1": 0.9068364275496902,
+          "spell_f1": 0.534235453315291,
+          "spells": 318
+        },
+        "masked": {
+          "dead_recall": 0.961050794582323,
+          "macro_f1": 0.8442259451863506,
+          "spell_f1": 0.3819905213270142,
+          "spells": 423
+        },
+        "stress": {
+          "dead_recall": 0.9402943583882875,
+          "macro_f1": 0.8213438353285293,
+          "spell_f1": 0.35779816513761464,
+          "spells": 451
+        }
+      },
+      "recipe": {
+        "dead_cutoff": 0.6,
+        "dead_radius": 50,
+        "dead_weight": 1.0,
+        "owner_radius": 25,
+        "owner_weight": 0.0
+      }
+    },
+    {
+      "metrics": {
+        "clean": {
+          "dead_recall": 0.970378835848095,
+          "macro_f1": 0.9072845049580796,
+          "spell_f1": 0.5275613275613276,
+          "spells": 272
+        },
+        "masked": {
+          "dead_recall": 0.961050794582323,
+          "macro_f1": 0.8468807750393056,
+          "spell_f1": 0.41321003963011893,
+          "spells": 336
+        },
+        "stress": {
+          "dead_recall": 0.9402943583882875,
+          "macro_f1": 0.8258092444886795,
+          "spell_f1": 0.3820051413881749,
+          "spells": 357
+        }
+      },
+      "recipe": {
+        "dead_cutoff": 0.6,
+        "dead_radius": 50,
+        "dead_weight": 1.0,
+        "owner_radius": 50,
+        "owner_weight": 0.0
+      }
+    },
+    {
+      "metrics": {
+        "clean": {
+          "dead_recall": 0.970378835848095,
+          "macro_f1": 0.906470215725566,
+          "spell_f1": 0.5141141141141141,
+          "spells": 245
+        },
+        "masked": {
+          "dead_recall": 0.961050794582323,
+          "macro_f1": 0.8498904858139719,
+          "spell_f1": 0.41828254847645424,
+          "spells": 301
+        },
+        "stress": {
+          "dead_recall": 0.9402943583882875,
+          "macro_f1": 0.8275580299482285,
+          "spell_f1": 0.38022598870056495,
+          "spells": 287
+        }
+      },
+      "recipe": {
+        "dead_cutoff": 0.6,
+        "dead_radius": 50,
+        "dead_weight": 1.0,
+        "owner_radius": 75,
+        "owner_weight": 0.0
+      }
+    },
+    {
+      "metrics": {
+        "clean": {
+          "dead_recall": 0.9534061250019304,
+          "macro_f1": 0.9000810277281662,
+          "spell_f1": 0.5268292682926828,
+          "spells": 317
+        },
+        "masked": {
+          "dead_recall": 0.9463946502756714,
+          "macro_f1": 0.8391578845098131,
+          "spell_f1": 0.3762752075919335,
+          "spells": 422
+        },
+        "stress": {
+          "dead_recall": 0.9295300458680175,
+          "macro_f1": 0.8180760070592462,
+          "spell_f1": 0.3510297482837529,
+          "spells": 453
+        }
+      },
+      "recipe": {
+        "dead_cutoff": 0.6,
+        "dead_radius": 75,
+        "dead_weight": 1.0,
+        "owner_radius": 25,
+        "owner_weight": 0.0
+      }
+    },
+    {
+      "metrics": {
+        "clean": {
+          "dead_recall": 0.9534061250019304,
+          "macro_f1": 0.900225929396845,
+          "spell_f1": 0.5127167630057803,
+          "spells": 271
+        },
+        "masked": {
+          "dead_recall": 0.9463946502756714,
+          "macro_f1": 0.8418995638047607,
+          "spell_f1": 0.4084880636604774,
+          "spells": 333
+        },
+        "stress": {
+          "dead_recall": 0.9295300458680175,
+          "macro_f1": 0.8229268266747276,
+          "spell_f1": 0.37689345314505773,
+          "spells": 358
+        }
+      },
+      "recipe": {
+        "dead_cutoff": 0.6,
+        "dead_radius": 75,
+        "dead_weight": 1.0,
+        "owner_radius": 50,
+        "owner_weight": 0.0
+      }
+    },
+    {
+      "metrics": {
+        "clean": {
+          "dead_recall": 0.9534061250019304,
+          "macro_f1": 0.8996838241082821,
+          "spell_f1": 0.5024096385542168,
+          "spells": 243
+        },
+        "masked": {
+          "dead_recall": 0.9463946502756714,
+          "macro_f1": 0.8448821217708362,
+          "spell_f1": 0.41222222222222216,
+          "spells": 299
+        },
+        "stress": {
+          "dead_recall": 0.9295300458680175,
+          "macro_f1": 0.8245028677849889,
+          "spell_f1": 0.37623762376237624,
+          "spells": 286
+        }
+      },
+      "recipe": {
+        "dead_cutoff": 0.6,
+        "dead_radius": 75,
+        "dead_weight": 1.0,
+        "owner_radius": 75,
+        "owner_weight": 0.0
+      }
+    },
+    {
+      "metrics": {
+        "clean": {
+          "dead_recall": 0.9999227811153496,
+          "macro_f1": 0.9162608520044372,
+          "spell_f1": 0.5530239099859353,
+          "spells": 290
+        },
+        "masked": {
+          "dead_recall": 0.9810659294837145,
+          "macro_f1": 0.8523361893189803,
+          "spell_f1": 0.398501872659176,
+          "spells": 380
+        },
+        "stress": {
+          "dead_recall": 0.5712961961977421,
+          "macro_f1": 0.6951597780578732,
+          "spell_f1": 0.284375,
+          "spells": 603
+        }
+      },
+      "recipe": {
+        "dead_cutoff": 0.4,
+        "dead_radius": 25,
+        "dead_weight": 0.0,
+        "owner_radius": 25,
+        "owner_weight": 0.5
+      }
+    },
+    {
+      "metrics": {
+        "clean": {
+          "dead_recall": 0.9999227811153496,
+          "macro_f1": 0.9173583496819259,
+          "spell_f1": 0.5527488855869241,
+          "spells": 252
+        },
+        "masked": {
+          "dead_recall": 0.9810659294837145,
+          "macro_f1": 0.854425177802025,
+          "spell_f1": 0.42327469553450603,
+          "spells": 318
+        },
+        "stress": {
+          "dead_recall": 0.5712961961977421,
+          "macro_f1": 0.6993272902456265,
+          "spell_f1": 0.288139281828074,
+          "spells": 498
+        }
+      },
+      "recipe": {
+        "dead_cutoff": 0.4,
+        "dead_radius": 25,
+        "dead_weight": 0.0,
+        "owner_radius": 50,
+        "owner_weight": 0.5
+      }
+    },
+    {
+      "metrics": {
+        "clean": {
+          "dead_recall": 0.9999227811153496,
+          "macro_f1": 0.9135225328294568,
+          "spell_f1": 0.5191358024691357,
+          "spells": 227
+        },
+        "masked": {
+          "dead_recall": 0.9810659294837145,
+          "macro_f1": 0.8529623971241195,
+          "spell_f1": 0.4,
+          "spells": 277
+        },
+        "stress": {
+          "dead_recall": 0.5712961961977421,
+          "macro_f1": 0.7004096362721555,
+          "spell_f1": 0.2749124854142357,
+          "spells": 436
+        }
+      },
+      "recipe": {
+        "dead_cutoff": 0.4,
+        "dead_radius": 25,
+        "dead_weight": 0.0,
+        "owner_radius": 75,
+        "owner_weight": 0.5
+      }
+    },
+    {
+      "metrics": {
+        "clean": {
+          "dead_recall": 0.9999845562230699,
+          "macro_f1": 0.9125190960234115,
+          "spell_f1": 0.550354609929078,
+          "spells": 284
+        },
+        "masked": {
+          "dead_recall": 0.9811277045914348,
+          "macro_f1": 0.8511051055852654,
+          "spell_f1": 0.4020539152759949,
+          "spells": 358
+        },
+        "stress": {
+          "dead_recall": 0.5778598013930287,
+          "macro_f1": 0.6980301200350393,
+          "spell_f1": 0.2957600827300931,
+          "spells": 546
+        }
+      },
+      "recipe": {
+        "dead_cutoff": 0.4,
+        "dead_radius": 50,
+        "dead_weight": 0.0,
+        "owner_radius": 25,
+        "owner_weight": 0.5
+      }
+    },
+    {
+      "metrics": {
+        "clean": {
+          "dead_recall": 0.9999845562230699,
+          "macro_f1": 0.9131761402878812,
+          "spell_f1": 0.5473053892215569,
+          "spells": 247
+        },
+        "masked": {
+          "dead_recall": 0.9811277045914348,
+          "macro_f1": 0.8527070374529003,
+          "spell_f1": 0.42603878116343497,
+          "spells": 301
+        },
+        "stress": {
+          "dead_recall": 0.5778598013930287,
+          "macro_f1": 0.7023440059620739,
+          "spell_f1": 0.3026900584795321,
+          "spells": 434
+        }
+      },
+      "recipe": {
+        "dead_cutoff": 0.4,
+        "dead_radius": 50,
+        "dead_weight": 0.0,
+        "owner_radius": 50,
+        "owner_weight": 0.5
+      }
+    },
+    {
+      "metrics": {
+        "clean": {
+          "dead_recall": 0.9999845562230699,
+          "macro_f1": 0.9084644341663927,
+          "spell_f1": 0.5128682170542636,
+          "spells": 224
+        },
+        "masked": {
+          "dead_recall": 0.9811277045914348,
+          "macro_f1": 0.8508044976991824,
+          "spell_f1": 0.39649122807017545,
+          "spells": 263
+        },
+        "stress": {
+          "dead_recall": 0.5778598013930287,
+          "macro_f1": 0.7034392901599139,
+          "spell_f1": 0.289620253164557,
+          "spells": 369
+        }
+      },
+      "recipe": {
+        "dead_cutoff": 0.4,
+        "dead_radius": 50,
+        "dead_weight": 0.0,
+        "owner_radius": 75,
+        "owner_weight": 0.5
+      }
+    },
+    {
+      "metrics": {
+        "clean": {
+          "dead_recall": 1.0,
+          "macro_f1": 0.9086735191166833,
+          "spell_f1": 0.5471264367816092,
+          "spells": 275
+        },
+        "masked": {
+          "dead_recall": 0.9800620839832589,
+          "macro_f1": 0.8489908894264406,
+          "spell_f1": 0.3989583333333333,
+          "spells": 347
+        },
+        "stress": {
+          "dead_recall": 0.5803771370326327,
+          "macro_f1": 0.6997310922046966,
+          "spell_f1": 0.30314875135722047,
+          "spells": 500
+        }
+      },
+      "recipe": {
+        "dead_cutoff": 0.4,
+        "dead_radius": 75,
+        "dead_weight": 0.0,
+        "owner_radius": 25,
+        "owner_weight": 0.5
+      }
+    },
+    {
+      "metrics": {
+        "clean": {
+          "dead_recall": 1.0,
+          "macro_f1": 0.9087115171193384,
+          "spell_f1": 0.5444613050075872,
+          "spells": 238
+        },
+        "masked": {
+          "dead_recall": 0.9800620839832589,
+          "macro_f1": 0.8496873031625277,
+          "spell_f1": 0.41638418079096046,
+          "spells": 287
+        },
+        "stress": {
+          "dead_recall": 0.5803771370326327,
+          "macro_f1": 0.7041020409732733,
+          "spell_f1": 0.3095354523227384,
+          "spells": 397
+        }
+      },
+      "recipe": {
+        "dead_cutoff": 0.4,
+        "dead_radius": 75,
+        "dead_weight": 0.0,
+        "owner_radius": 50,
+        "owner_weight": 0.5
+      }
+    },
+    {
+      "metrics": {
+        "clean": {
+          "dead_recall": 1.0,
+          "macro_f1": 0.903420618905205,
+          "spell_f1": 0.5046728971962617,
+          "spells": 221
+        },
+        "masked": {
+          "dead_recall": 0.9800620839832589,
+          "macro_f1": 0.8477631608207356,
+          "spell_f1": 0.39164179104477614,
+          "spells": 249
+        },
+        "stress": {
+          "dead_recall": 0.5803771370326327,
+          "macro_f1": 0.7052720105301747,
+          "spell_f1": 0.296,
+          "spells": 329
+        }
+      },
+      "recipe": {
+        "dead_cutoff": 0.4,
+        "dead_radius": 75,
+        "dead_weight": 0.0,
+        "owner_radius": 75,
+        "owner_weight": 0.5
+      }
+    },
+    {
+      "metrics": {
+        "clean": {
+          "dead_recall": 0.9970965699371438,
+          "macro_f1": 0.9193467833107313,
+          "spell_f1": 0.5567642956764296,
+          "spells": 296
+        },
+        "masked": {
+          "dead_recall": 0.9684946950626245,
+          "macro_f1": 0.8534861381828468,
+          "spell_f1": 0.39950124688279304,
+          "spells": 381
+        },
+        "stress": {
+          "dead_recall": 0.4464641472718568,
+          "macro_f1": 0.6403404869667323,
+          "spell_f1": 0.26577946768060834,
+          "spells": 631
+        }
+      },
+      "recipe": {
+        "dead_cutoff": 0.5,
+        "dead_radius": 25,
+        "dead_weight": 0.0,
+        "owner_radius": 25,
+        "owner_weight": 0.5
+      }
+    },
+    {
+      "metrics": {
+        "clean": {
+          "dead_recall": 0.9970965699371438,
+          "macro_f1": 0.9203432352097701,
+          "spell_f1": 0.5531664212076584,
+          "spells": 258
+        },
+        "masked": {
+          "dead_recall": 0.9684946950626245,
+          "macro_f1": 0.8558518834278765,
+          "spell_f1": 0.42159244264507423,
+          "spells": 320
+        },
+        "stress": {
+          "dead_recall": 0.4464641472718568,
+          "macro_f1": 0.64427127679109,
+          "spell_f1": 0.2713675213675214,
+          "spells": 515
+        }
+      },
+      "recipe": {
+        "dead_cutoff": 0.5,
+        "dead_radius": 25,
+        "dead_weight": 0.0,
+        "owner_radius": 50,
+        "owner_weight": 0.5
+      }
+    },
+    {
+      "metrics": {
+        "clean": {
+          "dead_recall": 0.9970965699371438,
+          "macro_f1": 0.9177446358380307,
+          "spell_f1": 0.524731182795699,
+          "spells": 230
+        },
+        "masked": {
+          "dead_recall": 0.9684946950626245,
+          "macro_f1": 0.8549919457285476,
+          "spell_f1": 0.4,
+          "spells": 276
+        },
+        "stress": {
+          "dead_recall": 0.4464641472718568,
+          "macro_f1": 0.6453411466821176,
+          "spell_f1": 0.26157407407407407,
+          "spells": 443
+        }
+      },
+      "recipe": {
+        "dead_cutoff": 0.5,
+        "dead_radius": 25,
+        "dead_weight": 0.0,
+        "owner_radius": 75,
+        "owner_weight": 0.5
+      }
+    },
+    {
+      "metrics": {
+        "clean": {
+          "dead_recall": 0.9968803570601226,
+          "macro_f1": 0.9196110126644154,
+          "spell_f1": 0.5567642956764296,
+          "spells": 296
+        },
+        "masked": {
+          "dead_recall": 0.9661317971923213,
+          "macro_f1": 0.8537138820498079,
+          "spell_f1": 0.4015170670037927,
+          "spells": 370
+        },
+        "stress": {
+          "dead_recall": 0.43163812141897423,
+          "macro_f1": 0.633978894246154,
+          "spell_f1": 0.2749748743718593,
+          "spells": 574
+        }
+      },
+      "recipe": {
+        "dead_cutoff": 0.5,
+        "dead_radius": 50,
+        "dead_weight": 0.0,
+        "owner_radius": 25,
+        "owner_weight": 0.5
+      }
+    },
+    {
+      "metrics": {
+        "clean": {
+          "dead_recall": 0.9968803570601226,
+          "macro_f1": 0.9205686445194764,
+          "spell_f1": 0.5525773195876289,
+          "spells": 258
+        },
+        "masked": {
+          "dead_recall": 0.9661317971923213,
+          "macro_f1": 0.8561367345525447,
+          "spell_f1": 0.42520547945205484,
+          "spells": 309
+        },
+        "stress": {
+          "dead_recall": 0.43163812141897423,
+          "macro_f1": 0.6379556003946055,
+          "spell_f1": 0.2811926605504587,
+          "spells": 451
+        }
+      },
+      "recipe": {
+        "dead_cutoff": 0.5,
+        "dead_radius": 50,
+        "dead_weight": 0.0,
+        "owner_radius": 50,
+        "owner_weight": 0.5
+      }
+    },
+    {
+      "metrics": {
+        "clean": {
+          "dead_recall": 0.9968803570601226,
+          "macro_f1": 0.9179898303720974,
+          "spell_f1": 0.524731182795699,
+          "spells": 230
+        },
+        "masked": {
+          "dead_recall": 0.9661317971923213,
+          "macro_f1": 0.8550126821581093,
+          "spell_f1": 0.40290275761973876,
+          "spells": 268
+        },
+        "stress": {
+          "dead_recall": 0.43163812141897423,
+          "macro_f1": 0.6390619264873344,
+          "spell_f1": 0.2679950186799501,
+          "spells": 382
+        }
+      },
+      "recipe": {
+        "dead_cutoff": 0.5,
+        "dead_radius": 50,
+        "dead_weight": 0.0,
+        "owner_radius": 75,
+        "owner_weight": 0.5
+      }
+    },
+    {
+      "metrics": {
+        "clean": {
+          "dead_recall": 0.9936217201278744,
+          "macro_f1": 0.9183041661645442,
+          "spell_f1": 0.5548387096774194,
+          "spells": 292
+        },
+        "masked": {
+          "dead_recall": 0.9626260598291918,
+          "macro_f1": 0.852017585987907,
+          "spell_f1": 0.39743918053777205,
+          "spells": 360
+        },
+        "stress": {
+          "dead_recall": 0.4211981282142361,
+          "macro_f1": 0.6290633110400922,
+          "spell_f1": 0.279002079002079,
+          "spells": 541
+        }
+      },
+      "recipe": {
+        "dead_cutoff": 0.5,
+        "dead_radius": 75,
+        "dead_weight": 0.0,
+        "owner_radius": 25,
+        "owner_weight": 0.5
+      }
+    },
+    {
+      "metrics": {
+        "clean": {
+          "dead_recall": 0.9936217201278744,
+          "macro_f1": 0.9195512271536579,
+          "spell_f1": 0.5475555555555556,
+          "spells": 254
+        },
+        "masked": {
+          "dead_recall": 0.9626260598291918,
+          "macro_f1": 0.854444611975114,
+          "spell_f1": 0.4188888888888888,
+          "spells": 299
+        },
+        "stress": {
+          "dead_recall": 0.4211981282142361,
+          "macro_f1": 0.6330998561776204,
+          "spell_f1": 0.28517200474495846,
+          "spells": 422
+        }
+      },
+      "recipe": {
+        "dead_cutoff": 0.5,
+        "dead_radius": 75,
+        "dead_weight": 0.0,
+        "owner_radius": 50,
+        "owner_weight": 0.5
+      }
+    },
+    {
+      "metrics": {
+        "clean": {
+          "dead_recall": 0.9936217201278744,
+          "macro_f1": 0.9167883933237713,
+          "spell_f1": 0.5185185185185185,
+          "spells": 227
+        },
+        "masked": {
+          "dead_recall": 0.9626260598291918,
+          "macro_f1": 0.853382881625841,
+          "spell_f1": 0.38707782672540386,
+          "spells": 260
+        },
+        "stress": {
+          "dead_recall": 0.4211981282142361,
+          "macro_f1": 0.6341476609558431,
+          "spell_f1": 0.2734111543450065,
+          "spells": 350
+        }
+      },
+      "recipe": {
+        "dead_cutoff": 0.5,
+        "dead_radius": 75,
+        "dead_weight": 0.0,
+        "owner_radius": 75,
+        "owner_weight": 0.5
+      }
+    },
+    {
+      "metrics": {
+        "clean": {
+          "dead_recall": 0.9833207209155072,
+          "macro_f1": 0.9145571022410373,
+          "spell_f1": 0.5495844875346261,
+          "spells": 301
+        },
+        "masked": {
+          "dead_recall": 0.9536223378789517,
+          "macro_f1": 0.8513737883738605,
+          "spell_f1": 0.3940298507462686,
+          "spells": 383
+        },
+        "stress": {
+          "dead_recall": 0.31404920387329927,
+          "macro_f1": 0.5765664812359901,
+          "spell_f1": 0.2523191094619666,
+          "spells": 657
+        }
+      },
+      "recipe": {
+        "dead_cutoff": 0.6,
+        "dead_radius": 25,
+        "dead_weight": 0.0,
+        "owner_radius": 25,
+        "owner_weight": 0.5
+      }
+    },
+    {
+      "metrics": {
+        "clean": {
+          "dead_recall": 0.9833207209155072,
+          "macro_f1": 0.9152195953664193,
+          "spell_f1": 0.5397379912663756,
+          "spells": 266
+        },
+        "masked": {
+          "dead_recall": 0.9536223378789517,
+          "macro_f1": 0.8537138839886631,
+          "spell_f1": 0.4183288409703504,
+          "spells": 321
+        },
+        "stress": {
+          "dead_recall": 0.31404920387329927,
+          "macro_f1": 0.5803342255852791,
+          "spell_f1": 0.25382198952879587,
+          "spells": 534
+        }
+      },
+      "recipe": {
+        "dead_cutoff": 0.6,
+        "dead_radius": 25,
+        "dead_weight": 0.0,
+        "owner_radius": 50,
+        "owner_weight": 0.5
+      }
+    },
+    {
+      "metrics": {
+        "clean": {
+          "dead_recall": 0.9833207209155072,
+          "macro_f1": 0.9134018709918359,
+          "spell_f1": 0.5144596651445966,
+          "spells": 236
+        },
+        "masked": {
+          "dead_recall": 0.9536223378789517,
+          "macro_f1": 0.8531909542055335,
+          "spell_f1": 0.40114942528735636,
+          "spells": 275
+        },
+        "stress": {
+          "dead_recall": 0.31404920387329927,
+          "macro_f1": 0.5813846676640163,
+          "spell_f1": 0.24182857142857142,
+          "spells": 454
+        }
+      },
+      "recipe": {
+        "dead_cutoff": 0.6,
+        "dead_radius": 25,
+        "dead_weight": 0.0,
+        "owner_radius": 75,
+        "owner_weight": 0.5
+      }
+    },
+    {
+      "metrics": {
+        "clean": {
+          "dead_recall": 0.9687726830473661,
+          "macro_f1": 0.90891722109934,
+          "spell_f1": 0.542382271468144,
+          "spells": 301
+        },
+        "masked": {
+          "dead_recall": 0.9415916356504147,
+          "macro_f1": 0.8484375703557085,
+          "spell_f1": 0.39044025157232704,
+          "spells": 374
+        },
+        "stress": {
+          "dead_recall": 0.2986208707201433,
+          "macro_f1": 0.5689505076353704,
+          "spell_f1": 0.26403162055335966,
+          "spells": 591
+        }
+      },
+      "recipe": {
+        "dead_cutoff": 0.6,
+        "dead_radius": 50,
+        "dead_weight": 0.0,
+        "owner_radius": 25,
+        "owner_weight": 0.5
+      }
+    },
+    {
+      "metrics": {
+        "clean": {
+          "dead_recall": 0.9687726830473661,
+          "macro_f1": 0.9092518508460575,
+          "spell_f1": 0.5281159420289855,
+          "spells": 269
+        },
+        "masked": {
+          "dead_recall": 0.9415916356504147,
+          "macro_f1": 0.8508903075800808,
+          "spell_f1": 0.4102981029810298,
+          "spells": 317
+        },
+        "stress": {
+          "dead_recall": 0.2986208707201433,
+          "macro_f1": 0.5725963319220275,
+          "spell_f1": 0.2727480045610034,
+          "spells": 456
+        }
+      },
+      "recipe": {
+        "dead_cutoff": 0.6,
+        "dead_radius": 50,
+        "dead_weight": 0.0,
+        "owner_radius": 50,
+        "owner_weight": 0.5
+      }
+    },
+    {
+      "metrics": {
+        "clean": {
+          "dead_recall": 0.9687726830473661,
+          "macro_f1": 0.90791097753331,
+          "spell_f1": 0.5114155251141552,
+          "spells": 236
+        },
+        "masked": {
+          "dead_recall": 0.9415916356504147,
+          "macro_f1": 0.8507023669526278,
+          "spell_f1": 0.39015918958031837,
+          "spells": 270
+        },
+        "stress": {
+          "dead_recall": 0.2986208707201433,
+          "macro_f1": 0.5736710304819027,
+          "spell_f1": 0.25920398009950246,
+          "spells": 383
+        }
+      },
+      "recipe": {
+        "dead_cutoff": 0.6,
+        "dead_radius": 50,
+        "dead_weight": 0.0,
+        "owner_radius": 75,
+        "owner_weight": 0.5
+      }
+    },
+    {
+      "metrics": {
+        "clean": {
+          "dead_recall": 0.9506108013775849,
+          "macro_f1": 0.9015750669351777,
+          "spell_f1": 0.5233333333333333,
+          "spells": 299
+        },
+        "masked": {
+          "dead_recall": 0.928912294790814,
+          "macro_f1": 0.844066717213114,
+          "spell_f1": 0.3829787234042553,
+          "spells": 378
+        },
+        "stress": {
+          "dead_recall": 0.2874704637766212,
+          "macro_f1": 0.5631124638450732,
+          "spell_f1": 0.26869300911854105,
+          "spells": 566
+        }
+      },
+      "recipe": {
+        "dead_cutoff": 0.6,
+        "dead_radius": 75,
+        "dead_weight": 0.0,
+        "owner_radius": 25,
+        "owner_weight": 0.5
+      }
+    },
+    {
+      "metrics": {
+        "clean": {
+          "dead_recall": 0.9506108013775849,
+          "macro_f1": 0.9018511731166705,
+          "spell_f1": 0.5103649635036496,
+          "spells": 264
+        },
+        "masked": {
+          "dead_recall": 0.928912294790814,
+          "macro_f1": 0.846497008969684,
+          "spell_f1": 0.4037889039242219,
+          "spells": 318
+        },
+        "stress": {
+          "dead_recall": 0.2874704637766212,
+          "macro_f1": 0.5667012975401163,
+          "spell_f1": 0.2748235294117647,
+          "spells": 429
+        }
+      },
+      "recipe": {
+        "dead_cutoff": 0.6,
+        "dead_radius": 75,
+        "dead_weight": 0.0,
+        "owner_radius": 50,
+        "owner_weight": 0.5
+      }
+    },
+    {
+      "metrics": {
+        "clean": {
+          "dead_recall": 0.9506108013775849,
+          "macro_f1": 0.9011626865459705,
+          "spell_f1": 0.4901065449010654,
+          "spells": 236
+        },
+        "masked": {
+          "dead_recall": 0.928912294790814,
+          "macro_f1": 0.8464828290151564,
+          "spell_f1": 0.3872648335745296,
+          "spells": 270
+        },
+        "stress": {
+          "dead_recall": 0.2874704637766212,
+          "macro_f1": 0.5677433053909255,
+          "spell_f1": 0.26408268733850127,
+          "spells": 353
+        }
+      },
+      "recipe": {
+        "dead_cutoff": 0.6,
+        "dead_radius": 75,
+        "dead_weight": 0.0,
+        "owner_radius": 75,
+        "owner_weight": 0.5
+      }
+    },
+    {
+      "metrics": {
+        "clean": {
+          "dead_recall": 0.9998764497845594,
+          "macro_f1": 0.9170742994923895,
+          "spell_f1": 0.5541490857946554,
+          "spells": 290
+        },
+        "masked": {
+          "dead_recall": 0.9875986471251409,
+          "macro_f1": 0.8575254778807286,
+          "spell_f1": 0.4035443037974683,
+          "spells": 369
+        },
+        "stress": {
+          "dead_recall": 0.9372364905561305,
+          "macro_f1": 0.8387213845249496,
+          "spell_f1": 0.3975816203143893,
+          "spells": 406
+        }
+      },
+      "recipe": {
+        "dead_cutoff": 0.4,
+        "dead_radius": 25,
+        "dead_weight": 0.5,
+        "owner_radius": 25,
+        "owner_weight": 0.5
+      }
+    },
+    {
+      "metrics": {
+        "clean": {
+          "dead_recall": 0.9998764497845594,
+          "macro_f1": 0.918153390830205,
+          "spell_f1": 0.5545319465081723,
+          "spells": 252
+        },
+        "masked": {
+          "dead_recall": 0.9875986471251409,
+          "macro_f1": 0.8591072465715742,
+          "spell_f1": 0.4300136425648022,
+          "spells": 312
+        },
+        "stress": {
+          "dead_recall": 0.9372364905561305,
+          "macro_f1": 0.8443600443385954,
+          "spell_f1": 0.41513513513513517,
+          "spells": 319
+        }
+      },
+      "recipe": {
+        "dead_cutoff": 0.4,
+        "dead_radius": 25,
+        "dead_weight": 0.5,
+        "owner_radius": 50,
+        "owner_weight": 0.5
+      }
+    },
+    {
+      "metrics": {
+        "clean": {
+          "dead_recall": 0.9998764497845594,
+          "macro_f1": 0.9143861981030307,
+          "spell_f1": 0.5191358024691357,
+          "spells": 227
+        },
+        "masked": {
+          "dead_recall": 0.9875986471251409,
+          "macro_f1": 0.8572472284446423,
+          "spell_f1": 0.4040404040404041,
+          "spells": 272
+        },
+        "stress": {
+          "dead_recall": 0.9372364905561305,
+          "macro_f1": 0.8460557488893913,
+          "spell_f1": 0.40635838150289016,
+          "spells": 271
+        }
+      },
+      "recipe": {
+        "dead_cutoff": 0.4,
+        "dead_radius": 25,
+        "dead_weight": 0.5,
+        "owner_radius": 75,
+        "owner_weight": 0.5
+      }
+    },
+    {
+      "metrics": {
+        "clean": {
+          "dead_recall": 0.9999227811153496,
+          "macro_f1": 0.9134774329753101,
+          "spell_f1": 0.5505681818181819,
+          "spells": 283
+        },
+        "masked": {
+          "dead_recall": 0.9880465166561134,
+          "macro_f1": 0.8552375387742935,
+          "spell_f1": 0.4077021822849808,
+          "spells": 358
+        },
+        "stress": {
+          "dead_recall": 0.9233834226498433,
+          "macro_f1": 0.8335049880494285,
+          "spell_f1": 0.3946601941747573,
+          "spells": 403
+        }
+      },
+      "recipe": {
+        "dead_cutoff": 0.4,
+        "dead_radius": 50,
+        "dead_weight": 0.5,
+        "owner_radius": 25,
+        "owner_weight": 0.5
+      }
+    },
+    {
+      "metrics": {
+        "clean": {
+          "dead_recall": 0.9999227811153496,
+          "macro_f1": 0.9140720745560819,
+          "spell_f1": 0.5487256371814093,
+          "spells": 246
+        },
+        "masked": {
+          "dead_recall": 0.9880465166561134,
+          "macro_f1": 0.8566943332523741,
+          "spell_f1": 0.4314482758620689,
+          "spells": 304
+        },
+        "stress": {
+          "dead_recall": 0.9233834226498433,
+          "macro_f1": 0.8391954180978164,
+          "spell_f1": 0.40539811066126863,
+          "spells": 320
+        }
+      },
+      "recipe": {
+        "dead_cutoff": 0.4,
+        "dead_radius": 50,
+        "dead_weight": 0.5,
+        "owner_radius": 50,
+        "owner_weight": 0.5
+      }
+    },
+    {
+      "metrics": {
+        "clean": {
+          "dead_recall": 0.9999227811153496,
+          "macro_f1": 0.9094108125174077,
+          "spell_f1": 0.511627906976744,
+          "spells": 224
+        },
+        "masked": {
+          "dead_recall": 0.9880465166561134,
+          "macro_f1": 0.8544085116429581,
+          "spell_f1": 0.4011695906432749,
+          "spells": 263
+        },
+        "stress": {
+          "dead_recall": 0.9233834226498433,
+          "macro_f1": 0.8411081586346357,
+          "spell_f1": 0.397677793904209,
+          "spells": 268
+        }
+      },
+      "recipe": {
+        "dead_cutoff": 0.4,
+        "dead_radius": 50,
+        "dead_weight": 0.5,
+        "owner_radius": 75,
+        "owner_weight": 0.5
+      }
+    },
+    {
+      "metrics": {
+        "clean": {
+          "dead_recall": 1.0,
+          "macro_f1": 0.9091735642904567,
+          "spell_f1": 0.5463414634146341,
+          "spells": 276
+        },
+        "masked": {
+          "dead_recall": 0.9891739123720097,
+          "macro_f1": 0.8527534787724195,
+          "spell_f1": 0.40783289817232377,
+          "spells": 345
+        },
+        "stress": {
+          "dead_recall": 0.9101017744899693,
+          "macro_f1": 0.8285097753055094,
+          "spell_f1": 0.3864406779661017,
+          "spells": 405
+        }
+      },
+      "recipe": {
+        "dead_cutoff": 0.4,
+        "dead_radius": 75,
+        "dead_weight": 0.5,
+        "owner_radius": 25,
+        "owner_weight": 0.5
+      }
+    },
+    {
+      "metrics": {
+        "clean": {
+          "dead_recall": 1.0,
+          "macro_f1": 0.9091099113517435,
+          "spell_f1": 0.5420333839150228,
+          "spells": 238
+        },
+        "masked": {
+          "dead_recall": 0.9891739123720097,
+          "macro_f1": 0.8534952761676017,
+          "spell_f1": 0.42704225352112674,
+          "spells": 289
+        },
+        "stress": {
+          "dead_recall": 0.9101017744899693,
+          "macro_f1": 0.8340235643644011,
+          "spell_f1": 0.3989159891598916,
+          "spells": 317
+        }
+      },
+      "recipe": {
+        "dead_cutoff": 0.4,
+        "dead_radius": 75,
+        "dead_weight": 0.5,
+        "owner_radius": 50,
+        "owner_weight": 0.5
+      }
+    },
+    {
+      "metrics": {
+        "clean": {
+          "dead_recall": 1.0,
+          "macro_f1": 0.9038980609267507,
+          "spell_f1": 0.5054602184087363,
+          "spells": 220
+        },
+        "masked": {
+          "dead_recall": 0.9891739123720097,
+          "macro_f1": 0.8508735176747981,
+          "spell_f1": 0.39702380952380956,
+          "spells": 251
+        },
+        "stress": {
+          "dead_recall": 0.9101017744899693,
+          "macro_f1": 0.835473150152236,
+          "spell_f1": 0.3860262008733625,
+          "spells": 266
+        }
+      },
+      "recipe": {
+        "dead_cutoff": 0.4,
+        "dead_radius": 75,
+        "dead_weight": 0.5,
+        "owner_radius": 75,
+        "owner_weight": 0.5
+      }
+    },
+    {
+      "metrics": {
+        "clean": {
+          "dead_recall": 0.998023196552949,
+          "macro_f1": 0.9203103575306092,
+          "spell_f1": 0.5581005586592178,
+          "spells": 295
+        },
+        "masked": {
+          "dead_recall": 0.9783632685209495,
+          "macro_f1": 0.8595454907079297,
+          "spell_f1": 0.40856423173803524,
+          "spells": 373
+        },
+        "stress": {
+          "dead_recall": 0.8883106052416179,
+          "macro_f1": 0.8215623270455795,
+          "spell_f1": 0.3769411764705882,
+          "spells": 429
+        }
+      },
+      "recipe": {
+        "dead_cutoff": 0.5,
+        "dead_radius": 25,
+        "dead_weight": 0.5,
+        "owner_radius": 25,
+        "owner_weight": 0.5
+      }
+    },
+    {
+      "metrics": {
+        "clean": {
+          "dead_recall": 0.998023196552949,
+          "macro_f1": 0.9213409868673423,
+          "spell_f1": 0.5543446244477173,
+          "spells": 258
+        },
+        "masked": {
+          "dead_recall": 0.9783632685209495,
+          "macro_f1": 0.8616112236496997,
+          "spell_f1": 0.4353741496598639,
+          "spells": 314
+        },
+        "stress": {
+          "dead_recall": 0.8883106052416179,
+          "macro_f1": 0.8267560333780951,
+          "spell_f1": 0.39161205766710355,
+          "spells": 342
+        }
+      },
+      "recipe": {
+        "dead_cutoff": 0.5,
+        "dead_radius": 25,
+        "dead_weight": 0.5,
+        "owner_radius": 50,
+        "owner_weight": 0.5
+      }
+    },
+    {
+      "metrics": {
+        "clean": {
+          "dead_recall": 0.998023196552949,
+          "macro_f1": 0.9187250313417584,
+          "spell_f1": 0.5261538461538462,
+          "spells": 229
+        },
+        "masked": {
+          "dead_recall": 0.9783632685209495,
+          "macro_f1": 0.8601794374521989,
+          "spell_f1": 0.407492795389049,
+          "spells": 273
+        },
+        "stress": {
+          "dead_recall": 0.8883106052416179,
+          "macro_f1": 0.8289225104100271,
+          "spell_f1": 0.38422535211267606,
+          "spells": 289
+        }
+      },
+      "recipe": {
+        "dead_cutoff": 0.5,
+        "dead_radius": 25,
+        "dead_weight": 0.5,
+        "owner_radius": 75,
+        "owner_weight": 0.5
+      }
+    },
+    {
+      "metrics": {
+        "clean": {
+          "dead_recall": 0.9978687587836481,
+          "macro_f1": 0.9205036964459058,
+          "spell_f1": 0.5581005586592178,
+          "spells": 295
+        },
+        "masked": {
+          "dead_recall": 0.9759231517659959,
+          "macro_f1": 0.859170888557775,
+          "spell_f1": 0.41219822109275733,
+          "spells": 366
+        },
+        "stress": {
+          "dead_recall": 0.8656854720390419,
+          "macro_f1": 0.8139635697257651,
+          "spell_f1": 0.36658823529411766,
+          "spells": 429
+        }
+      },
+      "recipe": {
+        "dead_cutoff": 0.5,
+        "dead_radius": 50,
+        "dead_weight": 0.5,
+        "owner_radius": 25,
+        "owner_weight": 0.5
+      }
+    },
+    {
+      "metrics": {
+        "clean": {
+          "dead_recall": 0.9978687587836481,
+          "macro_f1": 0.9214888533877392,
+          "spell_f1": 0.5537555228276878,
+          "spells": 258
+        },
+        "masked": {
+          "dead_recall": 0.9759231517659959,
+          "macro_f1": 0.8612155524891065,
+          "spell_f1": 0.4380165289256198,
+          "spells": 305
+        },
+        "stress": {
+          "dead_recall": 0.8656854720390419,
+          "macro_f1": 0.8189154984347882,
+          "spell_f1": 0.3898666666666667,
+          "spells": 329
+        }
+      },
+      "recipe": {
+        "dead_cutoff": 0.5,
+        "dead_radius": 50,
+        "dead_weight": 0.5,
+        "owner_radius": 50,
+        "owner_weight": 0.5
+      }
+    },
+    {
+      "metrics": {
+        "clean": {
+          "dead_recall": 0.9978687587836481,
+          "macro_f1": 0.9189328884670361,
+          "spell_f1": 0.5261538461538462,
+          "spells": 229
+        },
+        "masked": {
+          "dead_recall": 0.9759231517659959,
+          "macro_f1": 0.8599664923123947,
+          "spell_f1": 0.4075691411935954,
+          "spells": 266
+        },
+        "stress": {
+          "dead_recall": 0.8656854720390419,
+          "macro_f1": 0.8206250902191714,
+          "spell_f1": 0.3782234957020057,
+          "spells": 277
+        }
+      },
+      "recipe": {
+        "dead_cutoff": 0.5,
+        "dead_radius": 50,
+        "dead_weight": 0.5,
+        "owner_radius": 75,
+        "owner_weight": 0.5
+      }
+    },
+    {
+      "metrics": {
+        "clean": {
+          "dead_recall": 0.9954904171364148,
+          "macro_f1": 0.9193694601151498,
+          "spell_f1": 0.5576437587657784,
+          "spells": 292
+        },
+        "masked": {
+          "dead_recall": 0.9716915568871524,
+          "macro_f1": 0.85705073493719,
+          "spell_f1": 0.4087291399229782,
+          "spells": 358
+        },
+        "stress": {
+          "dead_recall": 0.8387051937421816,
+          "macro_f1": 0.8040897018328333,
+          "spell_f1": 0.35933806146572106,
+          "spells": 425
+        }
+      },
+      "recipe": {
+        "dead_cutoff": 0.5,
+        "dead_radius": 75,
+        "dead_weight": 0.5,
+        "owner_radius": 25,
+        "owner_weight": 0.5
+      }
+    },
+    {
+      "metrics": {
+        "clean": {
+          "dead_recall": 0.9954904171364148,
+          "macro_f1": 0.9205727716913015,
+          "spell_f1": 0.550887573964497,
+          "spells": 255
+        },
+        "masked": {
+          "dead_recall": 0.9716915568871524,
+          "macro_f1": 0.8590992647506316,
+          "spell_f1": 0.43226703755215584,
+          "spells": 298
+        },
+        "stress": {
+          "dead_recall": 0.8387051937421816,
+          "macro_f1": 0.8091362384640023,
+          "spell_f1": 0.37566137566137564,
+          "spells": 335
+        }
+      },
+      "recipe": {
+        "dead_cutoff": 0.5,
+        "dead_radius": 75,
+        "dead_weight": 0.5,
+        "owner_radius": 50,
+        "owner_weight": 0.5
+      }
+    },
+    {
+      "metrics": {
+        "clean": {
+          "dead_recall": 0.9954904171364148,
+          "macro_f1": 0.9179148541549326,
+          "spell_f1": 0.5222222222222223,
+          "spells": 227
+        },
+        "masked": {
+          "dead_recall": 0.9716915568871524,
+          "macro_f1": 0.8581743528312531,
+          "spell_f1": 0.40175695461200583,
+          "spells": 262
+        },
+        "stress": {
+          "dead_recall": 0.8387051937421816,
+          "macro_f1": 0.8106020238885329,
+          "spell_f1": 0.3642651296829972,
+          "spells": 273
+        }
+      },
+      "recipe": {
+        "dead_cutoff": 0.5,
+        "dead_radius": 75,
+        "dead_weight": 0.5,
+        "owner_radius": 75,
+        "owner_weight": 0.5
+      }
+    },
+    {
+      "metrics": {
+        "clean": {
+          "dead_recall": 0.9843091226390326,
+          "macro_f1": 0.9150572980678344,
+          "spell_f1": 0.5537604456824512,
+          "spells": 297
+        },
+        "masked": {
+          "dead_recall": 0.9650198452533552,
+          "macro_f1": 0.8570644285192914,
+          "spell_f1": 0.4034956304619226,
+          "spells": 380
+        },
+        "stress": {
+          "dead_recall": 0.756899507343516,
+          "macro_f1": 0.7715905484258706,
+          "spell_f1": 0.3273913043478261,
+          "spells": 499
+        }
+      },
+      "recipe": {
+        "dead_cutoff": 0.6,
+        "dead_radius": 25,
+        "dead_weight": 0.5,
+        "owner_radius": 25,
+        "owner_weight": 0.5
+      }
+    },
+    {
+      "metrics": {
+        "clean": {
+          "dead_recall": 0.9843091226390326,
+          "macro_f1": 0.9156857135619058,
+          "spell_f1": 0.5432748538011696,
+          "spells": 263
+        },
+        "masked": {
+          "dead_recall": 0.9650198452533552,
+          "macro_f1": 0.8592655003611203,
+          "spell_f1": 0.4281842818428184,
+          "spells": 317
+        },
+        "stress": {
+          "dead_recall": 0.756899507343516,
+          "macro_f1": 0.7761594501124774,
+          "spell_f1": 0.3384242424242424,
+          "spells": 404
+        }
+      },
+      "recipe": {
+        "dead_cutoff": 0.6,
+        "dead_radius": 25,
+        "dead_weight": 0.5,
+        "owner_radius": 50,
+        "owner_weight": 0.5
+      }
+    },
+    {
+      "metrics": {
+        "clean": {
+          "dead_recall": 0.9843091226390326,
+          "macro_f1": 0.9139424204402067,
+          "spell_f1": 0.5182235834609494,
+          "spells": 232
+        },
+        "masked": {
+          "dead_recall": 0.9650198452533552,
+          "macro_f1": 0.8588329656510015,
+          "spell_f1": 0.40690647482014386,
+          "spells": 274
+        },
+        "stress": {
+          "dead_recall": 0.756899507343516,
+          "macro_f1": 0.7775665182773065,
+          "spell_f1": 0.3250975292587776,
+          "spells": 348
+        }
+      },
+      "recipe": {
+        "dead_cutoff": 0.6,
+        "dead_radius": 25,
+        "dead_weight": 0.5,
+        "owner_radius": 75,
+        "owner_weight": 0.5
+      }
+    },
+    {
+      "metrics": {
+        "clean": {
+          "dead_recall": 0.9695757594477306,
+          "macro_f1": 0.9091864813355027,
+          "spell_f1": 0.543134535367545,
+          "spells": 300
+        },
+        "masked": {
+          "dead_recall": 0.9523868357245447,
+          "macro_f1": 0.8539277902272855,
+          "spell_f1": 0.3995018679950187,
+          "spells": 382
+        },
+        "stress": {
+          "dead_recall": 0.7556022300813887,
+          "macro_f1": 0.7716490422737111,
+          "spell_f1": 0.33333333333333337,
+          "spells": 467
+        }
+      },
+      "recipe": {
+        "dead_cutoff": 0.6,
+        "dead_radius": 50,
+        "dead_weight": 0.5,
+        "owner_radius": 25,
+        "owner_weight": 0.5
+      }
+    },
+    {
+      "metrics": {
+        "clean": {
+          "dead_recall": 0.9695757594477306,
+          "macro_f1": 0.9095041347575975,
+          "spell_f1": 0.5306240928882437,
+          "spells": 268
+        },
+        "masked": {
+          "dead_recall": 0.9523868357245447,
+          "macro_f1": 0.8563703904695205,
+          "spell_f1": 0.4260162601626016,
+          "spells": 317
+        },
+        "stress": {
+          "dead_recall": 0.7556022300813887,
+          "macro_f1": 0.7761463550011122,
+          "spell_f1": 0.3434343434343434,
+          "spells": 371
+        }
+      },
+      "recipe": {
+        "dead_cutoff": 0.6,
+        "dead_radius": 50,
+        "dead_weight": 0.5,
+        "owner_radius": 50,
+        "owner_weight": 0.5
+      }
+    },
+    {
+      "metrics": {
+        "clean": {
+          "dead_recall": 0.9695757594477306,
+          "macro_f1": 0.9084646251548758,
+          "spell_f1": 0.51324200913242,
+          "spells": 236
+        },
+        "masked": {
+          "dead_recall": 0.9523868357245447,
+          "macro_f1": 0.8562728063330473,
+          "spell_f1": 0.4092485549132948,
+          "spells": 271
+        },
+        "stress": {
+          "dead_recall": 0.7556022300813887,
+          "macro_f1": 0.7778702039556057,
+          "spell_f1": 0.3352537722908093,
+          "spells": 308
+        }
+      },
+      "recipe": {
+        "dead_cutoff": 0.6,
+        "dead_radius": 50,
+        "dead_weight": 0.5,
+        "owner_radius": 75,
+        "owner_weight": 0.5
+      }
+    },
+    {
+      "metrics": {
+        "clean": {
+          "dead_recall": 0.9518926348627821,
+          "macro_f1": 0.9020087572988787,
+          "spell_f1": 0.5259361997226074,
+          "spells": 300
+        },
+        "masked": {
+          "dead_recall": 0.937699803864033,
+          "macro_f1": 0.8495138970105666,
+          "spell_f1": 0.39345911949685525,
+          "spells": 374
+        },
+        "stress": {
+          "dead_recall": 0.7380117681580207,
+          "macro_f1": 0.765368383443252,
+          "spell_f1": 0.32938496583143506,
+          "spells": 457
+        }
+      },
+      "recipe": {
+        "dead_cutoff": 0.6,
+        "dead_radius": 75,
+        "dead_weight": 0.5,
+        "owner_radius": 25,
+        "owner_weight": 0.5
+      }
+    },
+    {
+      "metrics": {
+        "clean": {
+          "dead_recall": 0.9518926348627821,
+          "macro_f1": 0.9023026291461393,
+          "spell_f1": 0.5147016011644833,
+          "spells": 266
+        },
+        "masked": {
+          "dead_recall": 0.937699803864033,
+          "macro_f1": 0.8521510754336609,
+          "spell_f1": 0.41358695652173905,
+          "spells": 315
+        },
+        "stress": {
+          "dead_recall": 0.7380117681580207,
+          "macro_f1": 0.7699867771872277,
+          "spell_f1": 0.3398457583547557,
+          "spells": 357
+        }
+      },
+      "recipe": {
+        "dead_cutoff": 0.6,
+        "dead_radius": 75,
+        "dead_weight": 0.5,
+        "owner_radius": 50,
+        "owner_weight": 0.5
+      }
+    },
+    {
+      "metrics": {
+        "clean": {
+          "dead_recall": 0.9518926348627821,
+          "macro_f1": 0.9016166701321461,
+          "spell_f1": 0.49422492401215806,
+          "spells": 237
+        },
+        "masked": {
+          "dead_recall": 0.937699803864033,
+          "macro_f1": 0.8517226170536816,
+          "spell_f1": 0.39651162790697675,
+          "spells": 267
+        },
+        "stress": {
+          "dead_recall": 0.7380117681580207,
+          "macro_f1": 0.7714389051917303,
+          "spell_f1": 0.33026499302649925,
+          "spells": 296
+        }
+      },
+      "recipe": {
+        "dead_cutoff": 0.6,
+        "dead_radius": 75,
+        "dead_weight": 0.5,
+        "owner_radius": 75,
+        "owner_weight": 0.5
+      }
+    },
+    {
+      "metrics": {
+        "clean": {
+          "dead_recall": 0.9997683433460487,
+          "macro_f1": 0.9171438236936765,
+          "spell_f1": 0.5584158415841585,
+          "spells": 286
+        },
+        "masked": {
+          "dead_recall": 0.9887723741718275,
+          "macro_f1": 0.8592597922218155,
+          "spell_f1": 0.4066326530612245,
+          "spells": 363
+        },
+        "stress": {
+          "dead_recall": 0.9774366419051443,
+          "macro_f1": 0.8452911143151854,
+          "spell_f1": 0.41137206427688494,
+          "spells": 388
+        }
+      },
+      "recipe": {
+        "dead_cutoff": 0.4,
+        "dead_radius": 25,
+        "dead_weight": 1.0,
+        "owner_radius": 25,
+        "owner_weight": 0.5
+      }
+    },
+    {
+      "metrics": {
+        "clean": {
+          "dead_recall": 0.9997683433460487,
+          "macro_f1": 0.9182366691578423,
+          "spell_f1": 0.5584454409566517,
+          "spells": 248
+        },
+        "masked": {
+          "dead_recall": 0.9887723741718275,
+          "macro_f1": 0.86075067214915,
+          "spell_f1": 0.4319119669876204,
+          "spells": 306
+        },
+        "stress": {
+          "dead_recall": 0.9774366419051443,
+          "macro_f1": 0.8490515080433338,
+          "spell_f1": 0.4196452933151432,
+          "spells": 312
+        }
+      },
+      "recipe": {
+        "dead_cutoff": 0.4,
+        "dead_radius": 25,
+        "dead_weight": 1.0,
+        "owner_radius": 50,
+        "owner_weight": 0.5
+      }
+    },
+    {
+      "metrics": {
+        "clean": {
+          "dead_recall": 0.9997683433460487,
+          "macro_f1": 0.9144687514885556,
+          "spell_f1": 0.5221705426356589,
+          "spells": 224
+        },
+        "masked": {
+          "dead_recall": 0.9887723741718275,
+          "macro_f1": 0.8590052340911809,
+          "spell_f1": 0.4110787172011662,
+          "spells": 265
+        },
+        "stress": {
+          "dead_recall": 0.9774366419051443,
+          "macro_f1": 0.8512064909424667,
+          "spell_f1": 0.4127906976744186,
+          "spells": 267
+        }
+      },
+      "recipe": {
+        "dead_cutoff": 0.4,
+        "dead_radius": 25,
+        "dead_weight": 1.0,
+        "owner_radius": 75,
+        "owner_weight": 0.5
+      }
+    },
+    {
+      "metrics": {
+        "clean": {
+          "dead_recall": 0.9998764497845594,
+          "macro_f1": 0.9134277975322899,
+          "spell_f1": 0.5494318181818182,
+          "spells": 283
+        },
+        "masked": {
+          "dead_recall": 0.9907646213958086,
+          "macro_f1": 0.857308892545753,
+          "spell_f1": 0.40979381443298973,
+          "spells": 355
+        },
+        "stress": {
+          "dead_recall": 0.980957823045204,
+          "macro_f1": 0.8439325146673727,
+          "spell_f1": 0.4079503105590062,
+          "spells": 384
+        }
+      },
+      "recipe": {
+        "dead_cutoff": 0.4,
+        "dead_radius": 50,
+        "dead_weight": 1.0,
+        "owner_radius": 25,
+        "owner_weight": 0.5
+      }
+    },
+    {
+      "metrics": {
+        "clean": {
+          "dead_recall": 0.9998764497845594,
+          "macro_f1": 0.9139389210993869,
+          "spell_f1": 0.5483483483483483,
+          "spells": 245
+        },
+        "masked": {
+          "dead_recall": 0.9907646213958086,
+          "macro_f1": 0.8579623028204595,
+          "spell_f1": 0.4332871012482663,
+          "spells": 300
+        },
+        "stress": {
+          "dead_recall": 0.980957823045204,
+          "macro_f1": 0.84792713133446,
+          "spell_f1": 0.41999999999999993,
+          "spells": 299
+        }
+      },
+      "recipe": {
+        "dead_cutoff": 0.4,
+        "dead_radius": 50,
+        "dead_weight": 1.0,
+        "owner_radius": 50,
+        "owner_weight": 0.5
+      }
+    },
+    {
+      "metrics": {
+        "clean": {
+          "dead_recall": 0.9998764497845594,
+          "macro_f1": 0.9093299933500257,
+          "spell_f1": 0.5118012422360249,
+          "spells": 223
+        },
+        "masked": {
+          "dead_recall": 0.9907646213958086,
+          "macro_f1": 0.8562539432819004,
+          "spell_f1": 0.4035242290748899,
+          "spells": 260
+        },
+        "stress": {
+          "dead_recall": 0.980957823045204,
+          "macro_f1": 0.8495802608565682,
+          "spell_f1": 0.4053254437869822,
+          "spells": 255
+        }
+      },
+      "recipe": {
+        "dead_cutoff": 0.4,
+        "dead_radius": 50,
+        "dead_weight": 1.0,
+        "owner_radius": 75,
+        "owner_weight": 0.5
+      }
+    },
+    {
+      "metrics": {
+        "clean": {
+          "dead_recall": 0.9999536686692098,
+          "macro_f1": 0.9087809388224631,
+          "spell_f1": 0.5473381294964028,
+          "spells": 274
+        },
+        "masked": {
+          "dead_recall": 0.9925869870735587,
+          "macro_f1": 0.8551810360177403,
+          "spell_f1": 0.4126149802890933,
+          "spells": 340
+        },
+        "stress": {
+          "dead_recall": 0.9826257509536532,
+          "macro_f1": 0.839832812624683,
+          "spell_f1": 0.40453400503778336,
+          "spells": 373
+        }
+      },
+      "recipe": {
+        "dead_cutoff": 0.4,
+        "dead_radius": 75,
+        "dead_weight": 1.0,
+        "owner_radius": 25,
+        "owner_weight": 0.5
+      }
+    },
+    {
+      "metrics": {
+        "clean": {
+          "dead_recall": 0.9999536686692098,
+          "macro_f1": 0.9085228270584881,
+          "spell_f1": 0.5393939393939393,
+          "spells": 239
+        },
+        "masked": {
+          "dead_recall": 0.9925869870735587,
+          "macro_f1": 0.8561632647110539,
+          "spell_f1": 0.43718309859154925,
+          "spells": 289
+        },
+        "stress": {
+          "dead_recall": 0.9826257509536532,
+          "macro_f1": 0.8441568813382139,
+          "spell_f1": 0.4140056022408964,
+          "spells": 293
+        }
+      },
+      "recipe": {
+        "dead_cutoff": 0.4,
+        "dead_radius": 75,
+        "dead_weight": 1.0,
+        "owner_radius": 50,
+        "owner_weight": 0.5
+      }
+    },
+    {
+      "metrics": {
+        "clean": {
+          "dead_recall": 0.9999536686692098,
+          "macro_f1": 0.903432344466176,
+          "spell_f1": 0.5049999999999999,
+          "spells": 219
+        },
+        "masked": {
+          "dead_recall": 0.9925869870735587,
+          "macro_f1": 0.853801884946908,
+          "spell_f1": 0.4041666666666667,
+          "spells": 251
+        },
+        "stress": {
+          "dead_recall": 0.9826257509536532,
+          "macro_f1": 0.845612151277915,
+          "spell_f1": 0.39346210995542347,
+          "spells": 252
+        }
+      },
+      "recipe": {
+        "dead_cutoff": 0.4,
+        "dead_radius": 75,
+        "dead_weight": 1.0,
+        "owner_radius": 75,
+        "owner_weight": 0.5
+      }
+    },
+    {
+      "metrics": {
+        "clean": {
+          "dead_recall": 0.9985173974147118,
+          "macro_f1": 0.9204966798636754,
+          "spell_f1": 0.5604488078541375,
+          "spells": 292
+        },
+        "masked": {
+          "dead_recall": 0.9835523775694583,
+          "macro_f1": 0.8620136727608042,
+          "spell_f1": 0.4131979695431472,
+          "spells": 367
+        },
+        "stress": {
+          "dead_recall": 0.9648962950379145,
+          "macro_f1": 0.8458843514008755,
+          "spell_f1": 0.4098280098280099,
+          "spells": 393
+        }
+      },
+      "recipe": {
+        "dead_cutoff": 0.5,
+        "dead_radius": 25,
+        "dead_weight": 1.0,
+        "owner_radius": 25,
+        "owner_weight": 0.5
+      }
+    },
+    {
+      "metrics": {
+        "clean": {
+          "dead_recall": 0.9985173974147118,
+          "macro_f1": 0.9215320086759381,
+          "spell_f1": 0.5559822747415066,
+          "spells": 256
+        },
+        "masked": {
+          "dead_recall": 0.9835523775694583,
+          "macro_f1": 0.8639993255770037,
+          "spell_f1": 0.4388508891928865,
+          "spells": 310
+        },
+        "stress": {
+          "dead_recall": 0.9648962950379145,
+          "macro_f1": 0.8501349162218176,
+          "spell_f1": 0.41507402422611034,
+          "spells": 322
+        }
+      },
+      "recipe": {
+        "dead_cutoff": 0.5,
+        "dead_radius": 25,
+        "dead_weight": 1.0,
+        "owner_radius": 50,
+        "owner_weight": 0.5
+      }
+    },
+    {
+      "metrics": {
+        "clean": {
+          "dead_recall": 0.9985173974147118,
+          "macro_f1": 0.9189721606509175,
+          "spell_f1": 0.5261538461538462,
+          "spells": 229
+        },
+        "masked": {
+          "dead_recall": 0.9835523775694583,
+          "macro_f1": 0.8628078135231178,
+          "spell_f1": 0.4145348837209303,
+          "spells": 267
+        },
+        "stress": {
+          "dead_recall": 0.9648962950379145,
+          "macro_f1": 0.8521185612790361,
+          "spell_f1": 0.4133140376266281,
+          "spells": 270
+        }
+      },
+      "recipe": {
+        "dead_cutoff": 0.5,
+        "dead_radius": 25,
+        "dead_weight": 1.0,
+        "owner_radius": 75,
+        "owner_weight": 0.5
+      }
+    },
+    {
+      "metrics": {
+        "clean": {
+          "dead_recall": 0.9984092909762011,
+          "macro_f1": 0.920617284918957,
+          "spell_f1": 0.5604488078541375,
+          "spells": 292
+        },
+        "masked": {
+          "dead_recall": 0.9829809578230452,
+          "macro_f1": 0.8624883384786742,
+          "spell_f1": 0.4158163265306122,
+          "spells": 363
+        },
+        "stress": {
+          "dead_recall": 0.9651742830226561,
+          "macro_f1": 0.8461019147855323,
+          "spell_f1": 0.4098765432098765,
+          "spells": 389
+        }
+      },
+      "recipe": {
+        "dead_cutoff": 0.5,
+        "dead_radius": 50,
+        "dead_weight": 1.0,
+        "owner_radius": 25,
+        "owner_weight": 0.5
+      }
+    },
+    {
+      "metrics": {
+        "clean": {
+          "dead_recall": 0.9984092909762011,
+          "macro_f1": 0.9216173775242068,
+          "spell_f1": 0.5543446244477173,
+          "spells": 258
+        },
+        "masked": {
+          "dead_recall": 0.9829809578230452,
+          "macro_f1": 0.8642763072604785,
+          "spell_f1": 0.4406593406593406,
+          "spells": 307
+        },
+        "stress": {
+          "dead_recall": 0.9651742830226561,
+          "macro_f1": 0.8506975663961344,
+          "spell_f1": 0.41680216802168024,
+          "spells": 317
+        }
+      },
+      "recipe": {
+        "dead_cutoff": 0.5,
+        "dead_radius": 50,
+        "dead_weight": 1.0,
+        "owner_radius": 50,
+        "owner_weight": 0.5
+      }
+    },
+    {
+      "metrics": {
+        "clean": {
+          "dead_recall": 0.9984092909762011,
+          "macro_f1": 0.9190591588616038,
+          "spell_f1": 0.5261538461538462,
+          "spells": 229
+        },
+        "masked": {
+          "dead_recall": 0.9829809578230452,
+          "macro_f1": 0.8630271163868616,
+          "spell_f1": 0.4163027656477438,
+          "spells": 266
+        },
+        "stress": {
+          "dead_recall": 0.9651742830226561,
+          "macro_f1": 0.8527245787301062,
+          "spell_f1": 0.4145985401459854,
+          "spells": 264
+        }
+      },
+      "recipe": {
+        "dead_cutoff": 0.5,
+        "dead_radius": 50,
+        "dead_weight": 1.0,
+        "owner_radius": 75,
+        "owner_weight": 0.5
+      }
+    },
+    {
+      "metrics": {
+        "clean": {
+          "dead_recall": 0.9983166283146206,
+          "macro_f1": 0.9203443635968482,
+          "spell_f1": 0.5595505617977528,
+          "spells": 291
+        },
+        "masked": {
+          "dead_recall": 0.9810350419298544,
+          "macro_f1": 0.8618323571925058,
+          "spell_f1": 0.4200514138817481,
+          "spells": 357
+        },
+        "stress": {
+          "dead_recall": 0.9644020941761517,
+          "macro_f1": 0.8449097742067203,
+          "spell_f1": 0.4109316770186336,
+          "spells": 384
+        }
+      },
+      "recipe": {
+        "dead_cutoff": 0.5,
+        "dead_radius": 75,
+        "dead_weight": 1.0,
+        "owner_radius": 25,
+        "owner_weight": 0.5
+      }
+    },
+    {
+      "metrics": {
+        "clean": {
+          "dead_recall": 0.9983166283146206,
+          "macro_f1": 0.9214290907475258,
+          "spell_f1": 0.5545722713864306,
+          "spells": 257
+        },
+        "masked": {
+          "dead_recall": 0.9810350419298544,
+          "macro_f1": 0.8638692976090344,
+          "spell_f1": 0.440499306518724,
+          "spells": 300
+        },
+        "stress": {
+          "dead_recall": 0.9644020941761517,
+          "macro_f1": 0.8495424487338826,
+          "spell_f1": 0.41578231292517004,
+          "spells": 314
+        }
+      },
+      "recipe": {
+        "dead_cutoff": 0.5,
+        "dead_radius": 75,
+        "dead_weight": 1.0,
+        "owner_radius": 50,
+        "owner_weight": 0.5
+      }
+    },
+    {
+      "metrics": {
+        "clean": {
+          "dead_recall": 0.9983166283146206,
+          "macro_f1": 0.918860768241656,
+          "spell_f1": 0.5257318952234207,
+          "spells": 228
+        },
+        "masked": {
+          "dead_recall": 0.9810350419298544,
+          "macro_f1": 0.8629274574089099,
+          "spell_f1": 0.41468428781204103,
+          "spells": 260
+        },
+        "stress": {
+          "dead_recall": 0.9644020941761517,
+          "macro_f1": 0.8514658944207057,
+          "spell_f1": 0.41119293078055963,
+          "spells": 258
+        }
+      },
+      "recipe": {
+        "dead_cutoff": 0.5,
+        "dead_radius": 75,
+        "dead_weight": 1.0,
+        "owner_radius": 75,
+        "owner_weight": 0.5
+      }
+    },
+    {
+      "metrics": {
+        "clean": {
+          "dead_recall": 0.9851430865932572,
+          "macro_f1": 0.9155148349247946,
+          "spell_f1": 0.5518776077885953,
+          "spells": 298
+        },
+        "masked": {
+          "dead_recall": 0.9713054624639001,
+          "macro_f1": 0.8597273354386553,
+          "spell_f1": 0.4090338770388959,
+          "spells": 376
+        },
+        "stress": {
+          "dead_recall": 0.9503945885005637,
+          "macro_f1": 0.8433305704580323,
+          "spell_f1": 0.4063337393422655,
+          "spells": 400
+        }
+      },
+      "recipe": {
+        "dead_cutoff": 0.6,
+        "dead_radius": 25,
+        "dead_weight": 1.0,
+        "owner_radius": 25,
+        "owner_weight": 0.5
+      }
+    },
+    {
+      "metrics": {
+        "clean": {
+          "dead_recall": 0.9851430865932572,
+          "macro_f1": 0.9161671928748022,
+          "spell_f1": 0.5440702781844802,
+          "spells": 262
+        },
+        "masked": {
+          "dead_recall": 0.9713054624639001,
+          "macro_f1": 0.8617811855208236,
+          "spell_f1": 0.43478260869565216,
+          "spells": 315
+        },
+        "stress": {
+          "dead_recall": 0.9503945885005637,
+          "macro_f1": 0.848315444275371,
+          "spell_f1": 0.4210810810810811,
+          "spells": 319
+        }
+      },
+      "recipe": {
+        "dead_cutoff": 0.6,
+        "dead_radius": 25,
+        "dead_weight": 1.0,
+        "owner_radius": 50,
+        "owner_weight": 0.5
+      }
+    },
+    {
+      "metrics": {
+        "clean": {
+          "dead_recall": 0.9851430865932572,
+          "macro_f1": 0.9143729991713943,
+          "spell_f1": 0.5188361408882083,
+          "spells": 232
+        },
+        "masked": {
+          "dead_recall": 0.9713054624639001,
+          "macro_f1": 0.8608011075151358,
+          "spell_f1": 0.4144300144300145,
+          "spells": 272
+        },
+        "stress": {
+          "dead_recall": 0.9503945885005637,
+          "macro_f1": 0.8499787106653277,
+          "spell_f1": 0.41275362318840586,
+          "spells": 269
+        }
+      },
+      "recipe": {
+        "dead_cutoff": 0.6,
+        "dead_radius": 25,
+        "dead_weight": 1.0,
+        "owner_radius": 75,
+        "owner_weight": 0.5
+      }
+    },
+    {
+      "metrics": {
+        "clean": {
+          "dead_recall": 0.970378835848095,
+          "macro_f1": 0.9094065448727222,
+          "spell_f1": 0.5442441054091539,
+          "spells": 300
+        },
+        "masked": {
+          "dead_recall": 0.961050794582323,
+          "macro_f1": 0.8573552989145102,
+          "spell_f1": 0.4060377358490566,
+          "spells": 374
+        },
+        "stress": {
+          "dead_recall": 0.9402943583882875,
+          "macro_f1": 0.8405585549756087,
+          "spell_f1": 0.4014598540145986,
+          "spells": 401
+        }
+      },
+      "recipe": {
+        "dead_cutoff": 0.6,
+        "dead_radius": 50,
+        "dead_weight": 1.0,
+        "owner_radius": 25,
+        "owner_weight": 0.5
+      }
+    },
+    {
+      "metrics": {
+        "clean": {
+          "dead_recall": 0.970378835848095,
+          "macro_f1": 0.9097915408052102,
+          "spell_f1": 0.5317851959361393,
+          "spells": 268
+        },
+        "masked": {
+          "dead_recall": 0.961050794582323,
+          "macro_f1": 0.8592576638407935,
+          "spell_f1": 0.43256445047489817,
+          "spells": 316
+        },
+        "stress": {
+          "dead_recall": 0.9402943583882875,
+          "macro_f1": 0.8459769869952997,
+          "spell_f1": 0.4185034013605442,
+          "spells": 314
+        }
+      },
+      "recipe": {
+        "dead_cutoff": 0.6,
+        "dead_radius": 50,
+        "dead_weight": 1.0,
+        "owner_radius": 50,
+        "owner_weight": 0.5
+      }
+    },
+    {
+      "metrics": {
+        "clean": {
+          "dead_recall": 0.970378835848095,
+          "macro_f1": 0.9087593584187572,
+          "spell_f1": 0.5138508371385083,
+          "spells": 236
+        },
+        "masked": {
+          "dead_recall": 0.961050794582323,
+          "macro_f1": 0.8588720841326797,
+          "spell_f1": 0.4150506512301013,
+          "spells": 270
+        },
+        "stress": {
+          "dead_recall": 0.9402943583882875,
+          "macro_f1": 0.8474677013684788,
+          "spell_f1": 0.41228070175438597,
+          "spells": 263
+        }
+      },
+      "recipe": {
+        "dead_cutoff": 0.6,
+        "dead_radius": 50,
+        "dead_weight": 1.0,
+        "owner_radius": 75,
+        "owner_weight": 0.5
+      }
+    },
+    {
+      "metrics": {
+        "clean": {
+          "dead_recall": 0.9534061250019304,
+          "macro_f1": 0.9025416036625936,
+          "spell_f1": 0.5301939058171745,
+          "spells": 301
+        },
+        "masked": {
+          "dead_recall": 0.9463946502756714,
+          "macro_f1": 0.8524449776688207,
+          "spell_f1": 0.40251889168765737,
+          "spells": 373
+        },
+        "stress": {
+          "dead_recall": 0.9295300458680175,
+          "macro_f1": 0.8374096130381767,
+          "spell_f1": 0.39707673568818513,
+          "spells": 400
+        }
+      },
+      "recipe": {
+        "dead_cutoff": 0.6,
+        "dead_radius": 75,
+        "dead_weight": 1.0,
+        "owner_radius": 25,
+        "owner_weight": 0.5
+      }
+    },
+    {
+      "metrics": {
+        "clean": {
+          "dead_recall": 0.9534061250019304,
+          "macro_f1": 0.9028266880352843,
+          "spell_f1": 0.5186046511627906,
+          "spells": 267
+        },
+        "masked": {
+          "dead_recall": 0.9463946502756714,
+          "macro_f1": 0.8545661396709298,
+          "spell_f1": 0.42165087956698244,
+          "spells": 318
+        },
+        "stress": {
+          "dead_recall": 0.9295300458680175,
+          "macro_f1": 0.8427721210080764,
+          "spell_f1": 0.4152796725784447,
+          "spells": 312
+        }
+      },
+      "recipe": {
+        "dead_cutoff": 0.6,
+        "dead_radius": 75,
+        "dead_weight": 1.0,
+        "owner_radius": 50,
+        "owner_weight": 0.5
+      }
+    },
+    {
+      "metrics": {
+        "clean": {
+          "dead_recall": 0.9534061250019304,
+          "macro_f1": 0.9021444771822914,
+          "spell_f1": 0.4969696969696969,
+          "spells": 239
+        },
+        "masked": {
+          "dead_recall": 0.9463946502756714,
+          "macro_f1": 0.8539467721111448,
+          "spell_f1": 0.4023188405797102,
+          "spells": 269
+        },
+        "stress": {
+          "dead_recall": 0.9295300458680175,
+          "macro_f1": 0.8443251648386108,
+          "spell_f1": 0.40466472303206996,
+          "spells": 265
+        }
+      },
+      "recipe": {
+        "dead_cutoff": 0.6,
+        "dead_radius": 75,
+        "dead_weight": 1.0,
+        "owner_radius": 75,
+        "owner_weight": 0.5
+      }
+    },
+    {
+      "metrics": {
+        "clean": {
+          "dead_recall": 0.9999227811153496,
+          "macro_f1": 0.9183495196061836,
+          "spell_f1": 0.552247191011236,
+          "spells": 291
+        },
+        "masked": {
+          "dead_recall": 0.9810659294837145,
+          "macro_f1": 0.8597937330228099,
+          "spell_f1": 0.41273885350318473,
+          "spells": 364
+        },
+        "stress": {
+          "dead_recall": 0.5712961961977421,
+          "macro_f1": 0.702862118056108,
+          "spell_f1": 0.2693409742120344,
+          "spells": 626
+        }
+      },
+      "recipe": {
+        "dead_cutoff": 0.4,
+        "dead_radius": 25,
+        "dead_weight": 0.0,
+        "owner_radius": 25,
+        "owner_weight": 1.0
+      }
+    },
+    {
+      "metrics": {
+        "clean": {
+          "dead_recall": 0.9999227811153496,
+          "macro_f1": 0.9179006587152697,
+          "spell_f1": 0.5480597014925374,
+          "spells": 249
+        },
+        "masked": {
+          "dead_recall": 0.9810659294837145,
+          "macro_f1": 0.8635934040416133,
+          "spell_f1": 0.4397202797202797,
+          "spells": 294
+        },
+        "stress": {
+          "dead_recall": 0.5712961961977421,
+          "macro_f1": 0.7076293054085965,
+          "spell_f1": 0.28030467899891187,
+          "spells": 498
+        }
+      },
+      "recipe": {
+        "dead_cutoff": 0.4,
+        "dead_radius": 25,
+        "dead_weight": 0.0,
+        "owner_radius": 50,
+        "owner_weight": 1.0
+      }
+    },
+    {
+      "metrics": {
+        "clean": {
+          "dead_recall": 0.9999227811153496,
+          "macro_f1": 0.9129677143936087,
+          "spell_f1": 0.5151607963246555,
+          "spells": 232
+        },
+        "masked": {
+          "dead_recall": 0.9810659294837145,
+          "macro_f1": 0.8589989368844254,
+          "spell_f1": 0.3988252569750368,
+          "spells": 260
+        },
+        "stress": {
+          "dead_recall": 0.5712961961977421,
+          "macro_f1": 0.7073229541667191,
+          "spell_f1": 0.26914153132250584,
+          "spells": 441
+        }
+      },
+      "recipe": {
+        "dead_cutoff": 0.4,
+        "dead_radius": 25,
+        "dead_weight": 0.0,
+        "owner_radius": 75,
+        "owner_weight": 1.0
+      }
+    },
+    {
+      "metrics": {
+        "clean": {
+          "dead_recall": 0.9999845562230699,
+          "macro_f1": 0.9145584680284232,
+          "spell_f1": 0.5473087818696883,
+          "spells": 285
+        },
+        "masked": {
+          "dead_recall": 0.9811277045914348,
+          "macro_f1": 0.8591059675883651,
+          "spell_f1": 0.41922077922077916,
+          "spells": 349
+        },
+        "stress": {
+          "dead_recall": 0.5778598013930287,
+          "macro_f1": 0.7057253953346226,
+          "spell_f1": 0.2834517766497462,
+          "spells": 564
+        }
+      },
+      "recipe": {
+        "dead_cutoff": 0.4,
+        "dead_radius": 50,
+        "dead_weight": 0.0,
+        "owner_radius": 25,
+        "owner_weight": 1.0
+      }
+    },
+    {
+      "metrics": {
+        "clean": {
+          "dead_recall": 0.9999845562230699,
+          "macro_f1": 0.913414244181649,
+          "spell_f1": 0.5425563909774436,
+          "spells": 244
+        },
+        "masked": {
+          "dead_recall": 0.9811277045914348,
+          "macro_f1": 0.8623627420815841,
+          "spell_f1": 0.4467532467532468,
+          "spells": 272
+        },
+        "stress": {
+          "dead_recall": 0.5778598013930287,
+          "macro_f1": 0.7107309351203028,
+          "spell_f1": 0.2930232558139535,
+          "spells": 439
+        }
+      },
+      "recipe": {
+        "dead_cutoff": 0.4,
+        "dead_radius": 50,
+        "dead_weight": 0.0,
+        "owner_radius": 50,
+        "owner_weight": 1.0
+      }
+    },
+    {
+      "metrics": {
+        "clean": {
+          "dead_recall": 0.9999845562230699,
+          "macro_f1": 0.9081252132734982,
+          "spell_f1": 0.513056835637481,
+          "spells": 230
+        },
+        "masked": {
+          "dead_recall": 0.9811277045914348,
+          "macro_f1": 0.857325657765536,
+          "spell_f1": 0.3993993993993994,
+          "spells": 245
+        },
+        "stress": {
+          "dead_recall": 0.5778598013930287,
+          "macro_f1": 0.7104629355034607,
+          "spell_f1": 0.2827930174563591,
+          "spells": 381
+        }
+      },
+      "recipe": {
+        "dead_cutoff": 0.4,
+        "dead_radius": 50,
+        "dead_weight": 0.0,
+        "owner_radius": 75,
+        "owner_weight": 1.0
+      }
+    },
+    {
+      "metrics": {
+        "clean": {
+          "dead_recall": 1.0,
+          "macro_f1": 0.9107221130144869,
+          "spell_f1": 0.5417142857142856,
+          "spells": 279
+        },
+        "masked": {
+          "dead_recall": 0.9800620839832589,
+          "macro_f1": 0.8568986774023785,
+          "spell_f1": 0.4158940397350993,
+          "spells": 334
+        },
+        "stress": {
+          "dead_recall": 0.5803771370326327,
+          "macro_f1": 0.7074626677864412,
+          "spell_f1": 0.29013785790031815,
+          "spells": 522
+        }
+      },
+      "recipe": {
+        "dead_cutoff": 0.4,
+        "dead_radius": 75,
+        "dead_weight": 0.0,
+        "owner_radius": 25,
+        "owner_weight": 1.0
+      }
+    },
+    {
+      "metrics": {
+        "clean": {
+          "dead_recall": 1.0,
+          "macro_f1": 0.9088467414932992,
+          "spell_f1": 0.5325301204819277,
+          "spells": 243
+        },
+        "masked": {
+          "dead_recall": 0.9800620839832589,
+          "macro_f1": 0.8593962992477833,
+          "spell_f1": 0.4297376093294461,
+          "spells": 265
+        },
+        "stress": {
+          "dead_recall": 0.5803771370326327,
+          "macro_f1": 0.7124310203773069,
+          "spell_f1": 0.2993924665856622,
+          "spells": 402
+        }
+      },
+      "recipe": {
+        "dead_cutoff": 0.4,
+        "dead_radius": 75,
+        "dead_weight": 0.0,
+        "owner_radius": 50,
+        "owner_weight": 1.0
+      }
+    },
+    {
+      "metrics": {
+        "clean": {
+          "dead_recall": 1.0,
+          "macro_f1": 0.9032662756127608,
+          "spell_f1": 0.5049382716049382,
+          "spells": 227
+        },
+        "masked": {
+          "dead_recall": 0.9800620839832589,
+          "macro_f1": 0.8541827695311764,
+          "spell_f1": 0.3920731707317073,
+          "spells": 235
+        },
+        "stress": {
+          "dead_recall": 0.5803771370326327,
+          "macro_f1": 0.7122587935196066,
+          "spell_f1": 0.29033942558746734,
+          "spells": 345
+        }
+      },
+      "recipe": {
+        "dead_cutoff": 0.4,
+        "dead_radius": 75,
+        "dead_weight": 0.0,
+        "owner_radius": 75,
+        "owner_weight": 1.0
+      }
+    },
+    {
+      "metrics": {
+        "clean": {
+          "dead_recall": 0.9970965699371438,
+          "macro_f1": 0.9215856353107871,
+          "spell_f1": 0.56,
+          "spells": 294
+        },
+        "masked": {
+          "dead_recall": 0.9684946950626245,
+          "macro_f1": 0.8610432622528769,
+          "spell_f1": 0.4126103404791929,
+          "spells": 372
+        },
+        "stress": {
+          "dead_recall": 0.4464641472718568,
+          "macro_f1": 0.6478592807686331,
+          "spell_f1": 0.2526891522333637,
+          "spells": 676
+        }
+      },
+      "recipe": {
+        "dead_cutoff": 0.5,
+        "dead_radius": 25,
+        "dead_weight": 0.0,
+        "owner_radius": 25,
+        "owner_weight": 1.0
+      }
+    },
+    {
+      "metrics": {
+        "clean": {
+          "dead_recall": 0.9970965699371438,
+          "macro_f1": 0.9208981646486268,
+          "spell_f1": 0.5546666666666668,
+          "spells": 254
+        },
+        "masked": {
+          "dead_recall": 0.9684946950626245,
+          "macro_f1": 0.8642313884583528,
+          "spell_f1": 0.4381486676016831,
+          "spells": 292
+        },
+        "stress": {
+          "dead_recall": 0.4464641472718568,
+          "macro_f1": 0.6528227330305199,
+          "spell_f1": 0.2628691983122363,
+          "spells": 527
+        }
+      },
+      "recipe": {
+        "dead_cutoff": 0.5,
+        "dead_radius": 25,
+        "dead_weight": 0.0,
+        "owner_radius": 50,
+        "owner_weight": 1.0
+      }
+    },
+    {
+      "metrics": {
+        "clean": {
+          "dead_recall": 0.9970965699371438,
+          "macro_f1": 0.9169334696875535,
+          "spell_f1": 0.5225114854517611,
+          "spells": 232
+        },
+        "masked": {
+          "dead_recall": 0.9684946950626245,
+          "macro_f1": 0.8603487168415712,
+          "spell_f1": 0.39941002949852505,
+          "spells": 257
+        },
+        "stress": {
+          "dead_recall": 0.4464641472718568,
+          "macro_f1": 0.6525194077167796,
+          "spell_f1": 0.25652667423382514,
+          "spells": 460
+        }
+      },
+      "recipe": {
+        "dead_cutoff": 0.5,
+        "dead_radius": 25,
+        "dead_weight": 0.0,
+        "owner_radius": 75,
+        "owner_weight": 1.0
+      }
+    },
+    {
+      "metrics": {
+        "clean": {
+          "dead_recall": 0.9968803570601226,
+          "macro_f1": 0.9218453533769474,
+          "spell_f1": 0.56,
+          "spells": 294
+        },
+        "masked": {
+          "dead_recall": 0.9661317971923213,
+          "macro_f1": 0.8612626207391031,
+          "spell_f1": 0.41428571428571426,
+          "spells": 363
+        },
+        "stress": {
+          "dead_recall": 0.43163812141897423,
+          "macro_f1": 0.6417743604799513,
+          "spell_f1": 0.26140519730510103,
+          "spells": 618
+        }
+      },
+      "recipe": {
+        "dead_cutoff": 0.5,
+        "dead_radius": 50,
+        "dead_weight": 0.0,
+        "owner_radius": 25,
+        "owner_weight": 1.0
+      }
+    },
+    {
+      "metrics": {
+        "clean": {
+          "dead_recall": 0.9968803570601226,
+          "macro_f1": 0.9211326676562456,
+          "spell_f1": 0.5546666666666668,
+          "spells": 254
+        },
+        "masked": {
+          "dead_recall": 0.9661317971923213,
+          "macro_f1": 0.8645640583983143,
+          "spell_f1": 0.4431818181818182,
+          "spells": 283
+        },
+        "stress": {
+          "dead_recall": 0.43163812141897423,
+          "macro_f1": 0.6466007492487581,
+          "spell_f1": 0.27146067415730335,
+          "spells": 469
+        }
+      },
+      "recipe": {
+        "dead_cutoff": 0.5,
+        "dead_radius": 50,
+        "dead_weight": 0.0,
+        "owner_radius": 50,
+        "owner_weight": 1.0
+      }
+    },
+    {
+      "metrics": {
+        "clean": {
+          "dead_recall": 0.9968803570601226,
+          "macro_f1": 0.9171679887743172,
+          "spell_f1": 0.5218989280245022,
+          "spells": 232
+        },
+        "masked": {
+          "dead_recall": 0.9661317971923213,
+          "macro_f1": 0.8606960936242279,
+          "spell_f1": 0.40358744394618834,
+          "spells": 248
+        },
+        "stress": {
+          "dead_recall": 0.43163812141897423,
+          "macro_f1": 0.6463142240380823,
+          "spell_f1": 0.26295399515738505,
+          "spells": 405
+        }
+      },
+      "recipe": {
+        "dead_cutoff": 0.5,
+        "dead_radius": 50,
+        "dead_weight": 0.0,
+        "owner_radius": 75,
+        "owner_weight": 1.0
+      }
+    },
+    {
+      "metrics": {
+        "clean": {
+          "dead_recall": 0.9936217201278744,
+          "macro_f1": 0.9205354557539781,
+          "spell_f1": 0.5573033707865168,
+          "spells": 291
+        },
+        "masked": {
+          "dead_recall": 0.9626260598291918,
+          "macro_f1": 0.8597846243374875,
+          "spell_f1": 0.40876288659793814,
+          "spells": 355
+        },
+        "stress": {
+          "dead_recall": 0.4211981282142361,
+          "macro_f1": 0.6366906371184458,
+          "spell_f1": 0.2673306772908367,
+          "spells": 583
+        }
+      },
+      "recipe": {
+        "dead_cutoff": 0.5,
+        "dead_radius": 75,
+        "dead_weight": 0.0,
+        "owner_radius": 25,
+        "owner_weight": 1.0
+      }
+    },
+    {
+      "metrics": {
+        "clean": {
+          "dead_recall": 0.9936217201278744,
+          "macro_f1": 0.9200587739104984,
+          "spell_f1": 0.5508196721311476,
+          "spells": 250
+        },
+        "masked": {
+          "dead_recall": 0.9626260598291918,
+          "macro_f1": 0.8634135941585795,
+          "spell_f1": 0.43280575539568344,
+          "spells": 274
+        },
+        "stress": {
+          "dead_recall": 0.4211981282142361,
+          "macro_f1": 0.6415450834640137,
+          "spell_f1": 0.27395348837209305,
+          "spells": 439
+        }
+      },
+      "recipe": {
+        "dead_cutoff": 0.5,
+        "dead_radius": 75,
+        "dead_weight": 0.0,
+        "owner_radius": 50,
+        "owner_weight": 1.0
+      }
+    },
+    {
+      "metrics": {
+        "clean": {
+          "dead_recall": 0.9936217201278744,
+          "macro_f1": 0.9160044087895868,
+          "spell_f1": 0.5156923076923077,
+          "spells": 229
+        },
+        "masked": {
+          "dead_recall": 0.9626260598291918,
+          "macro_f1": 0.8599023722569928,
+          "spell_f1": 0.39395770392749246,
+          "spells": 241
+        },
+        "stress": {
+          "dead_recall": 0.4211981282142361,
+          "macro_f1": 0.6412928469516642,
+          "spell_f1": 0.2638083228247162,
+          "spells": 372
+        }
+      },
+      "recipe": {
+        "dead_cutoff": 0.5,
+        "dead_radius": 75,
+        "dead_weight": 0.0,
+        "owner_radius": 75,
+        "owner_weight": 1.0
+      }
+    },
+    {
+      "metrics": {
+        "clean": {
+          "dead_recall": 0.9833207209155072,
+          "macro_f1": 0.9169467419664475,
+          "spell_f1": 0.5545327754532775,
+          "spells": 296
+        },
+        "masked": {
+          "dead_recall": 0.9536223378789517,
+          "macro_f1": 0.8591308517618549,
+          "spell_f1": 0.41201501877346686,
+          "spells": 378
+        },
+        "stress": {
+          "dead_recall": 0.31404920387329927,
+          "macro_f1": 0.5838477371151742,
+          "spell_f1": 0.23475982532751094,
+          "spells": 724
+        }
+      },
+      "recipe": {
+        "dead_cutoff": 0.6,
+        "dead_radius": 25,
+        "dead_weight": 0.0,
+        "owner_radius": 25,
+        "owner_weight": 1.0
+      }
+    },
+    {
+      "metrics": {
+        "clean": {
+          "dead_recall": 0.9833207209155072,
+          "macro_f1": 0.91597229126931,
+          "spell_f1": 0.543740795287187,
+          "spells": 258
+        },
+        "masked": {
+          "dead_recall": 0.9536223378789517,
+          "macro_f1": 0.8621218019629309,
+          "spell_f1": 0.43764044943820213,
+          "spells": 291
+        },
+        "stress": {
+          "dead_recall": 0.31404920387329927,
+          "macro_f1": 0.5884498420041878,
+          "spell_f1": 0.24252288911495418,
+          "spells": 562
+        }
+      },
+      "recipe": {
+        "dead_cutoff": 0.6,
+        "dead_radius": 25,
+        "dead_weight": 0.0,
+        "owner_radius": 50,
+        "owner_weight": 1.0
+      }
+    },
+    {
+      "metrics": {
+        "clean": {
+          "dead_recall": 0.9833207209155072,
+          "macro_f1": 0.9122059380591696,
+          "spell_f1": 0.5140243902439023,
+          "spells": 235
+        },
+        "masked": {
+          "dead_recall": 0.9536223378789517,
+          "macro_f1": 0.8587834978458648,
+          "spell_f1": 0.39941262848751835,
+          "spells": 260
+        },
+        "stress": {
+          "dead_recall": 0.31404920387329927,
+          "macro_f1": 0.5881450885651262,
+          "spell_f1": 0.23703703703703707,
+          "spells": 470
+        }
+      },
+      "recipe": {
+        "dead_cutoff": 0.6,
+        "dead_radius": 25,
+        "dead_weight": 0.0,
+        "owner_radius": 75,
+        "owner_weight": 1.0
+      }
+    },
+    {
+      "metrics": {
+        "clean": {
+          "dead_recall": 0.9687726830473661,
+          "macro_f1": 0.9109850279561291,
+          "spell_f1": 0.5442441054091539,
+          "spells": 300
+        },
+        "masked": {
+          "dead_recall": 0.9415916356504147,
+          "macro_f1": 0.8562188181743129,
+          "spell_f1": 0.4005037783375315,
+          "spells": 373
+        },
+        "stress": {
+          "dead_recall": 0.2986208707201433,
+          "macro_f1": 0.5763020793885284,
+          "spell_f1": 0.24906367041198502,
+          "spells": 647
+        }
+      },
+      "recipe": {
+        "dead_cutoff": 0.6,
+        "dead_radius": 50,
+        "dead_weight": 0.0,
+        "owner_radius": 25,
+        "owner_weight": 1.0
+      }
+    },
+    {
+      "metrics": {
+        "clean": {
+          "dead_recall": 0.9687726830473661,
+          "macro_f1": 0.9102520838981473,
+          "spell_f1": 0.536470588235294,
+          "spells": 259
+        },
+        "masked": {
+          "dead_recall": 0.9415916356504147,
+          "macro_f1": 0.8592420545302047,
+          "spell_f1": 0.42259887005649716,
+          "spells": 287
+        },
+        "stress": {
+          "dead_recall": 0.2986208707201433,
+          "macro_f1": 0.5809705025919142,
+          "spell_f1": 0.2551422319474836,
+          "spells": 493
+        }
+      },
+      "recipe": {
+        "dead_cutoff": 0.6,
+        "dead_radius": 50,
+        "dead_weight": 0.0,
+        "owner_radius": 50,
+        "owner_weight": 1.0
+      }
+    },
+    {
+      "metrics": {
+        "clean": {
+          "dead_recall": 0.9687726830473661,
+          "macro_f1": 0.906569904416191,
+          "spell_f1": 0.5105343511450381,
+          "spells": 234
+        },
+        "masked": {
+          "dead_recall": 0.9415916356504147,
+          "macro_f1": 0.856523608735988,
+          "spell_f1": 0.3869242199108469,
+          "spells": 252
+        },
+        "stress": {
+          "dead_recall": 0.2986208707201433,
+          "macro_f1": 0.5806707767461772,
+          "spell_f1": 0.24489795918367344,
+          "spells": 412
+        }
+      },
+      "recipe": {
+        "dead_cutoff": 0.6,
+        "dead_radius": 50,
+        "dead_weight": 0.0,
+        "owner_radius": 75,
+        "owner_weight": 1.0
+      }
+    },
+    {
+      "metrics": {
+        "clean": {
+          "dead_recall": 0.9506108013775849,
+          "macro_f1": 0.9036430745344259,
+          "spell_f1": 0.5229916897506925,
+          "spells": 301
+        },
+        "masked": {
+          "dead_recall": 0.928912294790814,
+          "macro_f1": 0.8519099388791137,
+          "spell_f1": 0.3959849435382685,
+          "spells": 376
+        },
+        "stress": {
+          "dead_recall": 0.2874704637766212,
+          "macro_f1": 0.570408818503982,
+          "spell_f1": 0.2532951289398281,
+          "spells": 626
+        }
+      },
+      "recipe": {
+        "dead_cutoff": 0.6,
+        "dead_radius": 75,
+        "dead_weight": 0.0,
+        "owner_radius": 25,
+        "owner_weight": 1.0
+      }
+    },
+    {
+      "metrics": {
+        "clean": {
+          "dead_recall": 0.9506108013775849,
+          "macro_f1": 0.902873831153805,
+          "spell_f1": 0.5113402061855671,
+          "spells": 258
+        },
+        "masked": {
+          "dead_recall": 0.928912294790814,
+          "macro_f1": 0.8546256198969565,
+          "spell_f1": 0.41744022503516176,
+          "spells": 290
+        },
+        "stress": {
+          "dead_recall": 0.2874704637766212,
+          "macro_f1": 0.5750041235795251,
+          "spell_f1": 0.25900900900900903,
+          "spells": 467
+        }
+      },
+      "recipe": {
+        "dead_cutoff": 0.6,
+        "dead_radius": 75,
+        "dead_weight": 0.0,
+        "owner_radius": 50,
+        "owner_weight": 1.0
+      }
+    },
+    {
+      "metrics": {
+        "clean": {
+          "dead_recall": 0.9506108013775849,
+          "macro_f1": 0.8993209692820011,
+          "spell_f1": 0.48793893129770993,
+          "spells": 234
+        },
+        "masked": {
+          "dead_recall": 0.928912294790814,
+          "macro_f1": 0.8521922296976917,
+          "spell_f1": 0.3838805970149254,
+          "spells": 249
+        },
+        "stress": {
+          "dead_recall": 0.2874704637766212,
+          "macro_f1": 0.5746974683212751,
+          "spell_f1": 0.2475955610357583,
+          "spells": 390
+        }
+      },
+      "recipe": {
+        "dead_cutoff": 0.6,
+        "dead_radius": 75,
+        "dead_weight": 0.0,
+        "owner_radius": 75,
+        "owner_weight": 1.0
+      }
+    },
+    {
+      "metrics": {
+        "clean": {
+          "dead_recall": 0.9998764497845594,
+          "macro_f1": 0.9192168932292285,
+          "spell_f1": 0.552247191011236,
+          "spells": 291
+        },
+        "masked": {
+          "dead_recall": 0.9875986471251409,
+          "macro_f1": 0.8648941153626549,
+          "spell_f1": 0.4231362467866324,
+          "spells": 357
+        },
+        "stress": {
+          "dead_recall": 0.9372364905561305,
+          "macro_f1": 0.8466477489751508,
+          "spell_f1": 0.3863580998781973,
+          "spells": 400
+        }
+      },
+      "recipe": {
+        "dead_cutoff": 0.4,
+        "dead_radius": 25,
+        "dead_weight": 0.5,
+        "owner_radius": 25,
+        "owner_weight": 1.0
+      }
+    },
+    {
+      "metrics": {
+        "clean": {
+          "dead_recall": 0.9998764497845594,
+          "macro_f1": 0.9186037034736403,
+          "spell_f1": 0.5476831091180866,
+          "spells": 248
+        },
+        "masked": {
+          "dead_recall": 0.9875986471251409,
+          "macro_f1": 0.8681649948286226,
+          "spell_f1": 0.4505681818181818,
+          "spells": 283
+        },
+        "stress": {
+          "dead_recall": 0.9372364905561305,
+          "macro_f1": 0.8522241350041965,
+          "spell_f1": 0.4136798905608755,
+          "spells": 310
+        }
+      },
+      "recipe": {
+        "dead_cutoff": 0.4,
+        "dead_radius": 25,
+        "dead_weight": 0.5,
+        "owner_radius": 50,
+        "owner_weight": 1.0
+      }
+    },
+    {
+      "metrics": {
+        "clean": {
+          "dead_recall": 0.9998764497845594,
+          "macro_f1": 0.9138875746161296,
+          "spell_f1": 0.5157733537519142,
+          "spells": 232
+        },
+        "masked": {
+          "dead_recall": 0.9875986471251409,
+          "macro_f1": 0.8635742187522167,
+          "spell_f1": 0.4065281899109793,
+          "spells": 253
+        },
+        "stress": {
+          "dead_recall": 0.9372364905561305,
+          "macro_f1": 0.8522451858633809,
+          "spell_f1": 0.4110787172011662,
+          "spells": 265
+        }
+      },
+      "recipe": {
+        "dead_cutoff": 0.4,
+        "dead_radius": 25,
+        "dead_weight": 0.5,
+        "owner_radius": 75,
+        "owner_weight": 1.0
+      }
+    },
+    {
+      "metrics": {
+        "clean": {
+          "dead_recall": 0.9999227811153496,
+          "macro_f1": 0.915547164622368,
+          "spell_f1": 0.5475177304964539,
+          "spells": 284
+        },
+        "masked": {
+          "dead_recall": 0.9880465166561134,
+          "macro_f1": 0.8631968910946496,
+          "spell_f1": 0.4261096605744125,
+          "spells": 345
+        },
+        "stress": {
+          "dead_recall": 0.9233834226498433,
+          "macro_f1": 0.8416915521481686,
+          "spell_f1": 0.3804639804639805,
+          "spells": 398
+        }
+      },
+      "recipe": {
+        "dead_cutoff": 0.4,
+        "dead_radius": 50,
+        "dead_weight": 0.5,
+        "owner_radius": 25,
+        "owner_weight": 1.0
+      }
+    },
+    {
+      "metrics": {
+        "clean": {
+          "dead_recall": 0.9999227811153496,
+          "macro_f1": 0.9143076289356856,
+          "spell_f1": 0.5419548872180451,
+          "spells": 244
+        },
+        "masked": {
+          "dead_recall": 0.9880465166561134,
+          "macro_f1": 0.8665456861963469,
+          "spell_f1": 0.44985673352435523,
+          "spells": 277
+        },
+        "stress": {
+          "dead_recall": 0.9233834226498433,
+          "macro_f1": 0.8473357349658382,
+          "spell_f1": 0.401641586867305,
+          "spells": 310
+        }
+      },
+      "recipe": {
+        "dead_cutoff": 0.4,
+        "dead_radius": 50,
+        "dead_weight": 0.5,
+        "owner_radius": 50,
+        "owner_weight": 1.0
+      }
+    },
+    {
+      "metrics": {
+        "clean": {
+          "dead_recall": 0.9999227811153496,
+          "macro_f1": 0.9090227986494736,
+          "spell_f1": 0.5118279569892473,
+          "spells": 230
+        },
+        "masked": {
+          "dead_recall": 0.9880465166561134,
+          "macro_f1": 0.8618439303857991,
+          "spell_f1": 0.4054216867469879,
+          "spells": 243
+        },
+        "stress": {
+          "dead_recall": 0.9233834226498433,
+          "macro_f1": 0.8475028205233629,
+          "spell_f1": 0.4040816326530612,
+          "spells": 265
+        }
+      },
+      "recipe": {
+        "dead_cutoff": 0.4,
+        "dead_radius": 50,
+        "dead_weight": 0.5,
+        "owner_radius": 75,
+        "owner_weight": 1.0
+      }
+    },
+    {
+      "metrics": {
+        "clean": {
+          "dead_recall": 1.0,
+          "macro_f1": 0.9111379953320125,
+          "spell_f1": 0.5446197991391679,
+          "spells": 276
+        },
+        "masked": {
+          "dead_recall": 0.9891739123720097,
+          "macro_f1": 0.8607538461075173,
+          "spell_f1": 0.42275132275132277,
+          "spells": 335
+        },
+        "stress": {
+          "dead_recall": 0.9101017744899693,
+          "macro_f1": 0.8365124354059112,
+          "spell_f1": 0.3716381418092909,
+          "spells": 397
+        }
+      },
+      "recipe": {
+        "dead_cutoff": 0.4,
+        "dead_radius": 75,
+        "dead_weight": 0.5,
+        "owner_radius": 25,
+        "owner_weight": 1.0
+      }
+    },
+    {
+      "metrics": {
+        "clean": {
+          "dead_recall": 1.0,
+          "macro_f1": 0.9089163655708709,
+          "spell_f1": 0.5311178247734138,
+          "spells": 241
+        },
+        "masked": {
+          "dead_recall": 0.9891739123720097,
+          "macro_f1": 0.863038661822847,
+          "spell_f1": 0.4430858806404657,
+          "spells": 266
+        },
+        "stress": {
+          "dead_recall": 0.9101017744899693,
+          "macro_f1": 0.8424270623945646,
+          "spell_f1": 0.3955801104972375,
+          "spells": 303
+        }
+      },
+      "recipe": {
+        "dead_cutoff": 0.4,
+        "dead_radius": 75,
+        "dead_weight": 0.5,
+        "owner_radius": 50,
+        "owner_weight": 1.0
+      }
+    },
+    {
+      "metrics": {
+        "clean": {
+          "dead_recall": 1.0,
+          "macro_f1": 0.9033282937413386,
+          "spell_f1": 0.502627511591963,
+          "spells": 226
+        },
+        "masked": {
+          "dead_recall": 0.9891739123720097,
+          "macro_f1": 0.8580965096453722,
+          "spell_f1": 0.39574468085106385,
+          "spells": 237
+        },
+        "stress": {
+          "dead_recall": 0.9101017744899693,
+          "macro_f1": 0.8420452660074286,
+          "spell_f1": 0.3906295754026354,
+          "spells": 262
+        }
+      },
+      "recipe": {
+        "dead_cutoff": 0.4,
+        "dead_radius": 75,
+        "dead_weight": 0.5,
+        "owner_radius": 75,
+        "owner_weight": 1.0
+      }
+    },
+    {
+      "metrics": {
+        "clean": {
+          "dead_recall": 0.998023196552949,
+          "macro_f1": 0.922668536795498,
+          "spell_f1": 0.5626928471248247,
+          "spells": 292
+        },
+        "masked": {
+          "dead_recall": 0.9783632685209495,
+          "macro_f1": 0.8673110751561267,
+          "spell_f1": 0.42292993630573256,
+          "spells": 364
+        },
+        "stress": {
+          "dead_recall": 0.8883106052416179,
+          "macro_f1": 0.8295691938315426,
+          "spell_f1": 0.3638525564803805,
+          "spells": 420
+        }
+      },
+      "recipe": {
+        "dead_cutoff": 0.5,
+        "dead_radius": 25,
+        "dead_weight": 0.5,
+        "owner_radius": 25,
+        "owner_weight": 1.0
+      }
+    },
+    {
+      "metrics": {
+        "clean": {
+          "dead_recall": 0.998023196552949,
+          "macro_f1": 0.921950331797824,
+          "spell_f1": 0.5554896142433234,
+          "spells": 253
+        },
+        "masked": {
+          "dead_recall": 0.9783632685209495,
+          "macro_f1": 0.8709006670509115,
+          "spell_f1": 0.45239436619718304,
+          "spells": 289
+        },
+        "stress": {
+          "dead_recall": 0.8883106052416179,
+          "macro_f1": 0.8351731897382103,
+          "spell_f1": 0.38828229027962713,
+          "spells": 330
+        }
+      },
+      "recipe": {
+        "dead_cutoff": 0.5,
+        "dead_radius": 25,
+        "dead_weight": 0.5,
+        "owner_radius": 50,
+        "owner_weight": 1.0
+      }
+    },
+    {
+      "metrics": {
+        "clean": {
+          "dead_recall": 0.998023196552949,
+          "macro_f1": 0.9179280563845976,
+          "spell_f1": 0.5233128834355828,
+          "spells": 231
+        },
+        "masked": {
+          "dead_recall": 0.9783632685209495,
+          "macro_f1": 0.8664917458663207,
+          "spell_f1": 0.41367013372956907,
+          "spells": 252
+        },
+        "stress": {
+          "dead_recall": 0.8883106052416179,
+          "macro_f1": 0.8351497095982379,
+          "spell_f1": 0.38575498575498574,
+          "spells": 281
+        }
+      },
+      "recipe": {
+        "dead_cutoff": 0.5,
+        "dead_radius": 25,
+        "dead_weight": 0.5,
+        "owner_radius": 75,
+        "owner_weight": 1.0
+      }
+    },
+    {
+      "metrics": {
+        "clean": {
+          "dead_recall": 0.9978687587836481,
+          "macro_f1": 0.9228083229289107,
+          "spell_f1": 0.5626928471248247,
+          "spells": 292
+        },
+        "masked": {
+          "dead_recall": 0.9759231517659959,
+          "macro_f1": 0.866852531616558,
+          "spell_f1": 0.4225641025641026,
+          "spells": 359
+        },
+        "stress": {
+          "dead_recall": 0.8656854720390419,
+          "macro_f1": 0.8218728047067497,
+          "spell_f1": 0.3570405727923628,
+          "spells": 417
+        }
+      },
+      "recipe": {
+        "dead_cutoff": 0.5,
+        "dead_radius": 50,
+        "dead_weight": 0.5,
+        "owner_radius": 25,
+        "owner_weight": 1.0
+      }
+    },
+    {
+      "metrics": {
+        "clean": {
+          "dead_recall": 0.9978687587836481,
+          "macro_f1": 0.9220637201073619,
+          "spell_f1": 0.5554896142433234,
+          "spells": 253
+        },
+        "masked": {
+          "dead_recall": 0.9759231517659959,
+          "macro_f1": 0.8702146690761087,
+          "spell_f1": 0.4502139800285307,
+          "spells": 280
+        },
+        "stress": {
+          "dead_recall": 0.8656854720390419,
+          "macro_f1": 0.8273467946075659,
+          "spell_f1": 0.3780160857908847,
+          "spells": 325
+        }
+      },
+      "recipe": {
+        "dead_cutoff": 0.5,
+        "dead_radius": 50,
+        "dead_weight": 0.5,
+        "owner_radius": 50,
+        "owner_weight": 1.0
+      }
+    },
+    {
+      "metrics": {
+        "clean": {
+          "dead_recall": 0.9978687587836481,
+          "macro_f1": 0.9181340416920274,
+          "spell_f1": 0.5249230769230769,
+          "spells": 229
+        },
+        "masked": {
+          "dead_recall": 0.9759231517659959,
+          "macro_f1": 0.8659787261485308,
+          "spell_f1": 0.4089955022488755,
+          "spells": 246
+        },
+        "stress": {
+          "dead_recall": 0.8656854720390419,
+          "macro_f1": 0.8272076131081457,
+          "spell_f1": 0.37819225251076033,
+          "spells": 276
+        }
+      },
+      "recipe": {
+        "dead_cutoff": 0.5,
+        "dead_radius": 50,
+        "dead_weight": 0.5,
+        "owner_radius": 75,
+        "owner_weight": 1.0
+      }
+    },
+    {
+      "metrics": {
+        "clean": {
+          "dead_recall": 0.9954904171364148,
+          "macro_f1": 0.9216614331483387,
+          "spell_f1": 0.560900140646976,
+          "spells": 290
+        },
+        "masked": {
+          "dead_recall": 0.9716915568871524,
+          "macro_f1": 0.8650851245891277,
+          "spell_f1": 0.4228274967574578,
+          "spells": 350
+        },
+        "stress": {
+          "dead_recall": 0.8387051937421816,
+          "macro_f1": 0.812026018120461,
+          "spell_f1": 0.3446808510638298,
+          "spells": 425
+        }
+      },
+      "recipe": {
+        "dead_cutoff": 0.5,
+        "dead_radius": 75,
+        "dead_weight": 0.5,
+        "owner_radius": 25,
+        "owner_weight": 1.0
+      }
+    },
+    {
+      "metrics": {
+        "clean": {
+          "dead_recall": 0.9954904171364148,
+          "macro_f1": 0.9210841357082121,
+          "spell_f1": 0.5526080476900149,
+          "spells": 250
+        },
+        "masked": {
+          "dead_recall": 0.9716915568871524,
+          "macro_f1": 0.8684629676290198,
+          "spell_f1": 0.4478386167146974,
+          "spells": 273
+        },
+        "stress": {
+          "dead_recall": 0.8387051937421816,
+          "macro_f1": 0.817280500693883,
+          "spell_f1": 0.36388140161725063,
+          "spells": 321
+        }
+      },
+      "recipe": {
+        "dead_cutoff": 0.5,
+        "dead_radius": 75,
+        "dead_weight": 0.5,
+        "owner_radius": 50,
+        "owner_weight": 1.0
+      }
+    },
+    {
+      "metrics": {
+        "clean": {
+          "dead_recall": 0.9954904171364148,
+          "macro_f1": 0.9171253727753879,
+          "spell_f1": 0.521604938271605,
+          "spells": 227
+        },
+        "masked": {
+          "dead_recall": 0.9716915568871524,
+          "macro_f1": 0.8648118192753552,
+          "spell_f1": 0.4090771558245083,
+          "spells": 240
+        },
+        "stress": {
+          "dead_recall": 0.8387051937421816,
+          "macro_f1": 0.8176752964524509,
+          "spell_f1": 0.3632183908045977,
+          "spells": 275
+        }
+      },
+      "recipe": {
+        "dead_cutoff": 0.5,
+        "dead_radius": 75,
+        "dead_weight": 0.5,
+        "owner_radius": 75,
+        "owner_weight": 1.0
+      }
+    },
+    {
+      "metrics": {
+        "clean": {
+          "dead_recall": 0.9843091226390326,
+          "macro_f1": 0.9174508616834153,
+          "spell_f1": 0.5585434173669468,
+          "spells": 293
+        },
+        "masked": {
+          "dead_recall": 0.9650198452533552,
+          "macro_f1": 0.8650073950016112,
+          "spell_f1": 0.41822784810126584,
+          "spells": 369
+        },
+        "stress": {
+          "dead_recall": 0.756899507343516,
+          "macro_f1": 0.7793779269150783,
+          "spell_f1": 0.3142857142857143,
+          "spells": 503
+        }
+      },
+      "recipe": {
+        "dead_cutoff": 0.6,
+        "dead_radius": 25,
+        "dead_weight": 0.5,
+        "owner_radius": 25,
+        "owner_weight": 1.0
+      }
+    },
+    {
+      "metrics": {
+        "clean": {
+          "dead_recall": 0.9843091226390326,
+          "macro_f1": 0.9164687342622001,
+          "spell_f1": 0.5477104874446086,
+          "spells": 256
+        },
+        "masked": {
+          "dead_recall": 0.9650198452533552,
+          "macro_f1": 0.8683546822296159,
+          "spell_f1": 0.44689265536723155,
+          "spells": 287
+        },
+        "stress": {
+          "dead_recall": 0.756899507343516,
+          "macro_f1": 0.7846572671372849,
+          "spell_f1": 0.3282051282051282,
+          "spells": 398
+        }
+      },
+      "recipe": {
+        "dead_cutoff": 0.6,
+        "dead_radius": 25,
+        "dead_weight": 0.5,
+        "owner_radius": 50,
+        "owner_weight": 1.0
+      }
+    },
+    {
+      "metrics": {
+        "clean": {
+          "dead_recall": 0.9843091226390326,
+          "macro_f1": 0.912743674281503,
+          "spell_f1": 0.5184049079754601,
+          "spells": 231
+        },
+        "masked": {
+          "dead_recall": 0.9650198452533552,
+          "macro_f1": 0.8649445318935592,
+          "spell_f1": 0.4076923076923077,
+          "spells": 255
+        },
+        "stress": {
+          "dead_recall": 0.756899507343516,
+          "macro_f1": 0.7846866201192281,
+          "spell_f1": 0.32438070404172104,
+          "spells": 346
+        }
+      },
+      "recipe": {
+        "dead_cutoff": 0.6,
+        "dead_radius": 25,
+        "dead_weight": 0.5,
+        "owner_radius": 75,
+        "owner_weight": 1.0
+      }
+    },
+    {
+      "metrics": {
+        "clean": {
+          "dead_recall": 0.9695757594477306,
+          "macro_f1": 0.9112696190540511,
+          "spell_f1": 0.5436893203883495,
+          "spells": 300
+        },
+        "masked": {
+          "dead_recall": 0.9523868357245447,
+          "macro_f1": 0.8617229200518809,
+          "spell_f1": 0.4130982367758187,
+          "spells": 373
+        },
+        "stress": {
+          "dead_recall": 0.7556022300813887,
+          "macro_f1": 0.7792123415168195,
+          "spell_f1": 0.3197294250281849,
+          "spells": 466
+        }
+      },
+      "recipe": {
+        "dead_cutoff": 0.6,
+        "dead_radius": 50,
+        "dead_weight": 0.5,
+        "owner_radius": 25,
+        "owner_weight": 1.0
+      }
+    },
+    {
+      "metrics": {
+        "clean": {
+          "dead_recall": 0.9695757594477306,
+          "macro_f1": 0.9104274370226406,
+          "spell_f1": 0.5370588235294117,
+          "spells": 259
+        },
+        "masked": {
+          "dead_recall": 0.9523868357245447,
+          "macro_f1": 0.8648254305665567,
+          "spell_f1": 0.4440677966101695,
+          "spells": 287
+        },
+        "stress": {
+          "dead_recall": 0.7556022300813887,
+          "macro_f1": 0.7845588554667629,
+          "spell_f1": 0.33546734955185664,
+          "spells": 360
+        }
+      },
+      "recipe": {
+        "dead_cutoff": 0.6,
+        "dead_radius": 50,
+        "dead_weight": 0.5,
+        "owner_radius": 50,
+        "owner_weight": 1.0
+      }
+    },
+    {
+      "metrics": {
+        "clean": {
+          "dead_recall": 0.9695757594477306,
+          "macro_f1": 0.90681772105816,
+          "spell_f1": 0.5097560975609756,
+          "spells": 235
+        },
+        "masked": {
+          "dead_recall": 0.9523868357245447,
+          "macro_f1": 0.8618480232871139,
+          "spell_f1": 0.4047197640117994,
+          "spells": 257
+        },
+        "stress": {
+          "dead_recall": 0.7556022300813887,
+          "macro_f1": 0.7846974431455805,
+          "spell_f1": 0.3358024691358025,
+          "spells": 308
+        }
+      },
+      "recipe": {
+        "dead_cutoff": 0.6,
+        "dead_radius": 50,
+        "dead_weight": 0.5,
+        "owner_radius": 75,
+        "owner_weight": 1.0
+      }
+    },
+    {
+      "metrics": {
+        "clean": {
+          "dead_recall": 0.9518926348627821,
+          "macro_f1": 0.9040536929508165,
+          "spell_f1": 0.5268698060941828,
+          "spells": 301
+        },
+        "masked": {
+          "dead_recall": 0.937699803864033,
+          "macro_f1": 0.8574889740164949,
+          "spell_f1": 0.40456852791878173,
+          "spells": 367
+        },
+        "stress": {
+          "dead_recall": 0.7380117681580207,
+          "macro_f1": 0.7728986500223791,
+          "spell_f1": 0.3183580387685291,
+          "spells": 456
+        }
+      },
+      "recipe": {
+        "dead_cutoff": 0.6,
+        "dead_radius": 75,
+        "dead_weight": 0.5,
+        "owner_radius": 25,
+        "owner_weight": 1.0
+      }
+    },
+    {
+      "metrics": {
+        "clean": {
+          "dead_recall": 0.9518926348627821,
+          "macro_f1": 0.9033379530403648,
+          "spell_f1": 0.5174743024963291,
+          "spells": 260
+        },
+        "masked": {
+          "dead_recall": 0.937699803864033,
+          "macro_f1": 0.8603511595154248,
+          "spell_f1": 0.4301564722617354,
+          "spells": 282
+        },
+        "stress": {
+          "dead_recall": 0.7380117681580207,
+          "macro_f1": 0.7783711878097037,
+          "spell_f1": 0.3335064935064935,
+          "spells": 349
+        }
+      },
+      "recipe": {
+        "dead_cutoff": 0.6,
+        "dead_radius": 75,
+        "dead_weight": 0.5,
+        "owner_radius": 50,
+        "owner_weight": 1.0
+      }
+    },
+    {
+      "metrics": {
+        "clean": {
+          "dead_recall": 0.9518926348627821,
+          "macro_f1": 0.899729639982871,
+          "spell_f1": 0.49329268292682926,
+          "spells": 235
+        },
+        "masked": {
+          "dead_recall": 0.937699803864033,
+          "macro_f1": 0.8575787635630082,
+          "spell_f1": 0.3910179640718563,
+          "spells": 247
+        },
+        "stress": {
+          "dead_recall": 0.7380117681580207,
+          "macro_f1": 0.7783552932084193,
+          "spell_f1": 0.32905027932960895,
+          "spells": 295
+        }
+      },
+      "recipe": {
+        "dead_cutoff": 0.6,
+        "dead_radius": 75,
+        "dead_weight": 0.5,
+        "owner_radius": 75,
+        "owner_weight": 1.0
+      }
+    },
+    {
+      "metrics": {
+        "clean": {
+          "dead_recall": 0.9997683433460487,
+          "macro_f1": 0.9192938852974747,
+          "spell_f1": 0.5549295774647887,
+          "spells": 289
+        },
+        "masked": {
+          "dead_recall": 0.9887723741718275,
+          "macro_f1": 0.8667285311629839,
+          "spell_f1": 0.4281250000000001,
+          "spells": 347
+        },
+        "stress": {
+          "dead_recall": 0.9774366419051443,
+          "macro_f1": 0.8538178444954094,
+          "spell_f1": 0.4055137844611528,
+          "spells": 377
+        }
+      },
+      "recipe": {
+        "dead_cutoff": 0.4,
+        "dead_radius": 25,
+        "dead_weight": 1.0,
+        "owner_radius": 25,
+        "owner_weight": 1.0
+      }
+    },
+    {
+      "metrics": {
+        "clean": {
+          "dead_recall": 0.9997683433460487,
+          "macro_f1": 0.9186168267891106,
+          "spell_f1": 0.5476831091180867,
+          "spells": 248
+        },
+        "masked": {
+          "dead_recall": 0.9887723741718275,
+          "macro_f1": 0.869268668081693,
+          "spell_f1": 0.4556671449067432,
+          "spells": 276
+        },
+        "stress": {
+          "dead_recall": 0.9774366419051443,
+          "macro_f1": 0.8580467692729918,
+          "spell_f1": 0.42408963585434173,
+          "spells": 293
+        }
+      },
+      "recipe": {
+        "dead_cutoff": 0.4,
+        "dead_radius": 25,
+        "dead_weight": 1.0,
+        "owner_radius": 50,
+        "owner_weight": 1.0
+      }
+    },
+    {
+      "metrics": {
+        "clean": {
+          "dead_recall": 0.9997683433460487,
+          "macro_f1": 0.9139796235111414,
+          "spell_f1": 0.5185867895545315,
+          "spells": 230
+        },
+        "masked": {
+          "dead_recall": 0.9887723741718275,
+          "macro_f1": 0.8648232448905117,
+          "spell_f1": 0.4137931034482758,
+          "spells": 246
+        },
+        "stress": {
+          "dead_recall": 0.9774366419051443,
+          "macro_f1": 0.8574503418736791,
+          "spell_f1": 0.41296023564064804,
+          "spells": 258
+        }
+      },
+      "recipe": {
+        "dead_cutoff": 0.4,
+        "dead_radius": 25,
+        "dead_weight": 1.0,
+        "owner_radius": 75,
+        "owner_weight": 1.0
+      }
+    },
+    {
+      "metrics": {
+        "clean": {
+          "dead_recall": 0.9998764497845594,
+          "macro_f1": 0.9154163421692045,
+          "spell_f1": 0.5479374110953058,
+          "spells": 282
+        },
+        "masked": {
+          "dead_recall": 0.9907646213958086,
+          "macro_f1": 0.8650226818940318,
+          "spell_f1": 0.4268068331143232,
+          "spells": 340
+        },
+        "stress": {
+          "dead_recall": 0.980957823045204,
+          "macro_f1": 0.8529204534417656,
+          "spell_f1": 0.4081321473951715,
+          "spells": 366
+        }
+      },
+      "recipe": {
+        "dead_cutoff": 0.4,
+        "dead_radius": 50,
+        "dead_weight": 1.0,
+        "owner_radius": 25,
+        "owner_weight": 1.0
+      }
+    },
+    {
+      "metrics": {
+        "clean": {
+          "dead_recall": 0.9998764497845594,
+          "macro_f1": 0.9141554224016413,
+          "spell_f1": 0.5444108761329305,
+          "spells": 241
+        },
+        "masked": {
+          "dead_recall": 0.9907646213958086,
+          "macro_f1": 0.8673662411713434,
+          "spell_f1": 0.4525252525252525,
+          "spells": 272
+        },
+        "stress": {
+          "dead_recall": 0.980957823045204,
+          "macro_f1": 0.8570624202066491,
+          "spell_f1": 0.4301136363636363,
+          "spells": 283
+        }
+      },
+      "recipe": {
+        "dead_cutoff": 0.4,
+        "dead_radius": 50,
+        "dead_weight": 1.0,
+        "owner_radius": 50,
+        "owner_weight": 1.0
+      }
+    },
+    {
+      "metrics": {
+        "clean": {
+          "dead_recall": 0.9998764497845594,
+          "macro_f1": 0.9089872802038673,
+          "spell_f1": 0.5138461538461538,
+          "spells": 229
+        },
+        "masked": {
+          "dead_recall": 0.9907646213958086,
+          "macro_f1": 0.8630146434877513,
+          "spell_f1": 0.40845921450151046,
+          "spells": 241
+        },
+        "stress": {
+          "dead_recall": 0.980957823045204,
+          "macro_f1": 0.8556294997881638,
+          "spell_f1": 0.4119402985074627,
+          "spells": 249
+        }
+      },
+      "recipe": {
+        "dead_cutoff": 0.4,
+        "dead_radius": 50,
+        "dead_weight": 1.0,
+        "owner_radius": 75,
+        "owner_weight": 1.0
+      }
+    },
+    {
+      "metrics": {
+        "clean": {
+          "dead_recall": 0.9999536686692098,
+          "macro_f1": 0.9107867710403917,
+          "spell_f1": 0.5466089466089465,
+          "spells": 272
+        },
+        "masked": {
+          "dead_recall": 0.9925869870735587,
+          "macro_f1": 0.862952361283566,
+          "spell_f1": 0.43035952063914784,
+          "spells": 330
+        },
+        "stress": {
+          "dead_recall": 0.9826257509536532,
+          "macro_f1": 0.8491008678245994,
+          "spell_f1": 0.40102564102564103,
+          "spells": 359
+        }
+      },
+      "recipe": {
+        "dead_cutoff": 0.4,
+        "dead_radius": 75,
+        "dead_weight": 1.0,
+        "owner_radius": 25,
+        "owner_weight": 1.0
+      }
+    },
+    {
+      "metrics": {
+        "clean": {
+          "dead_recall": 0.9999536686692098,
+          "macro_f1": 0.9087243225299186,
+          "spell_f1": 0.5315151515151515,
+          "spells": 239
+        },
+        "masked": {
+          "dead_recall": 0.9925869870735587,
+          "macro_f1": 0.865041404783868,
+          "spell_f1": 0.45189504373177847,
+          "spells": 265
+        },
+        "stress": {
+          "dead_recall": 0.9826257509536532,
+          "macro_f1": 0.8531440761258641,
+          "spell_f1": 0.4142857142857143,
+          "spells": 279
+        }
+      },
+      "recipe": {
+        "dead_cutoff": 0.4,
+        "dead_radius": 75,
+        "dead_weight": 1.0,
+        "owner_radius": 50,
+        "owner_weight": 1.0
+      }
+    },
+    {
+      "metrics": {
+        "clean": {
+          "dead_recall": 0.9999536686692098,
+          "macro_f1": 0.9033011265609133,
+          "spell_f1": 0.5041860465116279,
+          "spells": 224
+        },
+        "masked": {
+          "dead_recall": 0.9925869870735587,
+          "macro_f1": 0.8609832837119932,
+          "spell_f1": 0.40917431192660547,
+          "spells": 233
+        },
+        "stress": {
+          "dead_recall": 0.9826257509536532,
+          "macro_f1": 0.8518790005640663,
+          "spell_f1": 0.40242424242424246,
+          "spells": 239
+        }
+      },
+      "recipe": {
+        "dead_cutoff": 0.4,
+        "dead_radius": 75,
+        "dead_weight": 1.0,
+        "owner_radius": 75,
+        "owner_weight": 1.0
+      }
+    },
+    {
+      "metrics": {
+        "clean": {
+          "dead_recall": 0.9985173974147118,
+          "macro_f1": 0.9230652620183412,
+          "spell_f1": 0.5622377622377622,
+          "spells": 294
+        },
+        "masked": {
+          "dead_recall": 0.9835523775694583,
+          "macro_f1": 0.8695527453852728,
+          "spell_f1": 0.4288288288288289,
+          "spells": 356
+        },
+        "stress": {
+          "dead_recall": 0.9648962950379145,
+          "macro_f1": 0.8539824519318363,
+          "spell_f1": 0.40496277915632756,
+          "spells": 385
+        }
+      },
+      "recipe": {
+        "dead_cutoff": 0.5,
+        "dead_radius": 25,
+        "dead_weight": 1.0,
+        "owner_radius": 25,
+        "owner_weight": 1.0
+      }
+    },
+    {
+      "metrics": {
+        "clean": {
+          "dead_recall": 0.9985173974147118,
+          "macro_f1": 0.9221544420226627,
+          "spell_f1": 0.5534814814814816,
+          "spells": 254
+        },
+        "masked": {
+          "dead_recall": 0.9835523775694583,
+          "macro_f1": 0.8726736528019826,
+          "spell_f1": 0.4576319543509272,
+          "spells": 280
+        },
+        "stress": {
+          "dead_recall": 0.9648962950379145,
+          "macro_f1": 0.8584633918721263,
+          "spell_f1": 0.42151724137931035,
+          "spells": 304
+        }
+      },
+      "recipe": {
+        "dead_cutoff": 0.5,
+        "dead_radius": 25,
+        "dead_weight": 1.0,
+        "owner_radius": 50,
+        "owner_weight": 1.0
+      }
+    },
+    {
+      "metrics": {
+        "clean": {
+          "dead_recall": 0.9985173974147118,
+          "macro_f1": 0.9181923618778719,
+          "spell_f1": 0.5249230769230769,
+          "spells": 229
+        },
+        "masked": {
+          "dead_recall": 0.9835523775694583,
+          "macro_f1": 0.8687381494055693,
+          "spell_f1": 0.4173134328358209,
+          "spells": 249
+        },
+        "stress": {
+          "dead_recall": 0.9648962950379145,
+          "macro_f1": 0.8587753001100064,
+          "spell_f1": 0.4205882352941176,
+          "spells": 259
+        }
+      },
+      "recipe": {
+        "dead_cutoff": 0.5,
+        "dead_radius": 25,
+        "dead_weight": 1.0,
+        "owner_radius": 75,
+        "owner_weight": 1.0
+      }
+    },
+    {
+      "metrics": {
+        "clean": {
+          "dead_recall": 0.9984092909762011,
+          "macro_f1": 0.9231470769903553,
+          "spell_f1": 0.5622377622377622,
+          "spells": 294
+        },
+        "masked": {
+          "dead_recall": 0.9829809578230452,
+          "macro_f1": 0.870049004757127,
+          "spell_f1": 0.431483870967742,
+          "spells": 354
+        },
+        "stress": {
+          "dead_recall": 0.9651742830226561,
+          "macro_f1": 0.8541120695768187,
+          "spell_f1": 0.40250312891113893,
+          "spells": 378
+        }
+      },
+      "recipe": {
+        "dead_cutoff": 0.5,
+        "dead_radius": 50,
+        "dead_weight": 1.0,
+        "owner_radius": 25,
+        "owner_weight": 1.0
+      }
+    },
+    {
+      "metrics": {
+        "clean": {
+          "dead_recall": 0.9984092909762011,
+          "macro_f1": 0.9222201075254358,
+          "spell_f1": 0.5534814814814816,
+          "spells": 254
+        },
+        "masked": {
+          "dead_recall": 0.9829809578230452,
+          "macro_f1": 0.8732300228386407,
+          "spell_f1": 0.46065808297567956,
+          "spells": 278
+        },
+        "stress": {
+          "dead_recall": 0.9651742830226561,
+          "macro_f1": 0.8587934332392614,
+          "spell_f1": 0.42458100558659223,
+          "spells": 295
+        }
+      },
+      "recipe": {
+        "dead_cutoff": 0.5,
+        "dead_radius": 50,
+        "dead_weight": 1.0,
+        "owner_radius": 50,
+        "owner_weight": 1.0
+      }
+    },
+    {
+      "metrics": {
+        "clean": {
+          "dead_recall": 0.9984092909762011,
+          "macro_f1": 0.9182608047377924,
+          "spell_f1": 0.5249230769230769,
+          "spells": 229
+        },
+        "masked": {
+          "dead_recall": 0.9829809578230452,
+          "macro_f1": 0.8696433614987088,
+          "spell_f1": 0.4216216216216216,
+          "spells": 245
+        },
+        "stress": {
+          "dead_recall": 0.9651742830226561,
+          "macro_f1": 0.8587192487633472,
+          "spell_f1": 0.4183703703703704,
+          "spells": 254
+        }
+      },
+      "recipe": {
+        "dead_cutoff": 0.5,
+        "dead_radius": 50,
+        "dead_weight": 1.0,
+        "owner_radius": 75,
+        "owner_weight": 1.0
+      }
+    },
+    {
+      "metrics": {
+        "clean": {
+          "dead_recall": 0.9983166283146206,
+          "macro_f1": 0.9228664643221727,
+          "spell_f1": 0.5615708274894811,
+          "spells": 292
+        },
+        "masked": {
+          "dead_recall": 0.9810350419298544,
+          "macro_f1": 0.8694109657407015,
+          "spell_f1": 0.4328125,
+          "spells": 347
+        },
+        "stress": {
+          "dead_recall": 0.9644020941761517,
+          "macro_f1": 0.8534517216126409,
+          "spell_f1": 0.4040353089533418,
+          "spells": 372
+        }
+      },
+      "recipe": {
+        "dead_cutoff": 0.5,
+        "dead_radius": 75,
+        "dead_weight": 1.0,
+        "owner_radius": 25,
+        "owner_weight": 1.0
+      }
+    },
+    {
+      "metrics": {
+        "clean": {
+          "dead_recall": 0.9983166283146206,
+          "macro_f1": 0.9220144835363092,
+          "spell_f1": 0.5531157270029674,
+          "spells": 253
+        },
+        "masked": {
+          "dead_recall": 0.9810350419298544,
+          "macro_f1": 0.8728890943990582,
+          "spell_f1": 0.45772005772005764,
+          "spells": 272
+        },
+        "stress": {
+          "dead_recall": 0.9644020941761517,
+          "macro_f1": 0.8579901397718631,
+          "spell_f1": 0.4270042194092826,
+          "spells": 290
+        }
+      },
+      "recipe": {
+        "dead_cutoff": 0.5,
+        "dead_radius": 75,
+        "dead_weight": 1.0,
+        "owner_radius": 50,
+        "owner_weight": 1.0
+      }
+    },
+    {
+      "metrics": {
+        "clean": {
+          "dead_recall": 0.9983166283146206,
+          "macro_f1": 0.9180618712655589,
+          "spell_f1": 0.5244992295839754,
+          "spells": 228
+        },
+        "masked": {
+          "dead_recall": 0.9810350419298544,
+          "macro_f1": 0.8693213740142478,
+          "spell_f1": 0.4188163884673749,
+          "spells": 238
+        },
+        "stress": {
+          "dead_recall": 0.9644020941761517,
+          "macro_f1": 0.8576431342505925,
+          "spell_f1": 0.4191044776119403,
+          "spells": 249
+        }
+      },
+      "recipe": {
+        "dead_cutoff": 0.5,
+        "dead_radius": 75,
+        "dead_weight": 1.0,
+        "owner_radius": 75,
+        "owner_weight": 1.0
+      }
+    },
+    {
+      "metrics": {
+        "clean": {
+          "dead_recall": 0.9851430865932572,
+          "macro_f1": 0.9179205034917736,
+          "spell_f1": 0.5594405594405594,
+          "spells": 294
+        },
+        "masked": {
+          "dead_recall": 0.9713054624639001,
+          "macro_f1": 0.8672127119246325,
+          "spell_f1": 0.42337992376111816,
+          "spells": 366
+        },
+        "stress": {
+          "dead_recall": 0.9503945885005637,
+          "macro_f1": 0.8510314135725158,
+          "spell_f1": 0.39851668726823236,
+          "spells": 388
+        }
+      },
+      "recipe": {
+        "dead_cutoff": 0.6,
+        "dead_radius": 25,
+        "dead_weight": 1.0,
+        "owner_radius": 25,
+        "owner_weight": 1.0
+      }
+    },
+    {
+      "metrics": {
+        "clean": {
+          "dead_recall": 0.9851430865932572,
+          "macro_f1": 0.9169119917724528,
+          "spell_f1": 0.5491124260355029,
+          "spells": 255
+        },
+        "masked": {
+          "dead_recall": 0.9713054624639001,
+          "macro_f1": 0.8706599929311736,
+          "spell_f1": 0.4493688639551193,
+          "spells": 292
+        },
+        "stress": {
+          "dead_recall": 0.9503945885005637,
+          "macro_f1": 0.8565240098789575,
+          "spell_f1": 0.41980742778541946,
+          "spells": 306
+        }
+      },
+      "recipe": {
+        "dead_cutoff": 0.6,
+        "dead_radius": 25,
+        "dead_weight": 1.0,
+        "owner_radius": 50,
+        "owner_weight": 1.0
+      }
+    },
+    {
+      "metrics": {
+        "clean": {
+          "dead_recall": 0.9851430865932572,
+          "macro_f1": 0.9132030556649792,
+          "spell_f1": 0.5198156682027649,
+          "spells": 230
+        },
+        "masked": {
+          "dead_recall": 0.9713054624639001,
+          "macro_f1": 0.8671949647718445,
+          "spell_f1": 0.4172106824925816,
+          "spells": 253
+        },
+        "stress": {
+          "dead_recall": 0.9503945885005637,
+          "macro_f1": 0.8563853167598415,
+          "spell_f1": 0.41637426900584795,
+          "spells": 263
+        }
+      },
+      "recipe": {
+        "dead_cutoff": 0.6,
+        "dead_radius": 25,
+        "dead_weight": 1.0,
+        "owner_radius": 75,
+        "owner_weight": 1.0
+      }
+    },
+    {
+      "metrics": {
+        "clean": {
+          "dead_recall": 0.970378835848095,
+          "macro_f1": 0.9115533010775866,
+          "spell_f1": 0.5435326842837275,
+          "spells": 298
+        },
+        "masked": {
+          "dead_recall": 0.961050794582323,
+          "macro_f1": 0.8653279348646258,
+          "spell_f1": 0.4156763590391909,
+          "spells": 370
+        },
+        "stress": {
+          "dead_recall": 0.9402943583882875,
+          "macro_f1": 0.848250946415022,
+          "spell_f1": 0.3906519065190652,
+          "spells": 392
+        }
+      },
+      "recipe": {
+        "dead_cutoff": 0.6,
+        "dead_radius": 50,
+        "dead_weight": 1.0,
+        "owner_radius": 25,
+        "owner_weight": 1.0
+      }
+    },
+    {
+      "metrics": {
+        "clean": {
+          "dead_recall": 0.970378835848095,
+          "macro_f1": 0.9106932409109145,
+          "spell_f1": 0.5356828193832598,
+          "spells": 260
+        },
+        "masked": {
+          "dead_recall": 0.961050794582323,
+          "macro_f1": 0.8684075526340219,
+          "spell_f1": 0.4530324400564175,
+          "spells": 288
+        },
+        "stress": {
+          "dead_recall": 0.9402943583882875,
+          "macro_f1": 0.8542292504000947,
+          "spell_f1": 0.4176551724137931,
+          "spells": 304
+        }
+      },
+      "recipe": {
+        "dead_cutoff": 0.6,
+        "dead_radius": 50,
+        "dead_weight": 1.0,
+        "owner_radius": 50,
+        "owner_weight": 1.0
+      }
+    },
+    {
+      "metrics": {
+        "clean": {
+          "dead_recall": 0.970378835848095,
+          "macro_f1": 0.9070689273548834,
+          "spell_f1": 0.5097560975609756,
+          "spells": 235
+        },
+        "masked": {
+          "dead_recall": 0.961050794582323,
+          "macro_f1": 0.8651330726961257,
+          "spell_f1": 0.4130370370370371,
+          "spells": 254
+        },
+        "stress": {
+          "dead_recall": 0.9402943583882875,
+          "macro_f1": 0.8541090521706064,
+          "spell_f1": 0.4129221732745962,
+          "spells": 260
+        }
+      },
+      "recipe": {
+        "dead_cutoff": 0.6,
+        "dead_radius": 50,
+        "dead_weight": 1.0,
+        "owner_radius": 75,
+        "owner_weight": 1.0
+      }
+    },
+    {
+      "metrics": {
+        "clean": {
+          "dead_recall": 0.9534061250019304,
+          "macro_f1": 0.9045629076038164,
+          "spell_f1": 0.5276243093922652,
+          "spells": 303
+        },
+        "masked": {
+          "dead_recall": 0.9463946502756714,
+          "macro_f1": 0.8605756372684913,
+          "spell_f1": 0.41166032953105197,
+          "spells": 368
+        },
+        "stress": {
+          "dead_recall": 0.9295300458680175,
+          "macro_f1": 0.8452226648711761,
+          "spell_f1": 0.38622386223862243,
+          "spells": 392
+        }
+      },
+      "recipe": {
+        "dead_cutoff": 0.6,
+        "dead_radius": 75,
+        "dead_weight": 1.0,
+        "owner_radius": 25,
+        "owner_weight": 1.0
+      }
+    },
+    {
+      "metrics": {
+        "clean": {
+          "dead_recall": 0.9534061250019304,
+          "macro_f1": 0.9038435555920937,
+          "spell_f1": 0.5208211143695014,
+          "spells": 261
+        },
+        "masked": {
+          "dead_recall": 0.9463946502756714,
+          "macro_f1": 0.8633603474561774,
+          "spell_f1": 0.44135977337110477,
+          "spells": 285
+        },
+        "stress": {
+          "dead_recall": 0.9295300458680175,
+          "macro_f1": 0.8509589702326649,
+          "spell_f1": 0.41155433287482807,
+          "spells": 306
+        }
+      },
+      "recipe": {
+        "dead_cutoff": 0.6,
+        "dead_radius": 75,
+        "dead_weight": 1.0,
+        "owner_radius": 50,
+        "owner_weight": 1.0
+      }
+    },
+    {
+      "metrics": {
+        "clean": {
+          "dead_recall": 0.9534061250019304,
+          "macro_f1": 0.9002227134676831,
+          "spell_f1": 0.4961948249619484,
+          "spells": 236
+        },
+        "masked": {
+          "dead_recall": 0.9463946502756714,
+          "macro_f1": 0.8601522202759296,
+          "spell_f1": 0.39940476190476193,
+          "spells": 251
+        },
+        "stress": {
+          "dead_recall": 0.9295300458680175,
+          "macro_f1": 0.8511187762371163,
+          "spell_f1": 0.4099706744868035,
+          "spells": 261
+        }
+      },
+      "recipe": {
+        "dead_cutoff": 0.6,
+        "dead_radius": 75,
+        "dead_weight": 1.0,
+        "owner_radius": 75,
+        "owner_weight": 1.0
+      }
+    }
+  ],
+  "gate": "Positive weighted SpellF1 gain on all three evaluation matches; no holdout view loses more than .02",
+  "held_out": [
+    "WQQ",
+    "WR9"
+  ],
+  "holdout_passed": true,
+  "matches": {
+    "WPY": {
+      "control": {
+        "clean": {
+          "dead_recall": 0.9968803570601226,
+          "macro_f1": 0.9184068815771423,
+          "spell_f1": 0.5443959243085881,
+          "spells": 266
+        },
+        "masked": {
+          "dead_recall": 0.9661317971923213,
+          "macro_f1": 0.8425548490159004,
+          "spell_f1": 0.4042384105960265,
+          "spells": 334
+        },
+        "stress": {
+          "dead_recall": 0.43163812141897423,
+          "macro_f1": 0.6215454954787132,
+          "spell_f1": 0.2592920353982301,
+          "spells": 483
+        }
+      },
+      "robust": {
+        "clean": {
+          "dead_recall": 0.9984092909762011,
+          "macro_f1": 0.9222201075254358,
+          "spell_f1": 0.5534814814814816,
+          "spells": 254
+        },
+        "masked": {
+          "dead_recall": 0.9829809578230452,
+          "macro_f1": 0.8732300228386407,
+          "spell_f1": 0.46065808297567956,
+          "spells": 278
+        },
+        "stress": {
+          "dead_recall": 0.9651742830226561,
+          "macro_f1": 0.8587934332392614,
+          "spell_f1": 0.42458100558659223,
+          "spells": 295
+        }
+      }
+    },
+    "WQQ": {
+      "control": {
+        "clean": {
+          "dead_recall": 0.9953787526080734,
+          "macro_f1": 0.9260430401214651,
+          "spell_f1": 0.5929203539823009,
+          "spells": 277
+        },
+        "masked": {
+          "dead_recall": 0.9589433207456072,
+          "macro_f1": 0.852182806024496,
+          "spell_f1": 0.43799743260590496,
+          "spells": 378
+        },
+        "stress": {
+          "dead_recall": 0.33993757867328817,
+          "macro_f1": 0.6009270654693513,
+          "spell_f1": 0.279080459770115,
+          "spells": 469
+        }
+      },
+      "robust": {
+        "clean": {
+          "dead_recall": 0.9934474850412981,
+          "macro_f1": 0.9248801448268759,
+          "spell_f1": 0.5949778434268833,
+          "spells": 276
+        },
+        "masked": {
+          "dead_recall": 0.9625299605124756,
+          "macro_f1": 0.8797351082505163,
+          "spell_f1": 0.49401709401709404,
+          "spells": 301
+        },
+        "stress": {
+          "dead_recall": 0.9326470436087114,
+          "macro_f1": 0.8552300450502971,
+          "spell_f1": 0.4180758017492711,
+          "spells": 285
+        }
+      }
+    },
+    "WR9": {
+      "control": {
+        "clean": {
+          "dead_recall": 0.9972192409015513,
+          "macro_f1": 0.9204755052429657,
+          "spell_f1": 0.5311688311688311,
+          "spells": 246
+        },
+        "masked": {
+          "dead_recall": 0.961020587374378,
+          "macro_f1": 0.8687341481479746,
+          "spell_f1": 0.4190751445086705,
+          "spells": 322
+        },
+        "stress": {
+          "dead_recall": 0.36707646274433275,
+          "macro_f1": 0.6110205052799657,
+          "spell_f1": 0.26391251518833536,
+          "spells": 453
+        }
+      },
+      "robust": {
+        "clean": {
+          "dead_recall": 0.9986665365726738,
+          "macro_f1": 0.9265557985887863,
+          "spell_f1": 0.5464516129032257,
+          "spells": 250
+        },
+        "masked": {
+          "dead_recall": 0.9766643900217907,
+          "macro_f1": 0.8945299302317986,
+          "spell_f1": 0.47820512820512817,
+          "spells": 254
+        },
+        "stress": {
+          "dead_recall": 0.9555403779230494,
+          "macro_f1": 0.8641542414983987,
+          "spell_f1": 0.4282642089093701,
+          "spells": 281
+        }
+      }
+    }
+  },
+  "train": [
+    "WMX",
+    "WN1",
+    "WOH",
+    "WOY"
+  ],
+  "view_weights": {
+    "clean": 1,
+    "masked": 2,
+    "stress": 2
+  },
+  "weighted_gains": {
+    "WPY": 0.09050056846178478,
+    "WQQ": 0.07841749924505459,
+    "WR9": 0.09244922731387589
+  }
+}

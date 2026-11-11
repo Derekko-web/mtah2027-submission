@@ -1,0 +1,84 @@
+{
+  "matches": {
+    "2013725": {
+      "control": {
+        "observed": {
+          "dead_recall": 0.16803711084688427,
+          "macro_f1": 0.5358557111040199,
+          "spell_f1": 0.3675949367088608,
+          "spells": 433
+        }
+      },
+      "selected": {
+        "observed": {
+          "dead_recall": 0.39142230335102907,
+          "macro_f1": 0.6622510190306183,
+          "spell_f1": 0.44355444305381725,
+          "spells": 442
+        }
+      }
+    },
+    "2015213": {
+      "control": {
+        "observed": {
+          "dead_recall": 0.19848561332660272,
+          "macro_f1": 0.5359980106979703,
+          "spell_f1": 0.37378640776699035,
+          "spells": 471
+        }
+      },
+      "selected": {
+        "observed": {
+          "dead_recall": 0.3919232710752145,
+          "macro_f1": 0.64165344670488,
+          "spell_f1": 0.4277278562259307,
+          "spells": 426
+        }
+      }
+    },
+    "2016236": {
+      "control": {
+        "observed": {
+          "dead_recall": 0.10590977141886991,
+          "macro_f1": 0.4947644481257642,
+          "spell_f1": 0.36855670103092786,
+          "spells": 433
+        }
+      },
+      "selected": {
+        "observed": {
+          "dead_recall": 0.25931070673395995,
+          "macro_f1": 0.5905266271746229,
+          "spell_f1": 0.41465968586387436,
+          "spells": 421
+        }
+      }
+    },
+    "2017461": {
+      "control": {
+        "observed": {
+          "dead_recall": 0.1253058884398641,
+          "macro_f1": 0.4880531197342652,
+          "spell_f1": 0.3481781376518219,
+          "spells": 413
+        }
+      },
+      "selected": {
+        "observed": {
+          "dead_recall": 0.3113140268202984,
+          "macro_f1": 0.6101225029772015,
+          "spell_f1": 0.4248618784530387,
+          "spells": 396
+        }
+      }
+    }
+  },
+  "recipe": {
+    "dead_cutoff": 0.5,
+    "dead_radius": 50,
+    "dead_weight": 1.0,
+    "owner_radius": 50,
+    "owner_weight": 1.0
+  },
+  "skillcorner_revision": "4340d274572876239c154c90bc507a9b3250a656"
+}

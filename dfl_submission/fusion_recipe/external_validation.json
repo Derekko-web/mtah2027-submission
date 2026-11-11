@@ -1,0 +1,152 @@
+{
+  "chosen": {
+    "dead_cutoff": 0.5,
+    "dead_radius": 50,
+    "dead_weight": 0.75,
+    "owner_radius": 50,
+    "owner_weight": 0
+  },
+  "dfl_holdout": {
+    "WQQ": {
+      "control": {
+        "clean": {
+          "dead_recall": 0.9934474850412981,
+          "macro_f1": 0.9248801448268759,
+          "spell_f1": 0.5949778434268833,
+          "spells": 276
+        },
+        "masked": {
+          "dead_recall": 0.9625299605124756,
+          "macro_f1": 0.8797351082505163,
+          "spell_f1": 0.49401709401709404,
+          "spells": 301
+        }
+      },
+      "selected": {
+        "clean": {
+          "dead_recall": 0.967737485558602,
+          "macro_f1": 0.9111308784783674,
+          "spell_f1": 0.5716788321167883,
+          "spells": 284
+        },
+        "masked": {
+          "dead_recall": 0.9702895177004122,
+          "macro_f1": 0.8626490329638675,
+          "spell_f1": 0.47694483734087695,
+          "spells": 306
+        }
+      }
+    },
+    "WR9": {
+      "control": {
+        "clean": {
+          "dead_recall": 0.9986665365726738,
+          "macro_f1": 0.9265557985887863,
+          "spell_f1": 0.5464516129032257,
+          "spells": 250
+        },
+        "masked": {
+          "dead_recall": 0.9766643900217907,
+          "macro_f1": 0.8945299302317986,
+          "spell_f1": 0.47820512820512817,
+          "spells": 254
+        }
+      },
+      "selected": {
+        "clean": {
+          "dead_recall": 0.9842748886070186,
+          "macro_f1": 0.9169839879597305,
+          "spell_f1": 0.5316045380875203,
+          "spells": 247
+        },
+        "masked": {
+          "dead_recall": 0.9821120759748918,
+          "macro_f1": 0.8776146306053962,
+          "spell_f1": 0.47609756097560985,
+          "spells": 245
+        }
+      }
+    }
+  },
+  "dfl_holdout_gains": {
+    "WQQ": -0.01914784155417637,
+    "WR9": -0.0063540697582473715
+  },
+  "gate": "Both DFL holdouts within .02 of richer DFL; SkillCorner mean gain above .02 and positive combined gain",
+  "holdout_passed": true,
+  "skillcorner_holdout": {
+    "2013725": {
+      "control": {
+        "observed": {
+          "dead_recall": 0.39142230335102907,
+          "macro_f1": 0.6622510190306183,
+          "spell_f1": 0.44355444305381725,
+          "spells": 442
+        }
+      },
+      "selected": {
+        "observed": {
+          "dead_recall": 0.9303669217758277,
+          "macro_f1": 0.8645389635158947,
+          "spell_f1": 0.5476121562952243,
+          "spells": 334
+        }
+      }
+    },
+    "2015213": {
+      "control": {
+        "observed": {
+          "dead_recall": 0.3919232710752145,
+          "macro_f1": 0.64165344670488,
+          "spell_f1": 0.4277278562259307,
+          "spells": 426
+        }
+      },
+      "selected": {
+        "observed": {
+          "dead_recall": 0.9105213816975554,
+          "macro_f1": 0.8551328884997864,
+          "spell_f1": 0.5297935103244839,
+          "spells": 325
+        }
+      }
+    },
+    "2016236": {
+      "control": {
+        "observed": {
+          "dead_recall": 0.25931070673395995,
+          "macro_f1": 0.5905266271746229,
+          "spell_f1": 0.41465968586387436,
+          "spells": 421
+        }
+      },
+      "selected": {
+        "observed": {
+          "dead_recall": 0.9328301770307604,
+          "macro_f1": 0.869531472695548,
+          "spell_f1": 0.5450151057401812,
+          "spells": 319
+        }
+      }
+    },
+    "2017461": {
+      "control": {
+        "observed": {
+          "dead_recall": 0.3113140268202984,
+          "macro_f1": 0.6101225029772015,
+          "spell_f1": 0.4248618784530387,
+          "spells": 396
+        }
+      },
+      "selected": {
+        "observed": {
+          "dead_recall": 0.9488904115335673,
+          "macro_f1": 0.8715658982838826,
+          "spell_f1": 0.5295418641390206,
+          "spells": 305
+        }
+      }
+    }
+  },
+  "skillcorner_holdout_gain": 0.11028969322556215
+}

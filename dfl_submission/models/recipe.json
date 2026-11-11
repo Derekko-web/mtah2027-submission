@@ -1,0 +1,11 @@
+{
+  "models": {
+    "dead.ubj": "c8c6bb008999c79dd6c9ebb6acbca4c4ca238b8a98affc55eb4605f9f3547ce2",
+    "ownership.ubj": "b3e56d040e4c07b70835971b62e67f072bc1e95d17eaf121505814379842c962"
+  },
+  "recipe": {
+    "dead_cutoff": 0.5,
+    "dead_radius": 50,
+    "owner_radius": 50
+  }
+}

@@ -1,0 +1,5271 @@
+{
+  "passed": true,
+  "reference": {
+    "macro_f1": {
+      "combined": 0.9090994686814586,
+      "dfl": 0.9068118122428389,
+      "skillcorner": 0.9113871251200782
+    },
+    "recipe": {
+      "method": "reference"
+    },
+    "spell_f1": {
+      "combined": 0.5741799934677518,
+      "dfl": 0.5309650310796262,
+      "skillcorner": 0.6173949558558773
+    }
+  },
+  "selected": {
+    "macro_f1": {
+      "combined": 0.9103049930586996,
+      "dfl": 0.9082446784886414,
+      "skillcorner": 0.9123653076287578
+    },
+    "recipe": {
+      "cutoff": 0.53,
+      "dead_cost": 2,
+      "dead_mix": 0.5,
+      "discount": 0.8,
+      "method": "joint",
+      "owner_cost": 2,
+      "owner_mix": 0.5,
+      "variant": "seed_phase"
+    },
+    "spell_f1": {
+      "combined": 0.5821376765224242,
+      "dfl": 0.5421161545452313,
+      "skillcorner": 0.6221591984996172
+    }
+  },
+  "trials": [
+    {
+      "macro_f1": {
+        "combined": 0.9090994686814586,
+        "dfl": 0.9068118122428389,
+        "skillcorner": 0.9113871251200782
+      },
+      "recipe": {
+        "method": "reference"
+      },
+      "spell_f1": {
+        "combined": 0.5741799934677518,
+        "dfl": 0.5309650310796262,
+        "skillcorner": 0.6173949558558773
+      }
+    },
+    {
+      "macro_f1": {
+        "combined": 0.9078893043860106,
+        "dfl": 0.9053430699629107,
+        "skillcorner": 0.9104355388091103
+      },
+      "recipe": {
+        "cutoff": 0.53,
+        "dead_cost": 2,
+        "dead_mix": 0.5,
+        "discount": 0.8,
+        "method": "separate",
+        "owner_cost": 2,
+        "owner_mix": 0,
+        "variant": "seed_1200"
+      },
+      "spell_f1": {
+        "combined": 0.5695563547633009,
+        "dfl": 0.527930995551742,
+        "skillcorner": 0.6111817139748597
+      }
+    },
+    {
+      "macro_f1": {
+        "combined": 0.9072083844537466,
+        "dfl": 0.9053022741549537,
+        "skillcorner": 0.9091144947525395
+      },
+      "recipe": {
+        "cutoff": 0.57,
+        "dead_cost": 2,
+        "dead_mix": 0.5,
+        "discount": 0.8,
+        "method": "separate",
+        "owner_cost": 2,
+        "owner_mix": 0,
+        "variant": "seed_1200"
+      },
+      "spell_f1": {
+        "combined": 0.5690821485736757,
+        "dfl": 0.530837636259323,
+        "skillcorner": 0.6073266608880283
+      }
+    },
+    {
+      "macro_f1": {
+        "combined": 0.906225870837948,
+        "dfl": 0.9047499208513304,
+        "skillcorner": 0.9077018208245655
+      },
+      "recipe": {
+        "cutoff": 0.61,
+        "dead_cost": 2,
+        "dead_mix": 0.5,
+        "discount": 0.8,
+        "method": "separate",
+        "owner_cost": 2,
+        "owner_mix": 0,
+        "variant": "seed_1200"
+      },
+      "spell_f1": {
+        "combined": 0.5685970357826742,
+        "dfl": 0.530468047914122,
+        "skillcorner": 0.6067260236512264
+      }
+    },
+    {
+      "macro_f1": {
+        "combined": 0.9046933808065287,
+        "dfl": 0.9039790418492432,
+        "skillcorner": 0.9054077197638143
+      },
+      "recipe": {
+        "cutoff": 0.53,
+        "dead_cost": 2,
+        "dead_mix": 1,
+        "discount": 0.8,
+        "method": "separate",
+        "owner_cost": 2,
+        "owner_mix": 0,
+        "variant": "seed_1200"
+      },
+      "spell_f1": {
+        "combined": 0.5654795568311416,
+        "dfl": 0.5294301421563025,
+        "skillcorner": 0.6015289715059807
+      }
+    },
+    {
+      "macro_f1": {
+        "combined": 0.9029388930656158,
+        "dfl": 0.9025413165083447,
+        "skillcorner": 0.9033364696228869
+      },
+      "recipe": {
+        "cutoff": 0.57,
+        "dead_cost": 2,
+        "dead_mix": 1,
+        "discount": 0.8,
+        "method": "separate",
+        "owner_cost": 2,
+        "owner_mix": 0,
+        "variant": "seed_1200"
+      },
+      "spell_f1": {
+        "combined": 0.5612504308302793,
+        "dfl": 0.5249884354803923,
+        "skillcorner": 0.5975124261801661
+      }
+    },
+    {
+      "macro_f1": {
+        "combined": 0.9009777334824978,
+        "dfl": 0.9011237249920948,
+        "skillcorner": 0.9008317419729007
+      },
+      "recipe": {
+        "cutoff": 0.61,
+        "dead_cost": 2,
+        "dead_mix": 1,
+        "discount": 0.8,
+        "method": "separate",
+        "owner_cost": 2,
+        "owner_mix": 0,
+        "variant": "seed_1200"
+      },
+      "spell_f1": {
+        "combined": 0.55861195250635,
+        "dfl": 0.5235034410250146,
+        "skillcorner": 0.5937204639876854
+      }
+    },
+    {
+      "macro_f1": {
+        "combined": 0.9090568355105599,
+        "dfl": 0.907269919740482,
+        "skillcorner": 0.9108437512806378
+      },
+      "recipe": {
+        "cutoff": 0.53,
+        "dead_cost": 2,
+        "dead_mix": 0,
+        "discount": 0.8,
+        "method": "separate",
+        "owner_cost": 2,
+        "owner_mix": 0.5,
+        "variant": "seed_1200"
+      },
+      "spell_f1": {
+        "combined": 0.5723972583023472,
+        "dfl": 0.5276619177997434,
+        "skillcorner": 0.6171325988049511
+      }
+    },
+    {
+      "macro_f1": {
+        "combined": 0.9087766232566261,
+        "dfl": 0.9074009357582183,
+        "skillcorner": 0.9101523107550339
+      },
+      "recipe": {
+        "cutoff": 0.57,
+        "dead_cost": 2,
+        "dead_mix": 0,
+        "discount": 0.8,
+        "method": "separate",
+        "owner_cost": 2,
+        "owner_mix": 0.5,
+        "variant": "seed_1200"
+      },
+      "spell_f1": {
+        "combined": 0.5731841430722386,
+        "dfl": 0.5303005207875504,
+        "skillcorner": 0.6160677653569268
+      }
+    },
+    {
+      "macro_f1": {
+        "combined": 0.9085949245208907,
+        "dfl": 0.907702393343834,
+        "skillcorner": 0.9094874556979475
+      },
+      "recipe": {
+        "cutoff": 0.61,
+        "dead_cost": 2,
+        "dead_mix": 0,
+        "discount": 0.8,
+        "method": "separate",
+        "owner_cost": 2,
+        "owner_mix": 0.5,
+        "variant": "seed_1200"
+      },
+      "spell_f1": {
+        "combined": 0.57274900802747,
+        "dfl": 0.5310294009284503,
+        "skillcorner": 0.6144686151264895
+      }
+    },
+    {
+      "macro_f1": {
+        "combined": 0.9075647004269585,
+        "dfl": 0.9058663567225694,
+        "skillcorner": 0.9092630441313475
+      },
+      "recipe": {
+        "cutoff": 0.53,
+        "dead_cost": 2,
+        "dead_mix": 0.5,
+        "discount": 0.8,
+        "method": "separate",
+        "owner_cost": 2,
+        "owner_mix": 0.5,
+        "variant": "seed_1200"
+      },
+      "spell_f1": {
+        "combined": 0.5697760683875888,
+        "dfl": 0.5280553064618733,
+        "skillcorner": 0.6114968303133043
+      }
+    },
+    {
+      "macro_f1": {
+        "combined": 0.9067386294294895,
+        "dfl": 0.905532394610408,
+        "skillcorner": 0.907944864248571
+      },
+      "recipe": {
+        "cutoff": 0.57,
+        "dead_cost": 2,
+        "dead_mix": 0.5,
+        "discount": 0.8,
+        "method": "separate",
+        "owner_cost": 2,
+        "owner_mix": 0.5,
+        "variant": "seed_1200"
+      },
+      "spell_f1": {
+        "combined": 0.5671430492491151,
+        "dfl": 0.5275555300464903,
+        "skillcorner": 0.6067305684517399
+      }
+    },
+    {
+      "macro_f1": {
+        "combined": 0.9058307771744029,
+        "dfl": 0.9050619490244625,
+        "skillcorner": 0.9065996053243432
+      },
+      "recipe": {
+        "cutoff": 0.61,
+        "dead_cost": 2,
+        "dead_mix": 0.5,
+        "discount": 0.8,
+        "method": "separate",
+        "owner_cost": 2,
+        "owner_mix": 0.5,
+        "variant": "seed_1200"
+      },
+      "spell_f1": {
+        "combined": 0.566535138798018,
+        "dfl": 0.5271716838790009,
+        "skillcorner": 0.6058985937170351
+      }
+    },
+    {
+      "macro_f1": {
+        "combined": 0.904343802850023,
+        "dfl": 0.9044406185021238,
+        "skillcorner": 0.9042469871979222
+      },
+      "recipe": {
+        "cutoff": 0.53,
+        "dead_cost": 2,
+        "dead_mix": 1,
+        "discount": 0.8,
+        "method": "separate",
+        "owner_cost": 2,
+        "owner_mix": 0.5,
+        "variant": "seed_1200"
+      },
+      "spell_f1": {
+        "combined": 0.5637022793777391,
+        "dfl": 0.5267239221862087,
+        "skillcorner": 0.6006806365692695
+      }
+    },
+    {
+      "macro_f1": {
+        "combined": 0.9026410500514415,
+        "dfl": 0.9029985270468224,
+        "skillcorner": 0.9022835730560606
+      },
+      "recipe": {
+        "cutoff": 0.57,
+        "dead_cost": 2,
+        "dead_mix": 1,
+        "discount": 0.8,
+        "method": "separate",
+        "owner_cost": 2,
+        "owner_mix": 0.5,
+        "variant": "seed_1200"
+      },
+      "spell_f1": {
+        "combined": 0.5602995907621234,
+        "dfl": 0.5227599805848805,
+        "skillcorner": 0.5978392009393664
+      }
+    },
+    {
+      "macro_f1": {
+        "combined": 0.9007595048635035,
+        "dfl": 0.9015803007945297,
+        "skillcorner": 0.8999387089324773
+      },
+      "recipe": {
+        "cutoff": 0.61,
+        "dead_cost": 2,
+        "dead_mix": 1,
+        "discount": 0.8,
+        "method": "separate",
+        "owner_cost": 2,
+        "owner_mix": 0.5,
+        "variant": "seed_1200"
+      },
+      "spell_f1": {
+        "combined": 0.5576216637028006,
+        "dfl": 0.5224619166696868,
+        "skillcorner": 0.5927814107359145
+      }
+    },
+    {
+      "macro_f1": {
+        "combined": 0.904714709309677,
+        "dfl": 0.9023726968862102,
+        "skillcorner": 0.9070567217331438
+      },
+      "recipe": {
+        "cutoff": 0.53,
+        "dead_cost": 2,
+        "dead_mix": 0,
+        "discount": 0.8,
+        "method": "separate",
+        "owner_cost": 2,
+        "owner_mix": 1,
+        "variant": "seed_1200"
+      },
+      "spell_f1": {
+        "combined": 0.5611672262987055,
+        "dfl": 0.5170530998053934,
+        "skillcorner": 0.6052813527920176
+      }
+    },
+    {
+      "macro_f1": {
+        "combined": 0.9044104149764192,
+        "dfl": 0.9023862748983994,
+        "skillcorner": 0.9064345550544389
+      },
+      "recipe": {
+        "cutoff": 0.57,
+        "dead_cost": 2,
+        "dead_mix": 0,
+        "discount": 0.8,
+        "method": "separate",
+        "owner_cost": 2,
+        "owner_mix": 1,
+        "variant": "seed_1200"
+      },
+      "spell_f1": {
+        "combined": 0.5611331660500437,
+        "dfl": 0.5183900069396253,
+        "skillcorner": 0.6038763251604621
+      }
+    },
+    {
+      "macro_f1": {
+        "combined": 0.9045816729856851,
+        "dfl": 0.9032944003317325,
+        "skillcorner": 0.9058689456396378
+      },
+      "recipe": {
+        "cutoff": 0.61,
+        "dead_cost": 2,
+        "dead_mix": 0,
+        "discount": 0.8,
+        "method": "separate",
+        "owner_cost": 2,
+        "owner_mix": 1,
+        "variant": "seed_1200"
+      },
+      "spell_f1": {
+        "combined": 0.5599911030572107,
+        "dfl": 0.5187157664628006,
+        "skillcorner": 0.6012664396516209
+      }
+    },
+    {
+      "macro_f1": {
+        "combined": 0.9033105850463353,
+        "dfl": 0.900994806357569,
+        "skillcorner": 0.9056263637351016
+      },
+      "recipe": {
+        "cutoff": 0.53,
+        "dead_cost": 2,
+        "dead_mix": 0.5,
+        "discount": 0.8,
+        "method": "separate",
+        "owner_cost": 2,
+        "owner_mix": 1,
+        "variant": "seed_1200"
+      },
+      "spell_f1": {
+        "combined": 0.5569666508201463,
+        "dfl": 0.5138427709563272,
+        "skillcorner": 0.6000905306839652
+      }
+    },
+    {
+      "macro_f1": {
+        "combined": 0.9027129463496878,
+        "dfl": 0.9008867954524113,
+        "skillcorner": 0.9045390972469642
+      },
+      "recipe": {
+        "cutoff": 0.57,
+        "dead_cost": 2,
+        "dead_mix": 0.5,
+        "discount": 0.8,
+        "method": "separate",
+        "owner_cost": 2,
+        "owner_mix": 1,
+        "variant": "seed_1200"
+      },
+      "spell_f1": {
+        "combined": 0.5549850402952683,
+        "dfl": 0.5137356377507484,
+        "skillcorner": 0.5962344428397883
+      }
+    },
+    {
+      "macro_f1": {
+        "combined": 0.9017123296725227,
+        "dfl": 0.9002655630264534,
+        "skillcorner": 0.9031590963185919
+      },
+      "recipe": {
+        "cutoff": 0.61,
+        "dead_cost": 2,
+        "dead_mix": 0.5,
+        "discount": 0.8,
+        "method": "separate",
+        "owner_cost": 2,
+        "owner_mix": 1,
+        "variant": "seed_1200"
+      },
+      "spell_f1": {
+        "combined": 0.5541766326589854,
+        "dfl": 0.5123971514151232,
+        "skillcorner": 0.5959561139028476
+      }
+    },
+    {
+      "macro_f1": {
+        "combined": 0.8998748879062077,
+        "dfl": 0.8991010464227926,
+        "skillcorner": 0.9006487293896229
+      },
+      "recipe": {
+        "cutoff": 0.53,
+        "dead_cost": 2,
+        "dead_mix": 1,
+        "discount": 0.8,
+        "method": "separate",
+        "owner_cost": 2,
+        "owner_mix": 1,
+        "variant": "seed_1200"
+      },
+      "spell_f1": {
+        "combined": 0.5513919731976886,
+        "dfl": 0.5122663948352022,
+        "skillcorner": 0.5905175515601749
+      }
+    },
+    {
+      "macro_f1": {
+        "combined": 0.898153477793282,
+        "dfl": 0.8978823455454178,
+        "skillcorner": 0.8984246100411462
+      },
+      "recipe": {
+        "cutoff": 0.57,
+        "dead_cost": 2,
+        "dead_mix": 1,
+        "discount": 0.8,
+        "method": "separate",
+        "owner_cost": 2,
+        "owner_mix": 1,
+        "variant": "seed_1200"
+      },
+      "spell_f1": {
+        "combined": 0.5482551172843069,
+        "dfl": 0.5093960130369396,
+        "skillcorner": 0.5871142215316741
+      }
+    },
+    {
+      "macro_f1": {
+        "combined": 0.8962494667304408,
+        "dfl": 0.896519654640752,
+        "skillcorner": 0.8959792788201296
+      },
+      "recipe": {
+        "cutoff": 0.61,
+        "dead_cost": 2,
+        "dead_mix": 1,
+        "discount": 0.8,
+        "method": "separate",
+        "owner_cost": 2,
+        "owner_mix": 1,
+        "variant": "seed_1200"
+      },
+      "spell_f1": {
+        "combined": 0.5449812119696211,
+        "dfl": 0.5082782018659882,
+        "skillcorner": 0.5816842220732542
+      }
+    },
+    {
+      "macro_f1": {
+        "combined": 0.909517975081592,
+        "dfl": 0.9062094037994511,
+        "skillcorner": 0.9128265463637331
+      },
+      "recipe": {
+        "cutoff": 0.53,
+        "dead_cost": 2,
+        "dead_mix": 0.5,
+        "discount": 0.8,
+        "method": "separate",
+        "owner_cost": 2,
+        "owner_mix": 0,
+        "variant": "seed_1800"
+      },
+      "spell_f1": {
+        "combined": 0.5751612366237457,
+        "dfl": 0.530326654854391,
+        "skillcorner": 0.6199958183931005
+      }
+    },
+    {
+      "macro_f1": {
+        "combined": 0.9096469000787533,
+        "dfl": 0.906462581068287,
+        "skillcorner": 0.9128312190892194
+      },
+      "recipe": {
+        "cutoff": 0.57,
+        "dead_cost": 2,
+        "dead_mix": 0.5,
+        "discount": 0.8,
+        "method": "separate",
+        "owner_cost": 2,
+        "owner_mix": 0,
+        "variant": "seed_1800"
+      },
+      "spell_f1": {
+        "combined": 0.5738378772498776,
+        "dfl": 0.5292400698289282,
+        "skillcorner": 0.6184356846708268
+      }
+    },
+    {
+      "macro_f1": {
+        "combined": 0.9093296584341959,
+        "dfl": 0.9062369249249929,
+        "skillcorner": 0.912422391943399
+      },
+      "recipe": {
+        "cutoff": 0.61,
+        "dead_cost": 2,
+        "dead_mix": 0.5,
+        "discount": 0.8,
+        "method": "separate",
+        "owner_cost": 2,
+        "owner_mix": 0,
+        "variant": "seed_1800"
+      },
+      "spell_f1": {
+        "combined": 0.5741371729000964,
+        "dfl": 0.528773989830773,
+        "skillcorner": 0.6195003559694199
+      }
+    },
+    {
+      "macro_f1": {
+        "combined": 0.9079223257339605,
+        "dfl": 0.9038453514327273,
+        "skillcorner": 0.9119993000351937
+      },
+      "recipe": {
+        "cutoff": 0.53,
+        "dead_cost": 2,
+        "dead_mix": 1,
+        "discount": 0.8,
+        "method": "separate",
+        "owner_cost": 2,
+        "owner_mix": 0,
+        "variant": "seed_1800"
+      },
+      "spell_f1": {
+        "combined": 0.570022525177174,
+        "dfl": 0.5253303828813572,
+        "skillcorner": 0.6147146674729909
+      }
+    },
+    {
+      "macro_f1": {
+        "combined": 0.9082818218854747,
+        "dfl": 0.9043810817658461,
+        "skillcorner": 0.9121825620051034
+      },
+      "recipe": {
+        "cutoff": 0.57,
+        "dead_cost": 2,
+        "dead_mix": 1,
+        "discount": 0.8,
+        "method": "separate",
+        "owner_cost": 2,
+        "owner_mix": 0,
+        "variant": "seed_1800"
+      },
+      "spell_f1": {
+        "combined": 0.5721890756527555,
+        "dfl": 0.5279380175428297,
+        "skillcorner": 0.6164401337626814
+      }
+    },
+    {
+      "macro_f1": {
+        "combined": 0.9081420341536903,
+        "dfl": 0.9046065923858642,
+        "skillcorner": 0.9116774759215166
+      },
+      "recipe": {
+        "cutoff": 0.61,
+        "dead_cost": 2,
+        "dead_mix": 1,
+        "discount": 0.8,
+        "method": "separate",
+        "owner_cost": 2,
+        "owner_mix": 0,
+        "variant": "seed_1800"
+      },
+      "spell_f1": {
+        "combined": 0.5714733806464988,
+        "dfl": 0.5278916274243155,
+        "skillcorner": 0.615055133868682
+      }
+    },
+    {
+      "macro_f1": {
+        "combined": 0.9101189929015614,
+        "dfl": 0.9086981220173026,
+        "skillcorner": 0.9115398637858201
+      },
+      "recipe": {
+        "cutoff": 0.53,
+        "dead_cost": 2,
+        "dead_mix": 0,
+        "discount": 0.8,
+        "method": "separate",
+        "owner_cost": 2,
+        "owner_mix": 0.5,
+        "variant": "seed_1800"
+      },
+      "spell_f1": {
+        "combined": 0.5787193120993219,
+        "dfl": 0.5408091005087251,
+        "skillcorner": 0.6166295236899186
+      }
+    },
+    {
+      "macro_f1": {
+        "combined": 0.9097725557844529,
+        "dfl": 0.9086485490577694,
+        "skillcorner": 0.9108965625111364
+      },
+      "recipe": {
+        "cutoff": 0.57,
+        "dead_cost": 2,
+        "dead_mix": 0,
+        "discount": 0.8,
+        "method": "separate",
+        "owner_cost": 2,
+        "owner_mix": 0.5,
+        "variant": "seed_1800"
+      },
+      "spell_f1": {
+        "combined": 0.5787918858263622,
+        "dfl": 0.5418401206636501,
+        "skillcorner": 0.6157436509890744
+      }
+    },
+    {
+      "macro_f1": {
+        "combined": 0.9097739489395336,
+        "dfl": 0.9091856975494289,
+        "skillcorner": 0.9103622003296381
+      },
+      "recipe": {
+        "cutoff": 0.61,
+        "dead_cost": 2,
+        "dead_mix": 0,
+        "discount": 0.8,
+        "method": "separate",
+        "owner_cost": 2,
+        "owner_mix": 0.5,
+        "variant": "seed_1800"
+      },
+      "spell_f1": {
+        "combined": 0.5795290435953353,
+        "dfl": 0.5433639936443176,
+        "skillcorner": 0.615694093546353
+      }
+    },
+    {
+      "macro_f1": {
+        "combined": 0.910275265347462,
+        "dfl": 0.9082321602509569,
+        "skillcorner": 0.9123183704439671
+      },
+      "recipe": {
+        "cutoff": 0.53,
+        "dead_cost": 2,
+        "dead_mix": 0.5,
+        "discount": 0.8,
+        "method": "separate",
+        "owner_cost": 2,
+        "owner_mix": 0.5,
+        "variant": "seed_1800"
+      },
+      "spell_f1": {
+        "combined": 0.5815044190610932,
+        "dfl": 0.5421881322885628,
+        "skillcorner": 0.6208207058336237
+      }
+    },
+    {
+      "macro_f1": {
+        "combined": 0.9103433092317036,
+        "dfl": 0.908333836903903,
+        "skillcorner": 0.9123527815595042
+      },
+      "recipe": {
+        "cutoff": 0.57,
+        "dead_cost": 2,
+        "dead_mix": 0.5,
+        "discount": 0.8,
+        "method": "separate",
+        "owner_cost": 2,
+        "owner_mix": 0.5,
+        "variant": "seed_1800"
+      },
+      "spell_f1": {
+        "combined": 0.5800495903776999,
+        "dfl": 0.5407999315383546,
+        "skillcorner": 0.6192992492170453
+      }
+    },
+    {
+      "macro_f1": {
+        "combined": 0.91023026215951,
+        "dfl": 0.9083260166214077,
+        "skillcorner": 0.9121345076976123
+      },
+      "recipe": {
+        "cutoff": 0.61,
+        "dead_cost": 2,
+        "dead_mix": 0.5,
+        "discount": 0.8,
+        "method": "separate",
+        "owner_cost": 2,
+        "owner_mix": 0.5,
+        "variant": "seed_1800"
+      },
+      "spell_f1": {
+        "combined": 0.5806952139363584,
+        "dfl": 0.5410988894323555,
+        "skillcorner": 0.6202915384403612
+      }
+    },
+    {
+      "macro_f1": {
+        "combined": 0.9086975938910239,
+        "dfl": 0.9058359916986071,
+        "skillcorner": 0.9115591960834407
+      },
+      "recipe": {
+        "cutoff": 0.53,
+        "dead_cost": 2,
+        "dead_mix": 1,
+        "discount": 0.8,
+        "method": "separate",
+        "owner_cost": 2,
+        "owner_mix": 0.5,
+        "variant": "seed_1800"
+      },
+      "spell_f1": {
+        "combined": 0.5775416031495679,
+        "dfl": 0.5377637984524641,
+        "skillcorner": 0.6173194078466716
+      }
+    },
+    {
+      "macro_f1": {
+        "combined": 0.9091869500135784,
+        "dfl": 0.906600812445017,
+        "skillcorner": 0.9117730875821398
+      },
+      "recipe": {
+        "cutoff": 0.57,
+        "dead_cost": 2,
+        "dead_mix": 1,
+        "discount": 0.8,
+        "method": "separate",
+        "owner_cost": 2,
+        "owner_mix": 0.5,
+        "variant": "seed_1800"
+      },
+      "spell_f1": {
+        "combined": 0.5797525986776224,
+        "dfl": 0.5417981485882833,
+        "skillcorner": 0.6177070487669615
+      }
+    },
+    {
+      "macro_f1": {
+        "combined": 0.9089725365000649,
+        "dfl": 0.9066202950957575,
+        "skillcorner": 0.9113247779043725
+      },
+      "recipe": {
+        "cutoff": 0.61,
+        "dead_cost": 2,
+        "dead_mix": 1,
+        "discount": 0.8,
+        "method": "separate",
+        "owner_cost": 2,
+        "owner_mix": 0.5,
+        "variant": "seed_1800"
+      },
+      "spell_f1": {
+        "combined": 0.5780644758347269,
+        "dfl": 0.5399802536644641,
+        "skillcorner": 0.6161486980049897
+      }
+    },
+    {
+      "macro_f1": {
+        "combined": 0.90826667008182,
+        "dfl": 0.9066802218546637,
+        "skillcorner": 0.9098531183089763
+      },
+      "recipe": {
+        "cutoff": 0.53,
+        "dead_cost": 2,
+        "dead_mix": 0,
+        "discount": 0.8,
+        "method": "separate",
+        "owner_cost": 2,
+        "owner_mix": 1,
+        "variant": "seed_1800"
+      },
+      "spell_f1": {
+        "combined": 0.5735283205575132,
+        "dfl": 0.5337662337662338,
+        "skillcorner": 0.6132904073487926
+      }
+    },
+    {
+      "macro_f1": {
+        "combined": 0.9079170190847444,
+        "dfl": 0.9064608422579842,
+        "skillcorner": 0.9093731959115047
+      },
+      "recipe": {
+        "cutoff": 0.57,
+        "dead_cost": 2,
+        "dead_mix": 0,
+        "discount": 0.8,
+        "method": "separate",
+        "owner_cost": 2,
+        "owner_mix": 1,
+        "variant": "seed_1800"
+      },
+      "spell_f1": {
+        "combined": 0.5730652075020622,
+        "dfl": 0.5337664533971228,
+        "skillcorner": 0.6123639616070017
+      }
+    },
+    {
+      "macro_f1": {
+        "combined": 0.9076862867019786,
+        "dfl": 0.9065123098941372,
+        "skillcorner": 0.9088602635098199
+      },
+      "recipe": {
+        "cutoff": 0.61,
+        "dead_cost": 2,
+        "dead_mix": 0,
+        "discount": 0.8,
+        "method": "separate",
+        "owner_cost": 2,
+        "owner_mix": 1,
+        "variant": "seed_1800"
+      },
+      "spell_f1": {
+        "combined": 0.5718188092734393,
+        "dfl": 0.532640779963019,
+        "skillcorner": 0.6109968385838596
+      }
+    },
+    {
+      "macro_f1": {
+        "combined": 0.9084392285380087,
+        "dfl": 0.9062569253844482,
+        "skillcorner": 0.9106215316915691
+      },
+      "recipe": {
+        "cutoff": 0.53,
+        "dead_cost": 2,
+        "dead_mix": 0.5,
+        "discount": 0.8,
+        "method": "separate",
+        "owner_cost": 2,
+        "owner_mix": 1,
+        "variant": "seed_1800"
+      },
+      "spell_f1": {
+        "combined": 0.5759090207959845,
+        "dfl": 0.5361966166221485,
+        "skillcorner": 0.6156214249698206
+      }
+    },
+    {
+      "macro_f1": {
+        "combined": 0.908575984959382,
+        "dfl": 0.9063964251177742,
+        "skillcorner": 0.9107555448009897
+      },
+      "recipe": {
+        "cutoff": 0.57,
+        "dead_cost": 2,
+        "dead_mix": 0.5,
+        "discount": 0.8,
+        "method": "separate",
+        "owner_cost": 2,
+        "owner_mix": 1,
+        "variant": "seed_1800"
+      },
+      "spell_f1": {
+        "combined": 0.5745211172013172,
+        "dfl": 0.5345792269196524,
+        "skillcorner": 0.614463007482982
+      }
+    },
+    {
+      "macro_f1": {
+        "combined": 0.9083667922484111,
+        "dfl": 0.9061374486096375,
+        "skillcorner": 0.9105961358871846
+      },
+      "recipe": {
+        "cutoff": 0.61,
+        "dead_cost": 2,
+        "dead_mix": 0.5,
+        "discount": 0.8,
+        "method": "separate",
+        "owner_cost": 2,
+        "owner_mix": 1,
+        "variant": "seed_1800"
+      },
+      "spell_f1": {
+        "combined": 0.5738779273368535,
+        "dfl": 0.5318339216675072,
+        "skillcorner": 0.6159219330061997
+      }
+    },
+    {
+      "macro_f1": {
+        "combined": 0.9069412286512706,
+        "dfl": 0.9039071677671084,
+        "skillcorner": 0.9099752895354327
+      },
+      "recipe": {
+        "cutoff": 0.53,
+        "dead_cost": 2,
+        "dead_mix": 1,
+        "discount": 0.8,
+        "method": "separate",
+        "owner_cost": 2,
+        "owner_mix": 1,
+        "variant": "seed_1800"
+      },
+      "spell_f1": {
+        "combined": 0.5717209874746761,
+        "dfl": 0.5312233104949341,
+        "skillcorner": 0.6122186644544182
+      }
+    },
+    {
+      "macro_f1": {
+        "combined": 0.9072288379098754,
+        "dfl": 0.9043457597250971,
+        "skillcorner": 0.9101119160946537
+      },
+      "recipe": {
+        "cutoff": 0.57,
+        "dead_cost": 2,
+        "dead_mix": 1,
+        "discount": 0.8,
+        "method": "separate",
+        "owner_cost": 2,
+        "owner_mix": 1,
+        "variant": "seed_1800"
+      },
+      "spell_f1": {
+        "combined": 0.5730284388442163,
+        "dfl": 0.5339743943999262,
+        "skillcorner": 0.6120824832885063
+      }
+    },
+    {
+      "macro_f1": {
+        "combined": 0.9070730738567769,
+        "dfl": 0.9044376397727331,
+        "skillcorner": 0.9097085079408208
+      },
+      "recipe": {
+        "cutoff": 0.61,
+        "dead_cost": 2,
+        "dead_mix": 1,
+        "discount": 0.8,
+        "method": "separate",
+        "owner_cost": 2,
+        "owner_mix": 1,
+        "variant": "seed_1800"
+      },
+      "spell_f1": {
+        "combined": 0.5707402921943435,
+        "dfl": 0.5311111111111112,
+        "skillcorner": 0.6103694732775758
+      }
+    },
+    {
+      "macro_f1": {
+        "combined": 0.9092855405225448,
+        "dfl": 0.9063440700958473,
+        "skillcorner": 0.9122270109492423
+      },
+      "recipe": {
+        "cutoff": 0.53,
+        "dead_cost": 2,
+        "dead_mix": 0.5,
+        "discount": 0.8,
+        "method": "separate",
+        "owner_cost": 2,
+        "owner_mix": 0,
+        "variant": "seed_late_mean"
+      },
+      "spell_f1": {
+        "combined": 0.5717815338788985,
+        "dfl": 0.528511120170313,
+        "skillcorner": 0.615051947587484
+      }
+    },
+    {
+      "macro_f1": {
+        "combined": 0.9087938201758295,
+        "dfl": 0.9057813317886,
+        "skillcorner": 0.9118063085630591
+      },
+      "recipe": {
+        "cutoff": 0.57,
+        "dead_cost": 2,
+        "dead_mix": 0.5,
+        "discount": 0.8,
+        "method": "separate",
+        "owner_cost": 2,
+        "owner_mix": 0,
+        "variant": "seed_late_mean"
+      },
+      "spell_f1": {
+        "combined": 0.571663884807994,
+        "dfl": 0.5278610834928429,
+        "skillcorner": 0.6154666861231451
+      }
+    },
+    {
+      "macro_f1": {
+        "combined": 0.9079007652975175,
+        "dfl": 0.9055745171169636,
+        "skillcorner": 0.9102270134780716
+      },
+      "recipe": {
+        "cutoff": 0.61,
+        "dead_cost": 2,
+        "dead_mix": 0.5,
+        "discount": 0.8,
+        "method": "separate",
+        "owner_cost": 2,
+        "owner_mix": 0,
+        "variant": "seed_late_mean"
+      },
+      "spell_f1": {
+        "combined": 0.570397806924967,
+        "dfl": 0.5301791792915124,
+        "skillcorner": 0.6106164345584216
+      }
+    },
+    {
+      "macro_f1": {
+        "combined": 0.90746340682524,
+        "dfl": 0.9047485939335838,
+        "skillcorner": 0.9101782197168962
+      },
+      "recipe": {
+        "cutoff": 0.53,
+        "dead_cost": 2,
+        "dead_mix": 1,
+        "discount": 0.8,
+        "method": "separate",
+        "owner_cost": 2,
+        "owner_mix": 0,
+        "variant": "seed_late_mean"
+      },
+      "spell_f1": {
+        "combined": 0.5696311244482151,
+        "dfl": 0.5287601209638085,
+        "skillcorner": 0.6105021279326217
+      }
+    },
+    {
+      "macro_f1": {
+        "combined": 0.9072982206885539,
+        "dfl": 0.904830696257947,
+        "skillcorner": 0.9097657451191609
+      },
+      "recipe": {
+        "cutoff": 0.57,
+        "dead_cost": 2,
+        "dead_mix": 1,
+        "discount": 0.8,
+        "method": "separate",
+        "owner_cost": 2,
+        "owner_mix": 0,
+        "variant": "seed_late_mean"
+      },
+      "spell_f1": {
+        "combined": 0.5703427106745965,
+        "dfl": 0.5309476355496502,
+        "skillcorner": 0.6097377857995429
+      }
+    },
+    {
+      "macro_f1": {
+        "combined": 0.9062042714946159,
+        "dfl": 0.9042517903796186,
+        "skillcorner": 0.9081567526096131
+      },
+      "recipe": {
+        "cutoff": 0.61,
+        "dead_cost": 2,
+        "dead_mix": 1,
+        "discount": 0.8,
+        "method": "separate",
+        "owner_cost": 2,
+        "owner_mix": 0,
+        "variant": "seed_late_mean"
+      },
+      "spell_f1": {
+        "combined": 0.5676310935580873,
+        "dfl": 0.5291604010025063,
+        "skillcorner": 0.6061017861136683
+      }
+    },
+    {
+      "macro_f1": {
+        "combined": 0.9092490685864099,
+        "dfl": 0.9076736333300589,
+        "skillcorner": 0.9108245038427607
+      },
+      "recipe": {
+        "cutoff": 0.53,
+        "dead_cost": 2,
+        "dead_mix": 0,
+        "discount": 0.8,
+        "method": "separate",
+        "owner_cost": 2,
+        "owner_mix": 0.5,
+        "variant": "seed_late_mean"
+      },
+      "spell_f1": {
+        "combined": 0.5745188584912485,
+        "dfl": 0.5334436370481053,
+        "skillcorner": 0.6155940799343917
+      }
+    },
+    {
+      "macro_f1": {
+        "combined": 0.9089435330777853,
+        "dfl": 0.9077625397121277,
+        "skillcorner": 0.9101245264434429
+      },
+      "recipe": {
+        "cutoff": 0.57,
+        "dead_cost": 2,
+        "dead_mix": 0,
+        "discount": 0.8,
+        "method": "separate",
+        "owner_cost": 2,
+        "owner_mix": 0.5,
+        "variant": "seed_late_mean"
+      },
+      "spell_f1": {
+        "combined": 0.5750839953525821,
+        "dfl": 0.5357912631346107,
+        "skillcorner": 0.6143767275705537
+      }
+    },
+    {
+      "macro_f1": {
+        "combined": 0.9088867236647324,
+        "dfl": 0.9082086146343297,
+        "skillcorner": 0.9095648326951352
+      },
+      "recipe": {
+        "cutoff": 0.61,
+        "dead_cost": 2,
+        "dead_mix": 0,
+        "discount": 0.8,
+        "method": "separate",
+        "owner_cost": 2,
+        "owner_mix": 0.5,
+        "variant": "seed_late_mean"
+      },
+      "spell_f1": {
+        "combined": 0.5747256684373947,
+        "dfl": 0.5366310127441184,
+        "skillcorner": 0.6128203241306709
+      }
+    },
+    {
+      "macro_f1": {
+        "combined": 0.9091494961267316,
+        "dfl": 0.9072169997729468,
+        "skillcorner": 0.9110819924805164
+      },
+      "recipe": {
+        "cutoff": 0.53,
+        "dead_cost": 2,
+        "dead_mix": 0.5,
+        "discount": 0.8,
+        "method": "separate",
+        "owner_cost": 2,
+        "owner_mix": 0.5,
+        "variant": "seed_late_mean"
+      },
+      "spell_f1": {
+        "combined": 0.5734504080061009,
+        "dfl": 0.5324797589325215,
+        "skillcorner": 0.6144210570796803
+      }
+    },
+    {
+      "macro_f1": {
+        "combined": 0.9086648500908105,
+        "dfl": 0.9068103523090584,
+        "skillcorner": 0.9105193478725627
+      },
+      "recipe": {
+        "cutoff": 0.57,
+        "dead_cost": 2,
+        "dead_mix": 0.5,
+        "discount": 0.8,
+        "method": "separate",
+        "owner_cost": 2,
+        "owner_mix": 0.5,
+        "variant": "seed_late_mean"
+      },
+      "spell_f1": {
+        "combined": 0.5736731091970695,
+        "dfl": 0.5333296433815333,
+        "skillcorner": 0.6140165750126056
+      }
+    },
+    {
+      "macro_f1": {
+        "combined": 0.9078210524861223,
+        "dfl": 0.9063321928313003,
+        "skillcorner": 0.9093099121409444
+      },
+      "recipe": {
+        "cutoff": 0.61,
+        "dead_cost": 2,
+        "dead_mix": 0.5,
+        "discount": 0.8,
+        "method": "separate",
+        "owner_cost": 2,
+        "owner_mix": 0.5,
+        "variant": "seed_late_mean"
+      },
+      "spell_f1": {
+        "combined": 0.5705024301596145,
+        "dfl": 0.5314322206666175,
+        "skillcorner": 0.6095726396526115
+      }
+    },
+    {
+      "macro_f1": {
+        "combined": 0.9074525899216508,
+        "dfl": 0.9055974555601232,
+        "skillcorner": 0.9093077242831784
+      },
+      "recipe": {
+        "cutoff": 0.53,
+        "dead_cost": 2,
+        "dead_mix": 1,
+        "discount": 0.8,
+        "method": "separate",
+        "owner_cost": 2,
+        "owner_mix": 0.5,
+        "variant": "seed_late_mean"
+      },
+      "spell_f1": {
+        "combined": 0.5717558168693724,
+        "dfl": 0.5330136644585494,
+        "skillcorner": 0.6104979692801953
+      }
+    },
+    {
+      "macro_f1": {
+        "combined": 0.907080884924305,
+        "dfl": 0.9055093640949513,
+        "skillcorner": 0.9086524057536589
+      },
+      "recipe": {
+        "cutoff": 0.57,
+        "dead_cost": 2,
+        "dead_mix": 1,
+        "discount": 0.8,
+        "method": "separate",
+        "owner_cost": 2,
+        "owner_mix": 0.5,
+        "variant": "seed_late_mean"
+      },
+      "spell_f1": {
+        "combined": 0.570874018341052,
+        "dfl": 0.5329225186995995,
+        "skillcorner": 0.6088255179825045
+      }
+    },
+    {
+      "macro_f1": {
+        "combined": 0.9059823833657932,
+        "dfl": 0.9048839846192859,
+        "skillcorner": 0.9070807821123005
+      },
+      "recipe": {
+        "cutoff": 0.61,
+        "dead_cost": 2,
+        "dead_mix": 1,
+        "discount": 0.8,
+        "method": "separate",
+        "owner_cost": 2,
+        "owner_mix": 0.5,
+        "variant": "seed_late_mean"
+      },
+      "spell_f1": {
+        "combined": 0.5688282167882814,
+        "dfl": 0.5329243767550799,
+        "skillcorner": 0.6047320568214829
+      }
+    },
+    {
+      "macro_f1": {
+        "combined": 0.9069144291414684,
+        "dfl": 0.9055919809160278,
+        "skillcorner": 0.908236877366909
+      },
+      "recipe": {
+        "cutoff": 0.53,
+        "dead_cost": 2,
+        "dead_mix": 0,
+        "discount": 0.8,
+        "method": "separate",
+        "owner_cost": 2,
+        "owner_mix": 1,
+        "variant": "seed_late_mean"
+      },
+      "spell_f1": {
+        "combined": 0.5683599274608861,
+        "dfl": 0.528817747203816,
+        "skillcorner": 0.6079021077179563
+      }
+    },
+    {
+      "macro_f1": {
+        "combined": 0.9066089698448081,
+        "dfl": 0.9055425325784263,
+        "skillcorner": 0.9076754071111898
+      },
+      "recipe": {
+        "cutoff": 0.57,
+        "dead_cost": 2,
+        "dead_mix": 0,
+        "discount": 0.8,
+        "method": "separate",
+        "owner_cost": 2,
+        "owner_mix": 1,
+        "variant": "seed_late_mean"
+      },
+      "spell_f1": {
+        "combined": 0.5682590601157105,
+        "dfl": 0.5297211426105203,
+        "skillcorner": 0.6067969776209006
+      }
+    },
+    {
+      "macro_f1": {
+        "combined": 0.906512665893449,
+        "dfl": 0.9060618920385624,
+        "skillcorner": 0.9069634397483356
+      },
+      "recipe": {
+        "cutoff": 0.61,
+        "dead_cost": 2,
+        "dead_mix": 0,
+        "discount": 0.8,
+        "method": "separate",
+        "owner_cost": 2,
+        "owner_mix": 1,
+        "variant": "seed_late_mean"
+      },
+      "spell_f1": {
+        "combined": 0.5667019118358694,
+        "dfl": 0.5301270204936191,
+        "skillcorner": 0.6032768031781197
+      }
+    },
+    {
+      "macro_f1": {
+        "combined": 0.9067988167093144,
+        "dfl": 0.9051624235423176,
+        "skillcorner": 0.9084352098763111
+      },
+      "recipe": {
+        "cutoff": 0.53,
+        "dead_cost": 2,
+        "dead_mix": 0.5,
+        "discount": 0.8,
+        "method": "separate",
+        "owner_cost": 2,
+        "owner_mix": 1,
+        "variant": "seed_late_mean"
+      },
+      "spell_f1": {
+        "combined": 0.5668109607662163,
+        "dfl": 0.5283677442099294,
+        "skillcorner": 0.6052541773225032
+      }
+    },
+    {
+      "macro_f1": {
+        "combined": 0.9062391356495278,
+        "dfl": 0.9046670034974126,
+        "skillcorner": 0.9078112678016432
+      },
+      "recipe": {
+        "cutoff": 0.57,
+        "dead_cost": 2,
+        "dead_mix": 0.5,
+        "discount": 0.8,
+        "method": "separate",
+        "owner_cost": 2,
+        "owner_mix": 1,
+        "variant": "seed_late_mean"
+      },
+      "spell_f1": {
+        "combined": 0.5647594276794197,
+        "dfl": 0.525147389171595,
+        "skillcorner": 0.6043714661872444
+      }
+    },
+    {
+      "macro_f1": {
+        "combined": 0.9053224845423764,
+        "dfl": 0.9040122082928747,
+        "skillcorner": 0.9066327607918783
+      },
+      "recipe": {
+        "cutoff": 0.61,
+        "dead_cost": 2,
+        "dead_mix": 0.5,
+        "discount": 0.8,
+        "method": "separate",
+        "owner_cost": 2,
+        "owner_mix": 1,
+        "variant": "seed_late_mean"
+      },
+      "spell_f1": {
+        "combined": 0.5626123116852271,
+        "dfl": 0.5243542924526146,
+        "skillcorner": 0.6008703309178395
+      }
+    },
+    {
+      "macro_f1": {
+        "combined": 0.9047341025480606,
+        "dfl": 0.9029804315841193,
+        "skillcorner": 0.9064877735120019
+      },
+      "recipe": {
+        "cutoff": 0.53,
+        "dead_cost": 2,
+        "dead_mix": 1,
+        "discount": 0.8,
+        "method": "separate",
+        "owner_cost": 2,
+        "owner_mix": 1,
+        "variant": "seed_late_mean"
+      },
+      "spell_f1": {
+        "combined": 0.5631844801934374,
+        "dfl": 0.5251253463164763,
+        "skillcorner": 0.6012436140703985
+      }
+    },
+    {
+      "macro_f1": {
+        "combined": 0.904527314107543,
+        "dfl": 0.9031017157223534,
+        "skillcorner": 0.9059529124927325
+      },
+      "recipe": {
+        "cutoff": 0.57,
+        "dead_cost": 2,
+        "dead_mix": 1,
+        "discount": 0.8,
+        "method": "separate",
+        "owner_cost": 2,
+        "owner_mix": 1,
+        "variant": "seed_late_mean"
+      },
+      "spell_f1": {
+        "combined": 0.5621926651787432,
+        "dfl": 0.5244377307821416,
+        "skillcorner": 0.5999475995753448
+      }
+    },
+    {
+      "macro_f1": {
+        "combined": 0.9036149428773066,
+        "dfl": 0.9027556130677968,
+        "skillcorner": 0.9044742726868165
+      },
+      "recipe": {
+        "cutoff": 0.61,
+        "dead_cost": 2,
+        "dead_mix": 1,
+        "discount": 0.8,
+        "method": "separate",
+        "owner_cost": 2,
+        "owner_mix": 1,
+        "variant": "seed_late_mean"
+      },
+      "spell_f1": {
+        "combined": 0.5609804988287841,
+        "dfl": 0.5251382604323781,
+        "skillcorner": 0.5968227372251902
+      }
+    },
+    {
+      "macro_f1": {
+        "combined": 0.9095412589874756,
+        "dfl": 0.9070052246305735,
+        "skillcorner": 0.9120772933443776
+      },
+      "recipe": {
+        "cutoff": 0.53,
+        "dead_cost": 2,
+        "dead_mix": 0.5,
+        "discount": 0.8,
+        "method": "separate",
+        "owner_cost": 2,
+        "owner_mix": 0,
+        "variant": "phase_reference"
+      },
+      "spell_f1": {
+        "combined": 0.5727943019923624,
+        "dfl": 0.5287440248096847,
+        "skillcorner": 0.61684457917504
+      }
+    },
+    {
+      "macro_f1": {
+        "combined": 0.9092369093566995,
+        "dfl": 0.9070630891778757,
+        "skillcorner": 0.9114107295355234
+      },
+      "recipe": {
+        "cutoff": 0.57,
+        "dead_cost": 2,
+        "dead_mix": 0.5,
+        "discount": 0.8,
+        "method": "separate",
+        "owner_cost": 2,
+        "owner_mix": 0,
+        "variant": "phase_reference"
+      },
+      "spell_f1": {
+        "combined": 0.5743173969361954,
+        "dfl": 0.5313678508177935,
+        "skillcorner": 0.6172669430545973
+      }
+    },
+    {
+      "macro_f1": {
+        "combined": 0.9090041398436355,
+        "dfl": 0.9073487212013894,
+        "skillcorner": 0.9106595584858815
+      },
+      "recipe": {
+        "cutoff": 0.61,
+        "dead_cost": 2,
+        "dead_mix": 0.5,
+        "discount": 0.8,
+        "method": "separate",
+        "owner_cost": 2,
+        "owner_mix": 0,
+        "variant": "phase_reference"
+      },
+      "spell_f1": {
+        "combined": 0.5741441254461356,
+        "dfl": 0.5322765464929676,
+        "skillcorner": 0.6160117043993035
+      }
+    },
+    {
+      "macro_f1": {
+        "combined": 0.9095614869853725,
+        "dfl": 0.906997970326776,
+        "skillcorner": 0.912125003643969
+      },
+      "recipe": {
+        "cutoff": 0.53,
+        "dead_cost": 2,
+        "dead_mix": 1,
+        "discount": 0.8,
+        "method": "separate",
+        "owner_cost": 2,
+        "owner_mix": 0,
+        "variant": "phase_reference"
+      },
+      "spell_f1": {
+        "combined": 0.5732040394886444,
+        "dfl": 0.5291432264064911,
+        "skillcorner": 0.6172648525707978
+      }
+    },
+    {
+      "macro_f1": {
+        "combined": 0.9093023262679406,
+        "dfl": 0.9070912919719339,
+        "skillcorner": 0.9115133605639473
+      },
+      "recipe": {
+        "cutoff": 0.57,
+        "dead_cost": 2,
+        "dead_mix": 1,
+        "discount": 0.8,
+        "method": "separate",
+        "owner_cost": 2,
+        "owner_mix": 0,
+        "variant": "phase_reference"
+      },
+      "spell_f1": {
+        "combined": 0.5744651491173198,
+        "dfl": 0.5313678508177936,
+        "skillcorner": 0.617562447416846
+      }
+    },
+    {
+      "macro_f1": {
+        "combined": 0.9090553872005338,
+        "dfl": 0.9074249583517887,
+        "skillcorner": 0.9106858160492788
+      },
+      "recipe": {
+        "cutoff": 0.61,
+        "dead_cost": 2,
+        "dead_mix": 1,
+        "discount": 0.8,
+        "method": "separate",
+        "owner_cost": 2,
+        "owner_mix": 0,
+        "variant": "phase_reference"
+      },
+      "spell_f1": {
+        "combined": 0.574486850444718,
+        "dfl": 0.5324776525764267,
+        "skillcorner": 0.6164960483130093
+      }
+    },
+    {
+      "macro_f1": {
+        "combined": 0.909906968967253,
+        "dfl": 0.9077245864133681,
+        "skillcorner": 0.9120893515211378
+      },
+      "recipe": {
+        "cutoff": 0.53,
+        "dead_cost": 2,
+        "dead_mix": 0,
+        "discount": 0.8,
+        "method": "separate",
+        "owner_cost": 2,
+        "owner_mix": 0.5,
+        "variant": "phase_reference"
+      },
+      "spell_f1": {
+        "combined": 0.5753868885267717,
+        "dfl": 0.5333101870117574,
+        "skillcorner": 0.617463590041786
+      }
+    },
+    {
+      "macro_f1": {
+        "combined": 0.90965790884158,
+        "dfl": 0.9079434126281445,
+        "skillcorner": 0.9113724050550156
+      },
+      "recipe": {
+        "cutoff": 0.57,
+        "dead_cost": 2,
+        "dead_mix": 0,
+        "discount": 0.8,
+        "method": "separate",
+        "owner_cost": 2,
+        "owner_mix": 0.5,
+        "variant": "phase_reference"
+      },
+      "spell_f1": {
+        "combined": 0.5756817755884672,
+        "dfl": 0.5345093596590602,
+        "skillcorner": 0.6168541915178742
+      }
+    },
+    {
+      "macro_f1": {
+        "combined": 0.9095283310818704,
+        "dfl": 0.9084323400030495,
+        "skillcorner": 0.9106243221606912
+      },
+      "recipe": {
+        "cutoff": 0.61,
+        "dead_cost": 2,
+        "dead_mix": 0,
+        "discount": 0.8,
+        "method": "separate",
+        "owner_cost": 2,
+        "owner_mix": 0.5,
+        "variant": "phase_reference"
+      },
+      "spell_f1": {
+        "combined": 0.5756306592492253,
+        "dfl": 0.53581712137943,
+        "skillcorner": 0.6154441971190207
+      }
+    },
+    {
+      "macro_f1": {
+        "combined": 0.9099827684623327,
+        "dfl": 0.9078026779923164,
+        "skillcorner": 0.9121628589323492
+      },
+      "recipe": {
+        "cutoff": 0.53,
+        "dead_cost": 2,
+        "dead_mix": 0.5,
+        "discount": 0.8,
+        "method": "separate",
+        "owner_cost": 2,
+        "owner_mix": 0.5,
+        "variant": "phase_reference"
+      },
+      "spell_f1": {
+        "combined": 0.5755285952574682,
+        "dfl": 0.533711189518023,
+        "skillcorner": 0.6173460009969136
+      }
+    },
+    {
+      "macro_f1": {
+        "combined": 0.9097678443098575,
+        "dfl": 0.9081948253382298,
+        "skillcorner": 0.9113408632814851
+      },
+      "recipe": {
+        "cutoff": 0.57,
+        "dead_cost": 2,
+        "dead_mix": 0.5,
+        "discount": 0.8,
+        "method": "separate",
+        "owner_cost": 2,
+        "owner_mix": 0.5,
+        "variant": "phase_reference"
+      },
+      "spell_f1": {
+        "combined": 0.5759641389891446,
+        "dfl": 0.5349097600594607,
+        "skillcorner": 0.6170185179188286
+      }
+    },
+    {
+      "macro_f1": {
+        "combined": 0.9095642087105514,
+        "dfl": 0.9084770213182695,
+        "skillcorner": 0.9106513961028334
+      },
+      "recipe": {
+        "cutoff": 0.61,
+        "dead_cost": 2,
+        "dead_mix": 0.5,
+        "discount": 0.8,
+        "method": "separate",
+        "owner_cost": 2,
+        "owner_mix": 0.5,
+        "variant": "phase_reference"
+      },
+      "spell_f1": {
+        "combined": 0.5757185675858164,
+        "dfl": 0.53581712137943,
+        "skillcorner": 0.6156200137922028
+      }
+    },
+    {
+      "macro_f1": {
+        "combined": 0.9099283650851362,
+        "dfl": 0.9077954041949758,
+        "skillcorner": 0.9120613259752965
+      },
+      "recipe": {
+        "cutoff": 0.53,
+        "dead_cost": 2,
+        "dead_mix": 1,
+        "discount": 0.8,
+        "method": "separate",
+        "owner_cost": 2,
+        "owner_mix": 0.5,
+        "variant": "phase_reference"
+      },
+      "spell_f1": {
+        "combined": 0.5754483434714044,
+        "dfl": 0.533711189518023,
+        "skillcorner": 0.6171854974247858
+      }
+    },
+    {
+      "macro_f1": {
+        "combined": 0.9098332886296789,
+        "dfl": 0.9082231500063748,
+        "skillcorner": 0.911443427252983
+      },
+      "recipe": {
+        "cutoff": 0.57,
+        "dead_cost": 2,
+        "dead_mix": 1,
+        "discount": 0.8,
+        "method": "separate",
+        "owner_cost": 2,
+        "owner_mix": 0.5,
+        "variant": "phase_reference"
+      },
+      "spell_f1": {
+        "combined": 0.5761121657311385,
+        "dfl": 0.5349097600594607,
+        "skillcorner": 0.6173145714028165
+      }
+    },
+    {
+      "macro_f1": {
+        "combined": 0.9096155201125409,
+        "dfl": 0.9085533952744496,
+        "skillcorner": 0.9106776449506322
+      },
+      "recipe": {
+        "cutoff": 0.61,
+        "dead_cost": 2,
+        "dead_mix": 1,
+        "discount": 0.8,
+        "method": "separate",
+        "owner_cost": 2,
+        "owner_mix": 0.5,
+        "variant": "phase_reference"
+      },
+      "spell_f1": {
+        "combined": 0.5760612886583623,
+        "dfl": 0.5360170214294051,
+        "skillcorner": 0.6161055558873194
+      }
+    },
+    {
+      "macro_f1": {
+        "combined": 0.9098539312032438,
+        "dfl": 0.9077441104442058,
+        "skillcorner": 0.9119637519622817
+      },
+      "recipe": {
+        "cutoff": 0.53,
+        "dead_cost": 2,
+        "dead_mix": 0,
+        "discount": 0.8,
+        "method": "separate",
+        "owner_cost": 2,
+        "owner_mix": 1,
+        "variant": "phase_reference"
+      },
+      "spell_f1": {
+        "combined": 0.576111325129772,
+        "dfl": 0.534996173067399,
+        "skillcorner": 0.617226477192145
+      }
+    },
+    {
+      "macro_f1": {
+        "combined": 0.9095231494524518,
+        "dfl": 0.9077991812269652,
+        "skillcorner": 0.9112471176779384
+      },
+      "recipe": {
+        "cutoff": 0.57,
+        "dead_cost": 2,
+        "dead_mix": 0,
+        "discount": 0.8,
+        "method": "separate",
+        "owner_cost": 2,
+        "owner_mix": 1,
+        "variant": "phase_reference"
+      },
+      "spell_f1": {
+        "combined": 0.5762467145755555,
+        "dfl": 0.5360775701074209,
+        "skillcorner": 0.6164158590436902
+      }
+    },
+    {
+      "macro_f1": {
+        "combined": 0.9093939541348701,
+        "dfl": 0.9082885119532343,
+        "skillcorner": 0.910499396316506
+      },
+      "recipe": {
+        "cutoff": 0.61,
+        "dead_cost": 2,
+        "dead_mix": 0,
+        "discount": 0.8,
+        "method": "separate",
+        "owner_cost": 2,
+        "owner_mix": 1,
+        "variant": "phase_reference"
+      },
+      "spell_f1": {
+        "combined": 0.5761930648680857,
+        "dfl": 0.5373802650913349,
+        "skillcorner": 0.6150058646448366
+      }
+    },
+    {
+      "macro_f1": {
+        "combined": 0.9099297191302443,
+        "dfl": 0.9078221955243242,
+        "skillcorner": 0.9120372427361645
+      },
+      "recipe": {
+        "cutoff": 0.53,
+        "dead_cost": 2,
+        "dead_mix": 0.5,
+        "discount": 0.8,
+        "method": "separate",
+        "owner_cost": 2,
+        "owner_mix": 1,
+        "variant": "phase_reference"
+      },
+      "spell_f1": {
+        "combined": 0.5762531700576041,
+        "dfl": 0.5353971755736646,
+        "skillcorner": 0.6171091645415436
+      }
+    },
+    {
+      "macro_f1": {
+        "combined": 0.9096330909895741,
+        "dfl": 0.9080506086980572,
+        "skillcorner": 0.911215573281091
+      },
+      "recipe": {
+        "cutoff": 0.57,
+        "dead_cost": 2,
+        "dead_mix": 0.5,
+        "discount": 0.8,
+        "method": "separate",
+        "owner_cost": 2,
+        "owner_mix": 1,
+        "variant": "phase_reference"
+      },
+      "spell_f1": {
+        "combined": 0.5765284694865854,
+        "dfl": 0.5364779705078213,
+        "skillcorner": 0.6165789684653495
+      }
+    },
+    {
+      "macro_f1": {
+        "combined": 0.9094458077759353,
+        "dfl": 0.9083331459243703,
+        "skillcorner": 0.9105584696275003
+      },
+      "recipe": {
+        "cutoff": 0.61,
+        "dead_cost": 2,
+        "dead_mix": 0.5,
+        "discount": 0.8,
+        "method": "separate",
+        "owner_cost": 2,
+        "owner_mix": 1,
+        "variant": "phase_reference"
+      },
+      "spell_f1": {
+        "combined": 0.5761930648680857,
+        "dfl": 0.5373802650913349,
+        "skillcorner": 0.6150058646448366
+      }
+    },
+    {
+      "macro_f1": {
+        "combined": 0.909875237493746,
+        "dfl": 0.9078149366308105,
+        "skillcorner": 0.9119355383566816
+      },
+      "recipe": {
+        "cutoff": 0.53,
+        "dead_cost": 2,
+        "dead_mix": 1,
+        "discount": 0.8,
+        "method": "separate",
+        "owner_cost": 2,
+        "owner_mix": 1,
+        "variant": "phase_reference"
+      },
+      "spell_f1": {
+        "combined": 0.5761733239313053,
+        "dfl": 0.5353971755736647,
+        "skillcorner": 0.6169494722889458
+      }
+    },
+    {
+      "macro_f1": {
+        "combined": 0.9096985251923722,
+        "dfl": 0.908078906666288,
+        "skillcorner": 0.9113181437184562
+      },
+      "recipe": {
+        "cutoff": 0.57,
+        "dead_cost": 2,
+        "dead_mix": 1,
+        "discount": 0.8,
+        "method": "separate",
+        "owner_cost": 2,
+        "owner_mix": 1,
+        "variant": "phase_reference"
+      },
+      "spell_f1": {
+        "combined": 0.5766766330574339,
+        "dfl": 0.5364779705078213,
+        "skillcorner": 0.6168752956070465
+      }
+    },
+    {
+      "macro_f1": {
+        "combined": 0.9094811183819971,
+        "dfl": 0.9084095207890496,
+        "skillcorner": 0.9105527159749447
+      },
+      "recipe": {
+        "cutoff": 0.61,
+        "dead_cost": 2,
+        "dead_mix": 1,
+        "discount": 0.8,
+        "method": "separate",
+        "owner_cost": 2,
+        "owner_mix": 1,
+        "variant": "phase_reference"
+      },
+      "spell_f1": {
+        "combined": 0.5767063389053217,
+        "dfl": 0.5375801651413098,
+        "skillcorner": 0.6158325126693338
+      }
+    },
+    {
+      "macro_f1": {
+        "combined": 0.9095326027457198,
+        "dfl": 0.9062034757182224,
+        "skillcorner": 0.9128617297732172
+      },
+      "recipe": {
+        "cutoff": 0.53,
+        "dead_cost": 2,
+        "dead_mix": 0.5,
+        "discount": 0.8,
+        "method": "separate",
+        "owner_cost": 2,
+        "owner_mix": 0,
+        "variant": "seed_phase"
+      },
+      "spell_f1": {
+        "combined": 0.5755254347372142,
+        "dfl": 0.5303308951584814,
+        "skillcorner": 0.6207199743159469
+      }
+    },
+    {
+      "macro_f1": {
+        "combined": 0.9097237588795621,
+        "dfl": 0.9066000325808905,
+        "skillcorner": 0.9128474851782337
+      },
+      "recipe": {
+        "cutoff": 0.57,
+        "dead_cost": 2,
+        "dead_mix": 0.5,
+        "discount": 0.8,
+        "method": "separate",
+        "owner_cost": 2,
+        "owner_mix": 0,
+        "variant": "seed_phase"
+      },
+      "spell_f1": {
+        "combined": 0.573836275520423,
+        "dfl": 0.5294417844028062,
+        "skillcorner": 0.6182307666380399
+      }
+    },
+    {
+      "macro_f1": {
+        "combined": 0.9095150554764108,
+        "dfl": 0.9066152624255394,
+        "skillcorner": 0.9124148485272822
+      },
+      "recipe": {
+        "cutoff": 0.61,
+        "dead_cost": 2,
+        "dead_mix": 0.5,
+        "discount": 0.8,
+        "method": "separate",
+        "owner_cost": 2,
+        "owner_mix": 0,
+        "variant": "seed_phase"
+      },
+      "spell_f1": {
+        "combined": 0.5739079626691992,
+        "dfl": 0.5284827934492461,
+        "skillcorner": 0.6193331318891523
+      }
+    },
+    {
+      "macro_f1": {
+        "combined": 0.908626890313941,
+        "dfl": 0.9050208642909205,
+        "skillcorner": 0.9122329163369614
+      },
+      "recipe": {
+        "cutoff": 0.53,
+        "dead_cost": 2,
+        "dead_mix": 1,
+        "discount": 0.8,
+        "method": "separate",
+        "owner_cost": 2,
+        "owner_mix": 0,
+        "variant": "seed_phase"
+      },
+      "spell_f1": {
+        "combined": 0.573023225736051,
+        "dfl": 0.5286458132507119,
+        "skillcorner": 0.6174006382213902
+      }
+    },
+    {
+      "macro_f1": {
+        "combined": 0.9084329117730994,
+        "dfl": 0.9049843151023595,
+        "skillcorner": 0.9118815084438391
+      },
+      "recipe": {
+        "cutoff": 0.57,
+        "dead_cost": 2,
+        "dead_mix": 1,
+        "discount": 0.8,
+        "method": "separate",
+        "owner_cost": 2,
+        "owner_mix": 0,
+        "variant": "seed_phase"
+      },
+      "spell_f1": {
+        "combined": 0.5714534674955218,
+        "dfl": 0.5272512377058572,
+        "skillcorner": 0.6156556972851865
+      }
+    },
+    {
+      "macro_f1": {
+        "combined": 0.9083785420323441,
+        "dfl": 0.9048827285804754,
+        "skillcorner": 0.9118743554842129
+      },
+      "recipe": {
+        "cutoff": 0.61,
+        "dead_cost": 2,
+        "dead_mix": 1,
+        "discount": 0.8,
+        "method": "separate",
+        "owner_cost": 2,
+        "owner_mix": 0,
+        "variant": "seed_phase"
+      },
+      "spell_f1": {
+        "combined": 0.5718890111663499,
+        "dfl": 0.5280921286774484,
+        "skillcorner": 0.6156858936552516
+      }
+    },
+    {
+      "macro_f1": {
+        "combined": 0.9100975035507919,
+        "dfl": 0.9086298074498321,
+        "skillcorner": 0.9115651996517516
+      },
+      "recipe": {
+        "cutoff": 0.53,
+        "dead_cost": 2,
+        "dead_mix": 0,
+        "discount": 0.8,
+        "method": "separate",
+        "owner_cost": 2,
+        "owner_mix": 0.5,
+        "variant": "seed_phase"
+      },
+      "spell_f1": {
+        "combined": 0.5791098844648336,
+        "dfl": 0.5408091005087251,
+        "skillcorner": 0.617410668420942
+      }
+    },
+    {
+      "macro_f1": {
+        "combined": 0.9098345433086901,
+        "dfl": 0.9087473527704114,
+        "skillcorner": 0.9109217338469688
+      },
+      "recipe": {
+        "cutoff": 0.57,
+        "dead_cost": 2,
+        "dead_mix": 0,
+        "discount": 0.8,
+        "method": "separate",
+        "owner_cost": 2,
+        "owner_mix": 0.5,
+        "variant": "seed_phase"
+      },
+      "spell_f1": {
+        "combined": 0.5793276350241788,
+        "dfl": 0.5421325636982157,
+        "skillcorner": 0.616522706350142
+      }
+    },
+    {
+      "macro_f1": {
+        "combined": 0.9097988724696583,
+        "dfl": 0.9092848049780664,
+        "skillcorner": 0.9103129399612502
+      },
+      "recipe": {
+        "cutoff": 0.61,
+        "dead_cost": 2,
+        "dead_mix": 0,
+        "discount": 0.8,
+        "method": "separate",
+        "owner_cost": 2,
+        "owner_mix": 0.5,
+        "variant": "seed_phase"
+      },
+      "spell_f1": {
+        "combined": 0.5797397671174569,
+        "dfl": 0.5436564742447095,
+        "skillcorner": 0.6158230599902043
+      }
+    },
+    {
+      "macro_f1": {
+        "combined": 0.9102418356121841,
+        "dfl": 0.9081701067297764,
+        "skillcorner": 0.9123135644945918
+      },
+      "recipe": {
+        "cutoff": 0.53,
+        "dead_cost": 2,
+        "dead_mix": 0.5,
+        "discount": 0.8,
+        "method": "separate",
+        "owner_cost": 2,
+        "owner_mix": 0.5,
+        "variant": "seed_phase"
+      },
+      "spell_f1": {
+        "combined": 0.5814959613522475,
+        "dfl": 0.541586959987247,
+        "skillcorner": 0.621404962717248
+      }
+    },
+    {
+      "macro_f1": {
+        "combined": 0.9104497026864103,
+        "dfl": 0.908570134000079,
+        "skillcorner": 0.9123292713727417
+      },
+      "recipe": {
+        "cutoff": 0.57,
+        "dead_cost": 2,
+        "dead_mix": 0.5,
+        "discount": 0.8,
+        "method": "separate",
+        "owner_cost": 2,
+        "owner_mix": 0.5,
+        "variant": "seed_phase"
+      },
+      "spell_f1": {
+        "combined": 0.5801179877115143,
+        "dfl": 0.5410929059599486,
+        "skillcorner": 0.61914306946308
+      }
+    },
+    {
+      "macro_f1": {
+        "combined": 0.9104657168230865,
+        "dfl": 0.9088360126664347,
+        "skillcorner": 0.9120954209797384
+      },
+      "recipe": {
+        "cutoff": 0.61,
+        "dead_cost": 2,
+        "dead_mix": 0.5,
+        "discount": 0.8,
+        "method": "separate",
+        "owner_cost": 2,
+        "owner_mix": 0.5,
+        "variant": "seed_phase"
+      },
+      "spell_f1": {
+        "combined": 0.5807694945115565,
+        "dfl": 0.5415163685043204,
+        "skillcorner": 0.6200226205187926
+      }
+    },
+    {
+      "macro_f1": {
+        "combined": 0.9092494486500721,
+        "dfl": 0.906746273314241,
+        "skillcorner": 0.9117526239859032
+      },
+      "recipe": {
+        "cutoff": 0.53,
+        "dead_cost": 2,
+        "dead_mix": 1,
+        "discount": 0.8,
+        "method": "separate",
+        "owner_cost": 2,
+        "owner_mix": 0.5,
+        "variant": "seed_phase"
+      },
+      "spell_f1": {
+        "combined": 0.5794092294504862,
+        "dfl": 0.5389381621088939,
+        "skillcorner": 0.6198802967920787
+      }
+    },
+    {
+      "macro_f1": {
+        "combined": 0.9092828658919873,
+        "dfl": 0.9072493764307442,
+        "skillcorner": 0.9113163553532303
+      },
+      "recipe": {
+        "cutoff": 0.57,
+        "dead_cost": 2,
+        "dead_mix": 1,
+        "discount": 0.8,
+        "method": "separate",
+        "owner_cost": 2,
+        "owner_mix": 0.5,
+        "variant": "seed_phase"
+      },
+      "spell_f1": {
+        "combined": 0.5789355006889141,
+        "dfl": 0.5410286005079697,
+        "skillcorner": 0.6168424008698584
+      }
+    },
+    {
+      "macro_f1": {
+        "combined": 0.9092297262124838,
+        "dfl": 0.9070556709832548,
+        "skillcorner": 0.9114037814417127
+      },
+      "recipe": {
+        "cutoff": 0.61,
+        "dead_cost": 2,
+        "dead_mix": 1,
+        "discount": 0.8,
+        "method": "separate",
+        "owner_cost": 2,
+        "owner_mix": 0.5,
+        "variant": "seed_phase"
+      },
+      "spell_f1": {
+        "combined": 0.5789166483845689,
+        "dfl": 0.5418042427677325,
+        "skillcorner": 0.6160290540014053
+      }
+    },
+    {
+      "macro_f1": {
+        "combined": 0.908086908343912,
+        "dfl": 0.9063223917014295,
+        "skillcorner": 0.9098514249863946
+      },
+      "recipe": {
+        "cutoff": 0.53,
+        "dead_cost": 2,
+        "dead_mix": 0,
+        "discount": 0.8,
+        "method": "separate",
+        "owner_cost": 2,
+        "owner_mix": 1,
+        "variant": "seed_phase"
+      },
+      "spell_f1": {
+        "combined": 0.5746451088291005,
+        "dfl": 0.5349179711921591,
+        "skillcorner": 0.6143722464660418
+      }
+    },
+    {
+      "macro_f1": {
+        "combined": 0.9076933132930867,
+        "dfl": 0.9060749379453172,
+        "skillcorner": 0.909311688640856
+      },
+      "recipe": {
+        "cutoff": 0.57,
+        "dead_cost": 2,
+        "dead_mix": 0,
+        "discount": 0.8,
+        "method": "separate",
+        "owner_cost": 2,
+        "owner_mix": 1,
+        "variant": "seed_phase"
+      },
+      "spell_f1": {
+        "combined": 0.5740294835391637,
+        "dfl": 0.5344295764933095,
+        "skillcorner": 0.6136293905850179
+      }
+    },
+    {
+      "macro_f1": {
+        "combined": 0.9078076136431896,
+        "dfl": 0.9068155619708568,
+        "skillcorner": 0.9087996653155224
+      },
+      "recipe": {
+        "cutoff": 0.61,
+        "dead_cost": 2,
+        "dead_mix": 0,
+        "discount": 0.8,
+        "method": "separate",
+        "owner_cost": 2,
+        "owner_mix": 1,
+        "variant": "seed_phase"
+      },
+      "spell_f1": {
+        "combined": 0.5740555881108267,
+        "dfl": 0.535767958023292,
+        "skillcorner": 0.6123432181983615
+      }
+    },
+    {
+      "macro_f1": {
+        "combined": 0.9081894750128958,
+        "dfl": 0.905802040748751,
+        "skillcorner": 0.9105769092770405
+      },
+      "recipe": {
+        "cutoff": 0.53,
+        "dead_cost": 2,
+        "dead_mix": 0.5,
+        "discount": 0.8,
+        "method": "separate",
+        "owner_cost": 2,
+        "owner_mix": 1,
+        "variant": "seed_phase"
+      },
+      "spell_f1": {
+        "combined": 0.5763941886780543,
+        "dfl": 0.5366165599081555,
+        "skillcorner": 0.616171817447953
+      }
+    },
+    {
+      "macro_f1": {
+        "combined": 0.9085216772886311,
+        "dfl": 0.9063324117254536,
+        "skillcorner": 0.9107109428518084
+      },
+      "recipe": {
+        "cutoff": 0.57,
+        "dead_cost": 2,
+        "dead_mix": 0.5,
+        "discount": 0.8,
+        "method": "separate",
+        "owner_cost": 2,
+        "owner_mix": 1,
+        "variant": "seed_phase"
+      },
+      "spell_f1": {
+        "combined": 0.5759199076495163,
+        "dfl": 0.5362112914177806,
+        "skillcorner": 0.615628523881252
+      }
+    },
+    {
+      "macro_f1": {
+        "combined": 0.9082618288446396,
+        "dfl": 0.905987601993051,
+        "skillcorner": 0.9105360556962283
+      },
+      "recipe": {
+        "cutoff": 0.61,
+        "dead_cost": 2,
+        "dead_mix": 0.5,
+        "discount": 0.8,
+        "method": "separate",
+        "owner_cost": 2,
+        "owner_mix": 1,
+        "variant": "seed_phase"
+      },
+      "spell_f1": {
+        "combined": 0.5748572936330942,
+        "dfl": 0.532897152350365,
+        "skillcorner": 0.6168174349158234
+      }
+    },
+    {
+      "macro_f1": {
+        "combined": 0.9072886999124079,
+        "dfl": 0.9045472602859049,
+        "skillcorner": 0.9100301395389108
+      },
+      "recipe": {
+        "cutoff": 0.53,
+        "dead_cost": 2,
+        "dead_mix": 1,
+        "discount": 0.8,
+        "method": "separate",
+        "owner_cost": 2,
+        "owner_mix": 1,
+        "variant": "seed_phase"
+      },
+      "spell_f1": {
+        "combined": 0.5749442099086359,
+        "dfl": 0.5351189708636517,
+        "skillcorner": 0.6147694489536202
+      }
+    },
+    {
+      "macro_f1": {
+        "combined": 0.9071875829785809,
+        "dfl": 0.9047258957304484,
+        "skillcorner": 0.9096492702267136
+      },
+      "recipe": {
+        "cutoff": 0.57,
+        "dead_cost": 2,
+        "dead_mix": 1,
+        "discount": 0.8,
+        "method": "separate",
+        "owner_cost": 2,
+        "owner_mix": 1,
+        "variant": "seed_phase"
+      },
+      "spell_f1": {
+        "combined": 0.5734627337537004,
+        "dfl": 0.5349163366184643,
+        "skillcorner": 0.6120091308889365
+      }
+    },
+    {
+      "macro_f1": {
+        "combined": 0.9071327042800923,
+        "dfl": 0.9044990582877078,
+        "skillcorner": 0.9097663502724767
+      },
+      "recipe": {
+        "cutoff": 0.61,
+        "dead_cost": 2,
+        "dead_mix": 1,
+        "discount": 0.8,
+        "method": "separate",
+        "owner_cost": 2,
+        "owner_mix": 1,
+        "variant": "seed_phase"
+      },
+      "spell_f1": {
+        "combined": 0.5728064046810489,
+        "dfl": 0.5342742663691432,
+        "skillcorner": 0.6113385429929546
+      }
+    },
+    {
+      "macro_f1": {
+        "combined": 0.9094654819159097,
+        "dfl": 0.9069271037868066,
+        "skillcorner": 0.9120038600450128
+      },
+      "recipe": {
+        "cutoff": 0.53,
+        "dead_cost": 2,
+        "dead_mix": 0,
+        "discount": 0.8,
+        "method": "separate",
+        "owner_cost": 2,
+        "owner_mix": 0,
+        "variant": null
+      },
+      "spell_f1": {
+        "combined": 0.5726520001817241,
+        "dfl": 0.5283405956619288,
+        "skillcorner": 0.6169634047015194
+      }
+    },
+    {
+      "macro_f1": {
+        "combined": 0.9090994686814586,
+        "dfl": 0.9068118122428389,
+        "skillcorner": 0.9113871251200782
+      },
+      "recipe": {
+        "cutoff": 0.57,
+        "dead_cost": 2,
+        "dead_mix": 0,
+        "discount": 0.8,
+        "method": "separate",
+        "owner_cost": 2,
+        "owner_mix": 0,
+        "variant": null
+      },
+      "spell_f1": {
+        "combined": 0.5741799934677518,
+        "dfl": 0.5309650310796262,
+        "skillcorner": 0.6173949558558773
+      }
+    },
+    {
+      "macro_f1": {
+        "combined": 0.9089630467448495,
+        "dfl": 0.9073042911508461,
+        "skillcorner": 0.9106218023388529
+      },
+      "recipe": {
+        "cutoff": 0.61,
+        "dead_cost": 2,
+        "dead_mix": 0,
+        "discount": 0.8,
+        "method": "separate",
+        "owner_cost": 2,
+        "owner_mix": 0,
+        "variant": null
+      },
+      "spell_f1": {
+        "combined": 0.5740562171095445,
+        "dfl": 0.5322765464929676,
+        "skillcorner": 0.6158358877261214
+      }
+    },
+    {
+      "macro_f1": {
+        "combined": 0.9106237208681038,
+        "dfl": 0.9082916294304119,
+        "skillcorner": 0.9129558123057958
+      },
+      "recipe": {
+        "cutoff": 0.53,
+        "dead_cost": 1,
+        "dead_mix": 0.5,
+        "discount": 0.55,
+        "method": "separate",
+        "owner_cost": 1,
+        "owner_mix": 0.5,
+        "variant": "seed_1800"
+      },
+      "spell_f1": {
+        "combined": 0.5792348954440735,
+        "dfl": 0.5404635505109184,
+        "skillcorner": 0.6180062403772285
+      }
+    },
+    {
+      "macro_f1": {
+        "combined": 0.910675507443952,
+        "dfl": 0.9087600796632077,
+        "skillcorner": 0.9125909352246963
+      },
+      "recipe": {
+        "cutoff": 0.53,
+        "dead_cost": 1,
+        "dead_mix": 0.5,
+        "discount": 0.8,
+        "method": "separate",
+        "owner_cost": 1,
+        "owner_mix": 0.5,
+        "variant": "seed_1800"
+      },
+      "spell_f1": {
+        "combined": 0.5786535812235551,
+        "dfl": 0.5443436818336554,
+        "skillcorner": 0.6129634806134548
+      }
+    },
+    {
+      "macro_f1": {
+        "combined": 0.9095809124865732,
+        "dfl": 0.9072489768492704,
+        "skillcorner": 0.9119128481238762
+      },
+      "recipe": {
+        "cutoff": 0.53,
+        "dead_cost": 2,
+        "dead_mix": 0.5,
+        "discount": 0.55,
+        "method": "separate",
+        "owner_cost": 2,
+        "owner_mix": 0.5,
+        "variant": "seed_1800"
+      },
+      "spell_f1": {
+        "combined": 0.5743487596474232,
+        "dfl": 0.5314268516238475,
+        "skillcorner": 0.6172706676709988
+      }
+    },
+    {
+      "macro_f1": {
+        "combined": 0.9094693617440875,
+        "dfl": 0.9072829738763457,
+        "skillcorner": 0.9116557496118294
+      },
+      "recipe": {
+        "cutoff": 0.53,
+        "dead_cost": 3,
+        "dead_mix": 0.5,
+        "discount": 0.55,
+        "method": "separate",
+        "owner_cost": 2,
+        "owner_mix": 0.5,
+        "variant": "seed_1800"
+      },
+      "spell_f1": {
+        "combined": 0.5742601233075348,
+        "dfl": 0.5316316647318864,
+        "skillcorner": 0.6168885818831833
+      }
+    },
+    {
+      "macro_f1": {
+        "combined": 0.9102216794873296,
+        "dfl": 0.9081776339568736,
+        "skillcorner": 0.9122657250177856
+      },
+      "recipe": {
+        "cutoff": 0.53,
+        "dead_cost": 3,
+        "dead_mix": 0.5,
+        "discount": 0.8,
+        "method": "separate",
+        "owner_cost": 2,
+        "owner_mix": 0.5,
+        "variant": "seed_1800"
+      },
+      "spell_f1": {
+        "combined": 0.5804421608209065,
+        "dfl": 0.5421881322885628,
+        "skillcorner": 0.6186961893532502
+      }
+    },
+    {
+      "macro_f1": {
+        "combined": 0.9092279433045853,
+        "dfl": 0.9065703764494537,
+        "skillcorner": 0.9118855101597171
+      },
+      "recipe": {
+        "cutoff": 0.53,
+        "dead_cost": 2,
+        "dead_mix": 0.5,
+        "discount": 0.55,
+        "method": "separate",
+        "owner_cost": 3,
+        "owner_mix": 0.5,
+        "variant": "seed_1800"
+      },
+      "spell_f1": {
+        "combined": 0.5685945558414329,
+        "dfl": 0.5235219156756062,
+        "skillcorner": 0.6136671960072596
+      }
+    },
+    {
+      "macro_f1": {
+        "combined": 0.9095891615832604,
+        "dfl": 0.9074349469170424,
+        "skillcorner": 0.9117433762494784
+      },
+      "recipe": {
+        "cutoff": 0.53,
+        "dead_cost": 2,
+        "dead_mix": 0.5,
+        "discount": 0.8,
+        "method": "separate",
+        "owner_cost": 3,
+        "owner_mix": 0.5,
+        "variant": "seed_1800"
+      },
+      "spell_f1": {
+        "combined": 0.5748544283328721,
+        "dfl": 0.5341538461538462,
+        "skillcorner": 0.6155550105118981
+      }
+    },
+    {
+      "macro_f1": {
+        "combined": 0.9090245346602386,
+        "dfl": 0.9065694939192408,
+        "skillcorner": 0.9114795754012363
+      },
+      "recipe": {
+        "cutoff": 0.53,
+        "dead_cost": 4,
+        "dead_mix": 0.5,
+        "discount": 0.55,
+        "method": "separate",
+        "owner_cost": 3,
+        "owner_mix": 0.5,
+        "variant": "seed_1800"
+      },
+      "spell_f1": {
+        "combined": 0.5682995500236762,
+        "dfl": 0.5237286340218595,
+        "skillcorner": 0.6128704660254928
+      }
+    },
+    {
+      "macro_f1": {
+        "combined": 0.9093312197501322,
+        "dfl": 0.9073563170307114,
+        "skillcorner": 0.9113061224695531
+      },
+      "recipe": {
+        "cutoff": 0.53,
+        "dead_cost": 4,
+        "dead_mix": 0.5,
+        "discount": 0.8,
+        "method": "separate",
+        "owner_cost": 3,
+        "owner_mix": 0.5,
+        "variant": "seed_1800"
+      },
+      "spell_f1": {
+        "combined": 0.573610745537526,
+        "dfl": 0.5341538461538462,
+        "skillcorner": 0.6130676449212058
+      }
+    },
+    {
+      "macro_f1": {
+        "combined": 0.9106826421968055,
+        "dfl": 0.908306630437249,
+        "skillcorner": 0.9130586539563621
+      },
+      "recipe": {
+        "cutoff": 0.53,
+        "dead_cost": 1,
+        "dead_mix": 0.5,
+        "discount": 0.55,
+        "method": "joint",
+        "owner_cost": 1,
+        "owner_mix": 0.5,
+        "variant": "seed_1800"
+      },
+      "spell_f1": {
+        "combined": 0.5798405054128845,
+        "dfl": 0.540989470983295,
+        "skillcorner": 0.6186915398424739
+      }
+    },
+    {
+      "macro_f1": {
+        "combined": 0.9107149081468726,
+        "dfl": 0.9087793006574314,
+        "skillcorner": 0.9126505156363139
+      },
+      "recipe": {
+        "cutoff": 0.53,
+        "dead_cost": 1,
+        "dead_mix": 0.5,
+        "discount": 0.8,
+        "method": "joint",
+        "owner_cost": 1,
+        "owner_mix": 0.5,
+        "variant": "seed_1800"
+      },
+      "spell_f1": {
+        "combined": 0.5790362313487072,
+        "dfl": 0.5449155584862806,
+        "skillcorner": 0.6131569042111337
+      }
+    },
+    {
+      "macro_f1": {
+        "combined": 0.9096487615678497,
+        "dfl": 0.9072128161063828,
+        "skillcorner": 0.9120847070293165
+      },
+      "recipe": {
+        "cutoff": 0.53,
+        "dead_cost": 2,
+        "dead_mix": 0.5,
+        "discount": 0.55,
+        "method": "joint",
+        "owner_cost": 2,
+        "owner_mix": 0.5,
+        "variant": "seed_1800"
+      },
+      "spell_f1": {
+        "combined": 0.5754303313549811,
+        "dfl": 0.5317809002352837,
+        "skillcorner": 0.6190797624746787
+      }
+    },
+    {
+      "macro_f1": {
+        "combined": 0.9103190903694978,
+        "dfl": 0.9083388822247476,
+        "skillcorner": 0.9122992985142481
+      },
+      "recipe": {
+        "cutoff": 0.53,
+        "dead_cost": 2,
+        "dead_mix": 0.5,
+        "discount": 0.8,
+        "method": "joint",
+        "owner_cost": 2,
+        "owner_mix": 0.5,
+        "variant": "seed_1800"
+      },
+      "spell_f1": {
+        "combined": 0.5816851880227789,
+        "dfl": 0.5427185419890453,
+        "skillcorner": 0.6206518340565126
+      }
+    },
+    {
+      "macro_f1": {
+        "combined": 0.9095196859686252,
+        "dfl": 0.9072539537554675,
+        "skillcorner": 0.9117854181817828
+      },
+      "recipe": {
+        "cutoff": 0.53,
+        "dead_cost": 3,
+        "dead_mix": 0.5,
+        "discount": 0.55,
+        "method": "joint",
+        "owner_cost": 2,
+        "owner_mix": 0.5,
+        "variant": "seed_1800"
+      },
+      "spell_f1": {
+        "combined": 0.5752434329478695,
+        "dfl": 0.5319857133433227,
+        "skillcorner": 0.6185011525524164
+      }
+    },
+    {
+      "macro_f1": {
+        "combined": 0.9102267620198667,
+        "dfl": 0.9083139242469148,
+        "skillcorner": 0.9121395997928188
+      },
+      "recipe": {
+        "cutoff": 0.53,
+        "dead_cost": 3,
+        "dead_mix": 0.5,
+        "discount": 0.8,
+        "method": "joint",
+        "owner_cost": 2,
+        "owner_mix": 0.5,
+        "variant": "seed_1800"
+      },
+      "spell_f1": {
+        "combined": 0.5806205546130909,
+        "dfl": 0.5427185419890453,
+        "skillcorner": 0.6185225672371364
+      }
+    },
+    {
+      "macro_f1": {
+        "combined": 0.9094017544581284,
+        "dfl": 0.9069671102703479,
+        "skillcorner": 0.9118363986459089
+      },
+      "recipe": {
+        "cutoff": 0.53,
+        "dead_cost": 2,
+        "dead_mix": 0.5,
+        "discount": 0.55,
+        "method": "joint",
+        "owner_cost": 3,
+        "owner_mix": 0.5,
+        "variant": "seed_1800"
+      },
+      "spell_f1": {
+        "combined": 0.5694822249859423,
+        "dfl": 0.525064599483204,
+        "skillcorner": 0.6138998504886805
+      }
+    },
+    {
+      "macro_f1": {
+        "combined": 0.9097179990584345,
+        "dfl": 0.9075784409531544,
+        "skillcorner": 0.9118575571637146
+      },
+      "recipe": {
+        "cutoff": 0.53,
+        "dead_cost": 2,
+        "dead_mix": 0.5,
+        "discount": 0.8,
+        "method": "joint",
+        "owner_cost": 3,
+        "owner_mix": 0.5,
+        "variant": "seed_1800"
+      },
+      "spell_f1": {
+        "combined": 0.5754896169433441,
+        "dfl": 0.5352995391705069,
+        "skillcorner": 0.6156796947161813
+      }
+    },
+    {
+      "macro_f1": {
+        "combined": 0.9092358126929467,
+        "dfl": 0.9069845284064746,
+        "skillcorner": 0.9114870969794188
+      },
+      "recipe": {
+        "cutoff": 0.53,
+        "dead_cost": 4,
+        "dead_mix": 0.5,
+        "discount": 0.55,
+        "method": "joint",
+        "owner_cost": 3,
+        "owner_mix": 0.5,
+        "variant": "seed_1800"
+      },
+      "spell_f1": {
+        "combined": 0.5692374671730633,
+        "dfl": 0.5252713178294574,
+        "skillcorner": 0.6132036165166694
+      }
+    },
+    {
+      "macro_f1": {
+        "combined": 0.9095819722673095,
+        "dfl": 0.9075108813130685,
+        "skillcorner": 0.9116530632215506
+      },
+      "recipe": {
+        "cutoff": 0.53,
+        "dead_cost": 4,
+        "dead_mix": 0.5,
+        "discount": 0.8,
+        "method": "joint",
+        "owner_cost": 3,
+        "owner_mix": 0.5,
+        "variant": "seed_1800"
+      },
+      "spell_f1": {
+        "combined": 0.5750823047484006,
+        "dfl": 0.5352995391705069,
+        "skillcorner": 0.6148650703262944
+      }
+    },
+    {
+      "macro_f1": {
+        "combined": 0.9104612264009648,
+        "dfl": 0.9081493978298769,
+        "skillcorner": 0.9127730549720526
+      },
+      "recipe": {
+        "cutoff": 0.53,
+        "dead_cost": 1,
+        "dead_mix": 0.5,
+        "discount": 0.55,
+        "method": "separate",
+        "owner_cost": 1,
+        "owner_mix": 0.5,
+        "variant": "seed_phase"
+      },
+      "spell_f1": {
+        "combined": 0.5790103794889134,
+        "dfl": 0.5406116338751069,
+        "skillcorner": 0.6174091251027198
+      }
+    },
+    {
+      "macro_f1": {
+        "combined": 0.9103117865139603,
+        "dfl": 0.9078862583885843,
+        "skillcorner": 0.9127373146393362
+      },
+      "recipe": {
+        "cutoff": 0.53,
+        "dead_cost": 1,
+        "dead_mix": 0.5,
+        "discount": 0.8,
+        "method": "separate",
+        "owner_cost": 1,
+        "owner_mix": 0.5,
+        "variant": "seed_phase"
+      },
+      "spell_f1": {
+        "combined": 0.5779194708148796,
+        "dfl": 0.5414842797988116,
+        "skillcorner": 0.6143546618309474
+      }
+    },
+    {
+      "macro_f1": {
+        "combined": 0.909876315098791,
+        "dfl": 0.9074389294773368,
+        "skillcorner": 0.912313700720245
+      },
+      "recipe": {
+        "cutoff": 0.53,
+        "dead_cost": 2,
+        "dead_mix": 0.5,
+        "discount": 0.55,
+        "method": "separate",
+        "owner_cost": 2,
+        "owner_mix": 0.5,
+        "variant": "seed_phase"
+      },
+      "spell_f1": {
+        "combined": 0.5754129679078852,
+        "dfl": 0.5319239943551509,
+        "skillcorner": 0.6189019414606194
+      }
+    },
+    {
+      "macro_f1": {
+        "combined": 0.9097621808696841,
+        "dfl": 0.9074647443882968,
+        "skillcorner": 0.9120596173510713
+      },
+      "recipe": {
+        "cutoff": 0.53,
+        "dead_cost": 3,
+        "dead_mix": 0.5,
+        "discount": 0.55,
+        "method": "separate",
+        "owner_cost": 2,
+        "owner_mix": 0.5,
+        "variant": "seed_phase"
+      },
+      "spell_f1": {
+        "combined": 0.5753150207939706,
+        "dfl": 0.5319239943551509,
+        "skillcorner": 0.6187060472327903
+      }
+    },
+    {
+      "macro_f1": {
+        "combined": 0.9101910507398339,
+        "dfl": 0.9082545500073925,
+        "skillcorner": 0.9121275514722753
+      },
+      "recipe": {
+        "cutoff": 0.53,
+        "dead_cost": 3,
+        "dead_mix": 0.5,
+        "discount": 0.8,
+        "method": "separate",
+        "owner_cost": 2,
+        "owner_mix": 0.5,
+        "variant": "seed_phase"
+      },
+      "spell_f1": {
+        "combined": 0.5802231913417497,
+        "dfl": 0.541586959987247,
+        "skillcorner": 0.6188594226962523
+      }
+    },
+    {
+      "macro_f1": {
+        "combined": 0.9093376095418244,
+        "dfl": 0.9069481829950267,
+        "skillcorner": 0.9117270360886223
+      },
+      "recipe": {
+        "cutoff": 0.53,
+        "dead_cost": 2,
+        "dead_mix": 0.5,
+        "discount": 0.55,
+        "method": "separate",
+        "owner_cost": 3,
+        "owner_mix": 0.5,
+        "variant": "seed_phase"
+      },
+      "spell_f1": {
+        "combined": 0.5690026614386818,
+        "dfl": 0.5239353523681127,
+        "skillcorner": 0.6140699705092509
+      }
+    },
+    {
+      "macro_f1": {
+        "combined": 0.9101333816605202,
+        "dfl": 0.9082092653160573,
+        "skillcorner": 0.9120574980049831
+      },
+      "recipe": {
+        "cutoff": 0.53,
+        "dead_cost": 2,
+        "dead_mix": 0.5,
+        "discount": 0.8,
+        "method": "separate",
+        "owner_cost": 3,
+        "owner_mix": 0.5,
+        "variant": "seed_phase"
+      },
+      "spell_f1": {
+        "combined": 0.5768924672454891,
+        "dfl": 0.5359959037378391,
+        "skillcorner": 0.6177890307531392
+      }
+    },
+    {
+      "macro_f1": {
+        "combined": 0.9090931587487643,
+        "dfl": 0.9069893544721905,
+        "skillcorner": 0.9111969630253381
+      },
+      "recipe": {
+        "cutoff": 0.53,
+        "dead_cost": 4,
+        "dead_mix": 0.5,
+        "discount": 0.55,
+        "method": "separate",
+        "owner_cost": 3,
+        "owner_mix": 0.5,
+        "variant": "seed_phase"
+      },
+      "spell_f1": {
+        "combined": 0.5682310281262472,
+        "dfl": 0.5239353523681127,
+        "skillcorner": 0.6125267038843816
+      }
+    },
+    {
+      "macro_f1": {
+        "combined": 0.9099923636085092,
+        "dfl": 0.9082483314310174,
+        "skillcorner": 0.911736395786001
+      },
+      "recipe": {
+        "cutoff": 0.53,
+        "dead_cost": 4,
+        "dead_mix": 0.5,
+        "discount": 0.8,
+        "method": "separate",
+        "owner_cost": 3,
+        "owner_mix": 0.5,
+        "variant": "seed_phase"
+      },
+      "spell_f1": {
+        "combined": 0.5756396889414337,
+        "dfl": 0.5359959037378391,
+        "skillcorner": 0.6152834741450282
+      }
+    },
+    {
+      "macro_f1": {
+        "combined": 0.9104773855348735,
+        "dfl": 0.9081164946482311,
+        "skillcorner": 0.9128382764215158
+      },
+      "recipe": {
+        "cutoff": 0.53,
+        "dead_cost": 1,
+        "dead_mix": 0.5,
+        "discount": 0.55,
+        "method": "joint",
+        "owner_cost": 1,
+        "owner_mix": 0.5,
+        "variant": "seed_phase"
+      },
+      "spell_f1": {
+        "combined": 0.5800881298499794,
+        "dfl": 0.5421864790598175,
+        "skillcorner": 0.6179897806401411
+      }
+    },
+    {
+      "macro_f1": {
+        "combined": 0.9103866331451944,
+        "dfl": 0.9079877318948703,
+        "skillcorner": 0.9127855343955185
+      },
+      "recipe": {
+        "cutoff": 0.53,
+        "dead_cost": 1,
+        "dead_mix": 0.5,
+        "discount": 0.8,
+        "method": "joint",
+        "owner_cost": 1,
+        "owner_mix": 0.5,
+        "variant": "seed_phase"
+      },
+      "spell_f1": {
+        "combined": 0.5786468401796537,
+        "dfl": 0.5429647865492278,
+        "skillcorner": 0.6143288938100797
+      }
+    },
+    {
+      "macro_f1": {
+        "combined": 0.9099863868143983,
+        "dfl": 0.9073058925440748,
+        "skillcorner": 0.9126668810847218
+      },
+      "recipe": {
+        "cutoff": 0.53,
+        "dead_cost": 2,
+        "dead_mix": 0.5,
+        "discount": 0.55,
+        "method": "joint",
+        "owner_cost": 2,
+        "owner_mix": 0.5,
+        "variant": "seed_phase"
+      },
+      "spell_f1": {
+        "combined": 0.5757790272158411,
+        "dfl": 0.5307593477393596,
+        "skillcorner": 0.6207987066923225
+      }
+    },
+    {
+      "macro_f1": {
+        "combined": 0.9103049930586996,
+        "dfl": 0.9082446784886414,
+        "skillcorner": 0.9123653076287578
+      },
+      "recipe": {
+        "cutoff": 0.53,
+        "dead_cost": 2,
+        "dead_mix": 0.5,
+        "discount": 0.8,
+        "method": "joint",
+        "owner_cost": 2,
+        "owner_mix": 0.5,
+        "variant": "seed_phase"
+      },
+      "spell_f1": {
+        "combined": 0.5821376765224242,
+        "dfl": 0.5421161545452313,
+        "skillcorner": 0.6221591984996172
+      }
+    },
+    {
+      "macro_f1": {
+        "combined": 0.9099231775190875,
+        "dfl": 0.907656291414268,
+        "skillcorner": 0.9121900636239069
+      },
+      "recipe": {
+        "cutoff": 0.53,
+        "dead_cost": 3,
+        "dead_mix": 0.5,
+        "discount": 0.55,
+        "method": "joint",
+        "owner_cost": 2,
+        "owner_mix": 0.5,
+        "variant": "seed_phase"
+      },
+      "spell_f1": {
+        "combined": 0.5764606883684948,
+        "dfl": 0.5325666934426923,
+        "skillcorner": 0.6203546832942975
+      }
+    },
+    {
+      "macro_f1": {
+        "combined": 0.9102225575117808,
+        "dfl": 0.9083587034514284,
+        "skillcorner": 0.9120864115721332
+      },
+      "recipe": {
+        "cutoff": 0.53,
+        "dead_cost": 3,
+        "dead_mix": 0.5,
+        "discount": 0.8,
+        "method": "joint",
+        "owner_cost": 2,
+        "owner_mix": 0.5,
+        "variant": "seed_phase"
+      },
+      "spell_f1": {
+        "combined": 0.5807601838899343,
+        "dfl": 0.5421161545452313,
+        "skillcorner": 0.6194042132346375
+      }
+    },
+    {
+      "macro_f1": {
+        "combined": 0.9092542702329516,
+        "dfl": 0.9069633153511223,
+        "skillcorner": 0.9115452251147808
+      },
+      "recipe": {
+        "cutoff": 0.53,
+        "dead_cost": 2,
+        "dead_mix": 0.5,
+        "discount": 0.55,
+        "method": "joint",
+        "owner_cost": 3,
+        "owner_mix": 0.5,
+        "variant": "seed_phase"
+      },
+      "spell_f1": {
+        "combined": 0.5690689079513916,
+        "dfl": 0.5239353523681127,
+        "skillcorner": 0.6142024635346706
+      }
+    },
+    {
+      "macro_f1": {
+        "combined": 0.9102691801868654,
+        "dfl": 0.9082352565557655,
+        "skillcorner": 0.9123031038179653
+      },
+      "recipe": {
+        "cutoff": 0.53,
+        "dead_cost": 2,
+        "dead_mix": 0.5,
+        "discount": 0.8,
+        "method": "joint",
+        "owner_cost": 3,
+        "owner_mix": 0.5,
+        "variant": "seed_phase"
+      },
+      "spell_f1": {
+        "combined": 0.5778888769705863,
+        "dfl": 0.536405529953917,
+        "skillcorner": 0.6193722239872556
+      }
+    },
+    {
+      "macro_f1": {
+        "combined": 0.9090617477534629,
+        "dfl": 0.9070274942413766,
+        "skillcorner": 0.9110960012655492
+      },
+      "recipe": {
+        "cutoff": 0.53,
+        "dead_cost": 4,
+        "dead_mix": 0.5,
+        "discount": 0.55,
+        "method": "joint",
+        "owner_cost": 3,
+        "owner_mix": 0.5,
+        "variant": "seed_phase"
+      },
+      "spell_f1": {
+        "combined": 0.5686597634110178,
+        "dfl": 0.5239353523681127,
+        "skillcorner": 0.6133841744539229
+      }
+    },
+    {
+      "macro_f1": {
+        "combined": 0.9101221474169948,
+        "dfl": 0.9082854362093795,
+        "skillcorner": 0.9119588586246101
+      },
+      "recipe": {
+        "cutoff": 0.53,
+        "dead_cost": 4,
+        "dead_mix": 0.5,
+        "discount": 0.8,
+        "method": "joint",
+        "owner_cost": 3,
+        "owner_mix": 0.5,
+        "variant": "seed_phase"
+      },
+      "spell_f1": {
+        "combined": 0.5768675136888524,
+        "dfl": 0.536405529953917,
+        "skillcorner": 0.6173294974237876
+      }
+    },
+    {
+      "macro_f1": {
+        "combined": 0.9090252121925004,
+        "dfl": 0.9061335712065413,
+        "skillcorner": 0.9119168531784596
+      },
+      "recipe": {
+        "cutoff": 0.57,
+        "dead_cost": 1,
+        "dead_mix": 1,
+        "discount": 0.55,
+        "method": "separate",
+        "owner_cost": 1,
+        "owner_mix": 0.5,
+        "variant": "seed_1800"
+      },
+      "spell_f1": {
+        "combined": 0.5749237505564525,
+        "dfl": 0.5366344095813242,
+        "skillcorner": 0.6132130915315808
+      }
+    },
+    {
+      "macro_f1": {
+        "combined": 0.9090721968113991,
+        "dfl": 0.9065913849536736,
+        "skillcorner": 0.9115530086691244
+      },
+      "recipe": {
+        "cutoff": 0.57,
+        "dead_cost": 1,
+        "dead_mix": 1,
+        "discount": 0.8,
+        "method": "separate",
+        "owner_cost": 1,
+        "owner_mix": 0.5,
+        "variant": "seed_1800"
+      },
+      "spell_f1": {
+        "combined": 0.5745831058438116,
+        "dfl": 0.5412112259970457,
+        "skillcorner": 0.6079549856905774
+      }
+    },
+    {
+      "macro_f1": {
+        "combined": 0.9081483725775841,
+        "dfl": 0.9052524227844897,
+        "skillcorner": 0.9110443223706783
+      },
+      "recipe": {
+        "cutoff": 0.57,
+        "dead_cost": 2,
+        "dead_mix": 1,
+        "discount": 0.55,
+        "method": "separate",
+        "owner_cost": 2,
+        "owner_mix": 0.5,
+        "variant": "seed_1800"
+      },
+      "spell_f1": {
+        "combined": 0.5702899567905734,
+        "dfl": 0.5283192292141812,
+        "skillcorner": 0.6122606843669656
+      }
+    },
+    {
+      "macro_f1": {
+        "combined": 0.9081170402962719,
+        "dfl": 0.9052860217705735,
+        "skillcorner": 0.9109480588219704
+      },
+      "recipe": {
+        "cutoff": 0.57,
+        "dead_cost": 3,
+        "dead_mix": 1,
+        "discount": 0.55,
+        "method": "separate",
+        "owner_cost": 2,
+        "owner_mix": 0.5,
+        "variant": "seed_1800"
+      },
+      "spell_f1": {
+        "combined": 0.5714734697406343,
+        "dfl": 0.5291347236076572,
+        "skillcorner": 0.6138122158736112
+      }
+    },
+    {
+      "macro_f1": {
+        "combined": 0.909149654106086,
+        "dfl": 0.9065782807006365,
+        "skillcorner": 0.9117210275115353
+      },
+      "recipe": {
+        "cutoff": 0.57,
+        "dead_cost": 3,
+        "dead_mix": 1,
+        "discount": 0.8,
+        "method": "separate",
+        "owner_cost": 2,
+        "owner_mix": 0.5,
+        "variant": "seed_1800"
+      },
+      "spell_f1": {
+        "combined": 0.579241421662483,
+        "dfl": 0.5413965421625805,
+        "skillcorner": 0.6170863011623857
+      }
+    },
+    {
+      "macro_f1": {
+        "combined": 0.9080053313224838,
+        "dfl": 0.90503006848336,
+        "skillcorner": 0.9109805941616078
+      },
+      "recipe": {
+        "cutoff": 0.57,
+        "dead_cost": 2,
+        "dead_mix": 1,
+        "discount": 0.55,
+        "method": "separate",
+        "owner_cost": 3,
+        "owner_mix": 0.5,
+        "variant": "seed_1800"
+      },
+      "spell_f1": {
+        "combined": 0.5659238567589155,
+        "dfl": 0.521451522300865,
+        "skillcorner": 0.6103961912169661
+      }
+    },
+    {
+      "macro_f1": {
+        "combined": 0.9082894182285659,
+        "dfl": 0.9057242479719684,
+        "skillcorner": 0.9108545884851635
+      },
+      "recipe": {
+        "cutoff": 0.57,
+        "dead_cost": 2,
+        "dead_mix": 1,
+        "discount": 0.8,
+        "method": "separate",
+        "owner_cost": 3,
+        "owner_mix": 0.5,
+        "variant": "seed_1800"
+      },
+      "spell_f1": {
+        "combined": 0.5725789373845823,
+        "dfl": 0.533500707881076,
+        "skillcorner": 0.6116571668880887
+      }
+    },
+    {
+      "macro_f1": {
+        "combined": 0.9080159652360633,
+        "dfl": 0.9049689266104893,
+        "skillcorner": 0.9110630038616373
+      },
+      "recipe": {
+        "cutoff": 0.57,
+        "dead_cost": 4,
+        "dead_mix": 1,
+        "discount": 0.55,
+        "method": "separate",
+        "owner_cost": 3,
+        "owner_mix": 0.5,
+        "variant": "seed_1800"
+      },
+      "spell_f1": {
+        "combined": 0.5668291204445676,
+        "dfl": 0.5217571059431524,
+        "skillcorner": 0.6119011349459827
+      }
+    },
+    {
+      "macro_f1": {
+        "combined": 0.9082729334035573,
+        "dfl": 0.9056876454501485,
+        "skillcorner": 0.9108582213569663
+      },
+      "recipe": {
+        "cutoff": 0.57,
+        "dead_cost": 4,
+        "dead_mix": 1,
+        "discount": 0.8,
+        "method": "separate",
+        "owner_cost": 3,
+        "owner_mix": 0.5,
+        "variant": "seed_1800"
+      },
+      "spell_f1": {
+        "combined": 0.5720525190851733,
+        "dfl": 0.5330917099260658,
+        "skillcorner": 0.6110133282442809
+      }
+    },
+    {
+      "macro_f1": {
+        "combined": 0.9089822396332018,
+        "dfl": 0.9061810008528098,
+        "skillcorner": 0.9117834784135938
+      },
+      "recipe": {
+        "cutoff": 0.57,
+        "dead_cost": 1,
+        "dead_mix": 1,
+        "discount": 0.55,
+        "method": "joint",
+        "owner_cost": 1,
+        "owner_mix": 0.5,
+        "variant": "seed_1800"
+      },
+      "spell_f1": {
+        "combined": 0.5759536343577829,
+        "dfl": 0.5380373896509272,
+        "skillcorner": 0.6138698790646387
+      }
+    },
+    {
+      "macro_f1": {
+        "combined": 0.9090452104174132,
+        "dfl": 0.9066918390616422,
+        "skillcorner": 0.9113985817731842
+      },
+      "recipe": {
+        "cutoff": 0.57,
+        "dead_cost": 1,
+        "dead_mix": 1,
+        "discount": 0.8,
+        "method": "joint",
+        "owner_cost": 1,
+        "owner_mix": 0.5,
+        "variant": "seed_1800"
+      },
+      "spell_f1": {
+        "combined": 0.57518962537406,
+        "dfl": 0.5421793314732753,
+        "skillcorner": 0.6081999192748448
+      }
+    },
+    {
+      "macro_f1": {
+        "combined": 0.9082636010175373,
+        "dfl": 0.9053964652116436,
+        "skillcorner": 0.9111307368234309
+      },
+      "recipe": {
+        "cutoff": 0.57,
+        "dead_cost": 2,
+        "dead_mix": 1,
+        "discount": 0.55,
+        "method": "joint",
+        "owner_cost": 2,
+        "owner_mix": 0.5,
+        "variant": "seed_1800"
+      },
+      "spell_f1": {
+        "combined": 0.5714760925823615,
+        "dfl": 0.5295329821353966,
+        "skillcorner": 0.6134192030293265
+      }
+    },
+    {
+      "macro_f1": {
+        "combined": 0.9091438395853311,
+        "dfl": 0.9066292661083389,
+        "skillcorner": 0.9116584130623232
+      },
+      "recipe": {
+        "cutoff": 0.57,
+        "dead_cost": 2,
+        "dead_mix": 1,
+        "discount": 0.8,
+        "method": "joint",
+        "owner_cost": 2,
+        "owner_mix": 0.5,
+        "variant": "seed_1800"
+      },
+      "spell_f1": {
+        "combined": 0.5806043795940974,
+        "dfl": 0.5429157168077393,
+        "skillcorner": 0.6182930423804553
+      }
+    },
+    {
+      "macro_f1": {
+        "combined": 0.908148209747096,
+        "dfl": 0.9053487330277431,
+        "skillcorner": 0.9109476864664489
+      },
+      "recipe": {
+        "cutoff": 0.57,
+        "dead_cost": 3,
+        "dead_mix": 1,
+        "discount": 0.55,
+        "method": "joint",
+        "owner_cost": 2,
+        "owner_mix": 0.5,
+        "variant": "seed_1800"
+      },
+      "spell_f1": {
+        "combined": 0.5725421561718169,
+        "dfl": 0.5302363584041201,
+        "skillcorner": 0.6148479539395136
+      }
+    },
+    {
+      "macro_f1": {
+        "combined": 0.9089886830825018,
+        "dfl": 0.9064183047065194,
+        "skillcorner": 0.9115590614584843
+      },
+      "recipe": {
+        "cutoff": 0.57,
+        "dead_cost": 3,
+        "dead_mix": 1,
+        "discount": 0.8,
+        "method": "joint",
+        "owner_cost": 2,
+        "owner_mix": 0.5,
+        "variant": "seed_1800"
+      },
+      "spell_f1": {
+        "combined": 0.5793905442728275,
+        "dfl": 0.5417170191339375,
+        "skillcorner": 0.6170640694117175
+      }
+    },
+    {
+      "macro_f1": {
+        "combined": 0.9082912333780029,
+        "dfl": 0.9054180261799974,
+        "skillcorner": 0.9111644405760082
+      },
+      "recipe": {
+        "cutoff": 0.57,
+        "dead_cost": 2,
+        "dead_mix": 1,
+        "discount": 0.55,
+        "method": "joint",
+        "owner_cost": 3,
+        "owner_mix": 0.5,
+        "variant": "seed_1800"
+      },
+      "spell_f1": {
+        "combined": 0.5674602645890173,
+        "dfl": 0.5236175710594315,
+        "skillcorner": 0.6113029581186031
+      }
+    },
+    {
+      "macro_f1": {
+        "combined": 0.9086522799427094,
+        "dfl": 0.9062443988011387,
+        "skillcorner": 0.91106016108428
+      },
+      "recipe": {
+        "cutoff": 0.57,
+        "dead_cost": 2,
+        "dead_mix": 1,
+        "discount": 0.8,
+        "method": "joint",
+        "owner_cost": 3,
+        "owner_mix": 0.5,
+        "variant": "seed_1800"
+      },
+      "spell_f1": {
+        "combined": 0.5740021867813232,
+        "dfl": 0.5350547686585684,
+        "skillcorner": 0.6129496049040779
+      }
+    },
+    {
+      "macro_f1": {
+        "combined": 0.9082623016858526,
+        "dfl": 0.9054824092868127,
+        "skillcorner": 0.9110421940848926
+      },
+      "recipe": {
+        "cutoff": 0.57,
+        "dead_cost": 4,
+        "dead_mix": 1,
+        "discount": 0.55,
+        "method": "joint",
+        "owner_cost": 3,
+        "owner_mix": 0.5,
+        "variant": "seed_1800"
+      },
+      "spell_f1": {
+        "combined": 0.5679892470417052,
+        "dfl": 0.524031007751938,
+        "skillcorner": 0.6119474863314723
+      }
+    },
+    {
+      "macro_f1": {
+        "combined": 0.908631465188173,
+        "dfl": 0.9061805524810981,
+        "skillcorner": 0.9110823778952478
+      },
+      "recipe": {
+        "cutoff": 0.57,
+        "dead_cost": 4,
+        "dead_mix": 1,
+        "discount": 0.8,
+        "method": "joint",
+        "owner_cost": 3,
+        "owner_mix": 0.5,
+        "variant": "seed_1800"
+      },
+      "spell_f1": {
+        "combined": 0.5737085040160528,
+        "dfl": 0.5345248876938843,
+        "skillcorner": 0.6128921203382212
+      }
+    },
+    {
+      "macro_f1": {
+        "combined": 0.9095348020600013,
+        "dfl": 0.909189955645269,
+        "skillcorner": 0.9098796484747335
+      },
+      "recipe": {
+        "cutoff": 0.61,
+        "dead_cost": 1,
+        "dead_mix": 0,
+        "discount": 0.55,
+        "method": "separate",
+        "owner_cost": 1,
+        "owner_mix": 0.5,
+        "variant": "seed_phase"
+      },
+      "spell_f1": {
+        "combined": 0.5746625692067016,
+        "dfl": 0.5418237621876819,
+        "skillcorner": 0.6075013762257213
+      }
+    },
+    {
+      "macro_f1": {
+        "combined": 0.9094651590462187,
+        "dfl": 0.9091266473214915,
+        "skillcorner": 0.9098036707709459
+      },
+      "recipe": {
+        "cutoff": 0.61,
+        "dead_cost": 1,
+        "dead_mix": 0,
+        "discount": 0.8,
+        "method": "separate",
+        "owner_cost": 1,
+        "owner_mix": 0.5,
+        "variant": "seed_phase"
+      },
+      "spell_f1": {
+        "combined": 0.5735420373230731,
+        "dfl": 0.5428023165655227,
+        "skillcorner": 0.6042817580806233
+      }
+    },
+    {
+      "macro_f1": {
+        "combined": 0.9093301610469966,
+        "dfl": 0.9086517711856711,
+        "skillcorner": 0.9100085509083222
+      },
+      "recipe": {
+        "cutoff": 0.61,
+        "dead_cost": 2,
+        "dead_mix": 0,
+        "discount": 0.55,
+        "method": "separate",
+        "owner_cost": 2,
+        "owner_mix": 0.5,
+        "variant": "seed_phase"
+      },
+      "spell_f1": {
+        "combined": 0.5746564571695663,
+        "dfl": 0.5348069950055623,
+        "skillcorner": 0.6145059193335701
+      }
+    },
+    {
+      "macro_f1": {
+        "combined": 0.9093675983539462,
+        "dfl": 0.9086389366341803,
+        "skillcorner": 0.9100962600737122
+      },
+      "recipe": {
+        "cutoff": 0.61,
+        "dead_cost": 3,
+        "dead_mix": 0,
+        "discount": 0.55,
+        "method": "separate",
+        "owner_cost": 2,
+        "owner_mix": 0.5,
+        "variant": "seed_phase"
+      },
+      "spell_f1": {
+        "combined": 0.5748348614408435,
+        "dfl": 0.5352128803429544,
+        "skillcorner": 0.6144568425387326
+      }
+    },
+    {
+      "macro_f1": {
+        "combined": 0.9097177348383771,
+        "dfl": 0.9091800675714151,
+        "skillcorner": 0.9102554021053391
+      },
+      "recipe": {
+        "cutoff": 0.61,
+        "dead_cost": 3,
+        "dead_mix": 0,
+        "discount": 0.8,
+        "method": "separate",
+        "owner_cost": 2,
+        "owner_mix": 0.5,
+        "variant": "seed_phase"
+      },
+      "spell_f1": {
+        "combined": 0.5798807490632196,
+        "dfl": 0.5440586864116276,
+        "skillcorner": 0.6157028117148116
+      }
+    },
+    {
+      "macro_f1": {
+        "combined": 0.9085885008169097,
+        "dfl": 0.9077992621324582,
+        "skillcorner": 0.909377739501361
+      },
+      "recipe": {
+        "cutoff": 0.61,
+        "dead_cost": 2,
+        "dead_mix": 0,
+        "discount": 0.55,
+        "method": "separate",
+        "owner_cost": 3,
+        "owner_mix": 0.5,
+        "variant": "seed_phase"
+      },
+      "spell_f1": {
+        "combined": 0.5671249106695051,
+        "dfl": 0.5240454076367389,
+        "skillcorner": 0.6102044137022714
+      }
+    },
+    {
+      "macro_f1": {
+        "combined": 0.909522564470652,
+        "dfl": 0.9091689135338606,
+        "skillcorner": 0.9098762154074435
+      },
+      "recipe": {
+        "cutoff": 0.61,
+        "dead_cost": 2,
+        "dead_mix": 0,
+        "discount": 0.8,
+        "method": "separate",
+        "owner_cost": 3,
+        "owner_mix": 0.5,
+        "variant": "seed_phase"
+      },
+      "spell_f1": {
+        "combined": 0.5740509270179409,
+        "dfl": 0.5366003062787137,
+        "skillcorner": 0.6115015477571681
+      }
+    },
+    {
+      "macro_f1": {
+        "combined": 0.9087731259317287,
+        "dfl": 0.9077104264269545,
+        "skillcorner": 0.9098358254365029
+      },
+      "recipe": {
+        "cutoff": 0.61,
+        "dead_cost": 4,
+        "dead_mix": 0,
+        "discount": 0.55,
+        "method": "separate",
+        "owner_cost": 3,
+        "owner_mix": 0.5,
+        "variant": "seed_phase"
+      },
+      "spell_f1": {
+        "combined": 0.5674274797759709,
+        "dfl": 0.5244582043343654,
+        "skillcorner": 0.6103967552175764
+      }
+    },
+    {
+      "macro_f1": {
+        "combined": 0.9097476017737489,
+        "dfl": 0.9090644876555979,
+        "skillcorner": 0.9104307158918999
+      },
+      "recipe": {
+        "cutoff": 0.61,
+        "dead_cost": 4,
+        "dead_mix": 0,
+        "discount": 0.8,
+        "method": "separate",
+        "owner_cost": 3,
+        "owner_mix": 0.5,
+        "variant": "seed_phase"
+      },
+      "spell_f1": {
+        "combined": 0.5749210597161636,
+        "dfl": 0.5368856668742868,
+        "skillcorner": 0.6129564525580404
+      }
+    },
+    {
+      "macro_f1": {
+        "combined": 0.9096361377533306,
+        "dfl": 0.9092341653973656,
+        "skillcorner": 0.9100381101092957
+      },
+      "recipe": {
+        "cutoff": 0.61,
+        "dead_cost": 1,
+        "dead_mix": 0,
+        "discount": 0.55,
+        "method": "joint",
+        "owner_cost": 1,
+        "owner_mix": 0.5,
+        "variant": "seed_phase"
+      },
+      "spell_f1": {
+        "combined": 0.576066303702305,
+        "dfl": 0.5437954786425547,
+        "skillcorner": 0.6083371287620554
+      }
+    },
+    {
+      "macro_f1": {
+        "combined": 0.9096733710258638,
+        "dfl": 0.909358360788667,
+        "skillcorner": 0.9099883812630604
+      },
+      "recipe": {
+        "cutoff": 0.61,
+        "dead_cost": 1,
+        "dead_mix": 0,
+        "discount": 0.8,
+        "method": "joint",
+        "owner_cost": 1,
+        "owner_mix": 0.5,
+        "variant": "seed_phase"
+      },
+      "spell_f1": {
+        "combined": 0.5753275553713129,
+        "dfl": 0.5450258457042682,
+        "skillcorner": 0.6056292650383575
+      }
+    },
+    {
+      "macro_f1": {
+        "combined": 0.9094566715029471,
+        "dfl": 0.9087105834099566,
+        "skillcorner": 0.9102027595959374
+      },
+      "recipe": {
+        "cutoff": 0.61,
+        "dead_cost": 2,
+        "dead_mix": 0,
+        "discount": 0.55,
+        "method": "joint",
+        "owner_cost": 2,
+        "owner_mix": 0.5,
+        "variant": "seed_phase"
+      },
+      "spell_f1": {
+        "combined": 0.576317262971763,
+        "dfl": 0.5357071099083728,
+        "skillcorner": 0.6169274160351532
+      }
+    },
+    {
+      "macro_f1": {
+        "combined": 0.9098252150597703,
+        "dfl": 0.9092002326936081,
+        "skillcorner": 0.9104501974259327
+      },
+      "recipe": {
+        "cutoff": 0.61,
+        "dead_cost": 2,
+        "dead_mix": 0,
+        "discount": 0.8,
+        "method": "joint",
+        "owner_cost": 2,
+        "owner_mix": 0.5,
+        "variant": "seed_phase"
+      },
+      "spell_f1": {
+        "combined": 0.5806676926407282,
+        "dfl": 0.5435415269566836,
+        "skillcorner": 0.6177938583247726
+      }
+    },
+    {
+      "macro_f1": {
+        "combined": 0.9095667405872381,
+        "dfl": 0.9086989232396546,
+        "skillcorner": 0.9104345579348215
+      },
+      "recipe": {
+        "cutoff": 0.61,
+        "dead_cost": 3,
+        "dead_mix": 0,
+        "discount": 0.55,
+        "method": "joint",
+        "owner_cost": 2,
+        "owner_mix": 0.5,
+        "variant": "seed_phase"
+      },
+      "spell_f1": {
+        "combined": 0.5762385061458585,
+        "dfl": 0.5357071099083728,
+        "skillcorner": 0.6167699023833442
+      }
+    },
+    {
+      "macro_f1": {
+        "combined": 0.9098792535144021,
+        "dfl": 0.909194573809851,
+        "skillcorner": 0.9105639332189532
+      },
+      "recipe": {
+        "cutoff": 0.61,
+        "dead_cost": 3,
+        "dead_mix": 0,
+        "discount": 0.8,
+        "method": "joint",
+        "owner_cost": 2,
+        "owner_mix": 0.5,
+        "variant": "seed_phase"
+      },
+      "spell_f1": {
+        "combined": 0.5812946458467279,
+        "dfl": 0.5438333325692525,
+        "skillcorner": 0.6187559591242031
+      }
+    },
+    {
+      "macro_f1": {
+        "combined": 0.9087530166807121,
+        "dfl": 0.9078747241403721,
+        "skillcorner": 0.9096313092210522
+      },
+      "recipe": {
+        "cutoff": 0.61,
+        "dead_cost": 2,
+        "dead_mix": 0,
+        "discount": 0.55,
+        "method": "joint",
+        "owner_cost": 3,
+        "owner_mix": 0.5,
+        "variant": "seed_phase"
+      },
+      "spell_f1": {
+        "combined": 0.5675685037553548,
+        "dfl": 0.525064599483204,
+        "skillcorner": 0.6100724080275057
+      }
+    },
+    {
+      "macro_f1": {
+        "combined": 0.9096782691065799,
+        "dfl": 0.909244060247122,
+        "skillcorner": 0.9101124779660378
+      },
+      "recipe": {
+        "cutoff": 0.61,
+        "dead_cost": 2,
+        "dead_mix": 0,
+        "discount": 0.8,
+        "method": "joint",
+        "owner_cost": 3,
+        "owner_mix": 0.5,
+        "variant": "seed_phase"
+      },
+      "spell_f1": {
+        "combined": 0.5756265302685426,
+        "dfl": 0.5381542479730175,
+        "skillcorner": 0.6130988125640677
+      }
+    },
+    {
+      "macro_f1": {
+        "combined": 0.9089496292301544,
+        "dfl": 0.9078076408072483,
+        "skillcorner": 0.9100916176530606
+      },
+      "recipe": {
+        "cutoff": 0.61,
+        "dead_cost": 4,
+        "dead_mix": 0,
+        "discount": 0.55,
+        "method": "joint",
+        "owner_cost": 3,
+        "owner_mix": 0.5,
+        "variant": "seed_phase"
+      },
+      "spell_f1": {
+        "combined": 0.5678580415722634,
+        "dfl": 0.525064599483204,
+        "skillcorner": 0.6106514836613226
+      }
+    },
+    {
+      "macro_f1": {
+        "combined": 0.9099691822718978,
+        "dfl": 0.9092455466953154,
+        "skillcorner": 0.9106928178484803
+      },
+      "recipe": {
+        "cutoff": 0.61,
+        "dead_cost": 4,
+        "dead_mix": 0,
+        "discount": 0.8,
+        "method": "joint",
+        "owner_cost": 3,
+        "owner_mix": 0.5,
+        "variant": "seed_phase"
+      },
+      "spell_f1": {
+        "combined": 0.5759254879568998,
+        "dfl": 0.5376278118609408,
+        "skillcorner": 0.6142231640528589
+      }
+    },
+    {
+      "macro_f1": {
+        "combined": 0.9097485917654649,
+        "dfl": 0.9093746201368731,
+        "skillcorner": 0.9101225633940565
+      },
+      "recipe": {
+        "cutoff": 0.61,
+        "dead_cost": 1,
+        "dead_mix": 0,
+        "discount": 0.55,
+        "method": "separate",
+        "owner_cost": 1,
+        "owner_mix": 0.5,
+        "variant": "seed_1800"
+      },
+      "spell_f1": {
+        "combined": 0.5754243565131716,
+        "dfl": 0.5423467698057861,
+        "skillcorner": 0.6085019432205572
+      }
+    },
+    {
+      "macro_f1": {
+        "combined": 0.9098659345886964,
+        "dfl": 0.9099641863850799,
+        "skillcorner": 0.9097676827923129
+      },
+      "recipe": {
+        "cutoff": 0.61,
+        "dead_cost": 1,
+        "dead_mix": 0,
+        "discount": 0.8,
+        "method": "separate",
+        "owner_cost": 1,
+        "owner_mix": 0.5,
+        "variant": "seed_1800"
+      },
+      "spell_f1": {
+        "combined": 0.5748157843366724,
+        "dfl": 0.5463836430171619,
+        "skillcorner": 0.6032479256561829
+      }
+    },
+    {
+      "macro_f1": {
+        "combined": 0.9089817877623458,
+        "dfl": 0.9083544853001263,
+        "skillcorner": 0.9096090902245653
+      },
+      "recipe": {
+        "cutoff": 0.61,
+        "dead_cost": 2,
+        "dead_mix": 0,
+        "discount": 0.55,
+        "method": "separate",
+        "owner_cost": 2,
+        "owner_mix": 0.5,
+        "variant": "seed_1800"
+      },
+      "spell_f1": {
+        "combined": 0.5735101414673724,
+        "dfl": 0.5340271830199218,
+        "skillcorner": 0.612993099914823
+      }
+    },
+    {
+      "macro_f1": {
+        "combined": 0.9090191684005733,
+        "dfl": 0.9083416335459801,
+        "skillcorner": 0.9096967032551664
+      },
+      "recipe": {
+        "cutoff": 0.61,
+        "dead_cost": 3,
+        "dead_mix": 0,
+        "discount": 0.55,
+        "method": "separate",
+        "owner_cost": 2,
+        "owner_mix": 0.5,
+        "variant": "seed_1800"
+      },
+      "spell_f1": {
+        "combined": 0.5736874549745271,
+        "dfl": 0.5344336870849625,
+        "skillcorner": 0.6129412228640917
+      }
+    },
+    {
+      "macro_f1": {
+        "combined": 0.909688800485201,
+        "dfl": 0.9090809944683187,
+        "skillcorner": 0.9102966065020832
+      },
+      "recipe": {
+        "cutoff": 0.61,
+        "dead_cost": 3,
+        "dead_mix": 0,
+        "discount": 0.8,
+        "method": "separate",
+        "owner_cost": 2,
+        "owner_mix": 0.5,
+        "variant": "seed_1800"
+      },
+      "spell_f1": {
+        "combined": 0.5797950851044231,
+        "dfl": 0.5437662058112357,
+        "skillcorner": 0.6158239643976107
+      }
+    },
+    {
+      "macro_f1": {
+        "combined": 0.9087465809240763,
+        "dfl": 0.9079157543353361,
+        "skillcorner": 0.9095774075128166
+      },
+      "recipe": {
+        "cutoff": 0.61,
+        "dead_cost": 2,
+        "dead_mix": 0,
+        "discount": 0.55,
+        "method": "separate",
+        "owner_cost": 3,
+        "owner_mix": 0.5,
+        "variant": "seed_1800"
+      },
+      "spell_f1": {
+        "combined": 0.5677502356490132,
+        "dfl": 0.5248710010319918,
+        "skillcorner": 0.6106294702660346
+      }
+    },
+    {
+      "macro_f1": {
+        "combined": 0.9090846160584777,
+        "dfl": 0.9085669917539203,
+        "skillcorner": 0.909602240363035
+      },
+      "recipe": {
+        "cutoff": 0.61,
+        "dead_cost": 2,
+        "dead_mix": 0,
+        "discount": 0.8,
+        "method": "separate",
+        "owner_cost": 3,
+        "owner_mix": 0.5,
+        "variant": "seed_1800"
+      },
+      "spell_f1": {
+        "combined": 0.5733157917996069,
+        "dfl": 0.5368044920877999,
+        "skillcorner": 0.6098270915114139
+      }
+    },
+    {
+      "macro_f1": {
+        "combined": 0.9087623352095051,
+        "dfl": 0.9074780991362901,
+        "skillcorner": 0.9100465712827202
+      },
+      "recipe": {
+        "cutoff": 0.61,
+        "dead_cost": 4,
+        "dead_mix": 0,
+        "discount": 0.55,
+        "method": "separate",
+        "owner_cost": 3,
+        "owner_mix": 0.5,
+        "variant": "seed_1800"
+      },
+      "spell_f1": {
+        "combined": 0.5673937959314852,
+        "dfl": 0.5237433300533596,
+        "skillcorner": 0.6110442618096108
+      }
+    },
+    {
+      "macro_f1": {
+        "combined": 0.909314801106163,
+        "dfl": 0.9084623444076073,
+        "skillcorner": 0.9101672578047187
+      },
+      "recipe": {
+        "cutoff": 0.61,
+        "dead_cost": 4,
+        "dead_mix": 0,
+        "discount": 0.8,
+        "method": "separate",
+        "owner_cost": 3,
+        "owner_mix": 0.5,
+        "variant": "seed_1800"
+      },
+      "spell_f1": {
+        "combined": 0.5740863013644384,
+        "dfl": 0.5370892282619386,
+        "skillcorner": 0.6110833744669381
+      }
+    },
+    {
+      "macro_f1": {
+        "combined": 0.9098778599766433,
+        "dfl": 0.9094665369666907,
+        "skillcorner": 0.910289182986596
+      },
+      "recipe": {
+        "cutoff": 0.61,
+        "dead_cost": 1,
+        "dead_mix": 0,
+        "discount": 0.55,
+        "method": "joint",
+        "owner_cost": 1,
+        "owner_mix": 0.5,
+        "variant": "seed_1800"
+      },
+      "spell_f1": {
+        "combined": 0.5763034133168057,
+        "dfl": 0.5432687531048186,
+        "skillcorner": 0.6093380735287928
+      }
+    },
+    {
+      "macro_f1": {
+        "combined": 0.9100525900714169,
+        "dfl": 0.9101503507255835,
+        "skillcorner": 0.9099548294172503
+      },
+      "recipe": {
+        "cutoff": 0.61,
+        "dead_cost": 1,
+        "dead_mix": 0,
+        "discount": 0.8,
+        "method": "joint",
+        "owner_cost": 1,
+        "owner_mix": 0.5,
+        "variant": "seed_1800"
+      },
+      "spell_f1": {
+        "combined": 0.5762079235304833,
+        "dfl": 0.5474436180037817,
+        "skillcorner": 0.6049722290571851
+      }
+    },
+    {
+      "macro_f1": {
+        "combined": 0.9091453754886043,
+        "dfl": 0.9084981908757027,
+        "skillcorner": 0.9097925601015059
+      },
+      "recipe": {
+        "cutoff": 0.61,
+        "dead_cost": 2,
+        "dead_mix": 0,
+        "discount": 0.55,
+        "method": "joint",
+        "owner_cost": 2,
+        "owner_mix": 0.5,
+        "variant": "seed_1800"
+      },
+      "spell_f1": {
+        "combined": 0.575328443992681,
+        "dfl": 0.5355374058327739,
+        "skillcorner": 0.6151194821525882
+      }
+    },
+    {
+      "macro_f1": {
+        "combined": 0.9098505146075011,
+        "dfl": 0.9092679227259963,
+        "skillcorner": 0.910433106489006
+      },
+      "recipe": {
+        "cutoff": 0.61,
+        "dead_cost": 2,
+        "dead_mix": 0,
+        "discount": 0.8,
+        "method": "joint",
+        "owner_cost": 2,
+        "owner_mix": 0.5,
+        "variant": "seed_1800"
+      },
+      "spell_f1": {
+        "combined": 0.5807806965663209,
+        "dfl": 0.5441460658813154,
+        "skillcorner": 0.6174153272513263
+      }
+    },
+    {
+      "macro_f1": {
+        "combined": 0.9092595813726163,
+        "dfl": 0.9084865185468732,
+        "skillcorner": 0.9100326441983593
+      },
+      "recipe": {
+        "cutoff": 0.61,
+        "dead_cost": 3,
+        "dead_mix": 0,
+        "discount": 0.55,
+        "method": "joint",
+        "owner_cost": 2,
+        "owner_mix": 0.5,
+        "variant": "seed_1800"
+      },
+      "spell_f1": {
+        "combined": 0.5752469756959806,
+        "dfl": 0.5355374058327739,
+        "skillcorner": 0.6149565455591873
+      }
+    },
+    {
+      "macro_f1": {
+        "combined": 0.9098710697140828,
+        "dfl": 0.909179048036874,
+        "skillcorner": 0.9105630913912917
+      },
+      "recipe": {
+        "cutoff": 0.61,
+        "dead_cost": 3,
+        "dead_mix": 0,
+        "discount": 0.8,
+        "method": "joint",
+        "owner_cost": 2,
+        "owner_mix": 0.5,
+        "variant": "seed_1800"
+      },
+      "spell_f1": {
+        "combined": 0.581020186920311,
+        "dfl": 0.5441460658813154,
+        "skillcorner": 0.6178943079593066
+      }
+    },
+    {
+      "macro_f1": {
+        "combined": 0.9089260486745754,
+        "dfl": 0.9080186053162157,
+        "skillcorner": 0.909833492032935
+      },
+      "recipe": {
+        "cutoff": 0.61,
+        "dead_cost": 2,
+        "dead_mix": 0,
+        "discount": 0.55,
+        "method": "joint",
+        "owner_cost": 3,
+        "owner_mix": 0.5,
+        "variant": "seed_1800"
+      },
+      "spell_f1": {
+        "combined": 0.568305641053575,
+        "dfl": 0.525891472868217,
+        "skillcorner": 0.610719809238933
+      }
+    },
+    {
+      "macro_f1": {
+        "combined": 0.9092408065377258,
+        "dfl": 0.908624572286933,
+        "skillcorner": 0.9098570407885184
+      },
+      "recipe": {
+        "cutoff": 0.61,
+        "dead_cost": 2,
+        "dead_mix": 0,
+        "discount": 0.8,
+        "method": "joint",
+        "owner_cost": 3,
+        "owner_mix": 0.5,
+        "variant": "seed_1800"
+      },
+      "spell_f1": {
+        "combined": 0.5747917023528424,
+        "dfl": 0.5379500621639312,
+        "skillcorner": 0.6116333425417537
+      }
+    },
+    {
+      "macro_f1": {
+        "combined": 0.909122573163126,
+        "dfl": 0.9079515513937123,
+        "skillcorner": 0.9102935949325396
+      },
+      "recipe": {
+        "cutoff": 0.61,
+        "dead_cost": 4,
+        "dead_mix": 0,
+        "discount": 0.55,
+        "method": "joint",
+        "owner_cost": 3,
+        "owner_mix": 0.5,
+        "variant": "seed_1800"
+      },
+      "spell_f1": {
+        "combined": 0.5684945974734315,
+        "dfl": 0.525891472868217,
+        "skillcorner": 0.611097722078646
+      }
+    },
+    {
+      "macro_f1": {
+        "combined": 0.9096067202570937,
+        "dfl": 0.9086327926113279,
+        "skillcorner": 0.9105806479028594
+      },
+      "recipe": {
+        "cutoff": 0.61,
+        "dead_cost": 4,
+        "dead_mix": 0,
+        "discount": 0.8,
+        "method": "joint",
+        "owner_cost": 3,
+        "owner_mix": 0.5,
+        "variant": "seed_1800"
+      },
+      "spell_f1": {
+        "combined": 0.5751273031042583,
+        "dfl": 0.5374233128834357,
+        "skillcorner": 0.6128312933250809
+      }
+    },
+    {
+      "macro_f1": {
+        "combined": 0.9092858210600137,
+        "dfl": 0.9067883066068928,
+        "skillcorner": 0.9117833355131344
+      },
+      "recipe": {
+        "cutoff": 0.53,
+        "dead_cost": 1,
+        "dead_mix": 1,
+        "discount": 0.55,
+        "method": "separate",
+        "owner_cost": 1,
+        "owner_mix": 0.5,
+        "variant": "seed_phase"
+      },
+      "spell_f1": {
+        "combined": 0.5767143900169505,
+        "dfl": 0.5391578837446948,
+        "skillcorner": 0.6142708962892061
+      }
+    },
+    {
+      "macro_f1": {
+        "combined": 0.9091303498429646,
+        "dfl": 0.9064881641440959,
+        "skillcorner": 0.9117725355418332
+      },
+      "recipe": {
+        "cutoff": 0.53,
+        "dead_cost": 1,
+        "dead_mix": 1,
+        "discount": 0.8,
+        "method": "separate",
+        "owner_cost": 1,
+        "owner_mix": 0.5,
+        "variant": "seed_phase"
+      },
+      "spell_f1": {
+        "combined": 0.5749635456190614,
+        "dfl": 0.540001629109866,
+        "skillcorner": 0.6099254621282566
+      }
+    },
+    {
+      "macro_f1": {
+        "combined": 0.9088392385202463,
+        "dfl": 0.9059678602795032,
+        "skillcorner": 0.9117106167609894
+      },
+      "recipe": {
+        "cutoff": 0.53,
+        "dead_cost": 2,
+        "dead_mix": 1,
+        "discount": 0.55,
+        "method": "separate",
+        "owner_cost": 2,
+        "owner_mix": 0.5,
+        "variant": "seed_phase"
+      },
+      "spell_f1": {
+        "combined": 0.5736042091603573,
+        "dfl": 0.5296244282758139,
+        "skillcorner": 0.6175839900449006
+      }
+    },
+    {
+      "macro_f1": {
+        "combined": 0.9088455635646204,
+        "dfl": 0.9060281958865694,
+        "skillcorner": 0.9116629312426715
+      },
+      "recipe": {
+        "cutoff": 0.53,
+        "dead_cost": 3,
+        "dead_mix": 1,
+        "discount": 0.55,
+        "method": "separate",
+        "owner_cost": 2,
+        "owner_mix": 0.5,
+        "variant": "seed_phase"
+      },
+      "spell_f1": {
+        "combined": 0.5734255610149619,
+        "dfl": 0.5292160566576415,
+        "skillcorner": 0.6176350653722823
+      }
+    },
+    {
+      "macro_f1": {
+        "combined": 0.909283666824579,
+        "dfl": 0.9067539760744804,
+        "skillcorner": 0.9118133575746774
+      },
+      "recipe": {
+        "cutoff": 0.53,
+        "dead_cost": 3,
+        "dead_mix": 1,
+        "discount": 0.8,
+        "method": "separate",
+        "owner_cost": 2,
+        "owner_mix": 0.5,
+        "variant": "seed_phase"
+      },
+      "spell_f1": {
+        "combined": 0.5789197450033206,
+        "dfl": 0.5389381621088939,
+        "skillcorner": 0.6189013278977471
+      }
+    },
+    {
+      "macro_f1": {
+        "combined": 0.9083294155422155,
+        "dfl": 0.9057178529087476,
+        "skillcorner": 0.9109409781756834
+      },
+      "recipe": {
+        "cutoff": 0.53,
+        "dead_cost": 2,
+        "dead_mix": 1,
+        "discount": 0.55,
+        "method": "separate",
+        "owner_cost": 3,
+        "owner_mix": 0.5,
+        "variant": "seed_phase"
+      },
+      "spell_f1": {
+        "combined": 0.567820165434517,
+        "dfl": 0.5226931163432681,
+        "skillcorner": 0.612947214525766
+      }
+    },
+    {
+      "macro_f1": {
+        "combined": 0.9091972348568009,
+        "dfl": 0.9070467596939862,
+        "skillcorner": 0.9113477100196157
+      },
+      "recipe": {
+        "cutoff": 0.53,
+        "dead_cost": 2,
+        "dead_mix": 1,
+        "discount": 0.8,
+        "method": "separate",
+        "owner_cost": 3,
+        "owner_mix": 0.5,
+        "variant": "seed_phase"
+      },
+      "spell_f1": {
+        "combined": 0.5757222063644368,
+        "dfl": 0.5345622119815667,
+        "skillcorner": 0.6168822007473069
+      }
+    },
+    {
+      "macro_f1": {
+        "combined": 0.9081725585753879,
+        "dfl": 0.9057691731507013,
+        "skillcorner": 0.9105759440000745
+      },
+      "recipe": {
+        "cutoff": 0.53,
+        "dead_cost": 4,
+        "dead_mix": 1,
+        "discount": 0.55,
+        "method": "separate",
+        "owner_cost": 3,
+        "owner_mix": 0.5,
+        "variant": "seed_phase"
+      },
+      "spell_f1": {
+        "combined": 0.5667958928963013,
+        "dfl": 0.5224857560145729,
+        "skillcorner": 0.6111060297780296
+      }
+    },
+    {
+      "macro_f1": {
+        "combined": 0.9090899658850251,
+        "dfl": 0.9070556896021568,
+        "skillcorner": 0.9111242421678936
+      },
+      "recipe": {
+        "cutoff": 0.53,
+        "dead_cost": 4,
+        "dead_mix": 1,
+        "discount": 0.8,
+        "method": "separate",
+        "owner_cost": 3,
+        "owner_mix": 0.5,
+        "variant": "seed_phase"
+      },
+      "spell_f1": {
+        "combined": 0.5744648206792098,
+        "dfl": 0.5345622119815667,
+        "skillcorner": 0.614367429376853
+      }
+    },
+    {
+      "macro_f1": {
+        "combined": 0.9093508958927214,
+        "dfl": 0.9068907969778519,
+        "skillcorner": 0.9118109948075911
+      },
+      "recipe": {
+        "cutoff": 0.53,
+        "dead_cost": 1,
+        "dead_mix": 1,
+        "discount": 0.55,
+        "method": "joint",
+        "owner_cost": 1,
+        "owner_mix": 0.5,
+        "variant": "seed_phase"
+      },
+      "spell_f1": {
+        "combined": 0.5772114462588225,
+        "dfl": 0.5400788395040149,
+        "skillcorner": 0.6143440530136299
+      }
+    },
+    {
+      "macro_f1": {
+        "combined": 0.9092589407655625,
+        "dfl": 0.9066219359531532,
+        "skillcorner": 0.9118959455779716
+      },
+      "recipe": {
+        "cutoff": 0.53,
+        "dead_cost": 1,
+        "dead_mix": 1,
+        "discount": 0.8,
+        "method": "joint",
+        "owner_cost": 1,
+        "owner_mix": 0.5,
+        "variant": "seed_phase"
+      },
+      "spell_f1": {
+        "combined": 0.5760388473557755,
+        "dfl": 0.5414201183431954,
+        "skillcorner": 0.6106575763683556
+      }
+    },
+    {
+      "macro_f1": {
+        "combined": 0.908972584592405,
+        "dfl": 0.9061184476786132,
+        "skillcorner": 0.911826721506197
+      },
+      "recipe": {
+        "cutoff": 0.53,
+        "dead_cost": 2,
+        "dead_mix": 1,
+        "discount": 0.55,
+        "method": "joint",
+        "owner_cost": 2,
+        "owner_mix": 0.5,
+        "variant": "seed_phase"
+      },
+      "spell_f1": {
+        "combined": 0.5745323156628581,
+        "dfl": 0.5297377952434354,
+        "skillcorner": 0.6193268360822808
+      }
+    },
+    {
+      "macro_f1": {
+        "combined": 0.9093070051725249,
+        "dfl": 0.9068085686442875,
+        "skillcorner": 0.9118054417007623
+      },
+      "recipe": {
+        "cutoff": 0.53,
+        "dead_cost": 2,
+        "dead_mix": 1,
+        "discount": 0.8,
+        "method": "joint",
+        "owner_cost": 2,
+        "owner_mix": 0.5,
+        "variant": "seed_phase"
+      },
+      "spell_f1": {
+        "combined": 0.5801109009050867,
+        "dfl": 0.5391414141414141,
+        "skillcorner": 0.6210803876687592
+      }
+    },
+    {
+      "macro_f1": {
+        "combined": 0.9090214468263809,
+        "dfl": 0.9061736866390783,
+        "skillcorner": 0.9118692070136836
+      },
+      "recipe": {
+        "cutoff": 0.53,
+        "dead_cost": 3,
+        "dead_mix": 1,
+        "discount": 0.55,
+        "method": "joint",
+        "owner_cost": 2,
+        "owner_mix": 0.5,
+        "variant": "seed_phase"
+      },
+      "spell_f1": {
+        "combined": 0.5743112275309784,
+        "dfl": 0.5293287972884252,
+        "skillcorner": 0.6192936577735316
+      }
+    },
+    {
+      "macro_f1": {
+        "combined": 0.9093177413409319,
+        "dfl": 0.9067972194470904,
+        "skillcorner": 0.9118382632347736
+      },
+      "recipe": {
+        "cutoff": 0.53,
+        "dead_cost": 3,
+        "dead_mix": 1,
+        "discount": 0.8,
+        "method": "joint",
+        "owner_cost": 2,
+        "owner_mix": 0.5,
+        "variant": "seed_phase"
+      },
+      "spell_f1": {
+        "combined": 0.5793450733866119,
+        "dfl": 0.5391414141414141,
+        "skillcorner": 0.6195487326318098
+      }
+    },
+    {
+      "macro_f1": {
+        "combined": 0.9083574219642071,
+        "dfl": 0.9057980741602637,
+        "skillcorner": 0.9109167697681505
+      },
+      "recipe": {
+        "cutoff": 0.53,
+        "dead_cost": 2,
+        "dead_mix": 1,
+        "discount": 0.55,
+        "method": "joint",
+        "owner_cost": 3,
+        "owner_mix": 0.5,
+        "variant": "seed_phase"
+      },
+      "spell_f1": {
+        "combined": 0.5678056943156162,
+        "dfl": 0.5231065530357745,
+        "skillcorner": 0.6125048355954579
+      }
+    },
+    {
+      "macro_f1": {
+        "combined": 0.9093363064235205,
+        "dfl": 0.9071070160497401,
+        "skillcorner": 0.9115655967973008
+      },
+      "recipe": {
+        "cutoff": 0.53,
+        "dead_cost": 2,
+        "dead_mix": 1,
+        "discount": 0.8,
+        "method": "joint",
+        "owner_cost": 3,
+        "owner_mix": 0.5,
+        "variant": "seed_phase"
+      },
+      "spell_f1": {
+        "combined": 0.5768631978695029,
+        "dfl": 0.5351766513056836,
+        "skillcorner": 0.6185497444333221
+      }
+    },
+    {
+      "macro_f1": {
+        "combined": 0.9081597646092172,
+        "dfl": 0.9058136460723941,
+        "skillcorner": 0.9105058831460402
+      },
+      "recipe": {
+        "cutoff": 0.53,
+        "dead_cost": 4,
+        "dead_mix": 1,
+        "discount": 0.55,
+        "method": "joint",
+        "owner_cost": 3,
+        "owner_mix": 0.5,
+        "variant": "seed_phase"
+      },
+      "spell_f1": {
+        "combined": 0.566944643788694,
+        "dfl": 0.5226924743608262,
+        "skillcorner": 0.6111968132165618
+      }
+    },
+    {
+      "macro_f1": {
+        "combined": 0.9092196388945253,
+        "dfl": 0.907094146948861,
+        "skillcorner": 0.9113451308401894
+      },
+      "recipe": {
+        "cutoff": 0.53,
+        "dead_cost": 4,
+        "dead_mix": 1,
+        "discount": 0.8,
+        "method": "joint",
+        "owner_cost": 3,
+        "owner_mix": 0.5,
+        "variant": "seed_phase"
+      },
+      "spell_f1": {
+        "combined": 0.5754281178988526,
+        "dfl": 0.5351766513056836,
+        "skillcorner": 0.6156795844920216
+      }
+    }
+  ]
+}

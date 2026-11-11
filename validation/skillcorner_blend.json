@@ -1,0 +1,2263 @@
+{
+  "counts": {
+    "dead_rows": 356585,
+    "paired_owner_rows": 400910
+  },
+  "development_search": [
+    {
+      "dfl": 0.4453679528962673,
+      "recipe": {
+        "dead_cutoff": 0.4,
+        "dead_radius": 25,
+        "dead_weight": 0.25,
+        "owner_radius": 25,
+        "owner_weight": 0.25
+      },
+      "skillcorner": 0.38000364969647255
+    },
+    {
+      "dfl": 0.4518652449389584,
+      "recipe": {
+        "dead_cutoff": 0.4,
+        "dead_radius": 50,
+        "dead_weight": 0.25,
+        "owner_radius": 50,
+        "owner_weight": 0.25
+      },
+      "skillcorner": 0.3987239178171298
+    },
+    {
+      "dfl": 0.4291789410434604,
+      "recipe": {
+        "dead_cutoff": 0.4,
+        "dead_radius": 75,
+        "dead_weight": 0.25,
+        "owner_radius": 75,
+        "owner_weight": 0.25
+      },
+      "skillcorner": 0.39623429092776496
+    },
+    {
+      "dfl": 0.44447721745363156,
+      "recipe": {
+        "dead_cutoff": 0.5,
+        "dead_radius": 25,
+        "dead_weight": 0.25,
+        "owner_radius": 25,
+        "owner_weight": 0.25
+      },
+      "skillcorner": 0.3692580174679753
+    },
+    {
+      "dfl": 0.45731646057403164,
+      "recipe": {
+        "dead_cutoff": 0.5,
+        "dead_radius": 50,
+        "dead_weight": 0.25,
+        "owner_radius": 50,
+        "owner_weight": 0.25
+      },
+      "skillcorner": 0.38132542943705555
+    },
+    {
+      "dfl": 0.435695600657417,
+      "recipe": {
+        "dead_cutoff": 0.5,
+        "dead_radius": 75,
+        "dead_weight": 0.25,
+        "owner_radius": 75,
+        "owner_weight": 0.25
+      },
+      "skillcorner": 0.3698262069288624
+    },
+    {
+      "dfl": 0.43629061497699057,
+      "recipe": {
+        "dead_cutoff": 0.6,
+        "dead_radius": 25,
+        "dead_weight": 0.25,
+        "owner_radius": 25,
+        "owner_weight": 0.25
+      },
+      "skillcorner": 0.3608441836533912
+    },
+    {
+      "dfl": 0.44686366286985785,
+      "recipe": {
+        "dead_cutoff": 0.6,
+        "dead_radius": 50,
+        "dead_weight": 0.25,
+        "owner_radius": 50,
+        "owner_weight": 0.25
+      },
+      "skillcorner": 0.3687545595633831
+    },
+    {
+      "dfl": 0.4247225324390173,
+      "recipe": {
+        "dead_cutoff": 0.6,
+        "dead_radius": 75,
+        "dead_weight": 0.25,
+        "owner_radius": 75,
+        "owner_weight": 0.25
+      },
+      "skillcorner": 0.35755220490255873
+    },
+    {
+      "dfl": 0.43828258099614886,
+      "recipe": {
+        "dead_cutoff": 0.4,
+        "dead_radius": 25,
+        "dead_weight": 0.5,
+        "owner_radius": 25,
+        "owner_weight": 0.25
+      },
+      "skillcorner": 0.5258025911594042
+    },
+    {
+      "dfl": 0.4476627661623312,
+      "recipe": {
+        "dead_cutoff": 0.4,
+        "dead_radius": 50,
+        "dead_weight": 0.5,
+        "owner_radius": 50,
+        "owner_weight": 0.25
+      },
+      "skillcorner": 0.5407476848606827
+    },
+    {
+      "dfl": 0.42622013399792236,
+      "recipe": {
+        "dead_cutoff": 0.4,
+        "dead_radius": 75,
+        "dead_weight": 0.5,
+        "owner_radius": 75,
+        "owner_weight": 0.25
+      },
+      "skillcorner": 0.5213960490002145
+    },
+    {
+      "dfl": 0.444980494272279,
+      "recipe": {
+        "dead_cutoff": 0.5,
+        "dead_radius": 25,
+        "dead_weight": 0.5,
+        "owner_radius": 25,
+        "owner_weight": 0.25
+      },
+      "skillcorner": 0.4730666586928356
+    },
+    {
+      "dfl": 0.4569879177240308,
+      "recipe": {
+        "dead_cutoff": 0.5,
+        "dead_radius": 50,
+        "dead_weight": 0.5,
+        "owner_radius": 50,
+        "owner_weight": 0.25
+      },
+      "skillcorner": 0.49599920082860427
+    },
+    {
+      "dfl": 0.4418644193095291,
+      "recipe": {
+        "dead_cutoff": 0.5,
+        "dead_radius": 75,
+        "dead_weight": 0.5,
+        "owner_radius": 75,
+        "owner_weight": 0.25
+      },
+      "skillcorner": 0.47878254942386245
+    },
+    {
+      "dfl": 0.44347368550718774,
+      "recipe": {
+        "dead_cutoff": 0.6,
+        "dead_radius": 25,
+        "dead_weight": 0.5,
+        "owner_radius": 25,
+        "owner_weight": 0.25
+      },
+      "skillcorner": 0.37748065107468454
+    },
+    {
+      "dfl": 0.4537240537240537,
+      "recipe": {
+        "dead_cutoff": 0.6,
+        "dead_radius": 50,
+        "dead_weight": 0.5,
+        "owner_radius": 50,
+        "owner_weight": 0.25
+      },
+      "skillcorner": 0.3895525268616613
+    },
+    {
+      "dfl": 0.43056718363344615,
+      "recipe": {
+        "dead_cutoff": 0.6,
+        "dead_radius": 75,
+        "dead_weight": 0.5,
+        "owner_radius": 75,
+        "owner_weight": 0.25
+      },
+      "skillcorner": 0.3845761524899935
+    },
+    {
+      "dfl": 0.4223138373751783,
+      "recipe": {
+        "dead_cutoff": 0.4,
+        "dead_radius": 25,
+        "dead_weight": 0.75,
+        "owner_radius": 25,
+        "owner_weight": 0.25
+      },
+      "skillcorner": 0.5426123516075726
+    },
+    {
+      "dfl": 0.44314589850317754,
+      "recipe": {
+        "dead_cutoff": 0.4,
+        "dead_radius": 50,
+        "dead_weight": 0.75,
+        "owner_radius": 50,
+        "owner_weight": 0.25
+      },
+      "skillcorner": 0.5609792182198299
+    },
+    {
+      "dfl": 0.4206305098887293,
+      "recipe": {
+        "dead_cutoff": 0.4,
+        "dead_radius": 75,
+        "dead_weight": 0.75,
+        "owner_radius": 75,
+        "owner_weight": 0.25
+      },
+      "skillcorner": 0.5472144390330195
+    },
+    {
+      "dfl": 0.4320708514166755,
+      "recipe": {
+        "dead_cutoff": 0.5,
+        "dead_radius": 25,
+        "dead_weight": 0.75,
+        "owner_radius": 25,
+        "owner_weight": 0.25
+      },
+      "skillcorner": 0.5381784588942555
+    },
+    {
+      "dfl": 0.4520554996083697,
+      "recipe": {
+        "dead_cutoff": 0.5,
+        "dead_radius": 50,
+        "dead_weight": 0.75,
+        "owner_radius": 50,
+        "owner_weight": 0.25
+      },
+      "skillcorner": 0.5490840932060281
+    },
+    {
+      "dfl": 0.44180737788111973,
+      "recipe": {
+        "dead_cutoff": 0.5,
+        "dead_radius": 75,
+        "dead_weight": 0.75,
+        "owner_radius": 75,
+        "owner_weight": 0.25
+      },
+      "skillcorner": 0.5370510781069644
+    },
+    {
+      "dfl": 0.4385362120193581,
+      "recipe": {
+        "dead_cutoff": 0.6,
+        "dead_radius": 25,
+        "dead_weight": 0.75,
+        "owner_radius": 25,
+        "owner_weight": 0.25
+      },
+      "skillcorner": 0.5198463177216162
+    },
+    {
+      "dfl": 0.4523975636991719,
+      "recipe": {
+        "dead_cutoff": 0.6,
+        "dead_radius": 50,
+        "dead_weight": 0.75,
+        "owner_radius": 50,
+        "owner_weight": 0.25
+      },
+      "skillcorner": 0.529684094899299
+    },
+    {
+      "dfl": 0.4359207905605518,
+      "recipe": {
+        "dead_cutoff": 0.6,
+        "dead_radius": 75,
+        "dead_weight": 0.75,
+        "owner_radius": 75,
+        "owner_weight": 0.25
+      },
+      "skillcorner": 0.5078324320594828
+    },
+    {
+      "dfl": 0.40171152518978603,
+      "recipe": {
+        "dead_cutoff": 0.4,
+        "dead_radius": 25,
+        "dead_weight": 1.0,
+        "owner_radius": 25,
+        "owner_weight": 0.25
+      },
+      "skillcorner": 0.5407522374964915
+    },
+    {
+      "dfl": 0.41677793806823904,
+      "recipe": {
+        "dead_cutoff": 0.4,
+        "dead_radius": 50,
+        "dead_weight": 1.0,
+        "owner_radius": 50,
+        "owner_weight": 0.25
+      },
+      "skillcorner": 0.5601217589186592
+    },
+    {
+      "dfl": 0.4078210059634208,
+      "recipe": {
+        "dead_cutoff": 0.4,
+        "dead_radius": 75,
+        "dead_weight": 1.0,
+        "owner_radius": 75,
+        "owner_weight": 0.25
+      },
+      "skillcorner": 0.5431422048776173
+    },
+    {
+      "dfl": 0.4228194247996228,
+      "recipe": {
+        "dead_cutoff": 0.5,
+        "dead_radius": 25,
+        "dead_weight": 1.0,
+        "owner_radius": 25,
+        "owner_weight": 0.25
+      },
+      "skillcorner": 0.5430035745324356
+    },
+    {
+      "dfl": 0.44558190603509334,
+      "recipe": {
+        "dead_cutoff": 0.5,
+        "dead_radius": 50,
+        "dead_weight": 1.0,
+        "owner_radius": 50,
+        "owner_weight": 0.25
+      },
+      "skillcorner": 0.5640855772237765
+    },
+    {
+      "dfl": 0.4324559872363751,
+      "recipe": {
+        "dead_cutoff": 0.5,
+        "dead_radius": 75,
+        "dead_weight": 1.0,
+        "owner_radius": 75,
+        "owner_weight": 0.25
+      },
+      "skillcorner": 0.5549441620822788
+    },
+    {
+      "dfl": 0.4264908994195055,
+      "recipe": {
+        "dead_cutoff": 0.6,
+        "dead_radius": 25,
+        "dead_weight": 1.0,
+        "owner_radius": 25,
+        "owner_weight": 0.25
+      },
+      "skillcorner": 0.5418431172142374
+    },
+    {
+      "dfl": 0.4495280553922529,
+      "recipe": {
+        "dead_cutoff": 0.6,
+        "dead_radius": 50,
+        "dead_weight": 1.0,
+        "owner_radius": 50,
+        "owner_weight": 0.25
+      },
+      "skillcorner": 0.5536174330685903
+    },
+    {
+      "dfl": 0.43657062190535484,
+      "recipe": {
+        "dead_cutoff": 0.6,
+        "dead_radius": 75,
+        "dead_weight": 1.0,
+        "owner_radius": 75,
+        "owner_weight": 0.25
+      },
+      "skillcorner": 0.5427304015004
+    },
+    {
+      "dfl": 0.45300538618695113,
+      "recipe": {
+        "dead_cutoff": 0.4,
+        "dead_radius": 25,
+        "dead_weight": 0.25,
+        "owner_radius": 25,
+        "owner_weight": 0.5
+      },
+      "skillcorner": 0.38326309563831
+    },
+    {
+      "dfl": 0.44268472877288795,
+      "recipe": {
+        "dead_cutoff": 0.4,
+        "dead_radius": 50,
+        "dead_weight": 0.25,
+        "owner_radius": 50,
+        "owner_weight": 0.5
+      },
+      "skillcorner": 0.39441129935225905
+    },
+    {
+      "dfl": 0.42100691163477366,
+      "recipe": {
+        "dead_cutoff": 0.4,
+        "dead_radius": 75,
+        "dead_weight": 0.25,
+        "owner_radius": 75,
+        "owner_weight": 0.5
+      },
+      "skillcorner": 0.3915463395933107
+    },
+    {
+      "dfl": 0.45247979899667756,
+      "recipe": {
+        "dead_cutoff": 0.5,
+        "dead_radius": 25,
+        "dead_weight": 0.25,
+        "owner_radius": 25,
+        "owner_weight": 0.5
+      },
+      "skillcorner": 0.37364100993796984
+    },
+    {
+      "dfl": 0.44971745481901365,
+      "recipe": {
+        "dead_cutoff": 0.5,
+        "dead_radius": 50,
+        "dead_weight": 0.25,
+        "owner_radius": 50,
+        "owner_weight": 0.5
+      },
+      "skillcorner": 0.3782568206149041
+    },
+    {
+      "dfl": 0.4246205600266845,
+      "recipe": {
+        "dead_cutoff": 0.5,
+        "dead_radius": 75,
+        "dead_weight": 0.25,
+        "owner_radius": 75,
+        "owner_weight": 0.5
+      },
+      "skillcorner": 0.3662671573264491
+    },
+    {
+      "dfl": 0.44334305150631687,
+      "recipe": {
+        "dead_cutoff": 0.6,
+        "dead_radius": 25,
+        "dead_weight": 0.25,
+        "owner_radius": 25,
+        "owner_weight": 0.5
+      },
+      "skillcorner": 0.36622786592942735
+    },
+    {
+      "dfl": 0.4384988160258419,
+      "recipe": {
+        "dead_cutoff": 0.6,
+        "dead_radius": 50,
+        "dead_weight": 0.25,
+        "owner_radius": 50,
+        "owner_weight": 0.5
+      },
+      "skillcorner": 0.3660201366695777
+    },
+    {
+      "dfl": 0.4164329725641884,
+      "recipe": {
+        "dead_cutoff": 0.6,
+        "dead_radius": 75,
+        "dead_weight": 0.25,
+        "owner_radius": 75,
+        "owner_weight": 0.5
+      },
+      "skillcorner": 0.3514861469554946
+    },
+    {
+      "dfl": 0.44529786591410175,
+      "recipe": {
+        "dead_cutoff": 0.4,
+        "dead_radius": 25,
+        "dead_weight": 0.5,
+        "owner_radius": 25,
+        "owner_weight": 0.5
+      },
+      "skillcorner": 0.5416807215317458
+    },
+    {
+      "dfl": 0.4382582526097997,
+      "recipe": {
+        "dead_cutoff": 0.4,
+        "dead_radius": 50,
+        "dead_weight": 0.5,
+        "owner_radius": 50,
+        "owner_weight": 0.5
+      },
+      "skillcorner": 0.5453030805995213
+    },
+    {
+      "dfl": 0.418466427134118,
+      "recipe": {
+        "dead_cutoff": 0.4,
+        "dead_radius": 75,
+        "dead_weight": 0.5,
+        "owner_radius": 75,
+        "owner_weight": 0.5
+      },
+      "skillcorner": 0.5204706635223699
+    },
+    {
+      "dfl": 0.45066726645674016,
+      "recipe": {
+        "dead_cutoff": 0.5,
+        "dead_radius": 25,
+        "dead_weight": 0.5,
+        "owner_radius": 25,
+        "owner_weight": 0.5
+      },
+      "skillcorner": 0.48157399081820734
+    },
+    {
+      "dfl": 0.4478742149465355,
+      "recipe": {
+        "dead_cutoff": 0.5,
+        "dead_radius": 50,
+        "dead_weight": 0.5,
+        "owner_radius": 50,
+        "owner_weight": 0.5
+      },
+      "skillcorner": 0.49527858749259546
+    },
+    {
+      "dfl": 0.43220584341351503,
+      "recipe": {
+        "dead_cutoff": 0.5,
+        "dead_radius": 75,
+        "dead_weight": 0.5,
+        "owner_radius": 75,
+        "owner_weight": 0.5
+      },
+      "skillcorner": 0.475431376221478
+    },
+    {
+      "dfl": 0.44841567865241333,
+      "recipe": {
+        "dead_cutoff": 0.6,
+        "dead_radius": 25,
+        "dead_weight": 0.5,
+        "owner_radius": 25,
+        "owner_weight": 0.5
+      },
+      "skillcorner": 0.3802626370656931
+    },
+    {
+      "dfl": 0.439252190785866,
+      "recipe": {
+        "dead_cutoff": 0.6,
+        "dead_radius": 50,
+        "dead_weight": 0.5,
+        "owner_radius": 50,
+        "owner_weight": 0.5
+      },
+      "skillcorner": 0.38742637767637766
+    },
+    {
+      "dfl": 0.41739219235946706,
+      "recipe": {
+        "dead_cutoff": 0.6,
+        "dead_radius": 75,
+        "dead_weight": 0.5,
+        "owner_radius": 75,
+        "owner_weight": 0.5
+      },
+      "skillcorner": 0.37907292046314733
+    },
+    {
+      "dfl": 0.4270940080054297,
+      "recipe": {
+        "dead_cutoff": 0.4,
+        "dead_radius": 25,
+        "dead_weight": 0.75,
+        "owner_radius": 25,
+        "owner_weight": 0.5
+      },
+      "skillcorner": 0.5610482216580762
+    },
+    {
+      "dfl": 0.4406939355978226,
+      "recipe": {
+        "dead_cutoff": 0.4,
+        "dead_radius": 50,
+        "dead_weight": 0.75,
+        "owner_radius": 50,
+        "owner_weight": 0.5
+      },
+      "skillcorner": 0.5661334346886937
+    },
+    {
+      "dfl": 0.4183163441659656,
+      "recipe": {
+        "dead_cutoff": 0.4,
+        "dead_radius": 75,
+        "dead_weight": 0.75,
+        "owner_radius": 75,
+        "owner_weight": 0.5
+      },
+      "skillcorner": 0.5477267835612394
+    },
+    {
+      "dfl": 0.4404252569750368,
+      "recipe": {
+        "dead_cutoff": 0.5,
+        "dead_radius": 25,
+        "dead_weight": 0.75,
+        "owner_radius": 25,
+        "owner_weight": 0.5
+      },
+      "skillcorner": 0.5513289213935749
+    },
+    {
+      "dfl": 0.443747331239311,
+      "recipe": {
+        "dead_cutoff": 0.5,
+        "dead_radius": 50,
+        "dead_weight": 0.75,
+        "owner_radius": 50,
+        "owner_weight": 0.5
+      },
+      "skillcorner": 0.5549170128331883
+    },
+    {
+      "dfl": 0.431627395993861,
+      "recipe": {
+        "dead_cutoff": 0.5,
+        "dead_radius": 75,
+        "dead_weight": 0.75,
+        "owner_radius": 75,
+        "owner_weight": 0.5
+      },
+      "skillcorner": 0.5353830270689104
+    },
+    {
+      "dfl": 0.44410893286671405,
+      "recipe": {
+        "dead_cutoff": 0.6,
+        "dead_radius": 25,
+        "dead_weight": 0.75,
+        "owner_radius": 25,
+        "owner_weight": 0.5
+      },
+      "skillcorner": 0.5343357518596834
+    },
+    {
+      "dfl": 0.44047156994526776,
+      "recipe": {
+        "dead_cutoff": 0.6,
+        "dead_radius": 50,
+        "dead_weight": 0.75,
+        "owner_radius": 50,
+        "owner_weight": 0.5
+      },
+      "skillcorner": 0.5316250469203506
+    },
+    {
+      "dfl": 0.42597145036504297,
+      "recipe": {
+        "dead_cutoff": 0.6,
+        "dead_radius": 75,
+        "dead_weight": 0.75,
+        "owner_radius": 75,
+        "owner_weight": 0.5
+      },
+      "skillcorner": 0.5026334538124411
+    },
+    {
+      "dfl": 0.40619811412462337,
+      "recipe": {
+        "dead_cutoff": 0.4,
+        "dead_radius": 25,
+        "dead_weight": 1.0,
+        "owner_radius": 25,
+        "owner_weight": 0.5
+      },
+      "skillcorner": 0.5595730327357473
+    },
+    {
+      "dfl": 0.41766918517071666,
+      "recipe": {
+        "dead_cutoff": 0.4,
+        "dead_radius": 50,
+        "dead_weight": 1.0,
+        "owner_radius": 50,
+        "owner_weight": 0.5
+      },
+      "skillcorner": 0.5619333440352845
+    },
+    {
+      "dfl": 0.4055328833906838,
+      "recipe": {
+        "dead_cutoff": 0.4,
+        "dead_radius": 75,
+        "dead_weight": 1.0,
+        "owner_radius": 75,
+        "owner_weight": 0.5
+      },
+      "skillcorner": 0.5458365495631353
+    },
+    {
+      "dfl": 0.42747791851218686,
+      "recipe": {
+        "dead_cutoff": 0.5,
+        "dead_radius": 25,
+        "dead_weight": 1.0,
+        "owner_radius": 25,
+        "owner_weight": 0.5
+      },
+      "skillcorner": 0.5601883141979536
+    },
+    {
+      "dfl": 0.43885480572597135,
+      "recipe": {
+        "dead_cutoff": 0.5,
+        "dead_radius": 50,
+        "dead_weight": 1.0,
+        "owner_radius": 50,
+        "owner_weight": 0.5
+      },
+      "skillcorner": 0.570085780889539
+    },
+    {
+      "dfl": 0.42612145390070927,
+      "recipe": {
+        "dead_cutoff": 0.5,
+        "dead_radius": 75,
+        "dead_weight": 1.0,
+        "owner_radius": 75,
+        "owner_weight": 0.5
+      },
+      "skillcorner": 0.5558018539225749
+    },
+    {
+      "dfl": 0.4301058064351493,
+      "recipe": {
+        "dead_cutoff": 0.6,
+        "dead_radius": 25,
+        "dead_weight": 1.0,
+        "owner_radius": 25,
+        "owner_weight": 0.5
+      },
+      "skillcorner": 0.554643409522312
+    },
+    {
+      "dfl": 0.43843578025117896,
+      "recipe": {
+        "dead_cutoff": 0.6,
+        "dead_radius": 50,
+        "dead_weight": 1.0,
+        "owner_radius": 50,
+        "owner_weight": 0.5
+      },
+      "skillcorner": 0.5604214356255119
+    },
+    {
+      "dfl": 0.42544399917941783,
+      "recipe": {
+        "dead_cutoff": 0.6,
+        "dead_radius": 75,
+        "dead_weight": 1.0,
+        "owner_radius": 75,
+        "owner_weight": 0.5
+      },
+      "skillcorner": 0.5426770536296106
+    },
+    {
+      "dfl": 0.45242638419851505,
+      "recipe": {
+        "dead_cutoff": 0.4,
+        "dead_radius": 25,
+        "dead_weight": 0.25,
+        "owner_radius": 25,
+        "owner_weight": 0.75
+      },
+      "skillcorner": 0.3769585105109401
+    },
+    {
+      "dfl": 0.442554923138702,
+      "recipe": {
+        "dead_cutoff": 0.4,
+        "dead_radius": 50,
+        "dead_weight": 0.25,
+        "owner_radius": 50,
+        "owner_weight": 0.75
+      },
+      "skillcorner": 0.39224139319400675
+    },
+    {
+      "dfl": 0.41640461215932917,
+      "recipe": {
+        "dead_cutoff": 0.4,
+        "dead_radius": 75,
+        "dead_weight": 0.25,
+        "owner_radius": 75,
+        "owner_weight": 0.75
+      },
+      "skillcorner": 0.3886489075517628
+    },
+    {
+      "dfl": 0.4504032778423022,
+      "recipe": {
+        "dead_cutoff": 0.5,
+        "dead_radius": 25,
+        "dead_weight": 0.25,
+        "owner_radius": 25,
+        "owner_weight": 0.75
+      },
+      "skillcorner": 0.36804597331489375
+    },
+    {
+      "dfl": 0.4448934430172704,
+      "recipe": {
+        "dead_cutoff": 0.5,
+        "dead_radius": 50,
+        "dead_weight": 0.25,
+        "owner_radius": 50,
+        "owner_weight": 0.75
+      },
+      "skillcorner": 0.3752846605369897
+    },
+    {
+      "dfl": 0.42579928574294773,
+      "recipe": {
+        "dead_cutoff": 0.5,
+        "dead_radius": 75,
+        "dead_weight": 0.25,
+        "owner_radius": 75,
+        "owner_weight": 0.75
+      },
+      "skillcorner": 0.3598655356514391
+    },
+    {
+      "dfl": 0.44283587723355505,
+      "recipe": {
+        "dead_cutoff": 0.6,
+        "dead_radius": 25,
+        "dead_weight": 0.25,
+        "owner_radius": 25,
+        "owner_weight": 0.75
+      },
+      "skillcorner": 0.35942202749638996
+    },
+    {
+      "dfl": 0.43336775265562877,
+      "recipe": {
+        "dead_cutoff": 0.6,
+        "dead_radius": 50,
+        "dead_weight": 0.25,
+        "owner_radius": 50,
+        "owner_weight": 0.75
+      },
+      "skillcorner": 0.3609826523717564
+    },
+    {
+      "dfl": 0.4104327627127203,
+      "recipe": {
+        "dead_cutoff": 0.6,
+        "dead_radius": 75,
+        "dead_weight": 0.25,
+        "owner_radius": 75,
+        "owner_weight": 0.75
+      },
+      "skillcorner": 0.34459519211612416
+    },
+    {
+      "dfl": 0.44358500629594805,
+      "recipe": {
+        "dead_cutoff": 0.4,
+        "dead_radius": 25,
+        "dead_weight": 0.5,
+        "owner_radius": 25,
+        "owner_weight": 0.75
+      },
+      "skillcorner": 0.5369481059467656
+    },
+    {
+      "dfl": 0.4375642163462318,
+      "recipe": {
+        "dead_cutoff": 0.4,
+        "dead_radius": 50,
+        "dead_weight": 0.5,
+        "owner_radius": 50,
+        "owner_weight": 0.75
+      },
+      "skillcorner": 0.5426533629953887
+    },
+    {
+      "dfl": 0.41650868721393136,
+      "recipe": {
+        "dead_cutoff": 0.4,
+        "dead_radius": 75,
+        "dead_weight": 0.5,
+        "owner_radius": 75,
+        "owner_weight": 0.75
+      },
+      "skillcorner": 0.5210927165901922
+    },
+    {
+      "dfl": 0.4528777995216351,
+      "recipe": {
+        "dead_cutoff": 0.5,
+        "dead_radius": 25,
+        "dead_weight": 0.5,
+        "owner_radius": 25,
+        "owner_weight": 0.75
+      },
+      "skillcorner": 0.47449259143201916
+    },
+    {
+      "dfl": 0.4419237220156056,
+      "recipe": {
+        "dead_cutoff": 0.5,
+        "dead_radius": 50,
+        "dead_weight": 0.5,
+        "owner_radius": 50,
+        "owner_weight": 0.75
+      },
+      "skillcorner": 0.49109886176725925
+    },
+    {
+      "dfl": 0.4283784131890778,
+      "recipe": {
+        "dead_cutoff": 0.5,
+        "dead_radius": 75,
+        "dead_weight": 0.5,
+        "owner_radius": 75,
+        "owner_weight": 0.75
+      },
+      "skillcorner": 0.473723602895575
+    },
+    {
+      "dfl": 0.4484180818139542,
+      "recipe": {
+        "dead_cutoff": 0.6,
+        "dead_radius": 25,
+        "dead_weight": 0.5,
+        "owner_radius": 25,
+        "owner_weight": 0.75
+      },
+      "skillcorner": 0.3747150904810823
+    },
+    {
+      "dfl": 0.43478465276197026,
+      "recipe": {
+        "dead_cutoff": 0.6,
+        "dead_radius": 50,
+        "dead_weight": 0.5,
+        "owner_radius": 50,
+        "owner_weight": 0.75
+      },
+      "skillcorner": 0.3836788231278633
+    },
+    {
+      "dfl": 0.41630159446845344,
+      "recipe": {
+        "dead_cutoff": 0.6,
+        "dead_radius": 75,
+        "dead_weight": 0.5,
+        "owner_radius": 75,
+        "owner_weight": 0.75
+      },
+      "skillcorner": 0.3733423698024697
+    },
+    {
+      "dfl": 0.42853871510587926,
+      "recipe": {
+        "dead_cutoff": 0.4,
+        "dead_radius": 25,
+        "dead_weight": 0.75,
+        "owner_radius": 25,
+        "owner_weight": 0.75
+      },
+      "skillcorner": 0.5549974475517079
+    },
+    {
+      "dfl": 0.4386138796603913,
+      "recipe": {
+        "dead_cutoff": 0.4,
+        "dead_radius": 50,
+        "dead_weight": 0.75,
+        "owner_radius": 50,
+        "owner_weight": 0.75
+      },
+      "skillcorner": 0.5618646815818734
+    },
+    {
+      "dfl": 0.41113798079315317,
+      "recipe": {
+        "dead_cutoff": 0.4,
+        "dead_radius": 75,
+        "dead_weight": 0.75,
+        "owner_radius": 75,
+        "owner_weight": 0.75
+      },
+      "skillcorner": 0.5470675204604606
+    },
+    {
+      "dfl": 0.4440115334035793,
+      "recipe": {
+        "dead_cutoff": 0.5,
+        "dead_radius": 25,
+        "dead_weight": 0.75,
+        "owner_radius": 25,
+        "owner_weight": 0.75
+      },
+      "skillcorner": 0.5460478875744755
+    },
+    {
+      "dfl": 0.43805506672783673,
+      "recipe": {
+        "dead_cutoff": 0.5,
+        "dead_radius": 50,
+        "dead_weight": 0.75,
+        "owner_radius": 50,
+        "owner_weight": 0.75
+      },
+      "skillcorner": 0.5481568852238102
+    },
+    {
+      "dfl": 0.4312435098650052,
+      "recipe": {
+        "dead_cutoff": 0.5,
+        "dead_radius": 75,
+        "dead_weight": 0.75,
+        "owner_radius": 75,
+        "owner_weight": 0.75
+      },
+      "skillcorner": 0.5326614089088735
+    },
+    {
+      "dfl": 0.44486498893701976,
+      "recipe": {
+        "dead_cutoff": 0.6,
+        "dead_radius": 25,
+        "dead_weight": 0.75,
+        "owner_radius": 25,
+        "owner_weight": 0.75
+      },
+      "skillcorner": 0.5265455447889723
+    },
+    {
+      "dfl": 0.4361293219577908,
+      "recipe": {
+        "dead_cutoff": 0.6,
+        "dead_radius": 50,
+        "dead_weight": 0.75,
+        "owner_radius": 50,
+        "owner_weight": 0.75
+      },
+      "skillcorner": 0.5282908463121891
+    },
+    {
+      "dfl": 0.42449411879001,
+      "recipe": {
+        "dead_cutoff": 0.6,
+        "dead_radius": 75,
+        "dead_weight": 0.75,
+        "owner_radius": 75,
+        "owner_weight": 0.75
+      },
+      "skillcorner": 0.49903925049008857
+    },
+    {
+      "dfl": 0.4082347096341053,
+      "recipe": {
+        "dead_cutoff": 0.4,
+        "dead_radius": 25,
+        "dead_weight": 1.0,
+        "owner_radius": 25,
+        "owner_weight": 0.75
+      },
+      "skillcorner": 0.5548870637315653
+    },
+    {
+      "dfl": 0.4143782730483498,
+      "recipe": {
+        "dead_cutoff": 0.4,
+        "dead_radius": 50,
+        "dead_weight": 1.0,
+        "owner_radius": 50,
+        "owner_weight": 0.75
+      },
+      "skillcorner": 0.5587134977775372
+    },
+    {
+      "dfl": 0.4017948717948718,
+      "recipe": {
+        "dead_cutoff": 0.4,
+        "dead_radius": 75,
+        "dead_weight": 1.0,
+        "owner_radius": 75,
+        "owner_weight": 0.75
+      },
+      "skillcorner": 0.5482220537508928
+    },
+    {
+      "dfl": 0.431029999220939,
+      "recipe": {
+        "dead_cutoff": 0.5,
+        "dead_radius": 25,
+        "dead_weight": 1.0,
+        "owner_radius": 25,
+        "owner_weight": 0.75
+      },
+      "skillcorner": 0.5544301509364337
+    },
+    {
+      "dfl": 0.43362466386395476,
+      "recipe": {
+        "dead_cutoff": 0.5,
+        "dead_radius": 50,
+        "dead_weight": 1.0,
+        "owner_radius": 50,
+        "owner_weight": 0.75
+      },
+      "skillcorner": 0.5656368326019512
+    },
+    {
+      "dfl": 0.4198533950617284,
+      "recipe": {
+        "dead_cutoff": 0.5,
+        "dead_radius": 75,
+        "dead_weight": 1.0,
+        "owner_radius": 75,
+        "owner_weight": 0.75
+      },
+      "skillcorner": 0.5509084600576003
+    },
+    {
+      "dfl": 0.4325352449223417,
+      "recipe": {
+        "dead_cutoff": 0.6,
+        "dead_radius": 25,
+        "dead_weight": 1.0,
+        "owner_radius": 25,
+        "owner_weight": 0.75
+      },
+      "skillcorner": 0.552478641227397
+    },
+    {
+      "dfl": 0.43354461545379924,
+      "recipe": {
+        "dead_cutoff": 0.6,
+        "dead_radius": 50,
+        "dead_weight": 1.0,
+        "owner_radius": 50,
+        "owner_weight": 0.75
+      },
+      "skillcorner": 0.552267361319765
+    },
+    {
+      "dfl": 0.42011161564282995,
+      "recipe": {
+        "dead_cutoff": 0.6,
+        "dead_radius": 75,
+        "dead_weight": 1.0,
+        "owner_radius": 75,
+        "owner_weight": 0.75
+      },
+      "skillcorner": 0.5383730016669579
+    },
+    {
+      "dfl": 0.4431829709391759,
+      "recipe": {
+        "dead_cutoff": 0.4,
+        "dead_radius": 25,
+        "dead_weight": 0.25,
+        "owner_radius": 25,
+        "owner_weight": 1.0
+      },
+      "skillcorner": 0.37051273257176265
+    },
+    {
+      "dfl": 0.4314373897707231,
+      "recipe": {
+        "dead_cutoff": 0.4,
+        "dead_radius": 50,
+        "dead_weight": 0.25,
+        "owner_radius": 50,
+        "owner_weight": 1.0
+      },
+      "skillcorner": 0.3818553574211576
+    },
+    {
+      "dfl": 0.40790166638512676,
+      "recipe": {
+        "dead_cutoff": 0.4,
+        "dead_radius": 75,
+        "dead_weight": 0.25,
+        "owner_radius": 75,
+        "owner_weight": 1.0
+      },
+      "skillcorner": 0.3828768715561168
+    },
+    {
+      "dfl": 0.44258979077216654,
+      "recipe": {
+        "dead_cutoff": 0.5,
+        "dead_radius": 25,
+        "dead_weight": 0.25,
+        "owner_radius": 25,
+        "owner_weight": 1.0
+      },
+      "skillcorner": 0.3614218648967836
+    },
+    {
+      "dfl": 0.4351043219580186,
+      "recipe": {
+        "dead_cutoff": 0.5,
+        "dead_radius": 50,
+        "dead_weight": 0.25,
+        "owner_radius": 50,
+        "owner_weight": 1.0
+      },
+      "skillcorner": 0.36664789935852493
+    },
+    {
+      "dfl": 0.41285878522640546,
+      "recipe": {
+        "dead_cutoff": 0.5,
+        "dead_radius": 75,
+        "dead_weight": 0.25,
+        "owner_radius": 75,
+        "owner_weight": 1.0
+      },
+      "skillcorner": 0.3578303355465542
+    },
+    {
+      "dfl": 0.4370804776181528,
+      "recipe": {
+        "dead_cutoff": 0.6,
+        "dead_radius": 25,
+        "dead_weight": 0.25,
+        "owner_radius": 25,
+        "owner_weight": 1.0
+      },
+      "skillcorner": 0.3547732398300393
+    },
+    {
+      "dfl": 0.4281387784337398,
+      "recipe": {
+        "dead_cutoff": 0.6,
+        "dead_radius": 50,
+        "dead_weight": 0.25,
+        "owner_radius": 50,
+        "owner_weight": 1.0
+      },
+      "skillcorner": 0.3530739588638221
+    },
+    {
+      "dfl": 0.40309819485341186,
+      "recipe": {
+        "dead_cutoff": 0.6,
+        "dead_radius": 75,
+        "dead_weight": 0.25,
+        "owner_radius": 75,
+        "owner_weight": 1.0
+      },
+      "skillcorner": 0.3419468147848542
+    },
+    {
+      "dfl": 0.4369447466825438,
+      "recipe": {
+        "dead_cutoff": 0.4,
+        "dead_radius": 25,
+        "dead_weight": 0.5,
+        "owner_radius": 25,
+        "owner_weight": 1.0
+      },
+      "skillcorner": 0.5335871650521229
+    },
+    {
+      "dfl": 0.42741206084074523,
+      "recipe": {
+        "dead_cutoff": 0.4,
+        "dead_radius": 50,
+        "dead_weight": 0.5,
+        "owner_radius": 50,
+        "owner_weight": 1.0
+      },
+      "skillcorner": 0.5379458846708055
+    },
+    {
+      "dfl": 0.4080758162300045,
+      "recipe": {
+        "dead_cutoff": 0.4,
+        "dead_radius": 75,
+        "dead_weight": 0.5,
+        "owner_radius": 75,
+        "owner_weight": 1.0
+      },
+      "skillcorner": 0.515181746517678
+    },
+    {
+      "dfl": 0.4438492063492063,
+      "recipe": {
+        "dead_cutoff": 0.5,
+        "dead_radius": 25,
+        "dead_weight": 0.5,
+        "owner_radius": 25,
+        "owner_weight": 1.0
+      },
+      "skillcorner": 0.4684068359992624
+    },
+    {
+      "dfl": 0.43537675431999157,
+      "recipe": {
+        "dead_cutoff": 0.5,
+        "dead_radius": 50,
+        "dead_weight": 0.5,
+        "owner_radius": 50,
+        "owner_weight": 1.0
+      },
+      "skillcorner": 0.4842857533441813
+    },
+    {
+      "dfl": 0.4189408440433871,
+      "recipe": {
+        "dead_cutoff": 0.5,
+        "dead_radius": 75,
+        "dead_weight": 0.5,
+        "owner_radius": 75,
+        "owner_weight": 1.0
+      },
+      "skillcorner": 0.46948018114165246
+    },
+    {
+      "dfl": 0.4430391578118851,
+      "recipe": {
+        "dead_cutoff": 0.6,
+        "dead_radius": 25,
+        "dead_weight": 0.5,
+        "owner_radius": 25,
+        "owner_weight": 1.0
+      },
+      "skillcorner": 0.36739614219776795
+    },
+    {
+      "dfl": 0.4298325722983258,
+      "recipe": {
+        "dead_cutoff": 0.6,
+        "dead_radius": 50,
+        "dead_weight": 0.5,
+        "owner_radius": 50,
+        "owner_weight": 1.0
+      },
+      "skillcorner": 0.3746384544180822
+    },
+    {
+      "dfl": 0.40997471838197647,
+      "recipe": {
+        "dead_cutoff": 0.6,
+        "dead_radius": 75,
+        "dead_weight": 0.5,
+        "owner_radius": 75,
+        "owner_weight": 1.0
+      },
+      "skillcorner": 0.36996684536018554
+    },
+    {
+      "dfl": 0.42172979444343756,
+      "recipe": {
+        "dead_cutoff": 0.4,
+        "dead_radius": 25,
+        "dead_weight": 0.75,
+        "owner_radius": 25,
+        "owner_weight": 1.0
+      },
+      "skillcorner": 0.5503996086343814
+    },
+    {
+      "dfl": 0.4223063308373043,
+      "recipe": {
+        "dead_cutoff": 0.4,
+        "dead_radius": 50,
+        "dead_weight": 0.75,
+        "owner_radius": 50,
+        "owner_weight": 1.0
+      },
+      "skillcorner": 0.5587581008799105
+    },
+    {
+      "dfl": 0.40261660751551887,
+      "recipe": {
+        "dead_cutoff": 0.4,
+        "dead_radius": 75,
+        "dead_weight": 0.75,
+        "owner_radius": 75,
+        "owner_weight": 1.0
+      },
+      "skillcorner": 0.5436471752076147
+    },
+    {
+      "dfl": 0.4344189493360764,
+      "recipe": {
+        "dead_cutoff": 0.5,
+        "dead_radius": 25,
+        "dead_weight": 0.75,
+        "owner_radius": 25,
+        "owner_weight": 1.0
+      },
+      "skillcorner": 0.5418442082961256
+    },
+    {
+      "dfl": 0.4338809022372799,
+      "recipe": {
+        "dead_cutoff": 0.5,
+        "dead_radius": 50,
+        "dead_weight": 0.75,
+        "owner_radius": 50,
+        "owner_weight": 1.0
+      },
+      "skillcorner": 0.542460920359604
+    },
+    {
+      "dfl": 0.41746477499878115,
+      "recipe": {
+        "dead_cutoff": 0.5,
+        "dead_radius": 75,
+        "dead_weight": 0.75,
+        "owner_radius": 75,
+        "owner_weight": 1.0
+      },
+      "skillcorner": 0.5270058032604356
+    },
+    {
+      "dfl": 0.43803580150667276,
+      "recipe": {
+        "dead_cutoff": 0.6,
+        "dead_radius": 25,
+        "dead_weight": 0.75,
+        "owner_radius": 25,
+        "owner_weight": 1.0
+      },
+      "skillcorner": 0.524451562925955
+    },
+    {
+      "dfl": 0.4293577981651377,
+      "recipe": {
+        "dead_cutoff": 0.6,
+        "dead_radius": 50,
+        "dead_weight": 0.75,
+        "owner_radius": 50,
+        "owner_weight": 1.0
+      },
+      "skillcorner": 0.5212894395609643
+    },
+    {
+      "dfl": 0.41777732627374525,
+      "recipe": {
+        "dead_cutoff": 0.6,
+        "dead_radius": 75,
+        "dead_weight": 0.75,
+        "owner_radius": 75,
+        "owner_weight": 1.0
+      },
+      "skillcorner": 0.49894056980266943
+    },
+    {
+      "dfl": 0.39976714032441585,
+      "recipe": {
+        "dead_cutoff": 0.4,
+        "dead_radius": 25,
+        "dead_weight": 1.0,
+        "owner_radius": 25,
+        "owner_weight": 1.0
+      },
+      "skillcorner": 0.5504735520085418
+    },
+    {
+      "dfl": 0.4003159273816208,
+      "recipe": {
+        "dead_cutoff": 0.4,
+        "dead_radius": 50,
+        "dead_weight": 1.0,
+        "owner_radius": 50,
+        "owner_weight": 1.0
+      },
+      "skillcorner": 0.5552726479544753
+    },
+    {
+      "dfl": 0.39309734869042595,
+      "recipe": {
+        "dead_cutoff": 0.4,
+        "dead_radius": 75,
+        "dead_weight": 1.0,
+        "owner_radius": 75,
+        "owner_weight": 1.0
+      },
+      "skillcorner": 0.5496740527994044
+    },
+    {
+      "dfl": 0.4197985451391446,
+      "recipe": {
+        "dead_cutoff": 0.5,
+        "dead_radius": 25,
+        "dead_weight": 1.0,
+        "owner_radius": 25,
+        "owner_weight": 1.0
+      },
+      "skillcorner": 0.5526496583425808
+    },
+    {
+      "dfl": 0.4240270065424743,
+      "recipe": {
+        "dead_cutoff": 0.5,
+        "dead_radius": 50,
+        "dead_weight": 1.0,
+        "owner_radius": 50,
+        "owner_weight": 1.0
+      },
+      "skillcorner": 0.5626943875214949
+    },
+    {
+      "dfl": 0.4117565979099238,
+      "recipe": {
+        "dead_cutoff": 0.5,
+        "dead_radius": 75,
+        "dead_weight": 1.0,
+        "owner_radius": 75,
+        "owner_weight": 1.0
+      },
+      "skillcorner": 0.5498420138861327
+    },
+    {
+      "dfl": 0.42522516685025596,
+      "recipe": {
+        "dead_cutoff": 0.6,
+        "dead_radius": 25,
+        "dead_weight": 1.0,
+        "owner_radius": 25,
+        "owner_weight": 1.0
+      },
+      "skillcorner": 0.54591349719375
+    },
+    {
+      "dfl": 0.4274654051850253,
+      "recipe": {
+        "dead_cutoff": 0.6,
+        "dead_radius": 50,
+        "dead_weight": 1.0,
+        "owner_radius": 50,
+        "owner_weight": 1.0
+      },
+      "skillcorner": 0.5479202713450468
+    },
+    {
+      "dfl": 0.411929347826087,
+      "recipe": {
+        "dead_cutoff": 0.6,
+        "dead_radius": 75,
+        "dead_weight": 1.0,
+        "owner_radius": 75,
+        "owner_weight": 1.0
+      },
+      "skillcorner": 0.5358483860019114
+    }
+  ],
+  "dfl_dev": {
+    "WPY": {
+      "control": {
+        "clean": {
+          "dead_recall": 0.9968803570601226,
+          "macro_f1": 0.9184068815771423,
+          "spell_f1": 0.5443959243085881,
+          "spells": 266
+        },
+        "masked": {
+          "dead_recall": 0.9661317971923213,
+          "macro_f1": 0.8425548490159004,
+          "spell_f1": 0.4042384105960265,
+          "spells": 334
+        }
+      },
+      "selected": {
+        "clean": {
+          "dead_recall": 0.9818844496610091,
+          "macro_f1": 0.9020843360902377,
+          "spell_f1": 0.5165644171779141,
+          "spells": 231
+        },
+        "masked": {
+          "dead_recall": 0.9748420873808898,
+          "macro_f1": 0.8296546852179679,
+          "spell_f1": 0.4,
+          "spells": 272
+        }
+      }
+    }
+  },
+  "dfl_holdout": {
+    "WQQ": {
+      "control": {
+        "clean": {
+          "dead_recall": 0.9953787526080734,
+          "macro_f1": 0.9260430401214651,
+          "spell_f1": 0.5929203539823009,
+          "spells": 277
+        },
+        "masked": {
+          "dead_recall": 0.9589433207456072,
+          "macro_f1": 0.852182806024496,
+          "spell_f1": 0.43799743260590496,
+          "spells": 378
+        }
+      },
+      "selected": {
+        "clean": {
+          "dead_recall": 0.9551497594537272,
+          "macro_f1": 0.8948984957208252,
+          "spell_f1": 0.525,
+          "spells": 271
+        },
+        "masked": {
+          "dead_recall": 0.9649268015105271,
+          "macro_f1": 0.8293229301143038,
+          "spell_f1": 0.4210834553440702,
+          "spells": 282
+        }
+      }
+    },
+    "WR9": {
+      "control": {
+        "clean": {
+          "dead_recall": 0.9972192409015513,
+          "macro_f1": 0.9204755052429657,
+          "spell_f1": 0.5311688311688311,
+          "spells": 246
+        },
+        "masked": {
+          "dead_recall": 0.961020587374378,
+          "macro_f1": 0.8687341481479746,
+          "spell_f1": 0.4190751445086705,
+          "spells": 322
+        }
+      },
+      "selected": {
+        "clean": {
+          "dead_recall": 0.9756398998276254,
+          "macro_f1": 0.9013590834869136,
+          "spell_f1": 0.47877758913412566,
+          "spells": 219
+        },
+        "masked": {
+          "dead_recall": 0.9774286922301363,
+          "macro_f1": 0.8463168204071819,
+          "spell_f1": 0.4026315789473684,
+          "spells": 238
+        }
+      }
+    }
+  },
+  "dfl_holdout_gains": {
+    "WQQ": -0.033916102835323425,
+    "WR9": -0.028426124385769913
+  },
+  "fit_matches": [
+    1874553,
+    1886347,
+    1899585,
+    1925299,
+    1927964,
+    1953632,
+    1959846,
+    1986691,
+    1996435,
+    1996436,
+    2006229,
+    2006363
+  ],
+  "gate": "SkillCorner gains on development and >=3/4 holdouts, mean holdout gain >.01; both DFL holdouts within .02",
+  "holdout_passed": false,
+  "skillcorner_dev": {
+    "2007448": {
+      "control": {
+        "observed": {
+          "dead_recall": 0.2025786200422436,
+          "macro_f1": 0.5581309255807162,
+          "spell_f1": 0.3585780525502319,
+          "spells": 384
+        }
+      },
+      "selected": {
+        "observed": {
+          "dead_recall": 0.9549254869748885,
+          "macro_f1": 0.8985337474316838,
+          "spell_f1": 0.586836518046709,
+          "spells": 208
+        }
+      }
+    },
+    "2007721": {
+      "control": {
+        "observed": {
+          "dead_recall": 0.15799722811880493,
+          "macro_f1": 0.5648249210053741,
+          "spell_f1": 0.4,
+          "spells": 359
+        }
+      },
+      "selected": {
+        "observed": {
+          "dead_recall": 0.96045683409063,
+          "macro_f1": 0.9015055180389964,
+          "spell_f1": 0.57109375,
+          "spells": 223
+        }
+      }
+    },
+    "2010085": {
+      "control": {
+        "observed": {
+          "dead_recall": 0.18320658762772976,
+          "macro_f1": 0.5631798879422163,
+          "spell_f1": 0.36995305164319253,
+          "spells": 361
+        }
+      },
+      "selected": {
+        "observed": {
+          "dead_recall": 0.9481680915718042,
+          "macro_f1": 0.8937894366278717,
+          "spell_f1": 0.5480885311871228,
+          "spells": 219
+        }
+      }
+    },
+    "2011166": {
+      "control": {
+        "observed": {
+          "dead_recall": 0.08678164659941426,
+          "macro_f1": 0.4542550211917517,
+          "spell_f1": 0.351935914552737,
+          "spells": 400
+        }
+      },
+      "selected": {
+        "observed": {
+          "dead_recall": 0.970621542466645,
+          "macro_f1": 0.886764772033656,
+          "spell_f1": 0.5743243243243243,
+          "spells": 243
+        }
+      }
+    }
+  },
+  "skillcorner_holdout": {
+    "2013725": {
+      "control": {
+        "observed": {
+          "dead_recall": 0.16803711084688427,
+          "macro_f1": 0.5358557111040199,
+          "spell_f1": 0.3675949367088608,
+          "spells": 433
+        }
+      },
+      "selected": {
+        "observed": {
+          "dead_recall": 0.9548339557550282,
+          "macro_f1": 0.8646696793734107,
+          "spell_f1": 0.5402190923317683,
+          "spells": 282
+        }
+      }
+    },
+    "2015213": {
+      "control": {
+        "observed": {
+          "dead_recall": 0.19848561332660272,
+          "macro_f1": 0.5359980106979703,
+          "spell_f1": 0.37378640776699035,
+          "spells": 471
+        }
+      },
+      "selected": {
+        "observed": {
+          "dead_recall": 0.9401024013845821,
+          "macro_f1": 0.8631969476200129,
+          "spell_f1": 0.5372488408037094,
+          "spells": 294
+        }
+      }
+    },
+    "2016236": {
+      "control": {
+        "observed": {
+          "dead_recall": 0.10590977141886991,
+          "macro_f1": 0.4947644481257642,
+          "spell_f1": 0.36855670103092786,
+          "spells": 433
+        }
+      },
+      "selected": {
+        "observed": {
+          "dead_recall": 0.9543146424657746,
+          "macro_f1": 0.8684655536113146,
+          "spell_f1": 0.5378205128205128,
+          "spells": 281
+        }
+      }
+    },
+    "2017461": {
+      "control": {
+        "observed": {
+          "dead_recall": 0.1253058884398641,
+          "macro_f1": 0.4880531197342652,
+          "spell_f1": 0.3481781376518219,
+          "spells": 413
+        }
+      },
+      "selected": {
+        "observed": {
+          "dead_recall": 0.9657125277921497,
+          "macro_f1": 0.8699305721338143,
+          "spell_f1": 0.48782161234991417,
+          "spells": 255
+        }
+      }
+    }
+  },
+  "skillcorner_holdout_gain": 0.16124846878682597,
+  "skillcorner_manifest": {
+    "files": {
+      "1874553_match.json": [
+        33730,
+        "e6974e402779d8be44e75bf88ef2a3acfd4d025b87b3fc57f518fa826a645ad8"
+      ],
+      "1874553_phases_of_play.csv": [
+        115978,
+        "e70054b64202a3f318b7208edec9a329da1f4cfcafeeb72ae197176c4a043a8c"
+      ],
+      "1874553_tracking_extrapolated.jsonl": [
+        90729279,
+        "ea97f58f8eaad925feaeacc6395ec24860dd80027af8a89450276adebd29d265"
+      ],
+      "1886347_match.json": [
+        27541,
+        "30c608e78663e9f490b3545479a3ce67b171f418c5133d5609cb249a2466abb2"
+      ],
+      "1886347_phases_of_play.csv": [
+        121864,
+        "d1c3066f7ed0598069d0d1b317bb30261eca3d7786fd9d540985f395e4c8aea9"
+      ],
+      "1886347_tracking_extrapolated.jsonl": [
+        89280839,
+        "3577e2803da95390f8b2f85d47829eb55fbbfee6211c94adc65db0dc78e46b41"
+      ],
+      "1899585_match.json": [
+        27810,
+        "41de8cb74a0512fcf0cbaaa5c615ae3e7dcaaf6745b9c78a050b59b906b1cb06"
+      ],
+      "1899585_phases_of_play.csv": [
+        119735,
+        "e40562010c1b7c4aa6e0dbc17425dd236a1d82ce538ec03e77367a74e3f96b7e"
+      ],
+      "1899585_tracking_extrapolated.jsonl": [
+        85550410,
+        "90b6289ec2181192d1793ec6240fbbe8225ff0219c7956710c6278c31a661100"
+      ],
+      "1925299_match.json": [
+        28396,
+        "f4345b32c0fdd7c9990df70050b3a74f57b1992cf762e20f2a4d309bd2fba7d2"
+      ],
+      "1925299_phases_of_play.csv": [
+        131104,
+        "a1682a736a9cf1c311cb799f0a949f7e023dca4ebaa9dd294b138e8929271274"
+      ],
+      "1925299_tracking_extrapolated.jsonl": [
+        97091519,
+        "48528be40ad82fa3e2b232e1af8d311705f7d6d119925ef199d2b59ea36fd3c9"
+      ],
+      "1927964_match.json": [
+        33400,
+        "f967f911c20f5c5f8c89bbe2020a30c92731173616d5a1e4bafeb65435278b76"
+      ],
+      "1927964_phases_of_play.csv": [
+        117263,
+        "9216447a63a912edcad1a4d36370372210dcc800a7f48fc10127fd7de9eae503"
+      ],
+      "1927964_tracking_extrapolated.jsonl": [
+        91049828,
+        "858c7a756ca3d33017f864775af5999d2c0f364e58ab60ae040c8b9ebab17827"
+      ],
+      "1953632_match.json": [
+        27767,
+        "366c8dd6b504d4f4ace5685040648b0f30081043a44f01663b8b7e077e6bfde8"
+      ],
+      "1953632_phases_of_play.csv": [
+        114478,
+        "9243e4be8efcc1922fe46f9cda56c781584329f1febe84a74ee808c8f4ff0b93"
+      ],
+      "1953632_tracking_extrapolated.jsonl": [
+        90027965,
+        "1c2014f97c3eff1ce2475203512c9d126930d7599c036105c9ac442d1de1667e"
+      ],
+      "1959846_match.json": [
+        32946,
+        "4bbe2058af53edd42d5e3acd7fb28ecb8c79e4afb16cb9b77a6fe9b58f6e516b"
+      ],
+      "1959846_phases_of_play.csv": [
+        128571,
+        "63b33ce9c020cfd54be6e957cd01a42cebec2acacd1345c338196fff5ecd9a9f"
+      ],
+      "1959846_tracking_extrapolated.jsonl": [
+        87710167,
+        "5ba2d87f6fd1ba3138301b369bd9266be69416a2d799a3fba5b5ec8a52e1284b"
+      ],
+      "1986691_match.json": [
+        33792,
+        "754f6a6fd0d996236cf553ef5c3c24513274b0db024cb6833a7419b08d55dd68"
+      ],
+      "1986691_phases_of_play.csv": [
+        115267,
+        "7589168484ae1305072afa397126a72f8925cf261b9eb121ecb0192083632cd3"
+      ],
+      "1986691_tracking_extrapolated.jsonl": [
+        88531597,
+        "630e946950fe459f5e48872b01a36e6dfc319cf9027e7b98156150bb6e2c30f6"
+      ],
+      "1996435_match.json": [
+        27830,
+        "f54179645d3c3f308a7094086283277f2a7c99da5f3919302e622cbd82f9d065"
+      ],
+      "1996435_phases_of_play.csv": [
+        120335,
+        "ff7ed406c900ad98bd48b6b9913e088c40bf176a3915f061430c1af7405ccb09"
+      ],
+      "1996435_tracking_extrapolated.jsonl": [
+        88634016,
+        "f42764d8bde290e8f738fa21141cadbed75408314b0b337bbf1d5a3444540a02"
+      ],
+      "1996436_match.json": [
+        32859,
+        "4e8999668a79fccd43f01e5538d7595b4614ec6061d648b831a96951e495c78a"
+      ],
+      "1996436_phases_of_play.csv": [
+        104584,
+        "e3729e8a66db43f4c7abed7ac096a0416d3ad0657dcad1604908aa4d617e81e5"
+      ],
+      "1996436_tracking_extrapolated.jsonl": [
+        88945845,
+        "fab9d331e06f3042c83ac17798901b49bb259c99a8f3b319cd0146263cde65e7"
+      ],
+      "2006229_match.json": [
+        28213,
+        "87386df74b45eb7ccac80742c603763146cb2b61f47561122355fe246d8795eb"
+      ],
+      "2006229_phases_of_play.csv": [
+        122340,
+        "fa5e3927a24f5ee78df26b96f398b376146a9cdbad9da48721322341fc758c38"
+      ],
+      "2006229_tracking_extrapolated.jsonl": [
+        90078007,
+        "3ee193ba01f1fe2cbce087eca8a881c21b8b0ea3485ae6c3d7e32e8b2f51e738"
+      ],
+      "2006363_match.json": [
+        33294,
+        "26d4068baf7454d1e066b6e70715da6c7ac016b14963a3bfa3ed99ed7c3aba79"
+      ],
+      "2006363_phases_of_play.csv": [
+        119862,
+        "651610758454913a5082b217dccd23ba0e002482dbe39b685528c542d3dcdab6"
+      ],
+      "2006363_tracking_extrapolated.jsonl": [
+        90591887,
+        "61dfdbd83f8e654127b249b8503f062338c14ec0c9e65404bcf70fb7c1346bd4"
+      ],
+      "2007448_match.json": [
+        32670,
+        "434b31c032656be4a89e7042eadd442d4dfb468e4bfa87ce188102f314262873"
+      ],
+      "2007448_phases_of_play.csv": [
+        113871,
+        "4ec5ece7b261e8cbb87403cb8a54ac617f5a1b61412554afeaa967d46e841994"
+      ],
+      "2007448_tracking_extrapolated.jsonl": [
+        90025383,
+        "12d00d6e4257218812df6e4c4263c49387ba0313a83ff8d826c4416828f9c798"
+      ],
+      "2007721_match.json": [
+        33745,
+        "0ed112bc955eb341bc25005f9a7bb3fdf040223c8e1765646225c47e974b6139"
+      ],
+      "2007721_phases_of_play.csv": [
+        116997,
+        "cfb08b62ec61b54ecabfa3f2bed01c6f3dc49a4dbae4382dfcb1006648ef95a3"
+      ],
+      "2007721_tracking_extrapolated.jsonl": [
+        92872706,
+        "fea913b8d4cbde8d85c6bdf5f1a4b3fd203b78227e976a171c8ab0946705d378"
+      ],
+      "2010085_match.json": [
+        33744,
+        "3222413d358251e1ac1cdde1f5ee2fd126b0d9cc3470c2aa1bb07177a09ef24d"
+      ],
+      "2010085_phases_of_play.csv": [
+        115871,
+        "c2c7ac0a4286b171681d11a1e65e1d82594bcc33ff9cc5faf34ae6a5d28fa9af"
+      ],
+      "2010085_tracking_extrapolated.jsonl": [
+        92516156,
+        "04562d9754b2977c80430535e9b5733426bc4ce910db56fe7a3760876211ac5a"
+      ],
+      "2011166_match.json": [
+        28420,
+        "6b381b8bd338859c394c1992da137436e2e09cd609a81ac94d5f5f941d35d1bc"
+      ],
+      "2011166_phases_of_play.csv": [
+        121175,
+        "b49e1482a2d6086f06805f138f40a00dd22b2d14767a4418fbda47114e263b4c"
+      ],
+      "2011166_tracking_extrapolated.jsonl": [
+        87441570,
+        "8ec2937050930d87e4f52b2d65515f70ef8edd0ae2814bf40155c4448133390e"
+      ],
+      "2013725_match.json": [
+        27899,
+        "c8b9372fbd2e79ddcbb859b51b5086111ed7f3cd84ca0b457091c7d0e5209df3"
+      ],
+      "2013725_phases_of_play.csv": [
+        130821,
+        "02a4320f237512d0b3158d799a845cc1dc8a9d87c542fd64d27515afefb8354f"
+      ],
+      "2013725_tracking_extrapolated.jsonl": [
+        96059074,
+        "13eb83329814ed5f5d73da8f8ab5c5979d6c8a7858e89e28a7fa8072f91fb250"
+      ],
+      "2015213_match.json": [
+        27937,
+        "300342194bf3dcd9fe356ed30df26fd0ee6e8caeb8ce5d8cfd27cf90cd995dff"
+      ],
+      "2015213_phases_of_play.csv": [
+        134493,
+        "4ccaa43d8c390ba1b4011bcdb63ee8208686a5d11f275ead130048239e8a0ba8"
+      ],
+      "2015213_tracking_extrapolated.jsonl": [
+        102030769,
+        "413990d0024d84856ce1f2a16866b8887472c0cea22c61caef0d1f46505a609e"
+      ],
+      "2016236_match.json": [
+        33791,
+        "93ccf67cead82def1acda87d3cf550fd42f96cb0e1adbff9eeb8824077980495"
+      ],
+      "2016236_phases_of_play.csv": [
+        133630,
+        "cb162b42bd95306404da15071df07f70cb0458db9b532930dac2a1b0092242e9"
+      ],
+      "2016236_tracking_extrapolated.jsonl": [
+        94737872,
+        "d78555f9dfd7d1ce9de38066d3c98e6d54417c6d45d73b1f1ce7e26f07263d8f"
+      ],
+      "2017461_match.json": [
+        28545,
+        "db27759bf734dc8e3d9e56f047965cc7c74833bc3d0345ee3821ab97681ce4b9"
+      ],
+      "2017461_phases_of_play.csv": [
+        118313,
+        "5331495ecea48056df56dc843864bf36f366f7bca3898d82273eba7a3a54eba5"
+      ],
+      "2017461_tracking_extrapolated.jsonl": [
+        89543442,
+        "59cfa5588efee041da439f44df5b5b92f2b7305571dc831164e3d05f7415787a"
+      ]
+    },
+    "parsed": {
+      "1874553_1.npz": [
+        5488300,
+        "63a9982251869857f415343cc93ed3131d34c41e5e4a37cfedd01e4952881b6b"
+      ],
+      "1874553_2.npz": [
+        5478006,
+        "b73c6fda400ba059bd2ff6d7543247a2537eb1548bbe86c62408874e589892cb"
+      ],
+      "1886347_1.npz": [
+        5895941,
+        "49d1b2a7e71fe08053752352bcf6dbabd998582ae2941ef61edc1f343b6edcbd"
+      ],
+      "1886347_2.npz": [
+        5014095,
+        "a76c5f2c44336375367ad226523ff33916460ede4e147d34e4ff7120afa42441"
+      ],
+      "1899585_1.npz": [
+        4805971,
+        "2db4e882c5a69f90b1f14abf2d89ca6b3221fc91f06b58f6663afd1b3b3edaa9"
+      ],
+      "1899585_2.npz": [
+        4702682,
+        "b15fd6fc0f5228725c9303f5e53ee26a91cd32779c684449a6d179e9809c84d6"
+      ],
+      "1925299_1.npz": [
+        5758670,
+        "fe18074a105a5ed5e616cd39644e7e0d09fd1d34eb8d1494fc2f39732e33a80f"
+      ],
+      "1925299_2.npz": [
+        6186201,
+        "2febc466715522d5cdd69a3ef2d8ca77bba77332a5bf2f65ca062949f0669cf9"
+      ],
+      "1927964_1.npz": [
+        6419149,
+        "aa462d59ca0918f8c2545b25e05df038bcaf31feb0bf2e16918b55dccfdfb332"
+      ],
+      "1927964_2.npz": [
+        5292962,
+        "755345d5c8b520b0b396781bb4a9374b21fa850ed8ed33684037b02598f5905b"
+      ],
+      "1953632_1.npz": [
+        6120148,
+        "dd6edc2ea8a242023dcb3d825d4921a685d363ad8474ea5e4dd18067cd891a01"
+      ],
+      "1953632_2.npz": [
+        5160315,
+        "b7a3b499ed4bf01cd85400ada2c1aaf4ca8e5ee89a2d99065b1dfea44bfecd2e"
+      ],
+      "1959846_1.npz": [
+        5040546,
+        "58dc78d5667bd69fe1249864725e5cfb841fd9637787b7747220c52771432d9a"
+      ],
+      "1959846_2.npz": [
+        5343949,
+        "acc5ae5600ccf9b2e1ddccea96fed820e7ee4aecf9c76fc9466b15cf7527f1bf"
+      ],
+      "1986691_1.npz": [
+        5262030,
+        "65ddf921abdb154111065b2ae48b25ff0ef46239f6e2b26d868e3415e001b1f0"
+      ],
+      "1986691_2.npz": [
+        5372464,
+        "99aa87c4e1bf577564e70d82406b67ab93f5e6b66e277f733e5fc8ef9d54dfc9"
+      ],
+      "1996435_1.npz": [
+        6168482,
+        "f36cc47e581799aac3cbb537136608f943b209ac95548fbaf91f1fdb3dd2aee1"
+      ],
+      "1996435_2.npz": [
+        5675802,
+        "d62e048ec306252333059e10cd55bf60a86717a792dfd5c0c0d197d99354760b"
+      ],
+      "1996436_1.npz": [
+        5285875,
+        "8df8244fceacb8303c334ea7ce73992f1e6fe55b06764ee37c3c6f58970b0baa"
+      ],
+      "1996436_2.npz": [
+        4658232,
+        "0f97f5159bb186a630b2d3c11984b29ce0e0d5a6823b589fa20e7b3acd60def0"
+      ],
+      "2006229_1.npz": [
+        5927921,
+        "56c53ddbf2f4c10e057cb30fbd8a9e9a92d62698026ef29afdc06013d223d296"
+      ],
+      "2006229_2.npz": [
+        5585267,
+        "00743a4d38938afe35a7d631d2ea775e9ba500b493f046e65a396a6476944aac"
+      ],
+      "2006363_1.npz": [
+        4967166,
+        "cf9d25a4274adaea02a2455221edf3c3bbac7a8997c648d3bce44c58c8ec81ec"
+      ],
+      "2006363_2.npz": [
+        5163637,
+        "e25c73f0162ae7f53d6d5a8d0a663641a89de182f94843249c3d53f268e85986"
+      ],
+      "2007448_1.npz": [
+        4982606,
+        "ee3d62a9a6af996228fd7919bde57d4818d926fa68a243c9a497ed44d32264d0"
+      ],
+      "2007448_2.npz": [
+        5233384,
+        "6609e8442dc863023da0e2c6b0e7ed1eb07beb1f2be4d28dda6ed132dccf26d8"
+      ],
+      "2007721_1.npz": [
+        5803891,
+        "01eceec8dca96f05f2bea97c37d8d41778d6487f666c7d146b6e5d2fb2bd88a0"
+      ],
+      "2007721_2.npz": [
+        5768016,
+        "61d9ae30b226a5e83186223d5b78d5cc3c481737e6506cddd895d74b1d52760f"
+      ],
+      "2010085_1.npz": [
+        5199291,
+        "24718e79a224f22b2ed4495d634ea19d6bdaba7b2d8e0ac59f23167b113bd9da"
+      ],
+      "2010085_2.npz": [
+        5493858,
+        "9e54e3ad951542d36dad3de145b85794637dc898b60eb7d4ca9f2282be00106e"
+      ],
+      "2011166_1.npz": [
+        4277127,
+        "37e96b962eb6f157686e065fde9808743504adf66f187002142532d8c5377fc7"
+      ],
+      "2011166_2.npz": [
+        4450365,
+        "0ec97e14ae84343fe330cf086889f04bbe9275c1cc1582a2649fbed5f2e947a1"
+      ],
+      "2013725_1.npz": [
+        4967319,
+        "6d9cf5bfd109ff926771cdccf0b371aad4f1cd85d9667ea8640798a2f8911cda"
+      ],
+      "2013725_2.npz": [
+        5296102,
+        "bb3757dd3ca0c613ec1f81636aae13eab6aeabd863d52797907867b0db782202"
+      ],
+      "2015213_1.npz": [
+        5650919,
+        "d24c1f692aa8bf9db7767474bdef699008aa3ac76e75bf85924175c91fc5239f"
+      ],
+      "2015213_2.npz": [
+        5258378,
+        "6cdd31d899ad94c3996291430e3974a3d793744f7580f8f22c8d9ec6777548da"
+      ],
+      "2016236_1.npz": [
+        4688928,
+        "307431093a46e08de2db1a8bde62a6830faee26a6c90733d404d5307dbf487fc"
+      ],
+      "2016236_2.npz": [
+        4730619,
+        "e29339e5077076840f40a3169e1d8acc7500e16645a13b1399295e1736522874"
+      ],
+      "2017461_1.npz": [
+        4585827,
+        "1b7a27361e9485b2a2772ff32df7bb241062c6b4dd1a7389f6d1526c8822c6f8"
+      ],
+      "2017461_2.npz": [
+        4324617,
+        "e15407f5bbb8acb2e7823f8747868419bb0efc7a0bd1ca9cc434aba71e2283b5"
+      ]
+    },
+    "revision": "4340d274572876239c154c90bc507a9b3250a656"
+  },
+  "skillcorner_revision": "4340d274572876239c154c90bc507a9b3250a656"
+}

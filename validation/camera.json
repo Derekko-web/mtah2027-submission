@@ -1,0 +1,91 @@
+{
+  "gate": "SpellF1 gain in every match and >=98% of recovered observations aligned within 5 frames",
+  "holdout_passed": false,
+  "matches": {
+    "WPY": {
+      "control": {
+        "macro_f1": 0.8425548490159004,
+        "spell_f1": 0.4042384105960265,
+        "spells": 334
+      },
+      "filled": {
+        "macro_f1": 0.8424690641062722,
+        "spell_f1": 0.4042384105960265,
+        "spells": 334
+      },
+      "gain": 0.0,
+      "halves": [
+        {
+          "alignment_within_5": 0.39517625231910947,
+          "coverage": 0.007796791598559257,
+          "recovered_ball_frames": 55,
+          "recovered_within_5": 0.5636363636363636
+        },
+        {
+          "alignment_within_5": 0.6274217585692996,
+          "coverage": 0.008705241307732226,
+          "recovered_ball_frames": 114,
+          "recovered_within_5": 0.4649122807017544
+        }
+      ]
+    },
+    "WQQ": {
+      "control": {
+        "macro_f1": 0.852182806024496,
+        "spell_f1": 0.43799743260590496,
+        "spells": 378
+      },
+      "filled": {
+        "macro_f1": 0.8527067964558452,
+        "spell_f1": 0.4379487179487179,
+        "spells": 379
+      },
+      "gain": -4.871465718703227e-05,
+      "halves": [
+        {
+          "alignment_within_5": 0.7324675324675325,
+          "coverage": 0.005563262239176926,
+          "recovered_ball_frames": 94,
+          "recovered_within_5": 0.5638297872340425
+        },
+        {
+          "alignment_within_5": 0.5555555555555556,
+          "coverage": 0.010951449939158612,
+          "recovered_ball_frames": 203,
+          "recovered_within_5": 0.5123152709359606
+        }
+      ]
+    },
+    "WR9": {
+      "control": {
+        "macro_f1": 0.8687341481479746,
+        "spell_f1": 0.4190751445086705,
+        "spells": 322
+      },
+      "filled": {
+        "macro_f1": 0.8688006161726106,
+        "spell_f1": 0.4190751445086705,
+        "spells": 322
+      },
+      "gain": 0.0,
+      "halves": [
+        {
+          "alignment_within_5": 0.2541436464088398,
+          "coverage": 0.002647979635427334,
+          "recovered_ball_frames": 15,
+          "recovered_within_5": 0.0
+        },
+        {
+          "alignment_within_5": 0.5912408759124088,
+          "coverage": 0.005238605078005506,
+          "recovered_ball_frames": 73,
+          "recovered_within_5": 0.3287671232876712
+        }
+      ]
+    }
+  },
+  "policy": {
+    "max_error": 2.5,
+    "min_margin": 0.6
+  }
+}

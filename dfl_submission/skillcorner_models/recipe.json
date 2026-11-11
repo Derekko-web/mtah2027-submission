@@ -1,0 +1,17 @@
+{
+  "control_models": {
+    "dead.ubj": "c8c6bb008999c79dd6c9ebb6acbca4c4ca238b8a98affc55eb4605f9f3547ce2",
+    "ownership.ubj": "b3e56d040e4c07b70835971b62e67f072bc1e95d17eaf121505814379842c962"
+  },
+  "models": {
+    "dead.ubj": "457bf7ba8df8408451e115b21eb49c95404c932ba00e6c624ebf2767d2a04ad7",
+    "ownership.ubj": "8cc179038e535cf98e444afaf4f6bfb9e5f722a05b6004accfabc2db1d2a71aa"
+  },
+  "recipe": {
+    "dead_cutoff": 0.5,
+    "dead_radius": 50,
+    "dead_weight": 1.0,
+    "owner_radius": 50,
+    "owner_weight": 0.5
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "candidates": {
+    "dfl_control": {
+      "combined_spell_f1": 0.41878405117651535,
+      "dfl_spell_f1": 0.4730390565633805,
+      "passed": true,
+      "skillcorner_spell_f1": 0.3645290457896502
+    },
+    "dfl_robust": {
+      "combined_spell_f1": 0.47100664134746206,
+      "dfl_spell_f1": 0.5143123167957588,
+      "passed": true,
+      "skillcorner_spell_f1": 0.4277009658991653
+    },
+    "dfl_skillcorner_fusion": {
+      "combined_spell_f1": 0.5197760101321373,
+      "dfl_spell_f1": 0.5015613611395471,
+      "passed": true,
+      "skillcorner_spell_f1": 0.5379906591247274
+    },
+    "skillcorner_blend": {
+      "combined_spell_f1": 0.483822728764655,
+      "dfl_spell_f1": 0.4418679429528338,
+      "passed": false,
+      "skillcorner_spell_f1": 0.5257775145764761
+    }
+  },
+  "method": "Equal weight per dataset; DFL weights clean 1/3 and masked 2/3. Candidate must pass its own gate and stay within .02 of control on each dataset. These external holdouts are used to choose the final model family.",
+  "selected": "dfl_skillcorner_fusion"
+}

@@ -1,0 +1,13 @@
+{
+  "dfl_manifest_sha256": "230760f76b9a6f9d38f92c292fa26910fba25f1a44e8022ad85922491308f943",
+  "models": {
+    "dead.ubj": "66a12423854091ae952139c1e718fdc39a35d09816528a04dbbeea95271a9a03",
+    "ownership.ubj": "57b283f4eb595e795e3665d5fba3d5e70ace547b5076918aaf8e7982bb4a783f"
+  },
+  "rows": {
+    "dead.ubj": 696959,
+    "ownership.ubj": 763244
+  },
+  "sample_stride": 5,
+  "skill_manifest_sha256": "21f02036ba5b9cf9e16c44bf9eefefc0c717ecf5f6bb95938981f4a7f720f3e5"
+}

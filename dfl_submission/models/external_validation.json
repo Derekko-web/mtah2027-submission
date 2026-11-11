@@ -1,0 +1,1127 @@
+{
+  "counts": {
+    "dead_rows": 226916,
+    "ownership_paired_rows": 241556
+  },
+  "dataset_manifest_sha256": "230760f76b9a6f9d38f92c292fa26910fba25f1a44e8022ad85922491308f943",
+  "holdout_gate": "Selected SpellF1 exceeds raw on both views of each held-out match",
+  "holdout_passed": true,
+  "matches": {
+    "WPY": {
+      "raw": {
+        "clean": {
+          "dead_precision": 0.0,
+          "dead_recall": 0.0,
+          "macro_f1": 0.3662302438562761,
+          "matched_at_0.5": 99,
+          "predicted_spells": 2117,
+          "spell_f1": 0.08951930654058313,
+          "true_spells": 421
+        },
+        "masked": {
+          "dead_precision": 0.4377031038662193,
+          "dead_recall": 0.3848280335438835,
+          "macro_f1": 0.4022020357203553,
+          "matched_at_0.5": 34,
+          "predicted_spells": 4314,
+          "spell_f1": 0.01723336853220697,
+          "true_spells": 421
+        }
+      },
+      "selected": {
+        "clean": {
+          "dead_precision": 0.9966340883474609,
+          "dead_recall": 0.9968803570601226,
+          "macro_f1": 0.9184068815771423,
+          "matched_at_0.5": 194,
+          "predicted_spells": 266,
+          "spell_f1": 0.5443959243085881,
+          "true_spells": 421
+        },
+        "masked": {
+          "dead_precision": 0.9722882765266315,
+          "dead_recall": 0.9661317971923213,
+          "macro_f1": 0.8425548490159004,
+          "matched_at_0.5": 158,
+          "predicted_spells": 334,
+          "spell_f1": 0.4042384105960265,
+          "true_spells": 421
+        }
+      }
+    },
+    "WQQ": {
+      "raw": {
+        "clean": {
+          "dead_precision": 0.0,
+          "dead_recall": 0.0,
+          "macro_f1": 0.3826604619779437,
+          "matched_at_0.5": 92,
+          "predicted_spells": 2214,
+          "spell_f1": 0.08045889101338433,
+          "true_spells": 401
+        },
+        "masked": {
+          "dead_precision": 0.42132625608958046,
+          "dead_recall": 0.3996689255599814,
+          "macro_f1": 0.4174525440695725,
+          "matched_at_0.5": 32,
+          "predicted_spells": 4245,
+          "spell_f1": 0.01764959104606113,
+          "true_spells": 401
+        }
+      },
+      "selected": {
+        "clean": {
+          "dead_precision": 0.9950527477073708,
+          "dead_recall": 0.9953787526080734,
+          "macro_f1": 0.9260430401214651,
+          "matched_at_0.5": 209,
+          "predicted_spells": 277,
+          "spell_f1": 0.5929203539823009,
+          "true_spells": 401
+        },
+        "masked": {
+          "dead_precision": 0.9671483974191754,
+          "dead_recall": 0.9589433207456072,
+          "macro_f1": 0.852182806024496,
+          "matched_at_0.5": 171,
+          "predicted_spells": 378,
+          "spell_f1": 0.43799743260590496,
+          "true_spells": 401
+        }
+      }
+    },
+    "WR9": {
+      "raw": {
+        "clean": {
+          "dead_precision": 0.0,
+          "dead_recall": 0.0,
+          "macro_f1": 0.3865716943283095,
+          "matched_at_0.5": 99,
+          "predicted_spells": 1864,
+          "spell_f1": 0.10062667860340198,
+          "true_spells": 370
+        },
+        "masked": {
+          "dead_precision": 0.42114896283349273,
+          "dead_recall": 0.4153413341138973,
+          "macro_f1": 0.42346697657193744,
+          "matched_at_0.5": 25,
+          "predicted_spells": 3695,
+          "spell_f1": 0.016432964329643297,
+          "true_spells": 370
+        }
+      },
+      "selected": {
+        "clean": {
+          "dead_precision": 0.9916717875739837,
+          "dead_recall": 0.9972192409015513,
+          "macro_f1": 0.9204755052429657,
+          "matched_at_0.5": 167,
+          "predicted_spells": 246,
+          "spell_f1": 0.5311688311688311,
+          "true_spells": 370
+        },
+        "masked": {
+          "dead_precision": 0.9730784429954554,
+          "dead_recall": 0.961020587374378,
+          "macro_f1": 0.8687341481479746,
+          "matched_at_0.5": 145,
+          "predicted_spells": 322,
+          "spell_f1": 0.4190751445086705,
+          "true_spells": 370
+        }
+      }
+    }
+  },
+  "splits": {
+    "development": "WPY",
+    "held_out": [
+      "WQQ",
+      "WR9"
+    ],
+    "train": [
+      "WMX",
+      "WN1",
+      "WOH",
+      "WOY"
+    ]
+  },
+  "tuning": {
+    "candidates": [
+      {
+        "metrics": {
+          "clean": {
+            "dead_precision": 0.9929578547595984,
+            "dead_recall": 0.9973436703680252,
+            "macro_f1": 0.9160914322881157,
+            "matched_at_0.5": 214,
+            "predicted_spells": 398,
+            "spell_f1": 0.5054945054945055,
+            "true_spells": 421
+          },
+          "masked": {
+            "dead_precision": 0.9504848112458225,
+            "dead_recall": 0.9794906642368457,
+            "macro_f1": 0.8343085356290137,
+            "matched_at_0.5": 154,
+            "predicted_spells": 705,
+            "spell_f1": 0.26962699822380104,
+            "true_spells": 421
+          }
+        },
+        "recipe": {
+          "dead_cutoff": 0.35,
+          "dead_radius": 0,
+          "owner_radius": 12
+        }
+      },
+      {
+        "metrics": {
+          "clean": {
+            "dead_precision": 0.9929578547595984,
+            "dead_recall": 0.9973436703680252,
+            "macro_f1": 0.9158445935180767,
+            "matched_at_0.5": 207,
+            "predicted_spells": 355,
+            "spell_f1": 0.5103092783505155,
+            "true_spells": 421
+          },
+          "masked": {
+            "dead_precision": 0.9504848112458225,
+            "dead_recall": 0.9794906642368457,
+            "macro_f1": 0.8360260758588409,
+            "matched_at_0.5": 152,
+            "predicted_spells": 619,
+            "spell_f1": 0.29500000000000004,
+            "true_spells": 421
+          }
+        },
+        "recipe": {
+          "dead_cutoff": 0.35,
+          "dead_radius": 0,
+          "owner_radius": 25
+        }
+      },
+      {
+        "metrics": {
+          "clean": {
+            "dead_precision": 0.9929578547595984,
+            "dead_recall": 0.9973436703680252,
+            "macro_f1": 0.9170949082657082,
+            "matched_at_0.5": 191,
+            "predicted_spells": 310,
+            "spell_f1": 0.505061559507524,
+            "true_spells": 421
+          },
+          "masked": {
+            "dead_precision": 0.9504848112458225,
+            "dead_recall": 0.9794906642368457,
+            "macro_f1": 0.8380514068361874,
+            "matched_at_0.5": 153,
+            "predicted_spells": 543,
+            "spell_f1": 0.308298755186722,
+            "true_spells": 421
+          }
+        },
+        "recipe": {
+          "dead_cutoff": 0.35,
+          "dead_radius": 0,
+          "owner_radius": 50
+        }
+      },
+      {
+        "metrics": {
+          "clean": {
+            "dead_precision": 0.9845194647201947,
+            "dead_recall": 0.9998610060076292,
+            "macro_f1": 0.9140301644509602,
+            "matched_at_0.5": 216,
+            "predicted_spells": 353,
+            "spell_f1": 0.5359173126614987,
+            "true_spells": 421
+          },
+          "masked": {
+            "dead_precision": 0.9490161535935028,
+            "dead_recall": 0.9817145681147782,
+            "macro_f1": 0.8345068358603239,
+            "matched_at_0.5": 154,
+            "predicted_spells": 525,
+            "spell_f1": 0.32050739957716706,
+            "true_spells": 421
+          }
+        },
+        "recipe": {
+          "dead_cutoff": 0.35,
+          "dead_radius": 12,
+          "owner_radius": 12
+        }
+      },
+      {
+        "metrics": {
+          "clean": {
+            "dead_precision": 0.9845194647201947,
+            "dead_recall": 0.9998610060076292,
+            "macro_f1": 0.9144598521776515,
+            "matched_at_0.5": 210,
+            "predicted_spells": 312,
+            "spell_f1": 0.5435197817189631,
+            "true_spells": 421
+          },
+          "masked": {
+            "dead_precision": 0.9490161535935028,
+            "dead_recall": 0.9817145681147782,
+            "macro_f1": 0.836130168213422,
+            "matched_at_0.5": 155,
+            "predicted_spells": 443,
+            "spell_f1": 0.3574074074074074,
+            "true_spells": 421
+          }
+        },
+        "recipe": {
+          "dead_cutoff": 0.35,
+          "dead_radius": 12,
+          "owner_radius": 25
+        }
+      },
+      {
+        "metrics": {
+          "clean": {
+            "dead_precision": 0.9845194647201947,
+            "dead_recall": 0.9998610060076292,
+            "macro_f1": 0.9153054353362559,
+            "matched_at_0.5": 193,
+            "predicted_spells": 262,
+            "spell_f1": 0.5405563689604685,
+            "true_spells": 421
+          },
+          "masked": {
+            "dead_precision": 0.9490161535935028,
+            "dead_recall": 0.9817145681147782,
+            "macro_f1": 0.8384210211639415,
+            "matched_at_0.5": 155,
+            "predicted_spells": 358,
+            "spell_f1": 0.3835686777920412,
+            "true_spells": 421
+          }
+        },
+        "recipe": {
+          "dead_cutoff": 0.35,
+          "dead_radius": 12,
+          "owner_radius": 50
+        }
+      },
+      {
+        "metrics": {
+          "clean": {
+            "dead_precision": 0.9740793115898423,
+            "dead_recall": 0.9999691124461398,
+            "macro_f1": 0.9113231515911213,
+            "matched_at_0.5": 214,
+            "predicted_spells": 348,
+            "spell_f1": 0.5336801040312094,
+            "true_spells": 421
+          },
+          "masked": {
+            "dead_precision": 0.945985639686684,
+            "dead_recall": 0.9848033235007954,
+            "macro_f1": 0.8348110236082689,
+            "matched_at_0.5": 157,
+            "predicted_spells": 503,
+            "spell_f1": 0.3294372294372295,
+            "true_spells": 421
+          }
+        },
+        "recipe": {
+          "dead_cutoff": 0.35,
+          "dead_radius": 25,
+          "owner_radius": 12
+        }
+      },
+      {
+        "metrics": {
+          "clean": {
+            "dead_precision": 0.9740793115898423,
+            "dead_recall": 0.9999691124461398,
+            "macro_f1": 0.9115539234668417,
+            "matched_at_0.5": 208,
+            "predicted_spells": 305,
+            "spell_f1": 0.5393939393939393,
+            "true_spells": 421
+          },
+          "masked": {
+            "dead_precision": 0.945985639686684,
+            "dead_recall": 0.9848033235007954,
+            "macro_f1": 0.836312911528991,
+            "matched_at_0.5": 158,
+            "predicted_spells": 422,
+            "spell_f1": 0.366785290628707,
+            "true_spells": 421
+          }
+        },
+        "recipe": {
+          "dead_cutoff": 0.35,
+          "dead_radius": 25,
+          "owner_radius": 25
+        }
+      },
+      {
+        "metrics": {
+          "clean": {
+            "dead_precision": 0.9740793115898423,
+            "dead_recall": 0.9999691124461398,
+            "macro_f1": 0.9122099808964729,
+            "matched_at_0.5": 192,
+            "predicted_spells": 254,
+            "spell_f1": 0.5404444444444445,
+            "true_spells": 421
+          },
+          "masked": {
+            "dead_precision": 0.945985639686684,
+            "dead_recall": 0.9848033235007954,
+            "macro_f1": 0.8389090850949182,
+            "matched_at_0.5": 158,
+            "predicted_spells": 338,
+            "spell_f1": 0.394729907773386,
+            "true_spells": 421
+          }
+        },
+        "recipe": {
+          "dead_cutoff": 0.35,
+          "dead_radius": 25,
+          "owner_radius": 50
+        }
+      },
+      {
+        "metrics": {
+          "clean": {
+            "dead_precision": 0.9537072495360415,
+            "dead_recall": 1.0,
+            "macro_f1": 0.9049843321228765,
+            "matched_at_0.5": 203,
+            "predicted_spells": 341,
+            "spell_f1": 0.5202099737532809,
+            "true_spells": 421
+          },
+          "masked": {
+            "dead_precision": 0.9358048208659975,
+            "dead_recall": 0.9863013698630136,
+            "macro_f1": 0.832043155046213,
+            "matched_at_0.5": 156,
+            "predicted_spells": 491,
+            "spell_f1": 0.3298245614035088,
+            "true_spells": 421
+          }
+        },
+        "recipe": {
+          "dead_cutoff": 0.35,
+          "dead_radius": 50,
+          "owner_radius": 12
+        }
+      },
+      {
+        "metrics": {
+          "clean": {
+            "dead_precision": 0.9537072495360415,
+            "dead_recall": 1.0,
+            "macro_f1": 0.9058144601650175,
+            "matched_at_0.5": 202,
+            "predicted_spells": 295,
+            "spell_f1": 0.5324022346368715,
+            "true_spells": 421
+          },
+          "masked": {
+            "dead_precision": 0.9358048208659975,
+            "dead_recall": 0.9863013698630136,
+            "macro_f1": 0.8340737180546763,
+            "matched_at_0.5": 153,
+            "predicted_spells": 406,
+            "spell_f1": 0.3680773881499395,
+            "true_spells": 421
+          }
+        },
+        "recipe": {
+          "dead_cutoff": 0.35,
+          "dead_radius": 50,
+          "owner_radius": 25
+        }
+      },
+      {
+        "metrics": {
+          "clean": {
+            "dead_precision": 0.9537072495360415,
+            "dead_recall": 1.0,
+            "macro_f1": 0.9056293151588872,
+            "matched_at_0.5": 189,
+            "predicted_spells": 247,
+            "spell_f1": 0.5329341317365269,
+            "true_spells": 421
+          },
+          "masked": {
+            "dead_precision": 0.9358048208659975,
+            "dead_recall": 0.9863013698630136,
+            "macro_f1": 0.8366552470495763,
+            "matched_at_0.5": 154,
+            "predicted_spells": 325,
+            "spell_f1": 0.39571045576407504,
+            "true_spells": 421
+          }
+        },
+        "recipe": {
+          "dead_cutoff": 0.35,
+          "dead_radius": 50,
+          "owner_radius": 50
+        }
+      },
+      {
+        "metrics": {
+          "clean": {
+            "dead_precision": 0.9953256610410046,
+            "dead_recall": 0.9964170437522201,
+            "macro_f1": 0.9164894801053557,
+            "matched_at_0.5": 214,
+            "predicted_spells": 392,
+            "spell_f1": 0.5102091020910209,
+            "true_spells": 421
+          },
+          "masked": {
+            "dead_precision": 0.9652290152574405,
+            "dead_recall": 0.9701780667480039,
+            "macro_f1": 0.8368278660136403,
+            "matched_at_0.5": 156,
+            "predicted_spells": 699,
+            "spell_f1": 0.27285714285714285,
+            "true_spells": 421
+          }
+        },
+        "recipe": {
+          "dead_cutoff": 0.5,
+          "dead_radius": 0,
+          "owner_radius": 12
+        }
+      },
+      {
+        "metrics": {
+          "clean": {
+            "dead_precision": 0.9953256610410046,
+            "dead_recall": 0.9964170437522201,
+            "macro_f1": 0.916205885619871,
+            "matched_at_0.5": 207,
+            "predicted_spells": 346,
+            "spell_f1": 0.5178617992177315,
+            "true_spells": 421
+          },
+          "masked": {
+            "dead_precision": 0.9652290152574405,
+            "dead_recall": 0.9701780667480039,
+            "macro_f1": 0.8388513835208055,
+            "matched_at_0.5": 158,
+            "predicted_spells": 608,
+            "spell_f1": 0.30204081632653057,
+            "true_spells": 421
+          }
+        },
+        "recipe": {
+          "dead_cutoff": 0.5,
+          "dead_radius": 0,
+          "owner_radius": 25
+        }
+      },
+      {
+        "metrics": {
+          "clean": {
+            "dead_precision": 0.9953256610410046,
+            "dead_recall": 0.9964170437522201,
+            "macro_f1": 0.9173949405472284,
+            "matched_at_0.5": 189,
+            "predicted_spells": 304,
+            "spell_f1": 0.5086896551724138,
+            "true_spells": 421
+          },
+          "masked": {
+            "dead_precision": 0.9652290152574405,
+            "dead_recall": 0.9701780667480039,
+            "macro_f1": 0.8401340652967173,
+            "matched_at_0.5": 157,
+            "predicted_spells": 531,
+            "spell_f1": 0.3134453781512605,
+            "true_spells": 421
+          }
+        },
+        "recipe": {
+          "dead_cutoff": 0.5,
+          "dead_radius": 0,
+          "owner_radius": 50
+        }
+      },
+      {
+        "metrics": {
+          "clean": {
+            "dead_precision": 0.9956974323386537,
+            "dead_recall": 0.997142901267934,
+            "macro_f1": 0.9171074414064178,
+            "matched_at_0.5": 217,
+            "predicted_spells": 358,
+            "spell_f1": 0.5391527599486522,
+            "true_spells": 421
+          },
+          "masked": {
+            "dead_precision": 0.9678890600924499,
+            "dead_recall": 0.9701162916402836,
+            "macro_f1": 0.8379346554431684,
+            "matched_at_0.5": 160,
+            "predicted_spells": 541,
+            "spell_f1": 0.3234927234927235,
+            "true_spells": 421
+          }
+        },
+        "recipe": {
+          "dead_cutoff": 0.5,
+          "dead_radius": 12,
+          "owner_radius": 12
+        }
+      },
+      {
+        "metrics": {
+          "clean": {
+            "dead_precision": 0.9956974323386537,
+            "dead_recall": 0.997142901267934,
+            "macro_f1": 0.9168429199473039,
+            "matched_at_0.5": 210,
+            "predicted_spells": 313,
+            "spell_f1": 0.5482288828337876,
+            "true_spells": 421
+          },
+          "masked": {
+            "dead_precision": 0.9678890600924499,
+            "dead_recall": 0.9701162916402836,
+            "macro_f1": 0.8398983542538921,
+            "matched_at_0.5": 161,
+            "predicted_spells": 449,
+            "spell_f1": 0.3622988505747127,
+            "true_spells": 421
+          }
+        },
+        "recipe": {
+          "dead_cutoff": 0.5,
+          "dead_radius": 12,
+          "owner_radius": 25
+        }
+      },
+      {
+        "metrics": {
+          "clean": {
+            "dead_precision": 0.9956974323386537,
+            "dead_recall": 0.997142901267934,
+            "macro_f1": 0.9180986243132581,
+            "matched_at_0.5": 193,
+            "predicted_spells": 269,
+            "spell_f1": 0.5397101449275363,
+            "true_spells": 421
+          },
+          "masked": {
+            "dead_precision": 0.9678890600924499,
+            "dead_recall": 0.9701162916402836,
+            "macro_f1": 0.8414862685595784,
+            "matched_at_0.5": 158,
+            "predicted_spells": 369,
+            "spell_f1": 0.3837974683544304,
+            "true_spells": 421
+          }
+        },
+        "recipe": {
+          "dead_cutoff": 0.5,
+          "dead_radius": 12,
+          "owner_radius": 50
+        }
+      },
+      {
+        "metrics": {
+          "clean": {
+            "dead_precision": 0.9957586600450353,
+            "dead_recall": 0.9970965699371438,
+            "macro_f1": 0.9171439664066577,
+            "matched_at_0.5": 218,
+            "predicted_spells": 356,
+            "spell_f1": 0.5425997425997425,
+            "true_spells": 421
+          },
+          "masked": {
+            "dead_precision": 0.9700827596875242,
+            "dead_recall": 0.9684946950626245,
+            "macro_f1": 0.838680739799059,
+            "matched_at_0.5": 160,
+            "predicted_spells": 522,
+            "spell_f1": 0.3329798515376458,
+            "true_spells": 421
+          }
+        },
+        "recipe": {
+          "dead_cutoff": 0.5,
+          "dead_radius": 25,
+          "owner_radius": 12
+        }
+      },
+      {
+        "metrics": {
+          "clean": {
+            "dead_precision": 0.9957586600450353,
+            "dead_recall": 0.9970965699371438,
+            "macro_f1": 0.9168795146444447,
+            "matched_at_0.5": 211,
+            "predicted_spells": 311,
+            "spell_f1": 0.5530054644808743,
+            "true_spells": 421
+          },
+          "masked": {
+            "dead_precision": 0.9700827596875242,
+            "dead_recall": 0.9684946950626245,
+            "macro_f1": 0.8404377888011428,
+            "matched_at_0.5": 159,
+            "predicted_spells": 427,
+            "spell_f1": 0.37405660377358485,
+            "true_spells": 421
+          }
+        },
+        "recipe": {
+          "dead_cutoff": 0.5,
+          "dead_radius": 25,
+          "owner_radius": 25
+        }
+      },
+      {
+        "metrics": {
+          "clean": {
+            "dead_precision": 0.9957586600450353,
+            "dead_recall": 0.9970965699371438,
+            "macro_f1": 0.9181366259422113,
+            "matched_at_0.5": 194,
+            "predicted_spells": 267,
+            "spell_f1": 0.5436046511627908,
+            "true_spells": 421
+          },
+          "masked": {
+            "dead_precision": 0.9700827596875242,
+            "dead_recall": 0.9684946950626245,
+            "macro_f1": 0.8422500535937743,
+            "matched_at_0.5": 158,
+            "predicted_spells": 347,
+            "spell_f1": 0.39583333333333337,
+            "true_spells": 421
+          }
+        },
+        "recipe": {
+          "dead_cutoff": 0.5,
+          "dead_radius": 25,
+          "owner_radius": 50
+        }
+      },
+      {
+        "metrics": {
+          "clean": {
+            "dead_precision": 0.9966340883474609,
+            "dead_recall": 0.9968803570601226,
+            "macro_f1": 0.9174342873043276,
+            "matched_at_0.5": 218,
+            "predicted_spells": 356,
+            "spell_f1": 0.5415701415701416,
+            "true_spells": 421
+          },
+          "masked": {
+            "dead_precision": 0.9722882765266315,
+            "dead_recall": 0.9661317971923213,
+            "macro_f1": 0.8387729189438456,
+            "matched_at_0.5": 161,
+            "predicted_spells": 508,
+            "spell_f1": 0.3384284176533907,
+            "true_spells": 421
+          }
+        },
+        "recipe": {
+          "dead_cutoff": 0.5,
+          "dead_radius": 50,
+          "owner_radius": 12
+        }
+      },
+      {
+        "metrics": {
+          "clean": {
+            "dead_precision": 0.9966340883474609,
+            "dead_recall": 0.9968803570601226,
+            "macro_f1": 0.917188389435139,
+            "matched_at_0.5": 211,
+            "predicted_spells": 311,
+            "spell_f1": 0.5524590163934426,
+            "true_spells": 421
+          },
+          "masked": {
+            "dead_precision": 0.9722882765266315,
+            "dead_recall": 0.9661317971923213,
+            "macro_f1": 0.8403455806517871,
+            "matched_at_0.5": 159,
+            "predicted_spells": 418,
+            "spell_f1": 0.37568533969010726,
+            "true_spells": 421
+          }
+        },
+        "recipe": {
+          "dead_cutoff": 0.5,
+          "dead_radius": 50,
+          "owner_radius": 25
+        }
+      },
+      {
+        "metrics": {
+          "clean": {
+            "dead_precision": 0.9966340883474609,
+            "dead_recall": 0.9968803570601226,
+            "macro_f1": 0.9184068815771423,
+            "matched_at_0.5": 194,
+            "predicted_spells": 266,
+            "spell_f1": 0.5443959243085881,
+            "true_spells": 421
+          },
+          "masked": {
+            "dead_precision": 0.9722882765266315,
+            "dead_recall": 0.9661317971923213,
+            "macro_f1": 0.8425548490159004,
+            "matched_at_0.5": 158,
+            "predicted_spells": 334,
+            "spell_f1": 0.4042384105960265,
+            "true_spells": 421
+          }
+        },
+        "recipe": {
+          "dead_cutoff": 0.5,
+          "dead_radius": 50,
+          "owner_radius": 50
+        }
+      },
+      {
+        "metrics": {
+          "clean": {
+            "dead_precision": 0.9976166893648631,
+            "dead_recall": 0.9955367484672052,
+            "macro_f1": 0.9170296727716455,
+            "matched_at_0.5": 216,
+            "predicted_spells": 382,
+            "spell_f1": 0.5215442092154421,
+            "true_spells": 421
+          },
+          "masked": {
+            "dead_precision": 0.9769076780000315,
+            "dead_recall": 0.9571435190190113,
+            "macro_f1": 0.8368503470817038,
+            "matched_at_0.5": 163,
+            "predicted_spells": 721,
+            "spell_f1": 0.2746059544658494,
+            "true_spells": 421
+          }
+        },
+        "recipe": {
+          "dead_cutoff": 0.65,
+          "dead_radius": 0,
+          "owner_radius": 12
+        }
+      },
+      {
+        "metrics": {
+          "clean": {
+            "dead_precision": 0.9976166893648631,
+            "dead_recall": 0.9955367484672052,
+            "macro_f1": 0.9166705220795804,
+            "matched_at_0.5": 208,
+            "predicted_spells": 336,
+            "spell_f1": 0.5284015852047557,
+            "true_spells": 421
+          },
+          "masked": {
+            "dead_precision": 0.9769076780000315,
+            "dead_recall": 0.9571435190190113,
+            "macro_f1": 0.8384724140366614,
+            "matched_at_0.5": 163,
+            "predicted_spells": 632,
+            "spell_f1": 0.3016144349477683,
+            "true_spells": 421
+          }
+        },
+        "recipe": {
+          "dead_cutoff": 0.65,
+          "dead_radius": 0,
+          "owner_radius": 25
+        }
+      },
+      {
+        "metrics": {
+          "clean": {
+            "dead_precision": 0.9976166893648631,
+            "dead_recall": 0.9955367484672052,
+            "macro_f1": 0.9179189728720057,
+            "matched_at_0.5": 190,
+            "predicted_spells": 294,
+            "spell_f1": 0.518041958041958,
+            "true_spells": 421
+          },
+          "masked": {
+            "dead_precision": 0.9769076780000315,
+            "dead_recall": 0.9571435190190113,
+            "macro_f1": 0.8401728670953587,
+            "matched_at_0.5": 158,
+            "predicted_spells": 545,
+            "spell_f1": 0.3130434782608696,
+            "true_spells": 421
+          }
+        },
+        "recipe": {
+          "dead_cutoff": 0.65,
+          "dead_radius": 0,
+          "owner_radius": 50
+        }
+      },
+      {
+        "metrics": {
+          "clean": {
+            "dead_precision": 0.9986403275716563,
+            "dead_recall": 0.9868419020555667,
+            "macro_f1": 0.9136922524834171,
+            "matched_at_0.5": 216,
+            "predicted_spells": 357,
+            "spell_f1": 0.5362467866323908,
+            "true_spells": 421
+          },
+          "masked": {
+            "dead_precision": 0.9809837003145553,
+            "dead_recall": 0.9536377816558818,
+            "macro_f1": 0.8373080912258816,
+            "matched_at_0.5": 161,
+            "predicted_spells": 530,
+            "spell_f1": 0.33101997896950575,
+            "true_spells": 421
+          }
+        },
+        "recipe": {
+          "dead_cutoff": 0.65,
+          "dead_radius": 12,
+          "owner_radius": 12
+        }
+      },
+      {
+        "metrics": {
+          "clean": {
+            "dead_precision": 0.9986403275716563,
+            "dead_recall": 0.9868419020555667,
+            "macro_f1": 0.9133990928600185,
+            "matched_at_0.5": 211,
+            "predicted_spells": 312,
+            "spell_f1": 0.5473396998635743,
+            "true_spells": 421
+          },
+          "masked": {
+            "dead_precision": 0.9809837003145553,
+            "dead_recall": 0.9536377816558818,
+            "macro_f1": 0.8390683167310714,
+            "matched_at_0.5": 161,
+            "predicted_spells": 439,
+            "spell_f1": 0.372093023255814,
+            "true_spells": 421
+          }
+        },
+        "recipe": {
+          "dead_cutoff": 0.65,
+          "dead_radius": 12,
+          "owner_radius": 25
+        }
+      },
+      {
+        "metrics": {
+          "clean": {
+            "dead_precision": 0.9986403275716563,
+            "dead_recall": 0.9868419020555667,
+            "macro_f1": 0.9143609603777865,
+            "matched_at_0.5": 193,
+            "predicted_spells": 269,
+            "spell_f1": 0.5344927536231884,
+            "true_spells": 421
+          },
+          "masked": {
+            "dead_precision": 0.9809837003145553,
+            "dead_recall": 0.9536377816558818,
+            "macro_f1": 0.8411921879939754,
+            "matched_at_0.5": 156,
+            "predicted_spells": 352,
+            "spell_f1": 0.3927554980595083,
+            "true_spells": 421
+          }
+        },
+        "recipe": {
+          "dead_cutoff": 0.65,
+          "dead_radius": 12,
+          "owner_radius": 50
+        }
+      },
+      {
+        "metrics": {
+          "clean": {
+            "dead_precision": 0.9991461910634665,
+            "dead_recall": 0.9759231517659959,
+            "macro_f1": 0.9092659243358802,
+            "matched_at_0.5": 213,
+            "predicted_spells": 361,
+            "spell_f1": 0.5278772378516624,
+            "true_spells": 421
+          },
+          "masked": {
+            "dead_precision": 0.9832613824204394,
+            "dead_recall": 0.9462093249525104,
+            "macro_f1": 0.8350989451447814,
+            "matched_at_0.5": 156,
+            "predicted_spells": 525,
+            "spell_f1": 0.32727272727272727,
+            "true_spells": 421
+          }
+        },
+        "recipe": {
+          "dead_cutoff": 0.65,
+          "dead_radius": 25,
+          "owner_radius": 12
+        }
+      },
+      {
+        "metrics": {
+          "clean": {
+            "dead_precision": 0.9991461910634665,
+            "dead_recall": 0.9759231517659959,
+            "macro_f1": 0.9089462865079331,
+            "matched_at_0.5": 206,
+            "predicted_spells": 318,
+            "spell_f1": 0.5358592692828147,
+            "true_spells": 421
+          },
+          "masked": {
+            "dead_precision": 0.9832613824204394,
+            "dead_recall": 0.9462093249525104,
+            "macro_f1": 0.8370271935895316,
+            "matched_at_0.5": 159,
+            "predicted_spells": 433,
+            "spell_f1": 0.3690866510538641,
+            "true_spells": 421
+          }
+        },
+        "recipe": {
+          "dead_cutoff": 0.65,
+          "dead_radius": 25,
+          "owner_radius": 25
+        }
+      },
+      {
+        "metrics": {
+          "clean": {
+            "dead_precision": 0.9991461910634665,
+            "dead_recall": 0.9759231517659959,
+            "macro_f1": 0.9096030602317914,
+            "matched_at_0.5": 191,
+            "predicted_spells": 270,
+            "spell_f1": 0.5296671490593343,
+            "true_spells": 421
+          },
+          "masked": {
+            "dead_precision": 0.9832613824204394,
+            "dead_recall": 0.9462093249525104,
+            "macro_f1": 0.839351330348956,
+            "matched_at_0.5": 154,
+            "predicted_spells": 342,
+            "spell_f1": 0.3937090432503277,
+            "true_spells": 421
+          }
+        },
+        "recipe": {
+          "dead_cutoff": 0.65,
+          "dead_radius": 25,
+          "owner_radius": 50
+        }
+      },
+      {
+        "metrics": {
+          "clean": {
+            "dead_precision": 0.9999028103992873,
+            "dead_recall": 0.95332890611728,
+            "macro_f1": 0.9003360821303358,
+            "matched_at_0.5": 207,
+            "predicted_spells": 373,
+            "spell_f1": 0.5098236775818641,
+            "true_spells": 421
+          },
+          "masked": {
+            "dead_precision": 0.9866305774278216,
+            "dead_recall": 0.9288659634600238,
+            "macro_f1": 0.8291166066685506,
+            "matched_at_0.5": 155,
+            "predicted_spells": 521,
+            "spell_f1": 0.3201698513800425,
+            "true_spells": 421
+          }
+        },
+        "recipe": {
+          "dead_cutoff": 0.65,
+          "dead_radius": 50,
+          "owner_radius": 12
+        }
+      },
+      {
+        "metrics": {
+          "clean": {
+            "dead_precision": 0.9999028103992873,
+            "dead_recall": 0.95332890611728,
+            "macro_f1": 0.8999715830441706,
+            "matched_at_0.5": 201,
+            "predicted_spells": 321,
+            "spell_f1": 0.5250673854447439,
+            "true_spells": 421
+          },
+          "masked": {
+            "dead_precision": 0.9866305774278216,
+            "dead_recall": 0.9288659634600238,
+            "macro_f1": 0.8309078354032519,
+            "matched_at_0.5": 153,
+            "predicted_spells": 430,
+            "spell_f1": 0.35769682726204466,
+            "true_spells": 421
+          }
+        },
+        "recipe": {
+          "dead_cutoff": 0.65,
+          "dead_radius": 50,
+          "owner_radius": 25
+        }
+      },
+      {
+        "metrics": {
+          "clean": {
+            "dead_precision": 0.9999028103992873,
+            "dead_recall": 0.95332890611728,
+            "macro_f1": 0.9001478525642509,
+            "matched_at_0.5": 186,
+            "predicted_spells": 276,
+            "spell_f1": 0.5153515064562411,
+            "true_spells": 421
+          },
+          "masked": {
+            "dead_precision": 0.9866305774278216,
+            "dead_recall": 0.9288659634600238,
+            "macro_f1": 0.8340011673384278,
+            "matched_at_0.5": 152,
+            "predicted_spells": 339,
+            "spell_f1": 0.38789473684210524,
+            "true_spells": 421
+          }
+        },
+        "recipe": {
+          "dead_cutoff": 0.65,
+          "dead_radius": 50,
+          "owner_radius": 50
+        }
+      }
+    ],
+    "selection": "1/3 clean + 2/3 masked SpellF1, then weighted MacroF1"
+  }
+}
