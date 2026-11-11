@@ -289,3 +289,45 @@ Every D7 command runs with `MTAH_DATA_DIR` set to a nonexistent path.
 *Terms, 2026-11-11, before any PFF file was parsed:* the dataset ships with no licence of its own. The only applicable terms found are Gradient Sports' general website Terms of Use, which do not mention datasets but bar derivative works and "benchmarking" of site content. PFF releases the dataset publicly for analysis. Derek decided to run D7 before Gradient Sports replied to our question about this use, because D7 changes nothing in the submission and the repository publishes only code, hashes and averaged scores. Only the eight development games are parsed. Nothing trained on PFF enters the submission without written permission or a judgement disclosed in the technical document.
 
 *Reader amendment, 2026-11-11, after the first `prepare` stopped and before any score was computed:* the reader refused game 3812 because some frame numbers repeat within a period. All eight development games do this, with 29–72 repeated frame numbers per game. The copies always sit on adjacent rows, one for each possession event on that frame. They differ only in `possession_event`, `possession_event_id` and `ballsSmoothed`, which the reader never uses, and never in the players, balls or game event. The reader now reads adjacent copies once when those fields agree. It still stops on copies that disagree, and on a frame number that repeats on non-adjacent rows.
+
+## D8 — Model-set weight on unseen PFF tracking (2026-11-11, written before any weight other than D3's is scored)
+
+**Question.** D3 averages the current and retrained model sets with equal weight, because no real tracking was available to show which dead-ball condition the competition match resembles. PFF's broadcast tracking comes from a vendor none of the models has seen, and its ball keeps moving during stoppages. Does it support a different share of the retrained set?
+
+**What is new, and what is reused.** D3 fixed its weight at 0.5 and said it would not be tuned on the DFL and SkillCorner matches. D8 does not tune it there. It chooses the weight on a different vendor, and uses the DFL and SkillCorner development matches only as guards. Those matches have now been seen by D2, D3, D4 and D6, so the guards are weaker evidence than a first look; this is disclosed. The PFF development matches were scored once before, in D7, for D3 only.
+
+**Known bias.** PFF's targets have no foul or offside stoppage (D7 amendment), so a candidate that misses such stoppages is penalised less on PFF than on DFL. The DFL dead-ball-carried guard bounds this.
+
+**Grid.** The share of the retrained set, w ∈ {0, 0.25, 0.5 (D3), 0.75, 1}. Every model output is mixed exactly as the build does (`retrain_trial.mix`, before decoding). Everything else is D3's frozen recipe: stoppage cutoff 0.53, ownership cost 6, stoppage cost 2, discount 0.8, the same mixes and phase averaging. The pitch comes from the PFF metadata.
+
+**Pipeline checks, before any result is read.** The w = 0.5 run must reproduce exactly the D7 PFF measurement and the D3 DFL/SkillCorner development record (`blend_recipe/development.json`). If either differs, D8 stops without writing a record, and only the pipeline may be fixed.
+
+**Primary.** Mean spellF1 over the eight PFF development matches against the N = 3 targets. Ties are broken by mean macroF1 against the same targets.
+
+**Eligible if,** compared with D3 (w = 0.5) on development:
+- the primary rises by at least +0.02;
+- mean spellF1 against the N = 1.75, 4 and 4.5 s targets each drops by no more than 0.01;
+- no PFF development match's N = 3 spellF1 drops by more than 0.03;
+- on the DFL/SkillCorner development matches (WPY and the four SkillCorner development matches), against the N = 3 targets, dead ball carried and team swap each drop by no more than 0.01, and standard combined spellF1 drops by no more than 0.02. The standard limit is looser than D2's 0.01 because those views still contain the provider artifacts.
+
+Raw provider labels are reported, not gated.
+
+**Selection.** The eligible weight with the highest primary, ties broken by macroF1. If no weight is eligible, D3 stays and nothing is confirmed.
+
+**Confirmation.** Once, on PFF confirmation set A (eight matches, parsed only for this step), against D3, with the three PFF gates above: primary gain ≥ +0.02, the other conventions within 0.01, and no match more than 0.03 down. The DFL/SkillCorner guards are not re-scored. They are deterministic for the frozen weight, and the DFL/SkillCorner holdout is not used again. Pass → the blend weight changes. Fail → D3 stays. Either way, the outcome is recorded here.
+
+**Terms condition.** A passed D8 would put a value chosen on PFF data into the submission. The weight therefore changes only after Gradient Sports confirms the use in writing, or after Derek records a decision to proceed and the technical document discloses it. Otherwise D3 ships unchanged.
+
+Records: `dfl_submission/vendor_recipe/d8_development.json` and `d8_confirmation.json`, each written once. Every D8 command runs with `MTAH_DATA_DIR` set to a nonexistent path.
+
+**Outcome (2026-11-11).** No weight was eligible, so D3 stays and confirmation set A was neither parsed nor scored. Both pipeline checks passed: the w = 0.5 run reproduced the D7 measurement and the D3 development record exactly. Development, compared with D3:
+
+| w | PFF N = 3 spellF1 | Change | Worst match | N = 1.75 / 4 / 4.5 | Standard | Dead ball carried | Team swap |
+|---|---:|---:|---:|---|---:|---:|---:|
+| 0 | 0.63370 | +0.0081 | −0.0095 | +0.006 / +0.004 / +0.003 | +0.0052 | **−0.0683** | **−0.0108** |
+| 0.25 | 0.63270 | +0.0071 | −0.0066 | +0.006 / +0.006 / +0.005 | +0.0017 | **−0.0406** | **−0.0131** |
+| 0.5 (D3) | 0.62560 | — | — | — | — | — | — |
+| 0.75 | 0.61755 | −0.0081 | −0.0252 | −0.010 / −0.008 / −0.007 | −0.0058 | +0.0097 | +0.0029 |
+| 1 | 0.61101 | −0.0146 | −0.0260 | **−0.016 / −0.016 / −0.014** | −0.0123 | +0.0166 | −0.0022 |
+
+No weight reached the +0.02 primary gain. The highest PFF score, at w = 0, gained +0.0081, and would also have failed both DFL guards. PFF leans slightly towards the current models, as the known bias predicts: its targets keep foul stoppages live. The lean is less than half the required gain, and the current models lose 0.068 when the dead ball moves. Against raw PFF labels, spellF1 was 0.5545, 0.5539, 0.5487, 0.5400 and 0.5346 for w = 0 to 1. [Record](dfl_submission/vendor_recipe/d8_development.json)

@@ -203,6 +203,15 @@ D7 measures frozen D3 on PFF FC's 2022 World Cup broadcast tracking, from a vend
 
 [D7 protocol](DECISIONS.md#d7--unseen-vendor-benchmark-on-pff-world-cup-tracking-2026-11-11-written-before-any-pff-data-is-read-or-scored)
 
+D8 asked whether the PFF development matches support a different share of the retrained model set than D3's 0.5. The grid was 0, 0.25, 0.5, 0.75 and 1, with D3's decoder unchanged, and the DFL/SkillCorner development matches served as guards. It first checks that the 0.5 run reproduces D7 and D3 exactly. The best share, 0, gained +0.0081 N = 3 spellF1 on PFF against a required +0.02, and lost 0.068 on the carried-dead-ball guard. No share was eligible, so D3 stays and confirmation was not scored.
+
+```sh
+.venv/bin/python -m dfl_submission.vendor_trial tune --parsed data/pff/parsed \
+  --dfl "$DFL_XML" --dfl-raw --skill data/skillcorner
+```
+
+[D8 development](dfl_submission/vendor_recipe/d8_development.json) · [D8 protocol](DECISIONS.md#d8--model-set-weight-on-unseen-pff-tracking-2026-11-11-written-before-any-weight-other-than-d3s-is-scored)
+
 The earlier stages have their own `train`/`tune`/`confirm` commands, which are subject to the same guard:
 - the extended-context XGBoost model (`long_context`)
 - the first temporal network and context stages (`temporal_trial`, `context_trial`)
