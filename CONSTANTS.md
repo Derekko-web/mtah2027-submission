@@ -11,8 +11,10 @@ This file lists every constant that affects the submitted file and records where
 The submission build loads two sets of the same three model groups, and averages their outputs with equal weight:
 
 - the extended-context XGBoost heads (`long_models/`, `retrain_models/long_models/`)
-- the first temporal networks (`temporal_models/`, `retrain_models/temporal_models/`)
-- the seed-97 network (`seed_models/`, `retrain_models/seed_models/`)
+- the first temporal networks (`scale_models/w96_s5400/current/temporal_models/`, `scale_models/w96_s5400/augmented/temporal_models/`; D15)
+- the seed-97 network (`scale_models/w96_s5400/current/seed_models/`, `scale_models/w96_s5400/augmented/seed_models/`; D15)
+
+The build still loads D3's frozen recipes and checks every digest they name (`competition_adaptation.reference`), then replaces each network with its D15 counterpart. The weights of D3's networks (`temporal_models/`, `seed_models/` and their `retrain_models/` counterparts) no longer enter the submission.
 
 The DFL and SkillCorner reference heads in `models/`, `robust_models/`, `skillcorner_models/` and `fusion_recipe/` are never loaded at inference. They are read only when you re-run the context-stage tune or confirm audit, through `external_benchmark.reference`. The context stage itself selected `owner_mix = dead_mix = 1`, which gives the reference heads zero weight.
 
@@ -37,8 +39,9 @@ The context stage's island-suppression settings (`island_frames`, `island_confid
 | Long-context XGBoost | depth 5, 420 trees, learning rate 0.045, subsample 0.82, colsample 0.85, min child weight 30, λ 12, seed 42 | `long_context.fit_head` | Hand-set when the module was written (Nov 10). Never searched. |
 | Class and match balancing | equal weight per source, match and class | `long_context.fit_head` | Hand-set |
 | Team-swap augmentation | train and predict in both team orders | `models.ownership_probability` | Symmetric by construction |
-| Temporal network architecture and optimiser | width, dilations, dropout 0.08, AdamW at 0.0015 with cosine decay, weight decay 0.01 | `temporal_network.py` | Hand-set (Nov 10) |
-| Network snapshot | step 1800 for the first network; the seed-97 network's 1200/1800 snapshots, phase-averaged | `temporal_recipe`, `ensemble_recipe` | External grid |
+| Temporal network architecture and optimiser | dilations, dropout 0.08, AdamW at 0.0015 with cosine decay, weight decay 0.01 | `temporal_network.py` | Hand-set (Nov 10) |
+| Network width and training length | 96 channels per block, 5,400 steps, with the cosine schedule stretched over the run | `scale_models/w96_s5400/*/fit.json`, `temporal_network.train` | External grid under DECISIONS.md D15: width 48 or 96 × 1,800 or 5,400 steps × ownership cost 4, 6 or 8; confirmed once. Replaces width 48 and 1,800 steps. |
+| Network snapshot | the last snapshot of each network (step 5,400); the seed-97 network's predictions are phase-averaged | `scale_trial.final_snapshot`, `ensemble_recipe` | External grid (snapshot variant), then D15's stretched schedule |
 | Boundary loss weight | 0.5 for the first networks, 1.4 for the seed-97 network | `temporal_network.loss`, `seed_models/fit.json` | Hand-set; there is no search record. The ensemble that uses the seed-97 network was then accepted or rejected on external data. |
 | 5 Hz phase offsets | 0, 2, 4 frames | `ensemble_trial.PHASES` | Hand-set (covers the 5-frame stride) |
 
@@ -69,7 +72,7 @@ All values are hand-set and were not tuned. The architecture, features, hyperpar
 | Decoder | joint three-state Viterbi | `joint_decoder.py`, `ensemble_recipe` | External grid: joint, separate or reference |
 | Stoppage cutoff | 0.53 | `ensemble_recipe`, re-selected for the blend in `blend_recipe` | External grid (0.53, 0.57, 0.61); re-selected for the blend from (0.45, 0.49, 0.53, 0.57, 0.61) under DECISIONS.md D3 |
 | Model blend | 0.5 original, 0.5 retrained, applied to every model output | `blend_recipe` | Fixed in DECISIONS.md D3 before scoring, not tuned |
-| Ownership switch cost | 6 | `decoder_recipe` | External grid (2, 3, 4, 6, 8, 12, 16) scored against controlled-possession targets with N = 3 s. Rule pre-registered in DECISIONS.md D1, then confirmed once on the external holdout. Replaces the original ensemble value of 2. |
+| Ownership switch cost | 8 | `scale_recipe/recipe.json` | External grid (4, 6, 8) under DECISIONS.md D15, chosen with the D15 networks and confirmed once. Before D15: 6, from the D1 grid (2, 3, 4, 6, 8, 12, 16) against controlled-possession targets with N = 3 s, replacing the original ensemble value of 2. |
 | Stoppage switch cost | 2 | `ensemble_recipe`, kept by `decoder_recipe` | External grid (ensemble: 1–4; retune: 2, 3, 4) |
 | Controlled-possession convention | N = 3 s (merge an A–B–A whose interior B lasts under 3 s) | `conventions.py`, DECISIONS.md D1 | Minimax over the externally derived interval of 1.75–4.5 s (Metrica sample events, SkillCorner phases). Used only to score external candidates, not at inference. |
 | Boundary discount | 0.8 | `ensemble_recipe` | External grid (0.55, 0.8) |

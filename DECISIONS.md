@@ -508,3 +508,126 @@ Code: `dfl_submission/extra_trial.py`; weights in `dfl_submission/extra_models/`
 | PFF development (veto) | −0.0227 | ≥ −0.01 |
 
 Reported only: N = 1.75, 4 and 4.5 changed by −0.030, −0.014 and −0.016, and raw-label standard spellF1 by −0.029. The loss is spread over every view: DFL WPY lost 0.010–0.049 across its four views, and three of the four SkillCorner development matches lost about 0.016. The largest drop is with the dead ball carried, so the shared network trunk lost stoppage skill, even though the 2019–20 halves carry no stoppage loss. Giving a third of the training weight to five matches without a dead-ball label, with fewer windows per batch from each of the original sources, made both heads worse. The D14 weights are kept in `dfl_submission/extra_models/` for reference. [Record](dfl_submission/extra_recipe/development.json)
+
+## D15 — Network width and training length (2026-11-11, written before any candidate network is trained or scored)
+
+**Question.** Each temporal network has about 32,000 parameters (width 48, six blocks) and trains for 1,800 steps. Neither value was ever searched (`CONSTANTS.md`), and in the original grid the later snapshot always won. D11 places the loss in missed ownership changes, and D12–D14 showed that the decoder, the targets and more data do not recover them. Do wider or longer-trained networks?
+
+**What was seen before this rule.** D11–D14's records. The grid below is the one the third plan fixed before any of it was run. One pipeline check was run before this rule was written: the trainer with its new options at their defaults retrained the original seed-42 network on MPS, and it reproduced the published checkpoints bit for bit.
+
+**Candidate.** Per network setting, all four networks are retrained: in each of the two model sets, seed 42 with boundary weight 0.5 and seed 97 with 1.4. The features, seeds, boundary weights, batches and prepared sequences are D3's. The original set trains on the original prepared sequences (manifest `d3891c24…`), the augmented set on the D2 sequences (manifest `2828b0c3…`).
+- **Width** is the number of channels in every block. **Steps** is the training length. The cosine learning-rate schedule is stretched over the new length, and snapshots are kept at the stretched 1/3, 2/3 and 3/3 points. Only the last snapshot is used, as D3 uses its 1,800-step snapshot.
+- The XGBoost trees are D3's and are not refit. The 0.5 blend, the mixes, phase averaging, discount 0.8, stoppage cost 2 and stoppage cutoff 0.53 stay.
+
+**Grid (12 settings, in this order).** Network setting (width, steps) ∈ (48, 1,800), (48, 5,400), (96, 1,800), (96, 5,400) × ownership cost ∈ {4, 6, 8}. The first network setting is D3's own networks, and at cost 6 it is D3. Its rows at costs 4 and 8 are scored and reported but are not eligible, because that would be a decoder-only change, which D1 covers.
+
+**Pipeline check on scoring.** D3, decoded from D11's cached inputs, must reproduce the D3 development record and the D7 measurement exactly. Otherwise D15 stops without writing a record.
+
+**Primary.** Standard combined spellF1 against the N = 3 targets on DFL WPY and the four SkillCorner development matches.
+
+**Eligible if,** compared with D3 on development:
+- the primary rises by at least +0.01;
+- standard combined spellF1 at N = 1.75, 4 and 4.5 s each drops by no more than 0.01;
+- DFL dead ball carried and team swap, at N = 3, each drop by no more than 0.01;
+- *PFF veto:* mean N = 3 spellF1 on the eight PFF development matches drops by no more than 0.01.
+
+**Selection.** The eligible setting with the highest primary, then N = 3 standard macroF1, then grid order. None eligible → D3 stays. If no new network setting beats D3 by at least +0.003 at cost 6, the plan moves straight to D16.
+
+**Confirmation, once,** on the DFL/SkillCorner holdout (WQQ, WR9 and their guard views, and the four SkillCorner holdout matches) and PFF confirmation set A, parsed only for this step, with the same gates against D3. D3 must first reproduce its holdout record (`blend_recipe/external_validation.json`). The DFL/SkillCorner holdout has confirmed D1–D3 before, so it is reused evidence; set A is fresh.
+
+**If it passes,** the selected networks and cost become the submission after the rebuild checks, which include both Linux platforms because a wider network changes the arithmetic. They also become the reference for D16. PFF only vetoes; no value chosen on PFF enters the submission. **If it fails,** D3 stays.
+
+Code: `--width` and `--steps` in `temporal_network train` (defaults byte-identical), and `dfl_submission/scale_trial.py`. Weights go to `dfl_submission/scale_models/`, records to `dfl_submission/scale_recipe/`, each written once. Every D15 command runs with `MTAH_DATA_DIR` set to a nonexistent path.
+
+**Outcome (2026-11-11).** Passed, and adopted: width 96, 5,400 steps, ownership cost 8 is the submission and the reference for D16.
+- **Pipeline checks all passed.** The trainer at its defaults retrained the original seed-42 network bit for bit on MPS. D3 reproduced its development record and the D7 measurement before development, and its holdout record before confirmation.
+- **Development, compared with D3** (N = 3 standard 0.68209). Every new network setting was eligible at every cost. Rows at cost 6, plus the selected row:
+
+| Width | Steps | Cost | N = 3 standard | Change | N = 1.75 / 4 / 4.5 | Dead ball carried | Team swap | PFF |
+|---:|---:|---:|---:|---:|---|---:|---:|---:|
+| 48 | 1,800 | 6 | 0.68209 | — (D3) | — | — | — | — |
+| 48 | 5,400 | 6 | 0.71043 | +0.0283 | +0.029 / +0.012 / +0.003 | +0.0222 | +0.0560 | +0.0217 |
+| 96 | 1,800 | 6 | 0.69235 | +0.0103 | +0.007 / +0.005 / +0.004 | +0.0103 | +0.0153 | +0.0051 |
+| 96 | 5,400 | 6 | 0.72165 | +0.0396 | +0.049 / +0.018 / +0.004 | +0.0424 | +0.0610 | +0.0291 |
+| **96** | **5,400** | **8** | **0.72280** | **+0.0407** | **+0.048 / +0.024 / +0.016** | **+0.0429** | **+0.0808** | **+0.0305** |
+
+  D3's own networks at costs 4 and 8 (reported, not eligible) scored 0.67817 and 0.68612. All 12 rows are in the record. The best new setting beat D3 by +0.040 at cost 6, so the +0.003 early-stop line did not apply.
+- **Confirmation, once, compared with D3:**
+
+| Gate | Change | Required |
+|---|---:|---|
+| N = 3 standard combined, holdout (0.68734 → 0.70874) | +0.0214 | ≥ +0.01 |
+| N = 1.75 / 4 / 4.5 | +0.039 / +0.013 / +0.005 | each ≥ −0.01 |
+| Dead ball carried | +0.0124 | ≥ −0.01 |
+| Team swap | +0.0586 | ≥ −0.01 |
+| PFF confirmation set A (0.6355 → 0.6542, fresh) | +0.0187 | ≥ −0.01 |
+
+What it shows: the networks were under-trained. Training length mattered more than width: tripling the steps added +0.028 at width 48, doubling the width added +0.010 at 1,800 steps, and both together added +0.040. The holdout gain is about half the development gain. That is expected after choosing the best of nine eligible settings, and the holdout has been reused since D1, so +0.021 is the better estimate. The fresh PFF set agrees in sign and size. [Development](dfl_submission/scale_recipe/development.json) · [Confirmation](dfl_submission/scale_recipe/confirmation.json)
+
+The competition file is built by `scale_trial build`; its SHA-256 is `14d18a238afce84b663cc430161240e00c93b62e3a65a0e6aa47577288b7af78` (reproduced twice on macOS in a fresh virtual environment, and in `python:3.12.14-slim` under `linux/arm64` and `linux/amd64`; each build passed the validator).
+
+## D16 — Last-touch and possession-chain features (2026-11-11, written before D15 was scored and before any model with these features is fit or scored)
+
+**Question.** The features hold nearest-player distances, averaged contact strength and scalar ball speed. Nothing encodes a change in the ball's direction next to a player, which team touched last, or how long a team's run of touches has lasted, which is the state possession is defined by. On clean DFL tracking D3 matches only 68 of 184 true ownership changes within one second (D11). Do explicit touch features recover them?
+
+**What was seen before this rule.** D11–D14's records and the D15 rule; no D15 candidate had been scored. To time the extraction, the new columns were computed once on one external training half (DFL WMX, first half, clean view) and their summary statistics printed. Nothing in the definitions below was changed after that.
+
+**New features** (`dfl_submission/touch_features.py`, 22 columns). They are computed at 25 Hz from the ball and player positions and sampled at the long-context frames, every 5th frame. Each is either team-free or an `h__`/`a__` pair, so swapping the teams swaps the pair. All are missing where the ball is unseen at the sampled frame.
+- *Ball turn* over 5 and 10 frames: the size of the change of the ball's velocity, in m/s, between the 5 (10) frames before a frame and the 5 (10) frames after it.
+- *Touch evidence* per team: each ball turn times exp(−(d / 2.5 m)²), where d is the distance from the ball to the team's nearest player.
+- *Touches:* a local maximum of the 5-frame turn (over ±5 frames) of at least 4 m/s with a player within 2.5 m; the team with the nearer player touched the ball.
+- Per team: time since its last touch and until its next, capped at 20 s; its touches in the past and coming 3 s and 9 s; how long its current run of consecutive touches has lasted, when the latest touch is its own; and how long the run starting with the next touch lasts, when that touch is its own (0 otherwise, capped at 20 s).
+- Every threshold is hand-set and not tuned.
+
+**Candidate.** Both model sets are refit with the 162 existing columns plus these 22, on the same training halves, targets, sample weights and hyperparameters:
+- the long-context ownership tree, and the stoppage tree on the team-invariant form of the extended table;
+- then, if the tree gate below passes, the two networks of each set, at the width and length standing after D15 (D3's 48 and 1,800 unless D15 is adopted), with D3's seeds and boundary weights.
+
+The 0.5 blend, the mixes, phase averaging, discount 0.8 and stoppage cost 2 stay.
+
+**Pipeline checks, before anything is scored.**
+1. For every prepared training half of both sets, the 162 re-extracted columns must equal the stored prepared sequences exactly.
+2. Refitting both trees of each set from the original prepared sequences must reproduce the published trees byte for byte.
+3. D3, decoded from D11's cached inputs, must reproduce the D3 development record and the D7 measurement exactly. (If D15 is adopted, its model must first reproduce its own development record.)
+
+If any check fails, D16 stops and only the pipeline may be fixed.
+
+**Tree gate.** The new trees with the standing networks are scored on the grid below. If the best primary change over the grid, against the reference, is under +0.003, the networks are not retrained and the reference stays. The tree-only stage is a gate, not a candidate.
+
+**Grid (12 settings, in this order).** Ownership cost ∈ {3, 4, 6, 8} × stoppage cutoff ∈ {0.49, 0.53, 0.57}.
+
+**Primary.** Standard combined spellF1 against the N = 3 targets on DFL WPY and the four SkillCorner development matches.
+
+**Eligible if,** compared on development with the submission standing after D15 (the reference; D3 unless D15 is adopted):
+- the primary rises by at least +0.01;
+- standard combined spellF1 at N = 1.75, 4 and 4.5 s each drops by no more than 0.01;
+- DFL dead ball carried and team swap, at N = 3, each drop by no more than 0.01;
+- the SkillCorner part of the primary (the mean over the four SkillCorner matches) does not drop;
+- mean N = 3 spellF1 on the eight PFF development matches does not drop.
+
+DFL labels change on every touch, so a model that follows touches more closely could gain on DFL while moving away from controlled possession. The SkillCorner and PFF labels are possession-based and catch that.
+
+**Selection.** The eligible setting with the highest primary, then N = 3 standard macroF1, then grid order. None eligible → the reference stays.
+
+**Reported, not gated.** D11's ownership-change matching (within one second) and recall by true spell length, on clean DFL, SkillCorner and PFF, for the reference, the tree-only stage at D3's costs and the full refit at its best primary setting.
+
+**Confirmation, once,** on the reused DFL/SkillCorner holdout and PFF confirmation set B, parsed only for this step, with the same conditions against the reference, which must first reproduce its holdout record.
+
+**If it passes,** the D16 models and the selected costs become the submission after the rebuild checks. **If it fails,** the reference stays.
+
+Code: `dfl_submission/touch_features.py` and `dfl_submission/touch_trial.py`. Weights go to `dfl_submission/touch_models/`, records to `dfl_submission/touch_recipe/`, each written once. Every D16 command runs with `MTAH_DATA_DIR` set to a nonexistent path.
+
+**Outcome (2026-11-11).** Failed at the tree gate. The networks were not retrained, and D15 stays the submission. Confirmation set B was neither parsed nor scored.
+- **Pipeline checks all passed.** All 96 prepared training halves (48 per set) were re-extracted exactly. All four trees refit byte for byte from the original prepared sequences. D3 reproduced its development record and the D7 measurement, and the adopted D15 model reproduced its own development record.
+- **Tree gate, compared with D15** (N = 3 standard 0.72280; ownership cost 8, cutoff 0.53). The best change was −0.00043, against the +0.003 needed to train the networks. Best cutoff per ownership cost:
+
+| Ownership cost | Best cutoff | N = 3 standard | Change | SkillCorner part | N = 1.75 / 4 / 4.5 | Dead ball carried | Team swap | PFF |
+|---:|---:|---:|---:|---:|---|---:|---:|---:|
+| 3 | 0.53 | 0.71152 | −0.0113 | −0.0104 | +0.006 / −0.020 / −0.025 | −0.0121 | −0.0289 | −0.0098 |
+| 4 | 0.49 | 0.71343 | −0.0094 | −0.0044 | +0.006 / −0.017 / −0.022 | −0.0043 | −0.0208 | −0.0045 |
+| 6 | 0.53 | 0.72238 | −0.0004 | +0.0027 | +0.008 / −0.008 / −0.013 | +0.0019 | −0.0177 | −0.0027 |
+| 8 | 0.49 | 0.72217 | −0.0006 | +0.0044 | +0.005 / −0.001 / −0.003 | +0.0075 | −0.0081 | −0.0008 |
+
+- **Reported: segmentation at D15's recipe, against the N = 3 targets.** On clean DFL, ownership changes matched within one second rose from 68 of 184 (D3, D11) to 93 (D15) and 104 (tree-only stage). Predicted spells went from 219 to 263 and 282, against 281 true. Recall at IoU 0.5 for 3–5 s spells went from 0.53 to 0.69 and 0.76. On SkillCorner and PFF the tree-only stage changed almost nothing: 243 → 244 of 554 and 319 → 315 of 1,024 ownership changes matched.
+
+What it shows: the touch features help the trees follow touches on clean DFL, as the rule anticipated, but that does not carry over to the possession-based SkillCorner and PFF labels. Every setting lost at N = 4 and 4.5 and on team swaps. Most of the missed-change gap that D11 found was closed by D15's longer training, not by new inputs. The D16 trees are kept in `dfl_submission/touch_models/trees/` for reference. [Tree gate record](dfl_submission/touch_recipe/tree_gate.json)

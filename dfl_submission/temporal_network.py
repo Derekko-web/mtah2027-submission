@@ -25,11 +25,11 @@ BATCH = 16
 
 
 class TemporalBlock(nn.Module):
-    def __init__(self, dilation):
+    def __init__(self, dilation, width=WIDTH):
         super().__init__()
-        self.norm = nn.LayerNorm(WIDTH)
-        self.temporal = nn.Conv1d(WIDTH, WIDTH, 3, dilation=dilation, padding=dilation, groups=WIDTH)
-        self.mix = nn.Conv1d(WIDTH, WIDTH, 1)
+        self.norm = nn.LayerNorm(width)
+        self.temporal = nn.Conv1d(width, width, 3, dilation=dilation, padding=dilation, groups=width)
+        self.mix = nn.Conv1d(width, width, 1)
         self.dropout = nn.Dropout(.08)
 
     def forward(self, values):
@@ -38,12 +38,12 @@ class TemporalBlock(nn.Module):
 
 
 class Network(nn.Module):
-    def __init__(self, columns):
+    def __init__(self, columns, width=WIDTH):
         super().__init__()
-        self.project = nn.Conv1d(columns * 2, WIDTH, 1)
-        self.temporal = nn.Sequential(*(TemporalBlock(dilation) for dilation in DILATIONS))
-        self.norm = nn.LayerNorm(WIDTH)
-        self.outputs = nn.Linear(WIDTH, 4)
+        self.project = nn.Conv1d(columns * 2, width, 1)
+        self.temporal = nn.Sequential(*(TemporalBlock(dilation, width) for dilation in DILATIONS))
+        self.norm = nn.LayerNorm(width)
+        self.outputs = nn.Linear(width, 4)
 
     def forward(self, values):
         hidden = self.temporal(self.project(values.transpose(1, 2))).transpose(1, 2)
@@ -149,35 +149,53 @@ def loss(logits, labels, boundary_boost=.5):
     return (errors * weights).sum() / weights.sum().clamp_min(1)
 
 
-def train(source, output, device, *, seed=42, boundary_boost=.5):
+def snapshots(steps):
+    """Checkpoint steps of a run of `steps`: the published 1/3, 2/3 and 3/3 points, stretched (D15)."""
+    if steps * STEPS[0] % STEPS[-1]:
+        raise ValueError(f"{steps} steps do not stretch the published schedule evenly")
+    return tuple(step * steps // STEPS[-1] for step in STEPS)
+
+
+def learning_rate(step, steps):
+    """The published cosine schedule, stretched over `steps` (D15)."""
+    return .0002 + .0013 * .5 * (1 + math.cos(math.pi * (step - 1) / steps))
+
+
+def options(width, steps):
+    """Fit-record keys for non-default sizes; empty at the defaults, so default records are unchanged."""
+    return ({"width": width} if width != WIDTH else {}) | ({"steps": steps} if steps != STEPS[-1] else {})
+
+
+def train(source, output, device, *, seed=42, boundary_boost=.5, width=WIDTH, steps=STEPS[-1]):
     output.mkdir(parents=True, exist_ok=False)
+    saved = snapshots(steps)
     torch.set_num_threads(3)
     torch.manual_seed(seed)
     rng = np.random.default_rng(seed)
     groups, manifest, permutation, location, scale = training_data(source)
     np.savez(output / "normalization.npz", location=location, scale=scale, permutation=permutation)
-    net = Network(len(location)).to(device)
+    net = Network(len(location), width).to(device)
     optimizer = torch.optim.AdamW(net.parameters(), lr=.0015, weight_decay=.01)
     hashes = {}
-    for step in range(1, STEPS[-1] + 1):
+    for step in range(1, steps + 1):
         inputs, labels = batch(groups, rng, permutation, location, scale)
         inputs, labels = inputs.to(device), labels.to(device)
-        optimizer.param_groups[0]["lr"] = .0002 + .0013 * .5 * (1 + math.cos(math.pi * (step - 1) / STEPS[-1]))
+        optimizer.param_groups[0]["lr"] = learning_rate(step, steps)
         optimizer.zero_grad(set_to_none=True)
         value = loss(net(inputs)[:, HALO:HALO + CORE], labels, boundary_boost)
         value.backward()
         torch.nn.utils.clip_grad_norm_(net.parameters(), 2.0)
         optimizer.step()
         if step % 100 == 0:
-            print(f"Temporal training step {step} of {STEPS[-1]}, loss {value.item():.4f}", flush=True)
-        if step in STEPS:
+            print(f"Temporal training step {step} of {steps}, loss {value.item():.4f}", flush=True)
+        if step in saved:
             filename = f"temporal_{step}.pt"
             torch.save({key: tensor.detach().cpu() for key, tensor in net.state_dict().items()}, output / filename)
             hashes[filename] = digest(output / filename)
     write_json(output / "fit.json", {"models": hashes, "normalization": digest(output / "normalization.npz"),
                "columns": manifest["columns"], "train_manifest": digest(source / "manifest.json"),
                "training_device": device, "torch": torch.__version__, "seed": seed,
-               "boundary_boost": boundary_boost})
+               "boundary_boost": boundary_boost} | options(width, steps))
 
 
 def export(folder, output):
@@ -189,7 +207,7 @@ def export(folder, output):
     copyfile(norm_path, output / norm_path.name)
     torch.set_num_threads(1)
     columns = len(fit["columns"])
-    net = Network(columns).eval()
+    net = Network(columns, fit.get("width", WIDTH)).eval()
     rng = np.random.default_rng(13)
     values = rng.normal(size=(2, 180, columns * 2)).astype(np.float32)
     hashes, differences = {}, {}
@@ -229,6 +247,8 @@ if __name__ == "__main__":
     training.add_argument("--device", choices=("cpu", "mps"), default="cpu")
     training.add_argument("--seed", type=int, default=42)
     training.add_argument("--boundary-boost", type=float, default=.5)
+    training.add_argument("--width", type=int, default=WIDTH, help="Channels per block (D15)")
+    training.add_argument("--steps", type=int, default=STEPS[-1], help="Training steps; the schedule is stretched (D15)")
     conversion = actions.add_parser("export")
     conversion.add_argument("--source", required=True, type=Path)
     conversion.add_argument("--out", required=True, type=Path)
@@ -239,6 +259,7 @@ if __name__ == "__main__":
     if args.action == "prepare":
         prepare(args.dfl, args.skill, args.out, raw=args.dfl_raw, augment=args.augment, convention=args.convention)
     elif args.action == "train":
-        train(args.source, args.out, args.device, seed=args.seed, boundary_boost=args.boundary_boost)
+        train(args.source, args.out, args.device, seed=args.seed, boundary_boost=args.boundary_boost,
+              width=args.width, steps=args.steps)
     else:
         export(args.source, args.out)

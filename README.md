@@ -15,13 +15,13 @@ This repository regenerates team Anfield's possession file, `Anfield.csv`, for t
    - context windows of 3, 9 and 18 seconds
 3. **Models.**
    - An extended-context XGBoost model estimates home ownership given live play, and the probability of a stoppage.
-   - Two temporal convolutional networks estimate ownership, stoppage and possession-boundary probabilities. The second network is trained independently with seed 97 and a heavier weight near labelled boundaries. Inference uses NumPy exports of their weights, so the build does not need PyTorch.
+   - Two temporal convolutional networks estimate ownership, stoppage and possession-boundary probabilities. Each has 96 channels per block and is trained for 5,400 steps (D15, below). The second network is trained independently with seed 97 and a heavier weight near labelled boundaries. Inference uses NumPy exports of their weights, so the build does not need PyTorch.
    - The seed-97 network predicts on three 5 Hz grids, offset by 0, 2 and 4 frames. Its predictions are interpolated back to 25 Hz and averaged with the reference signals using equal weights.
    - The whole set of models exists twice: once trained on the external data as provided, and once retrained after removing the providers' dead-ball artifacts. Every output of the two sets is averaged with equal weight. See "Dead-ball artifacts and the model blend" below.
 4. **Decoder.** One three-state Viterbi decoder picks the `H`/`A`/`D` sequence for each half.
    - The stoppage cutoff is 0.53.
-   - A direct ownership change costs 6, and a transition into or out of a stoppage costs 2. Each cost is cut by up to 80% when the matching boundary signal is strong.
-   - The higher ownership cost reflects the challenge's definition: only *controlled* possession changes hands, so a brief touch or deflection should not split a possession. See "Decoder retune" below.
+   - A direct ownership change costs 8, and a transition into or out of a stoppage costs 2. Each cost is cut by up to 80% when the matching boundary signal is strong.
+   - The high ownership cost reflects the challenge's definition: only *controlled* possession changes hands, so a brief touch or deflection should not split a possession. See "Decoder retune" below; D15 re-selected the cost for the larger networks.
    - In loose or contested play, the last team in possession keeps the ball unless the evidence supports a change.
 
 ## Training data
@@ -91,6 +91,20 @@ An equal blend of the original and retrained models was then tested under a new 
 
 The blend keeps the stoppage cutoff at 0.53. Records: [retrained models](dfl_submission/retrain_recipe/development.json) · [blend development](dfl_submission/blend_recipe/development.json) · [blend confirmation](dfl_submission/blend_recipe/external_validation.json)
 
+### Larger, longer-trained networks (D15)
+
+Each network originally had 48 channels per block (about 32,000 parameters) and trained for 1,800 steps. Neither value had been searched. D15 retrained all four networks of both model sets at widths 48 and 96 and lengths of 1,800 and 5,400 steps, with the learning-rate schedule stretched to the new length. The ownership cost was re-selected from 4, 6 and 8. The trees, features, seeds and training data are unchanged. Every new setting cleared every development gate. Development selected width 96, 5,400 steps and ownership cost 8 (+0.041 on the primary). Confirmation, once, against D3:
+
+| Holdout spellF1 | D3 | D15 | Change | Gate |
+| --- | ---: | ---: | ---: | --- |
+| Standard views, N = 3 s (primary) | 0.6873 | 0.7087 | +0.0214 | ≥ +0.01 |
+| Dead ball carried (DFL) | 0.5980 | 0.6104 | +0.0124 | ≥ −0.01 |
+| Team swap (DFL) | 0.5736 | 0.6322 | +0.0586 | ≥ −0.01 |
+| PFF confirmation set A, N = 3 s (fresh vendor) | 0.6355 | 0.6542 | +0.0187 | ≥ −0.01 |
+| Raw provider labels (reported only) | 0.5746 | 0.6179 | +0.0433 | — |
+
+N = 1.75, 4 and 4.5 s rose by +0.039, +0.013 and +0.005. The holdout gain is about half the development gain, as expected after picking the best of nine eligible settings on reused matches. Records: [development](dfl_submission/scale_recipe/development.json) · [confirmation](dfl_submission/scale_recipe/confirmation.json) · [protocol](DECISIONS.md#d15--network-width-and-training-length-2026-11-11-written-before-any-candidate-network-is-trained-or-scored)
+
 ### Set-piece restart experiment
 
 D4 tested ten decoder settings on DFL WPY using simulated Smart Tagging inputs from the DFL event feed. The simulations included missing tags, timing errors and spurious tags. On the masked and dead-ball-carried views, the best setting scored 0.61376 spellF1 against the N = 3 targets, compared with 0.61382 for D3. The required gain was +0.003, so the experiment ended at development. See the [protocol](DECISIONS.md#d4--smart-tagging-restart-anchors-2026-11-11-written-before-scoring) and [full grid results](dfl_submission/restart_recipe/development.json).
@@ -103,15 +117,12 @@ The build is verified to give the same file on Apple Silicon macOS and on Linux 
 python3.12 -m venv .venv
 .venv/bin/python -m pip install -r dfl_submission/requirements.txt
 export MTAH_DATA_DIR=/path/to/competition-bundle
-.venv/bin/python -m dfl_submission.retrain_trial build --fallback . \
-  --model dfl_submission/seed_models --ensemble dfl_submission/ensemble_recipe \
-  --decoder dfl_submission/decoder_recipe --retrained dfl_submission/retrain_models \
-  --trial dfl_submission/blend_recipe --out data/submission.csv
+.venv/bin/python -m dfl_submission.scale_trial build --out data/submission.csv
 .venv/bin/python evaluation/validate_submission.py data/submission.csv
 shasum -a 256 -c SUBMISSION_SHA256.txt
 ```
 
-Inference takes under a minute. The build checks every checkpoint digest against the frozen recipe before predicting. A rebuild from a fresh copy and a fresh virtual environment reproduced the file byte for byte, including with a bundle containing only the three tactical files above. Its SHA-256 is `f0b03d2c8a6718ee73b52c786854c3520a6cd4bd22fdedb7475b871510cdbfa5`.
+Inference takes under a minute. The build checks every model digest against the confirmed D15 recipe (`dfl_submission/scale_recipe/`) before predicting. Two builds in a fresh virtual environment reproduced the file byte for byte. Its SHA-256 is `14d18a238afce84b663cc430161240e00c93b62e3a65a0e6aa47577288b7af78`.
 
 On Linux, the same build runs in the official Python image (`python:3.12.14-slim`, index digest `sha256:f77ac9e44ae96ef2c90b8053ea08c31f8be030f824196b0ae4db6d462c84e51f`):
 
@@ -119,15 +130,16 @@ On Linux, the same build runs in the official Python image (`python:3.12.14-slim
 docker run --rm --platform linux/amd64 -v "$PWD":/repo:ro -v /path/to/competition-bundle:/bundle:ro \
   -v "$PWD/out":/out -e MTAH_DATA_DIR=/bundle -e PYTHONDONTWRITEBYTECODE=1 python:3.12.14-slim bash -c '
   cd /repo && python -m venv /venv && /venv/bin/pip install -q -r dfl_submission/requirements.txt &&
-  /venv/bin/python -m dfl_submission.retrain_trial build --fallback . --model dfl_submission/seed_models \
-    --ensemble dfl_submission/ensemble_recipe --decoder dfl_submission/decoder_recipe \
-    --retrained dfl_submission/retrain_models --trial dfl_submission/blend_recipe --out /out/submission.csv &&
+  /venv/bin/python -m dfl_submission.scale_trial build --out /out/submission.csv &&
   sha256sum /out/submission.csv'
 ```
 
-On Nov 10 this produced the same SHA-256 under `linux/amd64` and `linux/arm64` as on macOS. On Nov 11, a fresh clone at commit `c8cdcad` (after D7 and D8) was rebuilt in four ways, and all four gave `f0b03d2c…` and passed the validator: twice on macOS in a fresh venv with Homebrew Python 3.12.13, and once each in the image above under `linux/arm64` and `linux/amd64` (Python 3.12.14). For these runs the bundle held only `tactical/`.
+On Nov 11 the D15 build gave `14d18a23…` and passed the validator under both `linux/arm64` and `linux/amd64` in this image (Python 3.12.14), matching the two macOS builds. The bundle held only `tactical/`.
+
+For D3, the previous submission, the same command with `retrain_trial build` produced the same SHA-256 under `linux/amd64` and `linux/arm64` as on macOS on Nov 10. On Nov 11, a fresh clone at commit `c8cdcad` (after D7 and D8) was rebuilt in four ways, and all four gave `f0b03d2c…` and passed the validator: twice on macOS in a fresh venv with Homebrew Python 3.12.13, and once each in the image above under `linux/arm64` and `linux/amd64` (Python 3.12.14). For these runs the bundle held only `tactical/`.
 
 Earlier versions remain available as fallbacks:
+- D3, the equal blend with the original networks: `retrain_trial build --fallback . --model dfl_submission/seed_models --ensemble dfl_submission/ensemble_recipe --decoder dfl_submission/decoder_recipe --retrained dfl_submission/retrain_models --trial dfl_submission/blend_recipe`, SHA-256 `f0b03d2c8a6718ee73b52c786854c3520a6cd4bd22fdedb7475b871510cdbfa5`;
 - original models with the retuned decoder: `decoder_trial build` with `--trial dfl_submission/decoder_recipe`, SHA-256 `1cc8a858354df9c8ffc024540793caa045d845d321e144b6223ba1421a56ecc1`;
 - the original ensemble: `ensemble_trial build` with `--trial dfl_submission/ensemble_recipe`, SHA-256 `ed91c2362f0069c20c271e865bbc5f22bcb8331ffc5e27015130234abdb6fc2e`.
 
@@ -136,7 +148,7 @@ The submitted file is the build output under the team name. The scorer names eac
 ```sh
 cp data/submission.csv Anfield.csv
 .venv/bin/python evaluation/validate_submission.py Anfield.csv
-shasum -a 256 Anfield.csv  # f0b03d2c8a6718ee73b52c786854c3520a6cd4bd22fdedb7475b871510cdbfa5
+shasum -a 256 Anfield.csv  # 14d18a238afce84b663cc430161240e00c93b62e3a65a0e6aa47577288b7af78
 ```
 
 ## Audit the training and selection
@@ -259,6 +271,37 @@ D14 added the five 2019–20 SkillCorner development matches to the training of 
 .venv/bin/python -m dfl_submission.extra_trial tune --parsed data/pff/parsed --dfl "$DFL_XML" --dfl-raw \
   --skill data/skillcorner --d3-cache data/diagnosis_cache/development --cache data/d14/cache/development
 ```
+
+D15 retrained all four networks of both model sets at widths 48 and 96 and lengths of 1,800 and 5,400 steps, and re-selected the ownership cost from 4, 6 and 8. It first checked that the trainer with its new options at their defaults retrains a published network bit for bit. Width 96 with 5,400 steps and cost 8 passed development and its single confirmation, and is the submission (above).
+
+```sh
+# once per set and setting: --set current with /path/to/train_data, --set augmented with data/d13/sequences_augmented
+.venv/bin/python -m dfl_submission.scale_trial networks --set current --source /path/to/train_data \
+  --width 96 --steps 5400 --scratch data/d15/networks
+.venv/bin/python -m dfl_submission.scale_trial tune --parsed data/pff/parsed --dfl "$DFL_XML" --dfl-raw \
+  --skill data/skillcorner --d3-cache data/diagnosis_cache/development --cache data/d15/cache
+.venv/bin/python -m dfl_submission.pff prepare --raw data/pff/raw --out data/pff/parsed \
+  --games 3813 3821 3829 3837 3845 3853 10503 10511   # PFF confirmation set A, for D15 only
+.venv/bin/python -m dfl_submission.scale_trial confirm --parsed data/pff/parsed --dfl "$DFL_XML" --dfl-raw \
+  --skill data/skillcorner --d3-cache data/diagnosis_cache/holdout_confirm_a --cache data/d15/cache_holdout
+```
+
+D16 added 22 last-touch and possession-chain features (ball turns, touch evidence, time since and until each team's touches, touch counts and run lengths; `touch_features.py`). Three checks passed first: the 162 existing columns were re-extracted exactly for all 96 training halves, and both trees of each set refit byte for byte. The trees refit with the new features then failed the tree gate: their best change against D15 was −0.0004, short of the +0.003 needed before retraining the networks. D15 stays.
+
+```sh
+.venv/bin/python -m dfl_submission.touch_trial prepare --set current --source /path/to/train_data \
+  --dfl "$DFL_XML" --dfl-raw --skill data/skillcorner --out data/d16/sequences_current
+.venv/bin/python -m dfl_submission.touch_trial trees --set current --source /path/to/train_data --check \
+  --out data/d16/check_trees_current
+.venv/bin/python -m dfl_submission.touch_trial trees --set current --source data/d16/sequences_current \
+  --out dfl_submission/touch_models/trees/current
+# the same three steps for --set augmented with data/d13/sequences_augmented, then:
+.venv/bin/python -m dfl_submission.touch_trial gate --parsed data/pff/parsed --dfl "$DFL_XML" --dfl-raw \
+  --skill data/skillcorner --d3-cache data/diagnosis_cache/development \
+  --reference-cache data/d15/cache/w96_s5400 --cache data/d16/cache_trees
+```
+
+[D15 development](dfl_submission/scale_recipe/development.json) · [D15 confirmation](dfl_submission/scale_recipe/confirmation.json) · [D16 tree gate](dfl_submission/touch_recipe/tree_gate.json)
 
 [D11 record](dfl_submission/diagnosis_recipe/d11.json) · [D12 development](dfl_submission/refine_recipe/development.json) · [D13 development](dfl_submission/aligned_recipe/development.json) · [D14 development](dfl_submission/extra_recipe/development.json) · [D11 protocol](DECISIONS.md#d11--where-frozen-d3-loses-spellf1-2026-11-11-written-before-anything-is-scored) · [D12 protocol](DECISIONS.md#d12--decoder-output-refinements-2026-11-11-written-after-d11s-record-and-before-any-d12-setting-is-scored)
 

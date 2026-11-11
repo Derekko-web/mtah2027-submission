@@ -102,18 +102,18 @@ def load_half(folder, entry):
                            item["d3"])
 
 
-def external_halves(dfl, skill, split, teacher, *, raw):
+def external_halves(dfl, skill, split, teacher, *, raw, signals_of=half_signals):
     from dfl_submission import augment
     for half in augment.guard_halves(dfl, skill, split, raw=raw):
-        signals, labels = half_signals(teacher, half.positions, half.ball, half.teams, half.pitch)
+        signals, labels = signals_of(teacher, half.positions, half.ball, half.teams, half.pitch)
         yield HalfSignals(half.source, half.match, half.view, half.index, np.asarray(half.labels), signals, labels)
         print(f"Forecast {half.key}", flush=True)
 
 
-def pff_halves(parsed, games, teacher):
+def pff_halves(parsed, games, teacher, *, signals_of=half_signals):
     for game in games:
         for index, half in enumerate(pff.load(parsed, game)):
-            signals, labels = half_signals(teacher, *pff.tracking(half))
+            signals, labels = signals_of(teacher, *pff.tracking(half))
             yield HalfSignals("pff", str(game), "observed", index, np.asarray(half["labels"]), signals, labels)
         print(f"Forecast PFF {game}", flush=True)
 

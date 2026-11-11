@@ -1,6 +1,6 @@
 # Team possession from tracking: technical document
 
-*More Than A Hack 2027, Initial Challenge.* Team: **Anfield**. Repository: https://github.com/Derekko-web/mtah2027-submission. Submission file: `Anfield.csv`, SHA-256 `f0b03d2c8a6718ee73b52c786854c3520a6cd4bd22fdedb7475b871510cdbfa5`.
+*More Than A Hack 2027, Initial Challenge.* Team: **Anfield**. Repository: https://github.com/Derekko-web/mtah2027-submission. Submission file: `Anfield.csv`, SHA-256 `14d18a238afce84b663cc430161240e00c93b62e3a65a0e6aa47577288b7af78`.
 
 > **Draft.** Before submitting: confirm section 7 with the whole team, then upload this document as `Anfield.pdf` or `Anfield.md`.
 
@@ -49,7 +49,7 @@ There are no player identities in the data, so every feature is collective.
 | Model | What it estimates | Notes |
 |---|---|---|
 | Extended-context XGBoost (two heads) | home control given live play; probability of a stoppage | The ownership head trains and predicts in both team orders. Classes and matches are weighted equally. |
-| Temporal convolutional network (seed 42) | ownership, stoppage and boundary probabilities | Dilated 1-D convolutions over 5 Hz sequences. |
+| Temporal convolutional network (seed 42) | ownership, stoppage and boundary probabilities | Dilated 1-D convolutions over 5 Hz sequences: six blocks of 96 channels, trained for 5,400 steps (D15). |
 | Second temporal network (seed 97) | same | Heavier loss weight near labelled boundaries. Predicts on three 5 Hz grids offset by 0, 2 and 4 frames, then averaged. |
 
 The tree and network outputs are blended with equal weights. This ensemble was chosen on external development matches from 238 recipes, then confirmed on external holdout matches.
@@ -65,10 +65,10 @@ Every output of the two sets is averaged with equal weight. Inference uses NumPy
 A three-state (`H`, `A`, `D`) Viterbi decoder runs over each half.
 
 - **State:** a frame is `D` when the stoppage probability passes 0.53.
-- **Switch costs:** a direct change of possession costs 6; entering or leaving a stoppage costs 2. Each cost is cut by up to 80% when the matching boundary signal is strong.
+- **Switch costs:** a direct change of possession costs 8; entering or leaving a stoppage costs 2. Each cost is cut by up to 80% when the matching boundary signal is strong.
 - **How these values were chosen:**
   - The stoppage cost, cutoff and discount came from the external development grid (section 4).
-  - The ownership cost of 6 came from a later retune against controlled-possession targets.
+  - The ownership cost rose from 2 to 6 in a retune against controlled-possession targets (D1), then to 8 when it was re-selected for the larger networks (D15).
 
 ## 3. Training data
 
@@ -76,7 +76,7 @@ A three-state (`H`, `A`, `D`) Viterbi decoder runs over each half.
 |---|---|---|---|---|
 | DFL / Sportec integrated tracking and event data (Bassek, Rein, Weber & Memmert, *Scientific Data* 12:195, 2025) | [doi:10.6084/m9.figshare.28196177.v1](https://doi.org/10.6084/m9.figshare.28196177.v1), CC BY 4.0 | The data provider. Ball status and ball-owning team come from the official position feed. | 7 Bundesliga matches, about 1.0 M frames. Fitting: WMX, WN1, WOH, WOY. Development: WPY. Confirmation: WQQ, WR9. | Training, tuning, validation |
 | SkillCorner Open Data | [revision 4340d274](https://github.com/SkillCorner/opendata/tree/4340d274572876239c154c90bc507a9b3250a656), MIT | SkillCorner: phases of play and possession on its own detected broadcast tracking | 20 A-League matches: 12 fitting, 4 development, 4 confirmation | Training, tuning, validation |
-| PFF FC 2022 FIFA World Cup broadcast tracking | Shared on request by PFF FC (Gradient Sports). No dataset licence; see DECISIONS.md D7 for the terms we found. | PFF: possession sequences in its game events | 8 of 64 matches (development) | Measurement (D7), a weight selection that changed nothing (D8), and a veto in D11–D14. No model was trained on it, and no value in the submission comes from it. |
+| PFF FC 2022 FIFA World Cup broadcast tracking | Shared on request by PFF FC (Gradient Sports). No dataset licence; see DECISIONS.md D7 for the terms we found. | PFF: possession sequences in its game events | 8 of 64 matches (development) | Measurement (D7), a weight selection that changed nothing (D8), and a veto in D11–D16. Confirmation set A (8 further matches) was parsed and scored once, as a veto in D15's confirmation. No model was trained on it, and no value in the submission comes from it. |
 | SkillCorner Open Data, 2019–20 release | [revision 1b99d401](https://github.com/SkillCorner/opendata/tree/1b99d401ddc82e366c5c20d6860878668fd5858f), MIT | SkillCorner: home/away possession on its detected broadcast tracking; no dead-ball label | 9 matches: 5 development, 4 confirmation (never scored) | The D6 proxy, and D14 training models that were not adopted. No model in the submission was trained on it. |
 | Metrica Sports sample data, games 1–3 | [metrica-sports/sample-data](https://github.com/metrica-sports/sample-data); no licence file, credit requested | Metrica: event data (passes, recoveries, ball out, set pieces) on anonymised matches | 3 matches of event data | Only to choose the controlled-possession convention (section 6). No model was trained on it. |
 
@@ -110,9 +110,12 @@ These are combined holdout spellF1 scores.
 |---|---:|---:|---:|
 | Ensemble, switch costs 2 / 2 | 0.6782 | — | 0.5917 |
 | Decoder retune, ownership cost 6 (D1) | 0.6923 | 0.5364 | 0.5794 |
-| **Blend with the retrained models (D3), submitted** | **0.6873** | **0.5980** | 0.5746 |
+| Blend with the retrained models (D3) | 0.6873 | 0.5980 | 0.5746 |
+| **Larger, longer-trained networks, ownership cost 8 (D15), submitted** | **0.7087** | **0.6104** | 0.6179 |
 
 The decoder retune improved all eight holdout match views on the primary target. The blend trades 0.005 on views that still contain the provider dead-ball artifacts for +0.062 when the dead ball moves (section 5).
+
+**D15: larger, longer-trained networks.** Each network had 48 channels per block and trained for 1,800 steps, values that were never searched. D15 retrained all four networks of both model sets at widths 48 and 96 and lengths of 1,800 and 5,400 steps, and re-selected the ownership cost from 4, 6 and 8, under a rule written before any candidate was trained. Every new setting passed every development gate. Width 96, 5,400 steps and cost 8 gained +0.041 on development. On its single confirmation it gained +0.021 on the holdout, +0.012 with the dead ball carried, +0.059 on team swaps and +0.019 on PFF confirmation set A, eight PFF matches never scored before. Training length mattered more than width. The holdout gain is about half the development gain, as expected after picking the best of nine eligible settings on reused matches.
 
 ### Experiments that did not change the submission
 
@@ -128,6 +131,7 @@ Each followed a rule written before scoring, and each outcome is recorded in [DE
 | D11 | Where the submission loses spellF1 on the development matches: per-IoU detection, two oracle runs, boundary offsets by transition type, recall by spell length. | With true ownership substituted, standard combined spellF1 rises from 0.682 to 0.887; with true stoppages, only to 0.714. The submission predicts 20–25% fewer spells than the targets, with high precision and low recall; it recovers under half of the true spells shorter than 5 s. Boundary offsets have medians of −2 to +2 frames on DFL and SkillCorner, with no sign the vendors agree on. | None. A measurement only. It handed no boundary shift to D12. |
 | D12 | Decoder output refinements: a 1-frame decoder step instead of 5, and collapsing brief interior spells (1.75 s or 3 s) in the decoded labels. | Best change −0.001 on development, against a required +0.005. The submission predicts almost no brief interior spells, so collapsing has little to remove. Confirmation was not scored. | None. The 5-frame decoder stays. |
 | D13 | Both model sets refit on controlled-possession targets (brief A–B–A spells under 3 s merged before training), with ownership costs 2–8 and three stoppage cutoffs. Checks first confirmed that the refit reproduces the published trees and networks when given the original targets. | Best change −0.00002 at N = 3, against a required +0.01. Every setting lost more than 0.01 at N = 1.75; at the submitted costs the aligned models gain +0.011 at N = 4 and 4.5. Confirmation was not scored. | None. Training on the challenge's convention moves the score between conventions; it does not recover missed changes. |
+| D16 | 22 last-touch and possession-chain features (ball turns next to players, time since and until each team's touches, touch counts and run lengths), with both trees refit first; the networks would follow only if the trees gained +0.003 against D15. Checks first confirmed that the 162 existing features were re-extracted exactly and that the trees refit byte for byte. | Best tree-only change −0.0004 against D15. The new trees matched more ownership changes on clean DFL (104 against 93 of 184) but not on SkillCorner or PFF, and lost at N = 4 and 4.5 and on team swaps. | None. The networks were not retrained; confirmation was not scored. |
 | D14 | Five 2019–20 SkillCorner matches added to training as a third source, with ownership-only targets. | Every development gate failed: −0.018 at N = 3, −0.049 with the dead ball carried, −0.028 on team swaps, −0.023 on PFF. Confirmation was not scored. | None. |
 
 ### The one correctness check
@@ -217,15 +221,12 @@ Verified to give the same file on Apple Silicon macOS and in Linux containers (x
 python3.12 -m venv .venv
 .venv/bin/python -m pip install -r dfl_submission/requirements.txt
 export MTAH_DATA_DIR=/path/to/competition-bundle
-.venv/bin/python -m dfl_submission.retrain_trial build --fallback . \
-  --model dfl_submission/seed_models --ensemble dfl_submission/ensemble_recipe \
-  --decoder dfl_submission/decoder_recipe --retrained dfl_submission/retrain_models \
-  --trial dfl_submission/blend_recipe --out data/submission.csv
+.venv/bin/python -m dfl_submission.scale_trial build --out data/submission.csv
 .venv/bin/python evaluation/validate_submission.py data/submission.csv
 shasum -a 256 -c SUBMISSION_SHA256.txt
 ```
 
-Inference takes about a minute. The build verifies every checkpoint digest before predicting. A rebuild from a fresh copy and a fresh environment reproduced the submitted file byte for byte, on macOS and in the official `python:3.12.14-slim` image under `linux/amd64` and `linux/arm64`. The README gives the Docker command.
+Inference takes under a minute. The build verifies every model digest before predicting. Rebuilds in a fresh environment reproduced the submitted file byte for byte, twice on macOS and in the official `python:3.12.14-slim` image under `linux/arm64` and `linux/amd64`. The README gives the Docker command.
 
 The README documents:
 - how to retrain every model from the public external data;

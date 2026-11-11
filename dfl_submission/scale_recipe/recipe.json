@@ -1,0 +1,44 @@
+{
+  "models": {
+    "networks": {
+      "augmented": {
+        "seed_models": "6e7a9cde797fd367ce1933c3da8538af9c6eb58d443d53ce0291a25d80ea53da",
+        "temporal_models": "edba839f1d59ba2f6a2c06824fa83b5c12e7c212a654efb09021e2d469f8efdc"
+      },
+      "current": {
+        "seed_models": "62c43439888abf8335864b858128d2d9e714df64d5eafb0441891106f730041c",
+        "temporal_models": "e62203c7f1eb441aea0dc3e6bfc84cd0da04e4f2f20a972c11b17f4a9ce33215"
+      }
+    },
+    "setting": [
+      96,
+      5400
+    ],
+    "trees": {
+      "augmented": "af0a9153b994cec629c7afb30cd26fe084ef5a0e966ada6814895b5adde7cdc3",
+      "current": "b313e25ee0ecf28490cb8f6d191b40ab2fb3d28c44019f05963a5effb2a7a19c"
+    }
+  },
+  "pitch": [
+    105.0,
+    68.0
+  ],
+  "protocol": "DECISIONS.md D15",
+  "recipe": {
+    "cutoff": 0.53,
+    "dead_cost": 2,
+    "dead_mix": 0.5,
+    "discount": 0.8,
+    "method": "joint",
+    "owner_cost": 8,
+    "owner_mix": 0.5,
+    "variant": "seed_phase"
+  },
+  "setting": {
+    "owner_cost": 8,
+    "steps": 5400,
+    "width": 96
+  },
+  "teacher_sha256": "1b800a8e3a6cc00d81773580dd1b379dc2199ae0bb60aaf29cbc59105ad67903",
+  "weight": 0.5
+}
