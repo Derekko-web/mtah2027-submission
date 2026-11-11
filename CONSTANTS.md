@@ -53,7 +53,9 @@ The DFL and SkillCorner reference heads in `models/`, `robust_models/`, `skillco
 | Blend with the seed-97 network | owner and dead mix 0.5 | `ensemble_recipe/recipe.json` | External grid (238 recipes) |
 | Decoder | joint three-state Viterbi | `joint_decoder.py`, `ensemble_recipe` | External grid: joint, separate or reference |
 | Stoppage cutoff | 0.53 | `ensemble_recipe` | External grid (0.53, 0.57, 0.61) |
-| Ownership and stoppage switch costs | 2 and 2 | `ensemble_recipe` | External grid (owner 1–3, dead 1–4) |
+| Ownership switch cost | 6 | `decoder_recipe` | External grid (2, 3, 4, 6, 8, 12, 16) scored against controlled-possession targets with N = 3 s. Rule pre-registered in DECISIONS.md D1, then confirmed once on the external holdout. Replaces the original ensemble value of 2. |
+| Stoppage switch cost | 2 | `ensemble_recipe`, kept by `decoder_recipe` | External grid (ensemble: 1–4; retune: 2, 3, 4) |
+| Controlled-possession convention | N = 3 s (merge an A–B–A whose interior B lasts under 3 s) | `conventions.py`, DECISIONS.md D1 | Minimax over the externally derived interval of 1.75–4.5 s (Metrica sample events, SkillCorner phases). Used only to score external candidates, not at inference. |
 | Boundary discount | 0.8 | `ensemble_recipe` | External grid (0.55, 0.8) |
 
 ## Notes

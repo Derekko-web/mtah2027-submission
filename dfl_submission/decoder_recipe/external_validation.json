@@ -1,0 +1,579 @@
+{
+  "gain": {
+    "aba1.75": 0.00010714099279618416,
+    "aba3": 0.014125696773845231,
+    "aba4": 0.026232439529986884,
+    "aba4.5": 0.032350117652276356,
+    "raw": -0.012345405548344734
+  },
+  "passed": true,
+  "protocol": "DECISIONS.md D1",
+  "reference": {
+    "conventions": {
+      "aba1.75": {
+        "macro_f1": {
+          "combined": 0.9039637912968032,
+          "dfl": 0.9171806153798358,
+          "skillcorner": 0.8907469672137706
+        },
+        "matches": {
+          "dfl/WQQ/clean": {
+            "macro_f1": 0.9347996132699308,
+            "spell_f1": 0.6998363338788871,
+            "spells": 272
+          },
+          "dfl/WQQ/masked": {
+            "macro_f1": 0.9065420839992743,
+            "spell_f1": 0.621476510067114,
+            "spells": 257
+          },
+          "dfl/WR9/clean": {
+            "macro_f1": 0.9347088536940369,
+            "spell_f1": 0.6644927536231885,
+            "spells": 246
+          },
+          "dfl/WR9/masked": {
+            "macro_f1": 0.9102455286582494,
+            "spell_f1": 0.5951219512195122,
+            "spells": 227
+          },
+          "skillcorner/2013725/observed": {
+            "macro_f1": 0.8907262267082338,
+            "spell_f1": 0.643189368770764,
+            "spells": 275
+          },
+          "skillcorner/2015213/observed": {
+            "macro_f1": 0.8842910249018797,
+            "spell_f1": 0.6366942148760331,
+            "spells": 280
+          },
+          "skillcorner/2016236/observed": {
+            "macro_f1": 0.8951047581672166,
+            "spell_f1": 0.6645161290322582,
+            "spells": 257
+          },
+          "skillcorner/2017461/observed": {
+            "macro_f1": 0.892865859077752,
+            "spell_f1": 0.6120996441281139,
+            "spells": 254
+          }
+        },
+        "spell_f1": {
+          "combined": 0.6360229204405068,
+          "dfl": 0.6329210016792213,
+          "skillcorner": 0.6391248392017923
+        }
+      },
+      "aba3": {
+        "macro_f1": {
+          "combined": 0.909293858464903,
+          "dfl": 0.9251685257130957,
+          "skillcorner": 0.8934191912167102
+        },
+        "matches": {
+          "dfl/WQQ/clean": {
+            "macro_f1": 0.9420258923815729,
+            "spell_f1": 0.7574952561669829,
+            "spells": 272
+          },
+          "dfl/WQQ/masked": {
+            "macro_f1": 0.9154460621799543,
+            "spell_f1": 0.69140625,
+            "spells": 257
+          },
+          "dfl/WR9/clean": {
+            "macro_f1": 0.9415292741564283,
+            "spell_f1": 0.7291338582677166,
+            "spells": 246
+          },
+          "dfl/WR9/masked": {
+            "macro_f1": 0.9182819316903322,
+            "spell_f1": 0.6650306748466258,
+            "spells": 227
+          },
+          "skillcorner/2013725/observed": {
+            "macro_f1": 0.8915539697691083,
+            "spell_f1": 0.6601398601398601,
+            "spells": 275
+          },
+          "skillcorner/2015213/observed": {
+            "macro_f1": 0.8842514008070284,
+            "spell_f1": 0.6333907056798623,
+            "spells": 280
+          },
+          "skillcorner/2016236/observed": {
+            "macro_f1": 0.8996725703376934,
+            "spell_f1": 0.6887218045112782,
+            "spells": 257
+          },
+          "skillcorner/2017461/observed": {
+            "macro_f1": 0.8981988239530111,
+            "spell_f1": 0.6436781609195403,
+            "spells": 254
+          }
+        },
+        "spell_f1": {
+          "combined": 0.6781998967503136,
+          "dfl": 0.6999171606879919,
+          "skillcorner": 0.6564826328126352
+        }
+      },
+      "aba4": {
+        "macro_f1": {
+          "combined": 0.9096084458310378,
+          "dfl": 0.9262558159738166,
+          "skillcorner": 0.8929610756882591
+        },
+        "matches": {
+          "dfl/WQQ/clean": {
+            "macro_f1": 0.9411964389446822,
+            "spell_f1": 0.74373795761079,
+            "spells": 272
+          },
+          "dfl/WQQ/masked": {
+            "macro_f1": 0.9169052616691085,
+            "spell_f1": 0.696031746031746,
+            "spells": 257
+          },
+          "dfl/WR9/clean": {
+            "macro_f1": 0.9412163540123798,
+            "spell_f1": 0.7188524590163934,
+            "spells": 246
+          },
+          "dfl/WR9/masked": {
+            "macro_f1": 0.9206557897738102,
+            "spell_f1": 0.6933901918976545,
+            "spells": 227
+          },
+          "skillcorner/2013725/observed": {
+            "macro_f1": 0.892854958665386,
+            "spell_f1": 0.6592057761732851,
+            "spells": 275
+          },
+          "skillcorner/2015213/observed": {
+            "macro_f1": 0.8830743196164518,
+            "spell_f1": 0.6154954954954956,
+            "spells": 280
+          },
+          "skillcorner/2016236/observed": {
+            "macro_f1": 0.8996006801063196,
+            "spell_f1": 0.68,
+            "spells": 257
+          },
+          "skillcorner/2017461/observed": {
+            "macro_f1": 0.8963143443648791,
+            "spell_f1": 0.6251012145748989,
+            "spells": 254
+          }
+        },
+        "spell_f1": {
+          "combined": 0.6759281684876254,
+          "dfl": 0.7069057154143308,
+          "skillcorner": 0.64495062156092
+        }
+      },
+      "aba4.5": {
+        "macro_f1": {
+          "combined": 0.9083717320415977,
+          "dfl": 0.924911891785263,
+          "skillcorner": 0.8918315722979324
+        },
+        "matches": {
+          "dfl/WQQ/clean": {
+            "macro_f1": 0.9405964721240219,
+            "spell_f1": 0.7347740667976425,
+            "spells": 272
+          },
+          "dfl/WQQ/masked": {
+            "macro_f1": 0.9174301012364308,
+            "spell_f1": 0.6947368421052631,
+            "spells": 257
+          },
+          "dfl/WR9/clean": {
+            "macro_f1": 0.9380283702243798,
+            "spell_f1": 0.70042194092827,
+            "spells": 246
+          },
+          "dfl/WR9/masked": {
+            "macro_f1": 0.9179931529451575,
+            "spell_f1": 0.6734065934065935,
+            "spells": 227
+          },
+          "skillcorner/2013725/observed": {
+            "macro_f1": 0.8926183593145961,
+            "spell_f1": 0.6567164179104478,
+            "spells": 275
+          },
+          "skillcorner/2015213/observed": {
+            "macro_f1": 0.8797941921519152,
+            "spell_f1": 0.590791896869245,
+            "spells": 280
+          },
+          "skillcorner/2016236/observed": {
+            "macro_f1": 0.8987991075496241,
+            "spell_f1": 0.6626984126984127,
+            "spells": 257
+          },
+          "skillcorner/2017461/observed": {
+            "macro_f1": 0.8961146301755941,
+            "spell_f1": 0.6188524590163934,
+            "spells": 254
+          }
+        },
+        "spell_f1": {
+          "combined": 0.6637559715409478,
+          "dfl": 0.6952471464582709,
+          "skillcorner": 0.6322647966236247
+        }
+      },
+      "raw": {
+        "macro_f1": {
+          "combined": 0.90274547136363,
+          "dfl": 0.9158176031406016,
+          "skillcorner": 0.8896733395866585
+        },
+        "matches": {
+          "dfl/WQQ/clean": {
+            "macro_f1": 0.9334902273140598,
+            "spell_f1": 0.6395245170876671,
+            "spells": 272
+          },
+          "dfl/WQQ/masked": {
+            "macro_f1": 0.9059846314662435,
+            "spell_f1": 0.5623100303951367,
+            "spells": 257
+          },
+          "dfl/WR9/clean": {
+            "macro_f1": 0.9322235024975744,
+            "spell_f1": 0.6025974025974026,
+            "spells": 246
+          },
+          "dfl/WR9/masked": {
+            "macro_f1": 0.9086113130497443,
+            "spell_f1": 0.5386934673366834,
+            "spells": 227
+          },
+          "skillcorner/2013725/observed": {
+            "macro_f1": 0.8913891228807787,
+            "spell_f1": 0.6284810126582279,
+            "spells": 275
+          },
+          "skillcorner/2015213/observed": {
+            "macro_f1": 0.8832026527589241,
+            "spell_f1": 0.6123222748815166,
+            "spells": 280
+          },
+          "skillcorner/2016236/observed": {
+            "macro_f1": 0.8925175481200593,
+            "spell_f1": 0.61,
+            "spells": 257
+          },
+          "skillcorner/2017461/observed": {
+            "macro_f1": 0.8915840345868721,
+            "spell_f1": 0.5869415807560138,
+            "spells": 254
+          }
+        },
+        "spell_f1": {
+          "combined": 0.5917288514660289,
+          "dfl": 0.5740214858581183,
+          "skillcorner": 0.6094362170739396
+        }
+      }
+    },
+    "recipe": {
+      "cutoff": 0.53,
+      "dead_cost": 2,
+      "dead_mix": 0.5,
+      "discount": 0.8,
+      "method": "joint",
+      "owner_cost": 2,
+      "owner_mix": 0.5,
+      "variant": "seed_phase"
+    }
+  },
+  "selected": {
+    "conventions": {
+      "aba1.75": {
+        "macro_f1": {
+          "combined": 0.9042786082436323,
+          "dfl": 0.9171839743191681,
+          "skillcorner": 0.8913732421680963
+        },
+        "matches": {
+          "dfl/WQQ/clean": {
+            "macro_f1": 0.9315907349411736,
+            "spell_f1": 0.6803418803418804,
+            "spells": 246
+          },
+          "dfl/WQQ/masked": {
+            "macro_f1": 0.9089621313995195,
+            "spell_f1": 0.626970227670753,
+            "spells": 232
+          },
+          "dfl/WR9/clean": {
+            "macro_f1": 0.9339713993840739,
+            "spell_f1": 0.6590038314176245,
+            "spells": 216
+          },
+          "dfl/WR9/masked": {
+            "macro_f1": 0.909808724395361,
+            "spell_f1": 0.5956777996070727,
+            "spells": 203
+          },
+          "skillcorner/2013725/observed": {
+            "macro_f1": 0.8920049779694729,
+            "spell_f1": 0.6582010582010582,
+            "spells": 240
+          },
+          "skillcorner/2015213/observed": {
+            "macro_f1": 0.8842405591466802,
+            "spell_f1": 0.6402802101576183,
+            "spells": 246
+          },
+          "skillcorner/2016236/observed": {
+            "macro_f1": 0.8964381104253624,
+            "spell_f1": 0.6587360594795538,
+            "spells": 237
+          },
+          "skillcorner/2017461/observed": {
+            "macro_f1": 0.8928093211308695,
+            "spell_f1": 0.6087286527514232,
+            "spells": 219
+          }
+        },
+        "spell_f1": {
+          "combined": 0.636130061433303,
+          "dfl": 0.6307736277191927,
+          "skillcorner": 0.6414864951474134
+        }
+      },
+      "aba3": {
+        "macro_f1": {
+          "combined": 0.9098716820288268,
+          "dfl": 0.925562989011496,
+          "skillcorner": 0.8941803750461577
+        },
+        "matches": {
+          "dfl/WQQ/clean": {
+            "macro_f1": 0.9398155693043551,
+            "spell_f1": 0.7624750499001995,
+            "spells": 246
+          },
+          "dfl/WQQ/masked": {
+            "macro_f1": 0.9177990523324944,
+            "spell_f1": 0.7277207392197125,
+            "spells": 232
+          },
+          "dfl/WR9/clean": {
+            "macro_f1": 0.9420764606697719,
+            "spell_f1": 0.7380753138075313,
+            "spells": 216
+          },
+          "dfl/WR9/masked": {
+            "macro_f1": 0.9179438997149302,
+            "spell_f1": 0.6666666666666667,
+            "spells": 203
+          },
+          "skillcorner/2013725/observed": {
+            "macro_f1": 0.8928827979907208,
+            "spell_f1": 0.6837988826815643,
+            "spells": 240
+          },
+          "skillcorner/2015213/observed": {
+            "macro_f1": 0.8847911568439301,
+            "spell_f1": 0.6471663619744059,
+            "spells": 246
+          },
+          "skillcorner/2016236/observed": {
+            "macro_f1": 0.901634205941669,
+            "spell_f1": 0.69921875,
+            "spells": 237
+          },
+          "skillcorner/2017461/observed": {
+            "macro_f1": 0.8974133394083107,
+            "spell_f1": 0.648870636550308,
+            "spells": 219
+          }
+        },
+        "spell_f1": {
+          "combined": 0.6923255935241588,
+          "dfl": 0.7148875292467481,
+          "skillcorner": 0.6697636578015695
+        }
+      },
+      "aba4": {
+        "macro_f1": {
+          "combined": 0.9109332787633522,
+          "dfl": 0.927570888923479,
+          "skillcorner": 0.8942956686032254
+        },
+        "matches": {
+          "dfl/WQQ/clean": {
+            "macro_f1": 0.9397873438496186,
+            "spell_f1": 0.7602434077079108,
+            "spells": 246
+          },
+          "dfl/WQQ/masked": {
+            "macro_f1": 0.9191808007395332,
+            "spell_f1": 0.7331941544885177,
+            "spells": 232
+          },
+          "dfl/WR9/clean": {
+            "macro_f1": 0.9429268127847662,
+            "spell_f1": 0.754585152838428,
+            "spells": 216
+          },
+          "dfl/WR9/masked": {
+            "macro_f1": 0.9221747877137115,
+            "spell_f1": 0.715505617977528,
+            "spells": 203
+          },
+          "skillcorner/2013725/observed": {
+            "macro_f1": 0.8941847745547055,
+            "spell_f1": 0.6959537572254335,
+            "spells": 240
+          },
+          "skillcorner/2015213/observed": {
+            "macro_f1": 0.8842890960490966,
+            "spell_f1": 0.6426103646833013,
+            "spells": 246
+          },
+          "skillcorner/2016236/observed": {
+            "macro_f1": 0.9014883764304681,
+            "spell_f1": 0.6906122448979592,
+            "spells": 237
+          },
+          "skillcorner/2017461/observed": {
+            "macro_f1": 0.8972204273786314,
+            "spell_f1": 0.6466230936819172,
+            "spells": 219
+          }
+        },
+        "spell_f1": {
+          "combined": 0.7021606080176123,
+          "dfl": 0.7353713509130717,
+          "skillcorner": 0.6689498651221528
+        }
+      },
+      "aba4.5": {
+        "macro_f1": {
+          "combined": 0.910183083248151,
+          "dfl": 0.9270514946550757,
+          "skillcorner": 0.8933146718412263
+        },
+        "matches": {
+          "dfl/WQQ/clean": {
+            "macro_f1": 0.9387823738955241,
+            "spell_f1": 0.7511387163561076,
+            "spells": 246
+          },
+          "dfl/WQQ/masked": {
+            "macro_f1": 0.9197880586796012,
+            "spell_f1": 0.7326226012793177,
+            "spells": 232
+          },
+          "dfl/WR9/clean": {
+            "macro_f1": 0.9397327227668559,
+            "spell_f1": 0.7396396396396396,
+            "spells": 216
+          },
+          "dfl/WR9/masked": {
+            "macro_f1": 0.9221088769544362,
+            "spell_f1": 0.7174013921113689,
+            "spells": 203
+          },
+          "skillcorner/2013725/observed": {
+            "macro_f1": 0.8939474718935444,
+            "spell_f1": 0.6970059880239521,
+            "spells": 240
+          },
+          "skillcorner/2015213/observed": {
+            "macro_f1": 0.8816827427938883,
+            "spell_f1": 0.6255402750491159,
+            "spells": 246
+          },
+          "skillcorner/2016236/observed": {
+            "macro_f1": 0.900608933972483,
+            "spell_f1": 0.6727272727272726,
+            "spells": 237
+          },
+          "skillcorner/2017461/observed": {
+            "macro_f1": 0.8970195387049893,
+            "spell_f1": 0.6463576158940396,
+            "spells": 219
+          }
+        },
+        "spell_f1": {
+          "combined": 0.6961060891932241,
+          "dfl": 0.7318043904628533,
+          "skillcorner": 0.660407787923595
+        }
+      },
+      "raw": {
+        "macro_f1": {
+          "combined": 0.9023803962096478,
+          "dfl": 0.9150550869330613,
+          "skillcorner": 0.8897057054862344
+        },
+        "matches": {
+          "dfl/WQQ/clean": {
+            "macro_f1": 0.9303149542661407,
+            "spell_f1": 0.6151468315301392,
+            "spells": 246
+          },
+          "dfl/WQQ/masked": {
+            "macro_f1": 0.9073046919376916,
+            "spell_f1": 0.5560821484992101,
+            "spells": 232
+          },
+          "dfl/WR9/clean": {
+            "macro_f1": 0.9303125912027693,
+            "spell_f1": 0.572013651877133,
+            "spells": 216
+          },
+          "dfl/WR9/masked": {
+            "macro_f1": 0.907546796127037,
+            "spell_f1": 0.5179755671902269,
+            "spells": 203
+          },
+          "skillcorner/2013725/observed": {
+            "macro_f1": 0.8914869348279177,
+            "spell_f1": 0.6251256281407035,
+            "spells": 240
+          },
+          "skillcorner/2015213/observed": {
+            "macro_f1": 0.8831511829005554,
+            "spell_f1": 0.6043405676126878,
+            "spells": 246
+          },
+          "skillcorner/2016236/observed": {
+            "macro_f1": 0.8933748775325997,
+            "spell_f1": 0.5999999999999999,
+            "spells": 237
+          },
+          "skillcorner/2017461/observed": {
+            "macro_f1": 0.8908098266838648,
+            "spell_f1": 0.5820840950639854,
+            "spells": 219
+          }
+        },
+        "spell_f1": {
+          "combined": 0.5793834459176842,
+          "dfl": 0.5558793191310243,
+          "skillcorner": 0.6028875727043441
+        }
+      }
+    },
+    "recipe": {
+      "cutoff": 0.53,
+      "dead_cost": 2,
+      "dead_mix": 0.5,
+      "discount": 0.8,
+      "method": "joint",
+      "owner_cost": 6,
+      "owner_mix": 0.5,
+      "variant": "seed_phase"
+    }
+  }
+}

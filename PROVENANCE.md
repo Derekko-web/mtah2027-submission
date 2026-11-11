@@ -32,7 +32,7 @@ The research history lives in a separate repository, available to the organisers
 2. **Corruption schedule.** The DFL degraded views keep the ball visible about 60% of the time, which matches DATA.md's published 41% missing. Disclose this, or follow the organisers' answer.
 3. **Linux/amd64 byte-identity.** So far the build is verified only on Apple Silicon.
 4. **Technical document** covering approach, training data, possession rules, constant provenance, limitations, development history and reproduction.
-5. **Planned model changes** (see NEXT_STEPS.md in the research repository). If any of them ships, update the recipe, the SHA and this note.
+5. **Decoder retune: done Nov 11.** The ownership switch cost rose from 2 to 6 under DECISIONS.md D1, and the holdout confirmation passed. The submission is now built with `decoder_trial` and its SHA is `1cc8a858…`. The previous ensemble file (`ed91c236…`) remains the fallback.
+6. **Still planned** (see NEXT_STEPS.md in the research repository). If either ships, update the recipe, the SHA and this note.
    - dead-ball handling augmentation
    - cross-team swap augmentation
-   - decoder switch cost
