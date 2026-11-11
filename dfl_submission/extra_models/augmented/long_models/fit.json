@@ -1,0 +1,17 @@
+{
+  "augmented": true,
+  "convention": null,
+  "dfl_manifest_sha256": "230760f76b9a6f9d38f92c292fa26910fba25f1a44e8022ad85922491308f943",
+  "models": {
+    "dead.ubj": "3a6643c5e076c8947e9b2396b34c194025032ad8dcec44caa969dae1f6f5c476",
+    "ownership.ubj": "ab4d3fa091cf9b18948e462a6f24e868ca550ccc241999f2d18d81e21e0a9748"
+  },
+  "prepared_manifest_sha256": "7430c723f0f57c45e06bb9da3144d376b4d5fdc91d12fdb2ff1302386804eb0a",
+  "rows": {
+    "dead.ubj": 696959,
+    "ownership.ubj": 950436
+  },
+  "sample_stride": 5,
+  "skill_manifest_sha256": "21f02036ba5b9cf9e16c44bf9eefefc0c717ecf5f6bb95938981f4a7f720f3e5",
+  "stoppage_tree_from": "dfl_submission/retrain_models/long_models"
+}

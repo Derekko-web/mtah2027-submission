@@ -1,0 +1,1920 @@
+{
+  "candidate": {
+    "external": {
+      "conventions": {
+        "aba1.75": {
+          "dead_carried": 0.470223752151463,
+          "matches": {
+            "dfl/WPY/clean": {
+              "macro_f1": 0.9238545524877813,
+              "spell_f1": 0.6773831775700934,
+              "spells": 212
+            },
+            "dfl/WPY/dead_carried": {
+              "macro_f1": 0.8059941538078578,
+              "spell_f1": 0.470223752151463,
+              "spells": 258
+            },
+            "dfl/WPY/masked": {
+              "macro_f1": 0.8845822705195353,
+              "spell_f1": 0.566857142857143,
+              "spells": 202
+            },
+            "dfl/WPY/team_swap": {
+              "macro_f1": 0.8576096806164694,
+              "spell_f1": 0.5156193895870737,
+              "spells": 234
+            },
+            "skillcorner/2007448/observed": {
+              "macro_f1": 0.9122358933827727,
+              "spell_f1": 0.6501193317422435,
+              "spells": 182
+            },
+            "skillcorner/2007721/observed": {
+              "macro_f1": 0.9098794668578739,
+              "spell_f1": 0.6516949152542373,
+              "spells": 203
+            },
+            "skillcorner/2010085/observed": {
+              "macro_f1": 0.9089511571152472,
+              "spell_f1": 0.6133949191685912,
+              "spells": 189
+            },
+            "skillcorner/2011166/observed": {
+              "macro_f1": 0.894973868533416,
+              "spell_f1": 0.6326848249027238,
+              "spells": 211
+            }
+          },
+          "standard": {
+            "macro_f1": 0.9020915638239724,
+            "spell_f1": 0.6203363260975376
+          },
+          "team_swap": 0.5156193895870737
+        },
+        "aba3": {
+          "dead_carried": 0.5165120593692023,
+          "matches": {
+            "dfl/WPY/clean": {
+              "macro_f1": 0.9266555539528999,
+              "spell_f1": 0.7318458417849898,
+              "spells": 212
+            },
+            "dfl/WPY/dead_carried": {
+              "macro_f1": 0.8098424028811527,
+              "spell_f1": 0.5165120593692023,
+              "spells": 258
+            },
+            "dfl/WPY/masked": {
+              "macro_f1": 0.8898906210218178,
+              "spell_f1": 0.6302277432712214,
+              "spells": 202
+            },
+            "dfl/WPY/team_swap": {
+              "macro_f1": 0.8605284434531977,
+              "spell_f1": 0.5506796116504855,
+              "spells": 234
+            },
+            "skillcorner/2007448/observed": {
+              "macro_f1": 0.9156750518444756,
+              "spell_f1": 0.6952618453865337,
+              "spells": 182
+            },
+            "skillcorner/2007721/observed": {
+              "macro_f1": 0.9119632444558773,
+              "spell_f1": 0.6718614718614718,
+              "spells": 203
+            },
+            "skillcorner/2010085/observed": {
+              "macro_f1": 0.9109984633208769,
+              "spell_f1": 0.6332530120481927,
+              "spells": 189
+            },
+            "skillcorner/2011166/observed": {
+              "macro_f1": 0.8982709291669217,
+              "spell_f1": 0.6569037656903766,
+              "spells": 211
+            }
+          },
+          "standard": {
+            "macro_f1": 0.9056862604312749,
+            "spell_f1": 0.6642102332612274
+          },
+          "team_swap": 0.5506796116504855
+        },
+        "aba4": {
+          "dead_carried": 0.5453831041257368,
+          "matches": {
+            "dfl/WPY/clean": {
+              "macro_f1": 0.9282159307320952,
+              "spell_f1": 0.7576673866090713,
+              "spells": 212
+            },
+            "dfl/WPY/dead_carried": {
+              "macro_f1": 0.8113959486952549,
+              "spell_f1": 0.5453831041257368,
+              "spells": 258
+            },
+            "dfl/WPY/masked": {
+              "macro_f1": 0.8927834858888302,
+              "spell_f1": 0.665783664459161,
+              "spells": 202
+            },
+            "dfl/WPY/team_swap": {
+              "macro_f1": 0.860567280344836,
+              "spell_f1": 0.5682474226804124,
+              "spells": 234
+            },
+            "skillcorner/2007448/observed": {
+              "macro_f1": 0.9136239356866455,
+              "spell_f1": 0.710997442455243,
+              "spells": 182
+            },
+            "skillcorner/2007721/observed": {
+              "macro_f1": 0.9122691499035921,
+              "spell_f1": 0.684304932735426,
+              "spells": 203
+            },
+            "skillcorner/2010085/observed": {
+              "macro_f1": 0.9124697162827436,
+              "spell_f1": 0.6422391857506361,
+              "spells": 189
+            },
+            "skillcorner/2011166/observed": {
+              "macro_f1": 0.8981287033401045,
+              "spell_f1": 0.6523605150214593,
+              "spells": 211
+            }
+          },
+          "standard": {
+            "macro_f1": 0.9068585885699283,
+            "spell_f1": 0.6844435454165777
+          },
+          "team_swap": 0.5682474226804124
+        },
+        "aba4.5": {
+          "dead_carried": 0.5496981891348088,
+          "matches": {
+            "dfl/WPY/clean": {
+              "macro_f1": 0.9247601916235633,
+              "spell_f1": 0.7458980044345898,
+              "spells": 212
+            },
+            "dfl/WPY/dead_carried": {
+              "macro_f1": 0.8078009964493867,
+              "spell_f1": 0.5496981891348088,
+              "spells": 258
+            },
+            "dfl/WPY/masked": {
+              "macro_f1": 0.8889789011093169,
+              "spell_f1": 0.6712018140589568,
+              "spells": 202
+            },
+            "dfl/WPY/team_swap": {
+              "macro_f1": 0.8566361704064702,
+              "spell_f1": 0.5716701902748413,
+              "spells": 234
+            },
+            "skillcorner/2007448/observed": {
+              "macro_f1": 0.9144941600101264,
+              "spell_f1": 0.7231168831168832,
+              "spells": 182
+            },
+            "skillcorner/2007721/observed": {
+              "macro_f1": 0.9131220805360014,
+              "spell_f1": 0.6873873873873874,
+              "spells": 203
+            },
+            "skillcorner/2010085/observed": {
+              "macro_f1": 0.9132969708408999,
+              "spell_f1": 0.6485933503836318,
+              "spells": 189
+            },
+            "skillcorner/2011166/observed": {
+              "macro_f1": 0.8961294487994843,
+              "spell_f1": 0.6419642857142858,
+              "spells": 211
+            }
+          },
+          "standard": {
+            "macro_f1": 0.9050833314970135,
+            "spell_f1": 0.6856830104173575
+          },
+          "team_swap": 0.5716701902748413
+        },
+        "raw": {
+          "dead_carried": 0.3817378497790869,
+          "matches": {
+            "dfl/WPY/clean": {
+              "macro_f1": 0.9176265920630907,
+              "spell_f1": 0.540916271721959,
+              "spells": 212
+            },
+            "dfl/WPY/dead_carried": {
+              "macro_f1": 0.8037390844315042,
+              "spell_f1": 0.3817378497790869,
+              "spells": 258
+            },
+            "dfl/WPY/masked": {
+              "macro_f1": 0.8817315324184277,
+              "spell_f1": 0.45585874799357945,
+              "spells": 202
+            },
+            "dfl/WPY/team_swap": {
+              "macro_f1": 0.8555403507437854,
+              "spell_f1": 0.4225954198473282,
+              "spells": 234
+            },
+            "skillcorner/2007448/observed": {
+              "macro_f1": 0.910758973523831,
+              "spell_f1": 0.6085393258426965,
+              "spells": 182
+            },
+            "skillcorner/2007721/observed": {
+              "macro_f1": 0.908806537878332,
+              "spell_f1": 0.6235772357723577,
+              "spells": 203
+            },
+            "skillcorner/2010085/observed": {
+              "macro_f1": 0.908729496682534,
+              "spell_f1": 0.5687366167023555,
+              "spells": 189
+            },
+            "skillcorner/2011166/observed": {
+              "macro_f1": 0.892184733786943,
+              "spell_f1": 0.5700000000000001,
+              "spells": 211
+            }
+          },
+          "standard": {
+            "macro_f1": 0.899408243883946,
+            "spell_f1": 0.5384622752411959
+          },
+          "team_swap": 0.4225954198473282
+        }
+      },
+      "recipe": {
+        "cutoff": 0.53,
+        "dead_cost": 2,
+        "dead_mix": 0.5,
+        "discount": 0.8,
+        "method": "joint",
+        "owner_cost": 6,
+        "owner_mix": 0.5,
+        "variant": "seed_phase"
+      }
+    },
+    "pff": {
+      "matches": {
+        "10502": {
+          "aba1.75": {
+            "macro_f1": 0.8065740594440715,
+            "spell_f1": 0.41731601731601725,
+            "spells": 189
+          },
+          "aba3": {
+            "macro_f1": 0.8071185709158183,
+            "spell_f1": 0.4572769953051642,
+            "spells": 189
+          },
+          "aba4": {
+            "macro_f1": 0.8101811066238248,
+            "spell_f1": 0.4847290640394089,
+            "spells": 189
+          },
+          "aba4.5": {
+            "macro_f1": 0.8076004262925197,
+            "spell_f1": 0.4808080808080808,
+            "spells": 189
+          },
+          "raw": {
+            "macro_f1": 0.8068125367130289,
+            "spell_f1": 0.39518072289156625,
+            "spells": 189
+          }
+        },
+        "10510": {
+          "aba1.75": {
+            "macro_f1": 0.857219701733204,
+            "spell_f1": 0.6725848563968669,
+            "spells": 167
+          },
+          "aba3": {
+            "macro_f1": 0.8586386345086693,
+            "spell_f1": 0.6943396226415093,
+            "spells": 167
+          },
+          "aba4": {
+            "macro_f1": 0.8587716727451866,
+            "spell_f1": 0.6964187327823691,
+            "spells": 167
+          },
+          "aba4.5": {
+            "macro_f1": 0.8602993129241043,
+            "spell_f1": 0.7070028011204481,
+            "spells": 167
+          },
+          "raw": {
+            "macro_f1": 0.8554173884707912,
+            "spell_f1": 0.6291358024691359,
+            "spells": 167
+          }
+        },
+        "3812": {
+          "aba1.75": {
+            "macro_f1": 0.8640686498546778,
+            "spell_f1": 0.5900000000000001,
+            "spells": 175
+          },
+          "aba3": {
+            "macro_f1": 0.8686739030685883,
+            "spell_f1": 0.6388059701492537,
+            "spells": 175
+          },
+          "aba4": {
+            "macro_f1": 0.8720807155569048,
+            "spell_f1": 0.6614583333333334,
+            "spells": 175
+          },
+          "aba4.5": {
+            "macro_f1": 0.8729657995742656,
+            "spell_f1": 0.668062827225131,
+            "spells": 175
+          },
+          "raw": {
+            "macro_f1": 0.8629496673636132,
+            "spell_f1": 0.5527896995708155,
+            "spells": 175
+          }
+        },
+        "3820": {
+          "aba1.75": {
+            "macro_f1": 0.8857709283475134,
+            "spell_f1": 0.6557522123893806,
+            "spells": 203
+          },
+          "aba3": {
+            "macro_f1": 0.8884275778631046,
+            "spell_f1": 0.6874418604651164,
+            "spells": 203
+          },
+          "aba4": {
+            "macro_f1": 0.889249156489074,
+            "spell_f1": 0.6955665024630542,
+            "spells": 203
+          },
+          "aba4.5": {
+            "macro_f1": 0.8887564705461791,
+            "spell_f1": 0.6891089108910892,
+            "spells": 203
+          },
+          "raw": {
+            "macro_f1": 0.8849508718379823,
+            "spell_f1": 0.6202531645569621,
+            "spells": 203
+          }
+        },
+        "3828": {
+          "aba1.75": {
+            "macro_f1": 0.8444635288434413,
+            "spell_f1": 0.5461224489795918,
+            "spells": 198
+          },
+          "aba3": {
+            "macro_f1": 0.8471686425421611,
+            "spell_f1": 0.5896103896103896,
+            "spells": 198
+          },
+          "aba4": {
+            "macro_f1": 0.8499536250699173,
+            "spell_f1": 0.5982222222222223,
+            "spells": 198
+          },
+          "aba4.5": {
+            "macro_f1": 0.8513063111356297,
+            "spell_f1": 0.6164383561643836,
+            "spells": 198
+          },
+          "raw": {
+            "macro_f1": 0.8421391488919588,
+            "spell_f1": 0.5076923076923077,
+            "spells": 198
+          }
+        },
+        "3836": {
+          "aba1.75": {
+            "macro_f1": 0.8770581193747436,
+            "spell_f1": 0.579240506329114,
+            "spells": 160
+          },
+          "aba3": {
+            "macro_f1": 0.877983461133851,
+            "spell_f1": 0.6254742547425474,
+            "spells": 160
+          },
+          "aba4": {
+            "macro_f1": 0.8816769217613194,
+            "spell_f1": 0.6512676056338028,
+            "spells": 160
+          },
+          "aba4.5": {
+            "macro_f1": 0.8825227394034187,
+            "spell_f1": 0.6560906515580738,
+            "spells": 160
+          },
+          "raw": {
+            "macro_f1": 0.875181586448606,
+            "spell_f1": 0.5232183908045978,
+            "spells": 160
+          }
+        },
+        "3844": {
+          "aba1.75": {
+            "macro_f1": 0.8174061120940759,
+            "spell_f1": 0.4962616822429906,
+            "spells": 158
+          },
+          "aba3": {
+            "macro_f1": 0.820384798181297,
+            "spell_f1": 0.5424083769633508,
+            "spells": 158
+          },
+          "aba4": {
+            "macro_f1": 0.8217201032742163,
+            "spell_f1": 0.5434782608695652,
+            "spells": 158
+          },
+          "aba4.5": {
+            "macro_f1": 0.8249408978171631,
+            "spell_f1": 0.5580110497237568,
+            "spells": 158
+          },
+          "raw": {
+            "macro_f1": 0.8136050373449701,
+            "spell_f1": 0.4336134453781512,
+            "spells": 158
+          }
+        },
+        "3852": {
+          "aba1.75": {
+            "macro_f1": 0.8193283879206756,
+            "spell_f1": 0.5572093023255814,
+            "spells": 203
+          },
+          "aba3": {
+            "macro_f1": 0.8219854176672278,
+            "spell_f1": 0.5878172588832487,
+            "spells": 203
+          },
+          "aba4": {
+            "macro_f1": 0.8228498012204319,
+            "spell_f1": 0.5969230769230769,
+            "spells": 203
+          },
+          "aba4.5": {
+            "macro_f1": 0.8223959375855383,
+            "spell_f1": 0.588659793814433,
+            "spells": 203
+          },
+          "raw": {
+            "macro_f1": 0.8180361819955587,
+            "spell_f1": 0.520704845814978,
+            "spells": 203
+          }
+        }
+      },
+      "means": {
+        "aba1.75": {
+          "macro_f1": 0.8464861859515505,
+          "spell_f1": 0.5643108782474429
+        },
+        "aba3": {
+          "macro_f1": 0.8487976257350895,
+          "spell_f1": 0.6028968410950725
+        },
+        "aba4": {
+          "macro_f1": 0.8508103878426094,
+          "spell_f1": 0.6160079747833541
+        },
+        "aba4.5": {
+          "macro_f1": 0.8513484869098524,
+          "spell_f1": 0.6205228089131746
+        },
+        "raw": {
+          "macro_f1": 0.8448865523833137,
+          "spell_f1": 0.5228235473973143
+        }
+      }
+    },
+    "recipe": {
+      "cutoff": 0.53,
+      "dead_cost": 2,
+      "dead_mix": 0.5,
+      "discount": 0.8,
+      "method": "joint",
+      "owner_cost": 6,
+      "owner_mix": 0.5,
+      "variant": "seed_phase"
+    }
+  },
+  "changes": {
+    "conventions": {
+      "aba1.75": -0.029982616115171945,
+      "aba4": -0.013497593789407403,
+      "aba4.5": -0.015955400858483904
+    },
+    "guards": {
+      "dead_carried": -0.049031011791846435,
+      "team_swap": -0.027864449652196477
+    },
+    "pff": -0.022704525638507334,
+    "primary": -0.01787702808242586
+  },
+  "inputs": {
+    "parsed": {
+      "10502_1.npz": [
+        5333700,
+        "c925154b9f268aa58127ed49438ccb3ea2ac605bc79cbf603f6990fa9eb11ebc"
+      ],
+      "10502_2.npz": [
+        3275695,
+        "06ce0ec7bcc0a7e63b915e636b06c3d1d66e1b2e40e59859c57910a94bc5e319"
+      ],
+      "10510_1.npz": [
+        4523492,
+        "383e971b491fc53e77bbc9a445f39edebbb4178281da6d5be56e5ba431bc0a14"
+      ],
+      "10510_2.npz": [
+        4877378,
+        "b9670943b05c907542a8a5bb2978e2112e7e8475973ad11d05b872aea6d72d1a"
+      ],
+      "3812_1.npz": [
+        6194446,
+        "471345cd2c24e852294688e434ac297ea0eec669775a2e2fb287749cc55c4219"
+      ],
+      "3812_2.npz": [
+        5817807,
+        "9c0343cfc7e8e91963337f6716563ed71e21751d37a4fb020f35191ec106b03d"
+      ],
+      "3820_1.npz": [
+        5548518,
+        "043ab11c2d030ad0c3e8f2e789b3093d8179eab67f3e811ab907d32f1a78dc6b"
+      ],
+      "3820_2.npz": [
+        4859358,
+        "e779262e469f9668213492e6e1c3964147d5b97b091abc79e990507a9844a422"
+      ],
+      "3828_1.npz": [
+        5287402,
+        "20e06c1a387907120a90d6261198230e35fe63e57f02e4d7c52334402eb79f6e"
+      ],
+      "3828_2.npz": [
+        5371448,
+        "65bc0454a1615fbec30e2d71b1bb4f3665e1d63aa390e0176108fa1379a17712"
+      ],
+      "3836_1.npz": [
+        6563704,
+        "0b8fdadd17daa79145fa57542b74ef80a41f94b8eeaa0578f659ce43e8f80d4d"
+      ],
+      "3836_2.npz": [
+        5586559,
+        "e1bee84e8b2d75c080f84647a8cad4472ee36caa7cb8ba8eff516f99ea78e777"
+      ],
+      "3844_1.npz": [
+        3761461,
+        "280d2707e464fe3235faba6c978a2942dfb7b900f09495d3c5db8adcd0163566"
+      ],
+      "3844_2.npz": [
+        4264266,
+        "e51887175eb002c10de84244564dfe4a0dee8f4a4fb5f1c96157191ed041983a"
+      ],
+      "3852_1.npz": [
+        6656201,
+        "19444be35b666b0c98909ff515dbb3365934ca56a476c300d71fefd0a8a7f1e1"
+      ],
+      "3852_2.npz": [
+        4005102,
+        "2a5baebf60550da7f24d72490113af84e633868a3c7b4e3eb17aad29e4125619"
+      ]
+    },
+    "sources_sha256": "9c28e02db8a01c7b14593b14236185d36255286b991358c4ce0567bf30f9d8fe"
+  },
+  "models": {
+    "augmented": {
+      "long_models": {
+        "augmented": true,
+        "convention": null,
+        "dfl_manifest_sha256": "230760f76b9a6f9d38f92c292fa26910fba25f1a44e8022ad85922491308f943",
+        "fit_sha256": "5239709ca1e9dc3934dfd379730772032b73379dad58310af26480914f2efc4a",
+        "models": {
+          "dead.ubj": "3a6643c5e076c8947e9b2396b34c194025032ad8dcec44caa969dae1f6f5c476",
+          "ownership.ubj": "ab4d3fa091cf9b18948e462a6f24e868ca550ccc241999f2d18d81e21e0a9748"
+        },
+        "prepared_manifest_sha256": "7430c723f0f57c45e06bb9da3144d376b4d5fdc91d12fdb2ff1302386804eb0a",
+        "rows": {
+          "dead.ubj": 696959,
+          "ownership.ubj": 950436
+        },
+        "sample_stride": 5,
+        "skill_manifest_sha256": "21f02036ba5b9cf9e16c44bf9eefefc0c717ecf5f6bb95938981f4a7f720f3e5",
+        "stoppage_tree_from": "dfl_submission/retrain_models/long_models"
+      },
+      "seed_models": {
+        "boundary_boost": 1.4,
+        "columns": [
+          "pitch_margin",
+          "goal_margin",
+          "touch_margin",
+          "speed_3_0",
+          "speed_3_1",
+          "speed_12_0",
+          "speed_12_1",
+          "speed_30_0",
+          "speed_30_1",
+          "speed_change",
+          "margin_mean_12",
+          "outside_share_12",
+          "speed_mean_12",
+          "margin_mean_50",
+          "outside_share_50",
+          "speed_mean_50",
+          "h__contact_relative_speed",
+          "h__contact_closing",
+          "h__contact_strength_6",
+          "h__contact_distance_6",
+          "h__contact_strength_18",
+          "h__contact_distance_18",
+          "h__contact_strength_50",
+          "h__contact_distance_50",
+          "h__contact_strength_100",
+          "h__contact_distance_100",
+          "a__contact_relative_speed",
+          "a__contact_closing",
+          "a__contact_strength_6",
+          "a__contact_distance_6",
+          "a__contact_strength_18",
+          "a__contact_distance_18",
+          "a__contact_strength_50",
+          "a__contact_distance_50",
+          "a__contact_strength_100",
+          "a__contact_distance_100",
+          "seen",
+          "h__closest",
+          "h__count",
+          "h__count_12",
+          "h__closest_12",
+          "h__count_50",
+          "h__closest_50",
+          "h__player_motion_5_0",
+          "h__player_motion_5_25",
+          "h__player_motion_5_75",
+          "h__player_motion_25_0",
+          "h__player_motion_25_25",
+          "h__player_motion_25_75",
+          "a__closest",
+          "a__count",
+          "a__count_12",
+          "a__closest_12",
+          "a__count_50",
+          "a__closest_50",
+          "a__player_motion_5_0",
+          "a__player_motion_5_25",
+          "a__player_motion_5_75",
+          "a__player_motion_25_0",
+          "a__player_motion_25_25",
+          "a__player_motion_25_75",
+          "ball_support_12",
+          "ball_support_50",
+          "ball_support_100",
+          "speed_12_0_past_3",
+          "speed_12_0_past_3_coverage",
+          "speed_12_0_future_3",
+          "speed_12_0_future_3_coverage",
+          "speed_12_0_past_9",
+          "speed_12_0_past_9_coverage",
+          "speed_12_0_future_9",
+          "speed_12_0_future_9_coverage",
+          "speed_12_0_past_18",
+          "speed_12_0_past_18_coverage",
+          "speed_12_0_future_18",
+          "speed_12_0_future_18_coverage",
+          "pitch_margin_past_3",
+          "pitch_margin_future_3",
+          "pitch_margin_past_9",
+          "pitch_margin_future_9",
+          "pitch_margin_past_18",
+          "pitch_margin_future_18",
+          "ball_support_12_past_3",
+          "ball_support_12_future_3",
+          "ball_support_12_past_9",
+          "ball_support_12_future_9",
+          "ball_support_12_past_18",
+          "ball_support_12_future_18",
+          "h__closest_past_3",
+          "h__closest_past_3_coverage",
+          "h__closest_future_3",
+          "h__closest_future_3_coverage",
+          "h__closest_past_9",
+          "h__closest_past_9_coverage",
+          "h__closest_future_9",
+          "h__closest_future_9_coverage",
+          "h__closest_past_18",
+          "h__closest_past_18_coverage",
+          "h__closest_future_18",
+          "h__closest_future_18_coverage",
+          "a__closest_past_3",
+          "a__closest_past_3_coverage",
+          "a__closest_future_3",
+          "a__closest_future_3_coverage",
+          "a__closest_past_9",
+          "a__closest_past_9_coverage",
+          "a__closest_future_9",
+          "a__closest_future_9_coverage",
+          "a__closest_past_18",
+          "a__closest_past_18_coverage",
+          "a__closest_future_18",
+          "a__closest_future_18_coverage",
+          "h__contact_strength_18_past_3",
+          "h__contact_strength_18_future_3",
+          "h__contact_strength_18_past_9",
+          "h__contact_strength_18_future_9",
+          "h__contact_strength_18_past_18",
+          "h__contact_strength_18_future_18",
+          "a__contact_strength_18_past_3",
+          "a__contact_strength_18_future_3",
+          "a__contact_strength_18_past_9",
+          "a__contact_strength_18_future_9",
+          "a__contact_strength_18_past_18",
+          "a__contact_strength_18_future_18",
+          "h__player_motion_25_0_past_3",
+          "h__player_motion_25_0_future_3",
+          "h__player_motion_25_0_past_9",
+          "h__player_motion_25_0_future_9",
+          "h__player_motion_25_0_past_18",
+          "h__player_motion_25_0_future_18",
+          "a__player_motion_25_0_past_3",
+          "a__player_motion_25_0_future_3",
+          "a__player_motion_25_0_past_9",
+          "a__player_motion_25_0_future_9",
+          "a__player_motion_25_0_past_18",
+          "a__player_motion_25_0_future_18",
+          "ball_age_previous",
+          "pitch_margin_previous_ball",
+          "h__closest_previous_ball",
+          "a__closest_previous_ball",
+          "h__contact_strength_6_previous_ball",
+          "a__contact_strength_6_previous_ball",
+          "ball_age_following",
+          "pitch_margin_following_ball",
+          "h__closest_following_ball",
+          "a__closest_following_ball",
+          "h__contact_strength_6_following_ball",
+          "a__contact_strength_6_following_ball",
+          "h__shape_depth",
+          "h__shape_width",
+          "h__center_ball_distance",
+          "h__shape_motion_long_past",
+          "h__shape_motion_long_future",
+          "h__shape_motion_wide_past",
+          "h__shape_motion_wide_future",
+          "a__shape_depth",
+          "a__shape_width",
+          "a__center_ball_distance",
+          "a__shape_motion_long_past",
+          "a__shape_motion_long_future",
+          "a__shape_motion_wide_past",
+          "a__shape_motion_wide_future"
+        ],
+        "export_max_logit_difference": {
+          "temporal_1200.npz": 3.0994415283203125e-06,
+          "temporal_1800.npz": 3.337860107421875e-06,
+          "temporal_600.npz": 3.337860107421875e-06
+        },
+        "fit_sha256": "55e57e6773197786ff0313d29ec590b812a5287e3817102b729d9e5fe17452ee",
+        "models": {
+          "temporal_1200.npz": "43e565ec588fffb650bf9a4776be494a405fe8cb43933dcb399f680cef263da0",
+          "temporal_1800.npz": "fd35309b2fda50154f6d527d7aae4aee70f0a86ca0be83716ab729d717bc1965",
+          "temporal_600.npz": "0e8cf17e6d80ea057c4a5fe53ca659197681b330f81e483db2b1dd87eaaec4e5"
+        },
+        "normalization": "24014e694e6a1c8804843e22994f96ff6f197f5d48def5808a635ee1882d5267",
+        "original_checkpoints": {
+          "temporal_1200.pt": "e7a1ced80d3d23c5dfff4157eed89cc93bd89775e8b77e35c368ad43faa0989a",
+          "temporal_1800.pt": "26c39fa269c7bdf334de8eb1693c5b900e1e81d11fa50440a8665166f4edda1c",
+          "temporal_600.pt": "2e82883a6658a10c6fd6d85ebfd4616a635d8c9d731d9e92ef396b0d437496e1"
+        },
+        "seed": 97,
+        "torch": "2.15.0",
+        "train_manifest": "7430c723f0f57c45e06bb9da3144d376b4d5fdc91d12fdb2ff1302386804eb0a",
+        "training_device": "mps"
+      },
+      "temporal_models": {
+        "boundary_boost": 0.5,
+        "columns": [
+          "pitch_margin",
+          "goal_margin",
+          "touch_margin",
+          "speed_3_0",
+          "speed_3_1",
+          "speed_12_0",
+          "speed_12_1",
+          "speed_30_0",
+          "speed_30_1",
+          "speed_change",
+          "margin_mean_12",
+          "outside_share_12",
+          "speed_mean_12",
+          "margin_mean_50",
+          "outside_share_50",
+          "speed_mean_50",
+          "h__contact_relative_speed",
+          "h__contact_closing",
+          "h__contact_strength_6",
+          "h__contact_distance_6",
+          "h__contact_strength_18",
+          "h__contact_distance_18",
+          "h__contact_strength_50",
+          "h__contact_distance_50",
+          "h__contact_strength_100",
+          "h__contact_distance_100",
+          "a__contact_relative_speed",
+          "a__contact_closing",
+          "a__contact_strength_6",
+          "a__contact_distance_6",
+          "a__contact_strength_18",
+          "a__contact_distance_18",
+          "a__contact_strength_50",
+          "a__contact_distance_50",
+          "a__contact_strength_100",
+          "a__contact_distance_100",
+          "seen",
+          "h__closest",
+          "h__count",
+          "h__count_12",
+          "h__closest_12",
+          "h__count_50",
+          "h__closest_50",
+          "h__player_motion_5_0",
+          "h__player_motion_5_25",
+          "h__player_motion_5_75",
+          "h__player_motion_25_0",
+          "h__player_motion_25_25",
+          "h__player_motion_25_75",
+          "a__closest",
+          "a__count",
+          "a__count_12",
+          "a__closest_12",
+          "a__count_50",
+          "a__closest_50",
+          "a__player_motion_5_0",
+          "a__player_motion_5_25",
+          "a__player_motion_5_75",
+          "a__player_motion_25_0",
+          "a__player_motion_25_25",
+          "a__player_motion_25_75",
+          "ball_support_12",
+          "ball_support_50",
+          "ball_support_100",
+          "speed_12_0_past_3",
+          "speed_12_0_past_3_coverage",
+          "speed_12_0_future_3",
+          "speed_12_0_future_3_coverage",
+          "speed_12_0_past_9",
+          "speed_12_0_past_9_coverage",
+          "speed_12_0_future_9",
+          "speed_12_0_future_9_coverage",
+          "speed_12_0_past_18",
+          "speed_12_0_past_18_coverage",
+          "speed_12_0_future_18",
+          "speed_12_0_future_18_coverage",
+          "pitch_margin_past_3",
+          "pitch_margin_future_3",
+          "pitch_margin_past_9",
+          "pitch_margin_future_9",
+          "pitch_margin_past_18",
+          "pitch_margin_future_18",
+          "ball_support_12_past_3",
+          "ball_support_12_future_3",
+          "ball_support_12_past_9",
+          "ball_support_12_future_9",
+          "ball_support_12_past_18",
+          "ball_support_12_future_18",
+          "h__closest_past_3",
+          "h__closest_past_3_coverage",
+          "h__closest_future_3",
+          "h__closest_future_3_coverage",
+          "h__closest_past_9",
+          "h__closest_past_9_coverage",
+          "h__closest_future_9",
+          "h__closest_future_9_coverage",
+          "h__closest_past_18",
+          "h__closest_past_18_coverage",
+          "h__closest_future_18",
+          "h__closest_future_18_coverage",
+          "a__closest_past_3",
+          "a__closest_past_3_coverage",
+          "a__closest_future_3",
+          "a__closest_future_3_coverage",
+          "a__closest_past_9",
+          "a__closest_past_9_coverage",
+          "a__closest_future_9",
+          "a__closest_future_9_coverage",
+          "a__closest_past_18",
+          "a__closest_past_18_coverage",
+          "a__closest_future_18",
+          "a__closest_future_18_coverage",
+          "h__contact_strength_18_past_3",
+          "h__contact_strength_18_future_3",
+          "h__contact_strength_18_past_9",
+          "h__contact_strength_18_future_9",
+          "h__contact_strength_18_past_18",
+          "h__contact_strength_18_future_18",
+          "a__contact_strength_18_past_3",
+          "a__contact_strength_18_future_3",
+          "a__contact_strength_18_past_9",
+          "a__contact_strength_18_future_9",
+          "a__contact_strength_18_past_18",
+          "a__contact_strength_18_future_18",
+          "h__player_motion_25_0_past_3",
+          "h__player_motion_25_0_future_3",
+          "h__player_motion_25_0_past_9",
+          "h__player_motion_25_0_future_9",
+          "h__player_motion_25_0_past_18",
+          "h__player_motion_25_0_future_18",
+          "a__player_motion_25_0_past_3",
+          "a__player_motion_25_0_future_3",
+          "a__player_motion_25_0_past_9",
+          "a__player_motion_25_0_future_9",
+          "a__player_motion_25_0_past_18",
+          "a__player_motion_25_0_future_18",
+          "ball_age_previous",
+          "pitch_margin_previous_ball",
+          "h__closest_previous_ball",
+          "a__closest_previous_ball",
+          "h__contact_strength_6_previous_ball",
+          "a__contact_strength_6_previous_ball",
+          "ball_age_following",
+          "pitch_margin_following_ball",
+          "h__closest_following_ball",
+          "a__closest_following_ball",
+          "h__contact_strength_6_following_ball",
+          "a__contact_strength_6_following_ball",
+          "h__shape_depth",
+          "h__shape_width",
+          "h__center_ball_distance",
+          "h__shape_motion_long_past",
+          "h__shape_motion_long_future",
+          "h__shape_motion_wide_past",
+          "h__shape_motion_wide_future",
+          "a__shape_depth",
+          "a__shape_width",
+          "a__center_ball_distance",
+          "a__shape_motion_long_past",
+          "a__shape_motion_long_future",
+          "a__shape_motion_wide_past",
+          "a__shape_motion_wide_future"
+        ],
+        "export_max_logit_difference": {
+          "temporal_1200.npz": 2.5033950805664062e-06,
+          "temporal_1800.npz": 2.6226043701171875e-06,
+          "temporal_600.npz": 2.6226043701171875e-06
+        },
+        "fit_sha256": "482e12662d3d730759ba28427ba13f92c6d038c2048a570fe4322ff9190737b9",
+        "models": {
+          "temporal_1200.npz": "61e8f2696ec5c8d0a784d6a379e8dce13b97c9e9464dc74c3e1c385d7caad1cc",
+          "temporal_1800.npz": "845b3ac1808750def0ebcfb034ea6c13bd088643ba172e7134fc5388d890dcb1",
+          "temporal_600.npz": "08aa324c1076b4930adebdc4819a77ac206c1a235bfd674d2ed2b23bcbad835b"
+        },
+        "normalization": "24014e694e6a1c8804843e22994f96ff6f197f5d48def5808a635ee1882d5267",
+        "original_checkpoints": {
+          "temporal_1200.pt": "732e48429a8f4f4909132a70ad7b7e78f7e1b84564f5fcc9c0910545736df7ea",
+          "temporal_1800.pt": "3bc540dbdb5a8004e7ef2c83e6e7367d2295ce5a6dc48926331c170a0ca04fe8",
+          "temporal_600.pt": "feb197463eeda5206eac58546e3e2c832520d2d14a4ec8bbd06a0013b23aa96b"
+        },
+        "seed": 42,
+        "torch": "2.15.0",
+        "train_manifest": "7430c723f0f57c45e06bb9da3144d376b4d5fdc91d12fdb2ff1302386804eb0a",
+        "training_device": "mps"
+      }
+    },
+    "current": {
+      "long_models": {
+        "convention": null,
+        "dfl_manifest_sha256": "230760f76b9a6f9d38f92c292fa26910fba25f1a44e8022ad85922491308f943",
+        "fit_sha256": "38c766bdb79ce93a683f56d1f2ed4e3f63b112b3e8d9efb94d17d0bd5e4a987a",
+        "models": {
+          "dead.ubj": "66a12423854091ae952139c1e718fdc39a35d09816528a04dbbeea95271a9a03",
+          "ownership.ubj": "134eabf0b687beca78aa9df1b6e4edd007caf1aeb33bc92108729b32cbdfadcb"
+        },
+        "prepared_manifest_sha256": "85109ba2b76679b55887c984a75ad758c4d5f75e7213b72cf68ad7746ab9cbf2",
+        "rows": {
+          "dead.ubj": 696959,
+          "ownership.ubj": 950436
+        },
+        "sample_stride": 5,
+        "skill_manifest_sha256": "21f02036ba5b9cf9e16c44bf9eefefc0c717ecf5f6bb95938981f4a7f720f3e5",
+        "stoppage_tree_from": "dfl_submission/long_models"
+      },
+      "seed_models": {
+        "boundary_boost": 1.4,
+        "columns": [
+          "pitch_margin",
+          "goal_margin",
+          "touch_margin",
+          "speed_3_0",
+          "speed_3_1",
+          "speed_12_0",
+          "speed_12_1",
+          "speed_30_0",
+          "speed_30_1",
+          "speed_change",
+          "margin_mean_12",
+          "outside_share_12",
+          "speed_mean_12",
+          "margin_mean_50",
+          "outside_share_50",
+          "speed_mean_50",
+          "h__contact_relative_speed",
+          "h__contact_closing",
+          "h__contact_strength_6",
+          "h__contact_distance_6",
+          "h__contact_strength_18",
+          "h__contact_distance_18",
+          "h__contact_strength_50",
+          "h__contact_distance_50",
+          "h__contact_strength_100",
+          "h__contact_distance_100",
+          "a__contact_relative_speed",
+          "a__contact_closing",
+          "a__contact_strength_6",
+          "a__contact_distance_6",
+          "a__contact_strength_18",
+          "a__contact_distance_18",
+          "a__contact_strength_50",
+          "a__contact_distance_50",
+          "a__contact_strength_100",
+          "a__contact_distance_100",
+          "seen",
+          "h__closest",
+          "h__count",
+          "h__count_12",
+          "h__closest_12",
+          "h__count_50",
+          "h__closest_50",
+          "h__player_motion_5_0",
+          "h__player_motion_5_25",
+          "h__player_motion_5_75",
+          "h__player_motion_25_0",
+          "h__player_motion_25_25",
+          "h__player_motion_25_75",
+          "a__closest",
+          "a__count",
+          "a__count_12",
+          "a__closest_12",
+          "a__count_50",
+          "a__closest_50",
+          "a__player_motion_5_0",
+          "a__player_motion_5_25",
+          "a__player_motion_5_75",
+          "a__player_motion_25_0",
+          "a__player_motion_25_25",
+          "a__player_motion_25_75",
+          "ball_support_12",
+          "ball_support_50",
+          "ball_support_100",
+          "speed_12_0_past_3",
+          "speed_12_0_past_3_coverage",
+          "speed_12_0_future_3",
+          "speed_12_0_future_3_coverage",
+          "speed_12_0_past_9",
+          "speed_12_0_past_9_coverage",
+          "speed_12_0_future_9",
+          "speed_12_0_future_9_coverage",
+          "speed_12_0_past_18",
+          "speed_12_0_past_18_coverage",
+          "speed_12_0_future_18",
+          "speed_12_0_future_18_coverage",
+          "pitch_margin_past_3",
+          "pitch_margin_future_3",
+          "pitch_margin_past_9",
+          "pitch_margin_future_9",
+          "pitch_margin_past_18",
+          "pitch_margin_future_18",
+          "ball_support_12_past_3",
+          "ball_support_12_future_3",
+          "ball_support_12_past_9",
+          "ball_support_12_future_9",
+          "ball_support_12_past_18",
+          "ball_support_12_future_18",
+          "h__closest_past_3",
+          "h__closest_past_3_coverage",
+          "h__closest_future_3",
+          "h__closest_future_3_coverage",
+          "h__closest_past_9",
+          "h__closest_past_9_coverage",
+          "h__closest_future_9",
+          "h__closest_future_9_coverage",
+          "h__closest_past_18",
+          "h__closest_past_18_coverage",
+          "h__closest_future_18",
+          "h__closest_future_18_coverage",
+          "a__closest_past_3",
+          "a__closest_past_3_coverage",
+          "a__closest_future_3",
+          "a__closest_future_3_coverage",
+          "a__closest_past_9",
+          "a__closest_past_9_coverage",
+          "a__closest_future_9",
+          "a__closest_future_9_coverage",
+          "a__closest_past_18",
+          "a__closest_past_18_coverage",
+          "a__closest_future_18",
+          "a__closest_future_18_coverage",
+          "h__contact_strength_18_past_3",
+          "h__contact_strength_18_future_3",
+          "h__contact_strength_18_past_9",
+          "h__contact_strength_18_future_9",
+          "h__contact_strength_18_past_18",
+          "h__contact_strength_18_future_18",
+          "a__contact_strength_18_past_3",
+          "a__contact_strength_18_future_3",
+          "a__contact_strength_18_past_9",
+          "a__contact_strength_18_future_9",
+          "a__contact_strength_18_past_18",
+          "a__contact_strength_18_future_18",
+          "h__player_motion_25_0_past_3",
+          "h__player_motion_25_0_future_3",
+          "h__player_motion_25_0_past_9",
+          "h__player_motion_25_0_future_9",
+          "h__player_motion_25_0_past_18",
+          "h__player_motion_25_0_future_18",
+          "a__player_motion_25_0_past_3",
+          "a__player_motion_25_0_future_3",
+          "a__player_motion_25_0_past_9",
+          "a__player_motion_25_0_future_9",
+          "a__player_motion_25_0_past_18",
+          "a__player_motion_25_0_future_18",
+          "ball_age_previous",
+          "pitch_margin_previous_ball",
+          "h__closest_previous_ball",
+          "a__closest_previous_ball",
+          "h__contact_strength_6_previous_ball",
+          "a__contact_strength_6_previous_ball",
+          "ball_age_following",
+          "pitch_margin_following_ball",
+          "h__closest_following_ball",
+          "a__closest_following_ball",
+          "h__contact_strength_6_following_ball",
+          "a__contact_strength_6_following_ball",
+          "h__shape_depth",
+          "h__shape_width",
+          "h__center_ball_distance",
+          "h__shape_motion_long_past",
+          "h__shape_motion_long_future",
+          "h__shape_motion_wide_past",
+          "h__shape_motion_wide_future",
+          "a__shape_depth",
+          "a__shape_width",
+          "a__center_ball_distance",
+          "a__shape_motion_long_past",
+          "a__shape_motion_long_future",
+          "a__shape_motion_wide_past",
+          "a__shape_motion_wide_future"
+        ],
+        "export_max_logit_difference": {
+          "temporal_1200.npz": 3.337860107421875e-06,
+          "temporal_1800.npz": 3.159046173095703e-06,
+          "temporal_600.npz": 2.6226043701171875e-06
+        },
+        "fit_sha256": "5f741ec8d63bebfd06800328d5a05581d2b6e8da94c43689e6c13e8692699ddb",
+        "models": {
+          "temporal_1200.npz": "74bc08a8d060446beab675c7c16202d4bdd64560530e3c36b0294453360e79fe",
+          "temporal_1800.npz": "22cd651b034713c44fb15b4fd6e91001674335732fb695c089ceecfd65d7314e",
+          "temporal_600.npz": "e5376ae2002a0de258bdd9c8d14706afa6d132a9c525a9e4b02b9c4792bc70f1"
+        },
+        "normalization": "f75905865c95d99f30321dd79ba9f4b6eff91a2f751b732f7290d872a2891d1a",
+        "original_checkpoints": {
+          "temporal_1200.pt": "5826114e5ff3d75e06bbcc3f35c3291f267c1926407755215b44958df9149d45",
+          "temporal_1800.pt": "8db962190a56be0b0e2418c9552ea42b365c65a0c8379d0c978692ce4af288db",
+          "temporal_600.pt": "679fd8dad5e0c4df73b5a3dd4c46b967cc1d574f020f1f5ea742131e74defd18"
+        },
+        "seed": 97,
+        "torch": "2.15.0",
+        "train_manifest": "85109ba2b76679b55887c984a75ad758c4d5f75e7213b72cf68ad7746ab9cbf2",
+        "training_device": "mps"
+      },
+      "temporal_models": {
+        "boundary_boost": 0.5,
+        "columns": [
+          "pitch_margin",
+          "goal_margin",
+          "touch_margin",
+          "speed_3_0",
+          "speed_3_1",
+          "speed_12_0",
+          "speed_12_1",
+          "speed_30_0",
+          "speed_30_1",
+          "speed_change",
+          "margin_mean_12",
+          "outside_share_12",
+          "speed_mean_12",
+          "margin_mean_50",
+          "outside_share_50",
+          "speed_mean_50",
+          "h__contact_relative_speed",
+          "h__contact_closing",
+          "h__contact_strength_6",
+          "h__contact_distance_6",
+          "h__contact_strength_18",
+          "h__contact_distance_18",
+          "h__contact_strength_50",
+          "h__contact_distance_50",
+          "h__contact_strength_100",
+          "h__contact_distance_100",
+          "a__contact_relative_speed",
+          "a__contact_closing",
+          "a__contact_strength_6",
+          "a__contact_distance_6",
+          "a__contact_strength_18",
+          "a__contact_distance_18",
+          "a__contact_strength_50",
+          "a__contact_distance_50",
+          "a__contact_strength_100",
+          "a__contact_distance_100",
+          "seen",
+          "h__closest",
+          "h__count",
+          "h__count_12",
+          "h__closest_12",
+          "h__count_50",
+          "h__closest_50",
+          "h__player_motion_5_0",
+          "h__player_motion_5_25",
+          "h__player_motion_5_75",
+          "h__player_motion_25_0",
+          "h__player_motion_25_25",
+          "h__player_motion_25_75",
+          "a__closest",
+          "a__count",
+          "a__count_12",
+          "a__closest_12",
+          "a__count_50",
+          "a__closest_50",
+          "a__player_motion_5_0",
+          "a__player_motion_5_25",
+          "a__player_motion_5_75",
+          "a__player_motion_25_0",
+          "a__player_motion_25_25",
+          "a__player_motion_25_75",
+          "ball_support_12",
+          "ball_support_50",
+          "ball_support_100",
+          "speed_12_0_past_3",
+          "speed_12_0_past_3_coverage",
+          "speed_12_0_future_3",
+          "speed_12_0_future_3_coverage",
+          "speed_12_0_past_9",
+          "speed_12_0_past_9_coverage",
+          "speed_12_0_future_9",
+          "speed_12_0_future_9_coverage",
+          "speed_12_0_past_18",
+          "speed_12_0_past_18_coverage",
+          "speed_12_0_future_18",
+          "speed_12_0_future_18_coverage",
+          "pitch_margin_past_3",
+          "pitch_margin_future_3",
+          "pitch_margin_past_9",
+          "pitch_margin_future_9",
+          "pitch_margin_past_18",
+          "pitch_margin_future_18",
+          "ball_support_12_past_3",
+          "ball_support_12_future_3",
+          "ball_support_12_past_9",
+          "ball_support_12_future_9",
+          "ball_support_12_past_18",
+          "ball_support_12_future_18",
+          "h__closest_past_3",
+          "h__closest_past_3_coverage",
+          "h__closest_future_3",
+          "h__closest_future_3_coverage",
+          "h__closest_past_9",
+          "h__closest_past_9_coverage",
+          "h__closest_future_9",
+          "h__closest_future_9_coverage",
+          "h__closest_past_18",
+          "h__closest_past_18_coverage",
+          "h__closest_future_18",
+          "h__closest_future_18_coverage",
+          "a__closest_past_3",
+          "a__closest_past_3_coverage",
+          "a__closest_future_3",
+          "a__closest_future_3_coverage",
+          "a__closest_past_9",
+          "a__closest_past_9_coverage",
+          "a__closest_future_9",
+          "a__closest_future_9_coverage",
+          "a__closest_past_18",
+          "a__closest_past_18_coverage",
+          "a__closest_future_18",
+          "a__closest_future_18_coverage",
+          "h__contact_strength_18_past_3",
+          "h__contact_strength_18_future_3",
+          "h__contact_strength_18_past_9",
+          "h__contact_strength_18_future_9",
+          "h__contact_strength_18_past_18",
+          "h__contact_strength_18_future_18",
+          "a__contact_strength_18_past_3",
+          "a__contact_strength_18_future_3",
+          "a__contact_strength_18_past_9",
+          "a__contact_strength_18_future_9",
+          "a__contact_strength_18_past_18",
+          "a__contact_strength_18_future_18",
+          "h__player_motion_25_0_past_3",
+          "h__player_motion_25_0_future_3",
+          "h__player_motion_25_0_past_9",
+          "h__player_motion_25_0_future_9",
+          "h__player_motion_25_0_past_18",
+          "h__player_motion_25_0_future_18",
+          "a__player_motion_25_0_past_3",
+          "a__player_motion_25_0_future_3",
+          "a__player_motion_25_0_past_9",
+          "a__player_motion_25_0_future_9",
+          "a__player_motion_25_0_past_18",
+          "a__player_motion_25_0_future_18",
+          "ball_age_previous",
+          "pitch_margin_previous_ball",
+          "h__closest_previous_ball",
+          "a__closest_previous_ball",
+          "h__contact_strength_6_previous_ball",
+          "a__contact_strength_6_previous_ball",
+          "ball_age_following",
+          "pitch_margin_following_ball",
+          "h__closest_following_ball",
+          "a__closest_following_ball",
+          "h__contact_strength_6_following_ball",
+          "a__contact_strength_6_following_ball",
+          "h__shape_depth",
+          "h__shape_width",
+          "h__center_ball_distance",
+          "h__shape_motion_long_past",
+          "h__shape_motion_long_future",
+          "h__shape_motion_wide_past",
+          "h__shape_motion_wide_future",
+          "a__shape_depth",
+          "a__shape_width",
+          "a__center_ball_distance",
+          "a__shape_motion_long_past",
+          "a__shape_motion_long_future",
+          "a__shape_motion_wide_past",
+          "a__shape_motion_wide_future"
+        ],
+        "export_max_logit_difference": {
+          "temporal_1200.npz": 2.384185791015625e-06,
+          "temporal_1800.npz": 2.771615982055664e-06,
+          "temporal_600.npz": 2.86102294921875e-06
+        },
+        "fit_sha256": "073c21134d7410fc261c5195a1b77239b345cd11eabd218b6ea8dc72a6674cd7",
+        "models": {
+          "temporal_1200.npz": "34db608deee743c54f972f6c5faf1d73a8c6161cfc32776cfb96c85933ae155d",
+          "temporal_1800.npz": "c738f60b3bb62df17e56fa48a06410a8f4f09ab9a585c736bc673b4a33bf0337",
+          "temporal_600.npz": "dcec26196f49916b3b8c52fcd3bd0b1a85cf58b375fa07b58869153a040ca33f"
+        },
+        "normalization": "f75905865c95d99f30321dd79ba9f4b6eff91a2f751b732f7290d872a2891d1a",
+        "original_checkpoints": {
+          "temporal_1200.pt": "13598bfa422ad6159114de7d225930a7de4dd46518957bec6fd05607821776d3",
+          "temporal_1800.pt": "6f23da39d6c03f6487e896bd6ceb6202f9c86623a5edd5d653e24029722027ca",
+          "temporal_600.pt": "033456b70138d21ad2cbbd252076361730ee528ae01703f4e9818fb9ffdf15cd"
+        },
+        "seed": 42,
+        "torch": "2.15.0",
+        "train_manifest": "85109ba2b76679b55887c984a75ad758c4d5f75e7213b72cf68ad7746ab9cbf2",
+        "training_device": "mps"
+      }
+    }
+  },
+  "passed": false,
+  "protocol": "DECISIONS.md D14",
+  "reference": {
+    "external": {
+      "conventions": {
+        "aba1.75": {
+          "dead_carried": 0.5166666666666667,
+          "matches": {
+            "dfl/WPY/clean": {
+              "macro_f1": 0.9282722421026363,
+              "spell_f1": 0.68929889298893,
+              "spells": 219
+            },
+            "dfl/WPY/dead_carried": {
+              "macro_f1": 0.8251363904745058,
+              "spell_f1": 0.5166666666666667,
+              "spells": 253
+            },
+            "dfl/WPY/masked": {
+              "macro_f1": 0.8988143222338243,
+              "spell_f1": 0.6171003717472119,
+              "spells": 215
+            },
+            "dfl/WPY/team_swap": {
+              "macro_f1": 0.8700291483033414,
+              "spell_f1": 0.5539007092198581,
+              "spells": 241
+            },
+            "skillcorner/2007448/observed": {
+              "macro_f1": 0.9197163558605501,
+              "spell_f1": 0.6787589498806683,
+              "spells": 182
+            },
+            "skillcorner/2007721/observed": {
+              "macro_f1": 0.9148443345154655,
+              "spell_f1": 0.6677966101694915,
+              "spells": 203
+            },
+            "skillcorner/2010085/observed": {
+              "macro_f1": 0.9152500282705508,
+              "spell_f1": 0.6401847575057736,
+              "spells": 189
+            },
+            "skillcorner/2011166/observed": {
+              "macro_f1": 0.8982520638274766,
+              "spell_f1": 0.6511450381679389,
+              "spells": 221
+            }
+          },
+          "standard": {
+            "macro_f1": 0.9103246622376362,
+            "spell_f1": 0.6503189422127096
+          },
+          "team_swap": 0.5539007092198581
+        },
+        "aba3": {
+          "dead_carried": 0.5655430711610487,
+          "matches": {
+            "dfl/WPY/clean": {
+              "macro_f1": 0.9308252052547316,
+              "spell_f1": 0.7416,
+              "spells": 219
+            },
+            "dfl/WPY/dead_carried": {
+              "macro_f1": 0.829478237395849,
+              "spell_f1": 0.5655430711610487,
+              "spells": 253
+            },
+            "dfl/WPY/masked": {
+              "macro_f1": 0.9021094671118872,
+              "spell_f1": 0.6620967741935484,
+              "spells": 215
+            },
+            "dfl/WPY/team_swap": {
+              "macro_f1": 0.8730292225057085,
+              "spell_f1": 0.578544061302682,
+              "spells": 241
+            },
+            "skillcorner/2007448/observed": {
+              "macro_f1": 0.9224489044306176,
+              "spell_f1": 0.7112219451371572,
+              "spells": 182
+            },
+            "skillcorner/2007721/observed": {
+              "macro_f1": 0.9169376168682537,
+              "spell_f1": 0.6883116883116883,
+              "spells": 203
+            },
+            "skillcorner/2010085/observed": {
+              "macro_f1": 0.9161031431668714,
+              "spell_f1": 0.6486746987951808,
+              "spells": 189
+            },
+            "skillcorner/2011166/observed": {
+              "macro_f1": 0.89861383755859,
+              "spell_f1": 0.6540983606557376,
+              "spells": 221
+            }
+          },
+          "standard": {
+            "macro_f1": 0.9126036276661259,
+            "spell_f1": 0.6820872613436533
+          },
+          "team_swap": 0.578544061302682
+        },
+        "aba4": {
+          "dead_carried": 0.5841269841269842,
+          "matches": {
+            "dfl/WPY/clean": {
+              "macro_f1": 0.9304002058241534,
+              "spell_f1": 0.76,
+              "spells": 219
+            },
+            "dfl/WPY/dead_carried": {
+              "macro_f1": 0.8303776551816897,
+              "spell_f1": 0.5841269841269842,
+              "spells": 253
+            },
+            "dfl/WPY/masked": {
+              "macro_f1": 0.9043598640237412,
+              "spell_f1": 0.6849785407725322,
+              "spells": 215
+            },
+            "dfl/WPY/team_swap": {
+              "macro_f1": 0.8729278891752651,
+              "spell_f1": 0.5861788617886179,
+              "spells": 241
+            },
+            "skillcorner/2007448/observed": {
+              "macro_f1": 0.9203850316460195,
+              "spell_f1": 0.7273657289002559,
+              "spells": 182
+            },
+            "skillcorner/2007721/observed": {
+              "macro_f1": 0.9172462775700537,
+              "spell_f1": 0.7049327354260089,
+              "spells": 203
+            },
+            "skillcorner/2010085/observed": {
+              "macro_f1": 0.9175180725632619,
+              "spell_f1": 0.6575063613231553,
+              "spells": 189
+            },
+            "skillcorner/2011166/observed": {
+              "macro_f1": 0.8991806897163244,
+              "spell_f1": 0.6537815126050419,
+              "spells": 221
+            }
+          },
+          "standard": {
+            "macro_f1": 0.9133112479155634,
+            "spell_f1": 0.6979411392059851
+          },
+          "team_swap": 0.5861788617886179
+        },
+        "aba4.5": {
+          "dead_carried": 0.5991869918699186,
+          "matches": {
+            "dfl/WPY/clean": {
+              "macro_f1": 0.9266043204794171,
+              "spell_f1": 0.7475982532751092,
+              "spells": 219
+            },
+            "dfl/WPY/dead_carried": {
+              "macro_f1": 0.8283123204172985,
+              "spell_f1": 0.5991869918699186,
+              "spells": 253
+            },
+            "dfl/WPY/masked": {
+              "macro_f1": 0.9022609031822015,
+              "spell_f1": 0.7004405286343613,
+              "spells": 215
+            },
+            "dfl/WPY/team_swap": {
+              "macro_f1": 0.8699876689807748,
+              "spell_f1": 0.5958333333333333,
+              "spells": 241
+            },
+            "skillcorner/2007448/observed": {
+              "macro_f1": 0.9214343099154524,
+              "spell_f1": 0.7397402597402597,
+              "spells": 182
+            },
+            "skillcorner/2007721/observed": {
+              "macro_f1": 0.9181040177197705,
+              "spell_f1": 0.7081081081081081,
+              "spells": 203
+            },
+            "skillcorner/2010085/observed": {
+              "macro_f1": 0.9183510940698075,
+              "spell_f1": 0.6639386189258312,
+              "spells": 189
+            },
+            "skillcorner/2011166/observed": {
+              "macro_f1": 0.8951064506382945,
+              "spell_f1": 0.6366812227074237,
+              "spells": 221
+            }
+          },
+          "standard": {
+            "macro_f1": 0.911812171850219,
+            "spell_f1": 0.7016384112758414
+          },
+          "team_swap": 0.5958333333333333
+        },
+        "raw": {
+          "dead_carried": 0.4231454005934718,
+          "matches": {
+            "dfl/WPY/clean": {
+              "macro_f1": 0.9220386299568685,
+              "spell_f1": 0.5549999999999999,
+              "spells": 219
+            },
+            "dfl/WPY/dead_carried": {
+              "macro_f1": 0.8221752043037766,
+              "spell_f1": 0.4231454005934718,
+              "spells": 253
+            },
+            "dfl/WPY/masked": {
+              "macro_f1": 0.894472766291151,
+              "spell_f1": 0.5012578616352201,
+              "spells": 215
+            },
+            "dfl/WPY/team_swap": {
+              "macro_f1": 0.8666066239055095,
+              "spell_f1": 0.46042296072507555,
+              "spells": 241
+            },
+            "skillcorner/2007448/observed": {
+              "macro_f1": 0.9181002081147541,
+              "spell_f1": 0.6346067415730337,
+              "spells": 182
+            },
+            "skillcorner/2007721/observed": {
+              "macro_f1": 0.913765784223021,
+              "spell_f1": 0.6382113821138212,
+              "spells": 203
+            },
+            "skillcorner/2010085/observed": {
+              "macro_f1": 0.9145231696222157,
+              "spell_f1": 0.5918629550321199,
+              "spells": 189
+            },
+            "skillcorner/2011166/observed": {
+              "macro_f1": 0.8966252184102944,
+              "spell_f1": 0.5964912280701755,
+              "spells": 221
+            }
+          },
+          "standard": {
+            "macro_f1": 0.9072074913028141,
+            "spell_f1": 0.5672324922270505
+          },
+          "team_swap": 0.46042296072507555
+        }
+      },
+      "recipe": {
+        "cutoff": 0.53,
+        "dead_cost": 2,
+        "dead_mix": 0.5,
+        "discount": 0.8,
+        "method": "joint",
+        "owner_cost": 6,
+        "owner_mix": 0.5,
+        "variant": "seed_phase"
+      }
+    },
+    "pff": {
+      "matches": {
+        "10502": {
+          "aba1.75": {
+            "macro_f1": 0.8034272911634415,
+            "spell_f1": 0.43104212860310415,
+            "spells": 178
+          },
+          "aba3": {
+            "macro_f1": 0.8047532727039907,
+            "spell_f1": 0.47132530120481925,
+            "spells": 178
+          },
+          "aba4": {
+            "macro_f1": 0.8072706591920206,
+            "spell_f1": 0.4982278481012658,
+            "spells": 178
+          },
+          "aba4.5": {
+            "macro_f1": 0.8054164437816839,
+            "spell_f1": 0.4903896103896104,
+            "spells": 178
+          },
+          "raw": {
+            "macro_f1": 0.8028725457749538,
+            "spell_f1": 0.40164271047227923,
+            "spells": 178
+          }
+        },
+        "10510": {
+          "aba1.75": {
+            "macro_f1": 0.8633967154868275,
+            "spell_f1": 0.7118110236220472,
+            "spells": 165
+          },
+          "aba3": {
+            "macro_f1": 0.8643846327472927,
+            "spell_f1": 0.7176151761517614,
+            "spells": 165
+          },
+          "aba4": {
+            "macro_f1": 0.864487797665182,
+            "spell_f1": 0.7202216066481995,
+            "spells": 165
+          },
+          "aba4.5": {
+            "macro_f1": 0.8660224673341629,
+            "spell_f1": 0.7323943661971831,
+            "spells": 165
+          },
+          "raw": {
+            "macro_f1": 0.8616971159831589,
+            "spell_f1": 0.6660049627791562,
+            "spells": 165
+          }
+        },
+        "3812": {
+          "aba1.75": {
+            "macro_f1": 0.8747044771132927,
+            "spell_f1": 0.6367713004484304,
+            "spells": 181
+          },
+          "aba3": {
+            "macro_f1": 0.8793470408299644,
+            "spell_f1": 0.6823529411764706,
+            "spells": 181
+          },
+          "aba4": {
+            "macro_f1": 0.8833633682345692,
+            "spell_f1": 0.7066666666666667,
+            "spells": 181
+          },
+          "aba4.5": {
+            "macro_f1": 0.8827509198082382,
+            "spell_f1": 0.6969072164948453,
+            "spells": 181
+          },
+          "raw": {
+            "macro_f1": 0.8731907892964625,
+            "spell_f1": 0.5974576271186441,
+            "spells": 181
+          }
+        },
+        "3820": {
+          "aba1.75": {
+            "macro_f1": 0.8865984689662557,
+            "spell_f1": 0.6675736961451246,
+            "spells": 192
+          },
+          "aba3": {
+            "macro_f1": 0.8889475012026922,
+            "spell_f1": 0.7007159904534606,
+            "spells": 192
+          },
+          "aba4": {
+            "macro_f1": 0.8911173646411168,
+            "spell_f1": 0.7210126582278481,
+            "spells": 192
+          },
+          "aba4.5": {
+            "macro_f1": 0.890537268890997,
+            "spell_f1": 0.7145038167938933,
+            "spells": 192
+          },
+          "raw": {
+            "macro_f1": 0.8852988867333217,
+            "spell_f1": 0.630669546436285,
+            "spells": 192
+          }
+        },
+        "3828": {
+          "aba1.75": {
+            "macro_f1": 0.8517483846406518,
+            "spell_f1": 0.5975806451612903,
+            "spells": 204
+          },
+          "aba3": {
+            "macro_f1": 0.8528154789037057,
+            "spell_f1": 0.6333333333333333,
+            "spells": 204
+          },
+          "aba4": {
+            "macro_f1": 0.8551839484473834,
+            "spell_f1": 0.637719298245614,
+            "spells": 204
+          },
+          "aba4.5": {
+            "macro_f1": 0.8558744724059557,
+            "spell_f1": 0.6468468468468468,
+            "spells": 204
+          },
+          "raw": {
+            "macro_f1": 0.8501042211339797,
+            "spell_f1": 0.555893536121673,
+            "spells": 204
+          }
+        },
+        "3836": {
+          "aba1.75": {
+            "macro_f1": 0.8851832822500677,
+            "spell_f1": 0.6097186700767264,
+            "spells": 156
+          },
+          "aba3": {
+            "macro_f1": 0.8861493294432122,
+            "spell_f1": 0.6608219178082193,
+            "spells": 156
+          },
+          "aba4": {
+            "macro_f1": 0.8886460460455391,
+            "spell_f1": 0.6792022792022792,
+            "spells": 156
+          },
+          "aba4.5": {
+            "macro_f1": 0.88949755813915,
+            "spell_f1": 0.6842406876790831,
+            "spells": 156
+          },
+          "raw": {
+            "macro_f1": 0.8829725655036441,
+            "spell_f1": 0.5410672853828306,
+            "spells": 156
+          }
+        },
+        "3844": {
+          "aba1.75": {
+            "macro_f1": 0.8282996450946923,
+            "spell_f1": 0.537062937062937,
+            "spells": 159
+          },
+          "aba3": {
+            "macro_f1": 0.8312411713126492,
+            "spell_f1": 0.5660574412532637,
+            "spells": 159
+          },
+          "aba4": {
+            "macro_f1": 0.8325419047560175,
+            "spell_f1": 0.5777777777777777,
+            "spells": 159
+          },
+          "aba4.5": {
+            "macro_f1": 0.8358058212842298,
+            "spell_f1": 0.5917355371900828,
+            "spells": 159
+          },
+          "raw": {
+            "macro_f1": 0.8237458234207035,
+            "spell_f1": 0.47295597484276736,
+            "spells": 159
+          }
+        },
+        "3852": {
+          "aba1.75": {
+            "macro_f1": 0.814935462048782,
+            "spell_f1": 0.5544186046511628,
+            "spells": 203
+          },
+          "aba3": {
+            "macro_f1": 0.816671643745182,
+            "spell_f1": 0.5725888324873096,
+            "spells": 203
+          },
+          "aba4": {
+            "macro_f1": 0.8174859616605961,
+            "spell_f1": 0.5815384615384616,
+            "spells": 203
+          },
+          "aba4.5": {
+            "macro_f1": 0.8170141236904636,
+            "spell_f1": 0.5731958762886598,
+            "spells": 203
+          },
+          "raw": {
+            "macro_f1": 0.8138383470101355,
+            "spell_f1": 0.5242290748898678,
+            "spells": 203
+          }
+        }
+      },
+      "means": {
+        "aba1.75": {
+          "macro_f1": 0.8510367158455014,
+          "spell_f1": 0.5932473757213528
+        },
+        "aba3": {
+          "macro_f1": 0.8530387588610862,
+          "spell_f1": 0.6256013667335798
+        },
+        "aba4": {
+          "macro_f1": 0.8550121313303031,
+          "spell_f1": 0.6402958245510141
+        },
+        "aba4.5": {
+          "macro_f1": 0.8553648844168602,
+          "spell_f1": 0.6412767447350256
+        },
+        "raw": {
+          "macro_f1": 0.849215036857045,
+          "spell_f1": 0.548740089755438
+        }
+      }
+    },
+    "recipe": {
+      "cutoff": 0.53,
+      "dead_cost": 2,
+      "dead_mix": 0.5,
+      "discount": 0.8,
+      "method": "joint",
+      "owner_cost": 6,
+      "owner_mix": 0.5,
+      "variant": "seed_phase"
+    }
+  },
+  "reproduction": {
+    "d3": true,
+    "d7": true
+  },
+  "teacher_sha256": "1b800a8e3a6cc00d81773580dd1b379dc2199ae0bb60aaf29cbc59105ad67903"
+}

@@ -66,7 +66,15 @@ def targets(labels):
     return np.column_stack([labels == pm.D, labels == pm.H, dead_edge, owner_edge, known, live]).astype(np.float32)
 
 
-def prepare(dfl, skill, output, *, raw=False, augment=False):
+def convention_labels(labels, convention):
+    """Training labels under a controlled-possession convention (DECISIONS.md D13); None keeps them."""
+    if convention is None:
+        return labels
+    from dfl_submission.conventions import collapse_brief_changes
+    return collapse_brief_changes(labels, convention)
+
+
+def prepare(dfl, skill, output, *, raw=False, augment=False, convention=None):
     output.mkdir(parents=True, exist_ok=False)
     records = []
     columns = None
@@ -82,11 +90,13 @@ def prepare(dfl, skill, output, *, raw=False, augment=False):
         elif columns != table.columns.tolist():
             raise ValueError("External feature schema differs")
         name = f"{half.key}.npz"
-        np.savez_compressed(output / name, values=table.to_numpy(dtype=np.float32), targets=targets(half.labels[frames]))
+        labels = convention_labels(half.labels, convention)
+        np.savez_compressed(output / name, values=table.to_numpy(dtype=np.float32), targets=targets(labels[frames]))
         records.append({"file": name, "source": half.source, "match": half.match, "sha256": digest(output / name)})
         print(f"Prepared temporal sequence {half.key}", flush=True)
     write_json(output / "manifest.json", {"columns": columns, "records": records, "dfl_manifest": digest(SOURCE_MANIFEST),
-                                           "skill_manifest": digest(skill / "manifest.json")} | ({"augmented": True} if augment else {}))
+                                           "skill_manifest": digest(skill / "manifest.json")} | ({"augmented": True} if augment else {})
+               | ({"convention": convention} if convention is not None else {}))
 
 
 def training_data(folder):
@@ -212,6 +222,7 @@ if __name__ == "__main__":
     preparation.add_argument("--skill", required=True, type=Path)
     preparation.add_argument("--out", required=True, type=Path)
     preparation.add_argument("--augment", action="store_true", help="Prepare DECISIONS.md D2 augmented halves")
+    preparation.add_argument("--convention", type=float, help="Collapse brief changes under this many seconds (D13)")
     training = actions.add_parser("train")
     training.add_argument("--source", required=True, type=Path)
     training.add_argument("--out", required=True, type=Path)
@@ -226,7 +237,7 @@ if __name__ == "__main__":
     if args.action != "export":
         require_external_only()
     if args.action == "prepare":
-        prepare(args.dfl, args.skill, args.out, raw=args.dfl_raw, augment=args.augment)
+        prepare(args.dfl, args.skill, args.out, raw=args.dfl_raw, augment=args.augment, convention=args.convention)
     elif args.action == "train":
         train(args.source, args.out, args.device, seed=args.seed, boundary_boost=args.boundary_boost)
     else:

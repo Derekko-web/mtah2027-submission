@@ -331,3 +331,180 @@ Records: `dfl_submission/vendor_recipe/d8_development.json` and `d8_confirmation
 | 1 | 0.61101 | −0.0146 | −0.0260 | **−0.016 / −0.016 / −0.014** | −0.0123 | +0.0166 | −0.0022 |
 
 No weight reached the +0.02 primary gain. The highest PFF score, at w = 0, gained +0.0081, and would also have failed both DFL guards. PFF leans slightly towards the current models, as the known bias predicts: its targets keep foul stoppages live. The lean is less than half the required gain, and the current models lose 0.068 when the dead ball moves. Against raw PFF labels, spellF1 was 0.5545, 0.5539, 0.5487, 0.5400 and 0.5346 for w = 0 to 1. [Record](dfl_submission/vendor_recipe/d8_development.json)
+
+## D11 — Where frozen D3 loses spellF1 (2026-11-11, written before anything is scored)
+
+**Question.** D3 scores 0.74–0.76 spellF1 on clean DFL tracking, so about a quarter of the score is lost in segmentation and timing rather than tracking noise. Is the loss in stoppages, in ownership changes or in boundary timing? D11 is a measurement only. It selects nothing and changes nothing in the submission. It fixes the boundary shifts that D12 may test, and shows which of D12–D14 has the most headroom.
+
+**Candidate and data.** Frozen D3 only: the 0.5 model-set blend, stoppage cutoff 0.53, ownership cost 6, stoppage cost 2, discount 0.8, the same mixes and phase averaging. Development matches only:
+- DFL WPY in its four views: clean, masked, dead ball carried and team swap (the D2 guard views, from the raw position files);
+- the four SkillCorner development matches;
+- the eight PFF development matches, on the parsed inputs that passed the D7 sanity gate.
+
+Holdout, confirmation, training and untouched matches are not read.
+
+**Pipeline check, before any result is read.** The D11 run must reproduce exactly D3's DFL/SkillCorner development record (`blend_recipe/development.json`, selected trial) and the D7 PFF measurement (`vendor_recipe/d7_measurement.json`). If either differs, D11 stops without writing a record, and only the pipeline may be fixed.
+
+**Targets.** The raw provider labels and the N = 3 s controlled-possession targets. Groups: DFL clean, DFL masked, DFL dead ball carried, DFL team swap, SkillCorner and PFF.
+
+**What is measured.**
+1. **Spell detection** at each IoU from 0.3 to 0.7: precision, recall and F1, with true and predicted spell counts summed per group.
+2. **Two oracle runs**, scored with spellF1 like D3:
+   - *True stoppages:* frames the target calls dead become `D`. On target-live frames that D3 calls `D`, the team is the nearest D3 team in time within that target-live segment, earlier first. A target-live segment that D3 calls dead throughout takes the team with the higher mean blended home-ownership probability.
+   - *True ownership:* D3's `D` frames stay `D`. Every other frame takes the target's team; where the target is dead there, the target's most recent team in the same run, or else its next one.
+3. **Signed boundary offset** (predicted frame minus true frame). Transitions come from `pm.transitions` and are matched one-to-one with `pm.match_transitions` at a tolerance of 25 frames with `typed="pair"`. They are pooled into three types: *ownership* (H→A, A→H), *stop* (H→D, A→D) and *restart* (D→H, D→A). For each type and group: matched count, median, 25th and 75th percentiles, missed and spurious counts. Per vendor, DFL pools the clean and masked views, SkillCorner its four matches and PFF its eight.
+4. **Spell length:** recall at IoU 0.5 and mean recall over the five IoUs, by true spell length (under 1.75 s, 1.75–3 s, 3–5 s, 5–10 s, 10–20 s, 20 s or more). The number of predicted *interior* spells (an A–B–A inside a predicted live segment) under 1.75 s and under 3 s, and how many of them are matched at IoU 0.5. Stoppage lengths, predicted and true: count, 10th, 50th and 90th percentiles, and the number under 1 s and under 3 s.
+
+**Boundary shifts handed to D12 (fixed here, before scoring).** For each transition type, take the N = 3 median offsets of DFL, SkillCorner and PFF. The shift is minus the mean of the DFL and SkillCorner medians, rounded to the nearest frame with halves away from zero. It is used only if all three medians are non-zero with the same sign and the rounded shift is at least 2 frames. Otherwise that type has no shift. PFF can only block a shift; it never sets its size, so no value chosen on PFF enters the submission.
+
+**Record.** `dfl_submission/diagnosis_recipe/d11.json`, written once by `python -m dfl_submission.diagnosis measure`. Every D11 command runs with `MTAH_DATA_DIR` set to a nonexistent path.
+
+**Outcome (2026-11-11).** The pipeline check passed: decoded from the cached inputs, D3 reproduced the D3 development record and the D7 measurement exactly. Against the N = 3 targets:
+
+| Group | D3 spellF1 | True stoppages | True ownership | True / predicted spells | Precision / recall at IoU 0.5 |
+|---|---:|---:|---:|---:|---|
+| DFL clean | 0.742 | 0.746 | 0.934 | 281 / 219 | 0.88 / 0.68 |
+| DFL masked | 0.662 | 0.680 | 0.925 | 281 / 215 | 0.78 / 0.60 |
+| DFL dead ball carried | 0.566 | 0.661 | 0.793 | 281 / 253 | 0.61 / 0.55 |
+| DFL team swap | 0.579 | 0.598 | 0.923 | 281 / 241 | 0.63 / 0.54 |
+| SkillCorner | 0.676 | 0.726 | 0.846 | 971 / 795 | 0.76 / 0.62 |
+| PFF | 0.626 | 0.701 | 0.783 | 1783 / 1438 | 0.72 / 0.58 |
+| Standard combined | 0.6821 | 0.7138 | 0.8869 | | |
+
+- **Ownership is where the score is lost.** True ownership adds +0.205 to the standard combined score; true stoppages add +0.032. Only where the dead ball moves (DFL dead ball carried, PFF) are stoppages a large share.
+- **D3 under-segments.** It predicts 20–25% fewer spells than the targets, with high precision and low recall. Recall at IoU 0.5 by true spell length on SkillCorner: 4% under 1.75 s, 40% at 1.75–3 s, 48% at 3–5 s, 72% at 5–10 s, 84–92% above 10 s. DFL clean is similar (5%, 40%, 53%, 80%, 94–98%).
+- **There are almost no brief interior spells to collapse.** D3 predicts none under 1.75 s in any group, and 0, 2, 4 and 8 under 3 s on DFL clean, DFL masked, SkillCorner and PFF.
+- **Boundary timing is not biased.** N = 3 median offsets (frames, predicted minus true) for ownership, stop and restart were −1, −2 and −0.5 on DFL, +2, 0 and 0 on SkillCorner, and −2, −8 and −2 on PFF. Spreads (interquartile ranges) are 8–25 frames. The vendors disagree in sign for every type, so D11 hands **no shift** to D12.
+
+What follows: D12's output collapse and shifts have little to act on, and only the 1-frame step remains a live option there. The headroom is in ownership changes that D3 misses, which is what D13 addresses. [Record](dfl_submission/diagnosis_recipe/d11.json)
+
+## D12 — Decoder output refinements (2026-11-11, written after D11's record and before any D12 setting is scored)
+
+**Question.** Does decoding at the metric's resolution, or removing brief interior spells from the decoded labels, raise spellF1? Inference only: the models, the blend and the decoder costs are D3's.
+
+**What was seen before this rule.** D11's record, which shows that D3 predicts almost no brief interior spells and hands no boundary shift. The grid below is the one the plan fixed before D11, minus the shift option that D11 removed. Nothing else is changed in response to D11.
+
+**Grid (6 settings, in this order).** Decoder step 5 (D3) or 1 frame × output collapse none, 1.75 s or 3 s.
+- *Step 1* keeps the evidence per second and the costs of step 5: each frame's evidence is a fifth of a 5-frame block's, and the stoppage cutoff offset is scaled the same way. The boundary discount at a frame uses that frame's boundary signal; at step 5 it uses the block's maximum. A stoppage decoded inside a half lasts at least 5 frames, as at step 5. Without that, a one-frame stoppage between two teams would cost 2 + 2 instead of the ownership cost of 6, silently lowering it. With constant boundary signals and block-constant evidence the two steps give identical labels (`tests/test_refine.py`).
+- *Output collapse:* `conventions.collapse_brief_changes` on each decoded half, after decoding. 1.75 s is the lower end of D1's interval.
+
+**Pipeline check, before any result is read.** The D3 setting, decoded afresh from D11's cached inputs, must reproduce the D3 development record and the D7 measurement exactly. Otherwise D12 stops without writing a record.
+
+**Primary.** Standard combined spellF1 against the N = 3 targets on DFL WPY (1/3 clean, 2/3 masked) and the four SkillCorner development matches.
+
+**Eligible if,** compared with D3 on development:
+- the primary rises by at least +0.005;
+- standard combined spellF1 at N = 1.75, 4 and 4.5 s each drops by no more than 0.01;
+- DFL dead ball carried and team swap, at N = 3, each drop by no more than 0.01;
+- *PFF veto:* mean N = 3 spellF1 over the eight PFF development matches drops by no more than 0.01.
+
+**Selection.** The eligible setting with the highest primary, then the highest N = 3 standard macroF1, then grid order. If none is eligible, D3 stays and nothing is confirmed.
+
+**Confirmation, once.** On the DFL/SkillCorner holdout (WQQ, WR9 and their guard views; the four SkillCorner holdout matches) and PFF confirmation set A, parsed only for this step, with the same gates against D3. Before the challenger is scored, the D3 setting must reproduce D3's holdout record (`blend_recipe/external_validation.json`). The DFL/SkillCorner holdout has confirmed D1–D3 before, so this is reused evidence; set A is fresh.
+
+**If it passes,** the setting becomes the submission (`refine_trial build`) and the reference for D13, after the rebuild checks. PFF only vetoes; no value chosen on PFF enters the submission. **If it fails,** D3 stays.
+
+Records: `dfl_submission/refine_recipe/development.json`, `recipe.json` and `confirmation.json`, each written once. Every D12 command runs with `MTAH_DATA_DIR` set to a nonexistent path.
+
+**Outcome (2026-11-11).** No setting was eligible, so D3 stays and confirmation set A was neither parsed nor scored. The pipeline check passed. Development, compared with D3:
+
+| Step | Collapse | N = 3 standard | Change | N = 1.75 / 4 / 4.5 | Dead ball carried | Team swap | PFF |
+|---|---|---:|---:|---|---:|---:|---:|
+| 5 | none (D3) | 0.68209 | — | — | — | — | — |
+| 5 | 1.75 s | 0.68209 | 0 | 0 / 0 / 0 | 0 | 0 | 0 |
+| 5 | 3 s | 0.68061 | −0.0015 | −0.004 / +0.004 / +0.005 | −0.0019 | +0.0074 | +0.0014 |
+| 1 | none | 0.68098 | −0.0011 | −0.003 / −0.000 / −0.000 | −0.0004 | +0.0015 | −0.0014 |
+| 1 | 1.75 s | 0.68098 | −0.0011 | −0.003 / −0.000 / −0.000 | −0.0004 | +0.0099 | −0.0013 |
+| 1 | 3 s | 0.68065 | −0.0014 | −0.007 / +0.006 / +0.006 | −0.0024 | +0.0152 | −0.0011 |
+
+As D11 predicted, collapsing at 1.75 s changes nothing on the standard views, because D3 predicts no interior spell that short there. The 1-frame step moved 0.4% of frames in a test half and lowered the primary slightly. The decoder's resolution is not what limits the score. [Record](dfl_submission/refine_recipe/development.json)
+
+## D13 — Train the models on controlled-possession targets (2026-11-11, written before any model is refit or scored)
+
+**Question.** D1 moved only the decoder to controlled possession. The ownership and boundary heads still learn every-touch labels, so the boundary signal fires on brief touches and the ownership signal flips on them. D11 shows that ownership is where the score is lost. Do heads trained on controlled-possession targets do better?
+
+**What was seen before this rule.** D11's and D12's records. The candidate and grid below are the ones the plan fixed before D11.
+
+**Candidate.** Both model sets, the original and the D2-augmented one, are refit with ownership and ownership-boundary targets computed after `collapse_brief_changes(labels, 3)` on each 25 Hz training half. Stoppage targets are unchanged, because the collapse never touches a dead frame. Per set:
+- the long-context ownership tree is refit; the stoppage tree is unchanged and reused, since its targets and inputs are identical;
+- the two temporal networks (seed 42 with boundary weight 0.5, seed 97 with 1.4) are retrained on Apple MPS and exported, with the same features, hyperparameters, seeds and steps.
+
+The 0.5 blend, the mixes, phase averaging, discount 0.8 and stoppage cost 2 stay.
+
+**How the refit reuses the original inputs.** Feature extraction is unchanged, so the refit reads the original prepared training sequences (`external_temporal/train_data` for the original set, the D2 `retrain/sequences` for the augmented set) and recomputes only their targets from the 25 Hz labels. Three pipeline checks run before any candidate is scored:
+1. for every prepared half, the stored targets must be reproduced exactly from the reloaded labels without the collapse;
+2. refitting each set's ownership tree from the prepared inputs with the original targets must reproduce the published `ownership.ubj` byte for byte;
+3. retraining the original set's seed-42 network on its original sequences is compared with the published checkpoint and the result reported. If it does not reproduce, the record says so: the candidate then differs from D3 by its targets and by run-to-run training variation.
+
+If check 1 or 2 fails, D13 stops and only the pipeline may be fixed.
+
+**Grid (15 settings).** Ownership cost ∈ {2, 3, 4, 6, 8} × stoppage cutoff ∈ {0.49, 0.53, 0.57}, in that order. The aligned models should need a lower ownership cost.
+
+**Pipeline check on scoring.** D3, decoded from D11's cached inputs, must reproduce the D3 development record and the D7 measurement exactly.
+
+**Primary.** Standard combined spellF1 against the N = 3 targets on DFL WPY and the four SkillCorner development matches.
+
+**Eligible if,** compared with D3 on development:
+- the primary rises by at least +0.01;
+- standard combined spellF1 at N = 1.75, 4 and 4.5 s each drops by no more than 0.01. The N = 1.75 guard matters most here, because the models are trained towards the N = 3 convention they are scored on;
+- DFL dead ball carried and team swap, at N = 3, each drop by no more than 0.01;
+- *PFF veto:* mean N = 3 spellF1 on the PFF development matches drops by no more than 0.01.
+
+**Selection.** The eligible setting with the highest primary, then N = 3 standard macroF1, then grid order. None eligible → D3 stays.
+
+**Confirmation, once,** on the reused DFL/SkillCorner holdout and PFF confirmation set B (parsed only for this step), with the same gates against D3. D3 must first reproduce its holdout record.
+
+**If it passes,** the aligned models and the selected costs become the submission after the rebuild checks. **If it fails,** D3 stays. Either way the outcome is recorded here.
+
+Code: `--convention` in `long_context` and `temporal_network prepare`, a `retarget` path for prepared sequences, and `dfl_submission/aligned_trial.py`. Weights go to `dfl_submission/aligned_models/`, records to `dfl_submission/aligned_recipe/`, each written once. Every D13 command runs with `MTAH_DATA_DIR` set to a nonexistent path.
+
+**Outcome (2026-11-11).** No setting was eligible, so D3 stays and confirmation set B was neither parsed nor scored.
+- **Pipeline checks all passed.** (1) Every stored target in both prepared folders (48 halves each) was reproduced from the reloaded labels. (2) Refitting each set's ownership tree from the prepared inputs reproduced the published `ownership.ubj` byte for byte. (3) Retraining the original seed-42 network on MPS reproduced all three published checkpoints bit for bit, so the candidate differs from D3 only by its targets. On scoring, D3 reproduced the D3 development record and the D7 measurement exactly.
+- **Development, compared with D3** (N = 3 standard 0.68209). Every setting failed the N = 1.75 guard, and none raised the primary:
+
+| Ownership cost | Best cutoff | N = 3 standard | Change | N = 1.75 / 4 / 4.5 | Dead ball carried | Team swap | PFF |
+|---|---|---:|---:|---|---:|---:|---:|
+| 2 | 0.53 | 0.67722 | −0.0049 | −0.012 / −0.005 / −0.006 | −0.0111 | −0.0046 | −0.0112 |
+| 3 | 0.53 | 0.68146 | −0.0006 | −0.012 / +0.007 / +0.005 | −0.0116 | +0.0048 | −0.0064 |
+| 4 | 0.57 | 0.67706 | −0.0050 | −0.017 / +0.005 / +0.005 | −0.0209 | +0.0191 | −0.0035 |
+| 6 | 0.53 | 0.68207 | −0.0000 | −0.015 / +0.011 / +0.011 | −0.0065 | +0.0211 | +0.0004 |
+| 8 | 0.53 | 0.67779 | −0.0043 | −0.020 / +0.014 / +0.013 | −0.0080 | +0.0161 | −0.0022 |
+
+  The other cutoffs scored lower on the primary for every cost; all 15 settings are in the record.
+
+What it shows: the aligned models move the score from the short convention to the long ones. At D3's costs they gain +0.011 at N = 4 and 4.5 and +0.021 on team swaps, lose 0.015 at N = 1.75 and 0.020 against raw labels, and leave N = 3 unchanged. They predict slightly fewer spells (209 against 219 on DFL clean), so the under-segmentation D11 found gets a little worse. Lower ownership costs did not recover the missed changes. Training on controlled-possession targets does not address D3's recall problem. The aligned weights are kept in `dfl_submission/aligned_models/` for reference. [Record](dfl_submission/aligned_recipe/development.json)
+
+## D14 — SkillCorner 2019–20 ownership labels in training (2026-11-11, written before any model is refit or scored)
+
+**Question.** D11 shows that D3 misses ownership changes. Does more labelled ownership data help? The plan rates this the lowest-value step, because its gain is measured on SkillCorner itself, which says little about Metrica tracking.
+
+**What was seen before this rule.** D11–D13's records. D6 scored D3 on the five 2019–20 development matches (N = 3 spellF1 0.62374). The four 2019–20 confirmation matches have never been scored.
+
+**Candidate.** The five 2019–20 development matches (2068, 2269, 2417, 2440, 2841, revision `1b99d401`, MIT) join the training of both model sets as a third source, `skillcorner2020`. Their tracking is read as in D6 and turned into the same 162 features.
+- **Targets: ownership only.** The release has no dead-ball label, so each frame's stoppage and stoppage-boundary losses are switched off (`known` = 0). The ownership and ownership-boundary targets come from the provider's home/away possession, raw and uncollapsed, like the other sources. Frames without a provider team are excluded from the ownership loss. The D2 augmentation does not apply, because there are no dead runs to simulate, so both sets get the same 2019–20 halves.
+- **Trees:** each set's ownership tree is refit on its original rows plus the 2019–20 live rows. The existing balancing gives each source a third of the weight and equal weight to matches within a source. The stoppage trees are unchanged and reused.
+- **Networks:** the four networks are retrained on each set's original prepared halves plus these ten, with the same seeds, boundary weights and steps. With three sources, each batch draws 5 windows per source instead of 8, a direct consequence of adding a source.
+- The decoder recipe and the 0.5 blend are D3's. There is no grid.
+
+**Development gates,** against D3:
+- on DFL WPY and the four SkillCorner development matches, N = 3 standard combined spellF1, dead ball carried and team swap each drop by no more than 0.01;
+- *PFF veto:* mean N = 3 spellF1 on the PFF development matches drops by no more than 0.01.
+
+No gain is required on development, because the matches the candidate is meant to help are scored only at confirmation. Other conventions and raw labels are reported, not gated.
+
+**Confirmation, once,** if development passes. The four never-scored 2019–20 matches (3442, 3518, 3749, 4039): mean N = 3 spellF1 per match over both halves must rise by at least +0.01 over D3, scored as in D6 (frames without a provider team are not scored). PFF confirmation set C, parsed only for this step, is a veto: its mean N = 3 spellF1 drops by no more than 0.01.
+
+**If it passes,** the D14 models become the submission after the rebuild checks. **If it fails,** D3 stays.
+
+Code: `dfl_submission/extra_trial.py`; weights in `dfl_submission/extra_models/`, records in `dfl_submission/extra_recipe/`, each written once. Every D14 command runs with `MTAH_DATA_DIR` set to a nonexistent path.
+
+**Outcome (2026-11-11).** Failed at development, so D3 stays. The four 2019–20 confirmation matches remain unscored, and PFF confirmation set C was neither parsed nor scored. D3 reproduced the D3 development record and the D7 measurement exactly. Compared with D3:
+
+| Gate | Change | Required |
+|---|---:|---|
+| N = 3 standard combined | −0.0179 (0.6821 → 0.6642) | ≥ −0.01 |
+| Dead ball carried | −0.0490 | ≥ −0.01 |
+| Team swap | −0.0279 | ≥ −0.01 |
+| PFF development (veto) | −0.0227 | ≥ −0.01 |
+
+Reported only: N = 1.75, 4 and 4.5 changed by −0.030, −0.014 and −0.016, and raw-label standard spellF1 by −0.029. The loss is spread over every view: DFL WPY lost 0.010–0.049 across its four views, and three of the four SkillCorner development matches lost about 0.016. The largest drop is with the dead ball carried, so the shared network trunk lost stoppage skill, even though the 2019–20 halves carry no stoppage loss. Giving a third of the training weight to five matches without a dead-ball label, with fewer windows per batch from each of the original sources, made both heads worse. The D14 weights are kept in `dfl_submission/extra_models/` for reference. [Record](dfl_submission/extra_recipe/development.json)

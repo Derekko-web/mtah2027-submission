@@ -9,6 +9,7 @@ import pandas as pd
 from xgboost import XGBClassifier
 
 from dfl_submission import external_benchmark as benchmark, models, robust
+from dfl_submission.conventions import collapse_brief_changes
 from dfl_submission.robust_features import invariant
 from dfl_submission.skillcorner_trial import inputs as local_inputs
 from dfl_submission.train import SOURCE_MANIFEST, write_json
@@ -118,7 +119,7 @@ def fit_head(rows, *, ownership):
     return model, len(y)
 
 
-def train(dfl, skill, output, *, raw=False, augment=False):
+def train(dfl, skill, output, *, raw=False, augment=False, convention=None):
     output.mkdir(parents=True, exist_ok=False)
     owner_rows, dead_rows = [], []
     if augment:
@@ -131,7 +132,9 @@ def train(dfl, skill, output, *, raw=False, augment=False):
         labels = half.labels[frames]
         live, known = labels < pm.D, labels != pm.X
         key = f"{half.source}:{half.match}"
-        owner_rows.append((owner.loc[live].copy(), labels[live] == pm.H, np.full(live.sum(), key)))
+        # A convention (D13) changes only which live team owns a frame, never which frames are live.
+        owned = labels if convention is None else collapse_brief_changes(half.labels, convention)[frames]
+        owner_rows.append((owner.loc[live].copy(), owned[live] == pm.H, np.full(live.sum(), key)))
         dead_rows.append((dead.loc[known].copy(), labels[known] == pm.D, np.full(known.sum(), key)))
         print(f"Prepared {half.key}", flush=True)
     hashes, counts = {}, {}
@@ -143,7 +146,8 @@ def train(dfl, skill, output, *, raw=False, augment=False):
         rows.clear()
         print(f"Fitted {name}, {counts[name]:,} rows", flush=True)
     write_json(output / "fit.json", {"models": hashes, "rows": counts, "sample_stride": STRIDE,
-               "dfl_manifest_sha256": digest(SOURCE_MANIFEST), "skill_manifest_sha256": digest(skill / "manifest.json")} | ({"augmented": True} if augment else {}))
+               "dfl_manifest_sha256": digest(SOURCE_MANIFEST), "skill_manifest_sha256": digest(skill / "manifest.json")}
+               | ({"augmented": True} if augment else {}) | ({"convention": convention} if convention is not None else {}))
 
 
 def load(folder):
@@ -166,7 +170,8 @@ if __name__ == "__main__":
     parser.add_argument("--skill", required=True, type=Path)
     parser.add_argument("--out", required=True, type=Path)
     parser.add_argument("--augment", action="store_true", help="Train on DECISIONS.md D2 augmented halves")
+    parser.add_argument("--convention", type=float, help="Ownership targets after collapsing brief changes (D13)")
     args = parser.parse_args()
     from dfl_submission.external_only import require_external_only
     require_external_only()
-    train(args.dfl, args.skill, args.out, raw=args.dfl_raw, augment=args.augment)
+    train(args.dfl, args.skill, args.out, raw=args.dfl_raw, augment=args.augment, convention=args.convention)

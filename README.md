@@ -220,6 +220,48 @@ D8 asked whether the PFF development matches support a different share of the re
 
 [D8 development](dfl_submission/vendor_recipe/d8_development.json) · [D8 protocol](DECISIONS.md#d8--model-set-weight-on-unseen-pff-tracking-2026-11-11-written-before-any-weight-other-than-d3s-is-scored)
 
+D11 measured where D3 loses spellF1 on the development matches. It first checks that it reproduces the D3 and D7 records exactly. Substituting the true ownership raises the standard combined N = 3 spellF1 from 0.682 to 0.887; substituting the true stoppages raises it only to 0.714. D3 predicts 20–25% fewer spells than the targets: precision is high and recall is low, mostly on spells shorter than 5 s. Boundary timing shows no bias that the vendors agree on. `--cache` keeps the decoder inputs of every development half, so later trials skip the model runs.
+
+```sh
+.venv/bin/python -m dfl_submission.diagnosis measure --parsed data/pff/parsed \
+  --dfl "$DFL_XML" --dfl-raw --skill data/skillcorner --cache data/diagnosis_cache/development
+```
+
+D12 then tested a 1-frame decoder step and collapsing brief interior spells in the decoded labels, six settings in all. The best changed the primary by −0.001 against a required +0.005, so D3's 5-frame decoder stays and confirmation was not scored.
+
+```sh
+.venv/bin/python -m dfl_submission.refine_trial tune --parsed data/pff/parsed \
+  --dfl "$DFL_XML" --dfl-raw --skill data/skillcorner --cache data/diagnosis_cache/development
+```
+
+D13 refit both model sets on controlled-possession targets: ownership and ownership-boundary targets computed after merging A–B–A spells shorter than 3 s. The refit reuses the original prepared training sequences and recomputes only their targets. Three checks passed first: the stored targets were reproduced from the reloaded labels; the ownership trees were refit byte for byte; and one original network was retrained bit for bit on MPS. Over ownership costs 2–8 and three stoppage cutoffs, the best setting changed the N = 3 primary by −0.00002 against a required +0.01, and every setting lost more than 0.01 at N = 1.75. D3 stays.
+
+```sh
+.venv/bin/python -m dfl_submission.aligned_trial retarget --source /path/to/train_data --out data/d13/sequences_original_aba3 \
+  --dfl "$DFL_XML" --dfl-raw --skill data/skillcorner
+.venv/bin/python -m dfl_submission.aligned_trial trees --source data/d13/sequences_original_aba3 --set current \
+  --out dfl_submission/aligned_models/current/long_models
+.venv/bin/python -m dfl_submission.aligned_trial networks --source data/d13/sequences_original_aba3 \
+  --scratch data/d13/networks/current --out dfl_submission/aligned_models/current
+# the same three steps for the augmented set (--set augmented), then:
+.venv/bin/python -m dfl_submission.aligned_trial tune --parsed data/pff/parsed --dfl "$DFL_XML" --dfl-raw \
+  --skill data/skillcorner --d3-cache data/diagnosis_cache/development --cache data/d13/cache/development
+```
+
+`trees --check` on an original prepared folder refits the published ownership tree and stops unless it matches byte for byte.
+
+D14 added the five 2019–20 SkillCorner development matches to the training of both model sets as a third source, with ownership-only targets. It failed the no-loss development gates: −0.018 on the N = 3 primary, −0.049 with the dead ball carried, −0.028 on team swaps and −0.023 on PFF. D3 stays, and the four 2019–20 confirmation matches remain unscored.
+
+```sh
+.venv/bin/python -m dfl_submission.extra_trial prepare --legacy-raw data/skillcorner_2020/raw --extra data/d14/extra \
+  --original /path/to/train_data data/d13/sequences_augmented --out data/d14/sequences
+# aligned_trial trees and networks on data/d14/sequences/{current,augmented} into dfl_submission/extra_models/, then:
+.venv/bin/python -m dfl_submission.extra_trial tune --parsed data/pff/parsed --dfl "$DFL_XML" --dfl-raw \
+  --skill data/skillcorner --d3-cache data/diagnosis_cache/development --cache data/d14/cache/development
+```
+
+[D11 record](dfl_submission/diagnosis_recipe/d11.json) · [D12 development](dfl_submission/refine_recipe/development.json) · [D13 development](dfl_submission/aligned_recipe/development.json) · [D14 development](dfl_submission/extra_recipe/development.json) · [D11 protocol](DECISIONS.md#d11--where-frozen-d3-loses-spellf1-2026-11-11-written-before-anything-is-scored) · [D12 protocol](DECISIONS.md#d12--decoder-output-refinements-2026-11-11-written-after-d11s-record-and-before-any-d12-setting-is-scored)
+
 The earlier stages have their own `train`/`tune`/`confirm` commands, which are subject to the same guard:
 - the extended-context XGBoost model (`long_context`)
 - the first temporal network and context stages (`temporal_trial`, `context_trial`)
