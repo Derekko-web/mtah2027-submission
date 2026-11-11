@@ -303,6 +303,28 @@ D16 added 22 last-touch and possession-chain features (ball turns, touch evidenc
 
 [D15 development](dfl_submission/scale_recipe/development.json) · [D15 confirmation](dfl_submission/scale_recipe/confirmation.json) · [D16 tree gate](dfl_submission/touch_recipe/tree_gate.json)
 
+D18 checked whether a published ball-free model infers team possession better than D3 where our ball is hidden. It ran one checkpoint of PathCRF (Kim et al., KDD 2026; [code](https://github.com/hyunsungkim-ds/pathcrf) at commit `1b7c6f85`, MPL-2.0, trial 140), which reads player trajectories only. None of its code is copied here: `pathcrf_trial.py` imports the model classes from a separate clone after checking its files against pinned hashes. PathCRF's checkpoints were trained on DFL WPY, our development match, so WPY favours it; the four SkillCorner development matches are unseen. On ball-hidden frames, against the N = 3 targets, D3 scored 0.870 against PathCRF's 0.595 on masked WPY, and 0.786 against 0.710 on SkillCorner. PathCRF lost on both sets, so the planned retrain (B2) did not run. A diagnostic traced the masked-view collapse to the 0.2 m per-frame position noise, not to the dropped tracks. Nothing from PathCRF enters the submission.
+
+```sh
+git clone https://github.com/hyunsungkim-ds/pathcrf /path/to/pathcrf
+git -C /path/to/pathcrf checkout 1b7c6f85a6b78c92e4543fde72ca2b86a933f997
+.venv-train/bin/python -m dfl_submission.pathcrf_trial measure --clone /path/to/pathcrf --dfl "$DFL_XML" \
+  --skill data/skillcorner --cache data/diagnosis_cache/development
+.venv-train/bin/python -m dfl_submission.pathcrf_trial diagnose --clone /path/to/pathcrf --dfl "$DFL_XML" \
+  --cache data/diagnosis_cache/development
+```
+
+D19 measures the submission on Metrica Sports' three public sample matches ([sample-data](https://github.com/metrica-sports/sample-data) at commit `e706dd50`, pinned in `dfl_submission/metrica_sources.json`). They follow the conventions CHALLENGE.md describes for the ground truth: corrected tracking in which the ball is absent while dead, and events that carry the team. The repository has no licence file; its README offers the data to the analytics community and asks for credit. We use it for local evaluation only and redistribute nothing. A reader sanity gate (dead-ball convention, team orientation and the smooth50 baseline at 0.423 raw spellF1) passed on its first attempt. Against the N = 3 targets, frozen D3 scored 0.760 and D15 0.780, and every game improved. The tracking is corrected and the dead ball is exactly the missing ball, so these games flatter every model; the scores are not estimates of the competition score. Nothing is trained or chosen on them. From D19 on, a candidate is vetoed if its mean N = 3 spellF1 there falls more than 0.01 below the standing submission's, which puts the line at 0.77004.
+
+```sh
+.venv/bin/python -m dfl_submission.metrica_sample fetch      # pinned files into data/metrica/raw, checked against their hashes
+.venv/bin/python -m dfl_submission.metrica_sample prepare
+.venv/bin/python -m dfl_submission.metrica_sample sanity
+.venv/bin/python -m dfl_submission.metrica_sample measure --reference D15
+```
+
+[D18 measurement](dfl_submission/pathcrf_recipe/d18_measurement.json) · [D18 diagnostic](dfl_submission/pathcrf_recipe/d18_diagnostic.json) · [D18 protocol](DECISIONS.md#d18--pathcrf-ball-free-possession-check-2026-11-11-written-before-any-pathcrf-output-is-computed-or-scored) · [D19 sanity](dfl_submission/metrica_recipe/sanity.json) · [D19 D3 measurement](dfl_submission/metrica_recipe/d3_measurement.json) · [D19 D15 measurement](dfl_submission/metrica_recipe/d15_measurement.json) · [D19 protocol](DECISIONS.md#d19--metrica-sample-match-benchmark-2026-11-11-written-before-any-prediction-or-score-on-these-games-is-computed)
+
 [D11 record](dfl_submission/diagnosis_recipe/d11.json) · [D12 development](dfl_submission/refine_recipe/development.json) · [D13 development](dfl_submission/aligned_recipe/development.json) · [D14 development](dfl_submission/extra_recipe/development.json) · [D11 protocol](DECISIONS.md#d11--where-frozen-d3-loses-spellf1-2026-11-11-written-before-anything-is-scored) · [D12 protocol](DECISIONS.md#d12--decoder-output-refinements-2026-11-11-written-after-d11s-record-and-before-any-d12-setting-is-scored)
 
 The earlier stages have their own `train`/`tune`/`confirm` commands, which are subject to the same guard:
@@ -330,4 +352,6 @@ Each test file runs in its own process, because PyTorch and XGBoost each bring a
 - The challenge's evaluation code, `games.py`, `starter/` and `DATA.md` come from the organisers' repository under its [MIT licence](LICENSE).
 - DFL data is used under CC BY 4.0 and credited to the DFL and to Bassek et al., *An integrated dataset of spatiotemporal and event data in elite soccer*, Scientific Data 12:195 (2025). We parsed it, resampled it, synthetically degraded it and used it to fit the published weights.
 - SkillCorner Open Data is used under the MIT licence; credit to SkillCorner.
+- The Metrica Sports sample data ([metrica-sports/sample-data](https://github.com/metrica-sports/sample-data)) is credited to Metrica Sports. It is used for evaluation only (D1's convention choice and the D19 benchmark) and is not redistributed.
+- PathCRF (Kim et al., KDD 2026) is run from its own repository under MPL-2.0 for the D18 comparison only. None of its code or weights is included here.
 - The match data is not included and must not be committed (see `.gitignore`).
