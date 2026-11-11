@@ -111,7 +111,7 @@ D4 tested ten decoder settings on DFL WPY using simulated Smart Tagging inputs f
 
 ## Reproduce the submission
 
-The build is verified to give the same file on Apple Silicon macOS and on Linux (x86_64 and arm64), with Python 3.12.14 and the pinned CPU dependencies. On macOS, XGBoost needs the system OpenMP runtime. Point `MTAH_DATA_DIR` at a directory containing `tactical/` with `BAR-ATH_tactical_atd.xml`, `BAR-ATH_tactical_atd.txt` and `BAR-ATH_tactical_homography.csv`; no other files are needed.
+The build is verified to give the same file on Apple Silicon macOS (Homebrew Python 3.12.13) and on Linux (x86_64 and arm64, Python 3.12.14), with the pinned CPU dependencies. On macOS, XGBoost needs the system OpenMP runtime. Point `MTAH_DATA_DIR` at a directory containing `tactical/` with `BAR-ATH_tactical_atd.xml`, `BAR-ATH_tactical_atd.txt` and `BAR-ATH_tactical_homography.csv`; no other files are needed.
 
 ```sh
 python3.12 -m venv .venv
@@ -134,7 +134,7 @@ docker run --rm --platform linux/amd64 -v "$PWD":/repo:ro -v /path/to/competitio
   sha256sum /out/submission.csv'
 ```
 
-On Nov 11 the D15 build gave `14d18a23…` and passed the validator under both `linux/arm64` and `linux/amd64` in this image (Python 3.12.14), matching the two macOS builds. The bundle held only `tactical/`.
+On Nov 11 the D15 build gave `14d18a23…` and passed the validator under both `linux/arm64` and `linux/amd64` in this image (Python 3.12.14), matching the two macOS builds. The bundle held only `tactical/`. Later on Nov 11, a fresh clone at commit `9b68a6f` (after D18 and D19) was rebuilt in the same four ways: twice on macOS, each in a fresh venv with Homebrew Python 3.12.13, and once each in the image above (pinned by its digest) under `linux/arm64` and `linux/amd64`. All four gave `14d18a23…` and passed the validator. The bundle must hold real files, because Docker cannot follow a symlink that points outside the mounted folder.
 
 For D3, the previous submission, the same command with `retrain_trial build` produced the same SHA-256 under `linux/amd64` and `linux/arm64` as on macOS on Nov 10. On Nov 11, a fresh clone at commit `c8cdcad` (after D7 and D8) was rebuilt in four ways, and all four gave `f0b03d2c…` and passed the validator: twice on macOS in a fresh venv with Homebrew Python 3.12.13, and once each in the image above under `linux/arm64` and `linux/amd64` (Python 3.12.14). For these runs the bundle held only `tactical/`.
 
@@ -206,7 +206,7 @@ OMP_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 .venv/bin/python -m dfl_submission.comp
   --legacy-raw data/skillcorner_2020/raw --replay data/d6_replay.npz --trial data/d6_replay_trial
 ```
 
-The legacy JSON files are downloaded on demand and checked against the pinned Git blobs. `confirm` uses the same arguments and requires a development winner. The `build` subcommand requires a passed confirmation and written organiser approval for label-free fitting on the challenge tracking. D3 remains the active submission. [D6 protocol](DECISIONS.md#d6--label-free-ownership-adaptation-of-the-dfl--skillcorner-ensemble-2026-11-11-written-before-fitting-or-scoring)
+The legacy JSON files are downloaded on demand and checked against the pinned Git blobs. `confirm` uses the same arguments and requires a development winner. The `build` subcommand requires a passed confirmation and written organiser approval for label-free fitting on the challenge tracking. D6 changed nothing in the submission. [D6 protocol](DECISIONS.md#d6--label-free-ownership-adaptation-of-the-dfl--skillcorner-ensemble-2026-11-11-written-before-fitting-or-scoring)
 
 The best D6 setting scored 0.62431 spellF1 against the N = 3 targets over five development matches, up from D3's 0.62374. The +0.00056 gain missed the +0.005 gate, so the four confirmation matches went unscored. [Development scores](dfl_submission/competition_adaptation_recipe/development.json)
 
@@ -309,6 +309,14 @@ The earlier stages have their own `train`/`tune`/`confirm` commands, which are s
 - the extended-context XGBoost model (`long_context`)
 - the first temporal network and context stages (`temporal_trial`, `context_trial`)
 - the DFL and SkillCorner reference heads (`robust`, `skillcorner_trial`, `fusion_trial`)
+
+## Tests
+
+```sh
+.venv-train/bin/python tests/run_all.py
+```
+
+Each test file runs in its own process, because PyTorch and XGBoost each bring an OpenMP runtime. The tests use synthetic fixtures and need neither the competition bundle nor the external data; the runner sets `MTAH_DATA_DIR` to a nonexistent path.
 
 ## Limitations
 

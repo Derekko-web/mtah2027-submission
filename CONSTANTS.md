@@ -2,7 +2,7 @@
 
 This file lists every constant that affects the submitted file and records where each one came from.
 
-- "External grid" means the value was chosen from a pre-defined grid. Each grid was scored only on the external development matches: DFL WPY plus four SkillCorner matches. The search records are in the `development.json` files.
+- "External grid" means the value was chosen from a pre-defined grid. Each grid was selected on the external development matches: DFL WPY plus four SkillCorner matches. D12 and D15 also scored their grids on eight PFF development matches, as a veto only; no value was chosen on PFF. The search records are in the `development.json` files.
 - "Hand-set" means a person chose the value when writing the code. It was never searched or tuned.
 - No value below was fitted, tuned, calibrated or selected using the public 5-minute ground truth, the provided video, or any human-produced data about the provided game.
 
@@ -28,8 +28,8 @@ The context stage's island-suppression settings (`island_frames`, `island_confid
 |---|---|---|---|
 | Half spans | frames 11,185–90,651 and 110,808–190,197 | `games.half_video_blocks` | Published by the organisers; DATA.md calls them boundaries that reveal no label. Frames outside them are written as `X`. |
 | Pitch size | 105 × 68 m | `build.METADATA_PITCH` | Reported by the tactical ATD metadata (DATA.md). The organisers' `games.py` carries 105.3 × 68.0 m, measured from corrected tracking. The submission rescales to the metadata size; the external training data use each provider's own pitch size. |
-| Ball validity margin | ±5 m outside the pitch | `build.tactical_halves` | Hand-set |
-| Homography validity | mask frames with `valid = 0` | `build.tactical_halves` | Organiser-defined flag |
+| Ball validity margin | ±5 m outside the pitch | `build.tactical_tracking_halves` | Hand-set |
+| Homography validity | mask frames with `valid = 0` | `build.tactical_tracking_halves` | Organiser-defined flag |
 
 ## Models
 
@@ -42,7 +42,7 @@ The context stage's island-suppression settings (`island_frames`, `island_confid
 | Temporal network architecture and optimiser | dilations, dropout 0.08, AdamW at 0.0015 with cosine decay, weight decay 0.01 | `temporal_network.py` | Hand-set (Nov 10) |
 | Network width and training length | 96 channels per block, 5,400 steps, with the cosine schedule stretched over the run | `scale_models/w96_s5400/*/fit.json`, `temporal_network.train` | External grid under DECISIONS.md D15: width 48 or 96 × 1,800 or 5,400 steps × ownership cost 4, 6 or 8; confirmed once. Replaces width 48 and 1,800 steps. |
 | Network snapshot | the last snapshot of each network (step 5,400); the seed-97 network's predictions are phase-averaged | `scale_trial.final_snapshot`, `ensemble_recipe` | External grid (snapshot variant), then D15's stretched schedule |
-| Boundary loss weight | 0.5 for the first networks, 1.4 for the seed-97 network | `temporal_network.loss`, `seed_models/fit.json` | Hand-set; there is no search record. The ensemble that uses the seed-97 network was then accepted or rejected on external data. |
+| Boundary loss weight | 0.5 for the first networks, 1.4 for the seed-97 network | `temporal_network.loss`, `scale_models/w96_s5400/*/*/fit.json` (`boundary_boost`) | Hand-set; there is no search record. The ensemble that uses the seed-97 network was then accepted or rejected on external data. |
 | 5 Hz phase offsets | 0, 2, 4 frames | `ensemble_trial.PHASES` | Hand-set (covers the 5-frame stride) |
 
 ## Training-data degradation (DFL views only)
