@@ -266,9 +266,26 @@ The event names were taken from the open-source kloppy PFF reader and checked ag
 
 Every D7 command runs with `MTAH_DATA_DIR` set to a nonexistent path.
 
-**Outcome.** *(Added after the sanity gate and the measurement.)*
+**Outcome (2026-11-11).** Run with the reader amendment and terms note below.
+- **Sanity gate:** passed on the first attempt. The smooth50 baseline's mean raw spellF1 was 0.34476 (per match 0.293–0.413), inside 0.15–0.40. That is above its 0.25–0.26 on DFL and SkillCorner, which fits PFF's coarser targets: possession sequences, with no stoppage except `OUT`. [Record](dfl_submission/vendor_recipe/sanity.json)
+- **Frozen D3 on the eight development matches:**
+
+  | Target | spellF1 | macroF1 |
+  |---|---|---|
+  | Raw provider labels | 0.54874 | 0.84922 |
+  | N = 1.75 s | 0.59325 | 0.85104 |
+  | N = 3 s | 0.62560 | 0.85304 |
+  | N = 4 s | 0.64030 | 0.85501 |
+  | N = 4.5 s | 0.64128 | 0.85536 |
+
+  N = 3 spellF1 ranged from 0.471 (game 10502) to 0.718 (game 10510). The baseline scored 0.33866 against the same N = 3 targets. [Record](dfl_submission/vendor_recipe/d7_measurement.json)
+- **What follows:** D3's N = 3 spellF1 of 0.62560 is 0.038 below its 0.664 on the SkillCorner holdout, and above the 0.624 trigger, so D9 is not triggered. The margin is 0.0016. D8 uses 0.62560 as its reference. The submission is unchanged, and the confirmation, training and untouched PFF matches remain unparsed and unscored.
 
 *Amendment, 2026-11-11, after reading PFF's Tracking Data Specification v2.2 and before any PFF tracking file was downloaded or scored:*
 - The specification lists exactly these game event types: `FIRSTKICKOFF`, `SECONDKICKOFF`, `END`, `G`, `OFF`, `ON`, `OTB`, `OUT`, `SUB` and `VID`. It defines `home_ball` as whether the home team has control of the ball during the possession sequence. The mapping above is unchanged.
 - The specification has no foul, offside or other stoppage event apart from `OUT` and `END`. Stoppages where the ball stays on the pitch therefore remain live in the D7 targets, owned by the last team. The `D` targets underestimate dead ball, and a predicted stoppage at a foul counts against every candidate scored on PFF, including the baseline.
 - The specification places the frame rate inside a `videos` dict, while the public sample has it at the top level. The reader accepts either.
+
+*Terms, 2026-11-11, before any PFF file was parsed:* the dataset ships with no licence of its own. The only applicable terms found are Gradient Sports' general website Terms of Use, which do not mention datasets but bar derivative works and "benchmarking" of site content. PFF releases the dataset publicly for analysis. Derek decided to run D7 before Gradient Sports replied to our question about this use, because D7 changes nothing in the submission and the repository publishes only code, hashes and averaged scores. Only the eight development games are parsed. Nothing trained on PFF enters the submission without written permission or a judgement disclosed in the technical document.
+
+*Reader amendment, 2026-11-11, after the first `prepare` stopped and before any score was computed:* the reader refused game 3812 because some frame numbers repeat within a period. All eight development games do this, with 29–72 repeated frame numbers per game. The copies always sit on adjacent rows, one for each possession event on that frame. They differ only in `possession_event`, `possession_event_id` and `ballsSmoothed`, which the reader never uses, and never in the players, balls or game event. The reader now reads adjacent copies once when those fields agree. It still stops on copies that disagree, and on a frame number that repeats on non-adjacent rows.

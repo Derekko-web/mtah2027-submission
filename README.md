@@ -199,6 +199,8 @@ D7 measures frozen D3 on PFF FC's 2022 World Cup broadcast tracking, from a vend
 .venv/bin/python -m dfl_submission.vendor_trial measure --parsed data/pff/parsed
 ```
 
+`prepare --games 3812 3820 3828 3836 3844 3852 10502 10510` parses only the development matches, which is all D7 reads. The reader sanity gate passed on its first attempt, with a baseline mean raw spellF1 of 0.345. Frozen D3 then scored 0.62560 spellF1 against the N = 3 targets and 0.54874 against the raw provider labels. That is 0.038 below its SkillCorner holdout score and above the 0.624 trigger for retraining (D9). [Sanity record](dfl_submission/vendor_recipe/sanity.json) · [Measurement](dfl_submission/vendor_recipe/d7_measurement.json)
+
 [D7 protocol](DECISIONS.md#d7--unseen-vendor-benchmark-on-pff-world-cup-tracking-2026-11-11-written-before-any-pff-data-is-read-or-scored)
 
 The earlier stages have their own `train`/`tune`/`confirm` commands, which are subject to the same guard:

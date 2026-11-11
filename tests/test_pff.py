@@ -96,6 +96,33 @@ def test_parse_takes_events_from_tracking_rows():
     assert second["labels"][:10].tolist() == [pm.X] * 10 and second["labels"][11:].tolist() == [pm.H] * 40
 
 
+def test_a_frame_repeated_for_another_possession_event_is_read_once():
+    # PFF writes a frame once per possession event on it; the copies differ only in fields we never read.
+    rows = [row(period, start + i, home=[player(9, float(i), 0.0)], balls=[{"visibility": "VISIBLE", "x": 1.0, "y": 2.0}])
+            for period, start in ((1, 0), (2, 5000)) for i in range(31)]
+    rows[0]["game_event"] = event("FIRSTKICKOFF", 0, True)
+    copy = dict(rows[10], possession_event={"possession_event_type": "PA"}, possession_event_id=7,
+                ballsSmoothed={"visibility": "VISIBLE", "x": 9.0, "y": 9.0, "z": 0.0})
+    rows.insert(11, copy)
+    rows.insert(12, dict(copy, possession_event_id=8))
+    first, _ = pff.parse(METADATA, ROSTER, rows)
+    expected, _ = pff.parse(METADATA, ROSTER, [r for i, r in enumerate(rows) if i not in (11, 12)])
+    for name in ("positions", "ball", "labels"):
+        np.testing.assert_array_equal(first[name], expected[name])
+
+
+def test_a_repeated_frame_with_different_tracking_is_an_error():
+    rows = [row(period, start + i, home=[player(9, 0.0, 0.0)]) for period, start in ((1, 0), (2, 5000))
+            for i in range(31)]
+    rows.insert(11, dict(rows[10], homePlayers=[player(9, 5.0, 0.0)]))
+    try:
+        pff.parse(METADATA, ROSTER, rows)
+    except ValueError as error:
+        assert "Repeated" in str(error)
+    else:
+        raise AssertionError("copies of a frame that disagree on tracking must not be merged silently")
+
+
 def test_unknown_jersey_is_an_error():
     rows = [row(period, i, home=[player(77, 0.0, 0.0)]) for period in (1, 2) for i in range(3)]
     try:

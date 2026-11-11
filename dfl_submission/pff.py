@@ -33,6 +33,9 @@ PERIODS = (1, 2)
 TARGET_FPS = 25
 OUTLIER_METRES = 5
 VISIBLE = "VISIBLE"
+# Every field of a tracking row the reader uses. PFF writes a frame once per possession event on it,
+# on adjacent rows that differ only in possession and smoothed fields; such copies are read once.
+READ_FIELDS = ("homePlayers", "awayPlayers", "balls", "game_event")
 LIVE_EVENTS = frozenset({"FIRSTKICKOFF", "SECONDKICKOFF", "THIRDKICKOFF", "FOURTHKICKOFF", "OTB"})
 DEAD_EVENTS = frozenset({"OUT"})
 END_EVENTS = frozenset({"END"})
@@ -97,9 +100,15 @@ class _Period:
         self.player = (array("q"), array("q"), array("d"), array("d"))
         self.ball = (array("q"), array("d"), array("d"))
         self.events = {}
+        self.last = None
 
     def add(self, row, slots):
         number = int(row["frameNum"])
+        if self.last is not None and number == self.last[0]:
+            if all(row.get(field) == self.last[1].get(field) for field in READ_FIELDS):
+                return
+            raise ValueError(f"Repeated PFF frame {number} with different tracking or events")
+        self.last = (number, row)
         self.frames.append(number)
         for side, field in enumerate(("homePlayers", "awayPlayers")):
             for point in row.get(field) or ():
