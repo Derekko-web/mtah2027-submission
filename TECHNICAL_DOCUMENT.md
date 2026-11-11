@@ -1,8 +1,8 @@
 # Team possession from tracking: technical document
 
-*More Than A Hack 2027, Initial Challenge.* Repository: https://github.com/Derekko-web/mtah2027-submission. Submission SHA-256: `f0b03d2c8a6718ee73b52c786854c3520a6cd4bd22fdedb7475b871510cdbfa5`.
+*More Than A Hack 2027, Initial Challenge.* Team: **Anfield**. Repository: https://github.com/Derekko-web/mtah2027-submission. Submission file: `Anfield.csv`, SHA-256 `f0b03d2c8a6718ee73b52c786854c3520a6cd4bd22fdedb7475b871510cdbfa5`.
 
-> **Draft.** Before submitting: confirm section 7 with the whole team, add the team name, and rename this file `<team_name>.md` or export it as `<team_name>.pdf`.
+> **Draft.** Before submitting: confirm section 7 with the whole team, then upload this document as `Anfield.pdf` or `Anfield.md`.
 
 ## 1. Summary
 

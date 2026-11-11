@@ -1,6 +1,6 @@
 # Team possession from temporal ensembles and joint decoding
 
-This repository regenerates our possession file for the More Than A Hack 2027 Initial Challenge. The file labels each frame of the tactical video as `H` (home possession), `A` (away possession) or `D` (dead ball), and writes `X` outside the two official halves.
+This repository regenerates team Anfield's possession file, `Anfield.csv`, for the More Than A Hack 2027 Initial Challenge. The file labels each frame of the tactical video as `H` (home possession), `A` (away possession) or `D` (dead ball), and writes `X` outside the two official halves.
 
 **All training, tuning and model selection use external matches about other games.** The competition bundle is read only by frozen inference. Nothing in this repository reads the public 5-minute ground truth, the provided video, Smart Tagging or the broadcast recording.
 
@@ -130,6 +130,14 @@ On Nov 10 this produced the same SHA-256 under `linux/amd64` and `linux/arm64` a
 Earlier versions remain available as fallbacks:
 - original models with the retuned decoder: `decoder_trial build` with `--trial dfl_submission/decoder_recipe`, SHA-256 `1cc8a858354df9c8ffc024540793caa045d845d321e144b6223ba1421a56ecc1`;
 - the original ensemble: `ensemble_trial build` with `--trial dfl_submission/ensemble_recipe`, SHA-256 `ed91c2362f0069c20c271e865bbc5f22bcb8331ffc5e27015130234abdb6fc2e`.
+
+The submitted file is the build output under the team name. The scorer names each leaderboard row after the file. After the build above:
+
+```sh
+cp data/submission.csv Anfield.csv
+.venv/bin/python evaluation/validate_submission.py Anfield.csv
+shasum -a 256 Anfield.csv  # f0b03d2c8a6718ee73b52c786854c3520a6cd4bd22fdedb7475b871510cdbfa5
+```
 
 ## Audit the training and selection
 
