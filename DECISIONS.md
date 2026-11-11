@@ -848,3 +848,70 @@ The raw labels agree: 0.883 with dropouts only, 0.560 with noise only.
 **What this means for B2 (not triggered).**
 - **Against a retrain:** retraining with noise and our degradations might recover the noise loss. But even fully recovered, it would at best restore PathCRF's clean-track level, which trails D3 on a match PathCRF was trained on. On the uncontaminated SkillCorner matches it trails D3 by 0.060 overall and by 0.076 on ball-hidden frames. Its touch-level output also halves the hybrid's spellF1 under the controlled-possession convention.
 - **The open question**, if anyone returns to this, is whether a noise-robust PathCRF beats D3 on ball-hidden frames of an unseen DFL match. Answering it needs a retrain that leaves out a match (WPY) and the holdout. That is B2's cost, and D18 gives no reason to pay it.
+
+## D20 — Model search beyond D15 (2026-11-11, written before any D20 model is trained or scored)
+
+**Question.** D15 showed that the temporal networks were under-trained: tripling the training length added +0.028 and doubling the width +0.010. Nothing beyond width 96 and 5,400 steps was tried, no other model family was ever compared on the same inputs, and the tree heads' hyperparameters were never searched (`CONSTANTS.md`). Does a searched model, or an equal-weight ensemble of searched models, beat D15? This is round 4's Track A.
+
+**What was seen before this rule.** The records of D1–D19, including D18 and D19. D15's training logs were read to size the grid. No D20 model has been trained, and nothing has been scored.
+
+**Reference.** D15, the submission: D3's trees and 0.5 model-set blend, D15's four networks (width 96, 5,400 steps), cutoff 0.53, ownership cost 8, stoppage cost 2, discount 0.8.
+
+**Families.** Each family's models replace one part of D15's structure. Everything else stays D15's: the four network slots (in each model set, seed 42 with boundary weight 0.5 and seed 97 with 1.4), the mixes, phase averaging, the 0.5 blend and the recipe. Every network trains on the same prepared sequences as D15 (manifests `d3891c24…` and `2828b0c3…`), with the same windows (128 output steps with 63 steps of context on each side), batches, loss, AdamW settings, gradient clipping and swap augmentation. The cosine schedule is stretched over the run as in D15, and only the last snapshot is used.
+1. **Temporal network** (D15's architecture). Width ∈ {96, 192} × steps ∈ {5,400, 10,800, 19,800}. 19,800 rather than 20,000, because the stretched snapshot points need a multiple of 3. (96, 5,400) is D15's own setting and anchors the search.
+2. **Bidirectional GRU.** The same normalised inputs (162 columns and their validity flags), a linear projection to h units, a two-layer bidirectional GRU with h units per direction (dropout 0.08 between layers), a layer norm and a linear layer to the four outputs. h ∈ {64, 128} × steps ∈ {5,400, 10,800}.
+3. **Transformer encoder.** A linear projection to d units plus fixed sinusoidal positions over the 254 window steps, three pre-norm encoder layers (4 heads, feed-forward 2d, GELU, dropout 0.08), a layer norm and a linear layer to the four outputs. d ∈ {64, 128} × steps ∈ {5,400, 10,800}. Its learning rate rises linearly over the first 1/18 of the steps, then follows the stretched schedule.
+4. **XGBoost tree heads.** Both heads of both sets refit as `long_context.fit_head` fits them, from the prepared rows (the D16 check showed the published trees refit byte for byte this way), with max depth ∈ {3, 5, 7} × trees ∈ {420, 840, 1,260} at learning rate 0.045. The other parameters are D3's. Each head (ownership, stoppage) selects its own setting. (5, 420) is D3's own setting and anchors the search.
+
+The GRU and the transformer see exactly the training windows at inference too: each block of 128 steps is predicted from a window with 63 steps of context on each side, zero-padded beyond the half like missing inputs. LightGBM and CatBoost are not searched: they would add build dependencies, and XGBoost is already in the build.
+
+**Tuning, on the training matches only.** Match-grouped cross-validation over four folds. Fold k holds out DFL training match k in sorted order (WMX, WN1, WOH, WOY), with its clean, masked and stress views, and the SkillCorner training matches at sorted positions k, k + 4 and k + 8. To keep the cost affordable, each setting is cross-validated with one representative model per fold, trained on the other folds of the original set's prepared sequences:
+- *Networks:* seed 42, boundary weight 0.5. The score is frame-level log-loss on the held-out prepared frames, with probabilities averaged over the input and its team swap as at inference: ownership on live frames plus stoppage on known frames. Each match's score is the mean over its halves. Matches are averaged within each source, and the two sources weigh equally. Each match is held out exactly once. Boundary heads are reported only.
+- *Trees:* each head's log-loss on the held-out rows, weighted as the fit weighs them (`long_context.source_weights`: sources, matches and classes balanced). The ownership head is scored with its swap-averaged probability, as at inference.
+
+The setting with the lowest cross-validated loss is selected, with ties going to grid order. Only that setting is then trained in full on every training match: the four networks for a network family, or all four trees. If a family selects its anchor, its member is D15 itself and it adds nothing. Nothing from the development, holdout, PFF or Metrica matches enters this step.
+
+**Development, each family once.** A family's member is D15's structure with that family's selected models. It is scored once on the development matches at D15's recipe: DFL WPY in its four views, the four SkillCorner development matches and the eight PFF development matches.
+
+**Ensemble.** The pool is D15 plus each family's member, in the order D15, temporal network, GRU, transformer, trees. Greedy forward selection on the development primary at D15's recipe:
+- start from the pool member with the highest primary;
+- add the member whose inclusion gives the highest primary, where an ensemble decodes the equal-weight mean of its members' four decoder inputs;
+- stop when no addition raises the primary or at four members. Ties go to macroF1, then pool order.
+
+If the greedy selection is D15 alone, D15 stays. Otherwise the ownership cost is re-selected for the selected ensemble from {6, 8, 10, 12}, with cutoff 0.53, stoppage cost 2 and discount 0.8 fixed. It selects once.
+
+**Primary.** Standard combined spellF1 against the N = 3 targets on DFL WPY (1/3 clean, 2/3 masked) and the four SkillCorner development matches.
+
+**Eligible if,** compared with D15 on development:
+- the primary rises by at least +0.01;
+- standard combined spellF1 at N = 1.75, 4 and 4.5 s each drops by no more than 0.01;
+- DFL dead ball carried and team swap, at N = 3, each drop by no more than 0.01;
+- *PFF veto:* mean N = 3 spellF1 on the eight PFF development matches drops by no more than 0.01;
+- *Metrica veto (D19, reference D15):* mean N = 3 spellF1 on the three Metrica sample matches, from `metrica_sample.veto`, is at least 0.77004.
+
+**Selection.** The eligible cost with the highest primary, then N = 3 standard macroF1, then grid order. None eligible → D15 stays.
+
+**Pipeline checks, before anything is scored.** D15, decoded from its cached development inputs, must reproduce exactly its development record (the selected trial in `scale_recipe/development.json`, PFF development included). Before confirmation, D15 must reproduce its holdout record (`scale_recipe/confirmation.json`). A network family's NumPy export must match its PyTorch outputs to within 2e-5 absolute plus 1e-5 relative on the logits, the D15 export test. A family that fails this is left out of the pool and recorded.
+
+**Confirmation, once,** on the reused DFL/SkillCorner holdout (WQQ, WR9 and their guard views; the four SkillCorner holdout matches) and PFF confirmation set C, parsed only for this step, with the same gates against D15. PFF and Metrica only veto. The holdout has confirmed D1, D3 and D15 before, so it is reused evidence; set C is fresh. Sets A and B are spent, and the untouched set stays in reserve.
+
+**If it passes,** the selected ensemble and cost become the submission after the rebuild checks: twice on macOS in a fresh virtual environment, then in `python:3.12.14-slim` under `linux/arm64` and `linux/amd64`. Every adopted model has a deterministic NumPy or XGBoost CPU path, and the build environment stays without PyTorch. Then C1 runs once. **If it fails,** D15 stays.
+
+**Schedule.** Families run in pool order, one heavy job at a time on this machine (Apple MPS for networks). A family whose member has not been scored on development by 2026-11-14 12:00 EST is left out of the pool and recorded as not run. The ensemble is selected once, after the last family is scored or at that time, whichever comes first. No cloud run is planned, because the estimated local compute fits. A cloud run would need an amendment here before it runs.
+
+Code: `dfl_submission/zoo.py`. Cross-validation records go to `dfl_submission/zoo_recipe/cv_<family>.json`, weights to `dfl_submission/zoo_models/`, and the development, recipe and confirmation records to `dfl_submission/zoo_recipe/`, each written once. Every D20 training, tuning and scoring command runs with `MTAH_DATA_DIR` set to a nonexistent path and calls `require_external_only()`.
+
+*Amendment, 2026-11-11, after the temporal-network cross-validation started and before any GRU or transformer is trained.* A timing run on random tensors (no data, no loss looked at) measured PyTorch's GRU on Apple MPS at 0.6–0.7 s per training step, against 0.10–0.17 s on the CPU. The transformer took 0.04 s per step on MPS. So the GRU networks train on the CPU with 6 threads, and everything else about them is unchanged. The transformer and the temporal network stay on MPS.
+
+*Amendment, 2026-11-11, before any cloud run and before any GRU or transformer is trained.* Derek decided, through the coordinating session, that the GRU and transformer families are cross-validated and trained on Kaggle GPUs. They run there in parallel with the local temporal-network and tree searches, and this replaces the GRU-on-CPU amendment for the cloud runs.
+- **Unchanged:** the grids, folds, cross-validation networks, scoring and selection, the four full-training slots, and the pool order. Everything after training stays local: the NumPy export check, development scoring, the vetoes, the ensemble and the confirmation.
+- **Inputs:** two private Kaggle datasets. One holds only the two prepared training-sequence folders (manifests `d3891c24…` and `2828b0c3…`), derived from DFL (CC BY 4.0) and SkillCorner (MIT) alone. The other holds the repository code at a committed revision. Never the competition bundle or anything derived from it, the public ground truth, PFF, Metrica, or any cache.
+- **Reproducibility:** CUDA training is not bit-reproducible, so the published weights are the reference, as for the existing networks.
+- **Record:** each notebook run writes the code commit and a hash of the code tree, the Python, PyTorch and CUDA versions and the GPU, the hash of every input file, the seeds, and the SHA-256 of every output file. Before use, the repo checks all of these:
+  - the input hashes against the local manifests;
+  - every output hash;
+  - that the code tree is the committed revision, and that the training code in it is the code here;
+  - that each run's setting, seed, boundary weight and training manifest are the ones D20 prescribes, and that the selection follows from the cross-validation record.
+
+  It then exports and checks each network locally, at D15's tolerance. A family whose outputs fail a check is left out. A notebook that stops before writing its outputs may be run again.
+- **Fallback:** if a family's Kaggle outputs have not passed these checks by 2026-11-13 08:00 EST, that family runs locally instead, as first written (GRU on the CPU, transformer on MPS). Kaggle outputs that arrive later are not used. The 2026-11-14 12:00 EST cutoff is unchanged.
