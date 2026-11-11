@@ -30,7 +30,7 @@ The research history lives in a separate repository, available to the organisers
    - The context-stage island constants are not on the final joint-decoder path.
    - Still to disclose or fix: the 60% ball visibility, the `games.py` pitch size and the lineage of the feature formulas.
 2. **Corruption schedule.** The original model set's degraded DFL views keep the ball visible about 60% of the time, which matches DATA.md's published 41% missing. The retrained set uses a 30–90% range instead, and both contribute equally. Disclose this, or follow the organisers' answer.
-3. **Linux/amd64 byte-identity.** So far the build is verified only on Apple Silicon.
+3. **Linux byte-identity: done Nov 10.** The committed repo (exported with `git archive`) rebuilt `f0b03d2c…` and the `1cc8a858…` fallback byte for byte in `python:3.12.14-slim` under `linux/amd64` (emulated) and `linux/arm64`.
 4. **Technical document** covering approach, training data, possession rules, constant provenance, limitations, development history and reproduction.
 5. **Decoder retune: done Nov 10.** The ownership switch cost rose from 2 to 6 under DECISIONS.md D1, and the holdout confirmation passed. The submission is now built with `decoder_trial` and its SHA is `1cc8a858…`. The previous ensemble file (`ed91c236…`) remains the fallback.
 6. **Shortcut-free retrain: failed alone, adopted as a 50/50 blend on Nov 10.**

@@ -188,7 +188,7 @@ What we would do with more time:
 
 ## 9. Reproduction
 
-Verified on Apple Silicon macOS with Python 3.12.14. Point `MTAH_DATA_DIR` at a folder containing `tactical/BAR-ATH_tactical_atd.xml`, `tactical/BAR-ATH_tactical_atd.txt` and `tactical/BAR-ATH_tactical_homography.csv`.
+Verified to give the same file on Apple Silicon macOS and in Linux containers (x86_64 and arm64), with Python 3.12.14. Point `MTAH_DATA_DIR` at a folder containing `tactical/BAR-ATH_tactical_atd.xml`, `tactical/BAR-ATH_tactical_atd.txt` and `tactical/BAR-ATH_tactical_homography.csv`.
 
 ```sh
 python3.12 -m venv .venv
@@ -202,7 +202,7 @@ export MTAH_DATA_DIR=/path/to/competition-bundle
 shasum -a 256 -c SUBMISSION_SHA256.txt
 ```
 
-Inference takes about a minute. The build verifies every checkpoint digest before predicting. A rebuild from a fresh copy and a fresh environment reproduced the submitted file byte for byte.
+Inference takes about a minute. The build verifies every checkpoint digest before predicting. A rebuild from a fresh copy and a fresh environment reproduced the submitted file byte for byte, on macOS and in the official `python:3.12.14-slim` image under `linux/amd64` and `linux/arm64`. The README gives the Docker command.
 
 The README documents:
 - how to retrain every model from the public external data;

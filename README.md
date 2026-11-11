@@ -93,7 +93,7 @@ The blend keeps the stoppage cutoff at 0.53. Records: [retrained models](dfl_sub
 
 ## Reproduce the submission
 
-The verified environment is Apple Silicon macOS with Python 3.12.14 and the pinned CPU dependencies. XGBoost needs the system OpenMP runtime on macOS. Point `MTAH_DATA_DIR` at a directory containing `tactical/` with `BAR-ATH_tactical_atd.xml`, `BAR-ATH_tactical_atd.txt` and `BAR-ATH_tactical_homography.csv`; no other files are needed.
+The build is verified to give the same file on Apple Silicon macOS and on Linux (x86_64 and arm64), with Python 3.12.14 and the pinned CPU dependencies. On macOS, XGBoost needs the system OpenMP runtime. Point `MTAH_DATA_DIR` at a directory containing `tactical/` with `BAR-ATH_tactical_atd.xml`, `BAR-ATH_tactical_atd.txt` and `BAR-ATH_tactical_homography.csv`; no other files are needed.
 
 ```sh
 python3.12 -m venv .venv
@@ -108,6 +108,20 @@ shasum -a 256 -c SUBMISSION_SHA256.txt
 ```
 
 Inference takes under a minute. The build checks every checkpoint digest against the frozen recipe before predicting. A rebuild from a fresh copy and a fresh virtual environment reproduced the file byte for byte, including with a bundle containing only the three tactical files above. Its SHA-256 is `f0b03d2c8a6718ee73b52c786854c3520a6cd4bd22fdedb7475b871510cdbfa5`.
+
+On Linux, the same build runs in the official Python image (`python:3.12.14-slim`, index digest `sha256:f77ac9e44ae96ef2c90b8053ea08c31f8be030f824196b0ae4db6d462c84e51f`):
+
+```sh
+docker run --rm --platform linux/amd64 -v "$PWD":/repo:ro -v /path/to/competition-bundle:/bundle:ro \
+  -v "$PWD/out":/out -e MTAH_DATA_DIR=/bundle -e PYTHONDONTWRITEBYTECODE=1 python:3.12.14-slim bash -c '
+  cd /repo && python -m venv /venv && /venv/bin/pip install -q -r dfl_submission/requirements.txt &&
+  /venv/bin/python -m dfl_submission.retrain_trial build --fallback . --model dfl_submission/seed_models \
+    --ensemble dfl_submission/ensemble_recipe --decoder dfl_submission/decoder_recipe \
+    --retrained dfl_submission/retrain_models --trial dfl_submission/blend_recipe --out /out/submission.csv &&
+  sha256sum /out/submission.csv'
+```
+
+On Nov 10 this produced the same SHA-256 under `linux/amd64` and `linux/arm64` as on macOS.
 
 Earlier versions remain available as fallbacks:
 - original models with the retuned decoder: `decoder_trial build` with `--trial dfl_submission/decoder_recipe`, SHA-256 `1cc8a858354df9c8ffc024540793caa045d845d321e144b6223ba1421a56ecc1`;
