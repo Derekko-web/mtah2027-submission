@@ -66,11 +66,16 @@ def targets(labels):
     return np.column_stack([labels == pm.D, labels == pm.H, dead_edge, owner_edge, known, live]).astype(np.float32)
 
 
-def prepare(dfl, skill, output, *, raw=False):
+def prepare(dfl, skill, output, *, raw=False, augment=False):
     output.mkdir(parents=True, exist_ok=False)
     records = []
     columns = None
-    for half in benchmark.halves(dfl, skill, "train", raw=raw):
+    if augment:
+        from dfl_submission.augment import training_halves
+        halves = training_halves(dfl, skill, raw=raw)
+    else:
+        halves = benchmark.halves(dfl, skill, "train", raw=raw)
+    for half in halves:
         frames, table, _ = long_context.features(half.positions, half.ball, half.teams, half.pitch)
         if columns is None:
             columns = table.columns.tolist()
@@ -81,7 +86,7 @@ def prepare(dfl, skill, output, *, raw=False):
         records.append({"file": name, "source": half.source, "match": half.match, "sha256": digest(output / name)})
         print(f"Prepared temporal sequence {half.key}", flush=True)
     write_json(output / "manifest.json", {"columns": columns, "records": records, "dfl_manifest": digest(SOURCE_MANIFEST),
-                                           "skill_manifest": digest(skill / "manifest.json")})
+                                           "skill_manifest": digest(skill / "manifest.json")} | ({"augmented": True} if augment else {}))
 
 
 def training_data(folder):
@@ -206,6 +211,7 @@ if __name__ == "__main__":
     preparation.add_argument("--dfl-raw", action="store_true")
     preparation.add_argument("--skill", required=True, type=Path)
     preparation.add_argument("--out", required=True, type=Path)
+    preparation.add_argument("--augment", action="store_true", help="Prepare DECISIONS.md D2 augmented halves")
     training = actions.add_parser("train")
     training.add_argument("--source", required=True, type=Path)
     training.add_argument("--out", required=True, type=Path)
@@ -220,7 +226,7 @@ if __name__ == "__main__":
     if args.action != "export":
         require_external_only()
     if args.action == "prepare":
-        prepare(args.dfl, args.skill, args.out, raw=args.dfl_raw)
+        prepare(args.dfl, args.skill, args.out, raw=args.dfl_raw, augment=args.augment)
     elif args.action == "train":
         train(args.source, args.out, args.device, seed=args.seed, boundary_boost=args.boundary_boost)
     else:

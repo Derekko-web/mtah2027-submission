@@ -34,13 +34,23 @@ def dfl_labels(folder):
     return tactical_halves(decode_half)
 
 
-def tactical_halves(decode_half, *, centered=False):
-    from broadcast_alignment import load_source
+# Pitch size reported by the tactical ATD metadata (DATA.md). games.py carries 105.3 x 68.0 m instead,
+# measured from the corrected tracking, so builds that pass this constant avoid that figure.
+METADATA_PITCH = (105.0, 68.0)
+
+
+def tactical_halves(decode_half, *, centered=False, pitch=None):
+    from broadcast_alignment import PITCH, load_source
 
     source = load_source("tactical")
     positions, ball = source["positions"], source["ball"]
     positions[~source["valid"]] = np.nan
-    pitch = np.array(GAMES[GAME]["pitch"])
+    if pitch is None:
+        pitch = np.array(GAMES[GAME]["pitch"])
+    else:
+        pitch = np.asarray(pitch, dtype=np.float64)
+        scale = (pitch / PITCH).astype(np.float32)
+        positions, ball = positions * scale, ball * scale
     ball_valid = (np.isfinite(ball).all(axis=1) & (ball >= -5).all(axis=1)
                   & (ball <= pitch + 5).all(axis=1) & source["valid"])
     ball[~ball_valid] = np.nan

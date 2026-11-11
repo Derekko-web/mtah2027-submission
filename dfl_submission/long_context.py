@@ -113,10 +113,15 @@ def fit_head(rows, *, ownership):
     return model, len(y)
 
 
-def train(dfl, skill, output, *, raw=False):
+def train(dfl, skill, output, *, raw=False, augment=False):
     output.mkdir(parents=True, exist_ok=False)
     owner_rows, dead_rows = [], []
-    for half in benchmark.halves(dfl, skill, "train", raw=raw):
+    if augment:
+        from dfl_submission.augment import training_halves
+        halves = training_halves(dfl, skill, raw=raw)
+    else:
+        halves = benchmark.halves(dfl, skill, "train", raw=raw)
+    for half in halves:
         frames, owner, dead = features(half.positions, half.ball, half.teams, half.pitch)
         labels = half.labels[frames]
         live, known = labels < pm.D, labels != pm.X
@@ -133,7 +138,7 @@ def train(dfl, skill, output, *, raw=False):
         rows.clear()
         print(f"Fitted {name}, {counts[name]:,} rows", flush=True)
     write_json(output / "fit.json", {"models": hashes, "rows": counts, "sample_stride": STRIDE,
-               "dfl_manifest_sha256": digest(SOURCE_MANIFEST), "skill_manifest_sha256": digest(skill / "manifest.json")})
+               "dfl_manifest_sha256": digest(SOURCE_MANIFEST), "skill_manifest_sha256": digest(skill / "manifest.json")} | ({"augmented": True} if augment else {}))
 
 
 def load(folder):
@@ -155,7 +160,8 @@ if __name__ == "__main__":
     parser.add_argument("--dfl-raw", action="store_true")
     parser.add_argument("--skill", required=True, type=Path)
     parser.add_argument("--out", required=True, type=Path)
+    parser.add_argument("--augment", action="store_true", help="Train on DECISIONS.md D2 augmented halves")
     args = parser.parse_args()
     from dfl_submission.external_only import require_external_only
     require_external_only()
-    train(args.dfl, args.skill, args.out, raw=args.dfl_raw)
+    train(args.dfl, args.skill, args.out, raw=args.dfl_raw, augment=args.augment)

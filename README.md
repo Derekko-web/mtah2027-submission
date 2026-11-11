@@ -6,7 +6,7 @@ This repository regenerates our possession file for the More Than A Hack 2027 In
 
 ## How it works
 
-1. **Inputs.** The build reads three files from the competition bundle: the tactical ATD tracking and its metadata, and the tactical homography's `valid` flag. Invalid frames are masked, ball positions far outside the pitch are discarded, and each half is processed separately.
+1. **Inputs.** The build reads three files from the competition bundle: the tactical ATD tracking and its metadata, and the tactical homography's `valid` flag. Coordinates are converted to metres with the 105 × 68 m pitch reported by the ATD metadata. Invalid frames are masked, ball positions far outside the pitch are discarded, and each half is processed separately.
 2. **Features.** 162 team-symmetric features are computed from relative geometry and motion in metres:
    - nearest-player distances and local player counts around the ball
    - sustained player-to-ball contact
@@ -17,6 +17,7 @@ This repository regenerates our possession file for the More Than A Hack 2027 In
    - An extended-context XGBoost model estimates home ownership given live play, and the probability of a stoppage.
    - Two temporal convolutional networks estimate ownership, stoppage and possession-boundary probabilities. The second network is trained independently with seed 97 and a heavier weight near labelled boundaries. Inference uses NumPy exports of their weights, so the build does not need PyTorch.
    - The seed-97 network predicts on three 5 Hz grids, offset by 0, 2 and 4 frames. Its predictions are interpolated back to 25 Hz and averaged with the reference signals using equal weights.
+   - The whole set of models exists twice: once trained on the external data as provided, and once retrained after removing the providers' dead-ball artifacts. Every output of the two sets is averaged with equal weight. See "Dead-ball artifacts and the model blend" below.
 4. **Decoder.** One three-state Viterbi decoder picks the `H`/`A`/`D` sequence for each half.
    - The stoppage cutoff is 0.53.
    - A direct ownership change costs 6, and a transition into or out of a stoppage costs 2. Each cost is cut by up to 80% when the matching boundary signal is strong.
@@ -30,7 +31,7 @@ This repository regenerates our possession file for the More Than A Hack 2027 In
 | DFL / Sportec integrated tracking and events (Bassek, Rein, Weber and Memmert) | [doi:10.6084/m9.figshare.28196177.v1](https://doi.org/10.6084/m9.figshare.28196177.v1), [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) | DFL data provider: ball status and ball-owning team in the position feed | 7 Bundesliga matches. WMX, WN1, WOH and WOY are used for fitting, WPY for development, and WQQ and WR9 for confirmation. | Fit, tune, validate |
 | SkillCorner Open Data | [revision 4340d274](https://github.com/SkillCorner/opendata/tree/4340d274572876239c154c90bc507a9b3250a656), MIT ([LICENSE-SKILLCORNER](LICENSE-SKILLCORNER)) | SkillCorner: phases of play and provider possession on detected broadcast tracking | 20 A-League matches: 12 for fitting, 4 for development and 4 for confirmation | Fit, tune, validate |
 
-None of the training data comes from the provided game. Both halves of each match always stay in the same split. The DFL training views add synthetic degradation to the tracking: coordinate noise, missing players, runs of missing ball observations, false ball observations and camera outages.
+None of the training data comes from the provided game. Both halves of each match always stay in the same split. The DFL training views add synthetic degradation to the tracking: coordinate noise, missing players, runs of missing ball observations, false ball observations and camera outages. The retrained model set also varies the ball visibility per half, simulates dead-ball handling and adds cross-team identity swaps (`dfl_submission/augment.py`).
 
 ## External evaluation
 
@@ -65,6 +66,31 @@ The grid, the selection rule and the guards were written down in [DECISIONS.md](
 
 All eight holdout match views improved on the primary target. Records: [development grid](dfl_submission/decoder_recipe/development.json) · [confirmation](dfl_submission/decoder_recipe/external_validation.json)
 
+### Dead-ball artifacts and the model blend
+
+Both external providers mark dead ball in a way the competition tracking will not. DFL freezes the ball on every dead frame. SkillCorner detects the ball on only about 18% of dead frames, against about 91% of live frames. A model trained on them can learn that a still or missing ball means a stoppage.
+
+We retrained every model on the same matches after changing the training data only ([DECISIONS.md](DECISIONS.md) D2):
+- dead-ball runs keep the ball, lose it, or have it carried by the restart taker to the restart spot;
+- ball visibility in the degraded DFL view is drawn per half from 30–90%, instead of a fixed 60%;
+- home and away tracks occasionally swap positions, as in a cross-team identity switch.
+
+We added two guard views to the external DFL matches, with settings that differ from the training augmentation:
+- **dead ball carried:** the visible dead-frame ball follows the player nearest to it;
+- **team swap:** 10-second cross-team swaps.
+
+The retrained models alone gained +0.090 with the dead ball carried, but lost 0.015 on the standard views, which still contain the artifacts. That missed the pre-registered limit of 0.01, so they were not adopted on their own.
+
+An equal blend of the original and retrained models was then tested under a new rule ([DECISIONS.md](DECISIONS.md) D3). This was a second attempt on the same development matches, and the record says so. Against targets with N = 3 s:
+
+| Holdout spellF1 | Current models | Blend | Change | Gate |
+| --- | ---: | ---: | ---: | --- |
+| Standard views, combined | 0.6923 | 0.6873 | −0.0050 | ≥ −0.01 |
+| Dead ball carried (DFL) | 0.5364 | 0.5980 | +0.0616 | ≥ +0.03 |
+| Team swap (DFL) | 0.5646 | 0.5736 | +0.0090 | ≥ −0.01 |
+
+The blend keeps the stoppage cutoff at 0.53. Records: [retrained models](dfl_submission/retrain_recipe/development.json) · [blend development](dfl_submission/blend_recipe/development.json) · [blend confirmation](dfl_submission/blend_recipe/external_validation.json)
+
 ## Reproduce the submission
 
 The verified environment is Apple Silicon macOS with Python 3.12.14 and the pinned CPU dependencies. XGBoost needs the system OpenMP runtime on macOS. Point `MTAH_DATA_DIR` at a directory containing `tactical/` with `BAR-ATH_tactical_atd.xml`, `BAR-ATH_tactical_atd.txt` and `BAR-ATH_tactical_homography.csv`; no other files are needed.
@@ -73,16 +99,19 @@ The verified environment is Apple Silicon macOS with Python 3.12.14 and the pinn
 python3.12 -m venv .venv
 .venv/bin/python -m pip install -r dfl_submission/requirements.txt
 export MTAH_DATA_DIR=/path/to/competition-bundle
-.venv/bin/python -m dfl_submission.decoder_trial build --fallback . \
+.venv/bin/python -m dfl_submission.retrain_trial build --fallback . \
   --model dfl_submission/seed_models --ensemble dfl_submission/ensemble_recipe \
-  --trial dfl_submission/decoder_recipe --out data/submission.csv
+  --decoder dfl_submission/decoder_recipe --retrained dfl_submission/retrain_models \
+  --trial dfl_submission/blend_recipe --out data/submission.csv
 .venv/bin/python evaluation/validate_submission.py data/submission.csv
 shasum -a 256 -c SUBMISSION_SHA256.txt
 ```
 
-Inference takes under a minute. The build checks every checkpoint digest against the frozen recipe before predicting. A rebuild from a fresh copy and a fresh virtual environment reproduced the file byte for byte, including with a bundle containing only the three tactical files above. Its SHA-256 is `1cc8a858354df9c8ffc024540793caa045d845d321e144b6223ba1421a56ecc1`.
+Inference takes under a minute. The build checks every checkpoint digest against the frozen recipe before predicting. A rebuild from a fresh copy and a fresh virtual environment reproduced the file byte for byte, including with a bundle containing only the three tactical files above. Its SHA-256 is `f0b03d2c8a6718ee73b52c786854c3520a6cd4bd22fdedb7475b871510cdbfa5`.
 
-The ensemble with its original decoder costs is still available as a fallback: `ensemble_trial build` with `--trial dfl_submission/ensemble_recipe`, SHA-256 `ed91c2362f0069c20c271e865bbc5f22bcb8331ffc5e27015130234abdb6fc2e`.
+Earlier versions remain available as fallbacks:
+- original models with the retuned decoder: `decoder_trial build` with `--trial dfl_submission/decoder_recipe`, SHA-256 `1cc8a858354df9c8ffc024540793caa045d845d321e144b6223ba1421a56ecc1`;
+- the original ensemble: `ensemble_trial build` with `--trial dfl_submission/ensemble_recipe`, SHA-256 `ed91c2362f0069c20c271e865bbc5f22bcb8331ffc5e27015130234abdb6fc2e`.
 
 ## Audit the training and selection
 
@@ -110,6 +139,8 @@ OMP_NUM_THREADS=1 .venv-train/bin/python -m dfl_submission.temporal_network expo
 
 The published weights are the reference for exact inference. Network training on Apple MPS reproduces them bit for bit. Training on CPU gives slightly different weights.
 
+To retrain the second model set, add `--augment` to `long_context` and to `temporal_network prepare`, then train the two networks with seeds 42 (boundary weight 0.5) and 97 (boundary weight 1.4) and export them into `retrain_models/`. The comparison and blend use `retrain_trial tune` and `retrain_trial confirm`, with `--weight 0.5` for the blend.
+
 The earlier stages have their own `train`/`tune`/`confirm` commands, which are subject to the same guard:
 - the extended-context XGBoost model (`long_context`)
 - the first temporal network and context stages (`temporal_trial`, `context_trial`)
@@ -117,7 +148,7 @@ The earlier stages have their own `train`/`tune`/`confirm` commands, which are s
 
 ## Limitations
 
-- **Domain shift.** The external datasets come from other competitions and other tracking systems. Their dead-ball periods carry provider artifacts: DFL freezes the ball, and SkillCorner rarely detects it. The model may therefore read a still or missing ball as a stoppage more readily than the competition tracking justifies.
+- **Domain shift.** The external datasets come from other competitions and other tracking systems. Their dead-ball periods carry provider artifacts: DFL freezes the ball, and SkillCorner rarely detects it. The blend halves the weight of models trained with those artifacts, but our dead-ball simulation is itself an approximation.
 - **Possession definitions.** These differ between providers. DFL changes the owning team on any opponent touch. The challenge counts only controlled possession. Brief deflections may therefore appear as short possessions, and the decoder costs only partly absorb them.
 - **Smoothing.** The decoder can merge very short real possessions or shift their boundaries.
 - **Holdout reuse.** The external confirmation matches were reused across model-family decisions.

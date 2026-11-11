@@ -8,11 +8,11 @@ This file lists every constant that affects the submitted file and records where
 
 ## What the build loads
 
-The submission build loads only three groups of model files:
+The submission build loads two sets of the same three model groups, and averages their outputs with equal weight:
 
-- the extended-context XGBoost heads (`long_models/`)
-- the first temporal networks (`temporal_models/`)
-- the seed-97 network (`seed_models/`)
+- the extended-context XGBoost heads (`long_models/`, `retrain_models/long_models/`)
+- the first temporal networks (`temporal_models/`, `retrain_models/temporal_models/`)
+- the seed-97 network (`seed_models/`, `retrain_models/seed_models/`)
 
 The DFL and SkillCorner reference heads in `models/`, `robust_models/`, `skillcorner_models/` and `fusion_recipe/` are never loaded at inference. They are read only when you re-run the context-stage tune or confirm audit, through `external_benchmark.reference`. The context stage itself selected `owner_mix = dead_mix = 1`, which gives the reference heads zero weight.
 
@@ -21,7 +21,7 @@ The DFL and SkillCorner reference heads in `models/`, `robust_models/`, `skillco
 | Constant | Value | Where | Source |
 |---|---|---|---|
 | Half spans | frames 11,185–90,651 and 110,808–190,197 | `games.half_video_blocks` | Published by the organisers; DATA.md calls them boundaries that reveal no label. Frames outside them are written as `X`. |
-| Pitch size | 105.3 × 68.0 m | `games.py` (organiser file) | Organiser-supplied. DATA.md says it was measured from the corrected tracking; the ATD metadata gives 105 × 68. See the note below. |
+| Pitch size | 105 × 68 m | `build.METADATA_PITCH` | Reported by the tactical ATD metadata (DATA.md). The organisers' `games.py` carries 105.3 × 68.0 m, measured from corrected tracking. The submission rescales to the metadata size; the external training data use each provider's own pitch size. |
 | Ball validity margin | ±5 m outside the pitch | `build.tactical_halves` | Hand-set |
 | Homography validity | mask frames with `valid = 0` | `build.tactical_halves` | Organiser-defined flag |
 
@@ -45,6 +45,17 @@ The DFL and SkillCorner reference heads in `models/`, `robust_models/`, `skillco
 | "Masked" view | coordinate noise 0.2 m; 20% of player tracks dropped in 2 s blocks; ball hidden and revealed by a two-state switch (probability 1/75 to hide, 1/50 to reveal) | `experiments/dfl_transfer_features.corrupt` | Hand-set, independent of all labels. The long-run ball visibility is 60%, which matches the "ball missing on 41% of graded frames" figure published in DATA.md. Disclosed here. |
 | "Stress" view | alternating ball outages of geometric(0.025) length; 3.5% displaced ball observations; noise 0.30–0.35 m; 28% player drops in 40-frame chunks; 7% camera outages | `robust_features.stress` | Hand-set, independent of all labels |
 
+## Retrained model set (DECISIONS.md D2)
+
+All values are hand-set and were not tuned. The architecture, features, hyperparameters, seeds and training matches are the same as for the original set.
+
+| Constant | Value | Where | Source |
+|---|---|---|---|
+| Dead-ball handling | each dead run: keep (20%), remove the ball (20%) or handled (60%). Handled means the ball travels to the restart taker over the first 30% of the run, follows the taker with a 0.5 m offset, and rests at the restart spot for the final 20% (capped at 1 s), with 0.2 m noise. Without a visible taker, the ball moves in a straight line to the restart spot. | `augment.handle_dead_ball` | Hand-set |
+| Ball visibility in the degraded DFL view | drawn per half from U(0.3, 0.9); mean hidden run 50 frames | `augment.wide_masking` | Hand-set; replaces the fixed 60% |
+| Cross-team swaps in the degraded and stress views | 2–10 s, starting once per 12 s on average | `augment.swap_teams` | Hand-set |
+| Guard views (evaluation only) | dead ball follows the player nearest to it, 0.2 m noise; 10 s swaps once per 10 s | `augment.guard_halves` | Hand-set, deliberately different from training |
+
 ## Decoding
 
 | Constant | Value | Where | Source |
@@ -52,7 +63,8 @@ The DFL and SkillCorner reference heads in `models/`, `robust_models/`, `skillco
 | Blend of the trees and the first network | owner and dead mix 0.5 | `temporal_recipe/recipe.json` | External grid (467 recipes) |
 | Blend with the seed-97 network | owner and dead mix 0.5 | `ensemble_recipe/recipe.json` | External grid (238 recipes) |
 | Decoder | joint three-state Viterbi | `joint_decoder.py`, `ensemble_recipe` | External grid: joint, separate or reference |
-| Stoppage cutoff | 0.53 | `ensemble_recipe` | External grid (0.53, 0.57, 0.61) |
+| Stoppage cutoff | 0.53 | `ensemble_recipe`, re-selected for the blend in `blend_recipe` | External grid (0.53, 0.57, 0.61); re-selected for the blend from (0.45, 0.49, 0.53, 0.57, 0.61) under DECISIONS.md D3 |
+| Model blend | 0.5 original, 0.5 retrained, applied to every model output | `blend_recipe` | Fixed in DECISIONS.md D3 before scoring, not tuned |
 | Ownership switch cost | 6 | `decoder_recipe` | External grid (2, 3, 4, 6, 8, 12, 16) scored against controlled-possession targets with N = 3 s. Rule pre-registered in DECISIONS.md D1, then confirmed once on the external holdout. Replaces the original ensemble value of 2. |
 | Stoppage switch cost | 2 | `ensemble_recipe`, kept by `decoder_recipe` | External grid (ensemble: 1–4; retune: 2, 3, 4) |
 | Controlled-possession convention | N = 3 s (merge an A–B–A whose interior B lasts under 3 s) | `conventions.py`, DECISIONS.md D1 | Minimax over the externally derived interval of 1.75–4.5 s (Metrica sample events, SkillCorner phases). Used only to score external candidates, not at inference. |
@@ -60,6 +72,6 @@ The DFL and SkillCorner reference heads in `models/`, `robust_models/`, `skillco
 
 ## Notes
 
-- **Pitch size.** The 105.3 × 68.0 m constant is part of the organisers' `games.py`. Switching inference to the metadata's 105 × 68 would remove any dependence on a figure derived from corrected tracking. It would change the output file, so it is planned for the next rebuild together with the other model changes.
-- **Ball-dropout rate.** The 60% visibility in the masked view will be replaced by a wide, pre-declared range in the next retraining, unless the organisers confirm the published figure may be used.
+- **Pitch size.** The submission now uses the metadata's 105 × 68 m. Only the two earlier fallback builds still use the 105.3 × 68.0 m from `games.py`.
+- **Ball-dropout rate.** The original model set was trained with 60% ball visibility in the masked view, which matches the "41% missing" figure DATA.md publishes. The retrained set draws visibility from 30–90% instead. Both sets contribute equally to the submission.
 - **Holdout reuse.** The external confirmation matches (DFL WQQ and WR9, four SkillCorner matches) were used to confirm several successive stages. Treat them as development evidence.

@@ -1,0 +1,14 @@
+{
+  "augmented": true,
+  "dfl_manifest_sha256": "230760f76b9a6f9d38f92c292fa26910fba25f1a44e8022ad85922491308f943",
+  "models": {
+    "dead.ubj": "3a6643c5e076c8947e9b2396b34c194025032ad8dcec44caa969dae1f6f5c476",
+    "ownership.ubj": "11a5527207d0db576c5375465324912bd8c837394297baf8d2758acc37fbbf7a"
+  },
+  "rows": {
+    "dead.ubj": 696959,
+    "ownership.ubj": 763244
+  },
+  "sample_stride": 5,
+  "skill_manifest_sha256": "21f02036ba5b9cf9e16c44bf9eefefc0c717ecf5f6bb95938981f4a7f720f3e5"
+}
