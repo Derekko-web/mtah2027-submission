@@ -31,6 +31,8 @@ def statistics(codes):
     codes = np.asarray(codes)
     runs = pm.valid_runs(codes)
     graded = sum(stop - start for start, stop in runs)
+    if not graded:
+        return {name: float("nan") for name in STATISTICS}  # no graded frame: outside every range
     parts = pm.segments(codes, runs)
     spells = sum(code in pm.POSSESSION_LABELS for _, _, code in parts)
     brief = sum(code == pm.D and stop - start < BRIEF_FRAMES for start, stop, code in parts)

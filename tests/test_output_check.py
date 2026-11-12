@@ -56,3 +56,15 @@ def test_check_prints_pass_or_fail_and_no_number(tmp_path):
             result = oc.check(csv, path)
         assert out.getvalue().strip() == expected and result is (expected == "PASS")
         assert not any(character.isdigit() for character in out.getvalue())
+
+
+def test_a_file_with_no_graded_frame_fails_every_statistic(tmp_path):
+    csv = tmp_path / "abstain.csv"
+    csv.write_text("frame,label\n" + "".join(f"{i},X\n" for i in range(100)))
+    path = tmp_path / "ranges.json"
+    path.write_text(json.dumps({"ranges": {name: [0.0, 1e9] for name in oc.STATISTICS}}))
+    out = io.StringIO()
+    with contextlib.redirect_stdout(out):
+        result = oc.check(csv, path)
+    assert result is False
+    assert out.getvalue().strip() == "FAIL: dead_share, possessions_per_minute, sub_second_stoppages_per_90"
