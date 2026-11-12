@@ -1418,6 +1418,8 @@ What it shows: a straight line through gaps of up to 1 s reaches at most a tenth
 
 **Outcome (2026-11-12).** No round 8 step cleared its bar: D30 failed leave one game out, D31 and its second attempt D31a failed before confirmation, D32 failed development, and D29 therefore could not ship. **`0ddbb342…` stays the submission** and C1's record stays true as written. Checks on the build path, whose code round 8 extended (`kickoff.model_labels`, the `merge_ball` hook in `build.tactical_tracking_halves`, `round8.py`): `round8 build` with every switch off gave `0ddbb342…`, and so did two rebuilds with the standing `kickoff build`, all with the validator passing; only the validator line and the SHA were read. C2 was not re-declared, because the file did not change.
 
+**Release check (2026-11-12).** Because round 8 changed code on the build path, `release/check.sh` ran once on the final commit `05de6cc` (round 8 committed, the organisers' reply recorded, the pre-public tidy). A fresh clone was rebuilt twice on macOS (fresh venvs, Homebrew Python 3.12.13) and in `python:3.12.14-slim` under `linux/arm64` and `linux/amd64` (Python 3.12.14). All four builds gave `0ddbb342…` and passed the validator, and 352 of 352 tests passed in the clone. Only the validator lines and the SHA-256s were read. C1 and C2 were not run again.
+
 ## D30 — Metrica's sample games as a training source (2026-11-12, written before any Metrica training half is prepared or any D30 model is fitted or scored)
 
 **Question.** Every model so far is trained on DFL and SkillCorner tracking. Metrica tracked the competition match, and its three public sample games have so far only been scored (D19, D24). Does training on them help? This is round 8's step 1.
