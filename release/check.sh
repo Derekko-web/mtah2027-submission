@@ -7,7 +7,7 @@
 #
 # Steps, all inside one temporary folder that is deleted on exit, also on failure:
 #   1. clone HEAD of this repository and record the commit;
-#   2. copy the three BAR-ATH tactical files from the bundle into a minimal bundle (tactical/ only);
+#   2. copy the four BAR-ATH tactical files from the bundle into a minimal bundle (tactical/ only);
 #   3. N macOS builds (default 2), each in a fresh venv from Homebrew python3.12 with
 #      dfl_submission/requirements.txt;
 #   4. one build per Linux platform (default arm64 and amd64) in the pinned python:3.12.14-slim image;
@@ -33,7 +33,7 @@ RUN_TESTS=1
 DOCKER_CPUS=4
 WORKDIR_BASE="${TMPDIR:-/tmp}"
 KEEP_LOGS=""
-TACTICAL_FILES="BAR-ATH_tactical_atd.xml BAR-ATH_tactical_atd.txt BAR-ATH_tactical_homography.csv"
+TACTICAL_FILES="BAR-ATH_tactical_atd.xml BAR-ATH_tactical_atd.txt BAR-ATH_tactical_homography.csv BAR-ATH_tactical_smart_tagging.xml"
 
 usage() { sed -n '2,24p' "$0" | sed 's/^# \{0,1\}//'; exit 2; }
 fail_setup() { echo "release check: $*" >&2; exit 2; }
@@ -125,7 +125,7 @@ mkdir -p "$WORK/bundle/tactical" "$WORK/out" "$WORK/logs"
 for name in $TACTICAL_FILES; do
   cp -L "$BUNDLE/tactical/$name" "$WORK/bundle/tactical/$name" || fail_setup "could not copy $name"
 done
-echo "== Minimal bundle: tactical/ with the three BAR-ATH files"
+echo "== Minimal bundle: tactical/ with the four BAR-ATH files"
 
 verdict() {  # validator line, sha
   case "$1" in OK*) [ "$2" = "$EXPECTED" ] && echo match || echo MISMATCH ;; *) echo "VALIDATOR FAILED" ;; esac

@@ -1324,7 +1324,12 @@ What it shows: the lag is real under both marking rules, but moving D15's change
 
 Code: `dfl_submission/kickoff.py` (`read_tags`, `apply`, `build`). The build is D15's (`scale_trial`), then `apply`, then `build.write_csv`.
 
-**Outcome.** *(Added after the rebuilds.)*
+**Outcome (2026-11-12).** Adopted: **D27 replaces D15 as the submission**, subject to the release check.
+- `tests/test_kickoff.py` (16 tests) passes, and so does the whole suite.
+- Three builds with `python -m dfl_submission.kickoff build` passed the validator and gave the same SHA-256, `0ddbb34216fdab55752a5b46458639f745cc4e88c074ec0787d771f3630fceff`. D15's is `14d18a23…`.
+- Pipeline check, also reading only the validator line and the SHA: D15's labels through the same code without the rule (`kickoff.d15_labels`) reproduced `14d18a23…`. The difference therefore comes from the rule alone.
+
+What it means, read from the rule and not from the file: D15 had given a team at least one second-half frame before the start of the kick-off tag, and those frames are now `D`. How many was not read. Under the rule, nothing else can change: the first half's tag contains its first graded frame (DATA.md's verified time base), so it starts at or before it. Only the validator line and the SHA of each build were read.
 
 ## D28 — Fill short ball dropouts (2026-11-12, written before any D28 fill is computed or scored)
 
