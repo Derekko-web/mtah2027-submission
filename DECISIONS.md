@@ -1300,7 +1300,7 @@ What it shows: the lag is real under both marking rules, but moving D15's change
 
 *Amendment, 2026-11-12, before any check has run:* D27 replaced D15 as the submission. D27 changes nothing on an external match, because every external half starts at its kick-off. D15's external predictions are therefore also D27's, and the ranges stand unchanged. If D28 is adopted, its own amendment recomputes them.
 
-**Outcome.** *(Added after the check: PASS or FAIL, the date, and the SHA-256 of the file checked.)*
+**Outcome (2026-11-12).** **PASS.** Derek ran it on the frozen file, `data/submission.csv` with SHA-256 `0ddbb34216fdab55752a5b46458639f745cc4e88c074ec0787d771f3630fceff` (D27; the SHA was checked against `SUBMISSION_SHA256.txt` first). The check printed only `PASS`; no statistic was shown. D28 was not adopted, so the ranges were not recomputed.
 
 ## D27 — Dead ball until the tagged second-half kick-off (2026-11-12, written before any D27 code runs on the competition bundle)
 
