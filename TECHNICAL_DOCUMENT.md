@@ -6,7 +6,7 @@
 
 ## 1. Summary
 
-We label every frame of the tactical video as `H`, `A` or `D`, and write `X` outside the two official halves. The system reads the automatic tactical tracking, plus the start times of the Smart Tagging kick-off tags. It has four parts:
+We label every frame of the tactical video as `H`, `A` or `D`, and write `X` outside the two official halves. The system reads the automatic tactical tracking, plus the start and end times of the Smart Tagging kick-off tags. It has four parts:
 
 - a 162-feature description of the players and the ball;
 - two sets of three models that estimate who controls the ball, whether play is stopped, and where possessions change;
