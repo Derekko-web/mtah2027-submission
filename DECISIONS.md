@@ -1280,3 +1280,22 @@ All 12 medians reached +2, so the shift was s = 2 frames. About a third of the l
 Reported: N = 1.75 / 4 / 4.5 on the standard views −0.0015 / −0.0018 / −0.0017, raw −0.0014. On the Metrica clean view with s = 2, against D19's targets: N = 3 +0.0003, raw +0.0007, N = 4.5 −0.0005; against the second rule's targets: N = 3 +0.0003, raw −0.0002.
 
 What it shows: the lag is real under both marking rules, but moving D15's changes two frames earlier hardly changes spellF1. Spell IoU over possessions that last several seconds barely moves with a two-frame boundary, so the timing offset costs D15 little. Nothing estimated on the Metrica games enters the submission. [Development](dfl_submission/timing_recipe/development.json)
+
+## C2 — A check of the final file without ground truth (2026-11-11, written before its ranges are computed)
+
+**Purpose.** C1 checks alignment and orientation against the public window. C2 checks, with no ground truth at all, that the final file looks like D15's output on external matches. A broken pipeline (everything dead, flickering labels, a missing half) shows up as a statistic far outside anything D15 produces on external data. C2 selects nothing and is not used to choose between files.
+
+**Statistics.** Computed the same way on a label sequence of the competition file and on D15's predictions for external matches. *Graded* frames are the sequence's own non-X frames, and everything is counted inside its non-X runs:
+1. *possessions per graded minute:* maximal H or A runs, divided by graded frames / 1,500;
+2. *dead share:* D frames divided by graded frames;
+3. *sub-second stoppages per 90 graded minutes:* D runs shorter than 25 frames, divided by graded frames / 135,000.
+
+**Ranges, from external predictions only.** D15's predictions, decoded at its recipe from the cached inputs its records were scored from, on 28 external match views: DFL WPY in four views, the four SkillCorner development matches, the eight PFF development matches, and the three Metrica games clean (D19) and in D24's three views. For each statistic the range is [½ × the smallest value, 1.5 × the largest]. They are written once to `dfl_submission/output_check_ranges.json` by `python -m dfl_submission.output_check ranges`, with `MTAH_DATA_DIR` set to a nonexistent path.
+
+**Procedure.** Derek runs it once, after the final rebuild matches `SUBMISSION_SHA256.txt`: `python -m dfl_submission.output_check check data/submission.csv`. It prints PASS, or FAIL with the names of the statistics outside their ranges, and no number. No AI tool sees the file or the statistics.
+
+**After a fail.** Only a pipeline investigation, as with C1: team orientation, frame offset, half spans, decoder inputs. Models, recipes and thresholds do not change.
+
+**Ranges (computed 2026-11-11, before any check).** Over the 28 external views D15 produced 1.53–2.94 possessions per graded minute, a dead share of 0.30–0.58, and 0–20.2 sub-second stoppages per 90 minutes. The ranges are therefore 0.76–4.42, 0.15–0.87 and 0–30.3. [Ranges](dfl_submission/output_check_ranges.json)
+
+**Outcome.** *(Added after the check: PASS or FAIL, the date, and the SHA-256 of the file checked.)*

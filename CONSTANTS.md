@@ -77,7 +77,7 @@ All values are hand-set and were not tuned. The architecture, features, hyperpar
 | Stoppage switch cost | 2 | `ensemble_recipe`, kept by `decoder_recipe` | External grid (ensemble: 1–4; retune: 2, 3, 4) |
 | Controlled-possession convention | N = 3 s (merge an A–B–A whose interior B lasts under 3 s) | `conventions.py`, DECISIONS.md D1 | Minimax over the externally derived interval of 1.75–4.5 s (Metrica sample events, SkillCorner phases). Used only to score external candidates, not at inference. |
 | Boundary discount | 0.8 | `ensemble_recipe` | External grid (0.55, 0.8) |
-| Decoder step | 5 frames, no output collapse or boundary shift | `joint_decoder.decode` default | External grid under DECISIONS.md D12: step 5 or 1 frame × collapse none, 1.75 s or 3 s. No setting beat step 5, so the default stays. D11 handed no boundary shift. |
+| Decoder step | 5 frames, no output collapse or boundary shift | `joint_decoder.decode` default | External grid under DECISIONS.md D12: step 5 or 1 frame × collapse none, 1.75 s or 3 s. No setting beat step 5, so the default stays. D11 handed no boundary shift. D25 (removing stoppages under 25 frames) and D26 (moving ownership changes 2 frames earlier) failed their rules, so the decoded labels are written unchanged. |
 
 ## Notes
 

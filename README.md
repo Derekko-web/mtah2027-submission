@@ -363,6 +363,26 @@ D23 would refit the standing recipe on all 27 labelled external matches (an `all
 .venv/bin/python -m dfl_submission.final_trial evidence --dfl "$DFL_XML" --dfl-raw --skill data/skillcorner --cv data/d20/cv
 ```
 
+D24 degrades the three Metrica sample matches towards the competition's automatic tracking (`metrica_views.py`): the DFL masked degradation, D2's dead-ball handling followed by the same masking, and team swaps on top. Against the N = 3 targets, D15 scored 0.705, 0.706 and 0.611 on those views, against 0.780 on the clean tracking. Their mean, 0.674, is a gate for later steps. D25 removed every predicted stoppage shorter than one second with a team on both sides (`conventions.remove_brief_stoppages`, `stoppage_trial.py`). It was to be adopted only if nothing got worse, and the D24 mean fell by 0.00008, so it was not. D26 tested moving D15's ownership changes two frames earlier, the smallest median lag behind Metrica's marks under two marking rules (`timing_trial.py`). Leaving one game out, it gained on one game and lost on two (mean +0.0003, +0.003 required), so it was not adopted. None of the three changed the submission, and neither confirmation ran.
+
+```sh
+.venv/bin/python -m dfl_submission.metrica_views measure
+.venv/bin/python -m dfl_submission.stoppage_trial develop --dfl "$DFL_XML" --dfl-raw --skill data/skillcorner \
+  --parsed data/pff/parsed --d15-cache data/d15/cache/w96_s5400
+.venv/bin/python -m dfl_submission.timing_trial develop --dfl "$DFL_XML" --dfl-raw --skill data/skillcorner \
+  --parsed data/pff/parsed --d15-cache data/d15/cache/w96_s5400
+```
+
+C2 checks the final file without any ground truth (`output_check.py`). Its ranges come from D15's predictions on 28 external match views: possessions per minute, the share of dead ball, and sub-second stoppages per 90 minutes. The check on the competition file prints only PASS or FAIL.
+
+```sh
+.venv/bin/python -m dfl_submission.output_check ranges --dfl "$DFL_XML" --dfl-raw --skill data/skillcorner \
+  --parsed data/pff/parsed --d15-cache data/d15/cache/w96_s5400      # written once, external data only
+python -m dfl_submission.output_check check data/submission.csv     # on the final file
+```
+
+[D24 measurement](dfl_submission/metrica_recipe/d24_measurement.json) · [D25 development](dfl_submission/stoppage_recipe/development.json) · [D26 development](dfl_submission/timing_recipe/development.json) · [C2 ranges](dfl_submission/output_check_ranges.json)
+
 [D20 selection](dfl_submission/zoo_recipe/development.json) · [D21 record](dfl_submission/diagnosis_recipe/d21.json) · [D22 Stage A](dfl_submission/triple_recipe/stage_a.json) · [D22 development](dfl_submission/triple_recipe/development.json) · [D23 evidence](dfl_submission/final_recipe/evidence.json)
 
 [D11 record](dfl_submission/diagnosis_recipe/d11.json) · [D12 development](dfl_submission/refine_recipe/development.json) · [D13 development](dfl_submission/aligned_recipe/development.json) · [D14 development](dfl_submission/extra_recipe/development.json) · [D11 protocol](DECISIONS.md#d11--where-frozen-d3-loses-spellf1-2026-11-11-written-before-anything-is-scored) · [D12 protocol](DECISIONS.md#d12--decoder-output-refinements-2026-11-11-written-after-d11s-record-and-before-any-d12-setting-is-scored)
