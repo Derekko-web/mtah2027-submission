@@ -931,3 +931,41 @@ The outputs still go through every check in the cloud amendment (`zoo import-clo
 - **Fallback:** as in the cloud amendment. If the tree record has not passed its checks by 2026-11-13 08:00 EST, the tree cross-validation runs locally.
 
 *Cloud run note, 2026-11-11 (tree family; no rule changes).* The coordinating session committed the tree changes as `f6010c6` and rebuilt the code bundle there (`mtah-code.zip` `d846082c…`), pushing it as a new version of the private code dataset. The sequences dataset was not uploaded again; the rebuilt zips hash as before. The committed `cloud/d20_trees.ipynb`, unchanged, runs as private kernel `mtah-d20-trees` version 1, with no accelerator and Internet on. Kaggle records the start as 22:54:34 UTC (17:54 EST). The GRU and transformer runs keep their `c3cf4b3` code, and each import checks only its own family's training code against the commit that family ran.
+
+**Outcome (2026-11-11 22:10 EST).** No ensemble beat D15, so **D15 stays the submission**. The greedy selection kept D15 alone, so the ownership-cost grid, the Metrica veto and the confirmation did not run. The DFL/SkillCorner holdout was not scored, and PFF confirmation set C was neither parsed nor scored. The untouched PFF set stays in reserve.
+- **Pipeline checks all passed.**
+  - *D15:* decoded from its cached development inputs, it reproduced its development record exactly, PFF development included. D15 run through the D20 forecast path gave bit-identical decoder inputs on every development half.
+  - *Cloud runs:* each of the three passed every import check: inputs, outputs, code tree, training code, cross-validation record and runs.
+  - *Exports:* the GRU and transformer NumPy exports matched PyTorch locally, with largest logit differences of 5.7e-6 and 1.9e-5.
+- **Cross-validation on the training matches** (frame log-loss, ownership plus stoppage; lower is better):
+
+| Family | Settings (score) | Selected |
+|---|---|---|
+| Temporal network | width 96: 5,400 steps 0.29535, 10,800 0.30699, 19,800 0.34715; width 192: 0.29926, 0.35998, 0.50319 | width 96, 5,400 steps: D15's own setting, so its member is D15 |
+| GRU | h 64: 5,400 0.29398, 10,800 0.34509; h 128: 0.31492, 0.41539 | h 64, 5,400 steps |
+| Transformer | d 64: 5,400 0.33413, 10,800 0.33995; d 128: 0.33252, 0.36723 | d 128, 5,400 steps |
+| Trees, ownership head | depth 3 / 5 / 7 at 420 trees: 0.26931, 0.25151 (D3), 0.24318; best 0.23913 | depth 7, 1,260 trees (the grid's edge) |
+| Trees, stoppage head | depth 3 / 5 / 7 at 420 trees: 0.08936, 0.07871 (D3), 0.07517; best 0.07472 | depth 7, 840 trees |
+
+- **Development, each member once, against D15** (N = 3 standard 0.72280):
+
+| Member | N = 3 standard | Change | N = 1.75 / 4 / 4.5 | Dead ball carried | Team swap | PFF |
+|---|---:|---:|---|---:|---:|---:|
+| GRU | 0.71949 | −0.0033 | −0.000 / −0.012 / −0.015 | −0.0085 | −0.0134 | −0.0125 |
+| Transformer | 0.69212 | −0.0307 | −0.040 / −0.020 / −0.015 | −0.0510 | −0.0567 | −0.0231 |
+| Trees | 0.71982 | −0.0030 | −0.004 / −0.003 / −0.003 | +0.0057 | −0.0053 | +0.0009 |
+
+- **Greedy selection.**
+  - *Step 1:* D15 was the best single member (0.72280).
+  - *Step 2:* the best pair was D15 + GRU at 0.72233, then D15 + trees at 0.72088 and D15 + transformer at 0.71209. None raised the primary, so the selection stopped at D15 alone.
+- **Disclosures.**
+  - The coordinating session ran the cloud steps through the Kaggle CLI at Derek's request (run notes above).
+  - The first GRU import passed its checks and exported its networks, then stopped while copying the cross-validation record, because `zoo_recipe/` did not yet exist. It wrote no record. A one-line fix (`import_cloud` creates the folder) was made and the import run again. The cloud run was not repeated, and no output was looked at between the two attempts beyond the import's own log.
+  - The tree cross-validation fits used 6 threads (`CV_TREE_JOBS`). The four final trees were fit on this machine with D3's settings otherwise.
+
+What it shows:
+- *Training length:* frame log-loss on held-out training matches favoured the shortest training in every network family, and for the temporal network it rose steadily with length. That is the opposite of D15's development result, where tripling the length raised spellF1 by +0.028. Longer training makes the networks more confident: log-loss penalises that, while the decoder gains from the sharper ownership changes. So the plan's tuning criterion and the ranking metric disagree on exactly the lever D15 found. Anyone who returns to training length should select on decoded spellF1 from held-out training matches, under a new rule.
+- *Other families:* the recurrent and attention models add nothing over D15's convolutional networks on these inputs.
+- *Tree heads:* the deeper heads lower the trees' own log-loss and help with the dead ball carried, but cost a little on the standard views.
+
+Records: [cross-validation](dfl_submission/zoo_recipe/) (`cv_*.json`, `cloud_*.json`) · [members](dfl_submission/zoo_recipe/) (`member_*.json`) · [selection](dfl_submission/zoo_recipe/development.json). Weights are kept in `dfl_submission/zoo_models/` for reference.

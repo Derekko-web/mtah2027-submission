@@ -1,0 +1,30 @@
+{
+  "dfl_manifest_sha256": "230760f76b9a6f9d38f92c292fa26910fba25f1a44e8022ad85922491308f943",
+  "equals_published": {
+    "dead.ubj": false,
+    "ownership.ubj": false
+  },
+  "learning_rate": 0.045,
+  "models": {
+    "dead.ubj": "e1abd52beaa5963b5df601ddd891820048649cf3feacf7f3f49f35a1990c3f5d",
+    "ownership.ubj": "3328b20da16c71416c548a55b2f4bb3332efacee8caf5a0b69004787c1d45a0d"
+  },
+  "prepared_manifest_sha256": "d3891c24c478584b2ad587c5e3efcc112cb1bef67405046b8db8da953545c2fc",
+  "protocol": "DECISIONS.md D20",
+  "rows": {
+    "dead.ubj": 696959,
+    "ownership.ubj": 763244
+  },
+  "sample_stride": 5,
+  "settings": {
+    "ownership": {
+      "max_depth": 7,
+      "n_estimators": 1260
+    },
+    "stoppage": {
+      "max_depth": 7,
+      "n_estimators": 840
+    }
+  },
+  "skill_manifest_sha256": "21f02036ba5b9cf9e16c44bf9eefefc0c717ecf5f6bb95938981f4a7f720f3e5"
+}

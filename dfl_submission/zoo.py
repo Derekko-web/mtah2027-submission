@@ -1396,6 +1396,7 @@ def import_cloud(family, archive, folder, sources, scratch, *, recipe=RECIPE, mo
     if folder.exists():
         shutil.rmtree(folder)
     folder.mkdir(parents=True)
+    recipe.mkdir(parents=True, exist_ok=True)
     safe_extract(archive, folder)
     record, cv, checks = check_cloud(family, folder, sources, scratch, manifests)
     exporter = export if exporter is None else exporter

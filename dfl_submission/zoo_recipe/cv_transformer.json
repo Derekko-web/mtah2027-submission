@@ -1,0 +1,576 @@
+{
+  "anchor": null,
+  "cv_network": {
+    "boundary_boost": 0.5,
+    "seed": 42
+  },
+  "entries": [
+    {
+      "matches": {
+        "dfl:WMX": {
+          "dead_edge": 0.059530719465616444,
+          "owner_edge": 0.2877184607073176,
+          "ownership": 0.28281031552381625,
+          "stoppage": 0.04878546556097021
+        },
+        "dfl:WN1": {
+          "dead_edge": 0.05979913817645196,
+          "owner_edge": 0.3522166427381861,
+          "ownership": 0.38462155632000594,
+          "stoppage": 0.05260575951303833
+        },
+        "dfl:WOH": {
+          "dead_edge": 0.06888946872483628,
+          "owner_edge": 0.29215201684206965,
+          "ownership": 0.2853197092019736,
+          "stoppage": 0.0652224706182199
+        },
+        "dfl:WOY": {
+          "dead_edge": 0.06780922206781166,
+          "owner_edge": 0.31508094609791465,
+          "ownership": 0.31087371309948947,
+          "stoppage": 0.07028332136949962
+        },
+        "skillcorner:1874553": {
+          "dead_edge": 0.08482110853400741,
+          "owner_edge": 0.17792123731135467,
+          "ownership": 0.17955355252028724,
+          "stoppage": 0.147778973261535
+        },
+        "skillcorner:1886347": {
+          "dead_edge": 0.08828052478553772,
+          "owner_edge": 0.16282355472598387,
+          "ownership": 0.17137728827208099,
+          "stoppage": 0.10889148469743215
+        },
+        "skillcorner:1899585": {
+          "dead_edge": 0.09211006586991279,
+          "owner_edge": 0.19632581626615137,
+          "ownership": 0.2236709023423035,
+          "stoppage": 0.10919049805546893
+        },
+        "skillcorner:1925299": {
+          "dead_edge": 0.0895058125982669,
+          "owner_edge": 0.16643523148157835,
+          "ownership": 0.18904668055482088,
+          "stoppage": 0.17253285158959575
+        },
+        "skillcorner:1927964": {
+          "dead_edge": 0.06883526282489658,
+          "owner_edge": 0.1351801081747292,
+          "ownership": 0.11723496721539466,
+          "stoppage": 0.07662010671047655
+        },
+        "skillcorner:1953632": {
+          "dead_edge": 0.08139666654835098,
+          "owner_edge": 0.14196588556601614,
+          "ownership": 0.1604211281274938,
+          "stoppage": 0.10659891460032375
+        },
+        "skillcorner:1959846": {
+          "dead_edge": 0.0889739666491259,
+          "owner_edge": 0.17628273649131426,
+          "ownership": 0.17503278163308136,
+          "stoppage": 0.07908347010719999
+        },
+        "skillcorner:1986691": {
+          "dead_edge": 0.08587277305064665,
+          "owner_edge": 0.17932429163397434,
+          "ownership": 0.19156569366586562,
+          "stoppage": 0.1150852573965306
+        },
+        "skillcorner:1996435": {
+          "dead_edge": 0.07310039433558382,
+          "owner_edge": 0.18272929394257964,
+          "ownership": 0.181800021408323,
+          "stoppage": 0.11584078300972687
+        },
+        "skillcorner:1996436": {
+          "dead_edge": 0.09044965966386992,
+          "owner_edge": 0.20107043728032545,
+          "ownership": 0.21923551572362432,
+          "stoppage": 0.09931621436212774
+        },
+        "skillcorner:2006229": {
+          "dead_edge": 0.08864158717817563,
+          "owner_edge": 0.160835598532339,
+          "ownership": 0.21552498429342493,
+          "stoppage": 0.11862573473406032
+        },
+        "skillcorner:2006363": {
+          "dead_edge": 0.08174213830385887,
+          "owner_edge": 0.161064673462276,
+          "ownership": 0.15300659762406546,
+          "stoppage": 0.09042087390817474
+        }
+      },
+      "runs": {
+        "0": {
+          "fit_sha256": "141955cc7c28e2337d72bca23ee59110e39ff9305ec854172f3f7bf5d5419206",
+          "train_manifest": "c72e24272025651dfed27cac7eaddd43b48c3a411e496b0afd808d3b26cf281f"
+        },
+        "1": {
+          "fit_sha256": "741dbd75ec2f9f1866444254ce16d46f6f7bca8f114a1538b86d4203cf3a4e6c",
+          "train_manifest": "f2fca06ac3dae4456c94f95d2c41523d8687c79f0653f7b0f4c0800a56304b72"
+        },
+        "2": {
+          "fit_sha256": "e55ef1c863231d0de9e9628e402fc8807ff91ba1f1c4eb699883a7d1353c8668",
+          "train_manifest": "c07e946b7db8fa8c65eab45ad171033c0d1cbdebe712eaa8a9c199208fd8d30f"
+        },
+        "3": {
+          "fit_sha256": "bcea42aa4c09c7d2f7a0a2840c8c4423f1f6c03d4378b3536de0584cc0b91469",
+          "train_manifest": "e4895f3b6f119b2d36e65fd7df68efec8421225ca67d14fe226e976f5e63c7b6"
+        }
+      },
+      "setting": {
+        "steps": 5400,
+        "width": 64
+      },
+      "summary": {
+        "dead_edge": 0.07424231690193259,
+        "owner_edge": 0.2409776276677119,
+        "ownership": 0.24868108315902587,
+        "score": 0.3341259253931024,
+        "stoppage": 0.08544484223407653
+      }
+    },
+    {
+      "matches": {
+        "dfl:WMX": {
+          "dead_edge": 0.06080856458022627,
+          "owner_edge": 0.27816942616735646,
+          "ownership": 0.28427317787080875,
+          "stoppage": 0.0528038933374698
+        },
+        "dfl:WN1": {
+          "dead_edge": 0.05998978302495211,
+          "owner_edge": 0.3526356860544644,
+          "ownership": 0.38399000858519877,
+          "stoppage": 0.050289551452689395
+        },
+        "dfl:WOH": {
+          "dead_edge": 0.06147103362550316,
+          "owner_edge": 0.2757254273118566,
+          "ownership": 0.27530131941954344,
+          "stoppage": 0.07161970920318655
+        },
+        "dfl:WOY": {
+          "dead_edge": 0.06571422145227626,
+          "owner_edge": 0.28883001213448617,
+          "ownership": 0.30399982993641556,
+          "stoppage": 0.06527511630116234
+        },
+        "skillcorner:1874553": {
+          "dead_edge": 0.08708409260114928,
+          "owner_edge": 0.16417815888947276,
+          "ownership": 0.17689650137616436,
+          "stoppage": 0.1671912554556113
+        },
+        "skillcorner:1886347": {
+          "dead_edge": 0.0918968046835856,
+          "owner_edge": 0.1556958032054493,
+          "ownership": 0.1754844985141099,
+          "stoppage": 0.14153547496432098
+        },
+        "skillcorner:1899585": {
+          "dead_edge": 0.08891897450138993,
+          "owner_edge": 0.1984308051009812,
+          "ownership": 0.21716861687419892,
+          "stoppage": 0.112430687006078
+        },
+        "skillcorner:1925299": {
+          "dead_edge": 0.08909931530709836,
+          "owner_edge": 0.16052557483580604,
+          "ownership": 0.19300383456895065,
+          "stoppage": 0.204122226462879
+        },
+        "skillcorner:1927964": {
+          "dead_edge": 0.07131403587592339,
+          "owner_edge": 0.12439055262317064,
+          "ownership": 0.10706972855978202,
+          "stoppage": 0.09354142184902495
+        },
+        "skillcorner:1953632": {
+          "dead_edge": 0.08891911399292723,
+          "owner_edge": 0.13941524878531336,
+          "ownership": 0.16738175508107145,
+          "stoppage": 0.11931095429461464
+        },
+        "skillcorner:1959846": {
+          "dead_edge": 0.08722966735149365,
+          "owner_edge": 0.1684900841207052,
+          "ownership": 0.17803925235748475,
+          "stoppage": 0.08540164942274309
+        },
+        "skillcorner:1986691": {
+          "dead_edge": 0.08301088652459523,
+          "owner_edge": 0.16793358551655885,
+          "ownership": 0.1913066866291161,
+          "stoppage": 0.15659993126409352
+        },
+        "skillcorner:1996435": {
+          "dead_edge": 0.07751852318787154,
+          "owner_edge": 0.16848787406338198,
+          "ownership": 0.175225583126567,
+          "stoppage": 0.13714512086706743
+        },
+        "skillcorner:1996436": {
+          "dead_edge": 0.0932461142707266,
+          "owner_edge": 0.18966560172515412,
+          "ownership": 0.21432815658293797,
+          "stoppage": 0.08732432482923527
+        },
+        "skillcorner:2006229": {
+          "dead_edge": 0.08539292401072568,
+          "owner_edge": 0.14856971270849567,
+          "ownership": 0.2187122735312726,
+          "stoppage": 0.12477907150314418
+        },
+        "skillcorner:2006363": {
+          "dead_edge": 0.07859552832013489,
+          "owner_edge": 0.15613772987228244,
+          "ownership": 0.1491820473466041,
+          "stoppage": 0.10295147442054631
+        }
+      },
+      "runs": {
+        "0": {
+          "fit_sha256": "fc673a0a3e1d1dad9f931398ebb3ef4b7f31e8352609f4923ef2ebe70b64d05c",
+          "train_manifest": "c72e24272025651dfed27cac7eaddd43b48c3a411e496b0afd808d3b26cf281f"
+        },
+        "1": {
+          "fit_sha256": "f8ee7ec6423f092800816528d0bd4932b6e8f780627bb2af84ebb21d476495c6",
+          "train_manifest": "f2fca06ac3dae4456c94f95d2c41523d8687c79f0653f7b0f4c0800a56304b72"
+        },
+        "2": {
+          "fit_sha256": "7e23c8bd7587693b1c8fad9781bd138cf84fb118f928765dd505cadddc63051a",
+          "train_manifest": "c07e946b7db8fa8c65eab45ad171033c0d1cbdebe712eaa8a9c199208fd8d30f"
+        },
+        "3": {
+          "fit_sha256": "cd80bb3f652a92d22d452d015c599a855407b0d5c4ed0a628960da57946ddadc",
+          "train_manifest": "e4895f3b6f119b2d36e65fd7df68efec8421225ca67d14fe226e976f5e63c7b6"
+        }
+      },
+      "setting": {
+        "steps": 10800,
+        "width": 64
+      },
+      "summary": {
+        "dead_edge": 0.07359069952818728,
+        "owner_edge": 0.23033343276880258,
+        "ownership": 0.24610383091600666,
+        "score": 0.3399495977169601,
+        "stoppage": 0.09384576680095347
+      }
+    },
+    {
+      "matches": {
+        "dfl:WMX": {
+          "dead_edge": 0.0575792987464136,
+          "owner_edge": 0.27142798546588953,
+          "ownership": 0.279765433175564,
+          "stoppage": 0.046605400349306436
+        },
+        "dfl:WN1": {
+          "dead_edge": 0.06153716971192839,
+          "owner_edge": 0.35744457871334584,
+          "ownership": 0.38270150786869545,
+          "stoppage": 0.04810800783666543
+        },
+        "dfl:WOH": {
+          "dead_edge": 0.066971985114952,
+          "owner_edge": 0.2998376181071994,
+          "ownership": 0.28090107741366416,
+          "stoppage": 0.06596605750304767
+        },
+        "dfl:WOY": {
+          "dead_edge": 0.06365065600235849,
+          "owner_edge": 0.3428352416057601,
+          "ownership": 0.3143395073347643,
+          "stoppage": 0.06848613113610372
+        },
+        "skillcorner:1874553": {
+          "dead_edge": 0.0852227876986992,
+          "owner_edge": 0.16717592147054647,
+          "ownership": 0.1796135082633068,
+          "stoppage": 0.14656446126585762
+        },
+        "skillcorner:1886347": {
+          "dead_edge": 0.09119445506783445,
+          "owner_edge": 0.15690731028797372,
+          "ownership": 0.1666507255513202,
+          "stoppage": 0.10460020321888394
+        },
+        "skillcorner:1899585": {
+          "dead_edge": 0.09086531834388771,
+          "owner_edge": 0.19365015510290554,
+          "ownership": 0.21906290493935204,
+          "stoppage": 0.1138185033220721
+        },
+        "skillcorner:1925299": {
+          "dead_edge": 0.08530842040844971,
+          "owner_edge": 0.17141755913609846,
+          "ownership": 0.18445460702614097,
+          "stoppage": 0.20164600728552542
+        },
+        "skillcorner:1927964": {
+          "dead_edge": 0.06925048299416646,
+          "owner_edge": 0.12840396726598832,
+          "ownership": 0.11290095178949831,
+          "stoppage": 0.08535739350473981
+        },
+        "skillcorner:1953632": {
+          "dead_edge": 0.08810391744526971,
+          "owner_edge": 0.14486931013013166,
+          "ownership": 0.16573105570415692,
+          "stoppage": 0.11613290325144628
+        },
+        "skillcorner:1959846": {
+          "dead_edge": 0.0862992924436656,
+          "owner_edge": 0.16892793157544717,
+          "ownership": 0.17482542945350193,
+          "stoppage": 0.07648058371219082
+        },
+        "skillcorner:1986691": {
+          "dead_edge": 0.08152745652545727,
+          "owner_edge": 0.1820567415500993,
+          "ownership": 0.19688179769846192,
+          "stoppage": 0.10680094023006706
+        },
+        "skillcorner:1996435": {
+          "dead_edge": 0.07614158960979224,
+          "owner_edge": 0.17294132833576947,
+          "ownership": 0.17352649874802656,
+          "stoppage": 0.1262585955834794
+        },
+        "skillcorner:1996436": {
+          "dead_edge": 0.09630940257793216,
+          "owner_edge": 0.19889096997717498,
+          "ownership": 0.21562097881506165,
+          "stoppage": 0.0870923197601152
+        },
+        "skillcorner:2006229": {
+          "dead_edge": 0.08266214227861979,
+          "owner_edge": 0.16360894627162892,
+          "ownership": 0.22275194910071594,
+          "stoppage": 0.10920591871903282
+        },
+        "skillcorner:2006363": {
+          "dead_edge": 0.07986706783544417,
+          "owner_edge": 0.16802526373530197,
+          "ownership": 0.14906933142849793,
+          "stoppage": 0.08491678946262896
+        }
+      },
+      "runs": {
+        "0": {
+          "fit_sha256": "f4279aca3c0a9e68cb90d5ac631f8290a245b4b356d32a7234198c24d1a8d195",
+          "train_manifest": "c72e24272025651dfed27cac7eaddd43b48c3a411e496b0afd808d3b26cf281f"
+        },
+        "1": {
+          "fit_sha256": "d21e9e8997403b8cc0d408b379dcdd1934a6f8eeca48521d41cda3533eb5ed6b",
+          "train_manifest": "f2fca06ac3dae4456c94f95d2c41523d8687c79f0653f7b0f4c0800a56304b72"
+        },
+        "2": {
+          "fit_sha256": "d3255b9648d2b975509229bf3dd596f18d6c0311e90478acf8e18b9bcfbaeb4f",
+          "train_manifest": "c07e946b7db8fa8c65eab45ad171033c0d1cbdebe712eaa8a9c199208fd8d30f"
+        },
+        "3": {
+          "fit_sha256": "b41f1e41c616f8a1a6d92b890b6b9b778b2c0e689ccc5ce64fa82bf741ef6bf3",
+          "train_manifest": "e4895f3b6f119b2d36e65fd7df68efec8421225ca67d14fe226e976f5e63c7b6"
+        }
+      },
+      "setting": {
+        "steps": 5400,
+        "width": 128
+      },
+      "summary": {
+        "dead_edge": 0.07341540258150733,
+        "owner_edge": 0.24297965318815212,
+        "ownership": 0.24725884649567104,
+        "score": 0.33252432190364645,
+        "stoppage": 0.0852654754079754
+      }
+    },
+    {
+      "matches": {
+        "dfl:WMX": {
+          "dead_edge": 0.059372682763320195,
+          "owner_edge": 0.2601894789430326,
+          "ownership": 0.2992321377114769,
+          "stoppage": 0.05693390754331747
+        },
+        "dfl:WN1": {
+          "dead_edge": 0.056256190934498206,
+          "owner_edge": 0.3284108112579408,
+          "ownership": 0.4187328958712941,
+          "stoppage": 0.03738906844449896
+        },
+        "dfl:WOH": {
+          "dead_edge": 0.05948020666487366,
+          "owner_edge": 0.26790193039785765,
+          "ownership": 0.2989846588481065,
+          "stoppage": 0.07656176165345174
+        },
+        "dfl:WOY": {
+          "dead_edge": 0.06702242296626765,
+          "owner_edge": 0.27947357582523064,
+          "ownership": 0.3430107865393495,
+          "stoppage": 0.0739702594635728
+        },
+        "skillcorner:1874553": {
+          "dead_edge": 0.09102535300728641,
+          "owner_edge": 0.16294536950280053,
+          "ownership": 0.17204439713964367,
+          "stoppage": 0.19251564425398496
+        },
+        "skillcorner:1886347": {
+          "dead_edge": 0.09023988801340788,
+          "owner_edge": 0.14722578735686176,
+          "ownership": 0.17388349409139842,
+          "stoppage": 0.1268738336764867
+        },
+        "skillcorner:1899585": {
+          "dead_edge": 0.08200211968416653,
+          "owner_edge": 0.18338401413778882,
+          "ownership": 0.2130333569609268,
+          "stoppage": 0.1419725638686492
+        },
+        "skillcorner:1925299": {
+          "dead_edge": 0.08638119903388378,
+          "owner_edge": 0.16354615696098973,
+          "ownership": 0.1956277267398147,
+          "stoppage": 0.24306216707200257
+        },
+        "skillcorner:1927964": {
+          "dead_edge": 0.07209636984961798,
+          "owner_edge": 0.12175736863844178,
+          "ownership": 0.11838657443073174,
+          "stoppage": 0.10960422083477217
+        },
+        "skillcorner:1953632": {
+          "dead_edge": 0.08533302521040682,
+          "owner_edge": 0.1325742916427616,
+          "ownership": 0.17943034863631555,
+          "stoppage": 0.13747742826023587
+        },
+        "skillcorner:1959846": {
+          "dead_edge": 0.08086779681170164,
+          "owner_edge": 0.16721418565199914,
+          "ownership": 0.19338621219039576,
+          "stoppage": 0.1060518753582208
+        },
+        "skillcorner:1986691": {
+          "dead_edge": 0.08251359354320706,
+          "owner_edge": 0.1681317976223174,
+          "ownership": 0.21011617035448865,
+          "stoppage": 0.16324537366843714
+        },
+        "skillcorner:1996435": {
+          "dead_edge": 0.07578117650523386,
+          "owner_edge": 0.17069814253488352,
+          "ownership": 0.18828645607664926,
+          "stoppage": 0.13675108792476554
+        },
+        "skillcorner:1996436": {
+          "dead_edge": 0.09241090664241186,
+          "owner_edge": 0.17927363264033347,
+          "ownership": 0.2218607177397534,
+          "stoppage": 0.0936444200725973
+        },
+        "skillcorner:2006229": {
+          "dead_edge": 0.07928234663070585,
+          "owner_edge": 0.14895626563832132,
+          "ownership": 0.23782523942769843,
+          "stoppage": 0.16314762580288272
+        },
+        "skillcorner:2006363": {
+          "dead_edge": 0.08141913649345708,
+          "owner_edge": 0.15816835776754018,
+          "ownership": 0.17034422021952217,
+          "stoppage": 0.11053226041701668
+        }
+      },
+      "runs": {
+        "0": {
+          "fit_sha256": "cc27a028aca19271055b317aeb68b92f5f0992573362cd3dd82c79658b2113af",
+          "train_manifest": "c72e24272025651dfed27cac7eaddd43b48c3a411e496b0afd808d3b26cf281f"
+        },
+        "1": {
+          "fit_sha256": "173b2bc7de173290483dc39e63d74dd98212c2b100568be6cc39886022ee2eb9",
+          "train_manifest": "f2fca06ac3dae4456c94f95d2c41523d8687c79f0653f7b0f4c0800a56304b72"
+        },
+        "2": {
+          "fit_sha256": "7e5aa8d5fbbbf651f15c64b3fa768d92b47ab13fb6162ec82feaa5ebf4957afd",
+          "train_manifest": "c07e946b7db8fa8c65eab45ad171033c0d1cbdebe712eaa8a9c199208fd8d30f"
+        },
+        "3": {
+          "fit_sha256": "1356df8821b04d143722d9c2fd20c6e4ec43c726d7500ab7225f6a7f7fdc5102",
+          "train_manifest": "e4895f3b6f119b2d36e65fd7df68efec8421225ca67d14fe226e976f5e63c7b6"
+        }
+      },
+      "setting": {
+        "steps": 10800,
+        "width": 128
+      },
+      "summary": {
+        "dead_edge": 0.07190614255884858,
+        "owner_edge": 0.22132511497363433,
+        "ownership": 0.2647544312882508,
+        "score": 0.36723124347677477,
+        "stoppage": 0.10247681218852395
+      }
+    }
+  ],
+  "family": "transformer",
+  "folds": {
+    "0": [
+      "dfl:WMX",
+      "skillcorner:1874553",
+      "skillcorner:1927964",
+      "skillcorner:1996435"
+    ],
+    "1": [
+      "dfl:WN1",
+      "skillcorner:1886347",
+      "skillcorner:1953632",
+      "skillcorner:1996436"
+    ],
+    "2": [
+      "dfl:WOH",
+      "skillcorner:1899585",
+      "skillcorner:1959846",
+      "skillcorner:2006229"
+    ],
+    "3": [
+      "dfl:WOY",
+      "skillcorner:1925299",
+      "skillcorner:1986691",
+      "skillcorner:2006363"
+    ]
+  },
+  "grid": [
+    {
+      "steps": 5400,
+      "width": 64
+    },
+    {
+      "steps": 10800,
+      "width": 64
+    },
+    {
+      "steps": 5400,
+      "width": 128
+    },
+    {
+      "steps": 10800,
+      "width": 128
+    }
+  ],
+  "protocol": "DECISIONS.md D20",
+  "selected": {
+    "steps": 5400,
+    "width": 128
+  },
+  "source_manifest": "d3891c24c478584b2ad587c5e3efcc112cb1bef67405046b8db8da953545c2fc"
+}

@@ -449,8 +449,7 @@ def test_cloud_runs_are_checked_before_use():
             tmp = Path(tmp)
             sources, manifests, recipe, archive = fake_cloud_run(tmp)
             options = dict(manifests=manifests, exporter=exporter, now=before)
-            local = tmp / "local"
-            local.mkdir()
+            local = tmp / "local" / "zoo_recipe"           # not created beforehand, as on a fresh checkout
             assert zoo.import_cloud("gru", archive, tmp / "x1", sources, tmp / "scratch", recipe=local, models=tmp / "m1", **options)
             assert len(exported) == 4 and digest(local / "cv_gru.json") == digest(recipe / "cv_gru.json")
             assert json.loads((local / "cloud_gru.json").read_text())["passed"] is True
