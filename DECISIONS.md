@@ -1223,3 +1223,34 @@ Code: `conventions.remove_brief_stoppages`; `dfl_submission/stoppage_trial.py` (
 - **Every interior sub-second stoppage was removed:** PFF 87 → 0, SkillCorner 10 → 0 (its targets hold 27), DFL dead ball carried 5 → 0, team swap 3 → 0, masked 1 → 0, Metrica 7 → 0, D24 views 9, 13 and 13 → 0. Three sub-second stoppages at a half's edge stay in each D24 view, as the rule says.
 
 What it shows: the sub-second stoppages cost D15 almost nothing. Removing all 87 on PFF gained 0.0007, and the standard views moved by 0.0001. The rule asked for no harm anywhere, one D24 game lost 0.0007, and so the step is not adopted. The code is kept (`conventions.remove_brief_stoppages`, `stoppage_trial.py`); its `confirm` and `build` paths have not run on real data. [Development](dfl_submission/stoppage_recipe/development.json)
+
+## D26 — Ownership-change timing in Metrica's convention (2026-11-11, written before any D26 offset under the second marking rule, shift or score is computed)
+
+**Question.** On the three Metrica sample games, D15's ownership changes land a median 4 frames after Metrica's marks (D21), while on DFL and SkillCorner the median is 0. The competition's ground truth comes from Metrica. Is the lag robust, and does moving D15's ownership changes earlier by that much help on Metrica's games without hurting elsewhere? This is round 6's step 3.
+
+**What was seen before this rule.** The records of D1–D25. In particular D24 reported, per game, the median N = 3 ownership offset under D19's marking: +3, +4 and +3 frames on the clean view, and +3, +6 and +3 on the masked view. No offset under the second marking rule below has been computed, and no shift has been applied or scored.
+
+**Standing reference.** D15 (D25 was not adopted).
+
+**Step 1: is the lag our own rule?** D19 marks the opponent at the end frame of a "ball lost" event. The *second marking rule* drops that mark, so the opponent's possession starts at its own next team event; everything else in D19's targets (span, dead ball, the other marks, the first-mark rule) is unchanged. A pipeline check comes first: the second rule must leave every dead and X frame of D19's raw targets unchanged in all six halves.
+
+For each game, each marking rule (D19's and the second) and each of two views (D19's clean view and D24's masked view), the median signed offset of D15's ownership changes against the rule's N = 3 targets is computed as in D11 (changes between teams only, matched at 25 frames). That is 12 medians.
+
+**Step 2: shift only if robust.** If all 12 medians are at least +2 frames, the shift s is the smallest of them, rounded half away from zero. Otherwise D26 stops here: no shift, nothing else scored.
+
+**The shift.** After decoding, each predicted change directly between the two teams moves s frames earlier: the new team starts s frames sooner. A change never moves to or before the previous boundary of any type (the earlier spell keeps at least one frame). Stops and restarts are not moved.
+
+**Adopt if all of these hold**, compared with D15:
+- *leave one game out, on D19's clean view:* for each game, the shift estimated by step 2 from the other two games alone (8 medians; no shift if any is under +2) must not lower that game's N = 3 spellF1, and the mean of the three changes must be at least +0.003;
+- *D24:* with s, the D24 mean is not lower;
+- *guards on development, with s:* standard combined N = 3 spellF1 (DFL WPY and the four SkillCorner matches), DFL dead ball carried and team swap, and mean N = 3 spellF1 on the eight PFF development matches each drop by at most 0.01. Those vendors mark changes at other moments, so a small loss there is expected.
+
+Reported, not gated: N = 1.75, 4 and 4.5, raw labels, and every Metrica score against the second rule's targets.
+
+**Confirmation, once,** if development passes: with s, the same guards on the reused DFL/SkillCorner holdout (WQQ, WR9 and their guard views; the four SkillCorner holdout matches) and on the PFF untouched set (mean N = 3 spellF1 drops by at most 0.01), which is parsed only for this step, with D15 forecast on it once. D15 must first reproduce its holdout record. The Metrica conditions are not repeated: they are the same games.
+
+**Disclosure.** If adopted, this puts one value estimated on Metrica's sample data, s, into the submission. D19 said no value would be chosen on these games; this rule amends that for s alone. The precedent is D1, whose convention interval came from the same files. Derek approved the plan that includes this step and spends the untouched PFF set, the last one in reserve. The technical document will say so.
+
+**If it passes,** D15 with the shift becomes the submission after the rebuild checks (twice on macOS in a fresh virtual environment, then `python:3.12.14-slim` under `linux/arm64` and `linux/amd64`). **If it fails,** D15 stays.
+
+Code: a `handover` option in `metrica_sample`'s marks (default unchanged), and `dfl_submission/timing_trial.py` (`develop`, `confirm`, `build`). Records go to `dfl_submission/timing_recipe/`, each written once. Every D26 command runs with `MTAH_DATA_DIR` set to a nonexistent path and calls `require_external_only()`.
