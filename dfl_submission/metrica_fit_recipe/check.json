@@ -1,0 +1,54 @@
+{
+  "checked_at": "2026-11-12 02:43 EST",
+  "metrica": {
+    "augmented": "82b8ebaa1e4c85c6637e7bc8eaa67daf9b0c14dd5f809736fccad38a9e7c8947",
+    "current": "d3a65a510941f2d59bb6ed54193bfd1f3bfa394afc384a62e95c2a0015d96e74"
+  },
+  "networks": {
+    "augmented": {
+      "seed_models": {
+        "normalization.npz": true,
+        "temporal_1800.npz": true,
+        "temporal_3600.npz": true,
+        "temporal_5400.npz": true
+      },
+      "temporal_models": {
+        "normalization.npz": true,
+        "temporal_1800.npz": true,
+        "temporal_3600.npz": true,
+        "temporal_5400.npz": true
+      }
+    },
+    "current": {
+      "seed_models": {
+        "normalization.npz": true,
+        "temporal_1800.npz": true,
+        "temporal_3600.npz": true,
+        "temporal_5400.npz": true
+      },
+      "temporal_models": {
+        "normalization.npz": true,
+        "temporal_1800.npz": true,
+        "temporal_3600.npz": true,
+        "temporal_5400.npz": true
+      }
+    }
+  },
+  "passed": true,
+  "protocol": "DECISIONS.md D30",
+  "scoring": {
+    "1": true,
+    "2": true,
+    "3": true
+  },
+  "trees": {
+    "augmented": {
+      "dead.ubj": true,
+      "ownership.ubj": true
+    },
+    "current": {
+      "dead.ubj": true,
+      "ownership.ubj": true
+    }
+  }
+}

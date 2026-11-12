@@ -160,3 +160,135 @@ def test_build_writes_d15_labels_after_the_rule(tmp_path):
 
 def test_the_limit_is_five_minutes():
     assert kickoff.LIMIT == 5 * 60 * 25 and kickoff.FPS == 25
+
+
+# -- D29: dead ball from a tagged goal to the kick-off after it ------------------------------------
+
+def goal(start, end):
+    return instance(start, end, code="GOALS", labels=(("Team", "Barcelona"),))
+
+
+def restart(start, end):
+    return instance(start, end, labels=(("Type", "Kick Off (After Goal)"),))
+
+
+def test_read_instances_keeps_code_type_and_frames(tmp_path):
+    path = write_tags(tmp_path, goal(100.0, 108.0), restart(160.0, 165.0),
+                      instance(200.0, 204.0, code=" Build Up ", labels=(("TYPE", "x"), ("type", " Throw-In "))))
+    assert kickoff.read_instances(path) == [
+        {"code": "goals", "type": None, "start": 2500, "end": 2700},
+        {"code": "set pieces", "type": "kick off (after goal)", "start": 4000, "end": 4125},
+        {"code": "build up", "type": "throw-in", "start": 5000, "end": 5100}]
+
+
+def test_read_tags_is_unchanged_by_the_instance_reader(tmp_path):
+    path = write_tags(tmp_path, instance(36.0, 41.0), restart(160.0, 165.0), goal(100.0, 108.0))
+    assert kickoff.read_tags(path) == [(900, 1025)]
+
+
+def spans(*items):
+    return [{"code": code, "type": kind, "start": start, "end": end} for code, kind, start, end in items]
+
+
+GOAL, AFTER = ("goals", None), ("set pieces", "kick off (after goal)")
+
+
+def test_goal_end_to_kick_off_start_becomes_dead():
+    tags = spans((*GOAL, 3000, 3200), (*AFTER, 5000, 5125))
+    assert kickoff.goal_spans(tags, BLOCKS) == [(3200, 5000)]
+    result = kickoff.apply_goals(live_match(), tags, BLOCKS)
+    assert (result[3200:5000] == "D").all() and (result[1000:3200] == "H").all() and (result[5000:10000] == "H").all()
+    assert (result[:1000] == "X").all()
+
+
+def test_latest_goal_before_the_kick_off_is_used():
+    tags = spans((*GOAL, 2000, 2100), (*GOAL, 3000, 3200), (*AFTER, 5000, 5125))
+    assert kickoff.goal_spans(tags, BLOCKS) == [(3200, 5000)]
+
+
+def test_three_minutes_is_the_reach():
+    assert kickoff.goal_spans(spans((*GOAL, 3000, 3500), (*AFTER, 8000, 8125)), BLOCKS) == [(3500, 8000)]
+    assert kickoff.goal_spans(spans((*GOAL, 3000, 3499), (*AFTER, 8000, 8125)), BLOCKS) == []
+    assert kickoff.GOAL_REACH == 3 * 60 * 25
+
+
+def test_goal_in_the_other_half_is_not_a_pair():
+    tags = spans((*GOAL, 9000, 9900), (*AFTER, 12100, 12200))
+    assert kickoff.goal_spans(tags, BLOCKS) == []
+
+
+def test_goal_ending_after_the_kick_off_start_is_not_a_pair():
+    assert kickoff.goal_spans(spans((*GOAL, 4000, 5050), (*AFTER, 5000, 5125)), BLOCKS) == []
+
+
+def test_two_goals_sharing_the_latest_end_change_nothing():
+    tags = spans((*GOAL, 3000, 3200), (*GOAL, 3100, 3200), (*AFTER, 5000, 5125))
+    assert kickoff.goal_spans(tags, BLOCKS) == []
+
+
+def test_one_goal_paired_with_two_kick_offs_changes_nothing():
+    tags = spans((*GOAL, 3000, 3200), (*AFTER, 4000, 4125), (*AFTER, 5000, 5125))
+    assert kickoff.goal_spans(tags, BLOCKS) == []
+
+
+def test_another_goal_starting_inside_the_stretch_changes_nothing():
+    tags = spans((*GOAL, 3000, 3200), (*GOAL, 4500, 5100), (*AFTER, 5000, 5125))
+    assert kickoff.goal_spans(tags, BLOCKS) == []
+
+
+def test_kick_off_start_and_other_codes_are_not_kick_offs_after_goals():
+    tags = spans((*GOAL, 3000, 3200), ("set pieces", "kick off (start)", 5000, 5125), ("goals", "x", 4000, 4100),
+                 ("build up", "kick off (after goal)", 5000, 5125))
+    assert kickoff.goal_spans(tags, BLOCKS) == []
+
+
+def test_each_goal_and_its_kick_off_pair_independently():
+    tags = spans((*GOAL, 3000, 3200), (*AFTER, 5000, 5125), (*GOAL, 20000, 20300), (*AFTER, 22000, 22100))
+    assert kickoff.goal_spans(tags, BLOCKS) == [(3200, 5000), (20300, 22000)]
+    result = kickoff.apply_goals(live_match(), tags, BLOCKS)
+    assert int((result == "D").sum()) == (5000 - 3200) + (22000 - 20300)
+
+
+def test_goal_rule_leaves_its_input_unchanged():
+    labels = live_match()
+    kept = labels.copy()
+    kickoff.apply_goals(labels, spans((*GOAL, 3000, 3200), (*AFTER, 5000, 5125)), BLOCKS)
+    assert np.array_equal(labels, kept)
+
+
+def test_model_labels_prepare_the_ball_before_the_model_sees_it():
+    seen = []
+
+    def fake_halves(decode_half, *, centered, pitch, merge_ball=None):
+        assert centered is True and pitch == (105.0, 68.0) and merge_ball is None
+        return decode_half(np.zeros((3, 2, 2)), np.array([[1., 2.], [np.nan, np.nan], [3., 4.]]), np.array([0, 1]), pitch)
+
+    def fake_signals(teacher, positions, ball, teams, pitch):
+        seen.append((teacher, ball.copy()))
+        return None, np.array([0, 1, 2])
+
+    originals = kickoff.tactical_halves, kickoff.diagnosis.half_signals
+    kickoff.tactical_halves, kickoff.diagnosis.half_signals = fake_halves, fake_signals
+    try:
+        labels = kickoff.model_labels("model", (105.0, 68.0), prepare=lambda ball: np.nan_to_num(ball))
+    finally:
+        kickoff.tactical_halves, kickoff.diagnosis.half_signals = originals
+    assert list(labels) == [0, 1, 2]
+    assert seen[0][0] == "model" and np.array_equal(seen[0][1], [[1., 2.], [0., 0.], [3., 4.]])
+
+
+def test_model_labels_pass_a_ball_merge_to_the_tracking():
+    hook = object()
+    seen = {}
+
+    def fake_halves(decode_half, *, centered, pitch, merge_ball=None):
+        seen["merge_ball"] = merge_ball
+        return np.zeros(3)
+
+    original = kickoff.tactical_halves
+    kickoff.tactical_halves = fake_halves
+    try:
+        kickoff.model_labels("model", (105.0, 68.0), merge_ball=hook)
+    finally:
+        kickoff.tactical_halves = original
+    assert seen["merge_ball"] is hook

@@ -120,6 +120,16 @@ The rule cannot be scored on external data, so it was adopted on tests (`tests/t
 
 A hidden ball is the submission's largest measured loss (clean to masked: −0.055 on DFL, −0.075 on Metrica). D28 filled each missing-ball run of at most K frames, between two sightings in the same half, with a straight line before the models see it, for K = 6, 12 and 25 frames (`dfl_submission/gap_trial.py`). Nothing was retrained. The fill reached little: at K = 25 it covered 9.5% of hidden live-ball frames on the masked DFL views, 13% on PFF and none on SkillCorner, whose gaps are all longer than 1 s. On development the best K (12) gained +0.0016 against the +0.005 required, and every K lowered the D24 mean slightly, so it was not adopted. Confirmation did not run, and PFF set B is still unparsed. [Protocol and outcome](DECISIONS.md#d28--fill-short-ball-dropouts-2026-11-12-written-before-any-d28-fill-is-computed-or-scored) · [Coverage](dfl_submission/gap_recipe/coverage.json) · [Development](dfl_submission/gap_recipe/development.json)
 
+### Round 8: four long shots after C1 (D29–D32)
+
+After C1 passed, round 8 tried four long shots under C3: a step could change the file only with a gain of at least +0.01 on its own external confirmation, and the build with every round 8 switch off must still give `0ddbb342…` (it does; `dfl_submission/round8.py`). None cleared its bar, so **the submission is unchanged**.
+- **D30, Metrica's sample games as training data** (`metrica_trial.py`). With no Metrica half, the refit reproduced D15's trees byte for byte and its networks bit for bit. Leaving one game out, the clean view gained +0.019, but the D24 views gained only +0.0047 (+0.01 required, and game 3 was lower), and every fold model lost 0.017–0.059 on DFL's dead-ball-carried view. Metrica's corrected tracking hides the ball exactly when it is dead, and training on it teaches that shortcut.
+- **D31 and D31a, the broadcast ball** (`broadcast_ball.py`, `two_camera.py`, `broadcast_trial.py`). Broadcast stretches were aligned to the tactical timeline on a synthetic two-camera harness built from external tracking. D31's cost could not keep wrong alignments under 1%. A disclosed second attempt with a trimmed cost and a translation per stretch qualified only at its strictest setting, which filled 0.28% of the hidden ball frames on development (+0.0003 and +0.0006 against +0.01). No broadcast file was read.
+- **D32, label-free adaptation on PFF** (`vendor_adaptation.py`). D6's per-match adaptation with D15 as teacher, extended to the stoppage head, lowered mean N = 3 on the eight PFF development matches at every multiplier (best −0.0004). PFF set C was not used.
+- **D29, dead ball from a tagged goal to the kick-off after it** (`kickoff.goal_spans`), cannot be scored externally and could ship only alongside a step that cleared its bar, so it is not in the build.
+
+PFF sets B and C, the untouched PFF set and the four 2019–20 confirmation matches are still unused. [C3](DECISIONS.md#c3--what-may-change-after-c1-2026-11-12-written-before-any-round-8-step-is-built-fitted-or-scored) · [D30](dfl_submission/metrica_fit_recipe/logo.json) · [D31a](dfl_submission/broadcast_recipe/a_development.json) · [D32](dfl_submission/vendor_adaptation_recipe/development.json)
+
 ## Reproduce the submission
 
 The build is verified to give the same file on Apple Silicon macOS (Homebrew Python 3.12.13) and on Linux (x86_64 and arm64, Python 3.12.14), with the pinned CPU dependencies. On macOS, XGBoost needs the system OpenMP runtime. Point `MTAH_DATA_DIR` at a directory containing `tactical/` with `BAR-ATH_tactical_atd.xml`, `BAR-ATH_tactical_atd.txt`, `BAR-ATH_tactical_homography.csv` and `BAR-ATH_tactical_smart_tagging.xml`; no other files are needed.
@@ -393,6 +403,24 @@ MTAH_DATA_DIR=/path/to/competition-bundle .venv/bin/python -m dfl_submission.kic
   --parsed data/pff/parsed                                          # written once, before any scoring
 .venv/bin/python -m dfl_submission.gap_trial develop --dfl "$DFL_XML" --dfl-raw --skill data/skillcorner \
   --parsed data/pff/parsed --d15-cache data/d15/cache/w96_s5400
+```
+
+Round 8 (D29–D32) changed nothing in the submission. Its commands, each written once and run with `MTAH_DATA_DIR` set to a nonexistent path except the switches-off build:
+
+```sh
+MTAH_DATA_DIR=/path/to/competition-bundle .venv/bin/python -m dfl_submission.round8 build --out data/round8.csv  # = 0ddbb342…
+.venv/bin/python -m dfl_submission.metrica_trial prepare --set current        # and --set augmented
+.venv/bin/python -m dfl_submission.metrica_trial fit --current /path/to/train_data --augmented data/d13/sequences_augmented \
+  --fold fold1 --set current                                        # folds none, fold1-3; both sets
+.venv/bin/python -m dfl_submission.metrica_trial check --current /path/to/train_data --augmented data/d13/sequences_augmented
+.venv/bin/python -m dfl_submission.metrica_trial logo --dfl "$DFL_XML" --dfl-raw --skill data/skillcorner \
+  --parsed data/pff/parsed --d15-cache data/d15/cache/w96_s5400
+.venv/bin/python -m dfl_submission.broadcast_trial calibrate --attempt "" --dfl "$DFL_XML" --dfl-raw   # D31
+.venv/bin/python -m dfl_submission.broadcast_trial calibrate --attempt a --dfl "$DFL_XML" --dfl-raw    # D31a
+.venv/bin/python -m dfl_submission.broadcast_trial develop --attempt a --dfl "$DFL_XML" --dfl-raw --skill data/skillcorner \
+  --parsed data/pff/parsed --d15-cache data/d15/cache/w96_s5400
+.venv/bin/python -m dfl_submission.vendor_adaptation replay --dfl "$DFL_XML" --skill data/skillcorner
+.venv/bin/python -m dfl_submission.vendor_adaptation develop --parsed data/pff/parsed
 ```
 
 C2 checks the final file without any ground truth (`output_check.py`). Its ranges come from D15's predictions on 28 external match views: possessions per minute, the share of dead ball, and sub-second stoppages per 90 minutes. The check on the competition file prints only PASS or FAIL.

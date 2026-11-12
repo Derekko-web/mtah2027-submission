@@ -30,14 +30,14 @@ The context stage's island-suppression settings (`island_frames`, `island_confid
 | Pitch size | 105 × 68 m | `build.METADATA_PITCH` | Reported by the tactical ATD metadata (DATA.md). The organisers' `games.py` carries 105.3 × 68.0 m, measured from corrected tracking. The submission rescales to the metadata size; the external training data use each provider's own pitch size. |
 | Ball validity margin | ±5 m outside the pitch | `build.tactical_tracking_halves` | Hand-set |
 | Homography validity | mask frames with `valid = 0` | `build.tactical_tracking_halves` | Organiser-defined flag |
-| Ball gaps | not filled; a missing ball stays missing | `build.tactical_tracking_halves` | DECISIONS.md D28 tested straight-line fills of gaps up to 6, 12 and 25 frames; none passed development, so nothing is filled. |
+| Ball gaps | not filled; a missing ball stays missing | `build.tactical_tracking_halves` | DECISIONS.md D28 tested straight-line fills of gaps up to 6, 12 and 25 frames; none passed development, so nothing is filled. D31 and D31a tested filling from the broadcast recording; both failed, so the build's `merge_ball` hook is unused and the broadcast files are not read. |
 
 ## Models
 
 | Constant | Value | Where | Source |
 |---|---|---|---|
 | 162 tracking features, with context windows of 3, 9 and 18 s | — | `long_context.features`, `robust_features`, `skillcorner_trial.inputs` | Hand-designed. Some feature formulas were first written during our earlier research, then re-implemented and fitted on external data only. |
-| Long-context XGBoost | depth 5, 420 trees, learning rate 0.045, subsample 0.82, colsample 0.85, min child weight 30, λ 12, seed 42 | `long_context.fit_head` | Hand-set when the module was written (Nov 10). Never searched. |
+| Long-context XGBoost | depth 5, 420 trees, learning rate 0.045, subsample 0.82, colsample 0.85, min child weight 30, λ 12, seed 42 | `long_context.fit_head` | Hand-set when the module was written (Nov 10). Never searched. D30 (refit with Metrica's sample games added) and D32 (per-match continuation on PFF) failed, so the trees are D3's. |
 | Class and match balancing | equal weight per source, match and class | `long_context.fit_head` | Hand-set |
 | Team-swap augmentation | train and predict in both team orders | `models.ownership_probability` | Symmetric by construction |
 | Temporal network architecture and optimiser | dilations, dropout 0.08, AdamW at 0.0015 with cosine decay, weight decay 0.01 | `temporal_network.py` | Hand-set (Nov 10) |
@@ -88,6 +88,7 @@ All values are hand-set and were not tuned. The architecture, features, hyperpar
 | Tag time base | frame = round(seconds × 25) | `kickoff.FPS` | DATA.md, whose time base the organisers verified against both kick-offs |
 | Kick-off search limit | a tag belongs to a half if it ends at or after the half's first frame and starts at most 5 minutes (7,500 frames) after it; exactly one tag is required | `kickoff.LIMIT`, `kickoff.apply` | Hand-set, no grid |
 | Dead until | the start of the half's kick-off tag | `kickoff.apply` | The Laws of the Game: no possession before the kick-off. The organisers' loader says each tag is a window of about 5 s containing the real kick-off, so its start is never later than the kick. |
+| Goals to kick-offs | not applied | `kickoff.apply_goals` (unused) | DECISIONS.md D29 (dead ball from each tagged goal to the kick-off after it) could ship only alongside a round 8 step that cleared its bar (C3); none did. |
 
 ## Notes
 

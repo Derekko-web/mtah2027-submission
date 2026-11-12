@@ -39,7 +39,9 @@ def dfl_labels(folder):
 METADATA_PITCH = (105.0, 68.0)
 
 
-def tactical_tracking_halves(*, centered=False, pitch=None):
+def tactical_tracking_halves(*, centered=False, pitch=None, merge_ball=None):
+    """Each graded half's tracking. `merge_ball(positions, ball, teams, pitch)`, if given, may fill
+    missing balls of the validity-masked, uncentred match before centring (D31)."""
     from broadcast_alignment import PITCH, load_source
 
     source = load_source("tactical")
@@ -54,6 +56,8 @@ def tactical_tracking_halves(*, centered=False, pitch=None):
     ball_valid = (np.isfinite(ball).all(axis=1) & (ball >= -5).all(axis=1)
                   & (ball <= pitch + 5).all(axis=1) & source["valid"])
     ball[~ball_valid] = np.nan
+    if merge_ball is not None:
+        ball = merge_ball(positions, ball, source["teams"], pitch)
     if centered:
         positions, ball = positions - pitch / 2, ball - pitch / 2
 
@@ -70,9 +74,9 @@ def tactical_labels(decoded):
     return labels
 
 
-def tactical_halves(decode_half, *, centered=False, pitch=None):
+def tactical_halves(decode_half, *, centered=False, pitch=None, merge_ball=None):
     def decoded():
-        for half, span, tracking in tactical_tracking_halves(centered=centered, pitch=pitch):
+        for half, span, tracking in tactical_tracking_halves(centered=centered, pitch=pitch, merge_ball=merge_ball):
             print(f"Predicting tactical half {half}", flush=True)
             yield span, decode_half(*tracking)
 

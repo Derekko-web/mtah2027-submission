@@ -1,0 +1,6649 @@
+{
+  "entries": [
+    {
+      "accepted": 175,
+      "max_cost": 1.0,
+      "min_margin": 0.25,
+      "wrong": 175
+    },
+    {
+      "accepted": 175,
+      "max_cost": 1.0,
+      "min_margin": 0.5,
+      "wrong": 175
+    },
+    {
+      "accepted": 175,
+      "max_cost": 1.0,
+      "min_margin": 1.0,
+      "wrong": 175
+    },
+    {
+      "accepted": 0,
+      "max_cost": 1.0,
+      "min_margin": 2.0,
+      "wrong": 0
+    },
+    {
+      "accepted": 457,
+      "max_cost": 1.5,
+      "min_margin": 0.25,
+      "wrong": 326
+    },
+    {
+      "accepted": 457,
+      "max_cost": 1.5,
+      "min_margin": 0.5,
+      "wrong": 326
+    },
+    {
+      "accepted": 457,
+      "max_cost": 1.5,
+      "min_margin": 1.0,
+      "wrong": 326
+    },
+    {
+      "accepted": 0,
+      "max_cost": 1.5,
+      "min_margin": 2.0,
+      "wrong": 0
+    },
+    {
+      "accepted": 2073,
+      "max_cost": 2.0,
+      "min_margin": 0.25,
+      "wrong": 951
+    },
+    {
+      "accepted": 1923,
+      "max_cost": 2.0,
+      "min_margin": 0.5,
+      "wrong": 801
+    },
+    {
+      "accepted": 1163,
+      "max_cost": 2.0,
+      "min_margin": 1.0,
+      "wrong": 801
+    },
+    {
+      "accepted": 356,
+      "max_cost": 2.0,
+      "min_margin": 2.0,
+      "wrong": 125
+    },
+    {
+      "accepted": 47522,
+      "max_cost": 3.0,
+      "min_margin": 0.25,
+      "wrong": 17598
+    },
+    {
+      "accepted": 46087,
+      "max_cost": 3.0,
+      "min_margin": 0.5,
+      "wrong": 16173
+    },
+    {
+      "accepted": 32826,
+      "max_cost": 3.0,
+      "min_margin": 1.0,
+      "wrong": 11402
+    },
+    {
+      "accepted": 8710,
+      "max_cost": 3.0,
+      "min_margin": 2.0,
+      "wrong": 2863
+    }
+  ],
+  "grid": {
+    "max_cost": [
+      1.0,
+      1.5,
+      2.0,
+      3.0
+    ],
+    "min_margin": [
+      0.25,
+      0.5,
+      1.0,
+      2.0
+    ]
+  },
+  "halves": [
+    {
+      "index": 0,
+      "match": "WMX",
+      "offset": -150,
+      "orientation": 2,
+      "results": [
+        {
+          "accepted": false,
+          "cost": 4.11389178336358,
+          "margin": 2.4518431107363803,
+          "offset": -154,
+          "orientation": 2,
+          "start": 150,
+          "stop": 325,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 4.1709686526534,
+          "margin": 1.920568673958429,
+          "offset": -147,
+          "orientation": 2,
+          "start": 452,
+          "stop": 1025,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 3.7955681584598486,
+          "margin": 2.4050908577945465,
+          "offset": -151,
+          "orientation": 2,
+          "start": 1050,
+          "stop": 1347,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 3.540627540075955,
+          "margin": 3.1115345871167297,
+          "offset": -150,
+          "orientation": 2,
+          "start": 1875,
+          "stop": 2775,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 3.42661867958972,
+          "margin": 2.5399058373551577,
+          "offset": -149,
+          "orientation": 2,
+          "start": 3036,
+          "stop": 4250,
+          "tie": true
+        },
+        {
+          "accepted": false,
+          "cost": 3.4076615805056205,
+          "margin": 2.185657365966221,
+          "offset": -150,
+          "orientation": 2,
+          "start": 4275,
+          "stop": 4525,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 4.316359232181611,
+          "margin": 3.1416778154770038,
+          "offset": -150,
+          "orientation": 2,
+          "start": 4550,
+          "stop": 5141,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 4.516492490535437,
+          "margin": 1.1232496541143044,
+          "offset": -473,
+          "orientation": 2,
+          "start": 5166,
+          "stop": 5312,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 4.081848457010957,
+          "margin": 2.344059809829308,
+          "offset": -151,
+          "orientation": 2,
+          "start": 5337,
+          "stop": 5818,
+          "tie": true
+        },
+        {
+          "accepted": false,
+          "cost": 3.730260670343516,
+          "margin": 1.0202449500018353,
+          "offset": -151,
+          "orientation": 2,
+          "start": 5850,
+          "stop": 6450,
+          "tie": true
+        },
+        {
+          "accepted": false,
+          "cost": 3.971663226494346,
+          "margin": 2.8409906965180354,
+          "offset": -144,
+          "orientation": 2,
+          "start": 6609,
+          "stop": 6758,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 3.9899082956024823,
+          "margin": 1.0001416038337587,
+          "offset": -151,
+          "orientation": 2,
+          "start": 7064,
+          "stop": 7658,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 3.9948470985506597,
+          "margin": 1.8779748803463776,
+          "offset": -148,
+          "orientation": 2,
+          "start": 8029,
+          "stop": 8389,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 3.9219357904978533,
+          "margin": 2.3084304920186236,
+          "offset": -150,
+          "orientation": 2,
+          "start": 8533,
+          "stop": 9180,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 4.88814322481084,
+          "margin": 1.123637112284694,
+          "offset": -352,
+          "orientation": 2,
+          "start": 9205,
+          "stop": 9392,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 4.121923941642205,
+          "margin": 1.9267264235086188,
+          "offset": -147,
+          "orientation": 2,
+          "start": 9417,
+          "stop": 10250,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 3.8113261599346573,
+          "margin": 1.902568097288103,
+          "offset": -154,
+          "orientation": 2,
+          "start": 10459,
+          "stop": 10699,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 3.7410753110001282,
+          "margin": 2.8015638497309805,
+          "offset": -153,
+          "orientation": 2,
+          "start": 10972,
+          "stop": 11877,
+          "tie": true
+        },
+        {
+          "accepted": false,
+          "cost": 3.727205160576375,
+          "margin": 2.7578459789795113,
+          "offset": -327,
+          "orientation": 2,
+          "start": 11902,
+          "stop": 12081,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 3.0149153581022037,
+          "margin": 0.7872322736313695,
+          "offset": -126,
+          "orientation": 2,
+          "start": 12106,
+          "stop": 12250,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 3.803618610699589,
+          "margin": 2.075398901976947,
+          "offset": -146,
+          "orientation": 2,
+          "start": 13191,
+          "stop": 13600,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 3.9957665411772814,
+          "margin": 2.085898969004817,
+          "offset": -150,
+          "orientation": 2,
+          "start": 14014,
+          "stop": 15200,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 3.893886676388584,
+          "margin": 2.5072112863986216,
+          "offset": -149,
+          "orientation": 2,
+          "start": 15299,
+          "stop": 16447,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 4.409409336094408,
+          "margin": 0.8804964395960893,
+          "offset": -171,
+          "orientation": 2,
+          "start": 16580,
+          "stop": 16774,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 4.75063327384625,
+          "margin": 0.7053780735296709,
+          "offset": -149,
+          "orientation": 2,
+          "start": 16775,
+          "stop": 17150,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 5.624691323856296,
+          "margin": 1.0309673535335717,
+          "offset": -145,
+          "orientation": 2,
+          "start": 17300,
+          "stop": 17549,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 3.435377281914282,
+          "margin": 2.661886178189036,
+          "offset": -147,
+          "orientation": 2,
+          "start": 18012,
+          "stop": 18544,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 2.241605150814725,
+          "margin": 0.9969626306731336,
+          "offset": -186,
+          "orientation": 2,
+          "start": 18550,
+          "stop": 18690,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 2.563095937778725,
+          "margin": 1.1289951222149512,
+          "offset": -291,
+          "orientation": 2,
+          "start": 18769,
+          "stop": 18894,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 4.201107206291413,
+          "margin": 2.0454707192342347,
+          "offset": -150,
+          "orientation": 2,
+          "start": 19225,
+          "stop": 21400,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 3.0457133009170274,
+          "margin": 1.2128217305951772,
+          "offset": -148,
+          "orientation": 2,
+          "start": 21555,
+          "stop": 23472,
+          "tie": true
+        },
+        {
+          "accepted": false,
+          "cost": 3.199892903982951,
+          "margin": 2.3431559462894844,
+          "offset": -146,
+          "orientation": 2,
+          "start": 23671,
+          "stop": 23995,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 4.962493579910958,
+          "margin": 0.8465175305308321,
+          "offset": -153,
+          "orientation": 2,
+          "start": 24104,
+          "stop": 24250,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 6.098803379997853,
+          "margin": 0.04263629404384783,
+          "offset": 18052,
+          "orientation": 2,
+          "start": 24275,
+          "stop": 24400,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 3.2093805098556407,
+          "margin": 3.107942392298309,
+          "offset": -151,
+          "orientation": 2,
+          "start": 24414,
+          "stop": 24875,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 2.622106551158579,
+          "margin": 1.5268162061125752,
+          "offset": -153,
+          "orientation": 2,
+          "start": 25081,
+          "stop": 25527,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 3.191444554942689,
+          "margin": 1.916635004600657,
+          "offset": -148,
+          "orientation": 2,
+          "start": 25853,
+          "stop": 26900,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 3.8680607350936618,
+          "margin": 2.3756404795907877,
+          "offset": -148,
+          "orientation": 2,
+          "start": 26950,
+          "stop": 28050,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 4.410348678553398,
+          "margin": 1.836654802516211,
+          "offset": -146,
+          "orientation": 2,
+          "start": 28221,
+          "stop": 28802,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 2.935146165445956,
+          "margin": 2.872697721943706,
+          "offset": -153,
+          "orientation": 2,
+          "start": 28872,
+          "stop": 29195,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 3.070764508067339,
+          "margin": 2.344029521973427,
+          "offset": -150,
+          "orientation": 2,
+          "start": 29600,
+          "stop": 30000,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 4.3769912994458995,
+          "margin": 1.1818406482223809,
+          "offset": -152,
+          "orientation": 2,
+          "start": 30125,
+          "stop": 30558,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 3.7205551168829225,
+          "margin": 1.0598163385008825,
+          "offset": -152,
+          "orientation": 2,
+          "start": 30635,
+          "stop": 31225,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 4.4960342090581,
+          "margin": 2.4825251561612145,
+          "offset": -146,
+          "orientation": 2,
+          "start": 31506,
+          "stop": 31800,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 4.408240400201663,
+          "margin": 1.4081707345508168,
+          "offset": -161,
+          "orientation": 2,
+          "start": 31825,
+          "stop": 32300,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 3.964143683937685,
+          "margin": 1.6745998179913792,
+          "offset": -151,
+          "orientation": 2,
+          "start": 32481,
+          "stop": 33575,
+          "tie": true
+        },
+        {
+          "accepted": false,
+          "cost": 4.621132268723597,
+          "margin": 1.196494784744048,
+          "offset": -153,
+          "orientation": 2,
+          "start": 33600,
+          "stop": 34225,
+          "tie": true
+        },
+        {
+          "accepted": false,
+          "cost": 4.6649310742728325,
+          "margin": 1.3254841766447827,
+          "offset": -142,
+          "orientation": 2,
+          "start": 34752,
+          "stop": 34908,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 3.220262182527828,
+          "margin": 1.9803088851464419,
+          "offset": -153,
+          "orientation": 2,
+          "start": 35093,
+          "stop": 35772,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 2.9545719072553966,
+          "margin": 1.4308703265370228,
+          "offset": -363,
+          "orientation": 2,
+          "start": 35797,
+          "stop": 35954,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 2.344350804743245,
+          "margin": 0.311200079193497,
+          "offset": -129,
+          "orientation": 2,
+          "start": 35979,
+          "stop": 36686,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 3.3290079909758443,
+          "margin": 0.4283127577176735,
+          "offset": -165,
+          "orientation": 2,
+          "start": 36769,
+          "stop": 37051,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 3.620258090968277,
+          "margin": 1.387556380400036,
+          "offset": -151,
+          "orientation": 2,
+          "start": 37236,
+          "stop": 38271,
+          "tie": true
+        },
+        {
+          "accepted": false,
+          "cost": 3.377528320132422,
+          "margin": 2.076890334809463,
+          "offset": -149,
+          "orientation": 2,
+          "start": 38547,
+          "stop": 38695,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 3.4409915517811656,
+          "margin": 2.7406331578740786,
+          "offset": -149,
+          "orientation": 2,
+          "start": 39003,
+          "stop": 39740,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 3.2459307363469425,
+          "margin": 1.3221164095814673,
+          "offset": -152,
+          "orientation": 2,
+          "start": 39873,
+          "stop": 42301,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 3.79879243741752,
+          "margin": 2.599337238791073,
+          "offset": -151,
+          "orientation": 2,
+          "start": 42825,
+          "stop": 43125,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 4.301561547862221,
+          "margin": 2.3203774459698874,
+          "offset": -151,
+          "orientation": 2,
+          "start": 43215,
+          "stop": 43825,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 3.7808201189348956,
+          "margin": 1.6964874422020952,
+          "offset": -153,
+          "orientation": 2,
+          "start": 43946,
+          "stop": 45182,
+          "tie": true
+        },
+        {
+          "accepted": false,
+          "cost": 4.583913977312866,
+          "margin": 2.5156268728528364,
+          "offset": -150,
+          "orientation": 2,
+          "start": 45325,
+          "stop": 45569,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 3.791930612591762,
+          "margin": 3.0704277867287963,
+          "offset": -323,
+          "orientation": 2,
+          "start": 45594,
+          "stop": 45776,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 4.413545655593674,
+          "margin": 0.5536502318964889,
+          "offset": -155,
+          "orientation": 2,
+          "start": 46084,
+          "stop": 46250,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 3.9095138804787064,
+          "margin": 2.593278559583876,
+          "offset": -155,
+          "orientation": 2,
+          "start": 46325,
+          "stop": 46625,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 3.9220763894474957,
+          "margin": 2.441208581754912,
+          "offset": -153,
+          "orientation": 2,
+          "start": 46896,
+          "stop": 47086,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 4.154321677438406,
+          "margin": 1.0159619574046355,
+          "offset": -153,
+          "orientation": 2,
+          "start": 47313,
+          "stop": 48378,
+          "tie": true
+        },
+        {
+          "accepted": false,
+          "cost": 3.7521106967787135,
+          "margin": 1.7432876453361277,
+          "offset": -148,
+          "orientation": 2,
+          "start": 48525,
+          "stop": 49400,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 4.813404091109175,
+          "margin": 0.2543370807179901,
+          "offset": -388,
+          "orientation": 2,
+          "start": 49505,
+          "stop": 49641,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 4.022752267897418,
+          "margin": 2.469675099328896,
+          "offset": -151,
+          "orientation": 2,
+          "start": 49666,
+          "stop": 50102,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 3.8110068894493634,
+          "margin": 2.0978279982947288,
+          "offset": -152,
+          "orientation": 2,
+          "start": 50111,
+          "stop": 50256,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 4.5372942183355836,
+          "margin": 1.4741128648188981,
+          "offset": -153,
+          "orientation": 2,
+          "start": 50342,
+          "stop": 51400,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 3.101691675689429,
+          "margin": 0.6679603475486928,
+          "offset": -144,
+          "orientation": 2,
+          "start": 51425,
+          "stop": 52374,
+          "tie": true
+        },
+        {
+          "accepted": false,
+          "cost": 4.1289889884667,
+          "margin": 1.3982703712192537,
+          "offset": -151,
+          "orientation": 2,
+          "start": 52644,
+          "stop": 53040,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 4.043378288800066,
+          "margin": 1.5356911495149257,
+          "offset": -151,
+          "orientation": 2,
+          "start": 53050,
+          "stop": 54550,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 4.261073708606988,
+          "margin": 0.2659143960560737,
+          "offset": -149,
+          "orientation": 2,
+          "start": 54575,
+          "stop": 54951,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 3.3620614902164787,
+          "margin": 1.4370452054032805,
+          "offset": -498,
+          "orientation": 2,
+          "start": 55052,
+          "stop": 55181,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 4.861525916311767,
+          "margin": 0.39928321079850093,
+          "offset": -152,
+          "orientation": 2,
+          "start": 55275,
+          "stop": 55422,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 4.049466780864963,
+          "margin": 1.4825081037823313,
+          "offset": -143,
+          "orientation": 2,
+          "start": 55649,
+          "stop": 56050,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 3.710083984054973,
+          "margin": 1.7785853664665,
+          "offset": -150,
+          "orientation": 2,
+          "start": 56230,
+          "stop": 56500,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 4.323802295343675,
+          "margin": 2.376909550411532,
+          "offset": -144,
+          "orientation": 2,
+          "start": 56524,
+          "stop": 56901,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 4.717815664759951,
+          "margin": 1.8652411879768431,
+          "offset": -376,
+          "orientation": 2,
+          "start": 56926,
+          "stop": 57120,
+          "tie": true
+        },
+        {
+          "accepted": false,
+          "cost": 4.229403024524318,
+          "margin": 1.5614489755031116,
+          "offset": -149,
+          "orientation": 2,
+          "start": 57145,
+          "stop": 57450,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 4.473520826956769,
+          "margin": 1.7035986853259413,
+          "offset": -151,
+          "orientation": 2,
+          "start": 57520,
+          "stop": 58910,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 3.982598994517832,
+          "margin": 1.8344720746637035,
+          "offset": -153,
+          "orientation": 2,
+          "start": 59214,
+          "stop": 59577,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 4.450167245778164,
+          "margin": 0.16726040701150868,
+          "offset": -161,
+          "orientation": 2,
+          "start": 59690,
+          "stop": 60311,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 3.365436570203057,
+          "margin": 2.235779525258751,
+          "offset": -155,
+          "orientation": 2,
+          "start": 60524,
+          "stop": 60966,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 4.147949142267957,
+          "margin": 1.2847240607408672,
+          "offset": -148,
+          "orientation": 2,
+          "start": 61358,
+          "stop": 61744,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 4.187599111381218,
+          "margin": 2.021778579302456,
+          "offset": -150,
+          "orientation": 2,
+          "start": 62036,
+          "stop": 62978,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 4.046299238168137,
+          "margin": 2.5527623872213576,
+          "offset": -454,
+          "orientation": 2,
+          "start": 63003,
+          "stop": 63186,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 3.917520043148975,
+          "margin": 2.2529594287125456,
+          "offset": -149,
+          "orientation": 2,
+          "start": 63211,
+          "stop": 64806,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 2.8197706501279565,
+          "margin": 1.865908224374778,
+          "offset": -146,
+          "orientation": 2,
+          "start": 65171,
+          "stop": 65325,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 3.7797694356107203,
+          "margin": 2.7108112672837144,
+          "offset": -150,
+          "orientation": 2,
+          "start": 66124,
+          "stop": 66425,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 2.1231338569898526,
+          "margin": 1.566594248520361,
+          "offset": -153,
+          "orientation": 2,
+          "start": 66450,
+          "stop": 66825,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 1.1172111650902499,
+          "margin": 1.2205521958568644,
+          "offset": -149,
+          "orientation": 2,
+          "start": 66850,
+          "stop": 66981,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 3.2635379313904638,
+          "margin": 2.880221325441405,
+          "offset": -146,
+          "orientation": 2,
+          "start": 70353,
+          "stop": 70528,
+          "tie": false
+        }
+      ],
+      "seed": 900000,
+      "usable_frames": 51753
+    },
+    {
+      "index": 1,
+      "match": "WMX",
+      "offset": 1369,
+      "orientation": 2,
+      "results": [
+        {
+          "accepted": false,
+          "cost": 4.418940966234909,
+          "margin": 0.6319566162806236,
+          "offset": 1375,
+          "orientation": 2,
+          "start": 0,
+          "stop": 700,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 3.1261361596847563,
+          "margin": 1.8669878096433918,
+          "offset": 1366,
+          "orientation": 2,
+          "start": 725,
+          "stop": 1369,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 4.1523910469505605,
+          "margin": 2.3827784118218043,
+          "offset": 1371,
+          "orientation": 2,
+          "start": 1406,
+          "stop": 1574,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 3.70741081539513,
+          "margin": 2.600637524574194,
+          "offset": 1370,
+          "orientation": 2,
+          "start": 1818,
+          "stop": 3182,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 4.408803458489653,
+          "margin": 2.0647965809012003,
+          "offset": 1370,
+          "orientation": 2,
+          "start": 3317,
+          "stop": 3608,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 3.770467155095784,
+          "margin": 1.4417274008299237,
+          "offset": 1375,
+          "orientation": 2,
+          "start": 3920,
+          "stop": 4073,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 5.826999135676344,
+          "margin": 0.07974805269138407,
+          "offset": 1370,
+          "orientation": 2,
+          "start": 4149,
+          "stop": 4325,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 3.8230421632645566,
+          "margin": 2.6806304028009675,
+          "offset": 1364,
+          "orientation": 2,
+          "start": 4365,
+          "stop": 4748,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 4.533484504692837,
+          "margin": 1.8797618641919058,
+          "offset": 1370,
+          "orientation": 2,
+          "start": 4890,
+          "stop": 5174,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 2.7369557151090804,
+          "margin": 2.650791634569841,
+          "offset": 1372,
+          "orientation": 2,
+          "start": 5673,
+          "stop": 5858,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 3.6486344201245906,
+          "margin": 2.4988569472219213,
+          "offset": 1077,
+          "orientation": 2,
+          "start": 5883,
+          "stop": 6068,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 4.800760236617951,
+          "margin": 0.8190135477678568,
+          "offset": 1365,
+          "orientation": 2,
+          "start": 6093,
+          "stop": 6589,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 3.9530810840333546,
+          "margin": 1.4046063389194225,
+          "offset": 1364,
+          "orientation": 2,
+          "start": 7060,
+          "stop": 8378,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 2.160050054629317,
+          "margin": 1.1644397303456886,
+          "offset": 1369,
+          "orientation": 2,
+          "start": 8675,
+          "stop": 9123,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 3.08176304791363,
+          "margin": 1.8235751512316867,
+          "offset": 1367,
+          "orientation": 2,
+          "start": 9227,
+          "stop": 10975,
+          "tie": true
+        },
+        {
+          "accepted": false,
+          "cost": 4.0146514626531395,
+          "margin": 2.93950019102257,
+          "offset": 1368,
+          "orientation": 2,
+          "start": 11125,
+          "stop": 11400,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 4.624928786756938,
+          "margin": 1.8606305999936632,
+          "offset": 1366,
+          "orientation": 2,
+          "start": 11413,
+          "stop": 12196,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 3.9710748833547656,
+          "margin": 1.4175433735605112,
+          "offset": 1366,
+          "orientation": 2,
+          "start": 12212,
+          "stop": 13487,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 4.069695840466607,
+          "margin": 0.19270008268913053,
+          "offset": 1405,
+          "orientation": 2,
+          "start": 13785,
+          "stop": 13939,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 4.561148528086974,
+          "margin": 0.38168928974518845,
+          "offset": 1368,
+          "orientation": 2,
+          "start": 14152,
+          "stop": 14675,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 4.302990179911165,
+          "margin": 1.721148490590659,
+          "offset": 1374,
+          "orientation": 2,
+          "start": 14966,
+          "stop": 15524,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 4.705900907395525,
+          "margin": 1.4735740107538344,
+          "offset": 1367,
+          "orientation": 2,
+          "start": 15525,
+          "stop": 15926,
+          "tie": true
+        },
+        {
+          "accepted": false,
+          "cost": 3.9756709044753262,
+          "margin": 2.554178695565884,
+          "offset": 1368,
+          "orientation": 2,
+          "start": 16647,
+          "stop": 16980,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 4.265961106468376,
+          "margin": 2.205656429316556,
+          "offset": 1367,
+          "orientation": 2,
+          "start": 17025,
+          "stop": 17189,
+          "tie": true
+        },
+        {
+          "accepted": false,
+          "cost": 4.150876595599522,
+          "margin": 1.2598329457171058,
+          "offset": 1368,
+          "orientation": 2,
+          "start": 17406,
+          "stop": 18326,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 4.161037563466042,
+          "margin": 0.9012044797030585,
+          "offset": 1378,
+          "orientation": 2,
+          "start": 18452,
+          "stop": 18853,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 3.9601606686951643,
+          "margin": 0.9372388984415201,
+          "offset": 1078,
+          "orientation": 2,
+          "start": 18878,
+          "stop": 19070,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 2.919331652805006,
+          "margin": 0.8275442847612027,
+          "offset": 1375,
+          "orientation": 2,
+          "start": 19095,
+          "stop": 20056,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 1.8281078246955633,
+          "margin": 0.5393234587741678,
+          "offset": 1022,
+          "orientation": 2,
+          "start": 20081,
+          "stop": 20277,
+          "tie": true
+        },
+        {
+          "accepted": false,
+          "cost": 2.8712171713409833,
+          "margin": 1.4346135797991448,
+          "offset": 1369,
+          "orientation": 2,
+          "start": 20302,
+          "stop": 21459,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 4.09070434822771,
+          "margin": 1.391640437296254,
+          "offset": 1369,
+          "orientation": 2,
+          "start": 21750,
+          "stop": 21925,
+          "tie": true
+        },
+        {
+          "accepted": false,
+          "cost": 4.598426975924645,
+          "margin": 1.1087131142652549,
+          "offset": 1367,
+          "orientation": 2,
+          "start": 22313,
+          "stop": 23072,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 3.34939987038852,
+          "margin": 0.9002418451244014,
+          "offset": 1228,
+          "orientation": 2,
+          "start": 23097,
+          "stop": 23227,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 2.9947349592562986,
+          "margin": 1.3203630891452702,
+          "offset": 1362,
+          "orientation": 2,
+          "start": 23252,
+          "stop": 23490,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 3.9795142469631526,
+          "margin": 0.5934884498776083,
+          "offset": 1373,
+          "orientation": 2,
+          "start": 23587,
+          "stop": 23982,
+          "tie": true
+        },
+        {
+          "accepted": false,
+          "cost": 4.24404468823668,
+          "margin": 2.2384908913170403,
+          "offset": 1371,
+          "orientation": 2,
+          "start": 24283,
+          "stop": 24568,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 4.027421920656412,
+          "margin": 2.6400829860900634,
+          "offset": 1375,
+          "orientation": 2,
+          "start": 24575,
+          "stop": 24746,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 4.156250039907701,
+          "margin": 1.4759558515087008,
+          "offset": 1364,
+          "orientation": 2,
+          "start": 24915,
+          "stop": 25341,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 3.748768162332295,
+          "margin": 1.662633877883168,
+          "offset": 1374,
+          "orientation": 2,
+          "start": 25435,
+          "stop": 25621,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 3.988881783287834,
+          "margin": 2.055811499795821,
+          "offset": 1367,
+          "orientation": 2,
+          "start": 26604,
+          "stop": 27275,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 3.5722581461302614,
+          "margin": 2.389306061360725,
+          "offset": 1369,
+          "orientation": 2,
+          "start": 27283,
+          "stop": 28350,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 3.165595839565008,
+          "margin": 0.752479152396901,
+          "offset": 1375,
+          "orientation": 2,
+          "start": 28375,
+          "stop": 28875,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 3.754080601814773,
+          "margin": 1.4598340193989854,
+          "offset": 1368,
+          "orientation": 2,
+          "start": 29546,
+          "stop": 31108,
+          "tie": true
+        },
+        {
+          "accepted": false,
+          "cost": 4.619574912888405,
+          "margin": 1.3000306604604486,
+          "offset": 1090,
+          "orientation": 2,
+          "start": 31133,
+          "stop": 31319,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 3.351393265629705,
+          "margin": 1.6768101576097405,
+          "offset": 1369,
+          "orientation": 2,
+          "start": 31344,
+          "stop": 32150,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 2.8699071537864236,
+          "margin": 0.8639518876925907,
+          "offset": 1347,
+          "orientation": 2,
+          "start": 32882,
+          "stop": 33025,
+          "tie": true
+        },
+        {
+          "accepted": false,
+          "cost": 3.0475937715791614,
+          "margin": 1.583992547575635,
+          "offset": 1367,
+          "orientation": 2,
+          "start": 33050,
+          "stop": 34448,
+          "tie": true
+        },
+        {
+          "accepted": false,
+          "cost": 3.3249647811959067,
+          "margin": 0.21759309444025154,
+          "offset": 1370,
+          "orientation": 2,
+          "start": 34850,
+          "stop": 35225,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 2.2367566213962005,
+          "margin": 0.7690944876678585,
+          "offset": 1368,
+          "orientation": 2,
+          "start": 35263,
+          "stop": 37150,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 3.596727266627723,
+          "margin": 1.5295414954251934,
+          "offset": 1371,
+          "orientation": 2,
+          "start": 37669,
+          "stop": 40150,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 2.5305201452240578,
+          "margin": 1.6881168776631528,
+          "offset": 1369,
+          "orientation": 2,
+          "start": 40641,
+          "stop": 41809,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 4.395304443485518,
+          "margin": 2.356063563898883,
+          "offset": 1360,
+          "orientation": 2,
+          "start": 41929,
+          "stop": 42191,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 1.7484732727814873,
+          "margin": 3.758318287399294,
+          "offset": 1376,
+          "orientation": 2,
+          "start": 42669,
+          "stop": 42794,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 3.774825041215765,
+          "margin": 2.7632841404217006,
+          "offset": 1369,
+          "orientation": 2,
+          "start": 42850,
+          "stop": 43103,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 4.950970581327653,
+          "margin": 0.41373995646702877,
+          "offset": 1365,
+          "orientation": 2,
+          "start": 43114,
+          "stop": 43899,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 6.193866397901604,
+          "margin": 0.852302295839106,
+          "offset": 1020,
+          "orientation": 2,
+          "start": 44000,
+          "stop": 44275,
+          "tie": true
+        },
+        {
+          "accepted": false,
+          "cost": 3.724709113148349,
+          "margin": 2.7414951837902137,
+          "offset": 1369,
+          "orientation": 2,
+          "start": 44281,
+          "stop": 44871,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 2.947720851822458,
+          "margin": 2.897834981647232,
+          "offset": 1369,
+          "orientation": 2,
+          "start": 45491,
+          "stop": 45700,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 3.8953164578282307,
+          "margin": 1.591026298625394,
+          "offset": 1368,
+          "orientation": 2,
+          "start": 46425,
+          "stop": 47109,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 3.4103002669670133,
+          "margin": 3.6103244945291255,
+          "offset": 1375,
+          "orientation": 2,
+          "start": 47215,
+          "stop": 47616,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 2.037455959683135,
+          "margin": 0.687276237980301,
+          "offset": 1371,
+          "orientation": 2,
+          "start": 47898,
+          "stop": 49190,
+          "tie": true
+        },
+        {
+          "accepted": false,
+          "cost": 2.3675803704521416,
+          "margin": 1.024200478136518,
+          "offset": 1372,
+          "orientation": 2,
+          "start": 49303,
+          "stop": 50940,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 1.6184397335705922,
+          "margin": 3.070885390560232,
+          "offset": 1370,
+          "orientation": 2,
+          "start": 51327,
+          "stop": 51558,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 3.7918103150095486,
+          "margin": 2.3111279542902357,
+          "offset": 1368,
+          "orientation": 2,
+          "start": 53596,
+          "stop": 53730,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 4.268330285289233,
+          "margin": 1.933476583568682,
+          "offset": 1368,
+          "orientation": 2,
+          "start": 53800,
+          "stop": 53950,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 3.1293238667272196,
+          "margin": 3.367458221772655,
+          "offset": 1370,
+          "orientation": 2,
+          "start": 54430,
+          "stop": 54835,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 5.724877946661431,
+          "margin": 0.5788089173599973,
+          "offset": 1363,
+          "orientation": 2,
+          "start": 54966,
+          "stop": 55525,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 5.060696909862997,
+          "margin": 0.7320092950612223,
+          "offset": 1375,
+          "orientation": 2,
+          "start": 55550,
+          "stop": 55700,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 3.120103118641611,
+          "margin": 3.0825056850586017,
+          "offset": 1367,
+          "orientation": 2,
+          "start": 55869,
+          "stop": 56150,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 4.41620274268292,
+          "margin": 1.1340741192065629,
+          "offset": 1370,
+          "orientation": 2,
+          "start": 56175,
+          "stop": 56951,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 4.416747496366603,
+          "margin": 0.5975138959472197,
+          "offset": 1357,
+          "orientation": 2,
+          "start": 57117,
+          "stop": 57466,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 3.999500901462183,
+          "margin": 1.8608195952349704,
+          "offset": 1367,
+          "orientation": 2,
+          "start": 57861,
+          "stop": 58023,
+          "tie": true
+        },
+        {
+          "accepted": false,
+          "cost": 3.556951630803987,
+          "margin": 2.0933987153864613,
+          "offset": 1369,
+          "orientation": 2,
+          "start": 58128,
+          "stop": 58665,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 3.9698232038939283,
+          "margin": 1.3297426965407197,
+          "offset": 1371,
+          "orientation": 2,
+          "start": 58749,
+          "stop": 59450,
+          "tie": true
+        },
+        {
+          "accepted": false,
+          "cost": 3.4875795687340916,
+          "margin": 1.11160901692281,
+          "offset": 1370,
+          "orientation": 2,
+          "start": 59475,
+          "stop": 61125,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 2.9348180272374247,
+          "margin": 0.2778916934663478,
+          "offset": 994,
+          "orientation": 2,
+          "start": 61230,
+          "stop": 61379,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 4.200655007673317,
+          "margin": 1.2505319965946269,
+          "offset": 1364,
+          "orientation": 2,
+          "start": 61775,
+          "stop": 62208,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 4.910485242898762,
+          "margin": 1.0977591742188784,
+          "offset": 1372,
+          "orientation": 2,
+          "start": 62443,
+          "stop": 62663,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 5.014464916346671,
+          "margin": 0.46343046740728333,
+          "offset": 1195,
+          "orientation": 2,
+          "start": 62725,
+          "stop": 62850,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 3.9042447095221466,
+          "margin": 2.7280564867573296,
+          "offset": 1369,
+          "orientation": 2,
+          "start": 62896,
+          "stop": 63125,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 2.9923104080121115,
+          "margin": 2.3267618286326015,
+          "offset": 1370,
+          "orientation": 2,
+          "start": 63150,
+          "stop": 63664,
+          "tie": true
+        },
+        {
+          "accepted": false,
+          "cost": 3.4432293959924154,
+          "margin": 1.3754962088750071,
+          "offset": 1369,
+          "orientation": 2,
+          "start": 65600,
+          "stop": 67025,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 3.7713172581479495,
+          "margin": 1.9418298672473555,
+          "offset": 1370,
+          "orientation": 2,
+          "start": 67100,
+          "stop": 68442,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 3.5907433634167916,
+          "margin": 1.7704023856103177,
+          "offset": 1367,
+          "orientation": 2,
+          "start": 69009,
+          "stop": 69533,
+          "tie": true
+        },
+        {
+          "accepted": false,
+          "cost": 4.834196665125516,
+          "margin": 0.37369353929234705,
+          "offset": 1364,
+          "orientation": 2,
+          "start": 69998,
+          "stop": 70850,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 4.652179977791685,
+          "margin": 0.40667467981483174,
+          "offset": 1195,
+          "orientation": 2,
+          "start": 70875,
+          "stop": 71050,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 3.545669676266577,
+          "margin": 0.8982823373042867,
+          "offset": 1370,
+          "orientation": 2,
+          "start": 71440,
+          "stop": 72899,
+          "tie": true
+        }
+      ],
+      "seed": 900001,
+      "usable_frames": 51890
+    },
+    {
+      "index": 0,
+      "match": "WN1",
+      "offset": -951,
+      "orientation": 0,
+      "results": [
+        {
+          "accepted": false,
+          "cost": 2.5505782914128843,
+          "margin": 1.6191215684374556,
+          "offset": -950,
+          "orientation": 0,
+          "start": 1090,
+          "stop": 3956,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 2.8051967861429317,
+          "margin": 2.256302512573824,
+          "offset": -951,
+          "orientation": 0,
+          "start": 4845,
+          "stop": 5157,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 3.7110060085187984,
+          "margin": 2.3939111488051372,
+          "offset": -952,
+          "orientation": 0,
+          "start": 5313,
+          "stop": 6050,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 4.0353043585934,
+          "margin": 1.4419605312016408,
+          "offset": -955,
+          "orientation": 0,
+          "start": 6139,
+          "stop": 6325,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 3.379647294148051,
+          "margin": 1.2276352140508893,
+          "offset": -950,
+          "orientation": 0,
+          "start": 6379,
+          "stop": 7291,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 4.940757060869687,
+          "margin": 1.6328643084677168,
+          "offset": -947,
+          "orientation": 0,
+          "start": 7687,
+          "stop": 8225,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 3.474846526836449,
+          "margin": 1.9309898746646401,
+          "offset": -953,
+          "orientation": 0,
+          "start": 8250,
+          "stop": 8667,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 5.245165061318373,
+          "margin": 2.287425284296946,
+          "offset": -950,
+          "orientation": 0,
+          "start": 8675,
+          "stop": 9303,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 3.370539925586377,
+          "margin": 0.9129403548696318,
+          "offset": -956,
+          "orientation": 0,
+          "start": 9325,
+          "stop": 10941,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 2.3833231202243423,
+          "margin": 1.1320562083683496,
+          "offset": -1205,
+          "orientation": 0,
+          "start": 10966,
+          "stop": 11095,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 3.0168747733603927,
+          "margin": 0.4066271735875122,
+          "offset": -955,
+          "orientation": 0,
+          "start": 11120,
+          "stop": 12815,
+          "tie": true
+        },
+        {
+          "accepted": false,
+          "cost": 3.5242439205221867,
+          "margin": 1.5006938128427496,
+          "offset": -959,
+          "orientation": 0,
+          "start": 12838,
+          "stop": 13225,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 3.6093726930934746,
+          "margin": 1.5291380440145783,
+          "offset": -1267,
+          "orientation": 0,
+          "start": 13276,
+          "stop": 13454,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 3.078736614553322,
+          "margin": 2.47549278218031,
+          "offset": -952,
+          "orientation": 0,
+          "start": 13570,
+          "stop": 13862,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 4.773014153079885,
+          "margin": 1.9644454000521492,
+          "offset": -946,
+          "orientation": 0,
+          "start": 14111,
+          "stop": 14250,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 3.719745386367386,
+          "margin": 0.823521695451904,
+          "offset": -953,
+          "orientation": 0,
+          "start": 14758,
+          "stop": 15969,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 3.8383529259052938,
+          "margin": 1.5728108152868985,
+          "offset": -951,
+          "orientation": 0,
+          "start": 16136,
+          "stop": 16926,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 3.4506698679508867,
+          "margin": 2.664626291839463,
+          "offset": -953,
+          "orientation": 0,
+          "start": 17025,
+          "stop": 17456,
+          "tie": true
+        },
+        {
+          "accepted": false,
+          "cost": 2.5837618525506687,
+          "margin": 3.438343153873817,
+          "offset": -1162,
+          "orientation": 0,
+          "start": 17481,
+          "stop": 17631,
+          "tie": true
+        },
+        {
+          "accepted": false,
+          "cost": 2.861424472333232,
+          "margin": 2.101173018801537,
+          "offset": -950,
+          "orientation": 0,
+          "start": 18460,
+          "stop": 18675,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 3.9981315029970794,
+          "margin": 2.1623394844202997,
+          "offset": -951,
+          "orientation": 0,
+          "start": 18700,
+          "stop": 18866,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 4.30985682015155,
+          "margin": 1.6560447660681978,
+          "offset": -952,
+          "orientation": 0,
+          "start": 19275,
+          "stop": 19698,
+          "tie": true
+        },
+        {
+          "accepted": false,
+          "cost": 3.3278491638843817,
+          "margin": 2.358169217018333,
+          "offset": -949,
+          "orientation": 0,
+          "start": 19785,
+          "stop": 20349,
+          "tie": true
+        },
+        {
+          "accepted": false,
+          "cost": 4.019455649150095,
+          "margin": 2.27594241651766,
+          "offset": -953,
+          "orientation": 0,
+          "start": 20587,
+          "stop": 21076,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 2.9685464831299098,
+          "margin": 1.4712647300670558,
+          "offset": -952,
+          "orientation": 0,
+          "start": 21351,
+          "stop": 21725,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 2.9372398508156166,
+          "margin": 2.8190362582637385,
+          "offset": -951,
+          "orientation": 0,
+          "start": 22220,
+          "stop": 22475,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 2.6530465453734937,
+          "margin": 1.3536571247496356,
+          "offset": -950,
+          "orientation": 0,
+          "start": 22850,
+          "stop": 23050,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 3.4396444122920857,
+          "margin": 0.9737193958312615,
+          "offset": -952,
+          "orientation": 0,
+          "start": 23075,
+          "stop": 23901,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 3.6253066215068994,
+          "margin": 1.0908505472513825,
+          "offset": -950,
+          "orientation": 0,
+          "start": 24160,
+          "stop": 25000,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 3.5101599469024882,
+          "margin": 2.481341295373563,
+          "offset": -953,
+          "orientation": 0,
+          "start": 25152,
+          "stop": 26093,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 3.2173455788216265,
+          "margin": 2.2670233773472046,
+          "offset": -940,
+          "orientation": 0,
+          "start": 26225,
+          "stop": 26574,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 4.441868415769073,
+          "margin": 1.2714957958837463,
+          "offset": -1295,
+          "orientation": 0,
+          "start": 26575,
+          "stop": 26818,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 3.6695510741739517,
+          "margin": 2.0152463106537377,
+          "offset": -953,
+          "orientation": 0,
+          "start": 27637,
+          "stop": 27925,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 2.7417549997030135,
+          "margin": 1.6472109481912933,
+          "offset": -956,
+          "orientation": 0,
+          "start": 27950,
+          "stop": 28476,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 2.7465505310265406,
+          "margin": 3.1581850552073294,
+          "offset": -950,
+          "orientation": 0,
+          "start": 29885,
+          "stop": 30049,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 4.175819956461062,
+          "margin": 2.6006777429130246,
+          "offset": -955,
+          "orientation": 0,
+          "start": 30050,
+          "stop": 30312,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 2.8190766292101923,
+          "margin": 3.1812560232790252,
+          "offset": -953,
+          "orientation": 0,
+          "start": 30983,
+          "stop": 31182,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 3.2802530182748044,
+          "margin": 0.7509171800523888,
+          "offset": -950,
+          "orientation": 0,
+          "start": 31485,
+          "stop": 33116,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 3.258095294080328,
+          "margin": 0.8873740499046541,
+          "offset": -1273,
+          "orientation": 0,
+          "start": 33167,
+          "stop": 33305,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 3.79088689435875,
+          "margin": 1.7686191616912827,
+          "offset": -953,
+          "orientation": 0,
+          "start": 33524,
+          "stop": 34138,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 4.0697914439271505,
+          "margin": 1.752605337050027,
+          "offset": -949,
+          "orientation": 0,
+          "start": 34304,
+          "stop": 34950,
+          "tie": true
+        },
+        {
+          "accepted": false,
+          "cost": 2.574426716624646,
+          "margin": 1.515270263782058,
+          "offset": -962,
+          "orientation": 0,
+          "start": 34955,
+          "stop": 35175,
+          "tie": true
+        },
+        {
+          "accepted": false,
+          "cost": 4.392536537736182,
+          "margin": 1.5813146124583417,
+          "offset": -949,
+          "orientation": 0,
+          "start": 36294,
+          "stop": 36541,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 4.089574082245917,
+          "margin": 1.6211443452027599,
+          "offset": -951,
+          "orientation": 0,
+          "start": 36713,
+          "stop": 37090,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 3.6188593416731303,
+          "margin": 0.45116727746207896,
+          "offset": -949,
+          "orientation": 0,
+          "start": 37360,
+          "stop": 38175,
+          "tie": true
+        },
+        {
+          "accepted": false,
+          "cost": 4.107096291541911,
+          "margin": 2.2416323698225007,
+          "offset": -949,
+          "orientation": 0,
+          "start": 38599,
+          "stop": 38775,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 3.7171168343884564,
+          "margin": 1.9648778597926273,
+          "offset": -947,
+          "orientation": 0,
+          "start": 39412,
+          "stop": 39864,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 3.473666893849234,
+          "margin": 2.0135444526373782,
+          "offset": -954,
+          "orientation": 0,
+          "start": 40021,
+          "stop": 40239,
+          "tie": true
+        },
+        {
+          "accepted": false,
+          "cost": 4.748121070814903,
+          "margin": 1.638721143995661,
+          "offset": -951,
+          "orientation": 0,
+          "start": 40560,
+          "stop": 41425,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 3.32536873413545,
+          "margin": 1.3257115629004086,
+          "offset": -951,
+          "orientation": 0,
+          "start": 41632,
+          "stop": 43250,
+          "tie": true
+        },
+        {
+          "accepted": false,
+          "cost": 3.845178222226154,
+          "margin": 1.551015765840631,
+          "offset": -950,
+          "orientation": 0,
+          "start": 43628,
+          "stop": 43952,
+          "tie": true
+        },
+        {
+          "accepted": false,
+          "cost": 3.5147267547680254,
+          "margin": 2.291846463454749,
+          "offset": -949,
+          "orientation": 0,
+          "start": 44408,
+          "stop": 44652,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 3.5074031104622665,
+          "margin": 2.45317300980173,
+          "offset": -959,
+          "orientation": 0,
+          "start": 44828,
+          "stop": 45111,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 3.5146037264214005,
+          "margin": 1.3555237013507329,
+          "offset": -949,
+          "orientation": 0,
+          "start": 45401,
+          "stop": 45991,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 2.0236601916954586,
+          "margin": 1.7185498149515173,
+          "offset": -949,
+          "orientation": 0,
+          "start": 46267,
+          "stop": 46550,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 4.336019668004745,
+          "margin": 1.0825690537927688,
+          "offset": -952,
+          "orientation": 0,
+          "start": 46801,
+          "stop": 47858,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 3.3994193042164613,
+          "margin": 1.3679267893436582,
+          "offset": -949,
+          "orientation": 0,
+          "start": 48723,
+          "stop": 49278,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 3.732260510150439,
+          "margin": 0.5795365419369314,
+          "offset": -936,
+          "orientation": 0,
+          "start": 49388,
+          "stop": 49651,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 4.066414213820607,
+          "margin": 2.7086662127222265,
+          "offset": -950,
+          "orientation": 0,
+          "start": 49810,
+          "stop": 50073,
+          "tie": true
+        },
+        {
+          "accepted": false,
+          "cost": 3.1366083866318957,
+          "margin": 2.103961775330307,
+          "offset": -950,
+          "orientation": 0,
+          "start": 50339,
+          "stop": 50711,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 2.4258718513600654,
+          "margin": 1.0433969853716545,
+          "offset": -947,
+          "orientation": 0,
+          "start": 50910,
+          "stop": 51838,
+          "tie": true
+        },
+        {
+          "accepted": false,
+          "cost": 3.519269620343038,
+          "margin": 2.648519892021169,
+          "offset": -951,
+          "orientation": 0,
+          "start": 53419,
+          "stop": 54238,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 3.131992482064333,
+          "margin": 2.167279623117633,
+          "offset": -953,
+          "orientation": 0,
+          "start": 54312,
+          "stop": 54444,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 1.8562229049744705,
+          "margin": 1.3682452707285935,
+          "offset": -945,
+          "orientation": 0,
+          "start": 54675,
+          "stop": 55025,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 2.917994492992486,
+          "margin": 1.220273865635698,
+          "offset": -953,
+          "orientation": 0,
+          "start": 55050,
+          "stop": 55668,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 3.6427519263154373,
+          "margin": 2.041204612143961,
+          "offset": -949,
+          "orientation": 0,
+          "start": 56134,
+          "stop": 57100,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 3.8080943546049073,
+          "margin": 1.503070606834704,
+          "offset": -951,
+          "orientation": 0,
+          "start": 57125,
+          "stop": 57421,
+          "tie": true
+        },
+        {
+          "accepted": false,
+          "cost": 3.5194035502456793,
+          "margin": 2.5591158726709184,
+          "offset": -950,
+          "orientation": 0,
+          "start": 57485,
+          "stop": 57795,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 3.3278500312683343,
+          "margin": 2.765411118801995,
+          "offset": -950,
+          "orientation": 0,
+          "start": 57964,
+          "stop": 58450,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 3.6452664697937265,
+          "margin": 2.09526135630743,
+          "offset": -950,
+          "orientation": 0,
+          "start": 58600,
+          "stop": 60200,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 3.9936137957789732,
+          "margin": 1.2774545539230724,
+          "offset": -949,
+          "orientation": 0,
+          "start": 60450,
+          "stop": 61463,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 3.879277548334614,
+          "margin": 2.322273331354332,
+          "offset": -952,
+          "orientation": 0,
+          "start": 61575,
+          "stop": 62050,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 4.025331583358917,
+          "margin": 2.2351365114974717,
+          "offset": -952,
+          "orientation": 0,
+          "start": 62075,
+          "stop": 62550,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 3.757840109473339,
+          "margin": 1.8651980041090614,
+          "offset": -950,
+          "orientation": 0,
+          "start": 62894,
+          "stop": 64700,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 3.640962900467708,
+          "margin": 2.2896771841858796,
+          "offset": -947,
+          "orientation": 0,
+          "start": 65541,
+          "stop": 65775,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 3.26161151517526,
+          "margin": 1.0965107461843289,
+          "offset": -966,
+          "orientation": 0,
+          "start": 66624,
+          "stop": 66821,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 3.327535468578177,
+          "margin": 2.223402743677044,
+          "offset": -954,
+          "orientation": 0,
+          "start": 67098,
+          "stop": 67232,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 4.275737733076443,
+          "margin": 1.5346904250585718,
+          "offset": -951,
+          "orientation": 0,
+          "start": 67333,
+          "stop": 67540,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 3.8889267755698,
+          "margin": 1.9218580428132448,
+          "offset": -945,
+          "orientation": 0,
+          "start": 67590,
+          "stop": 68236,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 3.771115504200413,
+          "margin": 2.7147507741147834,
+          "offset": -952,
+          "orientation": 0,
+          "start": 68365,
+          "stop": 68800,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 2.9255835169392306,
+          "margin": 3.1129461335219863,
+          "offset": -950,
+          "orientation": 0,
+          "start": 68825,
+          "stop": 69254,
+          "tie": false
+        }
+      ],
+      "seed": 900010,
+      "usable_frames": 45745
+    },
+    {
+      "index": 1,
+      "match": "WN1",
+      "offset": -2799,
+      "orientation": 1,
+      "results": [
+        {
+          "accepted": false,
+          "cost": 3.6740977725277832,
+          "margin": 1.2304316358860405,
+          "offset": -2800,
+          "orientation": 1,
+          "start": 2799,
+          "stop": 3900,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 3.6089586592971004,
+          "margin": 2.116878653200897,
+          "offset": -2800,
+          "orientation": 1,
+          "start": 4536,
+          "stop": 4937,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 3.8246222295110766,
+          "margin": 1.75886990321031,
+          "offset": -2971,
+          "orientation": 1,
+          "start": 5021,
+          "stop": 5150,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 5.402337929427443,
+          "margin": 1.237547967107547,
+          "offset": -2801,
+          "orientation": 1,
+          "start": 5340,
+          "stop": 5500,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 3.794808085403867,
+          "margin": 2.281549745082332,
+          "offset": -2801,
+          "orientation": 1,
+          "start": 5595,
+          "stop": 5814,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 3.680368772586943,
+          "margin": 1.22548470941496,
+          "offset": -2803,
+          "orientation": 1,
+          "start": 5875,
+          "stop": 6358,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 3.5211395329441904,
+          "margin": 0.5549198304319449,
+          "offset": -2798,
+          "orientation": 1,
+          "start": 6472,
+          "stop": 7525,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 3.211546742424932,
+          "margin": 2.3983411742044187,
+          "offset": -2799,
+          "orientation": 1,
+          "start": 7761,
+          "stop": 8289,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 3.7064321301659184,
+          "margin": 1.6952256528963305,
+          "offset": -2799,
+          "orientation": 1,
+          "start": 8518,
+          "stop": 8901,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 3.125055078433956,
+          "margin": 1.1354384607459576,
+          "offset": -2798,
+          "orientation": 1,
+          "start": 9425,
+          "stop": 10815,
+          "tie": true
+        },
+        {
+          "accepted": false,
+          "cost": 3.8841097538602636,
+          "margin": 1.1388310185239945,
+          "offset": -2796,
+          "orientation": 1,
+          "start": 11720,
+          "stop": 12200,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 3.9799580759527258,
+          "margin": 0.7082720006393224,
+          "offset": -2785,
+          "orientation": 1,
+          "start": 12225,
+          "stop": 12444,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 3.1094105523022364,
+          "margin": 2.3474147361786635,
+          "offset": -2799,
+          "orientation": 1,
+          "start": 12843,
+          "stop": 14621,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 3.097311351074516,
+          "margin": 0.7388517331927122,
+          "offset": -2794,
+          "orientation": 1,
+          "start": 14824,
+          "stop": 15395,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 3.0528565231591887,
+          "margin": 1.767381565907184,
+          "offset": -2802,
+          "orientation": 1,
+          "start": 15476,
+          "stop": 16230,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 4.107458411068384,
+          "margin": 1.7699678790935565,
+          "offset": -3023,
+          "orientation": 1,
+          "start": 16255,
+          "stop": 16412,
+          "tie": true
+        },
+        {
+          "accepted": false,
+          "cost": 4.066834224796857,
+          "margin": 0.39820401416390183,
+          "offset": -2806,
+          "orientation": 1,
+          "start": 16437,
+          "stop": 17600,
+          "tie": true
+        },
+        {
+          "accepted": false,
+          "cost": 2.086259328789485,
+          "margin": 0.543879238813993,
+          "offset": -2799,
+          "orientation": 1,
+          "start": 17625,
+          "stop": 18385,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 2.907821077752095,
+          "margin": 0.228759669940648,
+          "offset": -2818,
+          "orientation": 1,
+          "start": 18692,
+          "stop": 19325,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 3.6195408788798455,
+          "margin": 0.9448261789163284,
+          "offset": -2795,
+          "orientation": 1,
+          "start": 19350,
+          "stop": 22569,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 4.371968429698624,
+          "margin": 0.5818193037830035,
+          "offset": -2790,
+          "orientation": 1,
+          "start": 23050,
+          "stop": 23222,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 3.9442615382301445,
+          "margin": 1.7448199136462912,
+          "offset": -2796,
+          "orientation": 1,
+          "start": 23325,
+          "stop": 24161,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 2.176638174100483,
+          "margin": 0.6393157119312032,
+          "offset": -2799,
+          "orientation": 1,
+          "start": 24329,
+          "stop": 26725,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 3.023741425326322,
+          "margin": 2.459732811459883,
+          "offset": -2794,
+          "orientation": 1,
+          "start": 26754,
+          "stop": 27273,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 4.979833610846721,
+          "margin": 1.0094625661965404,
+          "offset": -2798,
+          "orientation": 1,
+          "start": 27418,
+          "stop": 27661,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 2.320100892877257,
+          "margin": 0.9481560925040227,
+          "offset": -2824,
+          "orientation": 1,
+          "start": 28092,
+          "stop": 28225,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 2.7745991883614862,
+          "margin": 2.745862265809001,
+          "offset": -2799,
+          "orientation": 1,
+          "start": 29088,
+          "stop": 29328,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 2.39135862362761,
+          "margin": 1.1829313702936832,
+          "offset": -2798,
+          "orientation": 1,
+          "start": 29781,
+          "stop": 30314,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 3.81680514586332,
+          "margin": 1.5723400278457618,
+          "offset": -2798,
+          "orientation": 1,
+          "start": 30740,
+          "stop": 31594,
+          "tie": true
+        },
+        {
+          "accepted": false,
+          "cost": 3.5985985929004043,
+          "margin": 2.6836580668180137,
+          "offset": -2803,
+          "orientation": 1,
+          "start": 31651,
+          "stop": 31824,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 3.3971659943678447,
+          "margin": 0.7101387792991045,
+          "offset": -2795,
+          "orientation": 1,
+          "start": 32150,
+          "stop": 32625,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 3.282888626425853,
+          "margin": 0.2099415845110446,
+          "offset": -3007,
+          "orientation": 1,
+          "start": 32650,
+          "stop": 32832,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 2.7511013603433847,
+          "margin": 1.4322939890481283,
+          "offset": -2798,
+          "orientation": 1,
+          "start": 32857,
+          "stop": 33013,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 2.8144702095171477,
+          "margin": 0.8005853091022517,
+          "offset": -3074,
+          "orientation": 1,
+          "start": 33038,
+          "stop": 33175,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 3.253267224265748,
+          "margin": 1.269223603678514,
+          "offset": -2798,
+          "orientation": 1,
+          "start": 33200,
+          "stop": 34166,
+          "tie": true
+        },
+        {
+          "accepted": false,
+          "cost": 2.2843768741522,
+          "margin": 1.415056416821327,
+          "offset": -2799,
+          "orientation": 1,
+          "start": 34310,
+          "stop": 34550,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 3.039213147307193,
+          "margin": 1.2857721128455508,
+          "offset": -2790,
+          "orientation": 1,
+          "start": 35211,
+          "stop": 35429,
+          "tie": true
+        },
+        {
+          "accepted": false,
+          "cost": 2.8110084277228276,
+          "margin": 0.9347462029253553,
+          "offset": -2794,
+          "orientation": 1,
+          "start": 35635,
+          "stop": 38175,
+          "tie": true
+        },
+        {
+          "accepted": false,
+          "cost": 2.2488665811609048,
+          "margin": 0.39721347883261204,
+          "offset": -2780,
+          "orientation": 1,
+          "start": 38200,
+          "stop": 38493,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 3.257459232469319,
+          "margin": 2.2205089605499473,
+          "offset": -2801,
+          "orientation": 1,
+          "start": 38610,
+          "stop": 39000,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 3.5949846958177805,
+          "margin": 1.0760374883643324,
+          "offset": -2803,
+          "orientation": 1,
+          "start": 39012,
+          "stop": 39897,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 3.99490441768782,
+          "margin": 1.32912867839392,
+          "offset": -2801,
+          "orientation": 1,
+          "start": 40150,
+          "stop": 40695,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 3.9408871447464846,
+          "margin": 0.8563661555500626,
+          "offset": -2803,
+          "orientation": 1,
+          "start": 40844,
+          "stop": 41350,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 2.8553517867921747,
+          "margin": 1.491275951302924,
+          "offset": -2821,
+          "orientation": 1,
+          "start": 41550,
+          "stop": 41678,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 4.004756514354859,
+          "margin": 2.150320887730376,
+          "offset": -2800,
+          "orientation": 1,
+          "start": 41721,
+          "stop": 42331,
+          "tie": true
+        },
+        {
+          "accepted": false,
+          "cost": 4.661723792930032,
+          "margin": 1.6048110085574683,
+          "offset": -3032,
+          "orientation": 1,
+          "start": 42356,
+          "stop": 42530,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 2.166931023016592,
+          "margin": 2.964443483007579,
+          "offset": -2797,
+          "orientation": 1,
+          "start": 42555,
+          "stop": 42735,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 3.7205862022026985,
+          "margin": 1.0641767391898003,
+          "offset": -2791,
+          "orientation": 1,
+          "start": 43014,
+          "stop": 43629,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 4.173370560574743,
+          "margin": 0.8193244314981545,
+          "offset": -3101,
+          "orientation": 1,
+          "start": 43654,
+          "stop": 43847,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 3.498180658614674,
+          "margin": 1.2231188489014255,
+          "offset": -2797,
+          "orientation": 1,
+          "start": 43872,
+          "stop": 44492,
+          "tie": true
+        },
+        {
+          "accepted": false,
+          "cost": 2.895363271185552,
+          "margin": 0.5123466908313956,
+          "offset": -2820,
+          "orientation": 1,
+          "start": 44634,
+          "stop": 44889,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 4.021676653849559,
+          "margin": 1.3252195042790031,
+          "offset": -2795,
+          "orientation": 1,
+          "start": 45150,
+          "stop": 45420,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 2.397743667569394,
+          "margin": 3.2315128720993305,
+          "offset": -2798,
+          "orientation": 1,
+          "start": 45828,
+          "stop": 45975,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 3.7581250830747703,
+          "margin": 1.1046036483212878,
+          "offset": -2798,
+          "orientation": 1,
+          "start": 46017,
+          "stop": 47076,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 4.2703564445008215,
+          "margin": 1.0919749232876805,
+          "offset": -2792,
+          "orientation": 1,
+          "start": 47512,
+          "stop": 47661,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 3.5410788659381196,
+          "margin": 1.1392615955714267,
+          "offset": -2806,
+          "orientation": 1,
+          "start": 48140,
+          "stop": 48622,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 3.203720984556279,
+          "margin": 0.6015305915968079,
+          "offset": -3042,
+          "orientation": 1,
+          "start": 48647,
+          "stop": 48838,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 2.344629987110501,
+          "margin": 0.7650509027760735,
+          "offset": -2793,
+          "orientation": 1,
+          "start": 48863,
+          "stop": 49303,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 2.9119641205772826,
+          "margin": 1.2679330863369582,
+          "offset": -2798,
+          "orientation": 1,
+          "start": 49553,
+          "stop": 51238,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 3.088575787003513,
+          "margin": 3.3969839714734333,
+          "offset": -2800,
+          "orientation": 1,
+          "start": 52225,
+          "stop": 52550,
+          "tie": true
+        },
+        {
+          "accepted": false,
+          "cost": 5.056895614231568,
+          "margin": 1.273887983922207,
+          "offset": -3013,
+          "orientation": 1,
+          "start": 52593,
+          "stop": 52773,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 3.5814291097578885,
+          "margin": 0.7823953433504021,
+          "offset": -2809,
+          "orientation": 1,
+          "start": 52798,
+          "stop": 53408,
+          "tie": true
+        },
+        {
+          "accepted": false,
+          "cost": 3.8980563064827334,
+          "margin": 2.1463248449545556,
+          "offset": -2803,
+          "orientation": 1,
+          "start": 53681,
+          "stop": 53950,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 3.9339060856814667,
+          "margin": 2.4272961535398068,
+          "offset": -2806,
+          "orientation": 1,
+          "start": 54150,
+          "stop": 54275,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 3.86826844628951,
+          "margin": 1.512854111659495,
+          "offset": -2789,
+          "orientation": 1,
+          "start": 54384,
+          "stop": 55034,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 3.71708577092129,
+          "margin": 0.6400665243490704,
+          "offset": -2793,
+          "orientation": 1,
+          "start": 55458,
+          "stop": 56225,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 4.706830821985945,
+          "margin": 0.1801111980161494,
+          "offset": -2796,
+          "orientation": 1,
+          "start": 56521,
+          "stop": 56817,
+          "tie": true
+        },
+        {
+          "accepted": false,
+          "cost": 3.4791618840268694,
+          "margin": 2.681824250313665,
+          "offset": -2799,
+          "orientation": 1,
+          "start": 57358,
+          "stop": 58248,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 4.170871953745983,
+          "margin": 1.022036100151892,
+          "offset": -2798,
+          "orientation": 1,
+          "start": 58741,
+          "stop": 59050,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 5.725983874882242,
+          "margin": 0.6432327392393216,
+          "offset": -2795,
+          "orientation": 1,
+          "start": 59075,
+          "stop": 59425,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 3.9947243011139304,
+          "margin": 0.6789337229065233,
+          "offset": -3157,
+          "orientation": 1,
+          "start": 60075,
+          "stop": 60209,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 3.24757723207311,
+          "margin": 1.468747786625506,
+          "offset": -2799,
+          "orientation": 1,
+          "start": 60234,
+          "stop": 62029,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 3.8951120993662833,
+          "margin": 2.376505864585739,
+          "offset": -2792,
+          "orientation": 1,
+          "start": 62127,
+          "stop": 62456,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 3.777651127566656,
+          "margin": 1.3900585943032078,
+          "offset": -2790,
+          "orientation": 1,
+          "start": 62895,
+          "stop": 63189,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 3.2105129795865524,
+          "margin": 0.5800557026072815,
+          "offset": -2800,
+          "orientation": 1,
+          "start": 65217,
+          "stop": 67623,
+          "tie": true
+        },
+        {
+          "accepted": false,
+          "cost": 2.0347590645064693,
+          "margin": 3.0774492610164343,
+          "offset": -2799,
+          "orientation": 1,
+          "start": 68694,
+          "stop": 68973,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 4.219960421740834,
+          "margin": 1.4929001549568772,
+          "offset": -2799,
+          "orientation": 1,
+          "start": 68975,
+          "stop": 70583,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 3.3144422597522736,
+          "margin": 1.4436147718888606,
+          "offset": -2802,
+          "orientation": 1,
+          "start": 70670,
+          "stop": 70988,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 3.270569276977824,
+          "margin": 0.1065156805865124,
+          "offset": -2785,
+          "orientation": 1,
+          "start": 71415,
+          "stop": 72273,
+          "tie": true
+        }
+      ],
+      "seed": 900011,
+      "usable_frames": 49203
+    },
+    {
+      "index": 0,
+      "match": "WOH",
+      "offset": -2976,
+      "orientation": 2,
+      "results": [
+        {
+          "accepted": false,
+          "cost": 2.4453108163403994,
+          "margin": 1.069785013344065,
+          "offset": -2977,
+          "orientation": 2,
+          "start": 3071,
+          "stop": 4181,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 2.472970826397484,
+          "margin": 0.5790035107028109,
+          "offset": -2977,
+          "orientation": 2,
+          "start": 4464,
+          "stop": 7063,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 4.350724721918498,
+          "margin": 2.001874004514703,
+          "offset": -2976,
+          "orientation": 2,
+          "start": 7592,
+          "stop": 7950,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 3.3733422630716943,
+          "margin": 3.261913997150491,
+          "offset": -2975,
+          "orientation": 2,
+          "start": 8225,
+          "stop": 8726,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 3.9938947463799357,
+          "margin": 2.539162431060082,
+          "offset": -2976,
+          "orientation": 2,
+          "start": 8770,
+          "stop": 8947,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 3.7737810665518383,
+          "margin": 1.4462416588092086,
+          "offset": -2976,
+          "orientation": 2,
+          "start": 9100,
+          "stop": 10216,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 3.7083043076793265,
+          "margin": 3.105980577995954,
+          "offset": -2978,
+          "orientation": 2,
+          "start": 10666,
+          "stop": 10847,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 4.571795151782981,
+          "margin": 0.571277207976622,
+          "offset": -2965,
+          "orientation": 2,
+          "start": 11000,
+          "stop": 11130,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 4.141876709730061,
+          "margin": 1.5154615926339394,
+          "offset": -2978,
+          "orientation": 2,
+          "start": 11712,
+          "stop": 13800,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 3.6743744415420494,
+          "margin": 1.8449634191631823,
+          "offset": -2976,
+          "orientation": 2,
+          "start": 15697,
+          "stop": 16054,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 3.749828654758476,
+          "margin": 3.0175503860964126,
+          "offset": -2974,
+          "orientation": 2,
+          "start": 16366,
+          "stop": 16850,
+          "tie": true
+        },
+        {
+          "accepted": false,
+          "cost": 4.106809889251245,
+          "margin": 2.2529591950546504,
+          "offset": -2976,
+          "orientation": 2,
+          "start": 16877,
+          "stop": 17463,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 4.337832467248943,
+          "margin": 2.0059583524621054,
+          "offset": -3190,
+          "orientation": 2,
+          "start": 17488,
+          "stop": 17667,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 4.745995410073777,
+          "margin": 1.1773803007376316,
+          "offset": -2979,
+          "orientation": 2,
+          "start": 18478,
+          "stop": 18820,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 2.766339432701521,
+          "margin": 3.0507859486237976,
+          "offset": -2974,
+          "orientation": 2,
+          "start": 19608,
+          "stop": 19794,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 2.745828336827639,
+          "margin": 2.660128110718329,
+          "offset": -2976,
+          "orientation": 2,
+          "start": 20271,
+          "stop": 20783,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 3.9075965296138504,
+          "margin": 2.4036931826502475,
+          "offset": -2981,
+          "orientation": 2,
+          "start": 20975,
+          "stop": 21328,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 3.1011969769922776,
+          "margin": 3.284104060917955,
+          "offset": -2975,
+          "orientation": 2,
+          "start": 21700,
+          "stop": 22000,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 2.6399749552810596,
+          "margin": 2.454197657449589,
+          "offset": -2975,
+          "orientation": 2,
+          "start": 22050,
+          "stop": 22182,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 3.622730344623782,
+          "margin": 1.7653088144474345,
+          "offset": -2975,
+          "orientation": 2,
+          "start": 22322,
+          "stop": 24159,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 3.942108459941018,
+          "margin": 2.1367485728216273,
+          "offset": -2977,
+          "orientation": 2,
+          "start": 24572,
+          "stop": 25625,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 2.5505930663393586,
+          "margin": 2.2653605738119507,
+          "offset": -2968,
+          "orientation": 2,
+          "start": 25663,
+          "stop": 25837,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 2.8330335843357273,
+          "margin": 2.2941546265258563,
+          "offset": -2973,
+          "orientation": 2,
+          "start": 25963,
+          "stop": 26181,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 3.337892065547542,
+          "margin": 1.6878272148376765,
+          "offset": -3226,
+          "orientation": 2,
+          "start": 26206,
+          "stop": 26374,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 3.1445135466394016,
+          "margin": 1.0024715164606097,
+          "offset": -2974,
+          "orientation": 2,
+          "start": 26399,
+          "stop": 26649,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 2.6241181495957027,
+          "margin": 0.617452649697777,
+          "offset": -2976,
+          "orientation": 2,
+          "start": 26791,
+          "stop": 27425,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 3.8262314335619116,
+          "margin": 2.655626428788681,
+          "offset": -2976,
+          "orientation": 2,
+          "start": 28287,
+          "stop": 28692,
+          "tie": true
+        },
+        {
+          "accepted": false,
+          "cost": 3.7304290103104845,
+          "margin": 1.8055584475229662,
+          "offset": -2978,
+          "orientation": 2,
+          "start": 28777,
+          "stop": 29595,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 3.8744716086167097,
+          "margin": 1.3080060543579535,
+          "offset": -2969,
+          "orientation": 2,
+          "start": 30224,
+          "stop": 30496,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 3.6424576625761165,
+          "margin": 2.3309335990525777,
+          "offset": -2970,
+          "orientation": 2,
+          "start": 30750,
+          "stop": 31678,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 3.7373707396466913,
+          "margin": 1.2536095289739282,
+          "offset": -2982,
+          "orientation": 2,
+          "start": 31945,
+          "stop": 33225,
+          "tie": true
+        },
+        {
+          "accepted": false,
+          "cost": 3.129556319932367,
+          "margin": 1.9547129528660694,
+          "offset": -2973,
+          "orientation": 2,
+          "start": 33250,
+          "stop": 33847,
+          "tie": true
+        },
+        {
+          "accepted": false,
+          "cost": 3.8859847539167176,
+          "margin": 1.8073701331645275,
+          "offset": -2977,
+          "orientation": 2,
+          "start": 35300,
+          "stop": 36964,
+          "tie": true
+        },
+        {
+          "accepted": false,
+          "cost": 3.9600910251754984,
+          "margin": 1.208006102703017,
+          "offset": -3371,
+          "orientation": 2,
+          "start": 36989,
+          "stop": 37186,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 3.632345655812414,
+          "margin": 0.7748126926584415,
+          "offset": -2978,
+          "orientation": 2,
+          "start": 37211,
+          "stop": 37425,
+          "tie": true
+        },
+        {
+          "accepted": false,
+          "cost": 3.9753891051066073,
+          "margin": 0.9706255459284825,
+          "offset": -2973,
+          "orientation": 2,
+          "start": 37633,
+          "stop": 38173,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 3.3223895914595243,
+          "margin": 1.732462677678944,
+          "offset": -2978,
+          "orientation": 2,
+          "start": 38444,
+          "stop": 39546,
+          "tie": true
+        },
+        {
+          "accepted": false,
+          "cost": 3.5626207076549194,
+          "margin": 1.5623130564115986,
+          "offset": -3223,
+          "orientation": 2,
+          "start": 39599,
+          "stop": 39799,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 2.7715731762957483,
+          "margin": 3.601941315540683,
+          "offset": -2979,
+          "orientation": 2,
+          "start": 40388,
+          "stop": 40650,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 3.5204359538648218,
+          "margin": 2.2230888232214365,
+          "offset": -2972,
+          "orientation": 2,
+          "start": 41302,
+          "stop": 41577,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 3.333169872070356,
+          "margin": 3.148799523659786,
+          "offset": -2975,
+          "orientation": 2,
+          "start": 41968,
+          "stop": 42765,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 3.380440854006706,
+          "margin": 2.004887485587012,
+          "offset": -2978,
+          "orientation": 2,
+          "start": 42922,
+          "stop": 43950,
+          "tie": true
+        },
+        {
+          "accepted": false,
+          "cost": 3.8543987067883467,
+          "margin": 2.362249000574389,
+          "offset": -2975,
+          "orientation": 2,
+          "start": 43975,
+          "stop": 44692,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 4.842607824678686,
+          "margin": 1.8362530733109477,
+          "offset": -2982,
+          "orientation": 2,
+          "start": 44756,
+          "stop": 44905,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 3.79326531798813,
+          "margin": 1.929522712741079,
+          "offset": -2961,
+          "orientation": 2,
+          "start": 45751,
+          "stop": 46055,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 2.691349886114198,
+          "margin": 2.9217065912605475,
+          "offset": -2972,
+          "orientation": 2,
+          "start": 46355,
+          "stop": 46500,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 3.9429862583000412,
+          "margin": 2.7438090400581556,
+          "offset": -2982,
+          "orientation": 2,
+          "start": 46591,
+          "stop": 46925,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 2.368085288088442,
+          "margin": 2.3468062989167637,
+          "offset": -2970,
+          "orientation": 2,
+          "start": 47420,
+          "stop": 47600,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 3.283607962433175,
+          "margin": 1.684131075610929,
+          "offset": -2976,
+          "orientation": 2,
+          "start": 48125,
+          "stop": 48549,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 2.362084454445829,
+          "margin": 1.016544641649022,
+          "offset": -2977,
+          "orientation": 2,
+          "start": 48685,
+          "stop": 49450,
+          "tie": true
+        },
+        {
+          "accepted": false,
+          "cost": 3.3551141078899036,
+          "margin": 2.1236121900717517,
+          "offset": -2975,
+          "orientation": 2,
+          "start": 49458,
+          "stop": 49662,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 2.9318813051805304,
+          "margin": 3.189309379952352,
+          "offset": -2974,
+          "orientation": 2,
+          "start": 50035,
+          "stop": 50200,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 2.428010758019797,
+          "margin": 1.1996636331876753,
+          "offset": -2974,
+          "orientation": 2,
+          "start": 50205,
+          "stop": 51625,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 4.314916698837521,
+          "margin": 2.6719067203546443,
+          "offset": -2976,
+          "orientation": 2,
+          "start": 52184,
+          "stop": 52381,
+          "tie": true
+        },
+        {
+          "accepted": false,
+          "cost": 3.877443548153762,
+          "margin": 1.824760337301285,
+          "offset": -2975,
+          "orientation": 2,
+          "start": 52550,
+          "stop": 52775,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 3.937988599193403,
+          "margin": 1.48668461798776,
+          "offset": -2976,
+          "orientation": 2,
+          "start": 55227,
+          "stop": 55527,
+          "tie": true
+        },
+        {
+          "accepted": false,
+          "cost": 3.9397022899071583,
+          "margin": 2.16618695360554,
+          "offset": -2976,
+          "orientation": 2,
+          "start": 55712,
+          "stop": 57103,
+          "tie": true
+        },
+        {
+          "accepted": false,
+          "cost": 4.065062456508639,
+          "margin": 1.7095197044208499,
+          "offset": -2975,
+          "orientation": 2,
+          "start": 57600,
+          "stop": 58166,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 4.546417533560368,
+          "margin": 2.232917115157324,
+          "offset": -2978,
+          "orientation": 2,
+          "start": 58290,
+          "stop": 58975,
+          "tie": true
+        },
+        {
+          "accepted": false,
+          "cost": 3.5973275548651222,
+          "margin": 2.2981796115049256,
+          "offset": -2981,
+          "orientation": 2,
+          "start": 58985,
+          "stop": 59266,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 4.13357057879673,
+          "margin": 2.2721295570198796,
+          "offset": -2981,
+          "orientation": 2,
+          "start": 59915,
+          "stop": 60114,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 3.5475229940045843,
+          "margin": 2.3506839444037277,
+          "offset": -2975,
+          "orientation": 2,
+          "start": 60435,
+          "stop": 61025,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 3.648356397742958,
+          "margin": 3.4024612817760524,
+          "offset": -2975,
+          "orientation": 2,
+          "start": 61550,
+          "stop": 61981,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 4.032984475890977,
+          "margin": 1.948142830997722,
+          "offset": -2979,
+          "orientation": 2,
+          "start": 62371,
+          "stop": 63082,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 4.288673971995876,
+          "margin": 1.4244146396705482,
+          "offset": -2968,
+          "orientation": 2,
+          "start": 63823,
+          "stop": 64038,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 4.091462917463999,
+          "margin": 2.205669149391741,
+          "offset": -2976,
+          "orientation": 2,
+          "start": 64100,
+          "stop": 65432,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 4.2069982216021105,
+          "margin": 2.198773539274959,
+          "offset": -2979,
+          "orientation": 2,
+          "start": 65565,
+          "stop": 65941,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 4.951998299026494,
+          "margin": 0.42884086061915383,
+          "offset": -2925,
+          "orientation": 2,
+          "start": 66065,
+          "stop": 66250,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 3.3958432033407413,
+          "margin": 2.878576706780907,
+          "offset": -2986,
+          "orientation": 2,
+          "start": 66515,
+          "stop": 66725,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 2.94702587077657,
+          "margin": 0.6868311288675031,
+          "offset": -2970,
+          "orientation": 2,
+          "start": 66750,
+          "stop": 67979,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 4.5149671822210244,
+          "margin": 1.866705878172981,
+          "offset": -2979,
+          "orientation": 2,
+          "start": 68211,
+          "stop": 68377,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 4.182088709454018,
+          "margin": 1.5286593793334466,
+          "offset": -2981,
+          "orientation": 2,
+          "start": 68900,
+          "stop": 69325,
+          "tie": false
+        }
+      ],
+      "seed": 900020,
+      "usable_frames": 41125
+    },
+    {
+      "index": 1,
+      "match": "WOH",
+      "offset": 2324,
+      "orientation": 1,
+      "results": [
+        {
+          "accepted": false,
+          "cost": 3.3633312220907343,
+          "margin": 0.8180006033788216,
+          "offset": 2320,
+          "orientation": 1,
+          "start": 0,
+          "stop": 393,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 3.3561251301343242,
+          "margin": 0.4856087881223301,
+          "offset": 1973,
+          "orientation": 1,
+          "start": 418,
+          "stop": 617,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 4.222666935885153,
+          "margin": 2.7700976862291995,
+          "offset": 2322,
+          "orientation": 1,
+          "start": 642,
+          "stop": 975,
+          "tie": true
+        },
+        {
+          "accepted": false,
+          "cost": 2.90254822773372,
+          "margin": 1.7795172083241577,
+          "offset": 2321,
+          "orientation": 1,
+          "start": 998,
+          "stop": 1243,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 3.2186686249202867,
+          "margin": 1.1515238712663254,
+          "offset": 2126,
+          "orientation": 1,
+          "start": 1268,
+          "stop": 1451,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 3.1678932888116837,
+          "margin": 0.9003496881713455,
+          "offset": 2316,
+          "orientation": 1,
+          "start": 2282,
+          "stop": 2431,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 3.9863779531337546,
+          "margin": 2.2660421696849045,
+          "offset": 2329,
+          "orientation": 1,
+          "start": 2846,
+          "stop": 3625,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 4.174590454076395,
+          "margin": 2.622243437595314,
+          "offset": 2321,
+          "orientation": 1,
+          "start": 4031,
+          "stop": 4334,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 5.694554504964194,
+          "margin": 1.2266379791790305,
+          "offset": 2325,
+          "orientation": 1,
+          "start": 4366,
+          "stop": 4695,
+          "tie": true
+        },
+        {
+          "accepted": false,
+          "cost": 4.142442602188718,
+          "margin": 1.9913879702505612,
+          "offset": 2323,
+          "orientation": 1,
+          "start": 4755,
+          "stop": 5250,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 4.275177118073445,
+          "margin": 2.1843154188168805,
+          "offset": 2316,
+          "orientation": 1,
+          "start": 5255,
+          "stop": 5462,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 4.206125319914403,
+          "margin": 2.6780959921271004,
+          "offset": 2326,
+          "orientation": 1,
+          "start": 6060,
+          "stop": 6382,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 3.0813227519299495,
+          "margin": 2.913682919764277,
+          "offset": 2174,
+          "orientation": 1,
+          "start": 6407,
+          "stop": 6606,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 2.7624937014606217,
+          "margin": 3.4403415880078208,
+          "offset": 2326,
+          "orientation": 1,
+          "start": 6675,
+          "stop": 6822,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 3.3793042795387005,
+          "margin": 3.1065378350033677,
+          "offset": 2333,
+          "orientation": 1,
+          "start": 6882,
+          "stop": 7106,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 3.2448089335090597,
+          "margin": 2.824865174235127,
+          "offset": 2178,
+          "orientation": 1,
+          "start": 7131,
+          "stop": 7283,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 3.2132866877950454,
+          "margin": 2.5289932258660737,
+          "offset": 2321,
+          "orientation": 1,
+          "start": 7308,
+          "stop": 7495,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 3.8804521655219775,
+          "margin": 2.108746663493039,
+          "offset": 2318,
+          "orientation": 1,
+          "start": 7851,
+          "stop": 8286,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 4.031641909606818,
+          "margin": 2.3164288470507106,
+          "offset": 2325,
+          "orientation": 1,
+          "start": 8816,
+          "stop": 9257,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 4.1637581584724215,
+          "margin": 0.8952429337290049,
+          "offset": 2311,
+          "orientation": 1,
+          "start": 9488,
+          "stop": 9679,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 4.244291557983023,
+          "margin": 1.613776303703089,
+          "offset": 2322,
+          "orientation": 1,
+          "start": 9932,
+          "stop": 10081,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 3.894441079306887,
+          "margin": 1.9373948799453586,
+          "offset": 2323,
+          "orientation": 1,
+          "start": 10327,
+          "stop": 11725,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 4.067845981768103,
+          "margin": 2.9120074225483386,
+          "offset": 2325,
+          "orientation": 1,
+          "start": 12075,
+          "stop": 12300,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 2.9933093700574522,
+          "margin": 3.917849975304893,
+          "offset": 2325,
+          "orientation": 1,
+          "start": 12325,
+          "stop": 12547,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 3.5649153598959162,
+          "margin": 3.179974208531371,
+          "offset": 2325,
+          "orientation": 1,
+          "start": 12675,
+          "stop": 13152,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 4.239791671641601,
+          "margin": 2.5771975282909514,
+          "offset": 2321,
+          "orientation": 1,
+          "start": 13218,
+          "stop": 13375,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 3.7030187934997496,
+          "margin": 1.4555429704436627,
+          "offset": 2324,
+          "orientation": 1,
+          "start": 13400,
+          "stop": 13763,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 3.5102732042553044,
+          "margin": 2.5931228549239207,
+          "offset": 2322,
+          "orientation": 1,
+          "start": 13792,
+          "stop": 14625,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 4.160054985937273,
+          "margin": 2.0297551180423365,
+          "offset": 2325,
+          "orientation": 1,
+          "start": 15230,
+          "stop": 16320,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 3.1471656004415385,
+          "margin": 1.286812685875434,
+          "offset": 2320,
+          "orientation": 1,
+          "start": 16469,
+          "stop": 16675,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 3.748738735401519,
+          "margin": 1.6140321711885428,
+          "offset": 2324,
+          "orientation": 1,
+          "start": 16974,
+          "stop": 17466,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 3.5257083654855768,
+          "margin": 2.326674185297331,
+          "offset": 2319,
+          "orientation": 1,
+          "start": 18150,
+          "stop": 18825,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 2.9382828819158866,
+          "margin": 1.2726975839066248,
+          "offset": 2060,
+          "orientation": 1,
+          "start": 18883,
+          "stop": 19083,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 0.8782737436146173,
+          "margin": 1.9430404284129235,
+          "offset": 2319,
+          "orientation": 1,
+          "start": 19150,
+          "stop": 19325,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 3.678147566256005,
+          "margin": 2.5427647833368017,
+          "offset": 2327,
+          "orientation": 1,
+          "start": 20550,
+          "stop": 21228,
+          "tie": true
+        },
+        {
+          "accepted": false,
+          "cost": 3.2024153313068786,
+          "margin": 1.9130823402846748,
+          "offset": 2062,
+          "orientation": 1,
+          "start": 21253,
+          "stop": 21450,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 3.9322712386422474,
+          "margin": 1.0818405300161231,
+          "offset": 2318,
+          "orientation": 1,
+          "start": 21646,
+          "stop": 22116,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 3.6865675957887736,
+          "margin": 2.492519795876601,
+          "offset": 2321,
+          "orientation": 1,
+          "start": 22283,
+          "stop": 22625,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 3.772171901584379,
+          "margin": 3.205858143748288,
+          "offset": 2323,
+          "orientation": 1,
+          "start": 22775,
+          "stop": 23075,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 2.8041112921645315,
+          "margin": 0.45895584171854864,
+          "offset": 2309,
+          "orientation": 1,
+          "start": 23175,
+          "stop": 23311,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 1.0996580531252194,
+          "margin": 1.3229410519790645,
+          "offset": 2327,
+          "orientation": 1,
+          "start": 23364,
+          "stop": 23515,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 1.5718001454322967,
+          "margin": 0.7605333849127869,
+          "offset": 2327,
+          "orientation": 1,
+          "start": 23968,
+          "stop": 24200,
+          "tie": true
+        },
+        {
+          "accepted": false,
+          "cost": 2.514203099202816,
+          "margin": 0.13679996866649002,
+          "offset": 2350,
+          "orientation": 1,
+          "start": 25350,
+          "stop": 26150,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 1.7303460810648728,
+          "margin": 0.4041609868532239,
+          "offset": 2375,
+          "orientation": 1,
+          "start": 26175,
+          "stop": 26325,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 4.455297395500971,
+          "margin": -0.11957733458491493,
+          "offset": 2325,
+          "orientation": 1,
+          "start": 26575,
+          "stop": 26875,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 3.955967268058485,
+          "margin": 2.7301642828456325,
+          "offset": 2324,
+          "orientation": 1,
+          "start": 28839,
+          "stop": 29179,
+          "tie": true
+        },
+        {
+          "accepted": false,
+          "cost": 4.300416384429633,
+          "margin": 1.5359571444217863,
+          "offset": 2344,
+          "orientation": 1,
+          "start": 29346,
+          "stop": 29503,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 3.6900680663379877,
+          "margin": 1.2777725040392163,
+          "offset": 2325,
+          "orientation": 1,
+          "start": 29524,
+          "stop": 30066,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 4.9801584530230185,
+          "margin": 1.8553554698985453,
+          "offset": 2327,
+          "orientation": 1,
+          "start": 30326,
+          "stop": 30803,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 4.264749539309194,
+          "margin": 2.206868605242775,
+          "offset": 2324,
+          "orientation": 1,
+          "start": 31000,
+          "stop": 31722,
+          "tie": true
+        },
+        {
+          "accepted": false,
+          "cost": 3.909832183490915,
+          "margin": 3.0163000203598815,
+          "offset": 2054,
+          "orientation": 1,
+          "start": 31846,
+          "stop": 32000,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 3.364455237177978,
+          "margin": 2.1657094999999904,
+          "offset": 2327,
+          "orientation": 1,
+          "start": 32028,
+          "stop": 32175,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 3.4597975413053814,
+          "margin": 1.3256235411516282,
+          "offset": 2327,
+          "orientation": 1,
+          "start": 32475,
+          "stop": 33637,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 2.3510831990040275,
+          "margin": 0.09155485161110777,
+          "offset": 2416,
+          "orientation": 1,
+          "start": 33934,
+          "stop": 34272,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 3.4350979642500334,
+          "margin": 1.3313296927560057,
+          "offset": 2322,
+          "orientation": 1,
+          "start": 34366,
+          "stop": 34850,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 3.652562206805419,
+          "margin": 1.8780307198989212,
+          "offset": 2323,
+          "orientation": 1,
+          "start": 35050,
+          "stop": 37566,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 4.408948140376131,
+          "margin": 1.7799391392040125,
+          "offset": 2330,
+          "orientation": 1,
+          "start": 37665,
+          "stop": 37797,
+          "tie": true
+        },
+        {
+          "accepted": false,
+          "cost": 4.024523324027995,
+          "margin": 1.6198934484805125,
+          "offset": 2327,
+          "orientation": 1,
+          "start": 38083,
+          "stop": 38617,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 3.6599094513401544,
+          "margin": 2.9197987345441856,
+          "offset": 2327,
+          "orientation": 1,
+          "start": 38813,
+          "stop": 39363,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 2.9727010567088663,
+          "margin": 1.0197156404749435,
+          "offset": 2328,
+          "orientation": 1,
+          "start": 40557,
+          "stop": 42773,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 3.0137648980507064,
+          "margin": 1.5209073469638663,
+          "offset": 2326,
+          "orientation": 1,
+          "start": 43087,
+          "stop": 43451,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 3.4013987667179215,
+          "margin": 3.2689385163913887,
+          "offset": 2323,
+          "orientation": 1,
+          "start": 43631,
+          "stop": 44050,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 3.6688667619581814,
+          "margin": 1.1570717067152971,
+          "offset": 2320,
+          "orientation": 1,
+          "start": 44075,
+          "stop": 44400,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 3.811861825001204,
+          "margin": 1.9097506655446206,
+          "offset": 2322,
+          "orientation": 1,
+          "start": 44550,
+          "stop": 44750,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 4.163962208614245,
+          "margin": 0.8765433218719219,
+          "offset": 2329,
+          "orientation": 1,
+          "start": 44836,
+          "stop": 45278,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 3.3454392753235926,
+          "margin": 2.6134391600394085,
+          "offset": 2328,
+          "orientation": 1,
+          "start": 45422,
+          "stop": 45675,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 2.2873259997976345,
+          "margin": 2.7296381495926627,
+          "offset": 2323,
+          "orientation": 1,
+          "start": 45791,
+          "stop": 45975,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 2.8556470597372896,
+          "margin": 0.8579563761039664,
+          "offset": 2345,
+          "orientation": 1,
+          "start": 46000,
+          "stop": 46173,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 3.5446113370884453,
+          "margin": 2.491412045798397,
+          "offset": 2325,
+          "orientation": 1,
+          "start": 48240,
+          "stop": 48525,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 4.657999776091732,
+          "margin": 1.2882105666322676,
+          "offset": 2329,
+          "orientation": 1,
+          "start": 48678,
+          "stop": 49825,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 6.275792308796613,
+          "margin": 0.3855987124595117,
+          "offset": 2094,
+          "orientation": 1,
+          "start": 49850,
+          "stop": 49995,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 2.9016665755825635,
+          "margin": 2.6405453121505422,
+          "offset": 2322,
+          "orientation": 1,
+          "start": 50200,
+          "stop": 50681,
+          "tie": true
+        },
+        {
+          "accepted": false,
+          "cost": 3.7115216907106086,
+          "margin": 2.8932592809904354,
+          "offset": 2324,
+          "orientation": 1,
+          "start": 51410,
+          "stop": 52345,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 4.211242075812793,
+          "margin": 1.9926495589900455,
+          "offset": 2324,
+          "orientation": 1,
+          "start": 52473,
+          "stop": 52625,
+          "tie": true
+        },
+        {
+          "accepted": false,
+          "cost": 4.791412276447997,
+          "margin": 1.8388641849386795,
+          "offset": 2321,
+          "orientation": 1,
+          "start": 52693,
+          "stop": 53050,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 5.276258460489856,
+          "margin": 1.5470605559241903,
+          "offset": 2319,
+          "orientation": 1,
+          "start": 53075,
+          "stop": 53425,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 3.3953297233094464,
+          "margin": 0.614943647113475,
+          "offset": 2323,
+          "orientation": 1,
+          "start": 53575,
+          "stop": 54795,
+          "tie": true
+        },
+        {
+          "accepted": false,
+          "cost": 3.605763138675195,
+          "margin": 1.2227299611143638,
+          "offset": 2323,
+          "orientation": 1,
+          "start": 55194,
+          "stop": 56125,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 2.713958659015584,
+          "margin": 1.6212377153642157,
+          "offset": 2321,
+          "orientation": 1,
+          "start": 56175,
+          "stop": 56835,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 2.997857295961228,
+          "margin": 0.6444624651155566,
+          "offset": 2025,
+          "orientation": 1,
+          "start": 56860,
+          "stop": 57006,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 3.3570015213574735,
+          "margin": 2.414101319063978,
+          "offset": 2321,
+          "orientation": 1,
+          "start": 58150,
+          "stop": 58825,
+          "tie": true
+        },
+        {
+          "accepted": false,
+          "cost": 2.888896078112006,
+          "margin": 1.067331243931581,
+          "offset": 2323,
+          "orientation": 1,
+          "start": 58850,
+          "stop": 58975,
+          "tie": true
+        },
+        {
+          "accepted": false,
+          "cost": 2.9445453186282875,
+          "margin": 0.9962416163535495,
+          "offset": 2324,
+          "orientation": 1,
+          "start": 59000,
+          "stop": 60075,
+          "tie": true
+        },
+        {
+          "accepted": false,
+          "cost": 2.7918653320782996,
+          "margin": 3.0509059616482874,
+          "offset": 2328,
+          "orientation": 1,
+          "start": 60472,
+          "stop": 60597,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 3.8345427043419567,
+          "margin": 2.121261547680524,
+          "offset": 2326,
+          "orientation": 1,
+          "start": 60784,
+          "stop": 62900,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 2.6406330235653197,
+          "margin": 1.1264125350975616,
+          "offset": 2322,
+          "orientation": 1,
+          "start": 62984,
+          "stop": 65310,
+          "tie": false
+        }
+      ],
+      "seed": 900021,
+      "usable_frames": 42413
+    },
+    {
+      "index": 0,
+      "match": "WOY",
+      "offset": -1639,
+      "orientation": 2,
+      "results": [
+        {
+          "accepted": false,
+          "cost": 3.9005147580025024,
+          "margin": 1.4450582801522507,
+          "offset": -1640,
+          "orientation": 2,
+          "start": 1812,
+          "stop": 3027,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 5.267601032422406,
+          "margin": 0.8468731127906528,
+          "offset": -1645,
+          "orientation": 2,
+          "start": 3174,
+          "stop": 3307,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 3.4680474442908893,
+          "margin": 2.786796099392172,
+          "offset": -1640,
+          "orientation": 2,
+          "start": 3667,
+          "stop": 3894,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 3.4813169985440444,
+          "margin": 2.4446824807879546,
+          "offset": -1851,
+          "orientation": 2,
+          "start": 3936,
+          "stop": 4113,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 4.821200898030805,
+          "margin": 1.384189761153526,
+          "offset": -1644,
+          "orientation": 2,
+          "start": 4138,
+          "stop": 4284,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 4.141493276103986,
+          "margin": 2.270344640004949,
+          "offset": -1635,
+          "orientation": 2,
+          "start": 4450,
+          "stop": 4843,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 4.120802786132518,
+          "margin": 2.1706077815639215,
+          "offset": -1639,
+          "orientation": 2,
+          "start": 5298,
+          "stop": 5875,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 4.102794044009848,
+          "margin": 2.1285147689267028,
+          "offset": -1638,
+          "orientation": 2,
+          "start": 6254,
+          "stop": 6750,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 4.005016760786988,
+          "margin": 2.8384230290039287,
+          "offset": -1640,
+          "orientation": 2,
+          "start": 7143,
+          "stop": 7440,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 3.6141759929597663,
+          "margin": 3.3709777863022143,
+          "offset": -1637,
+          "orientation": 2,
+          "start": 7782,
+          "stop": 8014,
+          "tie": true
+        },
+        {
+          "accepted": false,
+          "cost": 3.281693065739588,
+          "margin": 1.0280402243192674,
+          "offset": -1648,
+          "orientation": 2,
+          "start": 8897,
+          "stop": 9250,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 2.9899813353930345,
+          "margin": 2.605020565237653,
+          "offset": -1639,
+          "orientation": 2,
+          "start": 9628,
+          "stop": 10162,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 4.779565941481827,
+          "margin": 2.2590475875263243,
+          "offset": -1640,
+          "orientation": 2,
+          "start": 10895,
+          "stop": 11222,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 3.9925126491737917,
+          "margin": 1.82149785687902,
+          "offset": -1632,
+          "orientation": 2,
+          "start": 11377,
+          "stop": 11691,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 4.055380848928632,
+          "margin": 1.63866447890606,
+          "offset": -1637,
+          "orientation": 2,
+          "start": 11712,
+          "stop": 12203,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 3.93436782970767,
+          "margin": 1.5335450384503004,
+          "offset": -1652,
+          "orientation": 2,
+          "start": 12236,
+          "stop": 12537,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 4.234011794264434,
+          "margin": 1.9817746772953564,
+          "offset": -1650,
+          "orientation": 2,
+          "start": 12889,
+          "stop": 13125,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 3.5798411583468317,
+          "margin": 2.9042291036481522,
+          "offset": -1638,
+          "orientation": 2,
+          "start": 13175,
+          "stop": 13792,
+          "tie": true
+        },
+        {
+          "accepted": false,
+          "cost": 3.970049715989311,
+          "margin": 1.9111477526452116,
+          "offset": -1635,
+          "orientation": 2,
+          "start": 13900,
+          "stop": 14135,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 4.086718977435629,
+          "margin": 2.3004258976931995,
+          "offset": -1636,
+          "orientation": 2,
+          "start": 14841,
+          "stop": 15418,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 4.779996365194217,
+          "margin": 1.643013462178084,
+          "offset": -1633,
+          "orientation": 2,
+          "start": 15633,
+          "stop": 15920,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 4.369059963283263,
+          "margin": 1.4411381817014695,
+          "offset": -1630,
+          "orientation": 2,
+          "start": 16000,
+          "stop": 16411,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 2.885556730568595,
+          "margin": 1.2263035449532333,
+          "offset": -1952,
+          "orientation": 2,
+          "start": 16632,
+          "stop": 16800,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 3.4796170350541002,
+          "margin": 3.233955156163449,
+          "offset": -1642,
+          "orientation": 2,
+          "start": 17725,
+          "stop": 17912,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 4.242953669383329,
+          "margin": 1.1111535900090868,
+          "offset": -1638,
+          "orientation": 2,
+          "start": 18108,
+          "stop": 18625,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 2.916877250704313,
+          "margin": 1.4957070989969132,
+          "offset": -1646,
+          "orientation": 2,
+          "start": 18650,
+          "stop": 19138,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 3.041862182036475,
+          "margin": 1.3898852537395934,
+          "offset": -1611,
+          "orientation": 2,
+          "start": 19161,
+          "stop": 19326,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 3.7909669611360046,
+          "margin": 2.5994985209402515,
+          "offset": -1638,
+          "orientation": 2,
+          "start": 19420,
+          "stop": 19589,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 4.236529152322205,
+          "margin": 0.9006173582498569,
+          "offset": -1640,
+          "orientation": 2,
+          "start": 20067,
+          "stop": 21045,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 4.733555224830033,
+          "margin": 0.8595033709589623,
+          "offset": -1651,
+          "orientation": 2,
+          "start": 21250,
+          "stop": 21409,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 3.4885665347425943,
+          "margin": 3.309303783131599,
+          "offset": -1641,
+          "orientation": 2,
+          "start": 21950,
+          "stop": 22249,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 3.0843006539261717,
+          "margin": 0.9703340013002402,
+          "offset": -1634,
+          "orientation": 2,
+          "start": 23959,
+          "stop": 24575,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 2.9233721537451873,
+          "margin": 3.4903704250069505,
+          "offset": -1639,
+          "orientation": 2,
+          "start": 25083,
+          "stop": 25446,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 4.162619634916645,
+          "margin": 2.878585580491097,
+          "offset": -1641,
+          "orientation": 2,
+          "start": 25450,
+          "stop": 25908,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 3.742534268316895,
+          "margin": 2.621688951856794,
+          "offset": -1635,
+          "orientation": 2,
+          "start": 26125,
+          "stop": 26420,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 3.7863072705874625,
+          "margin": 2.136187692784122,
+          "offset": -1639,
+          "orientation": 2,
+          "start": 27536,
+          "stop": 29112,
+          "tie": true
+        },
+        {
+          "accepted": false,
+          "cost": 4.049588420796524,
+          "margin": 2.529777791840713,
+          "offset": -1639,
+          "orientation": 2,
+          "start": 29294,
+          "stop": 29486,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 4.239742871808549,
+          "margin": 1.377140450537854,
+          "offset": -1646,
+          "orientation": 2,
+          "start": 29645,
+          "stop": 29991,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 4.040068532398863,
+          "margin": 1.895119198194866,
+          "offset": -1962,
+          "orientation": 2,
+          "start": 30016,
+          "stop": 30162,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 4.01137856939186,
+          "margin": 0.29758723508756013,
+          "offset": -1663,
+          "orientation": 2,
+          "start": 30187,
+          "stop": 30323,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 3.0756265578504385,
+          "margin": 1.2544396881711668,
+          "offset": -1639,
+          "orientation": 2,
+          "start": 30681,
+          "stop": 32955,
+          "tie": true
+        },
+        {
+          "accepted": false,
+          "cost": 3.6716991067586786,
+          "margin": 1.9313928629177504,
+          "offset": -1641,
+          "orientation": 2,
+          "start": 33365,
+          "stop": 34707,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 3.6374847290503327,
+          "margin": 2.896337700037231,
+          "offset": -1634,
+          "orientation": 2,
+          "start": 34965,
+          "stop": 35491,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 4.116402740009728,
+          "margin": 1.5029633238501159,
+          "offset": -1639,
+          "orientation": 2,
+          "start": 35873,
+          "stop": 37020,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 3.5630529378358964,
+          "margin": 1.7219601609083859,
+          "offset": -1635,
+          "orientation": 2,
+          "start": 37075,
+          "stop": 37537,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 4.008234180554682,
+          "margin": 2.244161008130913,
+          "offset": -1641,
+          "orientation": 2,
+          "start": 38233,
+          "stop": 39027,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 3.043463588022562,
+          "margin": 3.8383202728689256,
+          "offset": -1869,
+          "orientation": 2,
+          "start": 39114,
+          "stop": 39257,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 3.5141688657187746,
+          "margin": 2.9014146251094184,
+          "offset": -1639,
+          "orientation": 2,
+          "start": 39310,
+          "stop": 40287,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 4.52698244082149,
+          "margin": 1.3780496397092525,
+          "offset": -1639,
+          "orientation": 2,
+          "start": 40575,
+          "stop": 40925,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 4.513425794413718,
+          "margin": 1.2047233600272609,
+          "offset": -1644,
+          "orientation": 2,
+          "start": 41075,
+          "stop": 42225,
+          "tie": true
+        },
+        {
+          "accepted": false,
+          "cost": 3.4844949801562417,
+          "margin": 2.041305844418068,
+          "offset": -1635,
+          "orientation": 2,
+          "start": 43275,
+          "stop": 43650,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 3.6248133038771453,
+          "margin": 1.696850752859513,
+          "offset": -1640,
+          "orientation": 2,
+          "start": 43850,
+          "stop": 44510,
+          "tie": true
+        },
+        {
+          "accepted": false,
+          "cost": 3.4595905107859077,
+          "margin": 1.1431134465449886,
+          "offset": -1646,
+          "orientation": 2,
+          "start": 45025,
+          "stop": 45154,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 2.9738933481746104,
+          "margin": 2.8844389075982964,
+          "offset": -1638,
+          "orientation": 2,
+          "start": 45502,
+          "stop": 45875,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 4.701134309580425,
+          "margin": 1.3409921847145947,
+          "offset": -1631,
+          "orientation": 2,
+          "start": 45936,
+          "stop": 46094,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 4.647270013988738,
+          "margin": 1.653005464166169,
+          "offset": -1642,
+          "orientation": 2,
+          "start": 46100,
+          "stop": 46825,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 3.2791147211645,
+          "margin": 2.606849814016566,
+          "offset": -1636,
+          "orientation": 2,
+          "start": 46900,
+          "stop": 47450,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 2.4650959278668134,
+          "margin": 0.7549625669519209,
+          "offset": -1636,
+          "orientation": 2,
+          "start": 47475,
+          "stop": 48086,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 3.1166306379548367,
+          "margin": 1.3723833299174415,
+          "offset": -1641,
+          "orientation": 2,
+          "start": 48447,
+          "stop": 49658,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 3.161786324339742,
+          "margin": 0.8559600010195787,
+          "offset": -1640,
+          "orientation": 2,
+          "start": 49740,
+          "stop": 51347,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 3.8668101960007495,
+          "margin": 1.5878664063645496,
+          "offset": -1635,
+          "orientation": 2,
+          "start": 51445,
+          "stop": 52220,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 3.9178781174606923,
+          "margin": 1.859067223260872,
+          "offset": -1641,
+          "orientation": 2,
+          "start": 52625,
+          "stop": 54397,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 3.995605287201962,
+          "margin": 2.629556972032362,
+          "offset": -1636,
+          "orientation": 2,
+          "start": 54803,
+          "stop": 55050,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 3.7804364254857057,
+          "margin": 2.5703840849412036,
+          "offset": -1638,
+          "orientation": 2,
+          "start": 55885,
+          "stop": 56394,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 4.1625330090662525,
+          "margin": 1.999548692701981,
+          "offset": -1641,
+          "orientation": 2,
+          "start": 56475,
+          "stop": 56731,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 3.450282379295831,
+          "margin": 1.863807995307024,
+          "offset": -1640,
+          "orientation": 2,
+          "start": 56912,
+          "stop": 57475,
+          "tie": true
+        },
+        {
+          "accepted": false,
+          "cost": 4.339174639452633,
+          "margin": 1.0159180485010468,
+          "offset": -1642,
+          "orientation": 2,
+          "start": 58718,
+          "stop": 59837,
+          "tie": true
+        },
+        {
+          "accepted": false,
+          "cost": 3.8584145681265998,
+          "margin": 1.9848653177207227,
+          "offset": -1641,
+          "orientation": 2,
+          "start": 60035,
+          "stop": 60547,
+          "tie": true
+        },
+        {
+          "accepted": false,
+          "cost": 2.1728922454462394,
+          "margin": 0.042819621811073016,
+          "offset": -1351,
+          "orientation": 2,
+          "start": 61001,
+          "stop": 61146,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 2.600744553206131,
+          "margin": 1.036648364200584,
+          "offset": -1639,
+          "orientation": 2,
+          "start": 61288,
+          "stop": 62121,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 4.154890539966889,
+          "margin": 1.0707857905733693,
+          "offset": -1646,
+          "orientation": 2,
+          "start": 62175,
+          "stop": 62446,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 5.096523027056247,
+          "margin": -0.22132506875740354,
+          "offset": -1630,
+          "orientation": 2,
+          "start": 62450,
+          "stop": 62655,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 3.278085294553767,
+          "margin": 3.369873590472081,
+          "offset": -1642,
+          "orientation": 2,
+          "start": 62675,
+          "stop": 62925,
+          "tie": true
+        },
+        {
+          "accepted": false,
+          "cost": 5.056745306773552,
+          "margin": 0.7566388329403981,
+          "offset": -1634,
+          "orientation": 2,
+          "start": 62950,
+          "stop": 63091,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 4.127269541827045,
+          "margin": 0.27595780712292317,
+          "offset": -1646,
+          "orientation": 2,
+          "start": 63300,
+          "stop": 64175,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 3.523117196111638,
+          "margin": 1.5017337126095605,
+          "offset": -1630,
+          "orientation": 2,
+          "start": 64200,
+          "stop": 64550,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 3.1137155923531408,
+          "margin": 2.683732480332421,
+          "offset": -1638,
+          "orientation": 2,
+          "start": 64892,
+          "stop": 65050,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 4.505943663741507,
+          "margin": 2.2526485926184394,
+          "offset": -1639,
+          "orientation": 2,
+          "start": 65143,
+          "stop": 65300,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 5.080828825353405,
+          "margin": 1.064384564127467,
+          "offset": -1630,
+          "orientation": 2,
+          "start": 65475,
+          "stop": 65975,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 3.565191851078745,
+          "margin": 2.384939455972977,
+          "offset": -1636,
+          "orientation": 2,
+          "start": 66378,
+          "stop": 66606,
+          "tie": true
+        },
+        {
+          "accepted": false,
+          "cost": 3.978359613348709,
+          "margin": 1.048145693641997,
+          "offset": -1635,
+          "orientation": 2,
+          "start": 67227,
+          "stop": 67752,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 3.3738175945578384,
+          "margin": 3.103015340605217,
+          "offset": -1641,
+          "orientation": 2,
+          "start": 68075,
+          "stop": 68554,
+          "tie": false
+        }
+      ],
+      "seed": 900030,
+      "usable_frames": 42268
+    },
+    {
+      "index": 1,
+      "match": "WOY",
+      "offset": -2868,
+      "orientation": 2,
+      "results": [
+        {
+          "accepted": false,
+          "cost": 4.229110741892699,
+          "margin": 1.9995000580437852,
+          "offset": -2864,
+          "orientation": 2,
+          "start": 2954,
+          "stop": 3120,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 3.733359688376978,
+          "margin": 3.035067153500504,
+          "offset": -2868,
+          "orientation": 2,
+          "start": 3537,
+          "stop": 4194,
+          "tie": true
+        },
+        {
+          "accepted": false,
+          "cost": 3.645455152517082,
+          "margin": 1.2611349388963142,
+          "offset": -2871,
+          "orientation": 2,
+          "start": 4375,
+          "stop": 5553,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 3.91435989608698,
+          "margin": 1.4759572028265646,
+          "offset": -2869,
+          "orientation": 2,
+          "start": 5829,
+          "stop": 6670,
+          "tie": true
+        },
+        {
+          "accepted": false,
+          "cost": 3.4734290643601593,
+          "margin": 1.379898449483898,
+          "offset": -2864,
+          "orientation": 2,
+          "start": 7024,
+          "stop": 7597,
+          "tie": true
+        },
+        {
+          "accepted": false,
+          "cost": 3.8954142536594656,
+          "margin": 2.366182942777053,
+          "offset": -2867,
+          "orientation": 2,
+          "start": 8201,
+          "stop": 9893,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 3.5047756645006247,
+          "margin": 2.231098108506707,
+          "offset": -2874,
+          "orientation": 2,
+          "start": 10020,
+          "stop": 10788,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 3.6501499279582728,
+          "margin": 2.2981867728438568,
+          "offset": -2870,
+          "orientation": 2,
+          "start": 10800,
+          "stop": 11252,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 2.8797011878227345,
+          "margin": 3.470009903462833,
+          "offset": -2871,
+          "orientation": 2,
+          "start": 11285,
+          "stop": 11841,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 4.303142933185246,
+          "margin": 1.9341675323751417,
+          "offset": -2865,
+          "orientation": 2,
+          "start": 11940,
+          "stop": 12450,
+          "tie": true
+        },
+        {
+          "accepted": false,
+          "cost": 3.3787308005322583,
+          "margin": 2.3540263626356133,
+          "offset": -2871,
+          "orientation": 2,
+          "start": 12600,
+          "stop": 13548,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 4.516920644276389,
+          "margin": 1.3922629448272117,
+          "offset": -2877,
+          "orientation": 2,
+          "start": 14046,
+          "stop": 14257,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 3.6572210027243335,
+          "margin": 1.350658626782562,
+          "offset": -2869,
+          "orientation": 2,
+          "start": 14399,
+          "stop": 14800,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 4.198086288482119,
+          "margin": 0.9525280243675578,
+          "offset": -2875,
+          "orientation": 2,
+          "start": 14819,
+          "stop": 15221,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 2.8893532788217895,
+          "margin": 2.055928167223003,
+          "offset": -2867,
+          "orientation": 2,
+          "start": 16015,
+          "stop": 16800,
+          "tie": true
+        },
+        {
+          "accepted": false,
+          "cost": 3.257918080171623,
+          "margin": 0.2517773827145571,
+          "offset": -2861,
+          "orientation": 2,
+          "start": 17050,
+          "stop": 17624,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 3.8128345394641086,
+          "margin": 1.9660793499641231,
+          "offset": -2867,
+          "orientation": 2,
+          "start": 17921,
+          "stop": 18395,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 3.96783956422435,
+          "margin": 2.265647811590123,
+          "offset": -2871,
+          "orientation": 2,
+          "start": 18559,
+          "stop": 19537,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 3.32090702775039,
+          "margin": 1.1441874856080614,
+          "offset": -2865,
+          "orientation": 2,
+          "start": 19635,
+          "stop": 23525,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 4.521758675956368,
+          "margin": 1.4204270481021721,
+          "offset": -2864,
+          "orientation": 2,
+          "start": 23544,
+          "stop": 24343,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 3.869444771820785,
+          "margin": 2.530743439849045,
+          "offset": -2868,
+          "orientation": 2,
+          "start": 24768,
+          "stop": 25634,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 3.863968258947562,
+          "margin": 2.686471368588693,
+          "offset": -2871,
+          "orientation": 2,
+          "start": 26450,
+          "stop": 26650,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 3.439963746520383,
+          "margin": 2.74285958929444,
+          "offset": -2869,
+          "orientation": 2,
+          "start": 26733,
+          "stop": 27032,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 4.0733110989066095,
+          "margin": 1.8157751006572331,
+          "offset": -2863,
+          "orientation": 2,
+          "start": 27271,
+          "stop": 27715,
+          "tie": true
+        },
+        {
+          "accepted": false,
+          "cost": 4.058415931945553,
+          "margin": 2.0192777151777257,
+          "offset": -2867,
+          "orientation": 2,
+          "start": 27841,
+          "stop": 28364,
+          "tie": true
+        },
+        {
+          "accepted": false,
+          "cost": 4.475283386825528,
+          "margin": 1.923131795433477,
+          "offset": -2868,
+          "orientation": 2,
+          "start": 29598,
+          "stop": 29957,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 4.013947906310814,
+          "margin": 2.3022413982003336,
+          "offset": -2868,
+          "orientation": 2,
+          "start": 30317,
+          "stop": 30698,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 3.037015822315699,
+          "margin": 3.8044657820999146,
+          "offset": -2870,
+          "orientation": 2,
+          "start": 30779,
+          "stop": 31225,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 3.558363016621237,
+          "margin": 1.4302986930977242,
+          "offset": -2866,
+          "orientation": 2,
+          "start": 31571,
+          "stop": 34036,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 2.8112166527119506,
+          "margin": 2.6360542150797834,
+          "offset": -2867,
+          "orientation": 2,
+          "start": 34606,
+          "stop": 34775,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 4.971270786352902,
+          "margin": 1.6845545912334643,
+          "offset": -2871,
+          "orientation": 2,
+          "start": 34975,
+          "stop": 35250,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 4.342613306320015,
+          "margin": 2.34202479476762,
+          "offset": -2868,
+          "orientation": 2,
+          "start": 35436,
+          "stop": 35759,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 3.109646446681765,
+          "margin": 2.274471315390655,
+          "offset": -2868,
+          "orientation": 2,
+          "start": 36002,
+          "stop": 36561,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 3.6827594297299333,
+          "margin": 2.246834720626028,
+          "offset": -2861,
+          "orientation": 2,
+          "start": 37613,
+          "stop": 38259,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 2.757617561967326,
+          "margin": 3.2674632433630353,
+          "offset": -2872,
+          "orientation": 2,
+          "start": 39891,
+          "stop": 40334,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 3.4246159838334,
+          "margin": 1.3159594183046224,
+          "offset": -2868,
+          "orientation": 2,
+          "start": 40767,
+          "stop": 41100,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 3.785297368297402,
+          "margin": 0.6550769995230055,
+          "offset": -2880,
+          "orientation": 2,
+          "start": 41125,
+          "stop": 41272,
+          "tie": true
+        },
+        {
+          "accepted": false,
+          "cost": 3.938076466140864,
+          "margin": 0.7327215791338069,
+          "offset": -2871,
+          "orientation": 2,
+          "start": 41645,
+          "stop": 42372,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 4.165810479711336,
+          "margin": 1.5133948225203877,
+          "offset": -2870,
+          "orientation": 2,
+          "start": 42400,
+          "stop": 43669,
+          "tie": true
+        },
+        {
+          "accepted": false,
+          "cost": 4.141513945117894,
+          "margin": 1.3348461964362848,
+          "offset": -2871,
+          "orientation": 2,
+          "start": 44610,
+          "stop": 49650,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 3.2175314625766043,
+          "margin": 1.4717760697113387,
+          "offset": -2876,
+          "orientation": 2,
+          "start": 50145,
+          "stop": 50275,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 3.6172299298810966,
+          "margin": 2.0896592473598954,
+          "offset": -2873,
+          "orientation": 2,
+          "start": 50437,
+          "stop": 50956,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 3.887563160729432,
+          "margin": 1.3136355287151207,
+          "offset": -2868,
+          "orientation": 2,
+          "start": 52637,
+          "stop": 53600,
+          "tie": true
+        },
+        {
+          "accepted": false,
+          "cost": 3.546961566218362,
+          "margin": 1.0627921261860842,
+          "offset": -2876,
+          "orientation": 2,
+          "start": 53750,
+          "stop": 54674,
+          "tie": true
+        },
+        {
+          "accepted": false,
+          "cost": 4.574590555548724,
+          "margin": 2.2365871199732315,
+          "offset": -2868,
+          "orientation": 2,
+          "start": 55071,
+          "stop": 55925,
+          "tie": true
+        },
+        {
+          "accepted": false,
+          "cost": 3.411603617088602,
+          "margin": 2.4037229362743933,
+          "offset": -2867,
+          "orientation": 2,
+          "start": 56482,
+          "stop": 56907,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 3.173862915941459,
+          "margin": 0.6275467407812334,
+          "offset": -2871,
+          "orientation": 2,
+          "start": 57055,
+          "stop": 57250,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 2.8167402163444675,
+          "margin": 3.4268127882801083,
+          "offset": -2871,
+          "orientation": 2,
+          "start": 58125,
+          "stop": 58252,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 4.186328552033821,
+          "margin": 1.947509590874657,
+          "offset": -2872,
+          "orientation": 2,
+          "start": 58366,
+          "stop": 58801,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 3.9987411883338417,
+          "margin": 1.9156013434900165,
+          "offset": -2867,
+          "orientation": 2,
+          "start": 59062,
+          "stop": 59400,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 3.928724580232222,
+          "margin": 2.310666859643926,
+          "offset": -2866,
+          "orientation": 2,
+          "start": 62070,
+          "stop": 62425,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 3.9482862565158445,
+          "margin": 1.3607477929688407,
+          "offset": -2860,
+          "orientation": 2,
+          "start": 62450,
+          "stop": 63584,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 3.247542705845142,
+          "margin": 2.2060790105735317,
+          "offset": -2865,
+          "orientation": 2,
+          "start": 63900,
+          "stop": 64231,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 3.70165023224823,
+          "margin": 2.4906752269931682,
+          "offset": -2870,
+          "orientation": 2,
+          "start": 64383,
+          "stop": 64527,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 4.215398063698262,
+          "margin": 2.619564661931882,
+          "offset": -2867,
+          "orientation": 2,
+          "start": 64550,
+          "stop": 64827,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 2.2234977481763396,
+          "margin": 1.3028074625517223,
+          "offset": -2865,
+          "orientation": 2,
+          "start": 64924,
+          "stop": 65194,
+          "tie": true
+        },
+        {
+          "accepted": false,
+          "cost": 1.9993272093672703,
+          "margin": 0.5740026378586327,
+          "offset": -2866,
+          "orientation": 2,
+          "start": 65340,
+          "stop": 66100,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 3.688210373605928,
+          "margin": 2.6220768559288468,
+          "offset": -2867,
+          "orientation": 2,
+          "start": 66561,
+          "stop": 66975,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 3.736661099048037,
+          "margin": 2.3378190479535625,
+          "offset": -2867,
+          "orientation": 2,
+          "start": 67313,
+          "stop": 67990,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 3.557785700906963,
+          "margin": 2.365988124679696,
+          "offset": -2865,
+          "orientation": 2,
+          "start": 68200,
+          "stop": 69189,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 3.273321188361116,
+          "margin": 2.065633803422169,
+          "offset": -2871,
+          "orientation": 2,
+          "start": 70265,
+          "stop": 70450,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 4.040376753713825,
+          "margin": 1.6395043940691973,
+          "offset": -2871,
+          "orientation": 2,
+          "start": 70525,
+          "stop": 71810,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 4.005550949387892,
+          "margin": 1.9458395212130117,
+          "offset": -2868,
+          "orientation": 2,
+          "start": 72425,
+          "stop": 72727,
+          "tie": false
+        },
+        {
+          "accepted": false,
+          "cost": 3.61549101085497,
+          "margin": 2.4088540325516954,
+          "offset": -2869,
+          "orientation": 2,
+          "start": 72750,
+          "stop": 73300,
+          "tie": true
+        }
+      ],
+      "seed": 900031,
+      "usable_frames": 45352
+    }
+  ],
+  "protocol": "DECISIONS.md D31",
+  "selected": null,
+  "set_at": "2026-11-12 02:59 EST"
+}

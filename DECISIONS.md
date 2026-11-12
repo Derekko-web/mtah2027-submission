@@ -1404,3 +1404,186 @@ DFL clean has no hidden ball. Every SkillCorner gap is longer than 1 s.
 Reported: raw-label change on the standard views −0.0002, +0.0008 and −0.0002.
 
 What it shows: a straight line through gaps of up to 1 s reaches at most a tenth of the hidden live ball on the masked views, and hardly moves spellF1. The best K gained a third of the required margin, and every K lowered the D24 mean slightly. The step is not adopted. Nothing is retrained or changed, and D27 stays the submission. The code is kept (`gap_trial.py`); its `confirm` and `build` paths have not run on real data. [Coverage](dfl_submission/gap_recipe/coverage.json) · [Development](dfl_submission/gap_recipe/development.json)
+
+## C3 — What may change after C1 (2026-11-12, written before any round 8 step is built, fitted or scored)
+
+**Why.** C1 passed on `0ddbb342…` (D27), and its record says the check does not run again. Round 8 (D29–D32) continues development until the hard freeze. This rule fixes what may change after C1 and how a changed file is checked without a second C1. Derek approved the plan that contains it, including shipping a changed file without a second C1.
+
+- **C1's output is not used.** It reached an earlier AI session (C1's disclosure). Nothing from it is used in round 8, and it is not shown to the AI session again. Every round 8 step is selected on external data only.
+- **Clear gain.** A step changes the submission only if its own external confirmation shows a gain of at least **+0.01** N = 3 spellF1 against the standing model, on matches that step's models never trained on. For D30 that is its leave-one-game-out comparison on the Metrica games (every held-out game is scored by models that never saw it), followed by a no-harm confirmation of the final fit; for D31 its holdout confirmation; for D32 PFF set C. D29 has no external score and ships only alongside a step that clears the bar.
+- **C1 is not run again.** Every round 8 change sits behind a switch in the build. With every switch off, the build must reproduce `0ddbb342…` byte for byte, so the reading, team orientation, frame indexing and half spans that C1 checked are unchanged; a step can change only the labels its own switch controls.
+- **C2 runs once more** on a new final candidate. Before it runs, an amendment recomputes its ranges from that candidate's predictions on external matches. Derek runs it once and reports PASS or FAIL.
+- **Records.** If the file changes, C1's record and section 4 of the technical document are amended to say that development continued under this rule after C1, and what changed. If nothing clears its bar, `0ddbb342…` ships and C1's record stays true as written.
+- **Cut-off.** Hard freeze Sun 15 Nov (EST). A step not confirmed by then stops and is recorded as unfinished.
+
+**Outcome (2026-11-12).** No round 8 step cleared its bar: D30 failed leave one game out, D31 and its second attempt D31a failed before confirmation, D32 failed development, and D29 therefore could not ship. **`0ddbb342…` stays the submission** and C1's record stays true as written. Checks on the build path, whose code round 8 extended (`kickoff.model_labels`, the `merge_ball` hook in `build.tactical_tracking_halves`, `round8.py`): `round8 build` with every switch off gave `0ddbb342…`, and so did two rebuilds with the standing `kickoff build`, all with the validator passing; only the validator line and the SHA were read. C2 was not re-declared, because the file did not change.
+
+## D30 — Metrica's sample games as a training source (2026-11-12, written before any Metrica training half is prepared or any D30 model is fitted or scored)
+
+**Question.** Every model so far is trained on DFL and SkillCorner tracking. Metrica tracked the competition match, and its three public sample games have so far only been scored (D19, D24). Does training on them help? This is round 8's step 1.
+
+**What was seen before this rule.** The records of D1–D28, C1's and C2's records, and C3. No Metrica half has been prepared for training and nothing has been fitted on these games.
+
+**Data and targets.** The three games as D19 pinned and parsed them (the halves that passed D19's reader gate), with D19's raw labels as targets: event possession, and the dead ball as D19 marks it. D19 said nothing would be trained on these games; this rule amends that, as Derek approved in the plan. Metrica's README offers the data to the community and asks for credit; the README and the technical document give it.
+
+**Training views,** per game g ∈ {1, 2, 3} and half i ∈ {0, 1}, mirroring each set's DFL training views with new seeds:
+- *Original set* (as `external_benchmark.halves` builds DFL's training halves): the half as provided (`clean`); `masked`, `corrupt(positions, ball, 870000 + 10g + i)`; `stress`, `stress(positions, ball, 880000 + 10g + i)`.
+- *Augmented set* (as `augment.training_halves`), with `rng = numpy.random.default_rng(890000 + 10g + i)`: D2's `handle_dead_ball` on D19's labels (`clean`); `masked`, `wide_masking` and then the training `swap_teams`; `stress`, `stress(…, 880000 + 10g + i)` on the handled ball and then the training `swap_teams`.
+- Inputs `long_context.features`; targets `temporal_network.targets(labels[frames])`, as `final_trial.prepare_sequences` writes them.
+
+**Weights.** The Metrica games count as matches of the DFL source: their records carry `source = "dfl"` (and `vendor = "metrica"`). The trees therefore keep half the weight for each of DFL and SkillCorner, shared equally by the matches within a source (four DFL training matches plus the Metrica games), and the networks keep 8 windows per source in each batch, drawing Metrica halves alongside DFL ones. D14 failed by giving a small third source a third of the weight.
+
+**Candidate.** Both model sets refit on their stored training folders plus the Metrica halves: both trees at D3's settings (`touch_trial.fit_trees`), and all four networks at D15's setting (width 96, 5,400 steps, seeds 42 and 97, boundary boosts 0.5 and 1.4). D15's structure, blend and decoder recipe (ownership cost 8) are unchanged. No grid.
+
+**Pipeline checks, before any D30 score is read.**
+- With no Metrica half added, the same combine and fit path reproduces D15's four trees byte for byte and its four networks bit for bit (every exported array equal).
+- D15 reproduces its development record (PFF development included), its D19 measurement and its D24 measurement from their caches. Before confirmation, it reproduces its holdout record.
+- Otherwise D30 stops without a record.
+
+**Leave one game out.** Three fits; fold g leaves out game g's halves. Each fold model is scored on its held-out game: D19's clean view and D24's three views, decoded at D15's recipe against D19's targets, and compared with D15's records for that game (`d15_measurement.json`, `d24_measurement.json`).
+
+**Pass if, against D15:**
+1. *D24 gain:* per held-out game, the mean over D24's three views of N = 3 spellF1. The mean change over the three games is at least **+0.01**, and no game's change is negative.
+2. *Clean view:* the mean over the three games of clean-view N = 3 spellF1 is not lower (D15 0.78004).
+3. *Other targets:* for N = 1.75, 4, 4.5 and control, the mean over the three games of the mean over the four views (clean and D24's three) drops by at most 0.01.
+4. *Each fold model on development* (DFL WPY in its four views, the four SkillCorner development matches, the eight PFF development matches): standard combined N = 3 spellF1 drops by at most 0.005; DFL dead ball carried, team swap and mean N = 3 on PFF development each drop by at most 0.01.
+
+Reported, not gated: raw labels, macroF1, and per-game and per-view changes.
+
+**Final fit and confirmation, once,** if leave one game out passes. Both sets refit with all three games. On the reused DFL/SkillCorner holdout (WQQ and WR9 with their guard views, the four SkillCorner holdout matches): standard combined N = 3 drops by at most 0.005, dead ball carried and team swap by at most 0.01. On PFF confirmation set B, parsed only now and forecast by D15 once: mean N = 3 drops by at most 0.005. N = 1.75, 4 and 4.5 are reported. The holdout is reused evidence; set B is fresh. Under C3, D30's +0.01 is condition 1 above, and the confirmation is a no-harm check on the final fit.
+
+**After a pass,** D30 goes into round 8's combine step. The final model is trained on all three Metrica games, so the D19 veto and the D24 mean can no longer measure it; any later Metrica evidence uses the fold models on their held-out games. **If it fails,** D15's models stay.
+
+Code: `dfl_submission/metrica_trial.py` (`prepare`, `check`, `fit`, `logo`, `confirm`, `build`). Prepared halves go to `data/d30/` (gitignored), weights to `dfl_submission/metrica_models/` (`fold1`–`fold3`, `final`), and records to `dfl_submission/metrica_fit_recipe/`, each written once. Every command except `build` runs with `MTAH_DATA_DIR` set to a nonexistent path and calls `require_external_only()`.
+
+## D29 — Dead ball from a tagged goal to the kick-off after it (2026-11-12, written before any D29 code runs on the competition bundle)
+
+**Question.** After a goal no team has possession until the kick-off that restarts play (Laws of the Game). DATA.md lists 4 `GOALS` instances and 4 `SET PIECES` instances of type `Kick Off (After Goal)` in the match's Smart Tagging. D15 decides those stretches from the tracking alone. This is round 8's step 4; like D27 it is a constraint, not a tuned step.
+
+**What was seen before this rule.** The records of D1–D28, C1–C3 and the D30 rule; DATA.md's Smart Tagging section and the D27 code. No competition file, tag or label has been opened.
+
+**Rule.** After the model decodes the match (and with D27 applied):
+- *Tags,* compared after trimming spaces and lower-casing as D27 does: kick-off tags are `SET PIECES` instances whose `Type` is `Kick Off (After Goal)`; goal tags are `GOALS` instances. A tag's frames are round(seconds × 25), as D27 rounds them. A tag belongs to the half whose graded block contains its start frame.
+- *Pairing:* for each kick-off tag, the goal tag is the one in the same half whose end frame is the latest at or before the kick-off tag's start, and no more than 3 minutes (4,500 frames) before it.
+- *Ambiguity:* the pair is not used if two goal tags share that latest end frame, if the same goal tag is the pair of another kick-off tag, or if another goal tag starts inside the stretch the rule would change (*amendment, written before any D29 code was written:* a second goal inside the stretch would otherwise be marked dead). A kick-off tag with no goal tag in reach changes nothing.
+- *The change:* every graded frame from the goal tag's end frame up to, but not including, the kick-off tag's start frame becomes `D`.
+
+**Why these ends.** The organisers' loader describes a tag as a window that contains its event, so a kick-off tag starts no later than the kick-off and the rule cannot overwrite play after it. The goal tag's end is taken to be no earlier than the goal itself. That cannot be checked without opening the tags, which this project does not do, so it is an assumption, disclosed here and in the technical document. If a goal tag ended before the ball crossed the line, the rule would mark live frames before that goal dead.
+
+**No tuning and no external score.** Two hand-set limits (3 minutes and the half) and no frame offset. No external match carries Smart Tagging, so the rule cannot be scored. Under C3 it ships only alongside a round 8 step that clears its bar; on its own it never changes the submission.
+
+**Adoption checks (if it ships).** `tests/test_kickoff.py` covers pairing, ambiguity, reach, halves and the change on a SportsCode fixture the test writes. With D29 switched off the build reproduces the standing SHA; the switched-on build passes the validator twice with one SHA. Only the validator line and the SHA are read.
+
+Code: `kickoff.read_instances`, `kickoff.goal_spans`, `kickoff.apply_goals`.
+
+## D31 — The broadcast ball as a second source (2026-11-12, written before any harness, aligner or merge code exists and before anything is scored)
+
+**Question.** A hidden ball is D15's largest measured loss (clean to masked: −0.055 on DFL, −0.075 on Metrica). The tactical ball is missing on 41% of graded frames (DATA.md). The broadcast recording has its own tracking, with the ball seen on 50.5% of its frames and a usable homography on 65.8%, but it is not synchronised to the tactical timeline. Where the tactical ball is missing and the broadcast ball is seen, can the broadcast ball fill it? This is round 8's step 2.
+
+**What was seen before this rule.** The records of D1–D30, C1–C3; DATA.md's broadcast and homography sections and `games.py`; the code of `experiments/broadcast_alignment.py`. No broadcast file, earlier research note or alignment output has been opened. If the competition check fails, only the names of the failed criteria are reported.
+
+**Stretches and offsets (`broadcast_ball.py`).** All positions are centred on the pitch; an orientation is one of the four flips of x and y.
+- A *stretch* is a maximal run of usable broadcast frames (valid homography and at least 4 players per team, as `frame_usable`), at least 125 frames (5 s) long.
+- *Cost:* the same-team formation error of `formation_cost` (each broadcast player to the nearest tactical player of the same team, capped at 10 m, root mean square, averaged over the two teams), between a broadcast frame and a tactical frame.
+- *Coarse search:* broadcast frames every 25 frames in the stretch (at most 120, evenly thinned), against tactical start frames every 25 frames, in all four orientations; a candidate's cost is the mean over the sampled frames with a finite cost, and needs finite costs on at least half of them.
+- *Fine search:* the 51 offsets within ±25 frames of the coarse best, in its orientation, on broadcast frames every 5 frames (at most 600). The stretch's offset is the fine minimum.
+- *Accepted* if the fine cost is at most MAX_COST, the margin is at least MIN_MARGIN, and no other fine offset is within 0.001 m of the minimum (a tie, rejected so that builds agree across platforms). The margin is the lowest coarse cost in any orientation more than 50 frames away from the best offset, or in another orientation at any offset, minus the fine cost.
+
+**Merge.** For each accepted stretch, each broadcast frame with a seen ball maps to tactical frame b + offset. Where the tactical ball is missing there (it fails the build's validity test), it gets the broadcast ball in the stretch's orientation. A seen tactical ball is never overwritten, players stay tactical, and when two stretches map to one frame the earlier stretch wins. Teams are reconciled from the metadata (`reconcile_teams`).
+
+**Synthetic two-camera harness (`two_camera.py`), external data only, every parameter fixed here.** From one external half's clean tracking (the truth) it builds a broadcast recording:
+- *Timeline:* broadcast frame b shows tactical frame b + d₀, with d₀ uniform on [−3000, 3000]. Live segments last 125 frames plus an exponential with mean 900. Between them: a cut (probability 0.5; no homography, 50–500 frames), a replay at normal speed (0.3; valid homography, 75–200 frames, starting 125–375 frames before the live time), or a slow replay (0.2; the same at half speed). A replay is wrapped in 25-frame wipes without homography with probability 0.5; otherwise it touches the live frames.
+- *Camera:* a window 50 m wide following the true ball's x (exponential smoothing with a 25-frame time constant, held while the ball is unseen), full pitch width. Players inside it are seen, each dropped for a 25-frame block with probability 0.1, with a per-segment bias N(0, 0.5 m) and per-frame noise N(0, 0.3 m) on each axis.
+- *Ball:* seen inside the window when the true ball is seen, through a two-state switch (mean seen run 100 frames, mean hidden run 25 frames), with a radial error drawn from a log-normal with median 1.5 m and 90th percentile 5 m in a uniform direction, independently per frame.
+- *Orientation:* one of the four, uniform per half.
+
+**Alignment constants, set on the harness before any score.** Harness recordings of the 8 halves of the four DFL training matches (seeds 900000 + 10 × match index + half). Grid: MAX_COST ∈ {1.0, 1.5, 2.0, 3.0} m × MIN_MARGIN ∈ {0.25, 0.5, 1.0, 2.0} m. A frame is *wrong* if its mapped tactical frame is more than 2 frames from the frame it really shows (a slow-replay frame counts by its rounded true frame), or its orientation is wrong. Selected: the setting with the most accepted broadcast frames among those with wrong frames at most 1% of accepted frames; ties go to the larger margin, then the smaller cost. If no setting qualifies, D31 stops. Recorded once in `broadcast_recipe/constants.json`.
+
+**Development (D15 frozen, nothing retrained).** DFL WPY's masked, dead-ball-carried and team-swap views, and D24's three views of the three Metrica games. Each half gets a harness recording of its clean truth (seeds 910000 + 100 × group + 10 × game or match + half) and the view's ball is merged through the real aligner at the selected constants. The merged ball is at least as bad as the competition check allows (the harness error above has median 1.5 m and 90th percentile 5 m before any alignment error). *Thinning:* recovery is cut to r = 10, 20, 30 and 40% of each half's frames with a missing view ball, by keeping recovered stretches in a seeded random order and cutting the last one; if a half recovers less, all of it is kept and the shortfall recorded. Gains are N = 3 spellF1 against D15 without the merge: the DFL group is the mean change over its three views; the Metrica group is the change of the D24 mean. **r\*** is the smallest r gaining at least +0.01 on both groups. If none does, D31 stops. Before any merged score is read, D15's labels without the merge must equal its cached labels on every development half.
+
+**Confirmation, once, at r\*.** WQQ and WR9 in the same three views, with fresh harness seeds (920000 + …). Per match, the mean change over its views. Pass if the mean over the two matches is at least **+0.01** and neither match is lower. The holdout has confirmed earlier steps, so it is reused evidence.
+
+**Competition check, run by Derek outside the AI session, PASS or FAIL with the failed names only** (`python -m dfl_submission.broadcast_trial check`):
+- *teams:* the teams reconcile from the metadata;
+- *coverage:* accepted stretches map onto at least 30% of graded frames;
+- *agreement:* on at least 2,000 graded frames where both balls are seen, their distance has a median of at most 1.5 m and a 90th percentile of at most 5 m;
+- *recovery:* the merge fills at least r\* of the graded frames whose tactical ball is missing.
+
+**Adoption.** Only if confirmation and the competition check both pass. Then the build reads the three broadcast files and merges before D15, and `release/check.sh` copies them too. Otherwise D15's inputs stay.
+
+Code: `dfl_submission/broadcast_ball.py`, `dfl_submission/two_camera.py`, `dfl_submission/broadcast_trial.py` (`calibrate`, `develop`, `confirm`, `check`, `build`). Records go to `dfl_submission/broadcast_recipe/`, each written once. Every command except `check` and `build` runs with `MTAH_DATA_DIR` set to a nonexistent path and calls `require_external_only()`.
+
+## D32 — Label-free adaptation, proved on an unseen vendor (2026-11-12, written before any D32 code exists and before anything is fitted or scored)
+
+**Question.** D6 continued one ownership tree on a match's own confident pseudo-labels and gained +0.0006 on SkillCorner 2020, short of its gate. Does the same per-match adaptation, with the standing model D15 as teacher and extended to the stoppage head, help on PFF, a vendor none of the models has seen? This is round 8's step 3. It is applied to the competition match only on a written organiser yes (below).
+
+**What was seen before this rule.** The records of D1–D31 (D30 and D31 not yet scored), C1–C3, and D6's code and record. No D32 fit or score exists.
+
+**Candidate, per match (its two halves), every constant D6's.**
+- *Teacher:* D15 as built (both sets, the 0.5 blend, D15's networks and decoder recipe). Its four final decoder inputs at 25 Hz, and the original set's two long-context trees at their 5 Hz feature frames.
+- *Pseudo-labels* at the feature frames, from D15's final inputs (`adaptation_trial.pseudo_labels`, confidence 0.90): ownership where the stoppage probability is at most 0.10 and one team's probability is at least 0.90; stoppage where the stoppage probability is at least 0.90 (dead) or at most 0.10 (live). A head whose pseudo-labels lack a class is not adapted on that match.
+- *Students:* the original set's ownership tree and stoppage tree, each continued for 40 rounds with its training parameters. Replay is 75% of the weight, shared as in the original fit (`long_context.source_weights`), from that set's training halves at frames divisible by 25 (D6's ownership replay, `data/d6_replay.npz`, and a stoppage replay built the same way from the known frames); pseudo-labels are 25%, shared equally by class. Ownership rows are mirrored with the teams swapped, as in the original fit; stoppage rows are not, as in the original fit.
+- *Adjustment:* each student's probability minus the original tree's, at the feature frames, interpolated to 25 Hz, times a multiplier m, added to D15's final home-ownership and stoppage probabilities and clipped to [0, 1]. Decoded at D15's recipe. Grid m ∈ {0.25, 0.5, 1.0}, one student per match for all three.
+
+**Development.** The eight PFF development matches, each adapted on its own tracking only and scored against PFF's labels as D7 scores them, against D15 (m = 0, its development record). A multiplier is eligible if mean N = 3 spellF1 rises by at least **+0.01**, no match loses more than 0.02, and mean N = 1.75, 4 and 4.5 each drop by at most 0.01. The eligible m with the highest mean N = 3, then N = 3 macroF1, then grid order, is selected. If none is eligible, D32 stops.
+
+**Confirmation, once.** PFF confirmation set C, parsed only for this step, D15 forecast on it once: at the selected m, mean N = 3 spellF1 rises by at least **+0.01**. Set C is fresh.
+
+**Determinism.** The adapted labels for the first PFF development match must be byte-identical on macOS and in `python:3.12.14-slim` under `linux/arm64` and `linux/amd64`. If not, D32 cannot ship.
+
+**Applied only if** the organisers give a written yes by Sat 14 Nov (EST) to label-free fitting on the provided tracking, the question of the 11 November email (the follow-up can go from 13 Nov; Derek sends it). Without it D32 is recorded and not applied, whatever its scores. PFF only measures here: one multiplier is chosen on PFF development (Derek approved this in the plan), and no PFF value enters the submission unless D32 is applied, which the technical document would disclose.
+
+Code: `dfl_submission/vendor_adaptation.py` (`replay`, `develop`, `confirm`, `determinism`, `build`). Records go to `dfl_submission/vendor_adaptation_recipe/`, each written once. Every command except `build` runs with `MTAH_DATA_DIR` set to a nonexistent path and calls `require_external_only()`.
+
+**D32 outcome (2026-11-12).** Failed at development, so **D32 stops** and is not applied, whatever the organisers reply. Confirmation and the determinism check did not run, and PFF confirmation set C was neither parsed nor scored. The pipeline check passed first: at multiplier 0 the adaptation code reproduced D15's PFF development record exactly (mean N = 3 0.65615). Every match supplied both classes for both heads (ownership pseudo-labels 8,220–14,003 per match, stoppage 21,502–26,594), so every match was adapted.
+
+| Multiplier | Mean N = 3 | Change | Worst match | N = 1.75 / 4 / 4.5 | Eligible |
+|---:|---:|---:|---:|---|---|
+| 0 (D15) | 0.65615 | — | — | — | — |
+| 0.25 | 0.65448 | −0.0017 | −0.0073 | −0.0015 / −0.0017 / −0.0018 | No |
+| 0.5 | 0.65578 | −0.0004 | −0.0063 | +0.0004 / −0.0004 / −0.0005 | No |
+| 1.0 | 0.65477 | −0.0014 | −0.0063 | −0.0016 / −0.0018 / −0.0024 | No |
+
+What it shows: as in D6, continuing the trees on the match's own confident outputs moves the decoded possessions very little, and here slightly down; the stoppage head did not change that. Nothing from PFF enters the submission. [Development](dfl_submission/vendor_adaptation_recipe/development.json)
+
+**D31 outcome (2026-11-12).** Stopped at the constant setting: no setting qualified, so development, confirmation and the competition check did not run, and nothing was scored. On the 8 harness recordings (643 stretches) every stretch found the right orientation, but against the masked tactical view the formation cost at the true offset was about 3–4 m and nearly flat within ±8 frames, so many offsets landed 3–5 frames away. The strictest settings accepted only a few stretches, all wrong (max cost 1.0 m: 175 frames accepted, 175 wrong); the loosest accepted 47,522 frames with 17,598 wrong (37%), against the 1% allowed. A diagnosis on one recording found the cause in the cost, not in the code: (1) the masked view drops each player track in 50-frame blocks with probability 0.2, and every broadcast player whose tactical counterpart is missing adds a capped error of up to 10 m, which dominates the root mean square; (2) against the clean view the minimum lay 2–4 frames late, because a constant position bias can be traded against a small time shift when a team moves together. [Constants record](dfl_submission/broadcast_recipe/constants.json)
+
+## D31a — The broadcast ball, second attempt with a robust cost (2026-11-12, written after D31's constant setting failed and before any D31a code exists or anything is scored)
+
+**Why a second attempt, and what it may use.** D31 stopped at its constant setting, before any score: its development views, its holdout confirmation and the competition were not touched. Its diagnosis named two causes in the cost (above). D31a changes only the cost, in those two ways, and repeats D31 otherwise unchanged. It is a second attempt on the same eight DFL training halves for the constant setting, which is disclosed as weaker evidence for the constants; it uses fresh harness seeds there. Development and confirmation are first attempts. If D31a fails at any stage, D31 is finished and is not attempted again.
+
+**The cost, changed in two ways.**
+1. *Trimmed:* within each team, only the 75% smallest per-player errors (rounded up) count; the rest are dropped before the root mean square. A broadcast player whose tactical counterpart is missing no longer dominates.
+2. *Translation per stretch, in the fine search:* for each candidate offset, the median displacement between the kept broadcast players and their nearest tactical teammates over the sampled frames is a translation τ; the cost is recomputed with the broadcast players moved by −τ. The stretch keeps the τ of its chosen offset, and its broadcast ball is moved by −τ when merged. The coarse search, margin and tie rule are D31's (the margin compares coarse costs with the translated fine cost).
+
+**Constants.** Harness recordings of the same eight halves with seeds 905000 + 10 × match index + half. Grid: MAX_COST ∈ {0.75, 1.0, 1.5, 2.0, 3.0} m × MIN_MARGIN ∈ {0.25, 0.5, 1.0, 2.0} m. D31's definition of a wrong frame (more than 2 frames off, or the wrong orientation) and its selection rule (most accepted frames with at most 1% wrong; then larger margin; then smaller cost) are unchanged. If no setting qualifies, D31 is finished.
+
+**Everything else is D31's:** the harness and its parameters, the merge, development (seeds 910000 + …, the thinning levels and r\*), confirmation (seeds 920000 + …, +0.01 with neither match lower), the competition check run by Derek (teams, coverage ≥ 30%, agreement on ≥ 2,000 frames with median ≤ 1.5 m and 90th percentile ≤ 5 m, recovery ≥ r\*), adoption and the build. Records go to `dfl_submission/broadcast_recipe/` with an `a_` prefix (`a_constants.json`, `a_development.json`, `a_confirmation.json`), each written once.
+
+**D30 outcome (2026-11-12).** Failed at leave one game out, so **D15's models stay**. The final fit and confirmation did not run: the holdout was not scored, and PFF confirmation set B was neither parsed nor scored, so it is still in reserve. The pipeline checks passed first: with no Metrica half, the combine and fit path refit D15's four trees byte for byte and its four networks bit for bit, the held-out scoring path reproduced D15's D19 and D24 records exactly, and D15 reproduced its development record.
+
+*Held-out games, against D15 (N = 3 spellF1 change):*
+
+| Game | Clean | Masked | Handled | Team swap | D24 mean |
+|---:|---:|---:|---:|---:|---:|
+| 1 | +0.0100 | +0.0009 | −0.0059 | +0.0230 | +0.0060 |
+| 2 | +0.0331 | +0.0281 | −0.0047 | +0.0042 | +0.0092 |
+| 3 | +0.0141 | +0.0073 | −0.0067 | −0.0037 | **−0.0010** |
+
+| Condition | Result | Required |
+|---|---:|---|
+| 1. D24 gain, mean over the games | **+0.0047** | ≥ +0.01, no game negative |
+| 2. Clean view, mean | +0.0191 | ≥ 0 |
+| 3. N = 1.75 / 4 / 4.5 / control, four views | +0.0081 / +0.0093 / +0.0108 / +0.0120 | each ≥ −0.01 |
+| 4. Fold models on development: standard N = 3 | −0.0063 / −0.0083 / −0.0089 | each ≥ −0.005 |
+| 4. Dead ball carried | **−0.0167 / −0.0593 / −0.0528** | each ≥ −0.01 |
+| 4. Team swap / PFF development | +0.0010 to +0.0094 / −0.0018 to −0.0066 | each ≥ −0.01 |
+
+What it shows: training on Metrica's corrected tracking helps where the ball is missing exactly when it is dead (clean +0.019) and on masked tracking, but it hurts wherever the ball is seen while dead: the handled view lost in every game and DFL's dead-ball-carried view lost in every fold. Metrica's sample games teach the dead-ball shortcut that D2 was built to remove, and the competition's tracking shows the ball while it is dead. Nothing from the Metrica games is trained into the submission. The fold weights are kept in `dfl_submission/metrica_models/` for the record. [Pipeline checks](dfl_submission/metrica_fit_recipe/check.json) · [Leave one game out](dfl_submission/metrica_fit_recipe/logo.json)
+
+**D31a outcome (2026-11-12).** Failed at development: no level reached its gain, so **D31 is finished**. Confirmation and the competition check did not run, and no broadcast file was read.
+- *Constants (second attempt on the calibration halves, fresh seeds).* Only the strictest corner of the grid qualified: max cost 0.75 m, margin 2.0 m, which accepted 4,770 broadcast frames with 1 wrong. Looser settings accepted far more frames but with 6–14% wrong (for example max cost 1.0 m and margin 1.0 m: 36,994 accepted, 2,361 wrong).
+- *Development.* D15 reproduced its development and D24 records, and its labels without the merge equalled its cached ones on every view (D24 mean 0.67367). At the selected constants, 55 of 1,896 stretches were accepted and the merge filled 2,398 of 852,873 frames with a missing view ball (0.28%; DFL 0.36%, Metrica 0.26%), so every thinning level kept all of it, with a shortfall at every level. On the Metrica views 658 of 9,950 accepted frames (6.6%) were more than 2 frames off, against the 1% the constants were chosen for.
+- *Gains, at every level:* DFL group +0.0003, Metrica D24 mean +0.0006, against +0.01 required.
+
+What it shows: on the harness, an alignment strict enough to be right 99% of the time accepts so few stretches that the broadcast ball barely reaches the hidden frames, and the strict constants do not hold their error rate on other halves. With the competition's 41% missing tactical ball, the step would have needed at least ten times more accepted coverage than any 1%-error setting gave. Nothing from the broadcast recording enters the submission. [Constants](dfl_submission/broadcast_recipe/a_constants.json) · [Development](dfl_submission/broadcast_recipe/a_development.json)
