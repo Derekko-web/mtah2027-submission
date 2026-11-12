@@ -2,8 +2,6 @@
 
 *More Than A Hack 2027, Initial Challenge.* Team: **Anfield**. Repository: https://github.com/Derekko-web/mtah2027-submission. Submission file: `Anfield.csv`, SHA-256 `0ddbb34216fdab55752a5b46458639f745cc4e88c074ec0787d771f3630fceff`.
 
-> **Draft.** Before submitting: confirm section 7 with the whole team, then upload this document as `Anfield.pdf` or `Anfield.md`.
-
 ## 1. Summary
 
 We label every frame of the tactical video as `H`, `A` or `D`, and write `X` outside the two official halves. The system reads the automatic tactical tracking, plus the start and end times of the Smart Tagging kick-off tags. It has four parts:
@@ -92,7 +90,7 @@ A three-state (`H`, `A`, `D`) Viterbi decoder runs over each half.
 
 ## 4. External validation
 
-The confirmation matches were reused across several decisions, so they are development evidence rather than an untouched test. Every decision after the first ensemble was governed by a rule written down before scoring ([DECISIONS.md](DECISIONS.md)), with fixed gates and a single holdout check.
+The confirmation matches were reused across several decisions, so they are development evidence rather than an untouched test. Every decision after the first ensemble was governed by a rule written down before scoring ([DECISIONS.md](https://github.com/Derekko-web/mtah2027-submission/blob/main/DECISIONS.md)), with fixed gates and a single holdout check.
 
 ### Ensemble against provider labels
 
@@ -122,7 +120,7 @@ The decoder retune improved all eight holdout match views on the primary target.
 
 ### Experiments that did not change the submission
 
-Each followed a rule written before scoring, and each outcome is recorded in [DECISIONS.md](DECISIONS.md) whether it passed or failed. Scores are spellF1 against the N = 3 targets.
+Each followed a rule written before scoring, and each outcome is recorded in [DECISIONS.md](https://github.com/Derekko-web/mtah2027-submission/blob/main/DECISIONS.md) whether it passed or failed. Scores are spellF1 against the N = 3 targets.
 
 | Decision | What was tested | Result | Effect on the submission |
 |---|---|---|---|
@@ -206,8 +204,6 @@ D3 was a second attempt on the same development matches, made after seeing the D
 
 ## 7. Assets used and dropped, and development history
 
-> **Team decision:** confirm the wording of this section before submission.
-
 **Used:** tactical ATD tracking, its metadata and the homography `valid` flag; from Smart Tagging, only the start and end times of the `Kick Off (Start)` tags (D27, section 6).
 
 **Dropped:**
@@ -257,7 +253,7 @@ The README documents:
 - how to re-run every tuning and confirmation step;
 - the guard that refuses to fit while the competition data is reachable.
 
-Every constant and its source are listed in [CONSTANTS.md](CONSTANTS.md).
+Every constant and its source are listed in [CONSTANTS.md](https://github.com/Derekko-web/mtah2027-submission/blob/main/CONSTANTS.md).
 
 ## 10. Licences and credits
 
