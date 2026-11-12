@@ -1254,3 +1254,29 @@ Reported, not gated: N = 1.75, 4 and 4.5, raw labels, and every Metrica score ag
 **If it passes,** D15 with the shift becomes the submission after the rebuild checks (twice on macOS in a fresh virtual environment, then `python:3.12.14-slim` under `linux/arm64` and `linux/amd64`). **If it fails,** D15 stays.
 
 Code: a `handover` option in `metrica_sample`'s marks (default unchanged), and `dfl_submission/timing_trial.py` (`develop`, `confirm`, `build`). Records go to `dfl_submission/timing_recipe/`, each written once. Every D26 command runs with `MTAH_DATA_DIR` set to a nonexistent path and calls `require_external_only()`.
+
+**Outcome (2026-11-11).** Failed at development, so **D15 stays**. Confirmation did not run: the holdout was not scored, and the PFF untouched set was neither parsed nor scored, so it is still in reserve. The pipeline checks passed first: D15 reproduced its development record (PFF development included), its D19 and D24 measurements; re-reading the Metrica files reproduced D19's parsed targets; and the second marking rule left every dead and X frame unchanged.
+
+*Steps 1–2, the lag is robust but smaller under the second rule.* Median N = 3 ownership offsets (frames, predicted minus true):
+
+| Game | D19 rule, clean | D19 rule, masked | Second rule, clean | Second rule, masked |
+|---:|---:|---:|---:|---:|
+| 1 | +3 | +3 | +2 | +2 |
+| 2 | +4 | +6 | +2.5 | +4 |
+| 3 | +3 | +3 | +2 | +2 |
+
+All 12 medians reached +2, so the shift was s = 2 frames. About a third of the lag D21 saw comes from D19 marking the opponent at the end of a lost ball.
+
+*Adoption conditions, with s = 2, compared with D15:*
+
+| Condition | Change | Required |
+|---|---:|---|
+| Leave one game out, clean view (each game's shift from the other two was 2) | game 1 +0.0031, game 2 **−0.0008**, game 3 **−0.0014**; mean **+0.0003** | each ≥ 0, mean ≥ +0.003 |
+| D24 mean (0.67367 → 0.67376) | +0.00009 | ≥ 0 |
+| Standard combined N = 3 | −0.0020 | ≥ −0.01 |
+| DFL dead ball carried / team swap | −0.0042 / −0.0015 | each ≥ −0.01 |
+| PFF development | +0.0002 | ≥ −0.01 |
+
+Reported: N = 1.75 / 4 / 4.5 on the standard views −0.0015 / −0.0018 / −0.0017, raw −0.0014. On the Metrica clean view with s = 2, against D19's targets: N = 3 +0.0003, raw +0.0007, N = 4.5 −0.0005; against the second rule's targets: N = 3 +0.0003, raw −0.0002.
+
+What it shows: the lag is real under both marking rules, but moving D15's changes two frames earlier hardly changes spellF1. Spell IoU over possessions that last several seconds barely moves with a two-frame boundary, so the timing offset costs D15 little. Nothing estimated on the Metrica games enters the submission. [Development](dfl_submission/timing_recipe/development.json)

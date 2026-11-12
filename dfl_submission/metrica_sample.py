@@ -282,13 +282,17 @@ def json_events(path, team_ids):
     return events
 
 
-def marks(events, first, length):
-    """(frame index, team) possession marks of one period, in time order, ties in file order."""
+def marks(events, first, length, handover=HANDOVER_EVENTS):
+    """(frame index, team) possession marks of one period, in time order, ties in file order.
+
+    `handover` lists the events that also mark the opponent at their end frame (D19: a ball lost).
+    D26's second marking rule passes an empty set, so the opponent waits for its own next event.
+    """
     found = []
     for event in events:
         if event.kind in TEAM_EVENTS and 0 <= event.start - first < length:
             found.append((event.start - first, event.index, 0, event.team))
-        if event.kind in HANDOVER_EVENTS and event.end >= event.start and 0 <= event.end - first < length:
+        if event.kind in handover and event.end >= event.start and 0 <= event.end - first < length:
             found.append((event.end - first, event.index, 1, 1 - event.team))
     return [(frame, team) for frame, _, _, team in sorted(found)]
 
@@ -314,7 +318,7 @@ def live_mask(visible):
     return live, filled
 
 
-def raw_labels(visible, events, first):
+def raw_labels(visible, events, first, handover=HANDOVER_EVENTS):
     """The raw D19 targets of one period and the counts its reader check records."""
     length = len(visible)
     start = kick_off(events, first, length)
@@ -323,7 +327,7 @@ def raw_labels(visible, events, first):
     live, filled = live_mask(visible)
     labels = np.full(length, pm.X, dtype=np.int8)
     labels[start:stop] = np.where(live[start:stop], pm.X, pm.D)
-    found = marks(events, first, length)
+    found = marks(events, first, length, handover)
     frames = np.array([frame for frame, _ in found], dtype=np.int64)
     teams = np.array([team for _, team in found], dtype=np.int8)
     latest = np.full(length, -1, dtype=np.int64)
@@ -386,7 +390,7 @@ def reader_checks(visible, events, first):
             "restarts": len(before), "restarts_after_missing": int(sum(before))}
 
 
-def period_halves(frames, periods, positions, ball, teams, pitch, events):
+def period_halves(frames, periods, positions, ball, teams, pitch, events, handover=HANDOVER_EVENTS):
     """Two 25 Hz halves: centred positions, ball, teams, pitch, raw and control targets, checks."""
     halves = []
     for period in (1, 2):
@@ -397,7 +401,7 @@ def period_halves(frames, periods, positions, ball, teams, pitch, events):
         own = [event for event in events if event.period == period]
         located = to_metres(ball[rows], pitch)
         visible = np.isfinite(located).all(axis=1)
-        labels, counts = raw_labels(visible, own, first)
+        labels, counts = raw_labels(visible, own, first, handover)
         halves.append({"positions": to_metres(positions[rows], pitch), "ball": located, "teams": teams,
                        "pitch": np.asarray(pitch, dtype=np.float64), "labels": labels,
                        "control": control_labels(labels, own, first),
@@ -405,15 +409,15 @@ def period_halves(frames, periods, positions, ball, teams, pitch, events):
     return halves
 
 
-def read_game(raw, game, sources=SOURCES):
+def read_game(raw, game, sources=SOURCES, handover=HANDOVER_EVENTS):
     verify(raw, GAME_FILES[game], sources)
     paths = [raw / path for path in GAME_FILES[game]]
     if game == 3:
         metadata = epts_metadata(paths[0])
         with paths[1].open() as lines:
             tracking = epts_tracking(metadata, lines)
-        return period_halves(*tracking, metadata["pitch"], json_events(paths[2], metadata["team_ids"]))
-    return period_halves(*csv_tracking(paths[0], paths[1]), PITCH, csv_events(paths[2]))
+        return period_halves(*tracking, metadata["pitch"], json_events(paths[2], metadata["team_ids"]), handover)
+    return period_halves(*csv_tracking(paths[0], paths[1]), PITCH, csv_events(paths[2]), handover)
 
 
 # -- prepared halves -------------------------------------------------------------------------------

@@ -168,6 +168,18 @@ def test_marks_hand_possession_over_at_the_end_of_a_ball_lost():
     assert ms.marks(events, 100, 100) == [(10, 0), (30, 0), (40, 1), (40, 1), (60, 0)]
 
 
+def test_marks_without_the_handover_wait_for_the_opponents_next_event():
+    events = [event(0, 0, "PASS", 110, 120), event(1, 0, "BALL LOST", 130, 140), event(2, 1, "PASS", 150, 155)]
+    assert ms.marks(events, 100, 100) == [(10, 0), (30, 0), (40, 1), (50, 1)]
+    assert ms.marks(events, 100, 100, handover=frozenset()) == [(10, 0), (30, 0), (50, 1)]
+    visible = np.ones(100, dtype=bool)
+    events = [event(0, 0, "SET PIECE", 100, subtypes=("KICK OFF",)), *events]
+    d19, _ = ms.raw_labels(visible, events, 100)
+    second, _ = ms.raw_labels(visible, events, 100, handover=frozenset())
+    assert (d19[40:50] == A).all() and (second[40:50] == H).all() and (second[50:] == A).all()
+    np.testing.assert_array_equal(d19 == D, second == D)
+
+
 def test_raw_labels_from_ball_and_events():
     first = 1000
     visible = np.ones(400, dtype=bool)
