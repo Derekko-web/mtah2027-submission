@@ -40,9 +40,10 @@ The context stage's island-suppression settings (`island_frames`, `island_confid
 | Class and match balancing | equal weight per source, match and class | `long_context.fit_head` | Hand-set |
 | Team-swap augmentation | train and predict in both team orders | `models.ownership_probability` | Symmetric by construction |
 | Temporal network architecture and optimiser | dilations, dropout 0.08, AdamW at 0.0015 with cosine decay, weight decay 0.01 | `temporal_network.py` | Hand-set (Nov 10) |
-| Network width and training length | 96 channels per block, 5,400 steps, with the cosine schedule stretched over the run | `scale_models/w96_s5400/*/fit.json`, `temporal_network.train` | External grid under DECISIONS.md D15: width 48 or 96 × 1,800 or 5,400 steps × ownership cost 4, 6 or 8; confirmed once. Replaces width 48 and 1,800 steps. |
+| Network width and training length | 96 channels per block, 5,400 steps, with the cosine schedule stretched over the run | `scale_models/w96_s5400/*/fit.json`, `temporal_network.train` | External grid under DECISIONS.md D15: width 48 or 96 × 1,800 or 5,400 steps × ownership cost 4, 6 or 8; confirmed once. Replaces width 48 and 1,800 steps. D20 (frame log-loss) and D22 Stage A (spellF1 on held-out training matches) scored widths 96 and 192 × 5,400–19,800 steps; neither replaced it. |
 | Network snapshot | the last snapshot of each network (step 5,400); the seed-97 network's predictions are phase-averaged | `scale_trial.final_snapshot`, `ensemble_recipe` | External grid (snapshot variant), then D15's stretched schedule |
 | Boundary loss weight | 0.5 for the first networks, 1.4 for the seed-97 network | `temporal_network.loss`, `scale_models/w96_s5400/*/*/fit.json` (`boundary_boost`) | Hand-set; there is no search record. The ensemble that uses the seed-97 network was then accepted or rejected on external data. |
+| Network seeds | 42 and 97, one network per slot | `scale_models/w96_s5400/*/*/fit.json` (`seed`) | Hand-set. DECISIONS.md D22 tested the mean of three seeds per slot (s, s + 1000, s + 2000), which failed development; one seed per slot stays. |
 | 5 Hz phase offsets | 0, 2, 4 frames | `ensemble_trial.PHASES` | Hand-set (covers the 5-frame stride) |
 
 ## Training-data degradation (DFL views only)
@@ -72,7 +73,7 @@ All values are hand-set and were not tuned. The architecture, features, hyperpar
 | Decoder | joint three-state Viterbi | `joint_decoder.py`, `ensemble_recipe` | External grid: joint, separate or reference |
 | Stoppage cutoff | 0.53 | `ensemble_recipe`, re-selected for the blend in `blend_recipe` | External grid (0.53, 0.57, 0.61); re-selected for the blend from (0.45, 0.49, 0.53, 0.57, 0.61) under DECISIONS.md D3 |
 | Model blend | 0.5 original, 0.5 retrained, applied to every model output | `blend_recipe` | Fixed in DECISIONS.md D3 before scoring, not tuned |
-| Ownership switch cost | 8 | `scale_recipe/recipe.json` | External grid (4, 6, 8) under DECISIONS.md D15, chosen with the D15 networks and confirmed once. Before D15: 6, from the D1 grid (2, 3, 4, 6, 8, 12, 16) against controlled-possession targets with N = 3 s, replacing the original ensemble value of 2. |
+| Ownership switch cost | 8 | `scale_recipe/recipe.json` | External grid (4, 6, 8) under DECISIONS.md D15, chosen with the D15 networks and confirmed once. D22 Stage A re-scored 8, 10 and 12 on held-out training matches; none beat 8 by the required +0.005. Before D15: 6, from the D1 grid (2, 3, 4, 6, 8, 12, 16) against controlled-possession targets with N = 3 s, replacing the original ensemble value of 2. |
 | Stoppage switch cost | 2 | `ensemble_recipe`, kept by `decoder_recipe` | External grid (ensemble: 1–4; retune: 2, 3, 4) |
 | Controlled-possession convention | N = 3 s (merge an A–B–A whose interior B lasts under 3 s) | `conventions.py`, DECISIONS.md D1 | Minimax over the externally derived interval of 1.75–4.5 s (Metrica sample events, SkillCorner phases). Used only to score external candidates, not at inference. |
 | Boundary discount | 0.8 | `ensemble_recipe` | External grid (0.55, 0.8) |

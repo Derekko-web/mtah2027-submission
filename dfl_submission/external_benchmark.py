@@ -32,8 +32,12 @@ class Half:
         return f"{self.source}_{self.match}_{self.view}_{self.index}"
 
 
+DFL_SPLITS = {"train": TRAIN, "development": (DEVELOPMENT,), "holdout": HOLDOUT, "all": (*TRAIN, DEVELOPMENT, *HOLDOUT)}
+TRAINING_VIEWS = ("train", "all")  # splits whose DFL halves add the stress view (D23's `all` split trains on every match)
+
+
 def halves(dfl, skill, split, *, raw=False):
-    dfl_matches = {"train": TRAIN, "development": (DEVELOPMENT,), "holdout": HOLDOUT}[split]
+    dfl_matches = DFL_SPLITS[split]
     for match in dfl_matches:
         index = (*TRAIN, DEVELOPMENT, *HOLDOUT).index(match)
         source = fusion_trial.external_halves(dfl, match, raw=raw)
@@ -47,11 +51,15 @@ def halves(dfl, skill, split, *, raw=False):
                 start_time = float(timestamps[first] - first / 25)
             for view, positions, ball in views(item, index, i):
                 yield Half("dfl", match, view, i, labels, positions, ball, item["teams"], item["pitch"], start_time)
-            if split == "train":
+            if split in TRAINING_VIEWS:
                 positions, ball = stress(item["positions"], item["ball"], 370000 + 100 * index + i)
                 yield Half("dfl", match, "stress", i, labels, positions, ball, item["teams"], item["pitch"])
     if skill is None:
         return
+    yield from skillcorner_halves(skill, split)
+
+
+def skillcorner_halves(skill, split):
     for match, i, path in skillcorner_paths(skill, split):
         with np.load(path, allow_pickle=False) as item:
             labels = pm.label_codes(item["labels"])
@@ -59,9 +67,12 @@ def halves(dfl, skill, split, *, raw=False):
                        item["ball"], item["teams"], item["pitch"])
 
 
+SKILL_SPLITS = {"train": skillcorner.TRAIN, "development": skillcorner.DEVELOPMENT, "holdout": skillcorner.HOLDOUT,
+                "all": (*skillcorner.TRAIN, *skillcorner.DEVELOPMENT, *skillcorner.HOLDOUT)}
+
+
 def skillcorner_paths(skill, split):
-    skill_matches = {"train": skillcorner.TRAIN, "development": skillcorner.DEVELOPMENT,
-                     "holdout": skillcorner.HOLDOUT}[split]
+    skill_matches = SKILL_SPLITS[split]
     manifest = json.loads((skill / "manifest.json").read_text())
     if manifest["revision"] != skillcorner.REVISION:
         raise ValueError("SkillCorner revision differs")

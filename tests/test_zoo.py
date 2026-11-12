@@ -578,3 +578,70 @@ def test_cloud_tree_cv_is_checked_and_adopted_without_any_tree():
             assert not (other / "cv_trees.json").exists()
     finally:
         zoo.training_code_matches = original
+
+
+# -- D22 Stage A: fold networks decoded on their held-out training matches ---------------------------
+
+def stage_a_labels(source):
+    """25 Hz labels whose every fifth frame is the label each prepared target was built from."""
+    from evaluation import possession_metrics as pm
+    manifest = json.loads((source / "manifest.json").read_text())
+    result = {}
+    for record in manifest["records"]:
+        name, match, _, index = Path(record["file"]).stem.split("_")
+        with np.load(source / record["file"]) as item:
+            stored = item["targets"]
+        five = np.where(stored[:, 0] > 0, pm.D, np.where(stored[:, 1] > 0, pm.H, pm.A)).astype(np.int8)
+        result[name, match, int(index)] = np.repeat(five, 5)
+    return result
+
+
+def check_fold_decode_reproduces_the_cv_losses():
+    from evaluation import possession_metrics as pm
+    with tempfile.TemporaryDirectory() as tmp:
+        tmp = Path(tmp)
+        source = synthetic_folder(tmp / "prepared")
+        folder = zoo.fold_folder(source, 2, tmp / "fold2")
+        run = tmp / "tcn"
+        zoo.fit_network("tcn", folder, run, seed=42, boundary_boost=.5, setting={"width": 8, "steps": 6}, device="cpu")
+        labels = stage_a_labels(source)
+        halves, losses = zoo.fold_halves(run, source, 2, labels)
+        assert losses == zoo.network_cv_losses("tcn", run, source, 2)
+        held = {("dfl", "WOH")} | {("skillcorner", m) for m in sorted(SKILL, key=int)[2::4]}
+        assert {(half.source, half.match) for half in halves} == held
+        assert all(half.view in ("clean", "masked", "observed") for half in halves)
+        family, weights, norm = zoo.final_weights(run)
+        first = halves[0]
+        with np.load(source / f"{first.source}_{first.match}_{first.view}_{first.index}.npz") as item:
+            at_frames = zoo.network_probabilities(family, weights, norm, item["values"])
+        frames = np.arange(0, len(first.labels), 5)
+        assert all(np.array_equal(signal[frames], value) for signal, value in zip(first.signals, at_frames))
+        assert all(signal.dtype == np.float32 and len(signal) == len(first.labels) for signal in first.signals)
+        broken = dict(labels)
+        key = ("dfl", "WOH", 0)
+        broken[key] = broken[key].copy()
+        broken[key][205] = pm.H if broken[key][205] != pm.H else pm.A
+        try:
+            zoo.fold_halves(run, source, 2, broken)
+        except ValueError:
+            pass
+        else:
+            raise AssertionError("Labels that do not reproduce the prepared targets must be refused")
+
+
+def test_fold_decode_reproduces_the_cv_losses():
+    isolated("check_fold_decode_reproduces_the_cv_losses")
+
+
+def test_fold_signals_interpolate_like_network_inference():
+    probabilities = tuple(np.linspace(.1, .9, 4, dtype=np.float32) + k / 100 for k in range(4))
+    signals = zoo.fold_signals(probabilities, 18)
+    frames, timeline = np.arange(0, 18, 5), np.arange(18)
+    for signal, value in zip(signals, probabilities):
+        assert np.array_equal(signal, np.interp(timeline, frames, value).astype(np.float32))
+    try:
+        zoo.fold_signals(probabilities, 21)
+    except ValueError:
+        pass
+    else:
+        raise AssertionError("A length that does not match the prepared frames must be refused")

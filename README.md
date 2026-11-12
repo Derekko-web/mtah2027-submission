@@ -327,6 +327,44 @@ D19 measures the submission on Metrica Sports' three public sample matches ([sam
 
 [D18 measurement](dfl_submission/pathcrf_recipe/d18_measurement.json) · [D18 diagnostic](dfl_submission/pathcrf_recipe/d18_diagnostic.json) · [D18 protocol](DECISIONS.md#d18--pathcrf-ball-free-possession-check-2026-11-11-written-before-any-pathcrf-output-is-computed-or-scored) · [D19 sanity](dfl_submission/metrica_recipe/sanity.json) · [D19 D3 measurement](dfl_submission/metrica_recipe/d3_measurement.json) · [D19 D15 measurement](dfl_submission/metrica_recipe/d15_measurement.json) · [D19 protocol](DECISIONS.md#d19--metrica-sample-match-benchmark-2026-11-11-written-before-any-prediction-or-score-on-these-games-is-computed)
 
+D20 searched four model families against D15, each tuned by match-grouped cross-validation on the training matches only (frame log-loss): the temporal network at widths 96 and 192 and 5,400 to 19,800 steps, a bidirectional GRU, a transformer encoder and deeper XGBoost tree heads (`zoo.py`; the GRU, transformer and tree cross-validation ran on Kaggle, see `cloud/README.md`). The temporal network selected D15's own setting. Each other family's best setting was scored once on development: GRU −0.003, trees −0.003, transformer −0.031 against D15's 0.723. The best pair, D15 + GRU, scored 0.722, so greedy selection kept D15 alone and nothing was confirmed. Frame log-loss favoured the shortest training in every family, the opposite of D15's spellF1 gain.
+
+```sh
+.venv/bin/python -m dfl_submission.zoo cv --family tcn --source /path/to/train_data --scratch data/d20/cv
+.venv/bin/python -m dfl_submission.zoo fit --family tcn --current /path/to/train_data \
+  --augmented data/d13/sequences_augmented --scratch data/d20/networks
+.venv/bin/python -m dfl_submission.zoo develop --dfl "$DFL_XML" --dfl-raw --skill data/skillcorner --parsed data/pff/parsed \
+  --d15-cache data/d15/cache/w96_s5400 --cache data/d20/cache --metrica-cache data/d20/metrica
+```
+
+D21 repeats D11's measurements for D15, from the cached inputs its own records were scored from, and adds the Metrica sample matches as a seventh group. Ownership is still the main loss: with true ownership substituted, standard combined spellF1 rises from 0.723 to 0.885, and with true stoppages only to 0.750. D15 predicts 6–22% fewer spells than the targets (D3: 20–25%).
+
+```sh
+.venv/bin/python -m dfl_submission.diagnosis measure-d15 --dfl "$DFL_XML" --dfl-raw --skill data/skillcorner \
+  --parsed data/pff/parsed --d15-cache data/d15/cache/w96_s5400
+```
+
+D22 finished D15's search and tested seed averaging (`triple_trial.py`). Stage A decoded D20's 24 fold networks (widths 96 and 192, 5,400 to 19,800 steps) on the training matches they had not seen, at ownership costs 8, 10 and 12 (`zoo.fold_halves`), after checking that they reproduce D20's held-out log-losses. The best point, width 96 with 10,800 steps at cost 12, gained +0.002 over D15's own setting, under the +0.005 required, so D15's setting and cost stayed. Stage B trained two more seeds for each of the four network slots (seeds s + 1000 and s + 2000), and each slot became the mean of three networks (`zoo.SlotMean`). On development that scored 0.717 against D15's 0.723. It gained with the dead ball carried, on team swaps and on Metrica, but failed the +0.005 gate, so confirmation did not run.
+
+```sh
+.venv/bin/python -m dfl_submission.triple_trial stage-a --dfl "$DFL_XML" --dfl-raw --skill data/skillcorner \
+  --source /path/to/train_data --cv data/d20/cv
+.venv/bin/python -m dfl_submission.triple_trial networks --source /path/to/train_data --set current --scratch data/d22/networks
+.venv/bin/python -m dfl_submission.triple_trial networks --source data/d13/sequences_augmented --set augmented \
+  --scratch data/d22/networks
+.venv/bin/python -m dfl_submission.triple_trial develop --dfl "$DFL_XML" --dfl-raw --skill data/skillcorner \
+  --parsed data/pff/parsed --d15-cache data/d15/cache/w96_s5400 --cache data/d22/cache_development \
+  --metrica-cache data/d22/metrica
+```
+
+D23 would refit the standing recipe on all 27 labelled external matches (an `all` split in `external_benchmark` and `augment`, prepared by `final_trial prepare`). Its rule ran an evidence step first: on development, D15's original-set seed-42 network (trained on 16 matches) against D20's four fold networks of the same setting (12 matches each), each decoded alone. The 16-match network scored 0.7114 against the fold mean of 0.7135, short of the +0.005 the rule required, so the refit did not run. The untouched PFF set and the four 2019–20 confirmation matches were not scored.
+
+```sh
+.venv/bin/python -m dfl_submission.final_trial evidence --dfl "$DFL_XML" --dfl-raw --skill data/skillcorner --cv data/d20/cv
+```
+
+[D20 selection](dfl_submission/zoo_recipe/development.json) · [D21 record](dfl_submission/diagnosis_recipe/d21.json) · [D22 Stage A](dfl_submission/triple_recipe/stage_a.json) · [D22 development](dfl_submission/triple_recipe/development.json) · [D23 evidence](dfl_submission/final_recipe/evidence.json)
+
 [D11 record](dfl_submission/diagnosis_recipe/d11.json) · [D12 development](dfl_submission/refine_recipe/development.json) · [D13 development](dfl_submission/aligned_recipe/development.json) · [D14 development](dfl_submission/extra_recipe/development.json) · [D11 protocol](DECISIONS.md#d11--where-frozen-d3-loses-spellf1-2026-11-11-written-before-anything-is-scored) · [D12 protocol](DECISIONS.md#d12--decoder-output-refinements-2026-11-11-written-after-d11s-record-and-before-any-d12-setting-is-scored)
 
 The earlier stages have their own `train`/`tune`/`confirm` commands, which are subject to the same guard:

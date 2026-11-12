@@ -1015,6 +1015,121 @@ D3 on Metrica, for reference: true stoppages 0.814, true ownership 0.846, 674 pr
 - **D15 still under-segments, less than D3.** It predicts 6–22% fewer spells than the targets on every group except the dead ball carried view (D3: 20–25% fewer). Recall at IoU 0.5 by true spell length on SkillCorner: 4% under 1.75 s, 46% at 1.75–3 s, 52% at 3–5 s, 74% at 5–10 s, 89–93% above 10 s (D3: 4%, 40%, 48%, 72%, 84–92%). On DFL clean the 1.75–3 s bin rose from 40% to 87%; on PFF it is still 11%.
 - **Brief interior spells are still rare.** D15 predicts at most 4 interior spells under 1.75 s in any group, and 3–28 under 3 s.
 - **Boundary timing has no shared bias.** N = 3 median offsets (frames, predicted minus true) for ownership, stop and restart: DFL 0, −1, −0.5; SkillCorner 0, 0, 0; PFF −2, −5, −3; Metrica +4, +3, −1.
-- **Sub-second stoppages on PFF.** D15 predicts 87 stoppages under 1 s on the PFF development matches, against 1 in the targets (SkillCorner 10 against 30, Metrica 7 against 0, DFL clean none). They come from short gaps in PFF's ball tracking.
+- **Sub-second stoppages on PFF.** D15 predicts 87 stoppages under 1 s on the PFF development matches, against 1 in the targets (SkillCorner 10 against 30, Metrica 7 against 0, DFL clean none). D21 did not examine their cause.
 
 What follows: the headroom is still in ownership changes the models miss, mostly spells under 5 s. D22 and D23 act on the models, which is where that headroom is. If both fall short, the next candidates are more ownership-change recall in the models and, for PFF-like tracking only, a minimum stoppage length. Neither is part of this plan. [Record](dfl_submission/diagnosis_recipe/d21.json)
+
+## D22 — Finish D15's search and average three seeds (2026-11-11, written before any D22 decoding, training or scoring)
+
+**Question.** D15 stopped at the edge of its grid: ownership cost 8 was its largest cost, and nothing longer than 5,400 steps was scored on spellF1. D20 trained longer and wider networks but chose among them by frame log-loss, and its own record says log-loss and spellF1 disagree on training length. Separately, each of D15's four network slots holds one seed. Do a longer or wider setting, a higher ownership cost, or the mean of three seeds per slot raise spellF1? This is round 5's step 2.
+
+**What was seen before this rule.** The records of D1–D21. D20's cross-validation record (`zoo_recipe/cv_tcn.json`) holds only frame log-losses; no fold network has been decoded or scored on spellF1.
+
+**Reference.** D15, the submission (D3's trees and 0.5 blend, D15's four networks at width 96 and 5,400 steps, cutoff 0.53, ownership cost 8, stoppage cost 2, discount 0.8).
+
+**Stage A — setting and cost, on the training matches only, with no new training.**
+- *Networks.* The 24 fold networks of D20's temporal-network cross-validation, in `data/d20/cv/tcn`: for each of the six settings (width 96 or 192 × 5,400, 10,800 or 19,800 steps), fold k's network (original set, seed 42, boundary weight 0.5, last snapshot) trained on the other three folds. Each run's `fit.json` must match the hash in `cv_tcn.json`.
+- *Decoder inputs.* For each held-out training half, the fold network's swap-averaged probabilities at the prepared 5 Hz frames, computed from the prepared sequence exactly as D20 computed its log-loss (`zoo.network_probabilities`), then interpolated linearly to every 25 Hz frame as the build's network inference does. These four signals (home, dead, dead edge, owner edge) go straight into the joint decoder: no trees, no second model set, no phase averaging.
+- *Views scored.* DFL clean and masked, and SkillCorner. The DFL stress view is a training augmentation and is not scored.
+- *Targets.* Each half's 25 Hz provider labels (`aligned_trial.training_labels`), with the N = 3 s collapse for the primary.
+- *Grid (18 points).* The six settings × ownership cost ∈ {8, 10, 12}, with D15's cutoff, stoppage cost and discount.
+- *Primary.* The standard combined N = 3 spellF1 over the 16 training matches, each scored once, by the fold network that did not train on it: per DFL match 1/3 clean + 2/3 masked, averaged over the four DFL matches; the mean over the 12 SkillCorner matches; then the mean of the two.
+- *Pipeline checks, before any spellF1 is computed.* (1) For every fold network, the held-out log-losses recomputed from these probabilities must equal the per-match values in `cv_tcn.json`. (2) For every held-out half, the stored targets of its prepared sequence must be reproduced exactly from the reloaded 25 Hz labels at the prepared frames. If either fails, Stage A stops and only the pipeline may be fixed.
+- *Selection.* The anchor is (width 96, 5,400 steps, cost 8), D15's own setting. The point with the highest primary is taken, ties to N = 3 macroF1, then grid order. It replaces the anchor only if its primary is at least +0.005 above the anchor's; otherwise the standing setting stays (96, 5,400, cost 8). Other conventions are reported, not gated.
+
+**Stage B — three seeds per slot, at the Stage A setting.**
+- Each of the four slots (in each model set, seed 42 with boundary weight 0.5 and seed 97 with 1.4) becomes the mean of three networks: its own seed s and two new seeds, s + 1000 and s + 2000 (1042 and 2042, 1097 and 2097), the same in both sets.
+- If Stage A keeps (96, 5,400), the slot's own network is D15's published one and eight new networks are trained. If Stage A selects another width or length, all twelve networks are trained at it.
+- Training is D15's: `temporal_network train --width --steps` on the same prepared sequences (manifests `d3891c24…` and `2828b0c3…`), on Apple MPS, last snapshot only, then the NumPy export with its own check (2e-5 absolute plus 1e-5 relative on the logits).
+- *Averaging.* A slot's four 25 Hz outputs are the mean of its networks' outputs, summed in seed order in float32 and divided by the count; a slot of one network passes through unchanged. Everything downstream (variants, phase averaging, the trees, the 0.5 blend) is D15's.
+
+**Development, once.** The three-seed candidate at the Stage A setting and cost, on DFL WPY in its four views, the four SkillCorner development matches and the eight PFF development matches. D15 decoded from its cached development inputs must first reproduce its development record exactly. The candidate is eligible if, compared with D15:
+- the primary (standard combined N = 3 spellF1 on DFL WPY and the four SkillCorner development matches) rises by at least +0.005;
+- standard combined spellF1 at N = 1.75, 4 and 4.5 s each drops by no more than 0.01;
+- DFL dead ball carried and team swap, at N = 3, each drop by no more than 0.01;
+- *PFF veto:* mean N = 3 spellF1 on the eight PFF development matches drops by no more than 0.01;
+- *Metrica veto (D19, reference D15):* mean N = 3 spellF1 on the three Metrica sample matches is at least 0.77004.
+
+There is one candidate, so nothing is selected at development.
+
+**Confirmation, once,** if development passes: the reused DFL/SkillCorner holdout (WQQ, WR9 and their guard views; the four SkillCorner holdout matches) and PFF confirmation set C, parsed only for this step, with the same gates against D15 (primary at least +0.005, the conventions, the guards, and the set C veto). D15 must first reproduce its holdout record (`scale_recipe/confirmation.json`); it is then scored on set C as the reference. The Metrica veto is not repeated: it is the same three games. The holdout has confirmed D1, D3 and D15 before, so it is reused evidence; set C is fresh. The untouched set stays in reserve for D23.
+
+**If it passes,** the three-seed model and its cost become the submission after the rebuild checks (twice on macOS in a fresh virtual environment, then `python:3.12.14-slim` under `linux/arm64` and `linux/amd64`), and the standing recipe for D23. **If it fails,** D15 stays. PFF and Metrica only veto; no value is chosen on them.
+
+Code: the fold decode path in `dfl_submission/zoo.py`; slot averaging in `retrain_trial` and `zoo`; `dfl_submission/triple_trial.py` (`stage-a`, `networks`, `develop`, `confirm`, `build`). Weights go to `dfl_submission/triple_models/`, records to `dfl_submission/triple_recipe/`, each written once. Every D22 command runs with `MTAH_DATA_DIR` set to a nonexistent path and calls `require_external_only()`.
+
+**Outcome (2026-11-11).**
+
+*Stage A.* Every pipeline check passed: all 24 fold runs matched their recorded hashes, reproduced D20's held-out log-losses exactly, and every held-out half's prepared targets were reproduced from the reloaded labels. Standard combined N = 3 spellF1 over the 16 training matches, each scored by the fold network that did not train on it (each network decoded alone):
+
+| Width | Steps | Cost 8 | Cost 10 | Cost 12 |
+|---:|---:|---:|---:|---:|
+| 96 | 5,400 | **0.71293** (anchor) | 0.71409 | 0.71363 |
+| 96 | 10,800 | 0.70924 | 0.71261 | 0.71509 |
+| 96 | 19,800 | 0.70136 | 0.70645 | 0.70786 |
+| 192 | 5,400 | 0.70406 | 0.70700 | 0.71032 |
+| 192 | 10,800 | 0.69796 | 0.70026 | 0.70282 |
+| 192 | 19,800 | 0.68692 | 0.69158 | 0.69356 |
+
+The best point, width 96 with 10,800 steps at cost 12, beat the anchor by +0.0022, under the +0.005 the rule required, so D15's setting and cost 8 stood for Stage B. Longer or wider networks scored higher at N = 1.75 and on raw labels and lower at N = 4 and 4.5. That is, they split possessions more finely, and a higher ownership cost recovered most but not all of the loss. D15's development gain from longer training (1,800 to 5,400 steps) does not extend past 5,400 steps on these matches. [Record](dfl_submission/triple_recipe/stage_a.json)
+
+*Stage B.* The eight new networks (seeds 1042, 2042, 1097 and 2097 in each set) trained at width 96 and 5,400 steps on the D15 sequences, and each passed its NumPy export check.
+
+*Development, once.* D15 reproduced its development record exactly first. The three-seed candidate, at cost 8, failed the primary gate, so **D15 stays**. Confirmation did not run: the holdout was not scored, and PFF confirmation set C was neither parsed nor scored.
+
+| Gate | Change | Required |
+|---|---:|---|
+| N = 3 standard combined (0.72280 → 0.71692) | −0.0059 | ≥ +0.005 |
+| N = 1.75 / 4 / 4.5 | −0.008 / −0.003 / −0.005 | each ≥ −0.01 |
+| Dead ball carried | +0.0133 | ≥ −0.01 |
+| Team swap | +0.0107 | ≥ −0.01 |
+| PFF development (veto) | −0.0042 | ≥ −0.01 |
+| Metrica (veto; line 0.77004) | 0.78220 (+0.0022) | ≥ 0.77004 |
+
+What it shows: the mean of three seeds per slot lost on every convention of the standard views, while the guard views and the Metrica games gained. One likely reading, not measured here, is that the mean of three networks is less decisive at ownership changes than one network, and the decoder at cost 8 rewards decisive changes on the standard views. Stage A and D20 point the same way: training length and seeds move the score between conventions and views rather than raising it. The eight networks are kept in `dfl_submission/triple_models/` for reference. [Stage A](dfl_submission/triple_recipe/stage_a.json) · [Development](dfl_submission/triple_recipe/development.json)
+
+## D23 — Final fit on all 27 labelled matches (2026-11-11, written before any D23 decoding, fitting or scoring)
+
+**Question.** The models train on 16 of the 27 labelled external matches. The other 11 (DFL WPY, WQQ and WR9; eight SkillCorner matches) are held back for development and holdout. Once selection is over, refitting the chosen recipe on every labelled match is the standard last step. Does it help? This is round 5's step 3 and the last modelling step: after it, the development and holdout matches are training data, so nothing more can be selected on them.
+
+**What was seen before this rule.** The records of D1–D21 and D22's Stage A record, which kept D15's setting and ownership cost (the best point gained +0.0022, under +0.005). D22's extra seeds were training when this was written; no D22 development or confirmation score had been read.
+
+**Standing recipe.** D22's three-seed model if it is confirmed, otherwise D15. Both use D15's setting (width 96, 5,400 steps) and decoder recipe (cutoff 0.53, ownership cost 8, stoppage cost 2, discount 0.8). The evidence step below is therefore the same whichever stands.
+
+**Evidence first, with no new training.** On development (DFL WPY clean and masked, the four SkillCorner development matches), each of these networks is decoded alone, its four outputs going straight into the joint decoder at the standing recipe, as in D22's Stage A:
+- D20's four fold networks at (96, 5,400): original set, seed 42, boundary weight 0.5, each trained on 12 training matches;
+- the standing recipe's matching network: the original set's seed-42 network of D15, trained on all 16.
+
+The primary is standard combined N = 3 spellF1. D23 proceeds only if the 16-match network's primary is at least +0.005 above the mean of the four fold networks' primaries, which would show that more matches still help. Otherwise D23 stops: nothing is refit, and the untouched PFF set and the four 2019–20 matches stay unscored.
+
+**Candidate.** The standing recipe, unchanged, refit on all 7 DFL matches (WMX, WN1, WOH, WOY, WPY, WQQ, WR9) and all 20 SkillCorner matches:
+- *Prepared sequences:* `temporal_network prepare`'s loop over an `all` split, for both sets. Every match gets the training views: DFL clean, masked and stress, and SkillCorner as observed, for the original set; the D2 handling for the augmented set. Every match keeps the seeds its formulas give, so the training matches' halves are unchanged.
+- *Trees:* both heads of both sets refit from the prepared rows (`touch_trial.fit_trees`, which D16 showed refits the published trees byte for byte), with D3's parameters. The existing weights balance sources, matches and classes.
+- *Networks:* every network in the standing recipe's slots is retrained on the new sequences with its own seed and boundary weight, at width 96 and 5,400 steps, on Apple MPS, last snapshot only, then exported with the NumPy check.
+- Everything else (variants, phase averaging, the 0.5 blend, the decoder recipe) is the standing recipe's.
+
+**Pipeline check.** Restricted to the 16 training matches, the new prepared folders must reproduce the stored training sequences exactly, array by array (values and targets), for the original set (manifest `d3891c24…`) and the augmented set (`2828b0c3…`). If not, D23 stops and only the pipeline may be fixed.
+
+**Adopt if,** on three sources that neither model was trained on, comparing the candidate with the standing model (both scored now, once each), no change is below −0.01 and the mean of the three changes is not negative:
+- *the PFF untouched set:* mean N = 3 spellF1 over its eight games, parsed only for this step;
+- *the three Metrica sample matches:* mean N = 3 spellF1 against D19's targets. A standing D15 must first reproduce its D19 measurement; a standing D22 must reproduce the Metrica means in its development record;
+- *the four never-scored SkillCorner 2019–20 matches* (3442, 3518, 3749, 4039): ownership only, scored as in D6 (mean N = 3 spellF1 per match over both halves; frames without a provider team are not scored).
+
+**Disclosure.** The technical document reports in-vendor scores (development and holdout) for the 16-match version, and the three independent checks for the submitted one. If D23 is adopted, the submitted models have trained on every development and holdout match, so no in-vendor score of them is reported.
+
+**If adopted,** the refit model becomes the submission after the rebuild checks (twice on macOS, then `python:3.12.14-slim` under `linux/arm64` and `linux/amd64`). **If not,** the standing recipe stays. This step spends the last reserved PFF set; Derek approved the plan that spends it. No value is chosen on PFF, Metrica or the 2019–20 matches.
+
+Code: an `all` split in `external_benchmark.halves` and `augment.training_halves`; `dfl_submission/final_trial.py` (`evidence`, `prepare`, `fit`, `check`, `build`). `temporal_network.py` stays byte-identical to the code D20's cloud runs used, so `final_trial` restates its prepare loop. Weights go to `dfl_submission/final_models/`, records to `dfl_submission/final_recipe/`, each written once. Every D23 command runs with `MTAH_DATA_DIR` set to a nonexistent path and calls `require_external_only()`.
+
+**Outcome (2026-11-11).** D23 stopped at its evidence step, so nothing was refit and the standing recipe stays. The untouched PFF set and the four 2019–20 matches were neither parsed nor scored, so the untouched set is still in reserve. Each network decoded alone at the standing recipe on development (standard combined spellF1):
+
+| Network | Trained on | N = 3 | N = 1.75 | N = 4 | N = 4.5 | Raw |
+|---|---|---:|---:|---:|---:|---:|
+| D20 fold 0 | 12 matches | 0.70795 | 0.6890 | 0.7042 | 0.6966 | 0.6115 |
+| D20 fold 1 | 12 matches | 0.71106 | 0.6894 | 0.7012 | 0.6956 | 0.6161 |
+| D20 fold 2 | 12 matches | 0.71280 | 0.6942 | 0.7135 | 0.7024 | 0.6133 |
+| D20 fold 3 | 12 matches | 0.72199 | 0.7054 | 0.7121 | 0.7020 | 0.6255 |
+| Fold mean | | 0.71345 | | | | |
+| D15's network | 16 matches | 0.71139 | 0.6960 | 0.7010 | 0.6935 | 0.6191 |
+
+The 16-match network scored 0.0021 below the fold mean, against a required +0.005. What it shows: a single network's score moves by up to 0.014 with its training matches (0.708 to 0.722). Against that spread, a third more training matches showed no gain, so the evidence does not show that more matches still help, and the refit was not run. [Record](dfl_submission/final_recipe/evidence.json)

@@ -54,6 +54,27 @@ def mix(current_value, retrained_value, weight):
     return ((1 - weight) * current_value + weight * retrained_value).astype(np.float32)
 
 
+def mean(values):
+    """The equal-weight mean of forecast structures leaf by leaf, summed in order in float32 (D22).
+
+    `mix` generalised from two structures to any number: one structure passes through unchanged.
+    """
+    values = list(values)
+    if len(values) == 1:
+        return values[0]
+    first = values[0]
+    if first is None:
+        return None
+    if isinstance(first, dict):
+        return {key: mean([value[key] for value in values]) for key in first}
+    if isinstance(first, (tuple, list)):
+        return tuple(mean(list(parts)) for parts in zip(*values, strict=True))
+    total = np.array(first, dtype=np.float32, copy=True)
+    for value in values[1:]:
+        total += value
+    return (total / np.float32(len(values))).astype(np.float32)
+
+
 def model_hashes(folder):
     return {name: json.loads((folder / name / "fit.json").read_text()) | {"fit_sha256": digest(folder / name / "fit.json")}
             for name in FOLDERS}

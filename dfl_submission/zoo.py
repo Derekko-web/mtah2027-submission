@@ -272,9 +272,27 @@ def load_checkpoint(folder, filename):
     return Checkpoint(family, weights, columns, location, scale, permutation)
 
 
+class SlotMean:
+    """One network slot as the mean of several networks' four outputs, in seed order (DECISIONS.md D22).
+
+    A slot of one network returns that network's outputs unchanged.
+    """
+
+    def __init__(self, checkpoints):
+        if not checkpoints:
+            raise ValueError("A slot needs at least one network")
+        self.checkpoints = list(checkpoints)
+
+    def predict(self, features):
+        from dfl_submission import retrain_trial
+        return retrain_trial.mean([predict(checkpoint, features) for checkpoint in self.checkpoints])
+
+
 def predict(checkpoint, features):
     from dfl_submission import temporal_cpu
-    return checkpoint.predict(features) if isinstance(checkpoint, Checkpoint) else temporal_cpu.predict(checkpoint, features)
+    if isinstance(checkpoint, (Checkpoint, SlotMean)):
+        return checkpoint.predict(features)
+    return temporal_cpu.predict(checkpoint, features)
 
 
 # -- network families in PyTorch (training only) ---------------------------------------------------
@@ -482,6 +500,49 @@ def network_cv_losses(family, run, source, fold):
 
 def run_complete(folder):
     return (folder / "fit.json").exists()
+
+
+# -- D22 Stage A: fold networks decoded on their held-out training matches ---------------------------
+
+FEATURE_STRIDE = 5               # prepared sequences hold every fifth frame (`long_context.features`)
+SCORED_VIEWS = ("clean", "masked", "observed")
+
+
+def fold_signals(probabilities, length):
+    """A network's four outputs at the prepared frames, interpolated to every frame as inference does."""
+    frames = np.arange(0, length, FEATURE_STRIDE)
+    if any(len(values) != len(frames) for values in probabilities):
+        raise ValueError(f"{len(probabilities[0])} prepared frames do not cover a half of {length} frames")
+    timeline = np.arange(length)
+    return tuple(np.interp(timeline, frames, values).astype(np.float32) for values in probabilities)
+
+
+def fold_halves(run, source, fold, labels, *, scored_views=SCORED_VIEWS):
+    """A fold network's decoder inputs on its held-out training halves (DECISIONS.md D22, Stage A).
+
+    Returns `diagnosis.HalfSignals` for the scored views and the held-out log-losses per match,
+    recomputed from the same probabilities as `network_cv_losses` (D22 pipeline check 1). Every
+    held-out half's stored targets must be reproduced from its 25 Hz `labels` at the prepared frames
+    (check 2); `labels` maps (source, match, half index) to label codes.
+    """
+    from dfl_submission import diagnosis
+    from dfl_submission.temporal_network import targets as prepared_targets
+    family, weights, norm = final_weights(run)
+    per_match, halves = defaultdict(list), []
+    for record, values, stored in held_out(source, fold):
+        name, match, view, index = Path(record["file"]).stem.split("_")
+        truth = np.asarray(labels[name, match, int(index)], dtype=np.int8)
+        frames = np.arange(0, len(truth), FEATURE_STRIDE)
+        if len(frames) != len(values) or not np.array_equal(prepared_targets(truth[frames]), stored):
+            raise ValueError(f"Reloaded labels do not reproduce the prepared targets of {record['file']}")
+        probabilities = network_probabilities(family, weights, norm, values)
+        per_match[record["source"], record["match"]].append(half_losses(probabilities, stored))
+        if view in scored_views:
+            halves.append(diagnosis.HalfSignals(name, match, view, int(index), truth,
+                                                fold_signals(probabilities, len(truth)), None))
+    losses = {key: {loss: float(np.mean([half[loss] for half in values])) for loss in values[0]}
+              for key, values in per_match.items()}
+    return halves, losses
 
 
 def network_cv(family, source, scratch, *, device=None, recipe=RECIPE):

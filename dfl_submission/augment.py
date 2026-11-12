@@ -124,9 +124,15 @@ def training_frames(rng):
     return int(rng.uniform(*TRAIN_SWAP_SECONDS) * FPS)
 
 
-def training_halves(dfl, skill, *, raw=False):
-    """Augmented external training halves, in the same form as external_benchmark.halves."""
-    for match in TRAIN:
+def training_halves(dfl, skill, *, raw=False, split="train"):
+    """Augmented external training halves, in the same form as external_benchmark.halves.
+
+    `split="all"` (DECISIONS.md D23) gives every labelled match the same training views; each match
+    keeps its seeds, so the training matches' halves are unchanged.
+    """
+    if split not in benchmark.TRAINING_VIEWS:
+        raise ValueError(f"Augmented halves exist for the training splits only, not {split!r}")
+    for match in benchmark.DFL_SPLITS[split]:
         index = (*TRAIN, DEVELOPMENT, *HOLDOUT).index(match)
         source = fusion_trial.external_halves(dfl, match, raw=raw)
         for i, name in enumerate(SECTIONS):
@@ -146,10 +152,11 @@ def training_halves(dfl, skill, *, raw=False):
                                           frames=training_frames)
             yield benchmark.Half("dfl", match, "stress", i, labels, stress_positions, stress_ball, item["teams"],
                                  item["pitch"])
-    for half in benchmark.halves(dfl, skill, "train", raw=raw):
-        if half.source != "skillcorner":
-            continue
-        rng = np.random.default_rng(530000 + 10 * skillcorner.TRAIN.index(int(half.match)) + half.index)
+    if skill is None:
+        return
+    order = benchmark.SKILL_SPLITS["all"]  # TRAIN first, so the training matches keep their seeds
+    for half in benchmark.skillcorner_halves(skill, split):
+        rng = np.random.default_rng(530000 + 10 * order.index(int(half.match)) + half.index)
         ball = handle_dead_ball(half.labels, np.asarray(half.positions, dtype=np.float32), half.ball, rng)
         yield benchmark.Half(half.source, half.match, half.view, half.index, half.labels, half.positions, ball,
                              half.teams, half.pitch)
