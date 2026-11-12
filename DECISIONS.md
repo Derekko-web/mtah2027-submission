@@ -1133,3 +1133,93 @@ Code: an `all` split in `external_benchmark.halves` and `augment.training_halves
 | D15's network | 16 matches | 0.71139 | 0.6960 | 0.7010 | 0.6935 | 0.6191 |
 
 The 16-match network scored 0.0021 below the fold mean, against a required +0.005. What it shows: a single network's score moves by up to 0.014 with its training matches (0.708 to 0.722). Against that spread, a third more training matches showed no gain, so the evidence does not show that more matches still help, and the refit was not run. [Record](dfl_submission/final_recipe/evidence.json)
+
+## D24 — Metrica sample matches under competition-like tracking (2026-11-11, written before any D24 view is built or scored)
+
+**Question.** D19 scores the three Metrica sample matches on corrected tracking, where every player is present and the ball is missing exactly when the ball is dead. The competition's automatic tracking has neither property: the ball is missing on 41% of graded frames (DATA.md), and it can be seen while dead. How does D15 score when the same games are degraded towards that? D24 is a measurement, round 6's step 1. It selects nothing and changes nothing in the submission. Its views become a gate for D25 and D26.
+
+**What was seen before this rule.** The records of D1–D23. No degraded view of these games has been built, forecast or scored.
+
+**Views.** Built from the parsed halves that passed D19's reader gate, per game g ∈ {1, 2, 3} and half i ∈ {0, 1}. Every constant is an existing one; nothing is tuned.
+- *masked:* `dfl_transfer_features.corrupt` with seed 640000 + 10g + i, the degradation of the DFL masked view, unchanged: 0.2 m noise on players and ball, each player track dropped in 50-frame blocks with probability 0.2, and the ball hidden by a two-state switch (mean hidden run 50 frames, mean visible run 75 frames, so about 40% hidden), on top of the dead-ball absence.
+- *handled:* D2's dead-ball handling first (`augment.handle_dead_ball` on D19's raw dead runs, with `numpy.random.default_rng(650000 + 10g + i)`), then the same `corrupt` call as the masked view with the same seed. Each dead run keeps its missing ball (20%), has it removed (20%, also missing here), or gets a ball carried from where play stopped to the restart taker and resting at the restart spot (60%). The masking is drawn identically to the masked view, so the two views differ only in the dead ball.
+- *team swap:* the handled view with D2's guard swaps (`augment.swap_teams`, exactly 10 s each, one per 10 s on average) drawn with `default_rng(660000 + 10g + i)`.
+
+**View checks, before any forecast.** Pooled per game over both halves: the masked view hides the ball on 30–50% of D19's live frames, and the handled view shows the ball on more dead frames than the masked view. If a check fails, only the view code may be fixed.
+
+**Candidate.** Frozen D15, the submission, built as D19's amendment measured it (`metrica_sample.reference_model("D15")`, decoder inputs from `diagnosis.half_signals`, D15's recipe). Before any view is scored, D15 and D3 decoded from their D19 caches must reproduce `d15_measurement.json` and `d3_measurement.json` exactly; otherwise D24 stops without a record. The decoder inputs on the views are cached in `data/metrica_cache/d24/` (gitignored).
+
+**Targets.** D19's targets, unchanged: raw event possession, N = 1.75, 3, 4 and 4.5 s, and the control rule. The tracking is degraded; the truth is not.
+
+**Measured, per view (and the D19 clean view from its cache, for comparison).**
+- spellF1 and macroF1 against every target, per game and as the mean over the three games;
+- sub-second stoppages: predicted and true stoppages shorter than 25 frames, all and interior (a team on both sides);
+- signed boundary offsets by transition type (ownership, stop, restart) against the raw and N = 3 targets, matched at 25 frames as in D11, pooled and per game;
+- the organisers' smooth50 baseline (`vendor_trial.baseline_prediction`), raw and N = 3 spellF1, reported only.
+
+**The gate quantity for later steps.** A candidate's *D24 mean* is the mean over the three views of its mean N = 3 spellF1 over the three games. D25 and D26 compare it with D15's.
+
+**Known biases.** The handled view uses D2's training simulation, which the augmented model set was trained on, so it may flatter D15 there (D2's guard views were built differently for that reason; that construction needs the true ball position, which Metrica does not record while the ball is dead). The corrected player tracks are degraded synthetically, not by a real tracker. Three matches.
+
+**Record.** `dfl_submission/metrica_recipe/d24_measurement.json`, written once by `python -m dfl_submission.metrica_views measure`. Every D24 command runs with `MTAH_DATA_DIR` set to a nonexistent path.
+
+**Outcome (2026-11-11).** The view checks passed: the masked view hid the ball on 38–40% of live frames per game, and the handled view showed it on 34–40% of dead frames (masked: 0%). D15 and D3 reproduced their D19 records from their caches before any view was scored.
+
+| View | Raw | N = 1.75 | **N = 3** | N = 4 | N = 4.5 | Control | N = 3 macroF1 | Smooth50 N = 3 |
+|---|---:|---:|---:|---:|---:|---:|---:|---:|
+| Clean (D19) | 0.6929 | 0.7747 | **0.7800** | 0.7618 | 0.7513 | 0.8366 | 0.930 | 0.427 |
+| Masked | 0.5940 | 0.6757 | **0.7047** | 0.7099 | 0.7041 | 0.7656 | 0.899 | 0.187 |
+| Handled | 0.5973 | 0.6773 | **0.7059** | 0.7124 | 0.7071 | 0.7589 | 0.892 | 0.159 |
+| Team swap | 0.5129 | 0.5781 | **0.6105** | 0.6150 | 0.6098 | 0.6517 | 0.859 | 0.140 |
+
+- **D24 mean** (the gate quantity for D25 and D26): **0.67367**, against 0.78004 on the clean view. N = 3 per game, masked / handled / team swap: game 1 0.682 / 0.676 / 0.586, game 2 0.706 / 0.708 / 0.589, game 3 0.726 / 0.734 / 0.656.
+- **Masking costs about 0.075, the dead ball almost nothing.** The handled view, where the missing ball no longer marks the stoppages, scored the same as the masked view (+0.001), so D15 does not depend on the missing-ball shortcut here. Team swaps cost a further 0.095, more than on DFL (D21: masked 0.723 to swap 0.659).
+- **Sub-second stoppages,** predicted (interior) against true: clean 7 (7) against 0, masked 12 (9), handled 16 (13), team swap 16 (13), all against 0. Far fewer than PFF's 87 on eight matches.
+- **Ownership changes still land late.** N = 3 median offsets for ownership, stop and restart (frames, predicted minus true): clean +4, +3, −1; masked +4, +2, −2; handled +4, +0.5, −1; team swap +4, +1, 0. Per game, the ownership median was +3, +6 and +3 on every degraded view (clean +3, +4, +3).
+- **Smooth50** scored 0.14–0.19 at N = 3 on the views, against 0.43 clean: it loses most where the ball is hidden and the dead ball is visible.
+
+Nothing was selected. [Record](dfl_submission/metrica_recipe/d24_measurement.json)
+
+## D25 — No stoppage shorter than one second (2026-11-11, written before any D25 output is scored, and before D24's results were read)
+
+**Question.** D21 found that D15 predicts 87 stoppages under 1 s on the eight PFF development matches, where the targets have 1; 7 on Metrica (targets 0); 5 and 3 on the DFL dead-ball-carried and team-swap views (targets 0); none on clean DFL. Each one cuts a possession in two. Does removing them help, or at least do no harm? This is round 6's step 2.
+
+**What was seen before this rule.** The records of D1–D23 and the D24 rule. D24 was running when this rule was written; none of its scores had been read.
+
+**Candidate.** D15, unchanged, followed by one post-processing step on each decoded half (`conventions.remove_brief_stoppages`):
+- every predicted stoppage shorter than 25 frames with a team on both sides is removed;
+- if the same team is on both sides, that team takes its frames; otherwise the earlier team takes the first ⌊n/2⌋ of its n frames and the later team the rest;
+- a stoppage at a half's edge (next to the start or end of the half, or to an X frame) and every stoppage of 25 frames or more is untouched.
+
+One hand-set constant, 25 frames (1 s), with no grid. Why 1 s: a restart cannot be taken faster, and the targets agree (0 stoppages under 1 s on DFL and Metrica, 1 of 748 on PFF). Metrica has 29 true stoppages between 1 s and 3 s, so the limit must not go higher. SkillCorner's targets have 30 stoppages under 1 s (detector-based dead ball); the gates below catch a loss there.
+
+**Pipeline checks, before any candidate score is read.** D15 decoded from its cached inputs must reproduce its development record (PFF development included), its D19 measurement and its D24 measurement exactly. Otherwise D25 stops without a record.
+
+**Adopt if nothing gets worse.** This is a constraint, not a tuned value, so the rule asks for no harm rather than a gain. On development (DFL WPY in its four views, the four SkillCorner development matches, the eight PFF development matches, the three Metrica games), compared with D15:
+- standard combined N = 3 spellF1 drops by at most 0.002; at N = 1.75, 4 and 4.5 each drops by at most 0.005;
+- the mean of the dead-ball-carried and team-swap changes (DFL, N = 3) is not negative;
+- mean N = 3 spellF1 on the PFF development matches, on the Metrica games (D19) and the D24 mean are each not lower.
+
+Reported, not gated: raw-label scores, and sub-second stoppage counts before and after, per group.
+
+**Confirmation, once,** if development passes: the reused DFL/SkillCorner holdout (WQQ, WR9 and their guard views; the four SkillCorner holdout matches) with the same conditions, plus mean N = 3 spellF1 on PFF confirmation set C not lower. Set C is parsed only for this step, and D15 is forecast on it once. D15 must first reproduce its holdout record (`scale_recipe/confirmation.json`). The Metrica and D24 conditions are not repeated: they are the same games. PFF set A, which D15's holdout cache holds, is reported, not gated. The holdout has confirmed D1, D3 and D15 before, so it is reused evidence; set C is fresh.
+
+**If it passes,** D15 with this step becomes the submission and the standing reference for D26, after the rebuild checks (twice on macOS in a fresh virtual environment, then `python:3.12.14-slim` under `linux/arm64` and `linux/amd64`). **If it fails,** D15 stays. PFF and Metrica only veto; no value is chosen on them.
+
+Code: `conventions.remove_brief_stoppages`; `dfl_submission/stoppage_trial.py` (`develop`, `confirm`, `build`) on D15's cached decoder inputs. Records go to `dfl_submission/stoppage_recipe/`, each written once. Every D25 command runs with `MTAH_DATA_DIR` set to a nonexistent path and calls `require_external_only()`.
+
+**Outcome (2026-11-11).** Failed at development, so **D15 stays**. Confirmation did not run: the holdout was not scored, and PFF confirmation set C was neither parsed nor scored. The pipeline checks passed first: D15 reproduced its development record (PFF development included), its D19 and its D24 measurements, and its recipe reproduced every cached Metrica label.
+
+| Condition, against D15 | Change | Required |
+|---|---:|---|
+| Standard combined N = 3 (0.72280 → 0.72269) | −0.00011 | ≥ −0.002 |
+| N = 1.75 / 4 / 4.5 | −0.0001 / −0.0001 / −0.0001 | each ≥ −0.005 |
+| Mean of dead ball carried and team swap | 0 (both unchanged) | ≥ 0 |
+| PFF development | +0.00066 | ≥ 0 |
+| Metrica (D19) | 0 (unchanged) | ≥ 0 |
+| D24 mean (0.67367 → 0.67359) | **−0.00008** | ≥ 0 |
+
+- The D24 loss came from one game in one view: handled, game 3, −0.0007. Every other view and game was unchanged.
+- **Every interior sub-second stoppage was removed:** PFF 87 → 0, SkillCorner 10 → 0 (its targets hold 27), DFL dead ball carried 5 → 0, team swap 3 → 0, masked 1 → 0, Metrica 7 → 0, D24 views 9, 13 and 13 → 0. Three sub-second stoppages at a half's edge stay in each D24 view, as the rule says.
+
+What it shows: the sub-second stoppages cost D15 almost nothing. Removing all 87 on PFF gained 0.0007, and the standard views moved by 0.0001. The rule asked for no harm anywhere, one D24 game lost 0.0007, and so the step is not adopted. The code is kept (`conventions.remove_brief_stoppages`, `stoppage_trial.py`); its `confirm` and `build` paths have not run on real data. [Development](dfl_submission/stoppage_recipe/development.json)

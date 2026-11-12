@@ -38,3 +38,24 @@ def collapse_brief_changes(labels, seconds, fps=25):
         for first, last, label in spells:
             result[start + first:start + last] = label
     return result
+
+
+def remove_brief_stoppages(labels, frames=25):
+    """Remove every stoppage shorter than `frames` with a team on both sides (DECISIONS.md D25).
+
+    The same team on both sides takes the stoppage's frames; otherwise the earlier team takes the
+    first floor(n / 2) of its n frames and the later team the rest. Stoppages at the edge of the
+    sequence or next to an X frame, and stoppages of `frames` or more, are untouched.
+    """
+    labels = np.asarray(labels)
+    result = labels.copy()
+    spells = runs(labels)
+    for i in range(1, len(spells) - 1):
+        start, stop, label = spells[i]
+        before, after = spells[i - 1][2], spells[i + 1][2]
+        if label != pm.D or stop - start >= frames or before not in (pm.H, pm.A) or after not in (pm.H, pm.A):
+            continue
+        middle = start + (stop - start) // 2
+        result[start:middle] = before
+        result[middle:stop] = after
+    return result

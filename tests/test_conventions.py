@@ -5,7 +5,7 @@ import numpy as np
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 
-from dfl_submission.conventions import collapse_brief_changes  # noqa: E402
+from dfl_submission.conventions import collapse_brief_changes, remove_brief_stoppages  # noqa: E402
 from evaluation import possession_metrics as pm  # noqa: E402
 
 H, A, D, X = pm.H, pm.A, pm.D, pm.X
@@ -38,3 +38,36 @@ def test_shortest_interior_merges_first():
 def test_abstentions_split_live_segments():
     original = labels((H, 100), (X, 1), (A, 10), (H, 100))
     assert np.array_equal(collapse_brief_changes(original, seconds=1), original)
+
+
+# -- D25: no stoppage shorter than one second --------------------------------------------------------
+
+def test_brief_stoppage_between_the_same_team_disappears():
+    result = remove_brief_stoppages(labels((H, 50), (D, 10), (H, 50)))
+    assert (result == H).all()
+
+
+def test_brief_stoppage_between_different_teams_is_split_in_half():
+    result = remove_brief_stoppages(labels((H, 50), (D, 10), (A, 50)))
+    assert np.array_equal(result, labels((H, 55), (A, 55)))
+    odd = remove_brief_stoppages(labels((H, 50), (D, 11), (A, 50)))
+    assert np.array_equal(odd, labels((H, 55), (A, 56)))  # the earlier team takes the floor of half
+
+
+def test_stoppages_of_one_second_or_more_are_untouched():
+    for length in (25, 30):
+        original = labels((H, 50), (D, length), (A, 50))
+        assert np.array_equal(remove_brief_stoppages(original), original)
+
+
+def test_stoppages_at_a_half_edge_or_next_to_x_are_untouched():
+    for original in (labels((D, 10), (H, 50)), labels((H, 50), (D, 10)),
+                     labels((H, 50), (X, 1), (D, 10), (A, 50)), labels((H, 50), (D, 10), (X, 3), (A, 50))):
+        assert np.array_equal(remove_brief_stoppages(original), original)
+
+
+def test_every_brief_stoppage_in_a_half_is_removed_and_the_input_kept():
+    original = labels((H, 40), (D, 5), (A, 40), (D, 20), (A, 40), (D, 40), (H, 40))
+    result = remove_brief_stoppages(original)
+    assert np.array_equal(result, labels((H, 42), (A, 103), (D, 40), (H, 40)))
+    assert np.array_equal(original, labels((H, 40), (D, 5), (A, 40), (D, 20), (A, 40), (D, 40), (H, 40)))
