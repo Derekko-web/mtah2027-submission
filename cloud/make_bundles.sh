@@ -3,8 +3,8 @@
 # Derek uploads them; see cloud/README.md. Output: data/d20/kaggle/ (gitignored).
 set -euo pipefail
 cd "$(dirname "$0")/.."
-R=/Users/derekko/Projects/more-than-a-hack-2027/data
-CURRENT=$R/external_temporal/train_data
+# The original model set's prepared training halves (external only), e.g. <research data>/external_temporal/train_data.
+CURRENT="${D20_TRAIN_DATA:?set D20_TRAIN_DATA to the original model set's prepared training folder}"
 AUGMENTED=data/d13/sequences_augmented
 OUT=data/d20/kaggle
 CODE_PATHS=(LICENSE LICENSE-SKILLCORNER dfl_submission evaluation experiments games.py starter)

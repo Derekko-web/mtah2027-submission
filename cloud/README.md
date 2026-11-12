@@ -20,7 +20,7 @@ Derek uploads and runs everything here. Claude never runs the notebooks.
 2. **Stage the datasets.** Set your Kaggle user name, so the dataset metadata carries it:
    ```sh
    export KAGGLE_USERNAME=your-kaggle-name
-   ./cloud/make_bundles.sh
+   D20_TRAIN_DATA=/path/to/research/data/external_temporal/train_data ./cloud/make_bundles.sh
    ```
    This writes two folders:
    - `data/d20/kaggle/mtah-d20-sequences/` (about 455 MB): `train_data.zip`, `sequences_augmented.zip`, `README.md`, `dataset-metadata.json`;
@@ -43,7 +43,7 @@ Derek uploads and runs everything here. Claude never runs the notebooks.
 5. **Bring the zips back.** Put them in `data/d20/cloud_in/` and tell the Track A session. It imports each one:
    ```sh
    export MTAH_DATA_DIR=/nonexistent/mtah
-   R=/Users/derekko/Projects/more-than-a-hack-2027/data
+   R=/path/to/research/data   # the folder that holds external_temporal/train_data
    .venv/bin/python -m dfl_submission.zoo import-cloud --family gru --archive data/d20/cloud_in/d20_gru_outputs.zip \
      --current $R/external_temporal/train_data --augmented data/d13/sequences_augmented --scratch data/d20/cloud
    ```

@@ -23,8 +23,10 @@ evaluation/results/*.csv
 # every enrolled participant has -- and never read a ground truth of any kind, so they carry no
 # information about the answer. They ship so that a fresh clone has something real to score.
 !evaluation/results/baseline_*.csv
-# The team-named copy of our own submission file is uploaded, never committed.
+# The team-named copies of our own submission file and technical document are uploaded, never committed.
 /Anfield.csv
+/Anfield.md
+/Anfield.pdf
 evaluation/reports/
 evaluation/scoreboard.csv
 

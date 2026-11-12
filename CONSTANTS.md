@@ -93,5 +93,5 @@ All values are hand-set and were not tuned. The architecture, features, hyperpar
 ## Notes
 
 - **Pitch size.** The submission now uses the metadata's 105 × 68 m. Only the two earlier fallback builds still use the 105.3 × 68.0 m from `games.py`.
-- **Ball-dropout rate.** The original model set was trained with 60% ball visibility in the masked view, which matches the "41% missing" figure DATA.md publishes. The retrained set draws visibility from 30–90% instead. Both sets contribute equally to the submission.
+- **Ball-dropout rate.** The original model set was trained with 60% ball visibility in the masked view, which matches the "41% missing" figure DATA.md publishes. The retrained set draws visibility from 30–90% instead. Both sets contribute equally to the submission. On 11 November we asked the organisers whether a dropout rate may be set from that published figure. Their reply of 12 November gave no yes or no; it restated the clarification and added that anything not explicitly allowed is not permitted. The constant is kept and disclosed (DECISIONS.md, note of 12 November).
 - **Holdout reuse.** The external confirmation matches (DFL WQQ and WR9, four SkillCorner matches) were used to confirm several successive stages. Treat them as development evidence.

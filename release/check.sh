@@ -7,7 +7,7 @@
 #
 # Steps, all inside one temporary folder that is deleted on exit, also on failure:
 #   1. clone HEAD of this repository and record the commit;
-#   2. copy the four BAR-ATH tactical files from the bundle into a minimal bundle (tactical/ only);
+#   2. copy the four BAR-ATH tactical files from the bundle (--bundle DIR, default $MTAH_DATA_DIR) into a minimal bundle;
 #   3. N macOS builds (default 2), each in a fresh venv from Homebrew python3.12 with
 #      dfl_submission/requirements.txt;
 #   4. one build per Linux platform (default arm64 and amd64) in the pinned python:3.12.14-slim image;
@@ -25,7 +25,7 @@
 set -u -o pipefail
 
 IMAGE="python:3.12.14-slim@sha256:f77ac9e44ae96ef2c90b8053ea08c31f8be030f824196b0ae4db6d462c84e51f"
-BUNDLE="/Users/derekko/Projects/more-than-a-hack-2027/data"
+BUNDLE="${MTAH_DATA_DIR:-}"
 PYTHON="/opt/homebrew/bin/python3.12"
 MAC_BUILDS=2
 LINUX_PLATFORMS="arm64 amd64"
@@ -60,6 +60,7 @@ for platform in $LINUX_PLATFORMS; do
 done
 
 REPO="$(git -C "$(dirname "$0")" rev-parse --show-toplevel 2>/dev/null)" || fail_setup "not inside the repository"
+[ -n "$BUNDLE" ] || fail_setup "no competition bundle (use --bundle DIR or set MTAH_DATA_DIR)"
 [ -x "$PYTHON" ] || fail_setup "no Python at $PYTHON (use --python)"
 for name in $TACTICAL_FILES; do
   [ -f "$BUNDLE/tactical/$name" ] || fail_setup "missing $BUNDLE/tactical/$name (use --bundle)"

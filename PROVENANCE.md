@@ -17,8 +17,9 @@ Changes made on top of those releases:
 
 ## Verification
 
-- A fresh copy with a fresh venv (Python 3.12.14, `dfl_submission/requirements.txt`) rebuilt the first submission (`ed91c236…`) byte for byte, as did a bundle containing only the three tactical files.
-- The committed repository, exported with `git archive`, rebuilt the current submission (`f0b03d2c…`) and the `1cc8a858…` fallback byte for byte in `python:3.12.14-slim` under `linux/amd64` (emulated) and `linux/arm64`.
+- A fresh copy with a fresh venv (Python 3.12.14, `dfl_submission/requirements.txt`) rebuilt the first submission (`ed91c236…`) byte for byte, as did a bundle containing only the three tactical files that build reads (ATD XML, ATD text and homography).
+- The committed repository, exported with `git archive`, rebuilt the D3 submission of the time (`f0b03d2c…`) and the `1cc8a858…` fallback byte for byte in `python:3.12.14-slim` under `linux/amd64` (emulated) and `linux/arm64`.
+- The submission now is `0ddbb342…`: D15 followed by D27's kick-off rule (`kickoff build`). It also reads a fourth tactical file, the Smart Tagging XML, for the kick-off tags only. `release/check.sh` rebuilds it from a fresh clone, twice on macOS and in `python:3.12.14-slim` under `linux/arm64` and `linux/amd64`; the README records each run.
 
 ## Research history
 
