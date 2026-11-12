@@ -2,11 +2,11 @@
 
 This repository regenerates team Anfield's possession file, `Anfield.csv`, for the More Than A Hack 2027 Initial Challenge. The file labels each frame of the tactical video as `H` (home possession), `A` (away possession) or `D` (dead ball), and writes `X` outside the two official halves.
 
-**All training, tuning and model selection use external matches about other games.** The competition bundle is read only by frozen inference. Nothing in this repository reads the public 5-minute ground truth, the provided video, Smart Tagging or the broadcast recording.
+**All training, tuning and model selection use external matches about other games.** The competition bundle is read only by frozen inference. Nothing in this repository reads the public 5-minute ground truth, the provided video or the broadcast recording. Smart Tagging is read for one purpose only: the start time of the second half's kick-off tag (D27).
 
 ## How it works
 
-1. **Inputs.** The build reads three files from the competition bundle: the tactical ATD tracking and its metadata, and the tactical homography's `valid` flag. Coordinates are converted to metres with the 105 × 68 m pitch reported by the ATD metadata. Invalid frames are masked, ball positions far outside the pitch are discarded, and each half is processed separately.
+1. **Inputs.** The build reads four files from the competition bundle: the tactical ATD tracking and its metadata, the tactical homography's `valid` flag, and the Smart Tagging XML, of which only the `Kick Off (Start)` tags are used (step 5). Coordinates are converted to metres with the 105 × 68 m pitch reported by the ATD metadata. Invalid frames are masked, ball positions far outside the pitch are discarded, and each half is processed separately.
 2. **Features.** 162 team-symmetric features are computed from relative geometry and motion in metres:
    - nearest-player distances and local player counts around the ball
    - sustained player-to-ball contact
@@ -23,6 +23,7 @@ This repository regenerates team Anfield's possession file, `Anfield.csv`, for t
    - A direct ownership change costs 8, and a transition into or out of a stoppage costs 2. Each cost is cut by up to 80% when the matching boundary signal is strong.
    - The high ownership cost reflects the challenge's definition: only *controlled* possession changes hands, so a brief touch or deflection should not split a possession. See "Decoder retune" below; D15 re-selected the cost for the larger networks.
    - In loose or contested play, the last team in possession keeps the ball unless the evidence supports a change.
+5. **Kick-off rule (D27).** No team has possession before the kick-off. Every graded frame from the start of a half up to the start of that half's `Kick Off (Start)` tag becomes `D`. The tag is a window of about 5 s that contains the real kick-off, so its start is never later than the kick. This changes only the second half, which is graded from about two minutes before its kick-off; the first half is graded from the kick-off itself.
 
 ## Training data
 
@@ -109,20 +110,30 @@ N = 1.75, 4 and 4.5 s rose by +0.039, +0.013 and +0.005. The holdout gain is abo
 
 D4 tested ten decoder settings on DFL WPY using simulated Smart Tagging inputs from the DFL event feed. The simulations included missing tags, timing errors and spurious tags. On the masked and dead-ball-carried views, the best setting scored 0.61376 spellF1 against the N = 3 targets, compared with 0.61382 for D3. The required gain was +0.003, so the experiment ended at development. See the [protocol](DECISIONS.md#d4--smart-tagging-restart-anchors-2026-11-11-written-before-scoring) and [full grid results](dfl_submission/restart_recipe/development.json).
 
+### Kick-off rule (D27)
+
+FAQ.md notes that the second half is graded from about two minutes before its kick-off. No external half contains such a stretch, so the models' output there had never been measured. D27 applies the Laws of the Game instead (`dfl_submission/kickoff.py`): after decoding, every graded frame from the start of a half up to the start of its Smart Tagging `Kick Off (Start)` tag becomes `D`. A half uses the rule only if exactly one such tag ends at or after its first frame and starts within 5 minutes of it. The organisers' loader describes each tag as a window of about 5 s containing the real kick-off, so the rule cannot overwrite live play. In the first half, which is graded from the kick-off itself, it changes nothing.
+
+The rule cannot be scored on external data, so it was adopted on tests (`tests/test_kickoff.py`) and identical rebuilds. The rebuilt file differs from D15's (`14d18a23…`). D15's labels passed through the same code without the rule reproduce `14d18a23…`, so the difference comes from the rule alone. Only the validator line and the SHA-256 of each build were read. [Protocol and outcome](DECISIONS.md#d27--dead-ball-until-the-tagged-second-half-kick-off-2026-11-12-written-before-any-d27-code-runs-on-the-competition-bundle)
+
+### Ball-gap fill (D28)
+
+A hidden ball is the submission's largest measured loss (clean to masked: −0.055 on DFL, −0.075 on Metrica). D28 filled each missing-ball run of at most K frames, between two sightings in the same half, with a straight line before the models see it, for K = 6, 12 and 25 frames (`dfl_submission/gap_trial.py`). Nothing was retrained. The fill reached little: at K = 25 it covered 9.5% of hidden live-ball frames on the masked DFL views, 13% on PFF and none on SkillCorner, whose gaps are all longer than 1 s. On development the best K (12) gained +0.0016 against the +0.005 required, and every K lowered the D24 mean slightly, so it was not adopted. Confirmation did not run, and PFF set B is still unparsed. [Protocol and outcome](DECISIONS.md#d28--fill-short-ball-dropouts-2026-11-12-written-before-any-d28-fill-is-computed-or-scored) · [Coverage](dfl_submission/gap_recipe/coverage.json) · [Development](dfl_submission/gap_recipe/development.json)
+
 ## Reproduce the submission
 
-The build is verified to give the same file on Apple Silicon macOS (Homebrew Python 3.12.13) and on Linux (x86_64 and arm64, Python 3.12.14), with the pinned CPU dependencies. On macOS, XGBoost needs the system OpenMP runtime. Point `MTAH_DATA_DIR` at a directory containing `tactical/` with `BAR-ATH_tactical_atd.xml`, `BAR-ATH_tactical_atd.txt` and `BAR-ATH_tactical_homography.csv`; no other files are needed.
+The build is verified to give the same file on Apple Silicon macOS (Homebrew Python 3.12.13) and on Linux (x86_64 and arm64, Python 3.12.14), with the pinned CPU dependencies. On macOS, XGBoost needs the system OpenMP runtime. Point `MTAH_DATA_DIR` at a directory containing `tactical/` with `BAR-ATH_tactical_atd.xml`, `BAR-ATH_tactical_atd.txt`, `BAR-ATH_tactical_homography.csv` and `BAR-ATH_tactical_smart_tagging.xml`; no other files are needed.
 
 ```sh
 python3.12 -m venv .venv
 .venv/bin/python -m pip install -r dfl_submission/requirements.txt
 export MTAH_DATA_DIR=/path/to/competition-bundle
-.venv/bin/python -m dfl_submission.scale_trial build --out data/submission.csv
+.venv/bin/python -m dfl_submission.kickoff build --out data/submission.csv
 .venv/bin/python evaluation/validate_submission.py data/submission.csv
 shasum -a 256 -c SUBMISSION_SHA256.txt
 ```
 
-Inference takes under a minute. The build checks every model digest against the confirmed D15 recipe (`dfl_submission/scale_recipe/`) before predicting. Two builds in a fresh virtual environment reproduced the file byte for byte. Its SHA-256 is `14d18a238afce84b663cc430161240e00c93b62e3a65a0e6aa47577288b7af78`.
+Inference takes under a minute. The build checks every model digest against the confirmed D15 recipe (`dfl_submission/scale_recipe/`) before predicting, then applies D27's kick-off rule. Its SHA-256 is `0ddbb34216fdab55752a5b46458639f745cc4e88c074ec0787d771f3630fceff`.
 
 On Linux, the same build runs in the official Python image (`python:3.12.14-slim`, index digest `sha256:f77ac9e44ae96ef2c90b8053ea08c31f8be030f824196b0ae4db6d462c84e51f`):
 
@@ -130,17 +141,18 @@ On Linux, the same build runs in the official Python image (`python:3.12.14-slim
 docker run --rm --platform linux/amd64 -v "$PWD":/repo:ro -v /path/to/competition-bundle:/bundle:ro \
   -v "$PWD/out":/out -e MTAH_DATA_DIR=/bundle -e PYTHONDONTWRITEBYTECODE=1 python:3.12.14-slim bash -c '
   cd /repo && python -m venv /venv && /venv/bin/pip install -q -r dfl_submission/requirements.txt &&
-  /venv/bin/python -m dfl_submission.scale_trial build --out /out/submission.csv &&
+  /venv/bin/python -m dfl_submission.kickoff build --out /out/submission.csv &&
   sha256sum /out/submission.csv'
 ```
 
 On Nov 11 the D15 build gave `14d18a23…` and passed the validator under both `linux/arm64` and `linux/amd64` in this image (Python 3.12.14), matching the two macOS builds. The bundle held only `tactical/`. Later on Nov 11, a fresh clone at commit `9b68a6f` (after D18 and D19) was rebuilt in the same four ways: twice on macOS, each in a fresh venv with Homebrew Python 3.12.13, and once each in the image above (pinned by its digest) under `linux/arm64` and `linux/amd64`. All four gave `14d18a23…` and passed the validator. The bundle must hold real files, because Docker cannot follow a symlink that points outside the mounted folder. After round 5 (D21–D23, which changed shared modules but not the submission), `release/check.sh` rebuilt a fresh clone at commit `2dccb00` the same four ways: all four gave `14d18a23…` and passed the validator, and 199 of 199 tests passed in the clone.
 
-`release/check.sh --bundle /path/to/competition-bundle` repeats that whole check in one command. It clones `HEAD` into a temporary folder and copies the three tactical files into a minimal bundle. It runs two macOS builds in fresh virtual environments (Homebrew `python3.12`) and one build each under `linux/arm64` and `linux/amd64` in the image above, then runs `tests/run_all.py` in the clone. For each build it prints only the validator's line and the SHA-256, compared with `SUBMISSION_SHA256.txt`. It deletes the outputs and the bundle copy, also on failure, and exits non-zero on any mismatch, validator failure or test failure. `--quick` runs one macOS build and the tests. The build it runs is the single line in [`release/BUILD_COMMAND`](release/BUILD_COMMAND); when the submission changes, change that line and `SUBMISSION_SHA256.txt` together.
+`release/check.sh --bundle /path/to/competition-bundle` repeats that whole check in one command. It clones `HEAD` into a temporary folder and copies the four tactical files into a minimal bundle. It runs two macOS builds in fresh virtual environments (Homebrew `python3.12`) and one build each under `linux/arm64` and `linux/amd64` in the image above, then runs `tests/run_all.py` in the clone. For each build it prints only the validator's line and the SHA-256, compared with `SUBMISSION_SHA256.txt`. It deletes the outputs and the bundle copy, also on failure, and exits non-zero on any mismatch, validator failure or test failure. `--quick` runs one macOS build and the tests. The build it runs is the single line in [`release/BUILD_COMMAND`](release/BUILD_COMMAND); when the submission changes, change that line and `SUBMISSION_SHA256.txt` together.
 
 For D3, the previous submission, the same command with `retrain_trial build` produced the same SHA-256 under `linux/amd64` and `linux/arm64` as on macOS on Nov 10. On Nov 11, a fresh clone at commit `c8cdcad` (after D7 and D8) was rebuilt in four ways, and all four gave `f0b03d2c…` and passed the validator: twice on macOS in a fresh venv with Homebrew Python 3.12.13, and once each in the image above under `linux/arm64` and `linux/amd64` (Python 3.12.14). For these runs the bundle held only `tactical/`.
 
 Earlier versions remain available as fallbacks:
+- D15, without the kick-off rule: `scale_trial build`, SHA-256 `14d18a238afce84b663cc430161240e00c93b62e3a65a0e6aa47577288b7af78`;
 - D3, the equal blend with the original networks: `retrain_trial build --fallback . --model dfl_submission/seed_models --ensemble dfl_submission/ensemble_recipe --decoder dfl_submission/decoder_recipe --retrained dfl_submission/retrain_models --trial dfl_submission/blend_recipe`, SHA-256 `f0b03d2c8a6718ee73b52c786854c3520a6cd4bd22fdedb7475b871510cdbfa5`;
 - original models with the retuned decoder: `decoder_trial build` with `--trial dfl_submission/decoder_recipe`, SHA-256 `1cc8a858354df9c8ffc024540793caa045d845d321e144b6223ba1421a56ecc1`;
 - the original ensemble: `ensemble_trial build` with `--trial dfl_submission/ensemble_recipe`, SHA-256 `ed91c2362f0069c20c271e865bbc5f22bcb8331ffc5e27015130234abdb6fc2e`.
@@ -150,7 +162,7 @@ The submitted file is the build output under the team name. The scorer names eac
 ```sh
 cp data/submission.csv Anfield.csv
 .venv/bin/python evaluation/validate_submission.py Anfield.csv
-shasum -a 256 Anfield.csv  # 14d18a238afce84b663cc430161240e00c93b62e3a65a0e6aa47577288b7af78
+shasum -a 256 Anfield.csv  # 0ddbb34216fdab55752a5b46458639f745cc4e88c074ec0787d771f3630fceff
 ```
 
 ## Audit the training and selection
@@ -370,6 +382,16 @@ D24 degrades the three Metrica sample matches towards the competition's automati
 .venv/bin/python -m dfl_submission.stoppage_trial develop --dfl "$DFL_XML" --dfl-raw --skill data/skillcorner \
   --parsed data/pff/parsed --d15-cache data/d15/cache/w96_s5400
 .venv/bin/python -m dfl_submission.timing_trial develop --dfl "$DFL_XML" --dfl-raw --skill data/skillcorner \
+  --parsed data/pff/parsed --d15-cache data/d15/cache/w96_s5400
+```
+
+Round 7 added D27, the kick-off rule now in the build, and tested D28, the ball-gap fill, which failed development:
+
+```sh
+MTAH_DATA_DIR=/path/to/competition-bundle .venv/bin/python -m dfl_submission.kickoff build --out data/submission.csv
+.venv/bin/python -m dfl_submission.gap_trial coverage --dfl "$DFL_XML" --dfl-raw --skill data/skillcorner \
+  --parsed data/pff/parsed                                          # written once, before any scoring
+.venv/bin/python -m dfl_submission.gap_trial develop --dfl "$DFL_XML" --dfl-raw --skill data/skillcorner \
   --parsed data/pff/parsed --d15-cache data/d15/cache/w96_s5400
 ```
 

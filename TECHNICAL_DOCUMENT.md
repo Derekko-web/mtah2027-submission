@@ -1,16 +1,17 @@
 # Team possession from tracking: technical document
 
-*More Than A Hack 2027, Initial Challenge.* Team: **Anfield**. Repository: https://github.com/Derekko-web/mtah2027-submission. Submission file: `Anfield.csv`, SHA-256 `14d18a238afce84b663cc430161240e00c93b62e3a65a0e6aa47577288b7af78`.
+*More Than A Hack 2027, Initial Challenge.* Team: **Anfield**. Repository: https://github.com/Derekko-web/mtah2027-submission. Submission file: `Anfield.csv`, SHA-256 `0ddbb34216fdab55752a5b46458639f745cc4e88c074ec0787d771f3630fceff`.
 
 > **Draft.** Before submitting: confirm section 7 with the whole team, then upload this document as `Anfield.pdf` or `Anfield.md`.
 
 ## 1. Summary
 
-We label every frame of the tactical video as `H`, `A` or `D`, and write `X` outside the two official halves. The system reads only the automatic tactical tracking. It has three parts:
+We label every frame of the tactical video as `H`, `A` or `D`, and write `X` outside the two official halves. The system reads the automatic tactical tracking, plus the start times of the Smart Tagging kick-off tags. It has four parts:
 
 - a 162-feature description of the players and the ball;
 - two sets of three models that estimate who controls the ball, whether play is stopped, and where possessions change;
-- a three-state Viterbi decoder that turns those estimates into possessions.
+- a three-state Viterbi decoder that turns those estimates into possessions;
+- one rule from the Laws of the Game (D27): no team has possession before the kick-off, so the graded frames before the second-half kick-off tag are `D`.
 
 **Every model, threshold and decoder setting was trained, tuned or selected on external matches from other competitions.** The public 5-minute ground truth, the provided video and any human-produced data about Barcelona–Athletic were not used for training, tuning, calibration or selection.
 
@@ -27,7 +28,7 @@ Both parts are fitted on external data where the truth is known. The public 5-mi
 
 ### Inputs
 
-- **Read:** the tactical ATD tracking and its metadata (team of each track), and the homography `valid` flag.
+- **Read:** the tactical ATD tracking and its metadata (team of each track), the homography `valid` flag, and the start and end times of the Smart Tagging `Kick Off (Start)` tags (section 6).
 - **Coordinates:** converted to metres with the 105 × 68 m pitch reported by the ATD metadata.
 - **Cleaning:** frames whose homography is invalid are masked, and ball positions more than 5 m outside the pitch are discarded.
 - **Halves:** each half is processed separately.
@@ -117,13 +118,15 @@ The decoder retune improved all eight holdout match views on the primary target.
 
 **D15: larger, longer-trained networks.** Each network had 48 channels per block and trained for 1,800 steps, values that were never searched. D15 retrained all four networks of both model sets at widths 48 and 96 and lengths of 1,800 and 5,400 steps, and re-selected the ownership cost from 4, 6 and 8, under a rule written before any candidate was trained. Every new setting passed every development gate. Width 96, 5,400 steps and cost 8 gained +0.041 on development. On its single confirmation it gained +0.021 on the holdout, +0.012 with the dead ball carried, +0.059 on team swaps and +0.019 on PFF confirmation set A, eight PFF matches never scored before. Training length mattered more than width. The holdout gain is about half the development gain, as expected after picking the best of nine eligible settings on reused matches.
 
+**D27: dead ball before the kick-off.** The second half is graded from about two minutes before its kick-off, a stretch no external half contains, so the models' output there had never been measured. D27 applies the Laws of the Game instead: every graded frame before the start of the half's Smart Tagging kick-off tag becomes `D` (section 6). It cannot be scored on external data, so it was adopted on tests and identical rebuilds. The rebuilt file differs from D15's, and D15's labels through the same code without the rule reproduce D15's file exactly, so the rule alone changed some second-half frames before the kick-off. How many was not looked at.
+
 ### Experiments that did not change the submission
 
 Each followed a rule written before scoring, and each outcome is recorded in [DECISIONS.md](DECISIONS.md) whether it passed or failed. Scores are spellF1 against the N = 3 targets.
 
 | Decision | What was tested | Result | Effect on the submission |
 |---|---|---|---|
-| D4 | Set-piece restart timestamps as decoder evidence. The tags were simulated from the DFL event feed with missing, late and spurious tags. | Best of ten settings: 0.61376 against D3's 0.61382 on development. A gain of +0.003 was required. | None. The build does not read Smart Tagging. |
+| D4 | Set-piece restart timestamps as decoder evidence. The tags were simulated from the DFL event feed with missing, late and spurious tags. | Best of ten settings: 0.61376 against D3's 0.61382 on development. A gain of +0.003 was required. | None. The build reads only the kick-off tags, for D27 (section 6). |
 | D5 | Label-free transfer: DFL-only heads adapted to unlabelled SkillCorner tracking, by speed alignment, matched corruption or self-training on confident pseudo-labels. | Self-training at 0.90 confidence passed. On the four confirmation matches it raised spellF1 from 0.493 to 0.576 over the DFL-only reference. | None. It shows that label-free adaptation transfers across tracking providers on external data. Applying it to the provided game awaits the organisers' answer (section 8). |
 | D6 | The same idea applied to the submitted ensemble, adapted separately for each of five SkillCorner 2019–20 development matches. | Best setting +0.0006, against a required +0.005. Confirmation was not scored. | None. |
 | D7 | Frozen D3, then the submission, measured on PFF FC's 2022 World Cup broadcast tracking, a vendor none of the models has seen. Eight development matches, after a baseline sanity gate. | spellF1 0.626 against N = 3 controlled-possession targets and 0.549 against raw provider labels. The organisers' smooth50 baseline scores 0.339 and 0.345. | None. A measurement only; nothing was trained or tuned on PFF data. |
@@ -142,6 +145,7 @@ Each followed a rule written before scoring, and each outcome is recorded in [DE
 | D24 | The Metrica sample matches under competition-like tracking: the DFL masked degradation (ball hidden about 40% of the time, noisy and dropped player tracks); D2's dead-ball handling followed by the same masking, so a missing ball no longer marks the stoppages; and team swaps on top. | Against the N = 3 targets, D15 scored 0.705 masked, 0.706 with the dead ball handled and 0.611 with team swaps, against 0.780 on the clean tracking. The smooth50 baseline scored 0.14–0.19 on the same views. | None. A measurement only. The mean of the three views (0.674) became a gate for D25 and D26. |
 | D25 | Removing every predicted stoppage shorter than one second that has a team on both sides. D15 predicted 87 of them on the PFF development matches, where the targets have 1. One hand-set limit; adopted only if nothing got worse. | All of them were removed (PFF 87 to 0). PFF gained +0.0007, the standard views lost 0.0001, and the mean of the D24 views lost 0.00008 because one game lost 0.0007. | None. The no-harm rule failed; confirmation was not scored, and PFF confirmation set C is unused. |
 | D26 | Moving D15's ownership changes earlier to match Metrica's timing. On the Metrica games they land a median 2–6 frames after Metrica's marks, under two marking rules and on clean and masked tracking; the shift was the smallest median, 2 frames. | Leave one game out on the clean Metrica games: +0.0031, −0.0008 and −0.0014 (mean +0.0003; each game had to be at least 0 and the mean at least +0.003). Guards on DFL, SkillCorner and PFF lost at most 0.0042. | None. Nothing estimated on the Metrica games enters the submission. Confirmation was not scored, and the untouched PFF set is unused. |
+| D28 | Filling short ball dropouts before the models see a half: each missing-ball run of at most K frames between two sightings in the same half gets the straight line between them, for K = 6, 12 and 25 frames (up to 1 s). Nothing retrained. | The fill reached at most 9.5% of hidden live-ball frames on the masked DFL views, 13% on PFF and none on SkillCorner. Best K (12): +0.0016 on development against a required +0.005, and every K lowered the mean of the D24 views by 0.0003–0.0007. | None. Confirmation was not scored, and PFF confirmation set B is unused. |
 
 ### The one correctness check
 
@@ -188,19 +192,20 @@ D3 was a second attempt on the same development matches, made after seeing the D
 | **Challenges** | A change is accepted when the other team's control probability stays high long enough to outweigh the switch cost. The cost is lower when the boundary network signals a genuine change. |
 | **Stoppages** | `D` when the blended stoppage probability passes 0.53 under the decoder. The evidence includes ball speed, the ball leaving the pitch, distance to the lines, and player movement. |
 | **Restarts** | Leaving `D` costs 2. The team after a restart follows the ownership evidence; there is no rule that hands the restart to a particular team. |
-| **Halves** | Each half is decoded separately. Frames outside the published half spans are `X`. Inside the halves, every frame gets `H`, `A` or `D`. No rule or constant is tied to particular frames; the graded frames before the second-half kickoff are decided like any others. |
+| **Halves** | Each half is decoded separately. Frames outside the published half spans are `X`. Inside the halves, every frame gets `H`, `A` or `D`. No constant is tied to particular frames. |
+| **Before the kick-off** | No team has possession before the kick-off (D27). After decoding, every graded frame from the start of a half up to the start of that half's Smart Tagging `Kick Off (Start)` tag becomes `D`. The organisers' loader describes each kick-off tag as a window of about 5 s containing the real kick-off, so the tag's start is never later than the kick and the rule cannot overwrite live play. A half uses the rule only if exactly one such tag ends at or after its first frame and starts within 5 minutes of it. The second half is graded from about two minutes before its kick-off, so the rule acts there; the first half is graded from the kick-off itself, so it changes nothing. On external matches every half starts at its kick-off, so the rule cannot be scored there; it was adopted as a constraint, on tests and two identical rebuilds. |
 | **Abstention** | We do not write `X` inside the halves. The ranking metric forward-fills it, so it would only lower macroF1. |
 
 ## 7. Assets used and dropped, and development history
 
 > **Team decision:** confirm the wording of this section before submission.
 
-**Used:** tactical ATD tracking, its metadata and the homography `valid` flag.
+**Used:** tactical ATD tracking, its metadata and the homography `valid` flag; from Smart Tagging, only the start and end times of the `Kick Off (Start)` tags (D27, section 6).
 
 **Dropped:**
 - **Tactical and broadcast video.** Ball detectors and locally run vision models were explored during earlier research and dropped. The submitted pipeline does not read the video.
 - **Broadcast ATD.** A camera-alignment prototype failed its external checks.
-- **Smart Tagging.** No external data matches its format. D4 tested restart timestamps simulated from DFL events, and no setting improved on D3 (section 4).
+- **Smart Tagging, apart from the kick-off tags.** No external data matches its format. D4 tested restart timestamps simulated from DFL events, and no setting improved on D3 (section 4). The phases, teams and other set pieces are not read.
 - **The public 5-minute ground truth.** The rules forbid training or tuning on it.
 
 **Development history.** Before the organisers' clarification of 3 November, part of our research trained and tuned models on the public 5-minute window. That included a TabPFN-based pipeline, described in an earlier, now archived repository. We also ran a short hand-annotation pilot on the provided game on 24 October; it was rejected and never used. None of that work, its models, thresholds or outputs is used in this submission. The earlier research repository is available to the organisers on request. Some feature formulas were first written during that period; they were re-implemented and fitted on external data only. During development we used hosted coding assistants in a workspace that contained the match data. Match data is now kept out of any AI tool's reach, and competition builds are run locally.
@@ -221,23 +226,23 @@ Two items we are disclosing:
 
 What we would do with more time:
 - train on more and noisier external tracking;
-- model the ball's trajectory when it is missing;
+- model the ball's trajectory when it is missing (D28 showed that a straight line through gaps of up to 1 s is not enough);
 - validate on a fully untouched external competition.
 
 ## 9. Reproduction
 
-Verified to give the same file on Apple Silicon macOS (Homebrew Python 3.12.13) and in Linux containers (x86_64 and arm64, Python 3.12.14). Point `MTAH_DATA_DIR` at a folder containing `tactical/BAR-ATH_tactical_atd.xml`, `tactical/BAR-ATH_tactical_atd.txt` and `tactical/BAR-ATH_tactical_homography.csv`.
+Verified to give the same file on Apple Silicon macOS (Homebrew Python 3.12.13) and in Linux containers (x86_64 and arm64, Python 3.12.14). Point `MTAH_DATA_DIR` at a folder containing `tactical/BAR-ATH_tactical_atd.xml`, `tactical/BAR-ATH_tactical_atd.txt`, `tactical/BAR-ATH_tactical_homography.csv` and `tactical/BAR-ATH_tactical_smart_tagging.xml`.
 
 ```sh
 python3.12 -m venv .venv
 .venv/bin/python -m pip install -r dfl_submission/requirements.txt
 export MTAH_DATA_DIR=/path/to/competition-bundle
-.venv/bin/python -m dfl_submission.scale_trial build --out data/submission.csv
+.venv/bin/python -m dfl_submission.kickoff build --out data/submission.csv
 .venv/bin/python evaluation/validate_submission.py data/submission.csv
 shasum -a 256 -c SUBMISSION_SHA256.txt
 ```
 
-Inference takes under a minute. The build verifies every model digest before predicting. Rebuilds in a fresh environment reproduced the submitted file byte for byte, twice on macOS and in the official `python:3.12.14-slim` image under `linux/arm64` and `linux/amd64`. The README gives the Docker command.
+Inference takes under a minute. The build verifies every model digest before predicting, then applies the kick-off rule (section 6). Rebuilds in a fresh environment reproduced the submitted file byte for byte, twice on macOS and in the official `python:3.12.14-slim` image under `linux/arm64` and `linux/amd64`. The README gives the Docker command.
 
 The README documents:
 - how to retrain every model from the public external data;

@@ -30,6 +30,7 @@ The context stage's island-suppression settings (`island_frames`, `island_confid
 | Pitch size | 105 × 68 m | `build.METADATA_PITCH` | Reported by the tactical ATD metadata (DATA.md). The organisers' `games.py` carries 105.3 × 68.0 m, measured from corrected tracking. The submission rescales to the metadata size; the external training data use each provider's own pitch size. |
 | Ball validity margin | ±5 m outside the pitch | `build.tactical_tracking_halves` | Hand-set |
 | Homography validity | mask frames with `valid = 0` | `build.tactical_tracking_halves` | Organiser-defined flag |
+| Ball gaps | not filled; a missing ball stays missing | `build.tactical_tracking_halves` | DECISIONS.md D28 tested straight-line fills of gaps up to 6, 12 and 25 frames; none passed development, so nothing is filled. |
 
 ## Models
 
@@ -77,7 +78,16 @@ All values are hand-set and were not tuned. The architecture, features, hyperpar
 | Stoppage switch cost | 2 | `ensemble_recipe`, kept by `decoder_recipe` | External grid (ensemble: 1–4; retune: 2, 3, 4) |
 | Controlled-possession convention | N = 3 s (merge an A–B–A whose interior B lasts under 3 s) | `conventions.py`, DECISIONS.md D1 | Minimax over the externally derived interval of 1.75–4.5 s (Metrica sample events, SkillCorner phases). Used only to score external candidates, not at inference. |
 | Boundary discount | 0.8 | `ensemble_recipe` | External grid (0.55, 0.8) |
-| Decoder step | 5 frames, no output collapse or boundary shift | `joint_decoder.decode` default | External grid under DECISIONS.md D12: step 5 or 1 frame × collapse none, 1.75 s or 3 s. No setting beat step 5, so the default stays. D11 handed no boundary shift. D25 (removing stoppages under 25 frames) and D26 (moving ownership changes 2 frames earlier) failed their rules, so the decoded labels are written unchanged. |
+| Decoder step | 5 frames, no output collapse or boundary shift | `joint_decoder.decode` default | External grid under DECISIONS.md D12: step 5 or 1 frame × collapse none, 1.75 s or 3 s. No setting beat step 5, so the default stays. D11 handed no boundary shift. D25 (removing stoppages under 25 frames) and D26 (moving ownership changes 2 frames earlier) failed their rules, so the decoded labels are written unchanged apart from D27's kick-off rule (below). |
+
+## After decoding: the kick-off rule (DECISIONS.md D27)
+
+| Constant | Value | Where | Source |
+|---|---|---|---|
+| Kick-off tags | Smart Tagging instances with code `SET PIECES` and `Type` `Kick Off (Start)`, compared case-insensitively after trimming | `kickoff.read_tags` | The code and value as DATA.md and the organisers' `starter/load_smart_tagging.py` give them. `Kick Off (After Goal)` does not match. |
+| Tag time base | frame = round(seconds × 25) | `kickoff.FPS` | DATA.md, whose time base the organisers verified against both kick-offs |
+| Kick-off search limit | a tag belongs to a half if it ends at or after the half's first frame and starts at most 5 minutes (7,500 frames) after it; exactly one tag is required | `kickoff.LIMIT`, `kickoff.apply` | Hand-set, no grid |
+| Dead until | the start of the half's kick-off tag | `kickoff.apply` | The Laws of the Game: no possession before the kick-off. The organisers' loader says each tag is a window of about 5 s containing the real kick-off, so its start is never later than the kick. |
 
 ## Notes
 
