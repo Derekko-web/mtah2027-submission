@@ -153,6 +153,8 @@ The public 5-minute window is used once, on the final file, under a procedure fi
 
 A second check uses no ground truth at all (DECISIONS.md C2). On the final file it computes three statistics: possessions per minute, the share of dead ball, and stoppages shorter than one second per 90 minutes. Each must lie within a range fixed in advance from the submission's predictions on 28 external match views: from half the smallest value to 1.5 times the largest. It reports only pass or fail, and a failure, as with C1, leads only to a pipeline investigation.
 
+Both checks passed on the final file (SHA-256 `0ddbb342…`) on 12 November: C2 first, then C1. One disclosure: C1 was run from inside our AI coding session, so the AI assistant saw the evaluation output for the public window. That breaks C1's own rule that no AI tool sees it. By then the file was frozen and checked, and nothing was changed or chosen afterwards (DECISIONS.md C1).
+
 ## 5. Dead-ball artifacts and the retrained model set
 
 Both providers mark dead ball in a way automatic tracking will not:

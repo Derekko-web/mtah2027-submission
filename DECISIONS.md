@@ -232,7 +232,9 @@ These are floors that only a broken pipeline should miss, not targets. A team-or
 
 **After a fail.** Only a pipeline fix is allowed: team orientation, frame offset or half spans. The defect must be found in the code or in the documented data format, never by trying variants against the window. Models, recipes, thresholds and decoder settings do not change. After a fix, the file is rebuilt twice, its SHA is updated, and the check runs once more under the same rule. If that second run also fails, nothing further is changed, the validated file that matches `SUBMISSION_SHA256.txt` is submitted, and both runs are disclosed in the technical document.
 
-**Outcome.** *(Added after the check: PASS or FAIL, the date, and the SHA-256 of the file checked.)*
+**Outcome (2026-11-12).** **PASS.** Derek ran it once on the frozen file, `Anfield.csv`, a copy of `data/submission.csv` with SHA-256 `0ddbb34216fdab55752a5b46458639f745cc4e88c074ec0787d771f3630fceff` (D27). It ran in a fresh clone of the organisers' repository, after the SHA was checked against `SUBMISSION_SHA256.txt` and after C2 passed. All three criteria held: the validator accepted the file, both floors were met, and `swap_check.csv` scored lower than the submission on both metrics. No pipeline fix is needed, and the check does not run again.
+
+*Disclosure.* The steps were run from inside the AI coding session, so their printed output reached the AI assistant. That output was the validator's label and possession counts for the file, and `run_evaluation.py`'s full scoreboard and per-file reports against the public window. This breaks the reporting clause above. The assistant had wrongly said the validator prints only an OK line, and the evaluation was run in the session despite advice to use a separate terminal. The file had been frozen, rebuilt four ways and checked by C2 before any of this was shown. Nothing has been or will be changed, chosen or tuned because of it, and no number from that output is written to this repository.
 
 ## D7 — Unseen-vendor benchmark on PFF World Cup tracking (2026-11-11, written before any PFF data is read or scored)
 
