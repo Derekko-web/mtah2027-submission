@@ -1298,6 +1298,8 @@ What it shows: the lag is real under both marking rules, but moving D15's change
 
 **Ranges (computed 2026-11-11, before any check).** Over the 28 external views D15 produced 1.53–2.94 possessions per graded minute, a dead share of 0.30–0.58, and 0–20.2 sub-second stoppages per 90 minutes. The ranges are therefore 0.76–4.42, 0.15–0.87 and 0–30.3. [Ranges](dfl_submission/output_check_ranges.json)
 
+*Amendment, 2026-11-12, before any check has run:* D27 replaced D15 as the submission. D27 changes nothing on an external match, because every external half starts at its kick-off. D15's external predictions are therefore also D27's, and the ranges stand unchanged. If D28 is adopted, its own amendment recomputes them.
+
 **Outcome.** *(Added after the check: PASS or FAIL, the date, and the SHA-256 of the file checked.)*
 
 ## D27 — Dead ball until the tagged second-half kick-off (2026-11-12, written before any D27 code runs on the competition bundle)
@@ -1370,4 +1372,31 @@ D15 must first reproduce its holdout record (`scale_recipe/confirmation.json`). 
 
 Code: `dfl_submission/gap_trial.py` (`fill`, `coverage`, `develop`, `confirm`, `build`). `metrica_sample.reference_halves` and `metrica_views.view_halves` get an optional `signals_of` hook; at its default they must reproduce their caches and records exactly. Caches go under `data/d28/`, and records to `dfl_submission/gap_recipe/`, each written once. Every D28 command except `build` runs with `MTAH_DATA_DIR` set to a nonexistent path and calls `require_external_only()`.
 
-**Outcome.** *(Added after development, and after confirmation if it runs.)*
+**Outcome (2026-11-12).** Failed at development: no K was eligible, so **the submission stays D27** (D15 with the kick-off rule). Confirmation did not run: the holdout was not scored, and PFF confirmation set B was neither parsed nor scored, so it is still in reserve. The pipeline checks passed first: D15 reproduced its development record (PFF development included) and its D19 and D24 measurements, and its recipe reproduced every cached Metrica label.
+
+*Coverage, recorded before scoring.* Share of hidden-ball frames on live play that each K fills:
+
+| Group | Live frames with the ball hidden | K = 6 | K = 12 | K = 25 |
+|---|---:|---:|---:|---:|
+| DFL masked, dead ball carried, team swap | 32,011 of 81,460 | 0.009 | 0.029 | 0.095 |
+| SkillCorner development | 23,200 of 319,119 | 0 | 0 | 0 |
+| PFF development | 262,718 of 722,461 | 0.017 | 0.064 | 0.129 |
+| Metrica clean | 694 of 269,644 | 0.414 | 0.624 | 1.000 |
+| D24 views | 106,327 of 269,644 | 0.009 | 0.026 | 0.094 |
+
+DFL clean has no hidden ball. Every SkillCorner gap is longer than 1 s.
+
+*Development, against D15:*
+
+| Condition | K = 6 | K = 12 | K = 25 | Required |
+|---|---:|---:|---:|---|
+| Standard combined N = 3 (D15 0.72280) | 0.72280 (+0.0000) | 0.72436 (**+0.0016**) | 0.72124 (−0.0016) | ≥ +0.005 |
+| N = 1.75 / 4 / 4.5 | 0 / −0.0003 / −0.0003 | +0.0014 / +0.0014 / +0.0017 | −0.0011 / −0.0011 / −0.0009 | each ≥ −0.01 |
+| DFL dead ball carried / team swap | +0.0022 / −0.0055 | +0.0029 / −0.0017 | −0.0095 / −0.0087 | each ≥ −0.01 |
+| PFF development | −0.0002 | +0.0008 | −0.0034 | ≥ −0.01 |
+| Metrica (D19), mean N = 3 | 0.78031 (passes) | 0.78055 (passes) | 0.78028 (passes) | ≥ 0.77004 |
+| D24 mean (D15 0.67367) | **−0.0007** | **−0.0003** | **−0.0003** | ≥ 0 |
+
+Reported: raw-label change on the standard views −0.0002, +0.0008 and −0.0002.
+
+What it shows: a straight line through gaps of up to 1 s reaches at most a tenth of the hidden live ball on the masked views, and hardly moves spellF1. The best K gained a third of the required margin, and every K lowered the D24 mean slightly. The step is not adopted. Nothing is retrained or changed, and D27 stays the submission. The code is kept (`gap_trial.py`); its `confirm` and `build` paths have not run on real data. [Coverage](dfl_submission/gap_recipe/coverage.json) · [Development](dfl_submission/gap_recipe/development.json)
