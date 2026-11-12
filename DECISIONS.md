@@ -1299,3 +1299,70 @@ What it shows: the lag is real under both marking rules, but moving D15's change
 **Ranges (computed 2026-11-11, before any check).** Over the 28 external views D15 produced 1.53–2.94 possessions per graded minute, a dead share of 0.30–0.58, and 0–20.2 sub-second stoppages per 90 minutes. The ranges are therefore 0.76–4.42, 0.15–0.87 and 0–30.3. [Ranges](dfl_submission/output_check_ranges.json)
 
 **Outcome.** *(Added after the check: PASS or FAIL, the date, and the SHA-256 of the file checked.)*
+
+## D27 — Dead ball until the tagged second-half kick-off (2026-11-12, written before any D27 code runs on the competition bundle)
+
+**Question.** FAQ.md says the second half is graded from its first frame, but play starts only at the kick-off about two minutes later. Every external half used for training or scoring starts at its kick-off, so D15's output on that stretch has never been measured. The Laws of the Game settle it without data: no team has possession before the kick-off. This is round 7's step 1.
+
+**What was seen before this rule.** The records of D1–D26 and C2; DATA.md, FAQ.md and the organisers' `starter/load_smart_tagging.py`. No competition file, tag or label has been opened.
+
+**Rule.** After D15 decodes the match, for each half:
+- *Tags:* the Smart Tagging instances whose code is `SET PIECES` and whose `Type` label is `Kick Off (Start)`. Code, group and value are compared case-insensitively after trimming spaces, and `Kick Off (After Goal)` does not match. A tag's frames are round(seconds × 25), as DATA.md documents, rounded as the organisers' loader rounds.
+- *Which half:* a tag belongs to a half if it ends at or after the half's first frame and starts no more than 5 minutes (7,500 frames) after it. A half uses the rule only if exactly one tag belongs to it; with none, or more than one, the half is untouched.
+- *The change:* every frame from the half's first frame up to, but not including, the tag's start frame becomes `D`. If the tag starts at or before the half's first frame, nothing changes. Frames outside the halves stay `X`.
+
+**Why the start of the tag.** The organisers' loader says each kick-off tag is a window of about 5 s that contains the real kick-off. Its start is therefore never later than the kick-off, so the rule cannot overwrite live play. D15 still decides the last seconds before the kick. In the first half, the published first graded frame is the kick-off itself and the tag contains it, so nothing changes there.
+
+**No tuning and no external score.** There is one hand-set limit (5 minutes) and no grid. Every external half starts at its kick-off, so on every external match the rule does nothing by construction and cannot be scored. It is adopted as a constraint from the Laws of the Game, on tests and a rebuild. The Nov 3 email allows Smart Tagging as an input. The rule uses only the start and end times of the kick-off tags, not their team or any other tag.
+
+**Adoption.**
+- `tests/test_kickoff.py` passes, on a SportsCode XML fixture that the test writes itself, and so does the whole suite.
+- The competition file is built twice with `python -m dfl_submission.kickoff build`. Both builds must pass the validator and give the same SHA-256. Only the validator line and the SHA are read.
+- If the SHA equals D15's (`14d18a23…`), the rule changed no label. D27 is recorded as having no effect, and D15's build command stays.
+- If the SHA differs, the D27 file becomes the submission after the release check (`release/check.sh`: twice on macOS, `linux/arm64` and `linux/amd64`, tests in the clone). Any change can only be on second-half frames before the tagged kick-off.
+- Either way the rule stays in force for any later candidate's build (D28), because it is a constraint, not a tuned step.
+
+Code: `dfl_submission/kickoff.py` (`read_tags`, `apply`, `build`). The build is D15's (`scale_trial`), then `apply`, then `build.write_csv`.
+
+**Outcome.** *(Added after the rebuilds.)*
+
+## D28 — Fill short ball dropouts (2026-11-12, written before any D28 fill is computed or scored)
+
+**Question.** A hidden ball is D15's largest measured loss: going from clean to masked tracking costs 0.055 N = 3 spellF1 on DFL (D21) and 0.075 on Metrica (D24). The pipeline uses the ball only where it is seen and never fills a gap. Does filling short dropouts with a straight line help? This is round 7's step 2.
+
+**What was seen before this rule.** The records of D1–D26, the D27 rule, and C2's ranges. To check how a missing ball is encoded, the share of frames with a missing ball was printed for one PFF development half (0.62) and one Metrica half (0.43). A missing ball is NaN in both coordinates. No fill has been computed and nothing has been scored.
+
+**Candidate.** Frozen D15, with nothing retrained and the decoder unchanged. Before the models see a half, the ball is filled in each run of frames where it is missing if:
+- the run is at most K frames long; and
+- the ball is seen on the frame just before and the frame just after the run, in the same half.
+
+Each filled frame gets the point at its time on the straight line between those two sightings. Runs that touch the half's first or last frame are left alone, as is a half with no seen ball. A ball is seen on a frame when both coordinates are finite. In the build, the fill runs per half on the ball exactly as the models receive it, after the existing validity mask.
+
+**Grid.** K ∈ {6, 12, 25} frames (0.24, 0.48 and 1 s). Nothing above 1 s: over a longer gap the ball can change hands between sightings, and the synthetic masks, which are independent of play, would flatter long fills.
+
+**Coverage first.** Before any scoring, `gap_trial coverage` records, per development group, the number of frames with a missing ball and the share of them each K fills. The groups are DFL WPY clean, masked, dead ball carried and team swap; SkillCorner development; PFF development; Metrica clean; and D24 masked, handled and team swap. These numbers are reported only, and nothing is selected on them.
+
+**Pipeline checks, before any candidate score is read.** D15 must reproduce its development record (PFF development included), its D19 measurement and its D24 measurement exactly. With K = 0 the fill must leave every ball unchanged (tested). Otherwise D28 stops without a record.
+
+**Development, once per K.** D15 with the K fill is forecast on DFL WPY in its four views, the four SkillCorner development matches, the eight PFF development matches, the three Metrica games (D19's clean view) and the D24 views, and decoded at D15's recipe. A K is eligible if, against D15:
+- standard combined N = 3 spellF1 rises by at least +0.005;
+- N = 1.75, 4 and 4.5 each drop by at most 0.01;
+- DFL dead ball carried and team swap (N = 3) each drop by at most 0.01;
+- mean N = 3 spellF1 on the PFF development matches drops by at most 0.01 (veto);
+- the Metrica veto passes (mean N = 3 spellF1 at least 0.77004, D19), and the D24 mean is not lower.
+
+The eligible K with the highest standard combined N = 3 spellF1 is selected, and a tie goes to the smaller K. Raw-label scores and per-group changes are reported, not gated.
+
+**Confirmation, once,** if a K is selected. The same conditions apply, except the Metrica and D24 ones (same games), on:
+- the reused DFL/SkillCorner holdout: WQQ and WR9 with their guard views, and the four SkillCorner holdout matches;
+- PFF confirmation set B, whose mean N = 3 spellF1 may drop by at most 0.01. Set B is parsed only for this step, and D15 is forecast on it once.
+
+D15 must first reproduce its holdout record (`scale_recipe/confirmation.json`). The holdout has confirmed D1, D3 and D15 before, so it is reused evidence; set B is fresh.
+
+**If confirmed,** the build is the fill, then D15, then D27. It becomes the submission after the release check. C2's ranges are then recomputed from the candidate's external predictions, under an amendment written before the check. **If not,** D15 stays (with D27, if D27 changed the file). PFF and Metrica only veto; no value is chosen on them.
+
+**Cut-off.** If D28 is not confirmed by the end of Fri 13 Nov (EST), it stops and is recorded as unfinished. Set B stays unparsed unless development passes.
+
+Code: `dfl_submission/gap_trial.py` (`fill`, `coverage`, `develop`, `confirm`, `build`). `metrica_sample.reference_halves` and `metrica_views.view_halves` get an optional `signals_of` hook; at its default they must reproduce their caches and records exactly. Caches go under `data/d28/`, and records to `dfl_submission/gap_recipe/`, each written once. Every D28 command except `build` runs with `MTAH_DATA_DIR` set to a nonexistent path and calls `require_external_only()`.
+
+**Outcome.** *(Added after development, and after confirmation if it runs.)*
