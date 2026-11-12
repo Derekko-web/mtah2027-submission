@@ -93,19 +93,30 @@ def identity(parsed, reference="D15"):
             "corrupt_sha256": ms.digest(ROOT / "experiments" / "dfl_transfer_features.py")}
 
 
-def view_halves(parsed=ms.PARSED, cache=CACHE, reference="D15"):
-    """The reference's decoder inputs and labels on every view of every half, cached by identity."""
+def view_halves(parsed=ms.PARSED, cache=CACHE, reference="D15", signals_of=None, variant=None):
+    """The reference's decoder inputs and labels on every view of every half, cached by identity.
+
+    `signals_of`, if given, replaces `diagnosis.half_signals` (same arguments) to forecast a variant
+    of the reference, such as D28's ball fill. A variant names itself in `variant`, which joins the
+    cache identity, and needs a cache of its own.
+    """
+    key = identity(parsed, reference)
+    if signals_of is not None:
+        if variant is None or cache is None or Path(cache) == CACHE:
+            raise ValueError("A variant forecast needs a `variant` and a cache of its own")
+        key = dict(key, variant=variant)
 
     def produce():
         model = ms.reference_model(reference)
+        forecast = diagnosis.half_signals if signals_of is None else signals_of
         for game in ms.GAMES:
             for index, half in enumerate(ms.load(parsed, game)):
                 for view, (positions, ball) in build_views(half, game, index).items():
-                    signals, labels = diagnosis.half_signals(model, positions, ball, half["teams"], half["pitch"])
+                    signals, labels = forecast(model, positions, ball, half["teams"], half["pitch"])
                     yield diagnosis.HalfSignals("metrica", str(game), view, index, half["labels"], signals, labels)
                 print(f"Forecast {reference} on the D24 views of Metrica game {game} half {index + 1}", flush=True)
 
-    return diagnosis.collect(cache, identity(parsed, reference), produce)
+    return diagnosis.collect(cache, key, produce)
 
 
 # -- scoring ---------------------------------------------------------------------------------------

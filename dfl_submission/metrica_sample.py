@@ -623,20 +623,31 @@ def reference_model(reference):
     raise ValueError(f"Unknown D19 reference {reference!r}; expected one of {REFERENCES}")
 
 
-def reference_halves(reference=STANDING, parsed=PARSED, cache=None, model=None):
-    """A reference's decoder inputs and labels for every half, from its cache or computed and cached."""
+def reference_halves(reference=STANDING, parsed=PARSED, cache=None, model=None, signals_of=None, variant=None):
+    """A reference's decoder inputs and labels for every half, from its cache or computed and cached.
+
+    `signals_of`, if given, replaces `diagnosis.half_signals` (same arguments) to forecast a variant
+    of the reference, such as D28's ball fill. A variant names itself in `variant`, which joins the
+    cache identity, and needs a cache of its own.
+    """
     from dfl_submission import diagnosis
+    identity = reference_identity(reference, parsed)
+    if signals_of is not None:
+        if variant is None or cache is None or Path(cache) == cache_path(reference):
+            raise ValueError("A variant forecast needs a `variant` and a cache of its own")
+        identity = dict(identity, variant=variant)
     cache = cache_path(reference) if cache is None else cache
 
     def produce():
         chosen = reference_model(reference) if model is None else model
+        forecast = diagnosis.half_signals if signals_of is None else signals_of
         for game in GAMES:
             for index, half in enumerate(load(parsed, game)):
-                signals, labels = diagnosis.half_signals(chosen, *tracking(half))
+                signals, labels = forecast(chosen, *tracking(half))
                 yield diagnosis.HalfSignals("metrica", str(game), "observed", index, half["labels"], signals, labels)
             print(f"Forecast {reference} on Metrica game {game}", flush=True)
 
-    halves = diagnosis.collect(cache, reference_identity(reference, parsed), produce)
+    halves = diagnosis.collect(cache, identity, produce)
     return {game: [half.d3 for half in halves if half.match == str(game)] for game in GAMES}, halves
 
 
