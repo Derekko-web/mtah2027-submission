@@ -134,3 +134,25 @@ def test_measurements_run_on_a_small_match():
     summary = diagnosis.summarise_group([record])
     assert summary["offsets"]["stop"]["median"] == 5
     assert summary["stoppages"]["true"]["count"] == 1
+
+
+def small_match(shift=0):
+    truth = np.r_[labels((H, 300), (D, 100), (A, 300)), X, labels((A, 200), (H, 40), (A, 200))]
+    prediction = np.r_[labels((H, 305 + shift), (D, 95 - shift), (A, 300)), X, labels((A, 440))]
+    return truth, prediction, np.where(prediction == H, .8, .2).astype(float)
+
+
+def test_d21_adds_a_metrica_group_and_vendor_without_changing_the_combined_score():
+    scored = {("dfl", "WPY", view): small_match(i) for i, view in enumerate(("clean", "masked", "dead_carried", "team_swap"))}
+    scored |= {("skillcorner", "1", "observed"): small_match(3), ("pff", "10", "observed"): small_match(4)}
+    d11 = diagnosis.measure_all(scored)
+    with_metrica = scored | {("metrica", "1", "observed"): small_match(5)}
+    d21 = diagnosis.measure_all(with_metrica, groups=diagnosis.D21_GROUPS, vendors=diagnosis.D21_VENDORS,
+                                name="d15", with_shifts=False)
+    assert "shifts" in d11 and "shifts" not in d21
+    assert set(d21["groups"]["aba3"]) == set(diagnosis.GROUPS) | {"metrica"}
+    assert set(d21["vendors"]["raw"]) == {"dfl", "skillcorner", "pff", "metrica"}
+    assert d21["groups"]["aba3"]["metrica"]["matches"] == 1
+    for target in diagnosis.TARGETS:
+        assert d21["combined"][target]["d15"] == d11["combined"][target]["d3"]
+        assert d21["groups"][target]["pff"] == d11["groups"][target]["pff"]

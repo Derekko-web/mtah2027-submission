@@ -1,4 +1,4 @@
-"""D11: where frozen D3 loses spellF1 on the external development matches (DECISIONS.md D11).
+"""D11 and D21: where frozen D3, then D15, loses spellF1 on the external development matches.
 
 `measure` decodes frozen D3 on DFL WPY (four views), the four SkillCorner development matches and
 the eight PFF development matches, checks that it reproduces the D3 and D7 records exactly, and
@@ -9,6 +9,9 @@ record also fixes, by the formula in D11, the boundary shifts D12 may test.
 The decoder inputs of every half can be cached (`--cache`), so later trials on the same matches
 reuse them instead of running the model sets again; each later trial still checks that the cached
 inputs reproduce D3.
+
+`measure-d15` (DECISIONS.md D21) repeats the measurements for frozen D15 from its cached development
+inputs and adds the three Metrica sample matches as a seventh group, with D3 measured there too.
 """
 
 import argparse
@@ -38,6 +41,9 @@ HEADLINE_IOU = .5
 MIN_SHIFT = 2
 GROUPS = ("dfl_clean", "dfl_masked", "dfl_dead_carried", "dfl_team_swap", "skillcorner", "pff")
 VENDORS = {"dfl": ("dfl_clean", "dfl_masked"), "skillcorner": ("skillcorner",), "pff": ("pff",)}
+D21_PROTOCOL = "DECISIONS.md D21"
+D21_GROUPS = (*GROUPS, "metrica")
+D21_VENDORS = VENDORS | {"metrica": ("metrica",)}
 
 
 @dataclass
@@ -432,28 +438,30 @@ def shifts(vendor_offsets):
     return result
 
 
-def measure_all(scored):
-    """Every D11 measurement for every group and target."""
+def measure_all(scored, *, groups=GROUPS, vendors=VENDORS, name="d3", with_shifts=True):
+    """Every D11 measurement for every group and target; D21 adds the Metrica group and drops the shifts."""
     report = {"groups": {}, "combined": {}, "vendors": {}}
     by_group = {}
     for key in scored:
         source, _, view = key
         by_group.setdefault(source if source != "dfl" else f"dfl_{view}", []).append(key)
-    for name, seconds in TARGETS.items():
+    for target_name, seconds in TARGETS.items():
         records = {}
         for key, (truth, prediction, home) in scored.items():
             records[key] = measure_match(target(truth, seconds), prediction, home)
-        report["groups"][name] = {group: summarise_group([records[key] for key in sorted(by_group[group])])
-                                  for group in GROUPS}
-        per_match = {key: {"d3": record["spells"]["spell_f1"], **{f"oracle_{k}": v for k, v in record["oracle"].items()}}
-                     for key, record in records.items() if key[0] != "pff"}
-        report["combined"][name] = {metric: combined(per_match, metric)
-                                    for metric in ("d3", "oracle_stoppage", "oracle_ownership")}
-        report["vendors"][name] = {vendor: {kind: offset_summary([records[key]["offsets"][kind]
-                                                                  for group in groups for key in by_group[group]])
-                                            for kind in TYPES}
-                                   for vendor, groups in VENDORS.items()}
-    report["shifts"] = shifts(report["vendors"]["aba3"])
+        report["groups"][target_name] = {group: summarise_group([records[key] for key in sorted(by_group[group])])
+                                         for group in groups}
+        per_match = {key: {name: record["spells"]["spell_f1"], **{f"oracle_{k}": v for k, v in record["oracle"].items()}}
+                     for key, record in records.items() if key[0] in ("dfl", "skillcorner")}
+        if per_match:
+            report["combined"][target_name] = {metric: combined(per_match, metric)
+                                               for metric in (name, "oracle_stoppage", "oracle_ownership")}
+        report["vendors"][target_name] = {vendor: {kind: offset_summary([records[key]["offsets"][kind]
+                                                                         for group in members for key in by_group[group]])
+                                                   for kind in TYPES}
+                                          for vendor, members in vendors.items()}
+    if with_shifts:
+        report["shifts"] = shifts(report["vendors"]["aba3"])
     return report
 
 
@@ -490,15 +498,59 @@ def measure(dfl, skill, parsed, *, raw, cache=None, output=RECIPE / "d11.json"):
     return report
 
 
+def measure_d15(dfl, skill, parsed, *, raw, d15_cache, output=RECIPE / "d21.json"):
+    """D21: D11's measurements for frozen D15 on development and the Metrica sample games, written once."""
+    require_external_only()
+    from dfl_submission import metrica_sample as ms, scale_trial, vendor_trial, zoo
+    if output.exists():
+        raise FileExistsError(f"{output} exists; D21 is written once")
+    games = vendor_trial.development()
+    halves, recipe, _ = zoo.d15_development(dfl, skill, parsed, raw=raw, cache=d15_cache)  # stops unless reproduced
+    metrica = {}
+    for reference in ("D15", "D3"):
+        _, cached, _ = ms.reference_scores(reference)  # stops unless the reference reproduces its D19 record
+        reference_recipe = ms.reference_recipe(reference)
+        decoded = matches(cached, lambda half: decode(half.signals, reference_recipe))
+        stored = matches(cached)
+        if any(not np.array_equal(decoded[key][1], stored[key][1]) for key in stored):
+            raise ValueError(f"{reference} decoded afresh differs from its cached Metrica labels; nothing was written")
+        metrica[reference] = decoded
+    scored = matches(halves, lambda half: decode(half.signals, recipe)) | metrica["D15"]
+    report = measure_all(scored, groups=D21_GROUPS, vendors=D21_VENDORS, name="d15", with_shifts=False)
+    d3_metrica = measure_all(metrica["D3"], groups=("metrica",), vendors={"metrica": ("metrica",)}, name="d3",
+                             with_shifts=False)
+    frozen, setting = scale_trial.frozen_recipe(scale_trial.RECIPE, scale_trial.MODELS)
+    write_new(output, {"protocol": D21_PROTOCOL, "candidate": "D15", "decision": None, "recipe": recipe,
+                       "reproduction": {"d15_development": True, "d15_metrica": True, "d3_metrica": True},
+                       "tolerance_frames": TOLERANCE, **report,
+                       "d3_metrica": {"groups": d3_metrica["groups"], "vendors": d3_metrica["vendors"]},
+                       "models": frozen["models"], "teacher_sha256": teacher_identity(),
+                       "inputs": {"pff": vendor_trial.inputs(parsed, games), "metrica": ms.inputs(ms.PARSED)}})
+    for name in TARGETS:
+        values = report["combined"][name]
+        print(f"D21 {name}: standard combined D15 {values['d15']['combined']:.4f}, true stoppages "
+              f"{values['oracle_stoppage']['combined']:.4f}, true ownership {values['oracle_ownership']['combined']:.4f}")
+        for group in D21_GROUPS:
+            entry = report["groups"][name][group]
+            print(f"  {group}: spellF1 {entry['spell_f1_mean']:.4f}, true stoppages {entry['oracle']['stoppage']:.4f}, "
+                  f"true ownership {entry['oracle']['ownership']:.4f}, spells {entry['detection']['n_gt']} true / "
+                  f"{entry['detection']['n_pred']} predicted")
+    return report
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__.splitlines()[0])
-    parser.add_argument("command", choices=("measure",))
+    parser.add_argument("command", choices=("measure", "measure-d15"))
     parser.add_argument("--parsed", type=Path, required=True, help="folder written by `dfl_submission.pff prepare`")
     parser.add_argument("--dfl", type=Path, required=True)
     parser.add_argument("--dfl-raw", action="store_true")
     parser.add_argument("--skill", type=Path, required=True)
     parser.add_argument("--cache", type=Path, help="folder for the decoder inputs of every development half")
+    parser.add_argument("--d15-cache", type=Path, help="measure-d15: D15's cached development inputs")
     args = parser.parse_args()
+    if args.command == "measure-d15":
+        measure_d15(args.dfl, args.skill, args.parsed, raw=args.dfl_raw, d15_cache=args.d15_cache)
+        return
     measure(args.dfl, args.skill, args.parsed, raw=args.dfl_raw, cache=args.cache)
 
 

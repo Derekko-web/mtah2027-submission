@@ -969,3 +969,52 @@ What it shows:
 - *Tree heads:* the deeper heads lower the trees' own log-loss and help with the dead ball carried, but cost a little on the standard views.
 
 Records: [cross-validation](dfl_submission/zoo_recipe/) (`cv_*.json`, `cloud_*.json`) · [members](dfl_submission/zoo_recipe/) (`member_*.json`) · [selection](dfl_submission/zoo_recipe/development.json). Weights are kept in `dfl_submission/zoo_models/` for reference.
+
+## D21 — Where D15 loses spellF1 (2026-11-11, written before anything is scored)
+
+**Question.** D11 found that D3 lost its score in ownership changes rather than stoppages, and that it under-segmented. D15 then gained +0.04 by training longer and wider. Is ownership still the main loss for D15, or are stoppages now? D21 is a measurement only, round 5's step 1. It selects nothing and changes nothing in the submission. If steps 2 and 3 of the fifth plan (D22, D23) fall short, it says what to try next.
+
+**What was seen before this rule.** The records of D1–D20. Nothing has been decoded or scored for D21.
+
+**Candidate.** Frozen D15, the submission: D3's trees and 0.5 blend with D15's networks, cutoff 0.53, ownership cost 8, stoppage cost 2, discount 0.8. Decoder inputs come from the caches its own records were scored from, decoded afresh at D15's recipe:
+- development: DFL WPY in its four views, the four SkillCorner development matches and the eight PFF development matches (`data/d15/cache/w96_s5400`);
+- the three Metrica sample matches (`data/metrica_cache/d15`), a seventh group, `metrica`.
+
+Holdout, confirmation, training and untouched matches are not read. For the Metrica group only, frozen D3 is measured too from its cached inputs (`data/metrica_cache`), so the new group has a reference; for the other six groups D3's numbers are D11's record.
+
+**Pipeline check, before any result is read.** D15 decoded from its development cache must reproduce exactly its development record (the selected trial in `scale_recipe/development.json`, PFF development included). D15 and D3 decoded from their Metrica caches must reproduce `metrica_recipe/d15_measurement.json` and `d3_measurement.json` exactly. If any check fails, D21 stops without writing a record, and only the pipeline may be fixed.
+
+**Targets.** As in D11: the raw provider labels and the N = 3 s controlled-possession targets. For Metrica the raw target is D19's raw event-possession target.
+
+**What is measured.** D11's four measurements, unchanged, per group and target:
+1. spell detection at each IoU from 0.3 to 0.7 (precision, recall, F1, true and predicted spell counts);
+2. the two oracle runs, true stoppages and true ownership, defined exactly as in D11, as mean spellF1 per group and as the standard combined aggregate;
+3. signed boundary offsets by transition type (ownership, stop, restart), matched at 25 frames, per group and per vendor (DFL clean + masked, SkillCorner, PFF, Metrica);
+4. recall by true spell length, brief interior spells and stoppage lengths.
+
+D11's boundary-shift formula is not applied: D12 is closed, and nothing is handed on.
+
+**Record.** `dfl_submission/diagnosis_recipe/d21.json`, written once by `python -m dfl_submission.diagnosis measure-d15`. Every D21 command runs with `MTAH_DATA_DIR` set to a nonexistent path.
+
+**Outcome (2026-11-11).** The pipeline checks passed: from their caches, D15 reproduced its development record (PFF development included), and D15 and D3 each reproduced their Metrica measurement exactly. Against the N = 3 targets:
+
+| Group | D15 spellF1 | True stoppages | True ownership | True / predicted spells | Precision / recall at IoU 0.5 | D3 spellF1 |
+|---|---:|---:|---:|---|---|---:|
+| DFL clean | 0.778 | 0.778 | 0.933 | 281 / 263 | 0.82 / 0.77 | 0.742 |
+| DFL masked | 0.723 | 0.731 | 0.926 | 281 / 231 | 0.81 / 0.67 | 0.662 |
+| DFL dead ball carried | 0.609 | 0.708 | 0.792 | 281 / 287 | 0.61 / 0.63 | 0.566 |
+| DFL team swap | 0.659 | 0.672 | 0.920 | 281 / 245 | 0.72 / 0.63 | 0.579 |
+| SkillCorner | 0.704 | 0.753 | 0.841 | 971 / 792 | 0.79 / 0.65 | 0.676 |
+| PFF | 0.656 | 0.735 | 0.790 | 1783 / 1394 | 0.76 / 0.60 | 0.626 |
+| Metrica | 0.780 | 0.823 | 0.852 | 825 / 758 | 0.83 / 0.76 | 0.760 |
+| Standard combined | 0.7228 | 0.7496 | 0.8849 | | | 0.6821 |
+
+D3 on Metrica, for reference: true stoppages 0.814, true ownership 0.846, 674 predicted spells, precision / recall 0.86 / 0.70.
+
+- **Ownership is still where most of the score is lost.** On the standard views true ownership adds +0.162 and true stoppages +0.027 (D3: +0.205 and +0.032). D15 closed about a fifth of the ownership gap. Stoppages are a larger share only where the dead ball is hard to see: DFL dead ball carried (+0.100), PFF (+0.079) and, less so, Metrica (+0.043).
+- **D15 still under-segments, less than D3.** It predicts 6–22% fewer spells than the targets on every group except the dead ball carried view (D3: 20–25% fewer). Recall at IoU 0.5 by true spell length on SkillCorner: 4% under 1.75 s, 46% at 1.75–3 s, 52% at 3–5 s, 74% at 5–10 s, 89–93% above 10 s (D3: 4%, 40%, 48%, 72%, 84–92%). On DFL clean the 1.75–3 s bin rose from 40% to 87%; on PFF it is still 11%.
+- **Brief interior spells are still rare.** D15 predicts at most 4 interior spells under 1.75 s in any group, and 3–28 under 3 s.
+- **Boundary timing has no shared bias.** N = 3 median offsets (frames, predicted minus true) for ownership, stop and restart: DFL 0, −1, −0.5; SkillCorner 0, 0, 0; PFF −2, −5, −3; Metrica +4, +3, −1.
+- **Sub-second stoppages on PFF.** D15 predicts 87 stoppages under 1 s on the PFF development matches, against 1 in the targets (SkillCorner 10 against 30, Metrica 7 against 0, DFL clean none). They come from short gaps in PFF's ball tracking.
+
+What follows: the headroom is still in ownership changes the models miss, mostly spells under 5 s. D22 and D23 act on the models, which is where that headroom is. If both fall short, the next candidates are more ownership-change recall in the models and, for PFF-like tracking only, a minimum stoppage length. Neither is part of this plan. [Record](dfl_submission/diagnosis_recipe/d21.json)
