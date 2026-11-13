@@ -2044,3 +2044,16 @@ What it shows: the player-set model's development profile carried over and grew 
 **If it passes,** the variant replaces D43 in the build behind a switch (with the old command the build still gives `a56574fe…`), with rebuild checks, `release/check.sh`, C2 re-declared and the records. **If it fails or stops,** `a56574fe…` stays.
 
 Code: `dfl_submission/player_set2.py` (configurable tokens, network, trainer and NumPy inference; `player_set.py`, on the build path, stays byte-identical) and `dfl_submission/player2_trial.py`. Tokens go to `data/d44/`, records to `dfl_submission/player2_recipe/`, each written once. Every D44 command runs with `MTAH_DATA_DIR` set to a nonexistent path and calls `require_external_only()`.
+
+**Outcome (2026-11-12, 20:48 EST).** Stage A stopped D44: D42's own design scored best, so **D43 stays** (`a56574fe…`). Stage B, development and confirmation did not run; the untouched PFF set stays unparsed.
+- **Stage A, standard combined N = 3 spellF1 over the 16 training matches, each fold network decoded alone:**
+
+| Setting | Cost 8 | Cost 10 | Cost 12 | Best − anchor's best |
+|---|---:|---:|---:|---:|
+| **Anchor (D42: 11 players, encoder 32, learning rate × 2, batch 32, dropout 0.2)** | 0.71809 | **0.72041** | 0.71894 | — |
+| V1, 16 players per team | 0.71802 | 0.72008 | 0.71880 | −0.0003 |
+| V2, encoder width 64 | 0.70783 | 0.71201 | 0.71081 | −0.0084 |
+| V3, relative velocity added | 0.70914 | 0.71174 | 0.71110 | −0.0087 |
+| V4, D15's training values | 0.71365 | 0.71686 | 0.71729 | −0.0031 |
+
+What it shows: D42's design is the best of its neighbourhood, and its best cost on the held-out training matches is the cost D43 uses (10). More players changed nothing; a wider encoder and the relative velocity lost, as more inputs and capacity did elsewhere. On these matches a single player-set network scores about the same as a single network with D34's values alone (D34's A2, 0.72160), so the player-set model's confirmed gain (D43) lies on the views these matches do not contain: degraded and swapped tracking, the unseen vendor, and the holdout. The fold runs are kept in `data/d44/cv`. [Stage A](dfl_submission/player2_recipe/stage_a.json)
