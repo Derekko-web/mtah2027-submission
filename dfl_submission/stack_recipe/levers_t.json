@@ -1,0 +1,54 @@
+{
+  "base_levers_sha256": "9b9d3961dfc8741e08720ac77f6b3ae7a580c462a015310c59e143e841af9c64",
+  "check_t_sha256": "3bce0c89faed8abb4ed04066e12dc3c7485e5853d4ae74b1d0fae06d665d6444",
+  "config": {
+    "aux": false,
+    "direction": true,
+    "mirror": "y",
+    "noise": false,
+    "seed_offset": 0
+  },
+  "d52_T_sha256": "3ab373f30bdc691e6687ff4006f33f5d9994ca884550f85448dda5473b46986e",
+  "data": "d49",
+  "offsets": [
+    0,
+    1000,
+    2000
+  ],
+  "protocol": "DECISIONS.md D48",
+  "recorded_at": "2026-11-13 04:12 EST",
+  "reuse": {
+    "0": {
+      "augmented": {
+        "seed_models": {
+          "export": "data/d52/networks/T/export/augmented/seed_models",
+          "export_fit_sha256": "3652d4b8eec1bd6d6cc18c33835287e0b36285a4ad15f1df9a49ad4133289fac",
+          "raw_fit_sha256": "9596b472fd1eb6ffb9321ec37273d45648a12a7df42d8c56a83bad7a73afb27a"
+        },
+        "temporal_models": {
+          "export": "data/d52/networks/T/export/augmented/temporal_models",
+          "export_fit_sha256": "58b94b076141762de6bde8c15c9f0c34671b4bfb3f2c95231e6c898794269c0b",
+          "raw_fit_sha256": "03f62673ffcf4016a1aee08b0d67a5288ffd27328452ed1ef3111e4b37f5d021"
+        }
+      },
+      "current": {
+        "seed_models": {
+          "export": "data/d52/networks/T/export/current/seed_models",
+          "export_fit_sha256": "8536ceaa315558a870337c98b501e8ce57dddb2d888bd405c66bcc32b21a71d5",
+          "raw_fit_sha256": "9d893c81452a86a53c63cf3133d0a587a1f658901eafb5bcfa786d696b6df949"
+        },
+        "temporal_models": {
+          "export": "data/d52/networks/T/export/current/temporal_models",
+          "export_fit_sha256": "13dc2821e8ead76bc22d18549323a120725b0d17139d11cd6467e8dcb172eb66",
+          "raw_fit_sha256": "d1bf702fce9cda8b8fdbdd5592145a11fd207029e31059d704b5c77f48433b6c"
+        }
+      }
+    }
+  },
+  "steps": 8100,
+  "trained_offsets": [
+    1000,
+    2000
+  ],
+  "variant": "t"
+}

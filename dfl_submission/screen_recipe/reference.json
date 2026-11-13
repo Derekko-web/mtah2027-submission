@@ -1,0 +1,47 @@
+{
+  "checked_at": "2026-11-12 21:40 EST",
+  "composite": 0.7139178474998402,
+  "groups": {
+    "d24": 0.7006065865196822,
+    "dfl_clean": 0.7802919708029197,
+    "dfl_dead_carried": 0.6428318584070796,
+    "dfl_masked": 0.7218390804597701,
+    "dfl_team_swap": 0.6938931297709923,
+    "metrica": 0.7909439973854445,
+    "pff": 0.6632252165524806,
+    "skillcorner": 0.7177109401003534
+  },
+  "halves": {
+    "d24": 18,
+    "development": 32,
+    "metrica": 6
+  },
+  "models": {
+    "networks": {
+      "augmented": {
+        "seed_models": "336d562a48379b838c7278b9b335978987a3e9a1ee78ee481267fb1d1e118d9c",
+        "temporal_models": "c0447a54ded2a38c1bb64b7ce14f991dfe465068864573fcd65f5353bb10eaca"
+      },
+      "current": {
+        "seed_models": "10e359651a6241b545b9b197eb3662038f263e3553aadd500687033db4d3c461",
+        "temporal_models": "0ae6d4339da6996aa7a266b2b50993f0d92ff78457cecf3cadc1e3ba6f823b2f"
+      }
+    },
+    "player_set_sha256": "4e298e542e4d2a47636f9e6dda50be14e62f8d9c7e96ebe64f1973a1f24ed2cc",
+    "protocol": "DECISIONS.md D42",
+    "trees": {
+      "augmented": "af0a9153b994cec629c7afb30cd26fe084ef5a0e966ada6814895b5adde7cdc3",
+      "current": "b313e25ee0ecf28490cb8f6d191b40ab2fb3d28c44019f05963a5effb2a7a19c"
+    }
+  },
+  "owner_cost": 10,
+  "passed": true,
+  "primary": 0.7295171586705866,
+  "protocol": "DECISIONS.md D47",
+  "reference": "D43",
+  "reproduction": {
+    "d24": true,
+    "development": true,
+    "metrica": true
+  }
+}

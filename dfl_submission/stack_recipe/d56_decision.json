@@ -1,0 +1,121 @@
+{
+  "decided_at": "2026-11-13 17:02 EST",
+  "protocol": "DECISIONS.md D56",
+  "records": {
+    "S": "c00235b33e91e45d7423818ec3635c87ca2967d7701e2f4bc1327626586bad3d",
+    "SL": "69589f01852efd72b9acb99ac628c1ee61faeb14b30fb9282332aa9a616756e5",
+    "base": "81d688671f58e9685b24c81f47edc646c4a54c137cbf08a4f4b2f8a8bda5abd1"
+  },
+  "results": {
+    "S": {
+      "against_base_at_same_cost": {
+        "groups": {
+          "d24": -0.0027652896122115633,
+          "dfl_clean": -0.011298932384341653,
+          "dfl_dead_carried": 0.001015354752009312,
+          "dfl_masked": 0.017260787992495197,
+          "dfl_team_swap": 0.0005936961018079279,
+          "metrica": -0.0006266104161203323,
+          "pff": -0.005230536504844729,
+          "skillcorner": 0.0016935620981726185
+        },
+        "note": "reported only",
+        "pff": -0.005230536504844729,
+        "selection": 0.004386858939602112,
+        "worst_group": -0.011298932384341653
+      },
+      "base_cost": 14,
+      "base_selection": 0.7377842095106049,
+      "changes": {
+        "composite": -0.007187153925470979,
+        "groups": {
+          "d24": -0.0011836609539794818,
+          "dfl_clean": -0.018780684209159126,
+          "dfl_dead_carried": -0.0051948051948053076,
+          "dfl_masked": 0.00346459311636238,
+          "dfl_team_swap": -0.018683241382229654,
+          "metrica": -0.012795215955815897,
+          "pff": -0.0009516398104274515,
+          "skillcorner": -0.00337257701371263
+        },
+        "guard_mean": -0.006390877965231523,
+        "pff": -0.0009516398104274515,
+        "primary": -0.0036615381695953575,
+        "selection": 0.00037114699250484495,
+        "situation_a": -0.0006984729693304548,
+        "situation_d": 0.014691472868216926
+      },
+      "conditions": {
+        "groups": false,
+        "pff": false,
+        "selection": false
+      },
+      "cost": 10,
+      "holds": false,
+      "selection": 0.7381553565031097
+    },
+    "SL": {
+      "against_base_at_same_cost": {
+        "groups": {
+          "d24": 0.004736905616292475,
+          "dfl_clean": 0.002121673053446682,
+          "dfl_dead_carried": -0.00752565491948376,
+          "dfl_masked": 0.0048443306035570455,
+          "dfl_team_swap": -0.0039063593850632294,
+          "metrica": 0.010013719823000145,
+          "pff": -0.0016393963776811793,
+          "skillcorner": 0.004665652003615572
+        },
+        "note": "reported only",
+        "pff": -0.0016393963776811793,
+        "selection": 0.008374583213680675,
+        "worst_group": -0.00752565491948376
+      },
+      "base_cost": 14,
+      "base_selection": 0.7377842095106049,
+      "changes": {
+        "composite": -0.0031289381316250697,
+        "groups": {
+          "d24": 0.0036161110321411005,
+          "dfl_clean": -0.007074880215414137,
+          "dfl_dead_carried": -0.008026419977210764,
+          "dfl_masked": -0.0014672628785400432,
+          "dfl_team_swap": -0.01818388971174656,
+          "metrica": 0.0021348686912727732,
+          "pff": 0.00043115038443364284,
+          "skillcorner": 0.0035388176220642054
+        },
+        "guard_mean": 0.0034126778195234797,
+        "pff": 0.00043115038443364284,
+        "primary": 0.00010117448228308401,
+        "selection": 0.0024347475297509247,
+        "situation_a": 0.009924162049589347,
+        "situation_d": 0.00702050290135392
+      },
+      "conditions": {
+        "groups": false,
+        "pff": true,
+        "selection": false
+      },
+      "cost": 12,
+      "holds": false,
+      "selection": 0.7402189570403558
+    }
+  },
+  "rule": {
+    "group_loss": 0.01,
+    "groups": [
+      "dfl_clean",
+      "dfl_masked",
+      "dfl_dead_carried",
+      "dfl_team_swap",
+      "skillcorner",
+      "pff",
+      "metrica",
+      "d24"
+    ],
+    "pff": "at least the base's at its best cost",
+    "selection_margin": 0.008
+  },
+  "taken": null
+}

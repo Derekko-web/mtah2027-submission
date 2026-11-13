@@ -1,9 +1,11 @@
 """C2: a check of the final file without ground truth (DECISIONS.md C2).
 
 `ranges` computes three statistics on D15's predictions for 28 external match views and writes their
-plausible ranges once. `check` computes the same statistics on a competition file and prints PASS,
-or FAIL with the names of the statistics outside their ranges. It never prints a number, so the
-statistics of the competition file reach no AI tool.
+plausible ranges once; `ranges-d43` and `ranges-d48` do the same for the models that replaced D15
+(C2's amendments), and `ranges-d53` for the D53 fallback (not the default; `check --ranges` names
+its file if the fallback ships). `check` computes the same statistics on a competition file and prints PASS, or
+FAIL with the names of the statistics outside their ranges (by default the newest ranges, D48's). It
+never prints a number, so the statistics of the competition file reach no AI tool.
 """
 
 import argparse
@@ -17,7 +19,8 @@ from evaluation import possession_metrics as pm
 
 PACKAGE = Path(__file__).resolve().parent
 D15_RANGES = PACKAGE / "output_check_ranges.json"        # C2 as first declared (D15, then D27)
-RANGES = PACKAGE / "output_check_ranges_d43.json"       # C2 re-declared for D43, the standing submission
+D43_RANGES = PACKAGE / "output_check_ranges_d43.json"   # C2 re-declared for D43
+RANGES = PACKAGE / "output_check_ranges_d48.json"       # C2 re-declared for D48 (the stack), read by `check`
 PROTOCOL = "DECISIONS.md C2"
 FPS = 25
 MINUTE = 60 * FPS
@@ -110,7 +113,7 @@ def d43_predictions(dfl, skill, parsed, *, raw):
     return found
 
 
-def write_d43_ranges(dfl, skill, parsed, *, raw, output=RANGES):
+def write_d43_ranges(dfl, skill, parsed, *, raw, output=D43_RANGES):
     from dfl_submission.external_only import require_external_only
     require_external_only()
     if output.exists():
@@ -142,15 +145,33 @@ def main():
     later.add_argument("--dfl-raw", action="store_true")
     later.add_argument("--skill", type=Path, required=True)
     later.add_argument("--parsed", type=Path, required=True)
+    stack = commands.add_parser("ranges-d48")
+    stack.add_argument("--dfl", type=Path, required=True)
+    stack.add_argument("--dfl-raw", action="store_true")
+    stack.add_argument("--skill", type=Path, required=True)
+    stack.add_argument("--parsed", type=Path, required=True)
+    fallback = commands.add_parser("ranges-d53")
+    fallback.add_argument("--dfl", type=Path, required=True)
+    fallback.add_argument("--dfl-raw", action="store_true")
+    fallback.add_argument("--skill", type=Path, required=True)
+    fallback.add_argument("--parsed", type=Path, required=True)
     checked = commands.add_parser("check")
     checked.add_argument("csv", type=Path)
+    checked.add_argument("--ranges", type=Path, default=RANGES, help="a ranges file (default: D48's)")
     args = parser.parse_args()
     if args.command == "ranges":
         write_ranges(args.dfl, args.skill, args.parsed, raw=args.dfl_raw, d15_cache=args.d15_cache, output=D15_RANGES)
     elif args.command == "ranges-d43":
-        write_d43_ranges(args.dfl, args.skill, args.parsed, raw=args.dfl_raw)
+        write_d43_ranges(args.dfl, args.skill, args.parsed, raw=args.dfl_raw, output=D43_RANGES)
+    elif args.command == "ranges-d48":
+        from dfl_submission import output_check_d48
+        output_check_d48.write_d48_ranges(args.dfl, args.skill, args.parsed, raw=args.dfl_raw, output=RANGES)
+    elif args.command == "ranges-d53":
+        from dfl_submission import output_check_d53
+        output_check_d53.write_d53_ranges(args.dfl, args.skill, args.parsed, raw=args.dfl_raw,
+                                          output=output_check_d53.RANGES)
     else:
-        raise SystemExit(0 if check(args.csv) else 1)
+        raise SystemExit(0 if check(args.csv, args.ranges) else 1)
 
 
 if __name__ == "__main__":

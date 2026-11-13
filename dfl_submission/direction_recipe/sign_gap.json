@@ -1,0 +1,14 @@
+{
+  "halves": {
+    "pff/3852/observed/1": {
+      "other_half_d": 5.1873174185814905,
+      "other_half_sign": 1,
+      "sign": -1,
+      "tracking_key": "3e84f3b6b53792578ac3803972e950d63dcb7006"
+    }
+  },
+  "protocol": "DECISIONS.md D50",
+  "recorded_at": "2026-11-12 22:00 EST",
+  "rule": "other_half",
+  "signs_sha256": "418ebec5fb3d47cc108ce72ca17a301ab3624f76dd3562b50f09ea744c095137"
+}

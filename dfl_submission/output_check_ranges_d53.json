@@ -1,0 +1,183 @@
+{
+  "candidate": "D53 fallback (the stack without C: L + mirrors in x and y + three seeds, 8,100 steps), cost 14",
+  "external": {
+    "dfl/WPY/clean": {
+      "dead_share": 0.44364651086443563,
+      "possessions_per_minute": 2.708414551572727,
+      "sub_second_stoppages_per_90": 0.0
+    },
+    "dfl/WPY/dead_carried": {
+      "dead_share": 0.3721744601979331,
+      "possessions_per_minute": 2.780228573773519,
+      "sub_second_stoppages_per_90": 21.236432279377063
+    },
+    "dfl/WPY/masked": {
+      "dead_share": 0.44785276073619634,
+      "possessions_per_minute": 2.421158462769559,
+      "sub_second_stoppages_per_90": 6.46326199807128
+    },
+    "dfl/WPY/team_swap": {
+      "dead_share": 0.4465190717524673,
+      "possessions_per_minute": 2.472454192912982,
+      "sub_second_stoppages_per_90": 9.233231425816115
+    },
+    "metrica/1/handled": {
+      "dead_share": 0.4250927547825607,
+      "possessions_per_minute": 2.296456698343517,
+      "sub_second_stoppages_per_90": 9.309959587879122
+    },
+    "metrica/1/masked": {
+      "dead_share": 0.43040287988083253,
+      "possessions_per_minute": 2.337834296511869,
+      "sub_second_stoppages_per_90": 11.171951505454947
+    },
+    "metrica/1/observed": {
+      "dead_share": 0.43009254789456985,
+      "possessions_per_minute": 2.544722287353627,
+      "sub_second_stoppages_per_90": 3.723983835151649
+    },
+    "metrica/1/team_swap": {
+      "dead_share": 0.4235066135194406,
+      "possessions_per_minute": 2.337834296511869,
+      "sub_second_stoppages_per_90": 15.82693129939451
+    },
+    "metrica/2/handled": {
+      "dead_share": 0.4060117883759812,
+      "possessions_per_minute": 2.2847062824109496,
+      "sub_second_stoppages_per_90": 14.345830145371078
+    },
+    "metrica/2/masked": {
+      "dead_share": 0.40562214854487233,
+      "possessions_per_minute": 2.3378389866530647,
+      "sub_second_stoppages_per_90": 15.302218821729149
+    },
+    "metrica/2/observed": {
+      "dead_share": 0.4037093711921562,
+      "possessions_per_minute": 2.465357476834141,
+      "sub_second_stoppages_per_90": 4.781943381790359
+    },
+    "metrica/2/team_swap": {
+      "dead_share": 0.4005568307404574,
+      "possessions_per_minute": 2.465357476834141,
+      "sub_second_stoppages_per_90": 18.171384850803364
+    },
+    "metrica/3/handled": {
+      "dead_share": 0.3032811402257914,
+      "possessions_per_minute": 2.5980620613379153,
+      "sub_second_stoppages_per_90": 15.96399579858237
+    },
+    "metrica/3/masked": {
+      "dead_share": 0.3050896974840186,
+      "possessions_per_minute": 2.6189300297020752,
+      "sub_second_stoppages_per_90": 20.65928868051836
+    },
+    "metrica/3/observed": {
+      "dead_share": 0.3079068732131802,
+      "possessions_per_minute": 2.8276097133436746,
+      "sub_second_stoppages_per_90": 3.756234305548793
+    },
+    "metrica/3/team_swap": {
+      "dead_share": 0.30460277822218823,
+      "possessions_per_minute": 2.493722219517115,
+      "sub_second_stoppages_per_90": 17.842112951356768
+    },
+    "pff/10502/observed": {
+      "dead_share": 0.3820706193327747,
+      "possessions_per_minute": 1.726992172331337,
+      "sub_second_stoppages_per_90": 38.62739888409737
+    },
+    "pff/10510/observed": {
+      "dead_share": 0.34889926617745165,
+      "possessions_per_minute": 1.7274674344299707,
+      "sub_second_stoppages_per_90": 18.96000842667041
+    },
+    "pff/3812/observed": {
+      "dead_share": 0.4649840143708536,
+      "possessions_per_minute": 1.7120511540132684,
+      "sub_second_stoppages_per_90": 21.011536890162837
+    },
+    "pff/3820/observed": {
+      "dead_share": 0.3932483304628413,
+      "possessions_per_minute": 1.8992899786925534,
+      "sub_second_stoppages_per_90": 18.380225600250515
+    },
+    "pff/3828/observed": {
+      "dead_share": 0.489365030694042,
+      "possessions_per_minute": 1.9242442257028969,
+      "sub_second_stoppages_per_90": 25.343704436086934
+    },
+    "pff/3836/observed": {
+      "dead_share": 0.3877026601066235,
+      "possessions_per_minute": 1.5829073416750037,
+      "sub_second_stoppages_per_90": 15.726287225732182
+    },
+    "pff/3844/observed": {
+      "dead_share": 0.5487662716145327,
+      "possessions_per_minute": 1.700019428793472,
+      "sub_second_stoppages_per_90": 26.22887118709928
+    },
+    "pff/3852/observed": {
+      "dead_share": 0.3302066599504452,
+      "possessions_per_minute": 1.8991477659487572,
+      "sub_second_stoppages_per_90": 36.75769869578239
+    },
+    "skillcorner/2007448/observed": {
+      "dead_share": 0.47135987212875313,
+      "possessions_per_minute": 1.8395270968542021,
+      "sub_second_stoppages_per_90": 9.300979703195402
+    },
+    "skillcorner/2007721/observed": {
+      "dead_share": 0.39487368435688164,
+      "possessions_per_minute": 2.148130639711914,
+      "sub_second_stoppages_per_90": 11.262044130528482
+    },
+    "skillcorner/2010085/observed": {
+      "dead_share": 0.42356923369126515,
+      "possessions_per_minute": 1.8111395255764104,
+      "sub_second_stoppages_per_90": 6.410212927601902
+    },
+    "skillcorner/2011166/observed": {
+      "dead_share": 0.525654259517882,
+      "possessions_per_minute": 2.084724836561621,
+      "sub_second_stoppages_per_90": 4.5540105653045115
+    }
+  },
+  "factors": [
+    0.5,
+    1.5
+  ],
+  "owner_cost": 14,
+  "protocol": "DECISIONS.md C2 (amendment for D53)",
+  "ranges": {
+    "dead_share": [
+      0.1516405701128957,
+      0.8231494074217991
+    ],
+    "possessions_per_minute": [
+      0.7914536708375018,
+      4.241414570015512
+    ],
+    "sub_second_stoppages_per_90": [
+      0.0,
+      57.94109832614605
+    ]
+  },
+  "source": {
+    "build_identity_sha256": "285ff0c4f11335272d7ffede793da3912793a51a55b3689a440b0487d5b42c02",
+    "caches": {
+      "d24": "d3fe7f9fd21f228b932b9226ec7add576f92cec96cf9f6ca6b9de31e689cd943",
+      "development": "6e12a984bb6ef8264177c7e6e11d5cb73c84bff9ad36d94fcc6dde714e0e65d7",
+      "guards": "00222e6ce227a8bf9e81ad93251203191280266b50519a6a300cf029a4a62c29",
+      "metrica": "a230e60d8f8734c479f164c19af81fa9f374e3aa45aa3ddd7c5010b77acf604b"
+    },
+    "confirmation_sha256": "f614fbf48c30cb503f18118ee85118f32e4b23ed90c20f3009cfc035760315d4",
+    "development_sha256": "f8cdc3b2a44f079e1fa2d00692d4ed3286afd9626811461a323df374053608fc",
+    "model_identity_sha256": "b7f5661cd883e865774b48fa393aa2395640629d3bd7bdceaeed2bb57b4bd1ac",
+    "reproduced_row": {
+      "composite": 0.7256742208377378,
+      "guard_mean": 0.7241685645209417,
+      "owner_cost": 14,
+      "selection": 0.7249213926793397
+    }
+  }
+}

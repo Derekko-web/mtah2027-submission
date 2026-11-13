@@ -1,0 +1,591 @@
+{
+  "caches": {
+    "d24": "0bd8614737e26846fc4325c36626217eccfb13c7a120866cd2aa22e4430f2858",
+    "development": "3ac30eac3af4157fb850259f8752f897d9983efcc12c0e8d18dcd0f1ae3d4f74",
+    "metrica": "11d67b2de3ee15f19994f515f8de26314c22090b94179e293372b386f07c23fd"
+  },
+  "candidate": "D43",
+  "decision": null,
+  "groups": {
+    "d24_handled": {
+      "agreement_by_run": {
+        "1-3s": {
+          "agreement": 0.9487949248067065,
+          "frames": 35309
+        },
+        "3-10s": {
+          "agreement": 0.9276060213661379,
+          "frames": 49424
+        },
+        "over_10s": {
+          "agreement": 0.9044269755895739,
+          "frames": 4834
+        },
+        "up_to_1s": {
+          "agreement": 0.9077149463947867,
+          "frames": 9514
+        }
+      },
+      "run_length_s": {
+        "median": 3.4,
+        "p90": 8.56
+      },
+      "share_by_run": {
+        "1-3s": 0.35203664168085247,
+        "3-10s": 0.49208573551402746,
+        "over_10s": 0.061461340957611896,
+        "up_to_1s": 0.09441628184750817
+      },
+      "unseen_live_frames": 106327
+    },
+    "d24_masked": {
+      "agreement_by_run": {
+        "1-3s": {
+          "agreement": 0.9497714218731684,
+          "frames": 34124
+        },
+        "3-10s": {
+          "agreement": 0.9344770073862283,
+          "frames": 46167
+        },
+        "over_10s": {
+          "agreement": 0.8874530594212503,
+          "frames": 9054
+        },
+        "up_to_1s": {
+          "agreement": 0.9081675835801947,
+          "frames": 9452
+        }
+      },
+      "run_length_s": {
+        "median": 3.56,
+        "p90": 12.32
+      },
+      "share_by_run": {
+        "1-3s": 0.33666895520422846,
+        "3-10s": 0.4563281198566686,
+        "over_10s": 0.11338606374674354,
+        "up_to_1s": 0.09361686119235942
+      },
+      "unseen_live_frames": 106327
+    },
+    "d24_team_swap": {
+      "agreement_by_run": {
+        "1-3s": {
+          "agreement": 0.9207185764479202,
+          "frames": 35292
+        },
+        "3-10s": {
+          "agreement": 0.8941992637838275,
+          "frames": 49442
+        },
+        "over_10s": {
+          "agreement": 0.8548554793096278,
+          "frames": 4809
+        },
+        "up_to_1s": {
+          "agreement": 0.887956357532522,
+          "frames": 9532
+        }
+      },
+      "run_length_s": {
+        "median": 3.4,
+        "p90": 8.56
+      },
+      "share_by_run": {
+        "1-3s": 0.35203664168085247,
+        "3-10s": 0.49208573551402746,
+        "over_10s": 0.061461340957611896,
+        "up_to_1s": 0.09441628184750817
+      },
+      "unseen_live_frames": 106327
+    },
+    "dfl_clean": {
+      "agreement_by_run": {
+        "1-3s": {
+          "agreement": null,
+          "frames": 0
+        },
+        "3-10s": {
+          "agreement": null,
+          "frames": 0
+        },
+        "over_10s": {
+          "agreement": null,
+          "frames": 0
+        },
+        "up_to_1s": {
+          "agreement": null,
+          "frames": 0
+        }
+      },
+      "run_length_s": null,
+      "share_by_run": {
+        "1-3s": null,
+        "3-10s": null,
+        "over_10s": null,
+        "up_to_1s": null
+      },
+      "unseen_live_frames": 0
+    },
+    "dfl_dead_carried": {
+      "agreement_by_run": {
+        "1-3s": {
+          "agreement": 0.9353146853146853,
+          "frames": 11440
+        },
+        "3-10s": {
+          "agreement": 0.8913590861634834,
+          "frames": 16283
+        },
+        "over_10s": {
+          "agreement": 0.762962962962963,
+          "frames": 675
+        },
+        "up_to_1s": {
+          "agreement": 0.9122632103688934,
+          "frames": 3009
+        }
+      },
+      "run_length_s": {
+        "median": 3.24,
+        "p90": 6.84
+      },
+      "share_by_run": {
+        "1-3s": 0.3621255193527225,
+        "3-10s": 0.5184467839180282,
+        "over_10s": 0.024866452157071006,
+        "up_to_1s": 0.09456124457217831
+      },
+      "unseen_live_frames": 32011
+    },
+    "dfl_masked": {
+      "agreement_by_run": {
+        "1-3s": {
+          "agreement": 0.934114071160379,
+          "frames": 11186
+        },
+        "3-10s": {
+          "agreement": 0.8875721288080909,
+          "frames": 16117
+        },
+        "over_10s": {
+          "agreement": 0.8099838969404187,
+          "frames": 621
+        },
+        "up_to_1s": {
+          "agreement": 0.9121171770972037,
+          "frames": 3004
+        }
+      },
+      "run_length_s": {
+        "median": 3.24,
+        "p90": 6.84
+      },
+      "share_by_run": {
+        "1-3s": 0.3621255193527225,
+        "3-10s": 0.5184467839180282,
+        "over_10s": 0.024866452157071006,
+        "up_to_1s": 0.09456124457217831
+      },
+      "unseen_live_frames": 32011
+    },
+    "dfl_team_swap": {
+      "agreement_by_run": {
+        "1-3s": {
+          "agreement": 0.9273035411649273,
+          "frames": 11211
+        },
+        "3-10s": {
+          "agreement": 0.8656855439642325,
+          "frames": 16104
+        },
+        "over_10s": {
+          "agreement": 0.8274760383386581,
+          "frames": 626
+        },
+        "up_to_1s": {
+          "agreement": 0.898237445959428,
+          "frames": 3007
+        }
+      },
+      "run_length_s": {
+        "median": 3.24,
+        "p90": 6.84
+      },
+      "share_by_run": {
+        "1-3s": 0.3621255193527225,
+        "3-10s": 0.5184467839180282,
+        "over_10s": 0.024866452157071006,
+        "up_to_1s": 0.09456124457217831
+      },
+      "unseen_live_frames": 32011
+    },
+    "metrica": {
+      "agreement_by_run": {
+        "1-3s": {
+          "agreement": null,
+          "frames": 0
+        },
+        "3-10s": {
+          "agreement": null,
+          "frames": 0
+        },
+        "over_10s": {
+          "agreement": null,
+          "frames": 0
+        },
+        "up_to_1s": {
+          "agreement": 0.5645645645645646,
+          "frames": 666
+        }
+      },
+      "run_length_s": {
+        "median": 0.36,
+        "p90": 0.88
+      },
+      "share_by_run": {
+        "1-3s": 0.0,
+        "3-10s": 0.0,
+        "over_10s": 0.0,
+        "up_to_1s": 1.0
+      },
+      "unseen_live_frames": 694
+    },
+    "pff": {
+      "agreement_by_run": {
+        "1-3s": {
+          "agreement": 0.897083031540133,
+          "frames": 45561
+        },
+        "3-10s": {
+          "agreement": 0.8375388542860858,
+          "frames": 84611
+        },
+        "over_10s": {
+          "agreement": 0.7757176332747511,
+          "frames": 34140
+        },
+        "up_to_1s": {
+          "agreement": 0.9022526146419951,
+          "frames": 32318
+        }
+      },
+      "players": {
+        "agreement_unseen": {
+          "few": {
+            "agreement": 0.8476053329006437,
+            "frames": 147912
+          },
+          "many": {
+            "agreement": 0.8622685660330884,
+            "frames": 48718
+          }
+        },
+        "under_20%_seen_spell_recall": {
+          "few": {
+            "count": 357,
+            "recall_iou0.5": 0.17366946778711484
+          },
+          "many": {
+            "count": 57,
+            "recall_iou0.5": 0.17543859649122806
+          }
+        },
+        "unseen_live_share_many": 0.21563425421935306
+      },
+      "run_length_s": {
+        "median": 5.4,
+        "p90": 34.88
+      },
+      "share_by_run": {
+        "1-3s": 0.1834438447308521,
+        "3-10s": 0.35653057651169695,
+        "over_10s": 0.3312487153525834,
+        "up_to_1s": 0.12877686340486758
+      },
+      "unseen_live_frames": 262718
+    },
+    "skillcorner": {
+      "agreement_by_run": {
+        "1-3s": {
+          "agreement": 0.8535950330462647,
+          "frames": 4993
+        },
+        "3-10s": {
+          "agreement": 0.8976294730484674,
+          "frames": 6623
+        },
+        "over_10s": {
+          "agreement": 0.7740765171503958,
+          "frames": 6064
+        },
+        "up_to_1s": {
+          "agreement": 0.625,
+          "frames": 40
+        }
+      },
+      "players": {
+        "agreement_unseen": {
+          "few": {
+            "agreement": 0.8652859707617337,
+            "frames": 15596
+          },
+          "many": {
+            "agreement": 0.673728813559322,
+            "frames": 2124
+          }
+        },
+        "under_20%_seen_spell_recall": {
+          "few": {
+            "count": 77,
+            "recall_iou0.5": 0.0
+          },
+          "many": {
+            "count": 4,
+            "recall_iou0.5": 0.0
+          }
+        },
+        "unseen_live_share_many": 0.10978448275862068
+      },
+      "run_length_s": {
+        "median": 7.16,
+        "p90": 29.08
+      },
+      "share_by_run": {
+        "1-3s": 0.23435344827586208,
+        "3-10s": 0.3461637931034483,
+        "over_10s": 0.4177586206896552,
+        "up_to_1s": 0.0017241379310344827
+      },
+      "unseen_live_frames": 23200
+    }
+  },
+  "inputs": {
+    "dfl_raw": true,
+    "metrica": {
+      "parsed": {
+        "1_1.npz": [
+          11437640,
+          "621c542c3489667f863b17ba8a5b68b2755dd97ef6d02fde55bf168fda4f38d4"
+        ],
+        "1_2.npz": [
+          11978450,
+          "7cfff7fcd4bc75ec72796eefaa2949b35c6de9124f12c52dfc6c261db656a2a3"
+        ],
+        "2_1.npz": [
+          11074975,
+          "2f5a409465c55cd2c66751711cfa0f7531dba4e220eb51e2c6ee9caeaadcabad"
+        ],
+        "2_2.npz": [
+          11619936,
+          "2a8171b42095c989bf3a99fd48347a9509ef84dee22b9e7bb616129581d7fbb0"
+        ],
+        "3_1.npz": [
+          11356108,
+          "a056be381b9cd41e982531ecdf0d128a1400aa3e29caef2355e1564b2d1f03d7"
+        ],
+        "3_2.npz": [
+          12468688,
+          "221f2378e0e9ff59db32a523c79b306651befa4d40bd90a9e93e04cdb9303e02"
+        ]
+      },
+      "reader_sha256": "2b3f6a9408299d5ed71c97d6cb96ea7756d8c4f08b2af51c83c7522c7f7bf445",
+      "sources_sha256": "1ee56af38873dc7572bdb8c04d00086a42e012389679e270030f8e67d0d9ee98"
+    },
+    "pff": {
+      "parsed": {
+        "10502_1.npz": [
+          5333700,
+          "c925154b9f268aa58127ed49438ccb3ea2ac605bc79cbf603f6990fa9eb11ebc"
+        ],
+        "10502_2.npz": [
+          3275695,
+          "06ce0ec7bcc0a7e63b915e636b06c3d1d66e1b2e40e59859c57910a94bc5e319"
+        ],
+        "10510_1.npz": [
+          4523492,
+          "383e971b491fc53e77bbc9a445f39edebbb4178281da6d5be56e5ba431bc0a14"
+        ],
+        "10510_2.npz": [
+          4877378,
+          "b9670943b05c907542a8a5bb2978e2112e7e8475973ad11d05b872aea6d72d1a"
+        ],
+        "3812_1.npz": [
+          6194446,
+          "471345cd2c24e852294688e434ac297ea0eec669775a2e2fb287749cc55c4219"
+        ],
+        "3812_2.npz": [
+          5817807,
+          "9c0343cfc7e8e91963337f6716563ed71e21751d37a4fb020f35191ec106b03d"
+        ],
+        "3820_1.npz": [
+          5548518,
+          "043ab11c2d030ad0c3e8f2e789b3093d8179eab67f3e811ab907d32f1a78dc6b"
+        ],
+        "3820_2.npz": [
+          4859358,
+          "e779262e469f9668213492e6e1c3964147d5b97b091abc79e990507a9844a422"
+        ],
+        "3828_1.npz": [
+          5287402,
+          "20e06c1a387907120a90d6261198230e35fe63e57f02e4d7c52334402eb79f6e"
+        ],
+        "3828_2.npz": [
+          5371448,
+          "65bc0454a1615fbec30e2d71b1bb4f3665e1d63aa390e0176108fa1379a17712"
+        ],
+        "3836_1.npz": [
+          6563704,
+          "0b8fdadd17daa79145fa57542b74ef80a41f94b8eeaa0578f659ce43e8f80d4d"
+        ],
+        "3836_2.npz": [
+          5586559,
+          "e1bee84e8b2d75c080f84647a8cad4472ee36caa7cb8ba8eff516f99ea78e777"
+        ],
+        "3844_1.npz": [
+          3761461,
+          "280d2707e464fe3235faba6c978a2942dfb7b900f09495d3c5db8adcd0163566"
+        ],
+        "3844_2.npz": [
+          4264266,
+          "e51887175eb002c10de84244564dfe4a0dee8f4a4fb5f1c96157191ed041983a"
+        ],
+        "3852_1.npz": [
+          6656201,
+          "19444be35b666b0c98909ff515dbb3365934ca56a476c300d71fefd0a8a7f1e1"
+        ],
+        "3852_2.npz": [
+          4005102,
+          "2a5baebf60550da7f24d72490113af84e633868a3c7b4e3eb17aad29e4125619"
+        ]
+      },
+      "sources_sha256": "9c28e02db8a01c7b14593b14236185d36255286b991358c4ce0567bf30f9d8fe"
+    },
+    "skill_manifest_sha256": "21f02036ba5b9cf9e16c44bf9eefefc0c717ecf5f6bb95938981f4a7f720f3e5"
+  },
+  "models": {
+    "networks": {
+      "augmented": {
+        "seed_models": "336d562a48379b838c7278b9b335978987a3e9a1ee78ee481267fb1d1e118d9c",
+        "temporal_models": "c0447a54ded2a38c1bb64b7ce14f991dfe465068864573fcd65f5353bb10eaca"
+      },
+      "current": {
+        "seed_models": "10e359651a6241b545b9b197eb3662038f263e3553aadd500687033db4d3c461",
+        "temporal_models": "0ae6d4339da6996aa7a266b2b50993f0d92ff78457cecf3cadc1e3ba6f823b2f"
+      }
+    },
+    "player_set_sha256": "4e298e542e4d2a47636f9e6dda50be14e62f8d9c7e96ebe64f1973a1f24ed2cc",
+    "protocol": "DECISIONS.md D42",
+    "trees": {
+      "augmented": "af0a9153b994cec629c7afb30cd26fe084ef5a0e966ada6814895b5adde7cdc3",
+      "current": "b313e25ee0ecf28490cb8f6d191b40ab2fb3d28c44019f05963a5effb2a7a19c"
+    }
+  },
+  "player_groups": [
+    "skillcorner",
+    "pff"
+  ],
+  "players_threshold": 16,
+  "protocol": "DECISIONS.md D46a",
+  "recipe": {
+    "cutoff": 0.53,
+    "dead_cost": 2,
+    "dead_mix": 0.5,
+    "discount": 0.8,
+    "method": "joint",
+    "owner_cost": 10,
+    "owner_mix": 0.5,
+    "variant": "seed_phase"
+  },
+  "reproduction": {
+    "d24_visibility_counts": true,
+    "rebuilt_frames": {
+      "d24_handled/1/handled/0": 71268,
+      "d24_handled/1/handled/1": 73738,
+      "d24_handled/2/handled/0": 67941,
+      "d24_handled/2/handled/1": 73215,
+      "d24_handled/3/handled/0": 69661,
+      "d24_handled/3/handled/1": 74100,
+      "d24_masked/1/masked/0": 71268,
+      "d24_masked/1/masked/1": 73738,
+      "d24_masked/2/masked/0": 67941,
+      "d24_masked/2/masked/1": 73215,
+      "d24_masked/3/masked/0": 69661,
+      "d24_masked/3/masked/1": 74100,
+      "d24_team_swap/1/team_swap/0": 71268,
+      "d24_team_swap/1/team_swap/1": 73738,
+      "d24_team_swap/2/team_swap/0": 67941,
+      "d24_team_swap/2/team_swap/1": 73215,
+      "d24_team_swap/3/team_swap/0": 69661,
+      "d24_team_swap/3/team_swap/1": 74100,
+      "dfl/WPY/clean/0": 69131,
+      "dfl/WPY/clean/1": 77080,
+      "dfl/WPY/dead_carried/0": 69131,
+      "dfl/WPY/dead_carried/1": 77080,
+      "dfl/WPY/masked/0": 69131,
+      "dfl/WPY/masked/1": 77080,
+      "dfl/WPY/team_swap/0": 69131,
+      "dfl/WPY/team_swap/1": 77080,
+      "metrica/1/observed/0": 71268,
+      "metrica/1/observed/1": 73738,
+      "metrica/2/observed/0": 67941,
+      "metrica/2/observed/1": 73215,
+      "metrica/3/observed/0": 69661,
+      "metrica/3/observed/1": 74100,
+      "pff/10502/observed/0": 70028,
+      "pff/10502/observed/1": 76759,
+      "pff/10510/observed/0": 69125,
+      "pff/10510/observed/1": 73280,
+      "pff/3812/observed/0": 71568,
+      "pff/3812/observed/1": 82633,
+      "pff/3820/observed/0": 70448,
+      "pff/3820/observed/1": 76449,
+      "pff/3828/observed/0": 74122,
+      "pff/3828/observed/1": 85681,
+      "pff/3836/observed/0": 68950,
+      "pff/3836/observed/1": 76984,
+      "pff/3844/observed/0": 76495,
+      "pff/3844/observed/1": 77915,
+      "pff/3852/observed/0": 73439,
+      "pff/3852/observed/1": 73469,
+      "skillcorner/2007448/observed/0": 71298,
+      "skillcorner/2007448/observed/1": 73848,
+      "skillcorner/2007721/observed/0": 69248,
+      "skillcorner/2007721/observed/1": 74598,
+      "skillcorner/2010085/observed/0": 73573,
+      "skillcorner/2010085/observed/1": 73848,
+      "skillcorner/2011166/observed/0": 72473,
+      "skillcorner/2011166/observed/1": 75748
+    },
+    "row": {
+      "changes": true,
+      "d24": true,
+      "eligible": true,
+      "metrica": true,
+      "point": true,
+      "trial_external": true,
+      "trial_pff": true,
+      "whole_row": true
+    }
+  },
+  "run_bins_frames": {
+    "1-3s": [
+      26,
+      75
+    ],
+    "3-10s": [
+      76,
+      250
+    ],
+    "over_10s": [
+      251,
+      null
+    ],
+    "up_to_1s": [
+      1,
+      25
+    ]
+  },
+  "target": "aba3"
+}

@@ -1,0 +1,11 @@
+{
+  "differing": [],
+  "halves": 62,
+  "passed": true,
+  "protocol": "DECISIONS.md D45",
+  "sequences_manifest": "fcb55b89aaa634d8d7106e988b96a74241ac986751058683add6e9b618f0b5db",
+  "set": "current",
+  "stored_halves": 48,
+  "tokens_manifest": "35516d52a33a1db3ed71ce0a254f64cd7b467bda49bf03319708022e1723304b",
+  "training_halves_compared": 48
+}

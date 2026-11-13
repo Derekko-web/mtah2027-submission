@@ -32,8 +32,10 @@ class Half:
         return f"{self.source}_{self.match}_{self.view}_{self.index}"
 
 
-DFL_SPLITS = {"train": TRAIN, "development": (DEVELOPMENT,), "holdout": HOLDOUT, "all": (*TRAIN, DEVELOPMENT, *HOLDOUT)}
-TRAINING_VIEWS = ("train", "all")  # splits whose DFL halves add the stress view (D23's `all` split trains on every match)
+DFL_SPLITS = {"train": TRAIN, "development": (DEVELOPMENT,), "holdout": HOLDOUT, "all": (*TRAIN, DEVELOPMENT, *HOLDOUT),
+              "train_dev": (*TRAIN, DEVELOPMENT)}
+# Splits whose DFL halves add the stress view: D23's `all` and D45's `train_dev` train on more matches.
+TRAINING_VIEWS = ("train", "all", "train_dev")
 
 
 def halves(dfl, skill, split, *, raw=False):
@@ -68,7 +70,8 @@ def skillcorner_halves(skill, split):
 
 
 SKILL_SPLITS = {"train": skillcorner.TRAIN, "development": skillcorner.DEVELOPMENT, "holdout": skillcorner.HOLDOUT,
-                "all": (*skillcorner.TRAIN, *skillcorner.DEVELOPMENT, *skillcorner.HOLDOUT)}
+                "all": (*skillcorner.TRAIN, *skillcorner.DEVELOPMENT, *skillcorner.HOLDOUT),
+                "train_dev": (*skillcorner.TRAIN, *skillcorner.DEVELOPMENT)}
 
 
 def skillcorner_paths(skill, split):

@@ -1,0 +1,25 @@
+{
+  "actual": {
+    "temporal_2700.pt": "444c5f22b8c4a11b64640edeff0ff6aac3afb21b8ba2c0768d3cb15bea9d9bb2",
+    "temporal_5400.pt": "7194889081319e6e886026df9d8ae481282a315dc4eaf7801b39fa16fc19b599",
+    "temporal_8100.pt": "fd55d84cda470ece9c6dae86260bbc15952f134d158b1082ce4d7e5c21fb925d"
+  },
+  "check": "8,100 steps, offset 0: D52's T original-set seed-42 network",
+  "checked_at": "2026-11-13 04:12 EST",
+  "config": {
+    "aux": false,
+    "direction": true,
+    "mirror": "y",
+    "noise": false,
+    "seed_offset": 0
+  },
+  "expected": {
+    "temporal_2700.pt": "444c5f22b8c4a11b64640edeff0ff6aac3afb21b8ba2c0768d3cb15bea9d9bb2",
+    "temporal_5400.pt": "7194889081319e6e886026df9d8ae481282a315dc4eaf7801b39fa16fc19b599",
+    "temporal_8100.pt": "fd55d84cda470ece9c6dae86260bbc15952f134d158b1082ce4d7e5c21fb925d"
+  },
+  "passed": true,
+  "protocol": "DECISIONS.md D48",
+  "reference": "data/d52/networks/T/raw/current/temporal_models",
+  "steps": 8100
+}

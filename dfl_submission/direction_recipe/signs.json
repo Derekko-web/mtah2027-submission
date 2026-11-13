@@ -1,0 +1,227 @@
+{
+  "check": "whole-half sign equals first-frame sign (training and development halves)",
+  "checked_at": "2026-11-12 21:57 EST",
+  "files": {
+    "augmented": "7c0dfd93d8b1af7f689f1761fb6bc9e47eb74be582db7a5ee3a184a009865815",
+    "current": "dc98a6367990d6d8d5b173e3bcae677ac1fcb81b838882c44db6779320f9c7d2",
+    "development": "edbcc02e7053fb3785a5469c0494148d07b6a7360ba73d0911a7df3b21ef0005"
+  },
+  "halves": 152,
+  "parts": {
+    "d24_handled": {
+      "first_frame_disagrees": [],
+      "halves": 6,
+      "min_qualifying_frames": 12484,
+      "negative_signs": 3,
+      "no_qualifying_frame": [],
+      "over_per_team_any_frame": {
+        "metrica/1/handled/1": [
+          12,
+          11
+        ],
+        "metrica/2/handled/1": [
+          12,
+          11
+        ]
+      },
+      "over_per_team_long_context": {
+        "metrica/1/handled/1": [
+          12,
+          11
+        ]
+      },
+      "passed": true,
+      "smallest_abs_d_half": "metrica/2/handled/1",
+      "smallest_abs_d_m": 12.831287237587917
+    },
+    "d24_masked": {
+      "first_frame_disagrees": [],
+      "halves": 6,
+      "min_qualifying_frames": 12484,
+      "negative_signs": 3,
+      "no_qualifying_frame": [],
+      "over_per_team_any_frame": {
+        "metrica/1/masked/1": [
+          12,
+          11
+        ],
+        "metrica/2/masked/1": [
+          12,
+          11
+        ]
+      },
+      "over_per_team_long_context": {
+        "metrica/1/masked/1": [
+          12,
+          11
+        ]
+      },
+      "passed": true,
+      "smallest_abs_d_half": "metrica/2/masked/1",
+      "smallest_abs_d_m": 12.831287237587917
+    },
+    "d24_team_swap": {
+      "first_frame_disagrees": [],
+      "halves": 6,
+      "min_qualifying_frames": 12411,
+      "negative_signs": 3,
+      "no_qualifying_frame": [],
+      "over_per_team_any_frame": {
+        "metrica/2/team_swap/1": [
+          12,
+          11
+        ]
+      },
+      "over_per_team_long_context": {},
+      "passed": true,
+      "smallest_abs_d_half": "metrica/2/team_swap/1",
+      "smallest_abs_d_m": 10.823476401069726
+    },
+    "dfl_clean": {
+      "first_frame_disagrees": [],
+      "halves": 2,
+      "min_qualifying_frames": 13827,
+      "negative_signs": 1,
+      "no_qualifying_frame": [],
+      "over_per_team_any_frame": {},
+      "over_per_team_long_context": {},
+      "passed": true,
+      "smallest_abs_d_half": "dfl/WPY/clean/1",
+      "smallest_abs_d_m": 11.406610902642068
+    },
+    "dfl_dead_carried": {
+      "first_frame_disagrees": [],
+      "halves": 2,
+      "min_qualifying_frames": 12550,
+      "negative_signs": 1,
+      "no_qualifying_frame": [],
+      "over_per_team_any_frame": {},
+      "over_per_team_long_context": {},
+      "passed": true,
+      "smallest_abs_d_half": "dfl/WPY/dead_carried/1",
+      "smallest_abs_d_m": 11.354493393554044
+    },
+    "dfl_masked": {
+      "first_frame_disagrees": [],
+      "halves": 2,
+      "min_qualifying_frames": 12550,
+      "negative_signs": 1,
+      "no_qualifying_frame": [],
+      "over_per_team_any_frame": {},
+      "over_per_team_long_context": {},
+      "passed": true,
+      "smallest_abs_d_half": "dfl/WPY/masked/1",
+      "smallest_abs_d_m": 11.354493393554044
+    },
+    "dfl_team_swap": {
+      "first_frame_disagrees": [],
+      "halves": 2,
+      "min_qualifying_frames": 12700,
+      "negative_signs": 1,
+      "no_qualifying_frame": [],
+      "over_per_team_any_frame": {},
+      "over_per_team_long_context": {},
+      "passed": true,
+      "smallest_abs_d_half": "dfl/WPY/team_swap/1",
+      "smallest_abs_d_m": 9.97246087052956
+    },
+    "metrica": {
+      "first_frame_disagrees": [],
+      "halves": 6,
+      "min_qualifying_frames": 13589,
+      "negative_signs": 3,
+      "no_qualifying_frame": [],
+      "over_per_team_any_frame": {
+        "metrica/1/observed/0": [
+          12,
+          11
+        ],
+        "metrica/1/observed/1": [
+          12,
+          12
+        ],
+        "metrica/2/observed/1": [
+          12,
+          12
+        ]
+      },
+      "over_per_team_long_context": {
+        "metrica/1/observed/0": [
+          12,
+          11
+        ],
+        "metrica/1/observed/1": [
+          12,
+          12
+        ]
+      },
+      "passed": true,
+      "smallest_abs_d_half": "metrica/1/observed/1",
+      "smallest_abs_d_m": 13.07464503262507
+    },
+    "pff": {
+      "first_frame_disagrees": [],
+      "halves": 16,
+      "min_qualifying_frames": 0,
+      "negative_signs": 7,
+      "no_qualifying_frame": [
+        "pff/3852/observed/1"
+      ],
+      "over_per_team_any_frame": {},
+      "over_per_team_long_context": {},
+      "passed": false,
+      "smallest_abs_d_half": "pff/10502/observed/1",
+      "smallest_abs_d_m": 2.1349607706069937
+    },
+    "skillcorner": {
+      "first_frame_disagrees": [],
+      "halves": 8,
+      "min_qualifying_frames": 3034,
+      "negative_signs": 4,
+      "no_qualifying_frame": [],
+      "over_per_team_any_frame": {},
+      "over_per_team_long_context": {},
+      "passed": true,
+      "smallest_abs_d_half": "skillcorner/2011166/observed/1",
+      "smallest_abs_d_m": 3.5671806918350657
+    },
+    "training_augmented": {
+      "first_frame_disagrees": [],
+      "halves": 48,
+      "min_qualifying_frames": 3079,
+      "negative_signs": 24,
+      "no_qualifying_frame": [],
+      "over_per_team_any_frame": {},
+      "over_per_team_long_context": {},
+      "passed": true,
+      "smallest_abs_d_half": "skillcorner_1874553_observed_1.npz",
+      "smallest_abs_d_m": 3.9291564952036913,
+      "smallest_abs_token_d": 0.07484110553378587,
+      "token_first_frame_disagrees": [],
+      "token_sign_differs": [],
+      "tokens_unequal": []
+    },
+    "training_current": {
+      "first_frame_disagrees": [],
+      "halves": 48,
+      "min_qualifying_frames": 3079,
+      "negative_signs": 24,
+      "no_qualifying_frame": [],
+      "over_per_team_any_frame": {},
+      "over_per_team_long_context": {},
+      "passed": true,
+      "smallest_abs_d_half": "skillcorner_1874553_observed_1.npz",
+      "smallest_abs_d_m": 3.9291564952036913,
+      "smallest_abs_token_d": 0.07484110553378587,
+      "token_first_frame_disagrees": [],
+      "token_sign_differs": [],
+      "tokens_unequal": []
+    }
+  },
+  "passed": false,
+  "protocol": "DECISIONS.md D50",
+  "smallest_abs_d_m": {
+    "part": "pff",
+    "value": 2.1349607706069937
+  }
+}

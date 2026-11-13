@@ -1,0 +1,465 @@
+{
+  "aux_manifest": "7b91769733550a1d97cfba747d198d8ab36a35534438b92616ec3b65d237573d",
+  "checks": {
+    "dfl_WMX_long_hidden_0.npz": {
+      "ball": true,
+      "hidden_ball_is_source_ball": true,
+      "positions": true,
+      "stored_hashes": true,
+      "targets": true,
+      "tokens": true,
+      "values": true
+    },
+    "dfl_WMX_long_hidden_1.npz": {
+      "ball": true,
+      "hidden_ball_is_source_ball": true,
+      "positions": true,
+      "stored_hashes": true,
+      "targets": true,
+      "tokens": true,
+      "values": true
+    },
+    "dfl_WN1_long_hidden_0.npz": {
+      "ball": true,
+      "hidden_ball_is_source_ball": true,
+      "positions": true,
+      "stored_hashes": true,
+      "targets": true,
+      "tokens": true,
+      "values": true
+    },
+    "dfl_WN1_long_hidden_1.npz": {
+      "ball": true,
+      "hidden_ball_is_source_ball": true,
+      "positions": true,
+      "stored_hashes": true,
+      "targets": true,
+      "tokens": true,
+      "values": true
+    },
+    "dfl_WOH_long_hidden_0.npz": {
+      "ball": true,
+      "hidden_ball_is_source_ball": true,
+      "positions": true,
+      "stored_hashes": true,
+      "targets": true,
+      "tokens": true,
+      "values": true
+    },
+    "dfl_WOH_long_hidden_1.npz": {
+      "ball": true,
+      "hidden_ball_is_source_ball": true,
+      "positions": true,
+      "stored_hashes": true,
+      "targets": true,
+      "tokens": true,
+      "values": true
+    },
+    "dfl_WOY_long_hidden_0.npz": {
+      "ball": true,
+      "hidden_ball_is_source_ball": true,
+      "positions": true,
+      "stored_hashes": true,
+      "targets": true,
+      "tokens": true,
+      "values": true
+    },
+    "dfl_WOY_long_hidden_1.npz": {
+      "ball": true,
+      "hidden_ball_is_source_ball": true,
+      "positions": true,
+      "stored_hashes": true,
+      "targets": true,
+      "tokens": true,
+      "values": true
+    },
+    "skillcorner_1874553_long_hidden_0.npz": {
+      "ball": true,
+      "hidden_ball_is_source_ball": true,
+      "positions": true,
+      "stored_hashes": true,
+      "targets": true,
+      "tokens": true,
+      "values": true
+    },
+    "skillcorner_1874553_long_hidden_1.npz": {
+      "ball": true,
+      "hidden_ball_is_source_ball": true,
+      "positions": true,
+      "stored_hashes": true,
+      "targets": true,
+      "tokens": true,
+      "values": true
+    },
+    "skillcorner_1886347_long_hidden_0.npz": {
+      "ball": true,
+      "hidden_ball_is_source_ball": true,
+      "positions": true,
+      "stored_hashes": true,
+      "targets": true,
+      "tokens": true,
+      "values": true
+    },
+    "skillcorner_1886347_long_hidden_1.npz": {
+      "ball": true,
+      "hidden_ball_is_source_ball": true,
+      "positions": true,
+      "stored_hashes": true,
+      "targets": true,
+      "tokens": true,
+      "values": true
+    },
+    "skillcorner_1899585_long_hidden_0.npz": {
+      "ball": true,
+      "hidden_ball_is_source_ball": true,
+      "positions": true,
+      "stored_hashes": true,
+      "targets": true,
+      "tokens": true,
+      "values": true
+    },
+    "skillcorner_1899585_long_hidden_1.npz": {
+      "ball": true,
+      "hidden_ball_is_source_ball": true,
+      "positions": true,
+      "stored_hashes": true,
+      "targets": true,
+      "tokens": true,
+      "values": true
+    },
+    "skillcorner_1925299_long_hidden_0.npz": {
+      "ball": true,
+      "hidden_ball_is_source_ball": true,
+      "positions": true,
+      "stored_hashes": true,
+      "targets": true,
+      "tokens": true,
+      "values": true
+    },
+    "skillcorner_1925299_long_hidden_1.npz": {
+      "ball": true,
+      "hidden_ball_is_source_ball": true,
+      "positions": true,
+      "stored_hashes": true,
+      "targets": true,
+      "tokens": true,
+      "values": true
+    },
+    "skillcorner_1927964_long_hidden_0.npz": {
+      "ball": true,
+      "hidden_ball_is_source_ball": true,
+      "positions": true,
+      "stored_hashes": true,
+      "targets": true,
+      "tokens": true,
+      "values": true
+    },
+    "skillcorner_1927964_long_hidden_1.npz": {
+      "ball": true,
+      "hidden_ball_is_source_ball": true,
+      "positions": true,
+      "stored_hashes": true,
+      "targets": true,
+      "tokens": true,
+      "values": true
+    },
+    "skillcorner_1953632_long_hidden_0.npz": {
+      "ball": true,
+      "hidden_ball_is_source_ball": true,
+      "positions": true,
+      "stored_hashes": true,
+      "targets": true,
+      "tokens": true,
+      "values": true
+    },
+    "skillcorner_1953632_long_hidden_1.npz": {
+      "ball": true,
+      "hidden_ball_is_source_ball": true,
+      "positions": true,
+      "stored_hashes": true,
+      "targets": true,
+      "tokens": true,
+      "values": true
+    },
+    "skillcorner_1959846_long_hidden_0.npz": {
+      "ball": true,
+      "hidden_ball_is_source_ball": true,
+      "positions": true,
+      "stored_hashes": true,
+      "targets": true,
+      "tokens": true,
+      "values": true
+    },
+    "skillcorner_1959846_long_hidden_1.npz": {
+      "ball": true,
+      "hidden_ball_is_source_ball": true,
+      "positions": true,
+      "stored_hashes": true,
+      "targets": true,
+      "tokens": true,
+      "values": true
+    },
+    "skillcorner_1986691_long_hidden_0.npz": {
+      "ball": true,
+      "hidden_ball_is_source_ball": true,
+      "positions": true,
+      "stored_hashes": true,
+      "targets": true,
+      "tokens": true,
+      "values": true
+    },
+    "skillcorner_1986691_long_hidden_1.npz": {
+      "ball": true,
+      "hidden_ball_is_source_ball": true,
+      "positions": true,
+      "stored_hashes": true,
+      "targets": true,
+      "tokens": true,
+      "values": true
+    },
+    "skillcorner_1996435_long_hidden_0.npz": {
+      "ball": true,
+      "hidden_ball_is_source_ball": true,
+      "positions": true,
+      "stored_hashes": true,
+      "targets": true,
+      "tokens": true,
+      "values": true
+    },
+    "skillcorner_1996435_long_hidden_1.npz": {
+      "ball": true,
+      "hidden_ball_is_source_ball": true,
+      "positions": true,
+      "stored_hashes": true,
+      "targets": true,
+      "tokens": true,
+      "values": true
+    },
+    "skillcorner_1996436_long_hidden_0.npz": {
+      "ball": true,
+      "hidden_ball_is_source_ball": true,
+      "positions": true,
+      "stored_hashes": true,
+      "targets": true,
+      "tokens": true,
+      "values": true
+    },
+    "skillcorner_1996436_long_hidden_1.npz": {
+      "ball": true,
+      "hidden_ball_is_source_ball": true,
+      "positions": true,
+      "stored_hashes": true,
+      "targets": true,
+      "tokens": true,
+      "values": true
+    },
+    "skillcorner_2006229_long_hidden_0.npz": {
+      "ball": true,
+      "hidden_ball_is_source_ball": true,
+      "positions": true,
+      "stored_hashes": true,
+      "targets": true,
+      "tokens": true,
+      "values": true
+    },
+    "skillcorner_2006229_long_hidden_1.npz": {
+      "ball": true,
+      "hidden_ball_is_source_ball": true,
+      "positions": true,
+      "stored_hashes": true,
+      "targets": true,
+      "tokens": true,
+      "values": true
+    },
+    "skillcorner_2006363_long_hidden_0.npz": {
+      "ball": true,
+      "hidden_ball_is_source_ball": true,
+      "positions": true,
+      "stored_hashes": true,
+      "targets": true,
+      "tokens": true,
+      "values": true
+    },
+    "skillcorner_2006363_long_hidden_1.npz": {
+      "ball": true,
+      "hidden_ball_is_source_ball": true,
+      "positions": true,
+      "stored_hashes": true,
+      "targets": true,
+      "tokens": true,
+      "values": true
+    }
+  },
+  "differing": [],
+  "hidden_ball_sha256": "f888af7b26e9fb638c57642f61f45cc58ea81b39e7f936625b99e6d465f02588",
+  "passed": true,
+  "protocol": "DECISIONS.md D51",
+  "sequences_manifest": "60e4b8d0bacde81b4764442b37244a7758a0d5e9cdc6c6563faeccc45c359c1d",
+  "set": "augmented",
+  "stored_views": 32,
+  "target_frame_share": 0.21595471052648374,
+  "targets": {
+    "dfl_WMX_long_hidden_0.npz": {
+      "frames": 14142,
+      "mean_distance_from_reference_m": 21.088118413814144,
+      "target_frames": 4261
+    },
+    "dfl_WMX_long_hidden_1.npz": {
+      "frames": 15052,
+      "mean_distance_from_reference_m": 21.989379217894392,
+      "target_frames": 2975
+    },
+    "dfl_WN1_long_hidden_0.npz": {
+      "frames": 13858,
+      "mean_distance_from_reference_m": 20.64831303004609,
+      "target_frames": 4013
+    },
+    "dfl_WN1_long_hidden_1.npz": {
+      "frames": 14455,
+      "mean_distance_from_reference_m": 19.3989604042708,
+      "target_frames": 3932
+    },
+    "dfl_WOH_long_hidden_0.npz": {
+      "frames": 13885,
+      "mean_distance_from_reference_m": 24.796381298786066,
+      "target_frames": 5414
+    },
+    "dfl_WOH_long_hidden_1.npz": {
+      "frames": 13558,
+      "mean_distance_from_reference_m": 21.212693091010543,
+      "target_frames": 5372
+    },
+    "dfl_WOY_long_hidden_0.npz": {
+      "frames": 13823,
+      "mean_distance_from_reference_m": 20.244690486908087,
+      "target_frames": 2257
+    },
+    "dfl_WOY_long_hidden_1.npz": {
+      "frames": 14685,
+      "mean_distance_from_reference_m": 21.393541652908763,
+      "target_frames": 1461
+    },
+    "skillcorner_1874553_long_hidden_0.npz": {
+      "frames": 14490,
+      "mean_distance_from_reference_m": 14.698147281224117,
+      "target_frames": 3434
+    },
+    "skillcorner_1874553_long_hidden_1.npz": {
+      "frames": 15650,
+      "mean_distance_from_reference_m": 15.28310490522018,
+      "target_frames": 1921
+    },
+    "skillcorner_1886347_long_hidden_0.npz": {
+      "frames": 13890,
+      "mean_distance_from_reference_m": 14.485146993097036,
+      "target_frames": 2749
+    },
+    "skillcorner_1886347_long_hidden_1.npz": {
+      "frames": 15630,
+      "mean_distance_from_reference_m": 14.557306944445134,
+      "target_frames": 3733
+    },
+    "skillcorner_1899585_long_hidden_0.npz": {
+      "frames": 14875,
+      "mean_distance_from_reference_m": 14.334102695037496,
+      "target_frames": 3872
+    },
+    "skillcorner_1899585_long_hidden_1.npz": {
+      "frames": 15380,
+      "mean_distance_from_reference_m": 13.330764464869816,
+      "target_frames": 2899
+    },
+    "skillcorner_1925299_long_hidden_0.npz": {
+      "frames": 15115,
+      "mean_distance_from_reference_m": 13.366691188638377,
+      "target_frames": 3290
+    },
+    "skillcorner_1925299_long_hidden_1.npz": {
+      "frames": 15525,
+      "mean_distance_from_reference_m": 14.470443286467066,
+      "target_frames": 4303
+    },
+    "skillcorner_1927964_long_hidden_0.npz": {
+      "frames": 14185,
+      "mean_distance_from_reference_m": 15.602788733872032,
+      "target_frames": 1371
+    },
+    "skillcorner_1927964_long_hidden_1.npz": {
+      "frames": 15340,
+      "mean_distance_from_reference_m": 13.969511682781473,
+      "target_frames": 2005
+    },
+    "skillcorner_1953632_long_hidden_0.npz": {
+      "frames": 14480,
+      "mean_distance_from_reference_m": 16.826040939212707,
+      "target_frames": 5102
+    },
+    "skillcorner_1953632_long_hidden_1.npz": {
+      "frames": 15135,
+      "mean_distance_from_reference_m": 15.572826616321642,
+      "target_frames": 3309
+    },
+    "skillcorner_1959846_long_hidden_0.npz": {
+      "frames": 13980,
+      "mean_distance_from_reference_m": 14.911526707078373,
+      "target_frames": 3405
+    },
+    "skillcorner_1959846_long_hidden_1.npz": {
+      "frames": 15285,
+      "mean_distance_from_reference_m": 13.633411732643184,
+      "target_frames": 4557
+    },
+    "skillcorner_1986691_long_hidden_0.npz": {
+      "frames": 13885,
+      "mean_distance_from_reference_m": 14.745595655582871,
+      "target_frames": 3464
+    },
+    "skillcorner_1986691_long_hidden_1.npz": {
+      "frames": 15650,
+      "mean_distance_from_reference_m": 14.333460831228294,
+      "target_frames": 3426
+    },
+    "skillcorner_1996435_long_hidden_0.npz": {
+      "frames": 14005,
+      "mean_distance_from_reference_m": 14.20597214940724,
+      "target_frames": 3280
+    },
+    "skillcorner_1996435_long_hidden_1.npz": {
+      "frames": 14795,
+      "mean_distance_from_reference_m": 15.063022594089094,
+      "target_frames": 2354
+    },
+    "skillcorner_1996436_long_hidden_0.npz": {
+      "frames": 15065,
+      "mean_distance_from_reference_m": 13.498426575793863,
+      "target_frames": 772
+    },
+    "skillcorner_1996436_long_hidden_1.npz": {
+      "frames": 15065,
+      "mean_distance_from_reference_m": 15.42394371232867,
+      "target_frames": 2400
+    },
+    "skillcorner_2006229_long_hidden_0.npz": {
+      "frames": 14235,
+      "mean_distance_from_reference_m": 16.66911907859595,
+      "target_frames": 2678
+    },
+    "skillcorner_2006229_long_hidden_1.npz": {
+      "frames": 15390,
+      "mean_distance_from_reference_m": 15.357257608408036,
+      "target_frames": 1496
+    },
+    "skillcorner_2006363_long_hidden_0.npz": {
+      "frames": 14470,
+      "mean_distance_from_reference_m": 13.516815238178927,
+      "target_frames": 2706
+    },
+    "skillcorner_2006363_long_hidden_1.npz": {
+      "frames": 15065,
+      "mean_distance_from_reference_m": 13.4543522500488,
+      "target_frames": 3297
+    }
+  },
+  "views": 32,
+  "written_at": "2026-11-12 23:11 EST"
+}

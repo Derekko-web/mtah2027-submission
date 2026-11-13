@@ -1,0 +1,20 @@
+{
+  "boundary_boost": 0.5,
+  "checked_at": "2026-11-12 23:26 EST",
+  "d42_snapshots": {
+    "temporal_100.pt": "4ce24c87ab732f05e44a8823420abf9c208741d217f6a24de85d6a94f9082fa1",
+    "temporal_200.pt": "22cc8c0e1f8f22169634a075d80f2f08532831aff066c7f17ec5b9bb06608772",
+    "temporal_300.pt": "ca81da3acabc77c5f9a3b359e809ed34c90c03a6ec6dc2867db792e2b1274162"
+  },
+  "device": "mps",
+  "lb_weight0_snapshots": {
+    "temporal_100.pt": "4ce24c87ab732f05e44a8823420abf9c208741d217f6a24de85d6a94f9082fa1",
+    "temporal_200.pt": "22cc8c0e1f8f22169634a075d80f2f08532831aff066c7f17ec5b9bb06608772",
+    "temporal_300.pt": "ca81da3acabc77c5f9a3b359e809ed34c90c03a6ec6dc2867db792e2b1274162"
+  },
+  "passed": true,
+  "protocol": "DECISIONS.md D51",
+  "seed": 42,
+  "sequences_manifest": "d3b3363fa3f08cb6126e1a9083c480664136edb8467df76225ccfc9124339728",
+  "steps": 300
+}

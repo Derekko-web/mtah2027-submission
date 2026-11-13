@@ -1,0 +1,81 @@
+{
+  "choices": {
+    "skill_ball": "handled",
+    "swaps": true
+  },
+  "differing": {},
+  "hidden_views_sha256": "196b9632e57487e125e988f85e712b6145e75fe3d41b835fdaf7161e29416706",
+  "new_records": 32,
+  "passed": true,
+  "prepared_at": "2026-11-12 21:59 EST",
+  "protocol": "DECISIONS.md D49",
+  "reproduced": 48,
+  "seeds": {
+    "augmented_dfl": 710000,
+    "augmented_skill": 750000,
+    "current_dfl": 700000,
+    "current_skill": 740000,
+    "guard_dfl": 770000,
+    "guard_metrica": 780000
+  },
+  "sequences_manifest": "60e4b8d0bacde81b4764442b37244a7758a0d5e9cdc6c6563faeccc45c359c1d",
+  "set": "augmented",
+  "stored_manifest": "2828b0c31e527426e762251a207c505a75cd740a9c213f8a44ef4c25d57539ed",
+  "stored_records": 48,
+  "stored_token_manifest": "5b5857887549cad52fd9ac4568668d88fa55134bfa63da02d567994d7f03b229",
+  "tokens_manifest": "d2e908f32a1536502aff8b49d100045413651fc972efb772af42517c53fb3d40",
+  "views": {
+    "dfl": {
+      "frames": 567278,
+      "halves": 8,
+      "hidden_frames": 206534,
+      "hidden_runs": 651,
+      "hidden_share_in_runs_over_10s": 0.878596260179922,
+      "mean_hidden_run_s": 12.69026113671275,
+      "visibility": 0.6359210122726424
+    },
+    "skillcorner": {
+      "frames": 1782877,
+      "halves": 24,
+      "hidden_frames": 869261,
+      "hidden_runs": 3082,
+      "hidden_share_in_runs_over_10s": 0.8464051648469217,
+      "mean_hidden_run_s": 11.281778066190784,
+      "visibility": 0.5124391643394357
+    }
+  },
+  "visibility_drawn": {
+    "dfl_WMX_long_hidden_0.npz": 0.6575061747629699,
+    "dfl_WMX_long_hidden_1.npz": 0.8134897665903372,
+    "dfl_WN1_long_hidden_0.npz": 0.7234187237184475,
+    "dfl_WN1_long_hidden_1.npz": 0.6674403807950229,
+    "dfl_WOH_long_hidden_0.npz": 0.6590900297864508,
+    "dfl_WOH_long_hidden_1.npz": 0.5606438949166891,
+    "dfl_WOY_long_hidden_0.npz": 0.7888074258032799,
+    "dfl_WOY_long_hidden_1.npz": 0.8776720076272281,
+    "skillcorner_1874553_long_hidden_0.npz": 0.6786127537392811,
+    "skillcorner_1874553_long_hidden_1.npz": 0.7996421048173263,
+    "skillcorner_1886347_long_hidden_0.npz": 0.7737247781648363,
+    "skillcorner_1886347_long_hidden_1.npz": 0.5601599338176779,
+    "skillcorner_1899585_long_hidden_0.npz": 0.5269059569128843,
+    "skillcorner_1899585_long_hidden_1.npz": 0.6201148980162711,
+    "skillcorner_1925299_long_hidden_0.npz": 0.7015443960107474,
+    "skillcorner_1925299_long_hidden_1.npz": 0.6087113926372925,
+    "skillcorner_1927964_long_hidden_0.npz": 0.844641641202534,
+    "skillcorner_1927964_long_hidden_1.npz": 0.7134981880359704,
+    "skillcorner_1953632_long_hidden_0.npz": 0.5021723395260116,
+    "skillcorner_1953632_long_hidden_1.npz": 0.6031831771808236,
+    "skillcorner_1959846_long_hidden_0.npz": 0.5946726813253034,
+    "skillcorner_1959846_long_hidden_1.npz": 0.5158550773054791,
+    "skillcorner_1986691_long_hidden_0.npz": 0.5666139903529385,
+    "skillcorner_1986691_long_hidden_1.npz": 0.5464131865443855,
+    "skillcorner_1996435_long_hidden_0.npz": 0.6918566251239074,
+    "skillcorner_1996435_long_hidden_1.npz": 0.7348577408166491,
+    "skillcorner_1996436_long_hidden_0.npz": 0.8408632483361759,
+    "skillcorner_1996436_long_hidden_1.npz": 0.6689259177544957,
+    "skillcorner_2006229_long_hidden_0.npz": 0.7328277018689603,
+    "skillcorner_2006229_long_hidden_1.npz": 0.7639759271889209,
+    "skillcorner_2006363_long_hidden_0.npz": 0.7354113091285869,
+    "skillcorner_2006363_long_hidden_1.npz": 0.6125287191094351
+  }
+}

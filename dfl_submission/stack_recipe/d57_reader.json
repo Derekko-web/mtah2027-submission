@@ -1,0 +1,791 @@
+{
+  "checked_at": "2026-11-13 16:28 EST",
+  "checks": {
+    "1874553": {
+      "0": {
+        "ball_xy_equal_existing_reader": true,
+        "ball_xy_equal_stored_half": true,
+        "facts": {
+          "detected_without_z": 0,
+          "native_detected": 18301,
+          "native_detected_above_air_height": 1896,
+          "native_detected_with_z": 18301,
+          "native_frames": 28980,
+          "undetected_with_z": 3578
+        },
+        "frames": 72448,
+        "frames_above_air_height": 4707,
+        "live_share_above_air_height": 0.09286549171498637,
+        "median_z_seen_m": 0.17000000178813934,
+        "seen_frames": 45573,
+        "seen_frames_without_z": 0,
+        "seen_share_above_air_height": 0.10328483970772168,
+        "z_on_the_same_grid": true,
+        "z_only_where_the_ball_is_seen": true
+      },
+      "1": {
+        "ball_xy_equal_existing_reader": true,
+        "ball_xy_equal_stored_half": true,
+        "facts": {
+          "detected_without_z": 0,
+          "native_detected": 18100,
+          "native_detected_above_air_height": 2638,
+          "native_detected_with_z": 18100,
+          "native_frames": 31300,
+          "undetected_with_z": 4265
+        },
+        "frames": 78248,
+        "frames_above_air_height": 6570,
+        "live_share_above_air_height": 0.1404829852034821,
+        "median_z_seen_m": 0.2199999988079071,
+        "seen_frames": 45057,
+        "seen_frames_without_z": 0,
+        "seen_share_above_air_height": 0.14581530061921566,
+        "z_on_the_same_grid": true,
+        "z_only_where_the_ball_is_seen": true
+      }
+    },
+    "1886347": {
+      "0": {
+        "ball_xy_equal_existing_reader": true,
+        "ball_xy_equal_stored_half": true,
+        "facts": {
+          "detected_without_z": 0,
+          "native_detected": 19456,
+          "native_detected_above_air_height": 1823,
+          "native_detected_with_z": 19456,
+          "native_frames": 27780,
+          "undetected_with_z": 3709
+        },
+        "frames": 69448,
+        "frames_above_air_height": 4522,
+        "live_share_above_air_height": 0.08873473674996718,
+        "median_z_seen_m": 0.17800000309944153,
+        "seen_frames": 48447,
+        "seen_frames_without_z": 0,
+        "seen_share_above_air_height": 0.0933391128449646,
+        "z_on_the_same_grid": true,
+        "z_only_where_the_ball_is_seen": true
+      },
+      "1": {
+        "ball_xy_equal_existing_reader": true,
+        "ball_xy_equal_stored_half": true,
+        "facts": {
+          "detected_without_z": 0,
+          "native_detected": 16293,
+          "native_detected_above_air_height": 1624,
+          "native_detected_with_z": 16293,
+          "native_frames": 31260,
+          "undetected_with_z": 3999
+        },
+        "frames": 78148,
+        "frames_above_air_height": 4037,
+        "live_share_above_air_height": 0.09310307550943192,
+        "median_z_seen_m": 0.17000000178813934,
+        "seen_frames": 40546,
+        "seen_frames_without_z": 0,
+        "seen_share_above_air_height": 0.09956592512208357,
+        "z_on_the_same_grid": true,
+        "z_only_where_the_ball_is_seen": true
+      }
+    },
+    "1899585": {
+      "0": {
+        "ball_xy_equal_existing_reader": true,
+        "ball_xy_equal_stored_half": true,
+        "facts": {
+          "detected_without_z": 0,
+          "native_detected": 16131,
+          "native_detected_above_air_height": 2129,
+          "native_detected_with_z": 16131,
+          "native_frames": 29750,
+          "undetected_with_z": 4477
+        },
+        "frames": 74373,
+        "frames_above_air_height": 5245,
+        "live_share_above_air_height": 0.12625984973428625,
+        "median_z_seen_m": 0.19599999487400055,
+        "seen_frames": 40103,
+        "seen_frames_without_z": 0,
+        "seen_share_above_air_height": 0.13078822033264345,
+        "z_on_the_same_grid": true,
+        "z_only_where_the_ball_is_seen": true
+      },
+      "1": {
+        "ball_xy_equal_existing_reader": true,
+        "ball_xy_equal_stored_half": true,
+        "facts": {
+          "detected_without_z": 0,
+          "native_detected": 15694,
+          "native_detected_above_air_height": 2070,
+          "native_detected_with_z": 15694,
+          "native_frames": 30760,
+          "undetected_with_z": 4378
+        },
+        "frames": 76898,
+        "frames_above_air_height": 5094,
+        "live_share_above_air_height": 0.11926863572433193,
+        "median_z_seen_m": 0.2019999921321869,
+        "seen_frames": 39014,
+        "seen_frames_without_z": 0,
+        "seen_share_above_air_height": 0.13056851386681703,
+        "z_on_the_same_grid": true,
+        "z_only_where_the_ball_is_seen": true
+      }
+    },
+    "1925299": {
+      "0": {
+        "ball_xy_equal_existing_reader": true,
+        "ball_xy_equal_stored_half": true,
+        "facts": {
+          "detected_without_z": 0,
+          "native_detected": 19538,
+          "native_detected_above_air_height": 2403,
+          "native_detected_with_z": 19538,
+          "native_frames": 30230,
+          "undetected_with_z": 4375
+        },
+        "frames": 75573,
+        "frames_above_air_height": 5907,
+        "live_share_above_air_height": 0.11598248024733769,
+        "median_z_seen_m": 0.1599999964237213,
+        "seen_frames": 48624,
+        "seen_frames_without_z": 0,
+        "seen_share_above_air_height": 0.1214832181638697,
+        "z_on_the_same_grid": true,
+        "z_only_where_the_ball_is_seen": true
+      },
+      "1": {
+        "ball_xy_equal_existing_reader": true,
+        "ball_xy_equal_stored_half": true,
+        "facts": {
+          "detected_without_z": 0,
+          "native_detected": 19061,
+          "native_detected_above_air_height": 2561,
+          "native_detected_with_z": 19061,
+          "native_frames": 31050,
+          "undetected_with_z": 4949
+        },
+        "frames": 77623,
+        "frames_above_air_height": 6357,
+        "live_share_above_air_height": 0.118214558550693,
+        "median_z_seen_m": 0.19600000977516174,
+        "seen_frames": 47455,
+        "seen_frames_without_z": 0,
+        "seen_share_above_air_height": 0.13395848698767254,
+        "z_on_the_same_grid": true,
+        "z_only_where_the_ball_is_seen": true
+      }
+    },
+    "1927964": {
+      "0": {
+        "ball_xy_equal_existing_reader": true,
+        "ball_xy_equal_stored_half": true,
+        "facts": {
+          "detected_without_z": 0,
+          "native_detected": 20512,
+          "native_detected_above_air_height": 1237,
+          "native_detected_with_z": 20512,
+          "native_frames": 28370,
+          "undetected_with_z": 2463
+        },
+        "frames": 70923,
+        "frames_above_air_height": 3094,
+        "live_share_above_air_height": 0.05552281032653542,
+        "median_z_seen_m": 0.19200000166893005,
+        "seen_frames": 51168,
+        "seen_frames_without_z": 0,
+        "seen_share_above_air_height": 0.06046747967479675,
+        "z_on_the_same_grid": true,
+        "z_only_where_the_ball_is_seen": true
+      },
+      "1": {
+        "ball_xy_equal_existing_reader": true,
+        "ball_xy_equal_stored_half": true,
+        "facts": {
+          "detected_without_z": 0,
+          "native_detected": 17703,
+          "native_detected_above_air_height": 1578,
+          "native_detected_with_z": 17703,
+          "native_frames": 30680,
+          "undetected_with_z": 4081
+        },
+        "frames": 76698,
+        "frames_above_air_height": 3934,
+        "live_share_above_air_height": 0.08222292248131809,
+        "median_z_seen_m": 0.14400000870227814,
+        "seen_frames": 44105,
+        "seen_frames_without_z": 0,
+        "seen_share_above_air_height": 0.08919623625439292,
+        "z_on_the_same_grid": true,
+        "z_only_where_the_ball_is_seen": true
+      }
+    },
+    "1953632": {
+      "0": {
+        "ball_xy_equal_existing_reader": true,
+        "ball_xy_equal_stored_half": true,
+        "facts": {
+          "detected_without_z": 0,
+          "native_detected": 18918,
+          "native_detected_above_air_height": 1516,
+          "native_detected_with_z": 18918,
+          "native_frames": 28960,
+          "undetected_with_z": 4282
+        },
+        "frames": 72398,
+        "frames_above_air_height": 3744,
+        "live_share_above_air_height": 0.06845357346211434,
+        "median_z_seen_m": 0.23000000417232513,
+        "seen_frames": 47093,
+        "seen_frames_without_z": 0,
+        "seen_share_above_air_height": 0.07950226148259826,
+        "z_on_the_same_grid": true,
+        "z_only_where_the_ball_is_seen": true
+      },
+      "1": {
+        "ball_xy_equal_existing_reader": true,
+        "ball_xy_equal_stored_half": true,
+        "facts": {
+          "detected_without_z": 0,
+          "native_detected": 16120,
+          "native_detected_above_air_height": 2282,
+          "native_detected_with_z": 16120,
+          "native_frames": 30270,
+          "undetected_with_z": 4592
+        },
+        "frames": 75673,
+        "frames_above_air_height": 5652,
+        "live_share_above_air_height": 0.13300937358931464,
+        "median_z_seen_m": 0.23000000417232513,
+        "seen_frames": 40079,
+        "seen_frames_without_z": 0,
+        "seen_share_above_air_height": 0.14102148257192046,
+        "z_on_the_same_grid": true,
+        "z_only_where_the_ball_is_seen": true
+      }
+    },
+    "1959846": {
+      "0": {
+        "ball_xy_equal_existing_reader": true,
+        "ball_xy_equal_stored_half": true,
+        "facts": {
+          "detected_without_z": 0,
+          "native_detected": 16975,
+          "native_detected_above_air_height": 1989,
+          "native_detected_with_z": 16975,
+          "native_frames": 27960,
+          "undetected_with_z": 4215
+        },
+        "frames": 69898,
+        "frames_above_air_height": 4947,
+        "live_share_above_air_height": 0.10931204865070315,
+        "median_z_seen_m": 0.16200000047683716,
+        "seen_frames": 42268,
+        "seen_frames_without_z": 0,
+        "seen_share_above_air_height": 0.11703889467209236,
+        "z_on_the_same_grid": true,
+        "z_only_where_the_ball_is_seen": true
+      },
+      "1": {
+        "ball_xy_equal_existing_reader": true,
+        "ball_xy_equal_stored_half": true,
+        "facts": {
+          "detected_without_z": 0,
+          "native_detected": 17847,
+          "native_detected_above_air_height": 2589,
+          "native_detected_with_z": 17847,
+          "native_frames": 30570,
+          "undetected_with_z": 3700
+        },
+        "frames": 76423,
+        "frames_above_air_height": 6476,
+        "live_share_above_air_height": 0.1431421572341339,
+        "median_z_seen_m": 0.1979999989271164,
+        "seen_frames": 44458,
+        "seen_frames_without_z": 0,
+        "seen_share_above_air_height": 0.14566557200053984,
+        "z_on_the_same_grid": true,
+        "z_only_where_the_ball_is_seen": true
+      }
+    },
+    "1986691": {
+      "0": {
+        "ball_xy_equal_existing_reader": true,
+        "ball_xy_equal_stored_half": true,
+        "facts": {
+          "detected_without_z": 0,
+          "native_detected": 16982,
+          "native_detected_above_air_height": 2023,
+          "native_detected_with_z": 16982,
+          "native_frames": 27770,
+          "undetected_with_z": 4209
+        },
+        "frames": 69423,
+        "frames_above_air_height": 5042,
+        "live_share_above_air_height": 0.11621470709621033,
+        "median_z_seen_m": 0.17399999499320984,
+        "seen_frames": 42277,
+        "seen_frames_without_z": 0,
+        "seen_share_above_air_height": 0.11926106393547319,
+        "z_on_the_same_grid": true,
+        "z_only_where_the_ball_is_seen": true
+      },
+      "1": {
+        "ball_xy_equal_existing_reader": true,
+        "ball_xy_equal_stored_half": true,
+        "facts": {
+          "detected_without_z": 0,
+          "native_detected": 17037,
+          "native_detected_above_air_height": 2378,
+          "native_detected_with_z": 17037,
+          "native_frames": 31300,
+          "undetected_with_z": 4848
+        },
+        "frames": 78248,
+        "frames_above_air_height": 5916,
+        "live_share_above_air_height": 0.12919409706076698,
+        "median_z_seen_m": 0.17000000178813934,
+        "seen_frames": 42400,
+        "seen_frames_without_z": 0,
+        "seen_share_above_air_height": 0.13952830188679247,
+        "z_on_the_same_grid": true,
+        "z_only_where_the_ball_is_seen": true
+      }
+    },
+    "1996435": {
+      "0": {
+        "ball_xy_equal_existing_reader": true,
+        "ball_xy_equal_stored_half": true,
+        "facts": {
+          "detected_without_z": 0,
+          "native_detected": 18285,
+          "native_detected_above_air_height": 1918,
+          "native_detected_with_z": 18285,
+          "native_frames": 28010,
+          "undetected_with_z": 4079
+        },
+        "frames": 70023,
+        "frames_above_air_height": 4767,
+        "live_share_above_air_height": 0.09577595543865078,
+        "median_z_seen_m": 0.1899999976158142,
+        "seen_frames": 45517,
+        "seen_frames_without_z": 0,
+        "seen_share_above_air_height": 0.10473010084144385,
+        "z_on_the_same_grid": true,
+        "z_only_where_the_ball_is_seen": true
+      },
+      "1": {
+        "ball_xy_equal_existing_reader": true,
+        "ball_xy_equal_stored_half": true,
+        "facts": {
+          "detected_without_z": 0,
+          "native_detected": 16410,
+          "native_detected_above_air_height": 1703,
+          "native_detected_with_z": 16410,
+          "native_frames": 29590,
+          "undetected_with_z": 4751
+        },
+        "frames": 73973,
+        "frames_above_air_height": 4216,
+        "live_share_above_air_height": 0.09021078020134228,
+        "median_z_seen_m": 0.19599999487400055,
+        "seen_frames": 40804,
+        "seen_frames_without_z": 0,
+        "seen_share_above_air_height": 0.10332320360748946,
+        "z_on_the_same_grid": true,
+        "z_only_where_the_ball_is_seen": true
+      }
+    },
+    "1996436": {
+      "0": {
+        "ball_xy_equal_existing_reader": true,
+        "ball_xy_equal_stored_half": true,
+        "facts": {
+          "detected_without_z": 0,
+          "native_detected": 17256,
+          "native_detected_above_air_height": 3004,
+          "native_detected_with_z": 17256,
+          "native_frames": 30130,
+          "undetected_with_z": 5473
+        },
+        "frames": 75323,
+        "frames_above_air_height": 7468,
+        "live_share_above_air_height": 0.16337114244839568,
+        "median_z_seen_m": 0.1899999976158142,
+        "seen_frames": 42923,
+        "seen_frames_without_z": 0,
+        "seen_share_above_air_height": 0.17398597488525966,
+        "z_on_the_same_grid": true,
+        "z_only_where_the_ball_is_seen": true
+      },
+      "1": {
+        "ball_xy_equal_existing_reader": true,
+        "ball_xy_equal_stored_half": true,
+        "facts": {
+          "detected_without_z": 0,
+          "native_detected": 15529,
+          "native_detected_above_air_height": 2901,
+          "native_detected_with_z": 15529,
+          "native_frames": 30130,
+          "undetected_with_z": 4808
+        },
+        "frames": 75323,
+        "frames_above_air_height": 7202,
+        "live_share_above_air_height": 0.201573285243455,
+        "median_z_seen_m": 0.1979999989271164,
+        "seen_frames": 38624,
+        "seen_frames_without_z": 0,
+        "seen_share_above_air_height": 0.18646437448218725,
+        "z_on_the_same_grid": true,
+        "z_only_where_the_ball_is_seen": true
+      }
+    },
+    "2006229": {
+      "0": {
+        "ball_xy_equal_existing_reader": true,
+        "ball_xy_equal_stored_half": true,
+        "facts": {
+          "detected_without_z": 0,
+          "native_detected": 18170,
+          "native_detected_above_air_height": 2196,
+          "native_detected_with_z": 18170,
+          "native_frames": 28470,
+          "undetected_with_z": 3890
+        },
+        "frames": 71173,
+        "frames_above_air_height": 5467,
+        "live_share_above_air_height": 0.1118653396321607,
+        "median_z_seen_m": 0.23000000417232513,
+        "seen_frames": 45243,
+        "seen_frames_without_z": 0,
+        "seen_share_above_air_height": 0.12083637247751033,
+        "z_on_the_same_grid": true,
+        "z_only_where_the_ball_is_seen": true
+      },
+      "1": {
+        "ball_xy_equal_existing_reader": true,
+        "ball_xy_equal_stored_half": true,
+        "facts": {
+          "detected_without_z": 0,
+          "native_detected": 17710,
+          "native_detected_above_air_height": 2464,
+          "native_detected_with_z": 17710,
+          "native_frames": 30780,
+          "undetected_with_z": 4400
+        },
+        "frames": 76948,
+        "frames_above_air_height": 6112,
+        "live_share_above_air_height": 0.13530946870845437,
+        "median_z_seen_m": 0.20399999618530273,
+        "seen_frames": 44071,
+        "seen_frames_without_z": 0,
+        "seen_share_above_air_height": 0.1386853032606476,
+        "z_on_the_same_grid": true,
+        "z_only_where_the_ball_is_seen": true
+      }
+    },
+    "2006363": {
+      "0": {
+        "ball_xy_equal_existing_reader": true,
+        "ball_xy_equal_stored_half": true,
+        "facts": {
+          "detected_without_z": 0,
+          "native_detected": 18105,
+          "native_detected_above_air_height": 1840,
+          "native_detected_with_z": 18105,
+          "native_frames": 28940,
+          "undetected_with_z": 4023
+        },
+        "frames": 72348,
+        "frames_above_air_height": 4553,
+        "live_share_above_air_height": 0.09410665876939199,
+        "median_z_seen_m": 0.17400000989437103,
+        "seen_frames": 45087,
+        "seen_frames_without_z": 0,
+        "seen_share_above_air_height": 0.10098254485771951,
+        "z_on_the_same_grid": true,
+        "z_only_where_the_ball_is_seen": true
+      },
+      "1": {
+        "ball_xy_equal_existing_reader": true,
+        "ball_xy_equal_stored_half": true,
+        "facts": {
+          "detected_without_z": 0,
+          "native_detected": 18055,
+          "native_detected_above_air_height": 2258,
+          "native_detected_with_z": 18055,
+          "native_frames": 30130,
+          "undetected_with_z": 4164
+        },
+        "frames": 75323,
+        "frames_above_air_height": 5624,
+        "live_share_above_air_height": 0.11565898433602714,
+        "median_z_seen_m": 0.17000000178813934,
+        "seen_frames": 44960,
+        "seen_frames_without_z": 0,
+        "seen_share_above_air_height": 0.12508896797153024,
+        "z_on_the_same_grid": true,
+        "z_only_where_the_ball_is_seen": true
+      }
+    },
+    "2007448": {
+      "0": {
+        "ball_xy_equal_existing_reader": true,
+        "ball_xy_equal_stored_half": true,
+        "facts": {
+          "detected_without_z": 0,
+          "native_detected": 16643,
+          "native_detected_above_air_height": 2496,
+          "native_detected_with_z": 16643,
+          "native_frames": 28520,
+          "undetected_with_z": 4920
+        },
+        "frames": 71298,
+        "frames_above_air_height": 6223,
+        "live_share_above_air_height": 0.15570291041256276,
+        "median_z_seen_m": 0.1720000058412552,
+        "seen_frames": 41412,
+        "seen_frames_without_z": 0,
+        "seen_share_above_air_height": 0.15027045300878972,
+        "z_on_the_same_grid": true,
+        "z_only_where_the_ball_is_seen": true
+      },
+      "1": {
+        "ball_xy_equal_existing_reader": true,
+        "ball_xy_equal_stored_half": true,
+        "facts": {
+          "detected_without_z": 0,
+          "native_detected": 17957,
+          "native_detected_above_air_height": 2495,
+          "native_detected_with_z": 17957,
+          "native_frames": 29540,
+          "undetected_with_z": 4763
+        },
+        "frames": 73848,
+        "frames_above_air_height": 6205,
+        "live_share_above_air_height": 0.12505192171427176,
+        "median_z_seen_m": 0.15000000596046448,
+        "seen_frames": 44739,
+        "seen_frames_without_z": 0,
+        "seen_share_above_air_height": 0.13869331008739577,
+        "z_on_the_same_grid": true,
+        "z_only_where_the_ball_is_seen": true
+      }
+    },
+    "2007721": {
+      "0": {
+        "ball_xy_equal_existing_reader": true,
+        "ball_xy_equal_stored_half": true,
+        "facts": {
+          "detected_without_z": 0,
+          "native_detected": 19212,
+          "native_detected_above_air_height": 2705,
+          "native_detected_with_z": 19212,
+          "native_frames": 27700,
+          "undetected_with_z": 4215
+        },
+        "frames": 69248,
+        "frames_above_air_height": 6725,
+        "live_share_above_air_height": 0.132164501196413,
+        "median_z_seen_m": 0.23999999463558197,
+        "seen_frames": 47854,
+        "seen_frames_without_z": 0,
+        "seen_share_above_air_height": 0.14053161700171354,
+        "z_on_the_same_grid": true,
+        "z_only_where_the_ball_is_seen": true
+      },
+      "1": {
+        "ball_xy_equal_existing_reader": true,
+        "ball_xy_equal_stored_half": true,
+        "facts": {
+          "detected_without_z": 0,
+          "native_detected": 17934,
+          "native_detected_above_air_height": 2782,
+          "native_detected_with_z": 17934,
+          "native_frames": 29840,
+          "undetected_with_z": 4936
+        },
+        "frames": 74598,
+        "frames_above_air_height": 6935,
+        "live_share_above_air_height": 0.14218571971135588,
+        "median_z_seen_m": 0.23999999463558197,
+        "seen_frames": 44632,
+        "seen_frames_without_z": 0,
+        "seen_share_above_air_height": 0.15538178885104859,
+        "z_on_the_same_grid": true,
+        "z_only_where_the_ball_is_seen": true
+      }
+    },
+    "2010085": {
+      "0": {
+        "ball_xy_equal_existing_reader": true,
+        "ball_xy_equal_stored_half": true,
+        "facts": {
+          "detected_without_z": 0,
+          "native_detected": 18335,
+          "native_detected_above_air_height": 2354,
+          "native_detected_with_z": 18335,
+          "native_frames": 29430,
+          "undetected_with_z": 3533
+        },
+        "frames": 73573,
+        "frames_above_air_height": 5853,
+        "live_share_above_air_height": 0.11753574935926608,
+        "median_z_seen_m": 0.20600000023841858,
+        "seen_frames": 45663,
+        "seen_frames_without_z": 0,
+        "seen_share_above_air_height": 0.12817817488995467,
+        "z_on_the_same_grid": true,
+        "z_only_where_the_ball_is_seen": true
+      },
+      "1": {
+        "ball_xy_equal_existing_reader": true,
+        "ball_xy_equal_stored_half": true,
+        "facts": {
+          "detected_without_z": 0,
+          "native_detected": 19673,
+          "native_detected_above_air_height": 3239,
+          "native_detected_with_z": 19673,
+          "native_frames": 29540,
+          "undetected_with_z": 3980
+        },
+        "frames": 73848,
+        "frames_above_air_height": 8053,
+        "live_share_above_air_height": 0.162195497995683,
+        "median_z_seen_m": 0.1979999989271164,
+        "seen_frames": 49002,
+        "seen_frames_without_z": 0,
+        "seen_share_above_air_height": 0.16434023101097914,
+        "z_on_the_same_grid": true,
+        "z_only_where_the_ball_is_seen": true
+      }
+    },
+    "2011166": {
+      "0": {
+        "ball_xy_equal_existing_reader": true,
+        "ball_xy_equal_stored_half": true,
+        "facts": {
+          "detected_without_z": 0,
+          "native_detected": 15478,
+          "native_detected_above_air_height": 2102,
+          "native_detected_with_z": 15478,
+          "native_frames": 28990,
+          "undetected_with_z": 3517
+        },
+        "frames": 72473,
+        "frames_above_air_height": 5231,
+        "live_share_above_air_height": 0.12451554382782222,
+        "median_z_seen_m": 0.19599999487400055,
+        "seen_frames": 38536,
+        "seen_frames_without_z": 0,
+        "seen_share_above_air_height": 0.13574320116254932,
+        "z_on_the_same_grid": true,
+        "z_only_where_the_ball_is_seen": true
+      },
+      "1": {
+        "ball_xy_equal_existing_reader": true,
+        "ball_xy_equal_stored_half": true,
+        "facts": {
+          "detected_without_z": 0,
+          "native_detected": 15800,
+          "native_detected_above_air_height": 3428,
+          "native_detected_with_z": 15800,
+          "native_frames": 30300,
+          "undetected_with_z": 4220
+        },
+        "frames": 75748,
+        "frames_above_air_height": 8546,
+        "live_share_above_air_height": 0.21068113665571897,
+        "median_z_seen_m": 0.23000000417232513,
+        "seen_frames": 39333,
+        "seen_frames_without_z": 0,
+        "seen_share_above_air_height": 0.2172730277375232,
+        "z_on_the_same_grid": true,
+        "z_only_where_the_ball_is_seen": true
+      }
+    }
+  },
+  "code": {
+    "situation_views.py": "1f97c779ccfef29b35586808ba799e0b684e80fa1466e33fe306f61bf1972949",
+    "skill_height.py": "4505024078440f168ffcafbe8eb644ed5e2654a8f2ae8640f4ce883454f41bc9",
+    "skillcorner.py": "a8905d961331409989544cf3413992aa3bb9db28915d4dec581719961e9c0013"
+  },
+  "heights": {
+    "1874553": "1679af39e88cceefb59664a35c1c9ad9a0120187d2033ff5281261a7420e4c79",
+    "1886347": "fb387762092245f78de321c53362f2cf7c54bf13d82b1741b451666c77dfed58",
+    "1899585": "96a202c2f2e2b0b6208d20cd4bd9d84ce65675767ce06421c4cd07de049f88b2",
+    "1925299": "2c3303221f854161a28150463553d9e81f4b2eead332ebff97a07bb323edd97d",
+    "1927964": "4953317289d3ae1ec22395de8c5a0bab1bbd763278ecb9c3a6d788236e7db79e",
+    "1953632": "a9d435b92b0a9c350bf948fc551adf45a207bc497d8c4e021325dbfdf08e7dff",
+    "1959846": "9d6f4163c1758c2d5847f534bb8ebccb93e0fc8750c0cb5b840547c8b301e1fa",
+    "1986691": "9ef27d4dcaec30c3697a7664811f8458c2a0a5c8e2be753c82ce2b14650fe1b1",
+    "1996435": "f0348dfe01c26646106d96b6611196bcf1d24dfeea39034368edef28b573adb6",
+    "1996436": "b605d72414d1103115e0fed69157b2d8b6195c41f86dcfa03a0a1d631c5b4c6f",
+    "2006229": "ec3bab028c83b6162970e3398d9603d13e86481f18d0c83e267b16038c374998",
+    "2006363": "33a010bc59397db6cc9a779bbdd4973c300f31b74534c004bb8b19f5a3692d7e",
+    "2007448": "7a86c73dadbf3dc6c083effaed3287d710d8c5f4ecfcd1315afe51bf47c09686",
+    "2007721": "86bc06df0d3df8bf203f342addf5a499827965cba0114903871a63bb6e9660aa",
+    "2010085": "591edab826bf10ffa8c1d5376078777d63265d2b3ee3cc9af4212c810f8931fc",
+    "2011166": "81f4d51ffb89b0635af7d47dd11b86da2e1d67f753afe9297db3df8632d5e5fa"
+  },
+  "passed": true,
+  "protocol": "DECISIONS.md D57",
+  "skill_manifest_sha256": "21f02036ba5b9cf9e16c44bf9eefefc0c717ecf5f6bb95938981f4a7f720f3e5",
+  "splits": {
+    "development": [
+      "2007448",
+      "2007721",
+      "2010085",
+      "2011166"
+    ],
+    "train": [
+      "1874553",
+      "1886347",
+      "1899585",
+      "1925299",
+      "1927964",
+      "1953632",
+      "1959846",
+      "1986691",
+      "1996435",
+      "1996436",
+      "2006229",
+      "2006363"
+    ]
+  },
+  "summary": {
+    "development": {
+      "halves": 8,
+      "per_match_seen_share_above_air_height": {
+        "2007448": 0.1442583371057794,
+        "2007721": 0.14769802997210388,
+        "2010085": 0.14689695241113399,
+        "2011166": 0.1769253489835493
+      },
+      "seen_frames": 351171,
+      "seen_frames_without_z": 0,
+      "seen_share_above_air_height": 0.15311913569172853
+    },
+    "train": {
+      "halves": 24,
+      "per_match_seen_share_above_air_height": {
+        "1874553": 0.12442899702085403,
+        "1886347": 0.09617610373849629,
+        "1899585": 0.130679879166298,
+        "1925299": 0.12764495883595792,
+        "1927964": 0.07376696440754464,
+        "1953632": 0.10778690405175974,
+        "1959846": 0.13171367294698244,
+        "1986691": 0.12940940278942334,
+        "1996435": 0.10406505948726266,
+        "1996436": 0.179896256146762,
+        "2006229": 0.12964372886669503,
+        "2006363": 0.1130187568714116
+      },
+      "seen_frames": 1055896,
+      "seen_frames_without_z": 0,
+      "seen_share_above_air_height": 0.11994836612696705
+    }
+  }
+}

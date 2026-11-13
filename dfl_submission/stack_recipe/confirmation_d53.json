@@ -1,0 +1,2128 @@
+{
+  "changes": {
+    "conventions": {
+      "aba1.75": 0.0028090830895040053,
+      "aba4": 0.0018419379854596185,
+      "aba4.5": 0.004349002973204286
+    },
+    "guards": {
+      "dead_carried": 0.005116311866670387,
+      "team_swap": 0.0008955339873514268
+    },
+    "long_hidden": 0.03225228139145497,
+    "pff": 0.02042972294789447,
+    "primary": 0.0027427835249969057,
+    "raw_standard": 0.002127419280499754
+  },
+  "checks": {
+    "d43_d48_confirmation_numbers": true,
+    "d43_holdout_record": true,
+    "long_hidden_same_views": true,
+    "pff_same_parsed_files": true
+  },
+  "code": {
+    "direction_tokens.py": "a3a6e97d6d528aac780942f05218c7b657be00d79aadb48df192b8a5dc16b6bb",
+    "direction_trial.py": "cfb79a32d000adcb01d35bc88bed1bfaa7b1d034f2fe3e0f776820eb56d0cae1",
+    "fallback_trial.py": "f6fa1dc508edee199d3d98e15b2f690240e84f7e17a50f9062ea35fb2ca3a6bd",
+    "hidden_trial.py": "993597172c87bdf43b56bf299e1f2e629634ba76dd3080bfbac6c1010141302c",
+    "hidden_views.py": "196b9632e57487e125e988f85e712b6145e75fe3d41b835fdaf7161e29416706",
+    "player_set.py": "4e298e542e4d2a47636f9e6dda50be14e62f8d9c7e96ebe64f1973a1f24ed2cc",
+    "player_set3.py": "6919a8c5c29367ff9a2690716f6265fbe698bb8574119d0c409f4edcf46c6a56",
+    "player_trial.py": "7ec395e78c6524f412856c1628d0d75e192fe221c094ecfdca453517081dbfc6",
+    "stack_set.py": "d7ee48dc7c90b781da34119c22d82df3ccc5bfa90505e36299a67cb3f1c828e4",
+    "stack_trial.py": "169eb382a5b79404f11d1b7b4c85ded5c600a66c0332043eb40778fc1a56aa4c",
+    "temporal_cpu.py": "1562369a1f099095786505c28505f0b80d498d47320c77a4f46242a6f1d7156b"
+  },
+  "conditions": {
+    "conventions": true,
+    "guards": true,
+    "long_hidden": true,
+    "pff": true,
+    "primary": true
+  },
+  "identity": {
+    "config": {
+      "aux": false,
+      "direction": false,
+      "mirror": "xy",
+      "noise": false,
+      "seed_offset": 0
+    },
+    "direction_tokens_sha256": "a3a6e97d6d528aac780942f05218c7b657be00d79aadb48df192b8a5dc16b6bb",
+    "levers_sha256": "a918833df3623e0fd63102af34cfbddd4629004b0739e7a955a43d7adc0b1600",
+    "model": "stack",
+    "networks": {
+      "0": {
+        "augmented": {
+          "seed_models": "cd5724dcfd12d74a875901e860524f5286e30c9a2efd3a222c8e1a9d54005b7a",
+          "temporal_models": "970461efe6ef7143c11dd908a992933b7122f52a4f59f5676063778dbe27b8d5"
+        },
+        "current": {
+          "seed_models": "84a06a1765d864634aa1e8adddbadcecf9a048740fd7fd5aa854ae6cb8fe50cb",
+          "temporal_models": "d7952bb24020c81226df70e0e412a0da83c1f2dc6bfb139a294b21e374c2bb8d"
+        }
+      },
+      "1000": {
+        "augmented": {
+          "seed_models": "1d5f7fb428c62ba3fb04d31ddb52f572c5882ff603db8bbde3d3f942348e98d7",
+          "temporal_models": "bf884a623c580ee655c7568fc88f6f814852551833e78b7800ad5fc4843b0210"
+        },
+        "current": {
+          "seed_models": "4373044b75fbad6579f1b81c72b266f46ec107f3fe6429594fab84e5f329d7a8",
+          "temporal_models": "34af0ecb213ee8c4af78f63edb789f998e1b953afdd3da0b4e943cbce1d5392d"
+        }
+      },
+      "2000": {
+        "augmented": {
+          "seed_models": "4cf1d3f973e81a426450f89ce71ac1906024e381e4f61f9e48b79b293bbee1e5",
+          "temporal_models": "d7077f9503104f08a5aa5af6a9b254c9a91a1431c8279f69803dce313609d4bd"
+        },
+        "current": {
+          "seed_models": "4d06c4533f7e335e7f0cc72f918632e7c2081e51cded03df4e47dae33cdc903a",
+          "temporal_models": "c85de0bf049eefefc5f787b87bf81e640f0f0e9985230615a24a2f11fb5f5472"
+        }
+      }
+    },
+    "player_set_sha256": "4e298e542e4d2a47636f9e6dda50be14e62f8d9c7e96ebe64f1973a1f24ed2cc",
+    "protocol": "DECISIONS.md D48",
+    "signs_sha256": "2c269e8d21bcbfdfc76012dffa1ebc524058a9a219de525aed338c09acb625cd",
+    "stack_set_sha256": "d7ee48dc7c90b781da34119c22d82df3ccc5bfa90505e36299a67cb3f1c828e4",
+    "steps": 8100,
+    "trees": {
+      "augmented": "af0a9153b994cec629c7afb30cd26fe084ef5a0e966ada6814895b5adde7cdc3",
+      "current": "b313e25ee0ecf28490cb8f6d191b40ab2fb3d28c44019f05963a5effb2a7a19c"
+    },
+    "variant": "d53"
+  },
+  "inputs": {
+    "dfl_raw": true,
+    "pff": {
+      "parsed": {
+        "10509_1.npz": [
+          6282400,
+          "6df85d76ec4fbf2130fce70d1ef0139728b66f235e2b737e3ef3a5a011ca9a2a"
+        ],
+        "10509_2.npz": [
+          5117789,
+          "c854f44f9d914f99139d7c34e45f73658bf7f1ce20e7b1c9e3be35762f37d0c0"
+        ],
+        "10517_1.npz": [
+          5968834,
+          "7bfe68230f4e5b1e8e258b391c0e91b700971175e1b1f15821b161342fa35868"
+        ],
+        "10517_2.npz": [
+          5620072,
+          "9a7bf5dcd754c6f7dc588c8a8f0c7fe65b645df8194cfc209e16a3a79ef77385"
+        ],
+        "3819_1.npz": [
+          6184221,
+          "436484f2e2f038f98b5b2db59adeace9be15a7cbcdfb09f830f1cf1704fccc22"
+        ],
+        "3819_2.npz": [
+          6094026,
+          "4aaa2887626dd6805a80f212f0a53e4a9b24fbbee7134488871f2dadc3fd327a"
+        ],
+        "3827_1.npz": [
+          6457826,
+          "08dba04ae1192a462417ae59dad8669d1028a75b679cbea0a8a6b4fb4856ae2a"
+        ],
+        "3827_2.npz": [
+          5886005,
+          "b5dcc50138369d8b1757f96ceb30de292e3a10bad3dee5ce9dc208c89c6af11c"
+        ],
+        "3835_1.npz": [
+          5504672,
+          "95d20e007e272468821b950fe10f39cece9616f84d1c11727f371aff8a139948"
+        ],
+        "3835_2.npz": [
+          5353544,
+          "ac753eeaa79c3504cb229cdd20f52221f76919b1788e2d6f5c46b0ba895fa834"
+        ],
+        "3843_1.npz": [
+          4793271,
+          "3a84d0fff8b65d64168aa9dc2e45b42932cade5a71d1d847fb09ce3947c52152"
+        ],
+        "3843_2.npz": [
+          5064376,
+          "85500397c50e71c3722a8745a2cbabaedbfb29dbaa00639a956fcde40bd9a410"
+        ],
+        "3851_1.npz": [
+          5689256,
+          "5a51f52e00067fa65a4921d818c65f8f0667a7a985323e9fb0a89180d3db4ac3"
+        ],
+        "3851_2.npz": [
+          4946329,
+          "2ac5a46bec0445bd8eba79b63d3ef76ad4f16c0b4163e1554a3b88144ea947f9"
+        ],
+        "3859_1.npz": [
+          5579405,
+          "915ad0bfed14acd50b04896a1e6ab154cedf179ca9c08789c63f940bb21040c8"
+        ],
+        "3859_2.npz": [
+          4409498,
+          "5c079674dec1daef9bc228b110073e2cf72048a23293d7192206e921f732123e"
+        ]
+      },
+      "sources_sha256": "9c28e02db8a01c7b14593b14236185d36255286b991358c4ce0567bf30f9d8fe"
+    },
+    "skill_manifest_sha256": "21f02036ba5b9cf9e16c44bf9eefefc0c717ecf5f6bb95938981f4a7f720f3e5"
+  },
+  "levers": {
+    "config": {
+      "aux": false,
+      "direction": false,
+      "mirror": "xy",
+      "noise": false,
+      "seed_offset": 0
+    },
+    "data": "d49",
+    "note": "No new trainer check: check_mirror (the two-axis mirror, D42's data, 5,400 steps) and check_hidden (D49's data) cover both switches; no bit-for-bit reference exists at 8,100 steps for this combination.",
+    "offsets": [
+      0,
+      1000,
+      2000
+    ],
+    "protocol": "DECISIONS.md D53",
+    "recorded_at": "2026-11-13 07:50 EST",
+    "steps": 8100,
+    "trainer_checks": {
+      "check_hidden.json": "eb69ba86dd0a81ffb67cf6bd0dc9aa815c7ca96b9208a935178b63376732d524",
+      "check_mirror.json": "9ccc36a168a2bf89352acb5ffd83894dadc1719766b85744ae8a2fb912ff521d"
+    }
+  },
+  "levers_sha256": "a918833df3623e0fd63102af34cfbddd4629004b0739e7a955a43d7adc0b1600",
+  "long_hidden": {
+    "d43": {
+      "matches": {
+        "WQQ": 0.6888454011741683,
+        "WR9": 0.654020618556701
+      },
+      "mean": 0.6714330098654346
+    },
+    "d53": {
+      "matches": {
+        "WQQ": 0.7157894736842105,
+        "WR9": 0.6915811088295688
+      },
+      "mean": 0.7036852912568896
+    },
+    "stack_with_c": {
+      "matches": {
+        "WQQ": 0.7186046511627907,
+        "WR9": 0.7083844580777096
+      },
+      "mean": 0.7134945546202501
+    }
+  },
+  "owner_cost": 14,
+  "passed": true,
+  "prepared_sha256": "ee5fcd22f31478fad2273edb86449d386d0934b3e7b1b5b5290b32f3e5ab0e5d",
+  "protocol": "DECISIONS.md D53",
+  "raw_fit_sha256": {
+    "0": {
+      "augmented": {
+        "seed_models": "5ae6459cc7704e41c699d44bb68e5a638e31c91986ae895ea92489463182ca71",
+        "temporal_models": "1ed0da5fd23b08ac8312ba8ade8dabaabf246fccc1828f4317a9a853a5fc5901"
+      },
+      "current": {
+        "seed_models": "84d1b82830a5019ee652cf0dde615219cc57dc654120e7c2465a3307e6b44aaf",
+        "temporal_models": "83188543cc55ddaac0f72f79415c4ac35fb1ad063d215c2ad68488714b71e28f"
+      }
+    },
+    "1000": {
+      "augmented": {
+        "seed_models": "c65c13b5252dff4ff9e199ee741bc07936d53693fd9293b30705b0bbde999067",
+        "temporal_models": "2c4087b418d735b93f3e01b08904f5f5de7fb2ffc198c770f61e11344b8f2961"
+      },
+      "current": {
+        "seed_models": "085cdf41267be4af8af53ca9a12123b5807568e5dc3119318345cff1214b26ba",
+        "temporal_models": "b085a04e5e75f98acbe0958c51666eb2c0425964585cfda8ac9522e1ce253c23"
+      }
+    },
+    "2000": {
+      "augmented": {
+        "seed_models": "b074f84f5e99937d2dc825509afd57b59f64b34b21a0dbdab1881d71f3efa101",
+        "temporal_models": "c6fcc6ce64dc2aa28b74df1372e7bbfca3e14dc9abfa2bf5b9433b84b2abf261"
+      },
+      "current": {
+        "seed_models": "557ab509550955434cc4fd150cea61ef3f9b2039fac14e0e5df1ad7f383c3e26",
+        "temporal_models": "dd3e34b10bcb1df143a8d13140539eb4b69309b7927c226329baee29edb24d20"
+      }
+    }
+  },
+  "reference": {
+    "external": {
+      "conventions": {
+        "aba1.75": {
+          "dead_carried": 0.5837010534684953,
+          "matches": {
+            "dfl/WQQ/clean": {
+              "macro_f1": 0.9473674826637634,
+              "spell_f1": 0.7764705882352941,
+              "spells": 290
+            },
+            "dfl/WQQ/dead_carried": {
+              "macro_f1": 0.8517763385362311,
+              "spell_f1": 0.5777777777777777,
+              "spells": 282
+            },
+            "dfl/WQQ/masked": {
+              "macro_f1": 0.9262391420172013,
+              "spell_f1": 0.7008375209380234,
+              "spells": 258
+            },
+            "dfl/WQQ/team_swap": {
+              "macro_f1": 0.912654130368049,
+              "spell_f1": 0.6602006688963211,
+              "spells": 259
+            },
+            "dfl/WR9/clean": {
+              "macro_f1": 0.9549478027906071,
+              "spell_f1": 0.764349376114082,
+              "spells": 255
+            },
+            "dfl/WR9/dead_carried": {
+              "macro_f1": 0.862178070877107,
+              "spell_f1": 0.5896243291592129,
+              "spells": 253
+            },
+            "dfl/WR9/masked": {
+              "macro_f1": 0.929269984841446,
+              "spell_f1": 0.6659090909090909,
+              "spells": 222
+            },
+            "dfl/WR9/team_swap": {
+              "macro_f1": 0.9134321730756029,
+              "spell_f1": 0.6259887005649718,
+              "spells": 225
+            },
+            "skillcorner/2013725/observed": {
+              "macro_f1": 0.9046836096486411,
+              "spell_f1": 0.6765432098765432,
+              "spells": 240
+            },
+            "skillcorner/2015213/observed": {
+              "macro_f1": 0.8923950948420171,
+              "spell_f1": 0.6702317290552584,
+              "spells": 236
+            },
+            "skillcorner/2016236/observed": {
+              "macro_f1": 0.9169958948272519,
+              "spell_f1": 0.7235955056179775,
+              "spells": 233
+            },
+            "skillcorner/2017461/observed": {
+              "macro_f1": 0.911590450407671,
+              "spell_f1": 0.6511450381679389,
+              "spells": 216
+            }
+          },
+          "standard": {
+            "macro_f1": 0.9209859261466697,
+            "spell_f1": 0.6963822010100151
+          },
+          "team_swap": 0.6430946847306465
+        },
+        "aba3": {
+          "dead_carried": 0.6429686680768745,
+          "matches": {
+            "dfl/WQQ/clean": {
+              "macro_f1": 0.946263645230499,
+              "spell_f1": 0.7662385321100917,
+              "spells": 290
+            },
+            "dfl/WQQ/dead_carried": {
+              "macro_f1": 0.8583749636997644,
+              "spell_f1": 0.642830540037244,
+              "spells": 282
+            },
+            "dfl/WQQ/masked": {
+              "macro_f1": 0.9307499127695319,
+              "spell_f1": 0.7454191033138402,
+              "spells": 258
+            },
+            "dfl/WQQ/team_swap": {
+              "macro_f1": 0.9168769422917004,
+              "spell_f1": 0.7136186770428016,
+              "spells": 259
+            },
+            "dfl/WR9/clean": {
+              "macro_f1": 0.9558168092393634,
+              "spell_f1": 0.7876208897485493,
+              "spells": 255
+            },
+            "dfl/WR9/dead_carried": {
+              "macro_f1": 0.8682554765709777,
+              "spell_f1": 0.6431067961165049,
+              "spells": 253
+            },
+            "dfl/WR9/masked": {
+              "macro_f1": 0.9354868902214847,
+              "spell_f1": 0.724793388429752,
+              "spells": 222
+            },
+            "dfl/WR9/team_swap": {
+              "macro_f1": 0.9188918999079035,
+              "spell_f1": 0.6726899383983572,
+              "spells": 225
+            },
+            "skillcorner/2013725/observed": {
+              "macro_f1": 0.9076554327438129,
+              "spell_f1": 0.7068901303538175,
+              "spells": 240
+            },
+            "skillcorner/2015213/observed": {
+              "macro_f1": 0.8916017781564226,
+              "spell_f1": 0.6696461824953446,
+              "spells": 236
+            },
+            "skillcorner/2016236/observed": {
+              "macro_f1": 0.9200240759492603,
+              "spell_f1": 0.7448818897637797,
+              "spells": 233
+            },
+            "skillcorner/2017461/observed": {
+              "macro_f1": 0.917024209274571,
+              "spell_f1": 0.7033057851239669,
+              "spells": 216
+            }
+          },
+          "standard": {
+            "macro_f1": 0.9240843587198331,
+            "spell_f1": 0.727614198912599
+          },
+          "team_swap": 0.6931543077205794
+        },
+        "aba4": {
+          "dead_carried": 0.6456237230528346,
+          "matches": {
+            "dfl/WQQ/clean": {
+              "macro_f1": 0.9449572868386041,
+              "spell_f1": 0.7523277467411547,
+              "spells": 290
+            },
+            "dfl/WQQ/dead_carried": {
+              "macro_f1": 0.8595824650642974,
+              "spell_f1": 0.648015122873346,
+              "spells": 282
+            },
+            "dfl/WQQ/masked": {
+              "macro_f1": 0.9321180369196851,
+              "spell_f1": 0.7508910891089109,
+              "spells": 258
+            },
+            "dfl/WQQ/team_swap": {
+              "macro_f1": 0.9169410937138308,
+              "spell_f1": 0.708300395256917,
+              "spells": 259
+            },
+            "dfl/WR9/clean": {
+              "macro_f1": 0.948562799443008,
+              "spell_f1": 0.7267605633802817,
+              "spells": 255
+            },
+            "dfl/WR9/dead_carried": {
+              "macro_f1": 0.8682793718378478,
+              "spell_f1": 0.6432323232323233,
+              "spells": 253
+            },
+            "dfl/WR9/masked": {
+              "macro_f1": 0.9369784544657508,
+              "spell_f1": 0.7405172413793103,
+              "spells": 222
+            },
+            "dfl/WR9/team_swap": {
+              "macro_f1": 0.9196096250966179,
+              "spell_f1": 0.678372591006424,
+              "spells": 225
+            },
+            "skillcorner/2013725/observed": {
+              "macro_f1": 0.9078392370710199,
+              "spell_f1": 0.7098265895953757,
+              "spells": 240
+            },
+            "skillcorner/2015213/observed": {
+              "macro_f1": 0.8983151959993836,
+              "spell_f1": 0.6966731898238747,
+              "spells": 236
+            },
+            "skillcorner/2016236/observed": {
+              "macro_f1": 0.9181541373080284,
+              "spell_f1": 0.7333333333333333,
+              "spells": 233
+            },
+            "skillcorner/2017461/observed": {
+              "macro_f1": 0.9141473492376044,
+              "spell_f1": 0.6885964912280702,
+              "spells": 216
+            }
+          },
+          "standard": {
+            "macro_f1": 0.9241164123730449,
+            "spell_f1": 0.7253791147557382
+          },
+          "team_swap": 0.6933364931316706
+        },
+        "aba4.5": {
+          "dead_carried": 0.6259358513693773,
+          "matches": {
+            "dfl/WQQ/clean": {
+              "macro_f1": 0.9421665721484928,
+              "spell_f1": 0.7309297912713473,
+              "spells": 290
+            },
+            "dfl/WQQ/dead_carried": {
+              "macro_f1": 0.8589302274438081,
+              "spell_f1": 0.638150289017341,
+              "spells": 282
+            },
+            "dfl/WQQ/masked": {
+              "macro_f1": 0.9296306413525094,
+              "spell_f1": 0.7280808080808081,
+              "spells": 258
+            },
+            "dfl/WQQ/team_swap": {
+              "macro_f1": 0.914948566176644,
+              "spell_f1": 0.6983870967741936,
+              "spells": 259
+            },
+            "dfl/WR9/clean": {
+              "macro_f1": 0.944273058805953,
+              "spell_f1": 0.693167701863354,
+              "spells": 255
+            },
+            "dfl/WR9/dead_carried": {
+              "macro_f1": 0.8650483596798969,
+              "spell_f1": 0.6137214137214138,
+              "spells": 253
+            },
+            "dfl/WR9/masked": {
+              "macro_f1": 0.9334871062869198,
+              "spell_f1": 0.7146666666666667,
+              "spells": 222
+            },
+            "dfl/WR9/team_swap": {
+              "macro_f1": 0.9159138802470806,
+              "spell_f1": 0.6675496688741721,
+              "spells": 225
+            },
+            "skillcorner/2013725/observed": {
+              "macro_f1": 0.9079310760946312,
+              "spell_f1": 0.7129740518962076,
+              "spells": 240
+            },
+            "skillcorner/2015213/observed": {
+              "macro_f1": 0.8940542586606955,
+              "spell_f1": 0.6653306613226453,
+              "spells": 236
+            },
+            "skillcorner/2016236/observed": {
+              "macro_f1": 0.9165053144147217,
+              "spell_f1": 0.7141666666666666,
+              "spells": 233
+            },
+            "skillcorner/2017461/observed": {
+              "macro_f1": 0.913203727387463,
+              "spell_f1": 0.6808888888888889,
+              "spells": 216
+            }
+          },
+          "standard": {
+            "macro_f1": 0.9216847242557975,
+            "spell_f1": 0.7058027371492719
+          },
+          "team_swap": 0.6829683828241828
+        },
+        "raw": {
+          "dead_carried": 0.5228378248168664,
+          "matches": {
+            "dfl/WQQ/clean": {
+              "macro_f1": 0.946482257397551,
+              "spell_f1": 0.7160636758321274,
+              "spells": 290
+            },
+            "dfl/WQQ/dead_carried": {
+              "macro_f1": 0.8502852204954204,
+              "spell_f1": 0.5224011713030747,
+              "spells": 282
+            },
+            "dfl/WQQ/masked": {
+              "macro_f1": 0.9246600897019194,
+              "spell_f1": 0.6324734446130502,
+              "spells": 258
+            },
+            "dfl/WQQ/team_swap": {
+              "macro_f1": 0.9116445913733507,
+              "spell_f1": 0.6036363636363635,
+              "spells": 259
+            },
+            "dfl/WR9/clean": {
+              "macro_f1": 0.9526525828221052,
+              "spell_f1": 0.688,
+              "spells": 255
+            },
+            "dfl/WR9/dead_carried": {
+              "macro_f1": 0.8604560376964772,
+              "spell_f1": 0.5232744783306581,
+              "spells": 253
+            },
+            "dfl/WR9/masked": {
+              "macro_f1": 0.9273821098253231,
+              "spell_f1": 0.5891891891891892,
+              "spells": 222
+            },
+            "dfl/WR9/team_swap": {
+              "macro_f1": 0.9110996782778639,
+              "spell_f1": 0.5505882352941176,
+              "spells": 225
+            },
+            "skillcorner/2013725/observed": {
+              "macro_f1": 0.903686635507821,
+              "spell_f1": 0.6365159128978226,
+              "spells": 240
+            },
+            "skillcorner/2015213/observed": {
+              "macro_f1": 0.8916534006709377,
+              "spell_f1": 0.6390492359932087,
+              "spells": 236
+            },
+            "skillcorner/2016236/observed": {
+              "macro_f1": 0.9148255526720742,
+              "spell_f1": 0.6604166666666667,
+              "spells": 233
+            },
+            "skillcorner/2017461/observed": {
+              "macro_f1": 0.9097714760428778,
+              "spell_f1": 0.6198529411764706,
+              "spells": 216
+            }
+          },
+          "standard": {
+            "macro_f1": 0.9194270697178923,
+            "spell_f1": 0.6400950898781549
+          },
+          "team_swap": 0.5771122994652406
+        }
+      },
+      "recipe": {
+        "cutoff": 0.53,
+        "dead_cost": 2,
+        "dead_mix": 0.5,
+        "discount": 0.8,
+        "method": "joint",
+        "owner_cost": 10,
+        "owner_mix": 0.5,
+        "variant": "seed_phase"
+      }
+    },
+    "pff": {
+      "matches": {
+        "10509": {
+          "aba1.75": {
+            "macro_f1": 0.8993546819285884,
+            "spell_f1": 0.6875,
+            "spells": 157
+          },
+          "aba3": {
+            "macro_f1": 0.9018903812171312,
+            "spell_f1": 0.7153846153846153,
+            "spells": 157
+          },
+          "aba4": {
+            "macro_f1": 0.9025143076117287,
+            "spell_f1": 0.7129943502824858,
+            "spells": 157
+          },
+          "aba4.5": {
+            "macro_f1": 0.9009580960987195,
+            "spell_f1": 0.6913294797687861,
+            "spells": 157
+          },
+          "raw": {
+            "macro_f1": 0.8964294983603328,
+            "spell_f1": 0.6339805825242719,
+            "spells": 157
+          }
+        },
+        "10517": {
+          "aba1.75": {
+            "macro_f1": 0.8831868442474291,
+            "spell_f1": 0.6096551724137932,
+            "spells": 166
+          },
+          "aba3": {
+            "macro_f1": 0.8863499676067471,
+            "spell_f1": 0.6841309823677582,
+            "spells": 166
+          },
+          "aba4": {
+            "macro_f1": 0.8916762077980079,
+            "spell_f1": 0.7352785145888594,
+            "spells": 166
+          },
+          "aba4.5": {
+            "macro_f1": 0.8909974875402625,
+            "spell_f1": 0.736,
+            "spells": 166
+          },
+          "raw": {
+            "macro_f1": 0.8810414991385497,
+            "spell_f1": 0.5473684210526316,
+            "spells": 166
+          }
+        },
+        "3819": {
+          "aba1.75": {
+            "macro_f1": 0.9150975553123818,
+            "spell_f1": 0.6688,
+            "spells": 152
+          },
+          "aba3": {
+            "macro_f1": 0.9193452028082807,
+            "spell_f1": 0.7323615160349854,
+            "spells": 152
+          },
+          "aba4": {
+            "macro_f1": 0.9198186883427653,
+            "spell_f1": 0.7391044776119404,
+            "spells": 152
+          },
+          "aba4.5": {
+            "macro_f1": 0.9219217914877816,
+            "spell_f1": 0.7586626139817629,
+            "spells": 152
+          },
+          "raw": {
+            "macro_f1": 0.9136556021294271,
+            "spell_f1": 0.6381679389312976,
+            "spells": 152
+          }
+        },
+        "3827": {
+          "aba1.75": {
+            "macro_f1": 0.893094399827532,
+            "spell_f1": 0.6503597122302158,
+            "spells": 172
+          },
+          "aba3": {
+            "macro_f1": 0.8975083381097347,
+            "spell_f1": 0.6971722365038561,
+            "spells": 172
+          },
+          "aba4": {
+            "macro_f1": 0.8958065200718321,
+            "spell_f1": 0.6740157480314961,
+            "spells": 172
+          },
+          "aba4.5": {
+            "macro_f1": 0.8975983952822201,
+            "spell_f1": 0.680323450134771,
+            "spells": 172
+          },
+          "raw": {
+            "macro_f1": 0.8921874830675399,
+            "spell_f1": 0.6232346241457858,
+            "spells": 172
+          }
+        },
+        "3835": {
+          "aba1.75": {
+            "macro_f1": 0.8870123948076144,
+            "spell_f1": 0.663,
+            "spells": 163
+          },
+          "aba3": {
+            "macro_f1": 0.8882511819006703,
+            "spell_f1": 0.6791443850267379,
+            "spells": 163
+          },
+          "aba4": {
+            "macro_f1": 0.8893230104449343,
+            "spell_f1": 0.6988888888888889,
+            "spells": 163
+          },
+          "aba4.5": {
+            "macro_f1": 0.8911228854575847,
+            "spell_f1": 0.7123595505617978,
+            "spells": 163
+          },
+          "raw": {
+            "macro_f1": 0.882679247065323,
+            "spell_f1": 0.5723214285714285,
+            "spells": 163
+          }
+        },
+        "3843": {
+          "aba1.75": {
+            "macro_f1": 0.8810292627504618,
+            "spell_f1": 0.6243243243243243,
+            "spells": 172
+          },
+          "aba3": {
+            "macro_f1": 0.8879423291980274,
+            "spell_f1": 0.7004926108374383,
+            "spells": 172
+          },
+          "aba4": {
+            "macro_f1": 0.8895446420025429,
+            "spell_f1": 0.7045685279187818,
+            "spells": 172
+          },
+          "aba4.5": {
+            "macro_f1": 0.892623774616833,
+            "spell_f1": 0.716842105263158,
+            "spells": 172
+          },
+          "raw": {
+            "macro_f1": 0.8773237105989145,
+            "spell_f1": 0.5403225806451613,
+            "spells": 172
+          }
+        },
+        "3851": {
+          "aba1.75": {
+            "macro_f1": 0.8150152925252199,
+            "spell_f1": 0.55,
+            "spells": 198
+          },
+          "aba3": {
+            "macro_f1": 0.8229311350386844,
+            "spell_f1": 0.6141078838174273,
+            "spells": 198
+          },
+          "aba4": {
+            "macro_f1": 0.8281184714051278,
+            "spell_f1": 0.6408695652173912,
+            "spells": 198
+          },
+          "aba4.5": {
+            "macro_f1": 0.8261204681941017,
+            "spell_f1": 0.6284444444444445,
+            "spells": 198
+          },
+          "raw": {
+            "macro_f1": 0.8098914052333628,
+            "spell_f1": 0.4902097902097903,
+            "spells": 198
+          }
+        },
+        "3859": {
+          "aba1.75": {
+            "macro_f1": 0.8706166999901664,
+            "spell_f1": 0.6447619047619046,
+            "spells": 173
+          },
+          "aba3": {
+            "macro_f1": 0.8743930524343556,
+            "spell_f1": 0.6862944162436548,
+            "spells": 173
+          },
+          "aba4": {
+            "macro_f1": 0.873407461022666,
+            "spell_f1": 0.672340425531915,
+            "spells": 173
+          },
+          "aba4.5": {
+            "macro_f1": 0.8748051817394341,
+            "spell_f1": 0.673224043715847,
+            "spells": 173
+          },
+          "raw": {
+            "macro_f1": 0.8680100070068515,
+            "spell_f1": 0.5919282511210762,
+            "spells": 173
+          }
+        }
+      },
+      "means": {
+        "aba1.75": {
+          "macro_f1": 0.8805508914236742,
+          "spell_f1": 0.6373001392162797
+        },
+        "aba3": {
+          "macro_f1": 0.8848264485392039,
+          "spell_f1": 0.6886360807770592
+        },
+        "aba4": {
+          "macro_f1": 0.8862761635874506,
+          "spell_f1": 0.6972575622589698
+        },
+        "aba4.5": {
+          "macro_f1": 0.8870185100521171,
+          "spell_f1": 0.6996482109838209
+        },
+        "raw": {
+          "macro_f1": 0.8776523065750377,
+          "spell_f1": 0.5796917021501804
+        }
+      }
+    },
+    "recipe": {
+      "cutoff": 0.53,
+      "dead_cost": 2,
+      "dead_mix": 0.5,
+      "discount": 0.8,
+      "method": "joint",
+      "owner_cost": 10,
+      "owner_mix": 0.5,
+      "variant": "seed_phase"
+    }
+  },
+  "reference_cost": 10,
+  "scored_at": "2026-11-13 11:28 EST",
+  "second_use_of": "DECISIONS.md D48 confirmation sets",
+  "stack_with_c": {
+    "changes": {
+      "conventions": {
+        "aba1.75": 0.015657663506741804,
+        "aba4": 0.0012564246399162649,
+        "aba4.5": 0.0013515991350177003
+      },
+      "guards": {
+        "dead_carried": 0.0030679797585030366,
+        "team_swap": 0.01810942854315689
+      },
+      "long_hidden": 0.042061544754815494,
+      "pff": 0.034973291429121534,
+      "primary": 0.005150411304804314,
+      "raw_standard": 0.013103173507475252
+    },
+    "owner_cost": 14,
+    "trial": {
+      "external": {
+        "conventions": {
+          "aba1.75": {
+            "dead_carried": 0.6244198238501328,
+            "matches": {
+              "dfl/WQQ/clean": {
+                "macro_f1": 0.9491955589960587,
+                "spell_f1": 0.7894573643410853,
+                "spells": 306
+              },
+              "dfl/WQQ/dead_carried": {
+                "macro_f1": 0.8677775963516661,
+                "spell_f1": 0.6205787781350482,
+                "spells": 283
+              },
+              "dfl/WQQ/masked": {
+                "macro_f1": 0.9306653069702552,
+                "spell_f1": 0.7249169435215947,
+                "spells": 263
+              },
+              "dfl/WQQ/team_swap": {
+                "macro_f1": 0.9202523933486937,
+                "spell_f1": 0.6880794701986755,
+                "spells": 265
+              },
+              "dfl/WR9/clean": {
+                "macro_f1": 0.9564156551856513,
+                "spell_f1": 0.7768421052631578,
+                "spells": 264
+              },
+              "dfl/WR9/dead_carried": {
+                "macro_f1": 0.8818124349090755,
+                "spell_f1": 0.6282608695652174,
+                "spells": 246
+              },
+              "dfl/WR9/masked": {
+                "macro_f1": 0.9335413598205533,
+                "spell_f1": 0.697378277153558,
+                "spells": 228
+              },
+              "dfl/WR9/team_swap": {
+                "macro_f1": 0.9259932326636161,
+                "spell_f1": 0.6786516853932584,
+                "spells": 228
+              },
+              "skillcorner/2013725/observed": {
+                "macro_f1": 0.90669275220646,
+                "spell_f1": 0.6968197879858657,
+                "spells": 239
+              },
+              "skillcorner/2015213/observed": {
+                "macro_f1": 0.9002648720906882,
+                "spell_f1": 0.6829787234042553,
+                "spells": 239
+              },
+              "skillcorner/2016236/observed": {
+                "macro_f1": 0.9184839278557618,
+                "spell_f1": 0.7207547169811321,
+                "spells": 229
+              },
+              "skillcorner/2017461/observed": {
+                "macro_f1": 0.9150174860557089,
+                "spell_f1": 0.6551724137931035,
+                "spells": 214
+              }
+            },
+            "standard": {
+              "macro_f1": 0.9245594254230212,
+              "spell_f1": 0.7120398645167569
+            },
+            "team_swap": 0.683365577795967
+          },
+          "aba3": {
+            "dead_carried": 0.6460366478353775,
+            "matches": {
+              "dfl/WQQ/clean": {
+                "macro_f1": 0.9457130467178492,
+                "spell_f1": 0.7565062388591799,
+                "spells": 306
+              },
+              "dfl/WQQ/dead_carried": {
+                "macro_f1": 0.8706382627130586,
+                "spell_f1": 0.6408921933085502,
+                "spells": 283
+              },
+              "dfl/WQQ/masked": {
+                "macro_f1": 0.9329616756105628,
+                "spell_f1": 0.7505791505791507,
+                "spells": 263
+              },
+              "dfl/WQQ/team_swap": {
+                "macro_f1": 0.9244575560136618,
+                "spell_f1": 0.7253846153846154,
+                "spells": 265
+              },
+              "dfl/WR9/clean": {
+                "macro_f1": 0.9564159953736668,
+                "spell_f1": 0.793916349809886,
+                "spells": 264
+              },
+              "dfl/WR9/dead_carried": {
+                "macro_f1": 0.8849500247774925,
+                "spell_f1": 0.6511811023622048,
+                "spells": 246
+              },
+              "dfl/WR9/masked": {
+                "macro_f1": 0.9357431398975936,
+                "spell_f1": 0.7208163265306122,
+                "spells": 228
+              },
+              "dfl/WR9/team_swap": {
+                "macro_f1": 0.9274173709523392,
+                "spell_f1": 0.6971428571428572,
+                "spells": 228
+              },
+              "skillcorner/2013725/observed": {
+                "macro_f1": 0.9084776202892849,
+                "spell_f1": 0.7164179104477613,
+                "spells": 239
+              },
+              "skillcorner/2015213/observed": {
+                "macro_f1": 0.8999792572669415,
+                "spell_f1": 0.6911111111111111,
+                "spells": 239
+              },
+              "skillcorner/2016236/observed": {
+                "macro_f1": 0.9215439600079002,
+                "spell_f1": 0.7412698412698412,
+                "spells": 229
+              },
+              "skillcorner/2017461/observed": {
+                "macro_f1": 0.9224669978267662,
+                "spell_f1": 0.7178423236514523,
+                "spells": 214
+              }
+            },
+            "standard": {
+              "macro_f1": 0.9265200355161807,
+              "spell_f1": 0.7327646102174034
+            },
+            "team_swap": 0.7112637362637363
+          },
+          "aba4": {
+            "dead_carried": 0.6529369007114134,
+            "matches": {
+              "dfl/WQQ/clean": {
+                "macro_f1": 0.9444058241561728,
+                "spell_f1": 0.7428571428571429,
+                "spells": 306
+              },
+              "dfl/WQQ/dead_carried": {
+                "macro_f1": 0.8718061185266835,
+                "spell_f1": 0.6460377358490565,
+                "spells": 283
+              },
+              "dfl/WQQ/masked": {
+                "macro_f1": 0.93296573883657,
+                "spell_f1": 0.7435294117647058,
+                "spells": 263
+              },
+              "dfl/WQQ/team_swap": {
+                "macro_f1": 0.9245268763942853,
+                "spell_f1": 0.71796875,
+                "spells": 265
+              },
+              "dfl/WR9/clean": {
+                "macro_f1": 0.9492497926315258,
+                "spell_f1": 0.7351778656126482,
+                "spells": 264
+              },
+              "dfl/WR9/dead_carried": {
+                "macro_f1": 0.8856575581068581,
+                "spell_f1": 0.6598360655737704,
+                "spells": 246
+              },
+              "dfl/WR9/masked": {
+                "macro_f1": 0.9365516220191817,
+                "spell_f1": 0.7344680851063831,
+                "spells": 228
+              },
+              "dfl/WR9/team_swap": {
+                "macro_f1": 0.9267648294478724,
+                "spell_f1": 0.6953191489361702,
+                "spells": 228
+              },
+              "skillcorner/2013725/observed": {
+                "macro_f1": 0.9083446252268631,
+                "spell_f1": 0.7166023166023165,
+                "spells": 239
+              },
+              "skillcorner/2015213/observed": {
+                "macro_f1": 0.9025120403770707,
+                "spell_f1": 0.7042801556420233,
+                "spells": 239
+              },
+              "skillcorner/2016236/observed": {
+                "macro_f1": 0.9207244601155172,
+                "spell_f1": 0.741908713692946,
+                "spells": 229
+              },
+              "skillcorner/2017461/observed": {
+                "macro_f1": 0.9194335380449851,
+                "spell_f1": 0.694273127753304,
+                "spells": 214
+              }
+            },
+            "standard": {
+              "macro_f1": 0.9257676945121547,
+              "spell_f1": 0.7266355393956545
+            },
+            "team_swap": 0.7066439494680852
+          },
+          "aba4.5": {
+            "dead_carried": 0.6336887374229145,
+            "matches": {
+              "dfl/WQQ/clean": {
+                "macro_f1": 0.9413741205936326,
+                "spell_f1": 0.7219152854511972,
+                "spells": 306
+              },
+              "dfl/WQQ/dead_carried": {
+                "macro_f1": 0.8709984312264053,
+                "spell_f1": 0.6361538461538461,
+                "spells": 283
+              },
+              "dfl/WQQ/masked": {
+                "macro_f1": 0.9305087076199788,
+                "spell_f1": 0.7216,
+                "spells": 263
+              },
+              "dfl/WQQ/team_swap": {
+                "macro_f1": 0.9220518119290245,
+                "spell_f1": 0.7075697211155378,
+                "spells": 265
+              },
+              "dfl/WR9/clean": {
+                "macro_f1": 0.944887783680875,
+                "spell_f1": 0.7056910569105691,
+                "spells": 264
+              },
+              "dfl/WR9/dead_carried": {
+                "macro_f1": 0.8823056905047665,
+                "spell_f1": 0.631223628691983,
+                "spells": 246
+              },
+              "dfl/WR9/masked": {
+                "macro_f1": 0.9331114816560611,
+                "spell_f1": 0.706140350877193,
+                "spells": 228
+              },
+              "dfl/WR9/team_swap": {
+                "macro_f1": 0.9231301560466911,
+                "spell_f1": 0.6710526315789472,
+                "spells": 228
+              },
+              "skillcorner/2013725/observed": {
+                "macro_f1": 0.9084444784245758,
+                "spell_f1": 0.7184,
+                "spells": 239
+              },
+              "skillcorner/2015213/observed": {
+                "macro_f1": 0.8983459615832948,
+                "spell_f1": 0.6733067729083665,
+                "spells": 239
+              },
+              "skillcorner/2016236/observed": {
+                "macro_f1": 0.9191120630366089,
+                "spell_f1": 0.7235294117647059,
+                "spells": 229
+              },
+              "skillcorner/2017461/observed": {
+                "macro_f1": 0.9183918817983528,
+                "spell_f1": 0.6866071428571429,
+                "spells": 214
+              }
+            },
+            "standard": {
+              "macro_f1": 0.9233286550075697,
+              "spell_f1": 0.7071543362842896
+            },
+            "team_swap": 0.6893111763472426
+          },
+          "raw": {
+            "dead_carried": 0.5556675780359991,
+            "matches": {
+              "dfl/WQQ/clean": {
+                "macro_f1": 0.9487914053529423,
+                "spell_f1": 0.736067892503536,
+                "spells": 306
+              },
+              "dfl/WQQ/dead_carried": {
+                "macro_f1": 0.8658451869946203,
+                "spell_f1": 0.5561403508771929,
+                "spells": 283
+              },
+              "dfl/WQQ/masked": {
+                "macro_f1": 0.9283257362721195,
+                "spell_f1": 0.6457831325301204,
+                "spells": 263
+              },
+              "dfl/WQQ/team_swap": {
+                "macro_f1": 0.9186659151513258,
+                "spell_f1": 0.6276276276276276,
+                "spells": 265
+              },
+              "dfl/WR9/clean": {
+                "macro_f1": 0.9547257400672757,
+                "spell_f1": 0.7078864353312303,
+                "spells": 264
+              },
+              "dfl/WR9/dead_carried": {
+                "macro_f1": 0.8800670454952407,
+                "spell_f1": 0.5551948051948052,
+                "spells": 246
+              },
+              "dfl/WR9/masked": {
+                "macro_f1": 0.9316698353192051,
+                "spell_f1": 0.614715719063545,
+                "spells": 228
+              },
+              "dfl/WR9/team_swap": {
+                "macro_f1": 0.9238348346562151,
+                "spell_f1": 0.5953177257525084,
+                "spells": 228
+              },
+              "skillcorner/2013725/observed": {
+                "macro_f1": 0.90569797088784,
+                "spell_f1": 0.6543624161073825,
+                "spells": 239
+              },
+              "skillcorner/2015213/observed": {
+                "macro_f1": 0.898851291883497,
+                "spell_f1": 0.6445945945945946,
+                "spells": 239
+              },
+              "skillcorner/2016236/observed": {
+                "macro_f1": 0.916182483699267,
+                "spell_f1": 0.6545454545454545,
+                "spells": 229
+              },
+              "skillcorner/2017461/observed": {
+                "macro_f1": 0.9133784527803185,
+                "spell_f1": 0.6287822878228783,
+                "spells": 214
+              }
+            },
+            "standard": {
+              "macro_f1": 0.9228894656232709,
+              "spell_f1": 0.6531982633856301
+            },
+            "team_swap": 0.611472676690068
+          }
+        },
+        "recipe": {
+          "cutoff": 0.53,
+          "dead_cost": 2,
+          "dead_mix": 0.5,
+          "discount": 0.8,
+          "method": "joint",
+          "owner_cost": 14,
+          "owner_mix": 0.5,
+          "variant": "seed_phase"
+        }
+      },
+      "pff": {
+        "matches": {
+          "10509": {
+            "aba1.75": {
+              "macro_f1": 0.9135406140813863,
+              "spell_f1": 0.7341772151898736,
+              "spells": 168
+            },
+            "aba3": {
+              "macro_f1": 0.9148518071588679,
+              "spell_f1": 0.7477333333333332,
+              "spells": 168
+            },
+            "aba4": {
+              "macro_f1": 0.9145435781074518,
+              "spell_f1": 0.7463013698630137,
+              "spells": 168
+            },
+            "aba4.5": {
+              "macro_f1": 0.9131786646039055,
+              "spell_f1": 0.7294117647058823,
+              "spells": 168
+            },
+            "raw": {
+              "macro_f1": 0.9104916652813227,
+              "spell_f1": 0.6808510638297873,
+              "spells": 168
+            }
+          },
+          "10517": {
+            "aba1.75": {
+              "macro_f1": 0.9034466853877424,
+              "spell_f1": 0.6506666666666667,
+              "spells": 181
+            },
+            "aba3": {
+              "macro_f1": 0.906624798576142,
+              "spell_f1": 0.7242718446601941,
+              "spells": 181
+            },
+            "aba4": {
+              "macro_f1": 0.9098386626679561,
+              "spell_f1": 0.7551020408163265,
+              "spells": 181
+            },
+            "aba4.5": {
+              "macro_f1": 0.9091762735990176,
+              "spell_f1": 0.756923076923077,
+              "spells": 181
+            },
+            "raw": {
+              "macro_f1": 0.9011746239828637,
+              "spell_f1": 0.5844897959183672,
+              "spells": 181
+            }
+          },
+          "3819": {
+            "aba1.75": {
+              "macro_f1": 0.9270444739959615,
+              "spell_f1": 0.7097112860892388,
+              "spells": 158
+            },
+            "aba3": {
+              "macro_f1": 0.9302729297287993,
+              "spell_f1": 0.7621776504297995,
+              "spells": 158
+            },
+            "aba4": {
+              "macro_f1": 0.9306610860467518,
+              "spell_f1": 0.7683284457478005,
+              "spells": 158
+            },
+            "aba4.5": {
+              "macro_f1": 0.932938758759322,
+              "spell_f1": 0.7904477611940297,
+              "spells": 158
+            },
+            "raw": {
+              "macro_f1": 0.9256685751593646,
+              "spell_f1": 0.6766917293233082,
+              "spells": 158
+            }
+          },
+          "3827": {
+            "aba1.75": {
+              "macro_f1": 0.9052343838964007,
+              "spell_f1": 0.6767058823529413,
+              "spells": 180
+            },
+            "aba3": {
+              "macro_f1": 0.9091038112341439,
+              "spell_f1": 0.7204030226700253,
+              "spells": 180
+            },
+            "aba4": {
+              "macro_f1": 0.906765771955667,
+              "spell_f1": 0.7043701799485861,
+              "spells": 180
+            },
+            "aba4.5": {
+              "macro_f1": 0.9084478115783515,
+              "spell_f1": 0.7092348284960421,
+              "spells": 180
+            },
+            "raw": {
+              "macro_f1": 0.903775258899148,
+              "spell_f1": 0.650559284116331,
+              "spells": 180
+            }
+          },
+          "3835": {
+            "aba1.75": {
+              "macro_f1": 0.8937454435644518,
+              "spell_f1": 0.6829736211031174,
+              "spells": 180
+            },
+            "aba3": {
+              "macro_f1": 0.895557052656768,
+              "spell_f1": 0.7089514066496163,
+              "spells": 180
+            },
+            "aba4": {
+              "macro_f1": 0.8963399441995649,
+              "spell_f1": 0.7267904509283819,
+              "spells": 180
+            },
+            "aba4.5": {
+              "macro_f1": 0.8965854802714254,
+              "spell_f1": 0.7260053619302949,
+              "spells": 180
+            },
+            "raw": {
+              "macro_f1": 0.8897848649585005,
+              "spell_f1": 0.5978494623655914,
+              "spells": 180
+            }
+          },
+          "3843": {
+            "aba1.75": {
+              "macro_f1": 0.8920449068157015,
+              "spell_f1": 0.6759219088937094,
+              "spells": 189
+            },
+            "aba3": {
+              "macro_f1": 0.8967819275014833,
+              "spell_f1": 0.7215130023640663,
+              "spells": 189
+            },
+            "aba4": {
+              "macro_f1": 0.8969857076907922,
+              "spell_f1": 0.727007299270073,
+              "spells": 189
+            },
+            "aba4.5": {
+              "macro_f1": 0.8977465656617074,
+              "spell_f1": 0.726448362720403,
+              "spells": 189
+            },
+            "raw": {
+              "macro_f1": 0.8880470048923238,
+              "spell_f1": 0.5847953216374269,
+              "spells": 189
+            }
+          },
+          "3851": {
+            "aba1.75": {
+              "macro_f1": 0.8510339544418054,
+              "spell_f1": 0.6262476894639557,
+              "spells": 219
+            },
+            "aba3": {
+              "macro_f1": 0.8570713899451708,
+              "spell_f1": 0.6775347912524852,
+              "spells": 219
+            },
+            "aba4": {
+              "macro_f1": 0.8604090661726467,
+              "spell_f1": 0.6927234927234928,
+              "spells": 219
+            },
+            "aba4.5": {
+              "macro_f1": 0.8595298510882396,
+              "spell_f1": 0.6836518046709128,
+              "spells": 219
+            },
+            "raw": {
+              "macro_f1": 0.8463443165356,
+              "spell_f1": 0.5551433389544689,
+              "spells": 219
+            }
+          },
+          "3859": {
+            "aba1.75": {
+              "macro_f1": 0.8827786266387977,
+              "spell_f1": 0.6799076212471131,
+              "spells": 186
+            },
+            "aba3": {
+              "macro_f1": 0.8860487457820185,
+              "spell_f1": 0.7262899262899263,
+              "spells": 186
+            },
+            "aba4": {
+              "macro_f1": 0.8855928221097948,
+              "spell_f1": 0.713624678663239,
+              "spells": 186
+            },
+            "aba4.5": {
+              "macro_f1": 0.8860183869810236,
+              "spell_f1": 0.7060686015831135,
+              "spells": 186
+            },
+            "raw": {
+              "macro_f1": 0.8799395811224041,
+              "spell_f1": 0.6239651416122005,
+              "spells": 186
+            }
+          }
+        },
+        "means": {
+          "aba1.75": {
+            "macro_f1": 0.8961086361027809,
+            "spell_f1": 0.679538986375827
+          },
+          "aba3": {
+            "macro_f1": 0.8995390578229242,
+            "spell_f1": 0.7236093722061807
+          },
+          "aba4": {
+            "macro_f1": 0.9001420798688282,
+            "spell_f1": 0.7292809947451142
+          },
+          "aba4.5": {
+            "macro_f1": 0.9004527240678741,
+            "spell_f1": 0.7285239452779694
+          },
+          "raw": {
+            "macro_f1": 0.893153236353941,
+            "spell_f1": 0.6192931422196852
+          }
+        }
+      },
+      "recipe": {
+        "cutoff": 0.53,
+        "dead_cost": 2,
+        "dead_mix": 0.5,
+        "discount": 0.8,
+        "method": "joint",
+        "owner_cost": 14,
+        "owner_mix": 0.5,
+        "variant": "seed_phase"
+      }
+    }
+  },
+  "trial": {
+    "external": {
+      "conventions": {
+        "aba1.75": {
+          "dead_carried": 0.5979063399896143,
+          "matches": {
+            "dfl/WQQ/clean": {
+              "macro_f1": 0.9468017770039429,
+              "spell_f1": 0.7708399366085579,
+              "spells": 292
+            },
+            "dfl/WQQ/dead_carried": {
+              "macro_f1": 0.8593674619065786,
+              "spell_f1": 0.5856677524429967,
+              "spells": 275
+            },
+            "dfl/WQQ/masked": {
+              "macro_f1": 0.929453797940735,
+              "spell_f1": 0.7047297297297298,
+              "spells": 253
+            },
+            "dfl/WQQ/team_swap": {
+              "macro_f1": 0.9175292280492032,
+              "spell_f1": 0.6601351351351351,
+              "spells": 253
+            },
+            "dfl/WR9/clean": {
+              "macro_f1": 0.9549214465260746,
+              "spell_f1": 0.7707664884135472,
+              "spells": 255
+            },
+            "dfl/WR9/dead_carried": {
+              "macro_f1": 0.8733383770445283,
+              "spell_f1": 0.610144927536232,
+              "spells": 246
+            },
+            "dfl/WR9/masked": {
+              "macro_f1": 0.9326134187297562,
+              "spell_f1": 0.6844277673545965,
+              "spells": 227
+            },
+            "dfl/WR9/team_swap": {
+              "macro_f1": 0.9162808410674854,
+              "spell_f1": 0.6465028355387524,
+              "spells": 223
+            },
+            "skillcorner/2013725/observed": {
+              "macro_f1": 0.9026478148127456,
+              "spell_f1": 0.6714285714285715,
+              "spells": 233
+            },
+            "skillcorner/2015213/observed": {
+              "macro_f1": 0.8984696180968266,
+              "spell_f1": 0.6738351254480287,
+              "spells": 233
+            },
+            "skillcorner/2016236/observed": {
+              "macro_f1": 0.9191679022903759,
+              "spell_f1": 0.7180265654648956,
+              "spells": 226
+            },
+            "skillcorner/2017461/observed": {
+              "macro_f1": 0.9170037050025108,
+              "spell_f1": 0.6502923976608187,
+              "spells": 205
+            }
+          },
+          "standard": {
+            "macro_f1": 0.9234826014312241,
+            "spell_f1": 0.6991912840995191
+          },
+          "team_swap": 0.6533189853369438
+        },
+        "aba3": {
+          "dead_carried": 0.6480849799435449,
+          "matches": {
+            "dfl/WQQ/clean": {
+              "macro_f1": 0.944876344779428,
+              "spell_f1": 0.7575868372943327,
+              "spells": 292
+            },
+            "dfl/WQQ/dead_carried": {
+              "macro_f1": 0.8655113203031455,
+              "spell_f1": 0.6520754716981132,
+              "spells": 275
+            },
+            "dfl/WQQ/masked": {
+              "macro_f1": 0.9342076323897825,
+              "spell_f1": 0.7543307086614174,
+              "spells": 253
+            },
+            "dfl/WQQ/team_swap": {
+              "macro_f1": 0.922168935063233,
+              "spell_f1": 0.7118110236220473,
+              "spells": 253
+            },
+            "dfl/WR9/clean": {
+              "macro_f1": 0.9548487531659093,
+              "spell_f1": 0.7868471953578337,
+              "spells": 255
+            },
+            "dfl/WR9/dead_carried": {
+              "macro_f1": 0.8774308105196424,
+              "spell_f1": 0.6440944881889765,
+              "spells": 246
+            },
+            "dfl/WR9/masked": {
+              "macro_f1": 0.9362749886871726,
+              "spell_f1": 0.7132924335378322,
+              "spells": 227
+            },
+            "dfl/WR9/team_swap": {
+              "macro_f1": 0.918996381123617,
+              "spell_f1": 0.6762886597938145,
+              "spells": 223
+            },
+            "skillcorner/2013725/observed": {
+              "macro_f1": 0.9063706839342003,
+              "spell_f1": 0.7116981132075473,
+              "spells": 233
+            },
+            "skillcorner/2015213/observed": {
+              "macro_f1": 0.8986000202153518,
+              "spell_f1": 0.6846441947565542,
+              "spells": 233
+            },
+            "skillcorner/2016236/observed": {
+              "macro_f1": 0.9231543053989908,
+              "spell_f1": 0.7497005988023953,
+              "spells": 226
+            },
+            "skillcorner/2017461/observed": {
+              "macro_f1": 0.9245075739894316,
+              "spell_f1": 0.7103594080338268,
+              "spells": 205
+            }
+          },
+          "standard": {
+            "macro_f1": 0.9266366012838507,
+            "spell_f1": 0.730356982437596
+          },
+          "team_swap": 0.6940498417079308
+        },
+        "aba4": {
+          "dead_carried": 0.6557848125117769,
+          "matches": {
+            "dfl/WQQ/clean": {
+              "macro_f1": 0.9435687066767993,
+              "spell_f1": 0.743599257884972,
+              "spells": 292
+            },
+            "dfl/WQQ/dead_carried": {
+              "macro_f1": 0.8666645013937008,
+              "spell_f1": 0.657471264367816,
+              "spells": 275
+            },
+            "dfl/WQQ/masked": {
+              "macro_f1": 0.9342112095206146,
+              "spell_f1": 0.7495999999999999,
+              "spells": 253
+            },
+            "dfl/WQQ/team_swap": {
+              "macro_f1": 0.9221571933640331,
+              "spell_f1": 0.7096,
+              "spells": 253
+            },
+            "dfl/WR9/clean": {
+              "macro_f1": 0.9482593477056122,
+              "spell_f1": 0.7364185110663983,
+              "spells": 255
+            },
+            "dfl/WR9/dead_carried": {
+              "macro_f1": 0.8787683450496434,
+              "spell_f1": 0.6540983606557378,
+              "spells": 246
+            },
+            "dfl/WR9/masked": {
+              "macro_f1": 0.9377786495391969,
+              "spell_f1": 0.7275053304904051,
+              "spells": 227
+            },
+            "dfl/WR9/team_swap": {
+              "macro_f1": 0.9205085986456378,
+              "spell_f1": 0.6907526881720429,
+              "spells": 223
+            },
+            "skillcorner/2013725/observed": {
+              "macro_f1": 0.9059106330490151,
+              "spell_f1": 0.71171875,
+              "spells": 233
+            },
+            "skillcorner/2015213/observed": {
+              "macro_f1": 0.9021687068043959,
+              "spell_f1": 0.7015748031496063,
+              "spells": 233
+            },
+            "skillcorner/2016236/observed": {
+              "macro_f1": 0.9223428513298352,
+              "spell_f1": 0.7498956158663883,
+              "spells": 226
+            },
+            "skillcorner/2017461/observed": {
+              "macro_f1": 0.9214038413474368,
+              "spell_f1": 0.6984269662921347,
+              "spells": 205
+            }
+          },
+          "standard": {
+            "macro_f1": 0.9261289017748382,
+            "spell_f1": 0.7272210527411979
+          },
+          "team_swap": 0.7001763440860215
+        },
+        "aba4.5": {
+          "dead_carried": 0.6419237869198313,
+          "matches": {
+            "dfl/WQQ/clean": {
+              "macro_f1": 0.9409388482424245,
+              "spell_f1": 0.7221172022684309,
+              "spells": 292
+            },
+            "dfl/WQQ/dead_carried": {
+              "macro_f1": 0.8668395852890862,
+              "spell_f1": 0.659375,
+              "spells": 275
+            },
+            "dfl/WQQ/masked": {
+              "macro_f1": 0.9327694028136412,
+              "spell_f1": 0.7395918367346939,
+              "spells": 253
+            },
+            "dfl/WQQ/team_swap": {
+              "macro_f1": 0.9196823089224182,
+              "spell_f1": 0.6987755102040817,
+              "spells": 253
+            },
+            "dfl/WR9/clean": {
+              "macro_f1": 0.9439791072654017,
+              "spell_f1": 0.7047619047619047,
+              "spells": 255
+            },
+            "dfl/WR9/dead_carried": {
+              "macro_f1": 0.8753776691530145,
+              "spell_f1": 0.6244725738396625,
+              "spells": 246
+            },
+            "dfl/WR9/masked": {
+              "macro_f1": 0.934163392499125,
+              "spell_f1": 0.6980219780219781,
+              "spells": 227
+            },
+            "dfl/WR9/team_swap": {
+              "macro_f1": 0.9161798861671002,
+              "spell_f1": 0.6740576496674056,
+              "spells": 223
+            },
+            "skillcorner/2013725/observed": {
+              "macro_f1": 0.9060054528355469,
+              "spell_f1": 0.7133603238866396,
+              "spells": 233
+            },
+            "skillcorner/2015213/observed": {
+              "macro_f1": 0.8980363279171523,
+              "spell_f1": 0.6693548387096776,
+              "spells": 233
+            },
+            "skillcorner/2016236/observed": {
+              "macro_f1": 0.9205779305552628,
+              "spell_f1": 0.7306553911205074,
+              "spells": 226
+            },
+            "skillcorner/2017461/observed": {
+              "macro_f1": 0.921230280815653,
+              "spell_f1": 0.6997722095671982,
+              "spells": 205
+            }
+          },
+          "standard": {
+            "macro_f1": 0.9239632111932317,
+            "spell_f1": 0.7101517401224762
+          },
+          "team_swap": 0.6864165799357436
+        },
+        "raw": {
+          "dead_carried": 0.5332417582417583,
+          "matches": {
+            "dfl/WQQ/clean": {
+              "macro_f1": 0.9467995545053856,
+              "spell_f1": 0.7174603174603174,
+              "spells": 292
+            },
+            "dfl/WQQ/dead_carried": {
+              "macro_f1": 0.8581292274005864,
+              "spell_f1": 0.5307692307692308,
+              "spells": 275
+            },
+            "dfl/WQQ/masked": {
+              "macro_f1": 0.9278813151345325,
+              "spell_f1": 0.6360856269113151,
+              "spells": 253
+            },
+            "dfl/WQQ/team_swap": {
+              "macro_f1": 0.9165048347356723,
+              "spell_f1": 0.6042813455657492,
+              "spells": 253
+            },
+            "dfl/WR9/clean": {
+              "macro_f1": 0.9524643060748085,
+              "spell_f1": 0.69056,
+              "spells": 255
+            },
+            "dfl/WR9/dead_carried": {
+              "macro_f1": 0.8714579792798002,
+              "spell_f1": 0.5357142857142858,
+              "spells": 246
+            },
+            "dfl/WR9/masked": {
+              "macro_f1": 0.9305471069499437,
+              "spell_f1": 0.6063651591289783,
+              "spells": 227
+            },
+            "dfl/WR9/team_swap": {
+              "macro_f1": 0.9145035494736565,
+              "spell_f1": 0.5733558178752107,
+              "spells": 223
+            },
+            "skillcorner/2013725/observed": {
+              "macro_f1": 0.9016533660821701,
+              "spell_f1": 0.631864406779661,
+              "spells": 233
+            },
+            "skillcorner/2015213/observed": {
+              "macro_f1": 0.8976912670241876,
+              "spell_f1": 0.6395904436860068,
+              "spells": 233
+            },
+            "skillcorner/2016236/observed": {
+              "macro_f1": 0.9165549551201778,
+              "spell_f1": 0.6481546572934974,
+              "spells": 226
+            },
+            "skillcorner/2017461/observed": {
+              "macro_f1": 0.9155035926606866,
+              "spell_f1": 0.6228893058161351,
+              "spells": 205
+            }
+          },
+          "standard": {
+            "macro_f1": 0.9219354563399982,
+            "spell_f1": 0.6422225091586546
+          },
+          "team_swap": 0.58881858172048
+        }
+      },
+      "recipe": {
+        "cutoff": 0.53,
+        "dead_cost": 2,
+        "dead_mix": 0.5,
+        "discount": 0.8,
+        "method": "joint",
+        "owner_cost": 14,
+        "owner_mix": 0.5,
+        "variant": "seed_phase"
+      }
+    },
+    "pff": {
+      "matches": {
+        "10509": {
+          "aba1.75": {
+            "macro_f1": 0.9086894921443586,
+            "spell_f1": 0.7142857142857143,
+            "spells": 165
+          },
+          "aba3": {
+            "macro_f1": 0.9114770959313234,
+            "spell_f1": 0.7440860215053764,
+            "spells": 165
+          },
+          "aba4": {
+            "macro_f1": 0.9108490472185894,
+            "spell_f1": 0.7392265193370166,
+            "spells": 165
+          },
+          "aba4.5": {
+            "macro_f1": 0.9094807414407856,
+            "spell_f1": 0.7209039548022599,
+            "spells": 165
+          },
+          "raw": {
+            "macro_f1": 0.9058130404418078,
+            "spell_f1": 0.66,
+            "spells": 165
+          }
+        },
+        "10517": {
+          "aba1.75": {
+            "macro_f1": 0.8990163393406339,
+            "spell_f1": 0.6301123595505618,
+            "spells": 176
+          },
+          "aba3": {
+            "macro_f1": 0.9021553746303413,
+            "spell_f1": 0.7046683046683047,
+            "spells": 176
+          },
+          "aba4": {
+            "macro_f1": 0.9067336444890096,
+            "spell_f1": 0.7483204134366924,
+            "spells": 176
+          },
+          "aba4.5": {
+            "macro_f1": 0.9059929876374949,
+            "spell_f1": 0.7480519480519481,
+            "spells": 176
+          },
+          "raw": {
+            "macro_f1": 0.8965503386736832,
+            "spell_f1": 0.5682474226804123,
+            "spells": 176
+          }
+        },
+        "3819": {
+          "aba1.75": {
+            "macro_f1": 0.9239804883143039,
+            "spell_f1": 0.6780748663101605,
+            "spells": 151
+          },
+          "aba3": {
+            "macro_f1": 0.9292835873379003,
+            "spell_f1": 0.7625730994152047,
+            "spells": 151
+          },
+          "aba4": {
+            "macro_f1": 0.9296759737197021,
+            "spell_f1": 0.7688622754491018,
+            "spells": 151
+          },
+          "aba4.5": {
+            "macro_f1": 0.9319552728248656,
+            "spell_f1": 0.7914634146341464,
+            "spells": 151
+          },
+          "raw": {
+            "macro_f1": 0.9226025983197589,
+            "spell_f1": 0.6459183673469389,
+            "spells": 151
+          }
+        },
+        "3827": {
+          "aba1.75": {
+            "macro_f1": 0.902903337321955,
+            "spell_f1": 0.6574821852731592,
+            "spells": 176
+          },
+          "aba3": {
+            "macro_f1": 0.9076265455447493,
+            "spell_f1": 0.7195928753180663,
+            "spells": 176
+          },
+          "aba4": {
+            "macro_f1": 0.9053014167722476,
+            "spell_f1": 0.7033766233766234,
+            "spells": 176
+          },
+          "aba4.5": {
+            "macro_f1": 0.9082519685730751,
+            "spell_f1": 0.7178666666666669,
+            "spells": 176
+          },
+          "raw": {
+            "macro_f1": 0.9015203057460651,
+            "spell_f1": 0.6275395033860045,
+            "spells": 176
+          }
+        },
+        "3835": {
+          "aba1.75": {
+            "macro_f1": 0.889533484032084,
+            "spell_f1": 0.665686274509804,
+            "spells": 171
+          },
+          "aba3": {
+            "macro_f1": 0.8910028385625991,
+            "spell_f1": 0.6837696335078534,
+            "spells": 171
+          },
+          "aba4": {
+            "macro_f1": 0.8920572955133723,
+            "spell_f1": 0.7065217391304348,
+            "spells": 171
+          },
+          "aba4.5": {
+            "macro_f1": 0.8938282795805312,
+            "spell_f1": 0.7197802197802197,
+            "spells": 171
+          },
+          "raw": {
+            "macro_f1": 0.8852699097290624,
+            "spell_f1": 0.5771929824561404,
+            "spells": 171
+          }
+        },
+        "3843": {
+          "aba1.75": {
+            "macro_f1": 0.8871096914923321,
+            "spell_f1": 0.6490066225165563,
+            "spells": 181
+          },
+          "aba3": {
+            "macro_f1": 0.8929235075610125,
+            "spell_f1": 0.7103614457831325,
+            "spells": 181
+          },
+          "aba4": {
+            "macro_f1": 0.8932048562641679,
+            "spell_f1": 0.7136476426799007,
+            "spells": 181
+          },
+          "aba4.5": {
+            "macro_f1": 0.8957017667174312,
+            "spell_f1": 0.730077120822622,
+            "spells": 181
+          },
+          "raw": {
+            "macro_f1": 0.8831269546609869,
+            "spell_f1": 0.5599999999999999,
+            "spells": 181
+          }
+        },
+        "3851": {
+          "aba1.75": {
+            "macro_f1": 0.8408591585140601,
+            "spell_f1": 0.5929236499068902,
+            "spells": 215
+          },
+          "aba3": {
+            "macro_f1": 0.8485232750023762,
+            "spell_f1": 0.6589178356713427,
+            "spells": 215
+          },
+          "aba4": {
+            "macro_f1": 0.8520587686700863,
+            "spell_f1": 0.6750524109014675,
+            "spells": 215
+          },
+          "aba4.5": {
+            "macro_f1": 0.8511833542916639,
+            "spell_f1": 0.6672376873661671,
+            "spells": 215
+          },
+          "raw": {
+            "macro_f1": 0.8379520021417995,
+            "spell_f1": 0.53106960950764,
+            "spells": 215
+          }
+        },
+        "3859": {
+          "aba1.75": {
+            "macro_f1": 0.876903294252689,
+            "spell_f1": 0.6504672897196262,
+            "spells": 181
+          },
+          "aba3": {
+            "macro_f1": 0.8801657467247272,
+            "spell_f1": 0.6885572139303483,
+            "spells": 181
+          },
+          "aba4": {
+            "macro_f1": 0.8797601568786898,
+            "spell_f1": 0.6760416666666667,
+            "spells": 181
+          },
+          "aba4.5": {
+            "macro_f1": 0.8801402345021833,
+            "spell_f1": 0.6684491978609627,
+            "spells": 181
+          },
+          "raw": {
+            "macro_f1": 0.873949208902944,
+            "spell_f1": 0.5964757709251101,
+            "spells": 181
+          }
+        }
+      },
+      "means": {
+        "aba1.75": {
+          "macro_f1": 0.891124410676552,
+          "spell_f1": 0.6547548702590591
+        },
+        "aba3": {
+          "macro_f1": 0.8953947464118787,
+          "spell_f1": 0.7090658037249536
+        },
+        "aba4": {
+          "macro_f1": 0.8962051449407331,
+          "spell_f1": 0.716381161372238
+        },
+        "aba4.5": {
+          "macro_f1": 0.8970668256960038,
+          "spell_f1": 0.7204787762481242
+        },
+        "raw": {
+          "macro_f1": 0.8883480448270135,
+          "spell_f1": 0.5958054570377808
+        }
+      }
+    },
+    "recipe": {
+      "cutoff": 0.53,
+      "dead_cost": 2,
+      "dead_mix": 0.5,
+      "discount": 0.8,
+      "method": "joint",
+      "owner_cost": 14,
+      "owner_mix": 0.5,
+      "variant": "seed_phase"
+    }
+  }
+}

@@ -1,0 +1,151 @@
+{
+  "check": "whole-half sign equals first-frame sign; D50's amendment for halves without one",
+  "checked_at": "2026-11-13 00:15 EST",
+  "fallbacks": {
+    "pff": [
+      "pff/3852/observed/1"
+    ]
+  },
+  "files": {
+    "augmented": "aa72ccbf017b8243e11c0755acafb45cf13216be977c90156cc694ceb178f9ff",
+    "current": "539449dd62a101b6582fb4f3b139269221915677a30f8a15627981061d835fc2",
+    "development": "99969f5255a587236ccb415048f1932952c8c466e702177eea724ac93119084c"
+  },
+  "parts": {
+    "d24_handled": {
+      "fallback_halves": [],
+      "first_frame_disagrees": [],
+      "halves": 6,
+      "over_per_team": [
+        "metrica/1/handled/1",
+        "metrica/2/handled/1"
+      ],
+      "passed": true,
+      "smallest_abs_d_m": 12.831287237587917
+    },
+    "d24_masked": {
+      "fallback_halves": [],
+      "first_frame_disagrees": [],
+      "halves": 6,
+      "over_per_team": [
+        "metrica/1/masked/1",
+        "metrica/2/masked/1"
+      ],
+      "passed": true,
+      "smallest_abs_d_m": 12.831287237587917
+    },
+    "d24_team_swap": {
+      "fallback_halves": [],
+      "first_frame_disagrees": [],
+      "halves": 6,
+      "over_per_team": [
+        "metrica/2/team_swap/1"
+      ],
+      "passed": true,
+      "smallest_abs_d_m": 10.823476401069726
+    },
+    "dfl_clean": {
+      "fallback_halves": [],
+      "first_frame_disagrees": [],
+      "halves": 2,
+      "over_per_team": [],
+      "passed": true,
+      "smallest_abs_d_m": 11.406610902642068
+    },
+    "dfl_dead_carried": {
+      "fallback_halves": [],
+      "first_frame_disagrees": [],
+      "halves": 2,
+      "over_per_team": [],
+      "passed": true,
+      "smallest_abs_d_m": 11.354493393554044
+    },
+    "dfl_masked": {
+      "fallback_halves": [],
+      "first_frame_disagrees": [],
+      "halves": 2,
+      "over_per_team": [],
+      "passed": true,
+      "smallest_abs_d_m": 11.354493393554044
+    },
+    "dfl_team_swap": {
+      "fallback_halves": [],
+      "first_frame_disagrees": [],
+      "halves": 2,
+      "over_per_team": [],
+      "passed": true,
+      "smallest_abs_d_m": 9.97246087052956
+    },
+    "guard_dfl": {
+      "fallback_halves": [],
+      "first_frame_disagrees": [],
+      "halves": 2,
+      "over_per_team": [],
+      "passed": true,
+      "smallest_abs_d_m": 11.394074111993499
+    },
+    "guard_metrica": {
+      "fallback_halves": [],
+      "first_frame_disagrees": [],
+      "halves": 6,
+      "over_per_team": [
+        "metrica/1/long_hidden/0",
+        "metrica/1/long_hidden/1"
+      ],
+      "passed": true,
+      "smallest_abs_d_m": 13.114212470120204
+    },
+    "metrica": {
+      "fallback_halves": [],
+      "first_frame_disagrees": [],
+      "halves": 6,
+      "over_per_team": [
+        "metrica/1/observed/0",
+        "metrica/1/observed/1",
+        "metrica/2/observed/1"
+      ],
+      "passed": true,
+      "smallest_abs_d_m": 13.07464503262507
+    },
+    "pff": {
+      "fallback_halves": [
+        "pff/3852/observed/1"
+      ],
+      "first_frame_disagrees": [],
+      "halves": 16,
+      "over_per_team": [],
+      "passed": true,
+      "smallest_abs_d_m": 2.1349607706069937
+    },
+    "skillcorner": {
+      "fallback_halves": [],
+      "first_frame_disagrees": [],
+      "halves": 8,
+      "over_per_team": [],
+      "passed": true,
+      "smallest_abs_d_m": 3.5671806918350657
+    },
+    "training_augmented": {
+      "fallback_halves": [],
+      "first_frame_disagrees": [],
+      "halves": 80,
+      "over_per_team": [],
+      "passed": true,
+      "smallest_abs_d_m": 3.9291564952036913,
+      "token_sign_differs": [],
+      "tokens_unequal": []
+    },
+    "training_current": {
+      "fallback_halves": [],
+      "first_frame_disagrees": [],
+      "halves": 80,
+      "over_per_team": [],
+      "passed": true,
+      "smallest_abs_d_m": 3.9291564952036913,
+      "token_sign_differs": [],
+      "tokens_unequal": []
+    }
+  },
+  "passed": true,
+  "protocol": "DECISIONS.md D48"
+}

@@ -1,0 +1,24 @@
+{
+  "actual": {
+    "temporal_1800.pt": "5e80305babc34d86f270994ed23c39290bf583f5d4eb141a2f16f3813002d8f4",
+    "temporal_3600.pt": "2e3d35d4ccc4eaee5faa8a9a18c6351e4e60c19d9dbbd110ad1263c97544f451",
+    "temporal_5400.pt": "b058fdbc8ac21a209a3552b5a1806317ea316e6deac47b00e99a4defef0f0ac8"
+  },
+  "check": "seed",
+  "checked_at": "2026-11-13 00:27 EST",
+  "config": {
+    "aux": false,
+    "direction": false,
+    "mirror": null,
+    "noise": false,
+    "seed_offset": 1000
+  },
+  "expected": {
+    "temporal_1800.pt": "5e80305babc34d86f270994ed23c39290bf583f5d4eb141a2f16f3813002d8f4",
+    "temporal_3600.pt": "2e3d35d4ccc4eaee5faa8a9a18c6351e4e60c19d9dbbd110ad1263c97544f451",
+    "temporal_5400.pt": "b058fdbc8ac21a209a3552b5a1806317ea316e6deac47b00e99a4defef0f0ac8"
+  },
+  "passed": true,
+  "protocol": "DECISIONS.md D48",
+  "reference": "data/d47/networks/S1000/raw/current/temporal_models"
+}

@@ -1,0 +1,29 @@
+{
+  "changes": {
+    "d24": 0.0014284536350941401,
+    "metrica": -0.00619391118892576,
+    "pff": -0.0011982296348345134
+  },
+  "models": {
+    "networks": {
+      "augmented": {
+        "seed_models": "6abdbf232f1d4eb4b76ac5f607be10b97708b22dc26b984fc8b601ec837414f5",
+        "temporal_models": "2fa031647ecaa3f0cf3e064846af7cf8adf59a8e9d6d2c2ec40693dc699dc77e"
+      },
+      "current": {
+        "seed_models": "63967c477253e851367eb43f265f8063806545f68cc6c1044c614bc1c3b66c04",
+        "temporal_models": "5acaacf16724dbf0697f677db8df5c0b4e37b05ff6e11aec7d820a6997175c53"
+      }
+    },
+    "player_set_sha256": "4e298e542e4d2a47636f9e6dda50be14e62f8d9c7e96ebe64f1973a1f24ed2cc",
+    "protocol": "DECISIONS.md D42",
+    "trees": {
+      "augmented": "af0a9153b994cec629c7afb30cd26fe084ef5a0e966ada6814895b5adde7cdc3",
+      "current": "b313e25ee0ecf28490cb8f6d191b40ab2fb3d28c44019f05963a5effb2a7a19c"
+    }
+  },
+  "passed": true,
+  "protocol": "DECISIONS.md D45",
+  "reference": "D43",
+  "scored_at": "2026-11-12 21:26 EST"
+}

@@ -1,0 +1,96 @@
+{
+  "measured_at": "2026-11-13 00:12 EST",
+  "networks": {
+    "augmented/seed_models": {
+      "d24_masked": {
+        "frames": 21135,
+        "mean_distance_from_reference_m": 18.86620129719701,
+        "mean_error_m": 7.316634290829524,
+        "median_error_m": 6.524146841633417
+      },
+      "dfl_guard": {
+        "frames": 11789,
+        "mean_distance_from_reference_m": 22.942042014416668,
+        "mean_error_m": 9.402072452700127,
+        "median_error_m": 7.613195028172753
+      },
+      "dfl_masked": {
+        "frames": 11413,
+        "mean_distance_from_reference_m": 23.388885554115756,
+        "mean_error_m": 7.740827653189841,
+        "median_error_m": 6.600265076638325
+      },
+      "training_aux_loss_last_100": 0.11792952716350555
+    },
+    "augmented/temporal_models": {
+      "d24_masked": {
+        "frames": 21135,
+        "mean_distance_from_reference_m": 18.86620129719701,
+        "mean_error_m": 7.1206184414611755,
+        "median_error_m": 6.431817391001698
+      },
+      "dfl_guard": {
+        "frames": 11789,
+        "mean_distance_from_reference_m": 22.942042014416668,
+        "mean_error_m": 9.251890201781585,
+        "median_error_m": 7.448717127513369
+      },
+      "dfl_masked": {
+        "frames": 11413,
+        "mean_distance_from_reference_m": 23.388885554115756,
+        "mean_error_m": 7.869117232686694,
+        "median_error_m": 6.599816926542629
+      },
+      "training_aux_loss_last_100": 0.12099713541567325
+    },
+    "current/seed_models": {
+      "d24_masked": {
+        "frames": 21135,
+        "mean_distance_from_reference_m": 18.86620129719701,
+        "mean_error_m": 7.149838668696833,
+        "median_error_m": 6.4011066732794335
+      },
+      "dfl_guard": {
+        "frames": 11789,
+        "mean_distance_from_reference_m": 22.942042014416668,
+        "mean_error_m": 8.623423027212105,
+        "median_error_m": 7.384225198988668
+      },
+      "dfl_masked": {
+        "frames": 11413,
+        "mean_distance_from_reference_m": 23.388885554115756,
+        "mean_error_m": 6.720183930746746,
+        "median_error_m": 5.863909183747481
+      },
+      "training_aux_loss_last_100": 0.1228869691118598
+    },
+    "current/temporal_models": {
+      "d24_masked": {
+        "frames": 21135,
+        "mean_distance_from_reference_m": 18.86620129719701,
+        "mean_error_m": 7.103937078384214,
+        "median_error_m": 6.442766889223754
+      },
+      "dfl_guard": {
+        "frames": 11789,
+        "mean_distance_from_reference_m": 22.942042014416668,
+        "mean_error_m": 8.821651485978853,
+        "median_error_m": 7.442747643584616
+      },
+      "dfl_masked": {
+        "frames": 11413,
+        "mean_distance_from_reference_m": 23.388885554115756,
+        "mean_error_m": 6.823951592230156,
+        "median_error_m": 5.964719929251834
+      },
+      "training_aux_loss_last_100": 0.11696889240294694
+    }
+  },
+  "protocol": "DECISIONS.md D51",
+  "step": 5400,
+  "views": {
+    "d24_masked": 6,
+    "dfl_guard": 2,
+    "dfl_masked": 2
+  }
+}

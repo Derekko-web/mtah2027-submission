@@ -1,0 +1,23 @@
+{
+  "actual": {
+    "temporal_1800.pt": "83a3149bb2ba00ccc84282e359bda4854ba5a760513c0a7884f39d0b1a314bba",
+    "temporal_3600.pt": "2b14a9e1a296b1510080e1325eb6ca3c020574baa6c7fd1c49ac3bd2a2355cb6",
+    "temporal_5400.pt": "040941098a5dea12a7fa4be0d280e38c709c201655ca826bf0738f3f7bc9d769"
+  },
+  "check": "every sign +1, no swap negation: retrain of D42's original-set seed-42 network",
+  "checked_at": "2026-11-12 22:49 EST",
+  "d50": {
+    "check": true,
+    "negate_on_swap": false,
+    "negative_records": [],
+    "records": 48,
+    "x_odd_columns": []
+  },
+  "expected": {
+    "temporal_1800.pt": "83a3149bb2ba00ccc84282e359bda4854ba5a760513c0a7884f39d0b1a314bba",
+    "temporal_3600.pt": "2b14a9e1a296b1510080e1325eb6ca3c020574baa6c7fd1c49ac3bd2a2355cb6",
+    "temporal_5400.pt": "040941098a5dea12a7fa4be0d280e38c709c201655ca826bf0738f3f7bc9d769"
+  },
+  "passed": true,
+  "protocol": "DECISIONS.md D50"
+}

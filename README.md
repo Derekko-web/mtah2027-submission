@@ -2,11 +2,11 @@
 
 This repository regenerates team Anfield's possession file, `Anfield.csv`, for the More Than A Hack 2027 Initial Challenge. The file labels each frame of the tactical video as `H` (home possession), `A` (away possession) or `D` (dead ball), and writes `X` outside the two official halves.
 
-**All training, tuning and model selection use external matches about other games.** The competition bundle is read only by frozen inference. Nothing in this repository reads the public 5-minute ground truth, the provided video or the broadcast recording. Smart Tagging is read for one purpose only: the start and end times of the `Kick Off (Start)` tags, which decide when the second half's play begins (D27).
+**All training, tuning and model selection use external matches about other games.** The competition bundle is read only by frozen inference. Nothing in this repository reads the public 5-minute ground truth, the provided video or the broadcast recording. Smart Tagging is read only for the start and end times of the `Kick Off (Start)` tags. They decide when the second half's play begins (D27) and from which frame each half's direction of attack is read (D50, D48).
 
 ## How it works
 
-1. **Inputs.** The build reads four files from the competition bundle: the tactical ATD tracking and its metadata, the tactical homography's `valid` flag, and the Smart Tagging XML, of which only the `Kick Off (Start)` tags are used (step 5). Coordinates are converted to metres with the 105 × 68 m pitch reported by the ATD metadata. Invalid frames are masked, ball positions far outside the pitch are discarded, and each half is processed separately.
+1. **Inputs.** The build reads four files from the competition bundle: the tactical ATD tracking and its metadata, the tactical homography's `valid` flag, and the Smart Tagging XML, of which only the `Kick Off (Start)` tags are used (step 5, and for the direction of attack below). Coordinates are converted to metres with the 105 × 68 m pitch reported by the ATD metadata. Invalid frames are masked, ball positions far outside the pitch are discarded, and each half is processed separately. For each half the build also reads which way the home team attacks: the sign of the mean, over the half's 5 Hz frames from its `Kick Off (Start)` tag on with at least seven visible players per team, of the away players' mean x minus the home players'. Nothing is fitted. The build refuses to run if a half does not own exactly one kick-off tag, if a half has no such frame, if a half's sign disagrees with its own first such frame, or if both halves have the same sign (D50, D48).
 2. **Features.** 162 team-symmetric features are computed from relative geometry and motion in metres:
    - nearest-player distances and local player counts around the ball
    - sustained player-to-ball contact
@@ -15,13 +15,13 @@ This repository regenerates team Anfield's possession file, `Anfield.csv`, for t
    - context windows of 3, 9 and 18 seconds
 3. **Models.**
    - An extended-context XGBoost model estimates home ownership given live play, and the probability of a stoppage.
-   - Two player-set temporal networks estimate ownership, stoppage and possession-boundary probabilities (D42, D43, below). Besides the 162 features, each reads the eleven players of each team nearest the ball one by one (offset, distance and velocity relative to the ball, pitch position) through a small shared encoder pooled per team. Each has 96 channels per block and is trained for 5,400 steps with a learning rate × 2, batch 32 and dropout 0.2. The second network is trained independently with seed 97 and a heavier weight near labelled boundaries. Inference uses NumPy exports of their weights, so the build does not need PyTorch.
-   - The seed-97 network predicts on three 5 Hz grids, offset by 0, 2 and 4 frames. Its predictions are interpolated back to 25 Hz and averaged with the reference signals using equal weights.
+   - Two player-set temporal networks estimate ownership, stoppage and possession-boundary probabilities (D42, D48, below). Besides the 162 features, each reads the eleven players of each team nearest the ball one by one (offset, distance and velocity relative to the ball, pitch position) through a small shared encoder pooled per team. The players' x values are given in each team's direction of attack (D50). Each has 96 channels per block and is trained for 8,100 steps with a learning rate × 2, batch 32 and dropout 0.2. Its training data are the training views plus one long hidden-ball view of every training half (D49), and each training window is mirrored across the line joining the goals with probability ½. Each network slot is the mean of three networks trained with seeds 1,000 apart: 42, 1,042 and 2,042 for the first network, and 97, 1,097 and 2,097 for the second, which has a heavier weight near labelled boundaries. Every network's prediction is averaged over both team orders and over the pitch and its mirror image. Inference uses NumPy exports of their weights, so the build does not need PyTorch.
+   - The second network (seeds 97, 1,097 and 2,097) predicts on three 5 Hz grids, offset by 0, 2 and 4 frames. Its predictions are interpolated back to 25 Hz and averaged with the reference signals using equal weights.
    - The whole set of models exists twice: once trained on the external data as provided, and once retrained after removing the providers' dead-ball artifacts. Every output of the two sets is averaged with equal weight. See "Dead-ball artifacts and the model blend" below.
 4. **Decoder.** One three-state Viterbi decoder picks the `H`/`A`/`D` sequence for each half.
    - The stoppage cutoff is 0.53.
-   - A direct ownership change costs 10, and a transition into or out of a stoppage costs 2. Each cost is cut by up to 80% when the matching boundary signal is strong.
-   - The high ownership cost reflects the challenge's definition: only *controlled* possession changes hands, so a brief touch or deflection should not split a possession. See "Decoder retune" below; D15 re-selected the cost for the larger networks, and D42/D43 for the player-set networks.
+   - A direct ownership change costs 14, and a transition into or out of a stoppage costs 2. Each cost is cut by up to 80% when the matching boundary signal is strong.
+   - The high ownership cost reflects the challenge's definition: only *controlled* possession changes hands, so a brief touch or deflection should not split a possession. See "Decoder retune" below; D15 re-selected the cost for the larger networks, D42/D43 for the player-set networks, and D48 for the stack.
    - In loose or contested play, the last team in possession keeps the ball unless the evidence supports a change.
 5. **Kick-off rule (D27).** No team has possession before the kick-off. Every graded frame from the start of a half up to the start of that half's `Kick Off (Start)` tag becomes `D`. The tag is a window of about 5 s that contains the real kick-off, so its start is never later than the kick. This changes only the second half, which is graded from about two minutes before its kick-off; the first half is graded from the kick-off itself.
 
@@ -32,7 +32,7 @@ This repository regenerates team Anfield's possession file, `Anfield.csv`, for t
 | DFL / Sportec integrated tracking and events (Bassek, Rein, Weber and Memmert) | [doi:10.6084/m9.figshare.28196177.v1](https://doi.org/10.6084/m9.figshare.28196177.v1), [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) | DFL data provider: ball status and ball-owning team in the position feed | 7 Bundesliga matches. WMX, WN1, WOH and WOY are used for fitting, WPY for development, and WQQ and WR9 for confirmation. | Fit, tune, validate |
 | SkillCorner Open Data | [revision 4340d274](https://github.com/SkillCorner/opendata/tree/4340d274572876239c154c90bc507a9b3250a656), MIT ([LICENSE-SKILLCORNER](LICENSE-SKILLCORNER)) | SkillCorner: phases of play and provider possession on detected broadcast tracking | 20 A-League matches: 12 for fitting, 4 for development and 4 for confirmation | Fit, tune, validate |
 
-None of the training data comes from the provided game. Both halves of each match always stay in the same split. The DFL training views add synthetic degradation to the tracking: coordinate noise, missing players, runs of missing ball observations, false ball observations and camera outages. The retrained model set also varies the ball visibility per half, simulates dead-ball handling and adds cross-team identity swaps (`dfl_submission/augment.py`).
+None of the training data comes from the provided game. Both halves of each match always stay in the same split. The DFL training views add synthetic degradation to the tracking: coordinate noise, missing players, runs of missing ball observations, false ball observations and camera outages. The retrained model set also varies the ball visibility per half, simulates dead-ball handling and adds cross-team identity swaps (`dfl_submission/augment.py`). Since D48 the networks of both sets also train on one long hidden-ball view of every training half, in which half of the hidden runs last 5–30 s (`dfl_submission/hidden_views.py`, D49).
 
 ## External evaluation
 
@@ -150,11 +150,43 @@ The session goal stood after round 9, so development continued under the same ru
 ### Round 11: a network that reads the players (D42–D43), adopted
 
 - **D42, a player-set network** (`player_set.py`, `player_trial.py`). D15's temporal network with one addition: each team's eleven players nearest the ball (the mean visible position when the ball is unseen), each described by eight values, go through a shared encoder (8 → 32 → 32) pooled per team by mean and maximum, and are added to the input projection. Trained with D36's values; the NumPy export matched PyTorch on every snapshot. Development +0.0067 (under the +0.01 gate), but both guards +0.035, PFF +0.007, D24 +0.027, SkillCorner +0.014.
-- **D43, to confirmation** (development gate +0.005, disclosed; C3's +0.01 unchanged): holdout **+0.0189** (0.70874 → 0.72761), PFF set C +0.0108 (fresh), dead ball carried +0.033, team swap +0.061, raw labels +0.022. **Passed: the player-set model at cost 10 is the submission** (`player_trial build`, `a56574fe…`). C2 was re-declared for it (ranges from the new model's external predictions, `dfl_submission/output_check_ranges_d43.json`); C1 is not run again (C3). `release/check.sh` passed on commit `6d979c6`: two fresh macOS builds and `linux/arm64` and `linux/amd64` all gave `a56574fe…`, and 398 of 398 tests passed in the clone.
+- **D43, to confirmation** (development gate +0.005, disclosed; C3's +0.01 unchanged): holdout **+0.0189** (0.70874 → 0.72761), PFF set C +0.0108 (fresh), dead ball carried +0.033, team swap +0.061, raw labels +0.022. **Passed: the player-set model at cost 10 became the submission** (`player_trial build`, `a56574fe…`), until D48. C2 was re-declared for it (ranges from the new model's external predictions, `dfl_submission/output_check_ranges_d43.json`); C1 is not run again (C3). `release/check.sh` passed on commit `6d979c6`: two fresh macOS builds and `linux/arm64` and `linux/amd64` all gave `a56574fe…`, and 398 of 398 tests passed in the clone.
 
 - **D44, player-set variants by cross-validation** (`player_set2.py`, `player2_trial.py`): 16 players per team, a wider encoder, relative velocity and D15's training values all scored at or below D42's own design on the training matches, so nothing changed.
 
-The untouched PFF set and the four 2019–20 confirmation matches are still unused; set B was spent by D41 and set C by D43. [C3](DECISIONS.md#c3--what-may-change-after-c1-2026-11-12-written-before-any-round-8-step-is-built-fitted-or-scored) · [D30](dfl_submission/metrica_fit_recipe/logo.json) · [D31a](dfl_submission/broadcast_recipe/a_development.json) · [D32](dfl_submission/vendor_adaptation_recipe/development.json)
+At the end of round 11 the untouched PFF set and the four 2019–20 confirmation matches were still unused; set B had been spent by D41 and set C by D43. [C3](DECISIONS.md#c3--what-may-change-after-c1-2026-11-12-written-before-any-round-8-step-is-built-fitted-or-scored) · [D30](dfl_submission/metrica_fit_recipe/logo.json) · [D31a](dfl_submission/broadcast_recipe/a_development.json) · [D32](dfl_submission/vendor_adaptation_recipe/development.json)
+
+### Round 12: long hidden-ball stretches (D45–D54), the stack adopted
+
+On 12 November a second session took the decisions for round 12 (DECISIONS.md, note "Round 12"). It wrote every rule before scoring, and separate coding sessions built and ran what the rules describe. The standing rules held: nothing is fitted on the provided tracking, nothing is trained on PFF, and a step changes the file only with C3's +0.01 on its own confirmation. Round 12 screened changes on development under a no-harm rule, stacked those that held and confirmed the stack once. Screening used a composite: the unweighted mean of N = 3 spellF1 over eight development groups (DFL WPY clean, masked, dead ball carried and team swap; SkillCorner; PFF; Metrica; the D24 views). The PFF development matches were one of those groups, and a gate of their own in D48, D49 and D52.
+
+- **D45, the player-set model refit on 21 matches** (`refit_trial.py`, the `train_dev` split in `external_benchmark.py`). The vetoes passed, with no gain: PFF −0.0012, Metrica −0.0062, D24 +0.0014. Its confirmation was held, and the stack left it out, so it was never confirmed.
+- **D46 and D46a, where D43 loses** (`diagnosis_d43.py`). Ownership is still the main loss: true ownership lifts the standard combined N = 3 score from 0.730 to 0.879. On PFF and SkillCorner, a third to two fifths of the hidden-ball frames lie in runs over 10 s, against 2.5% under the training mask. PFF's owner agreement is 0.957 where the ball is seen and 0.851 where it is hidden, and possessions seen on under 20% of their frames are recovered at 0.17.
+- **D47, seeds, mirrors and token noise** (`player_set3.py`, `screen_trial.py`). Three seeds per slot (+0.0033, cost 12) and mirror training with mirror-averaged inference (+0.0036, cost 8) passed the no-harm rule. Mirror inference alone failed (−0.0010). Token noise gave nothing (+0.0004), and with the mirrors it scored below the mirrors alone. Three seeds of D42's recipe spread with a standard deviation of 0.0036 on the composite.
+- **D49, long hidden-ball training views** (`hidden_views.py`, `hidden_trial.py`): one more view per training half, with half of the hidden runs lasting 5–30 s. At cost 10: long-hidden guard views +0.040 (hidden 8–20 s at a time, built differently), PFF +0.024, composite −0.001.
+- **D50, the direction of attack** (`direction_tokens.py`, `direction_trial.py`): player tokens in each team's direction of attack, read per half from the tracking. 151 of the 152 external halves had a sign of their own, and each agreed with its first qualifying frame. At cost 8: composite +0.0069, PFF +0.018, D24 +0.015.
+- **D51, an auxiliary ball-location output** (`hidden_ball.py`, `hidden_ball_trial.py`). The networks learned to place the hidden ball (median error 5.9–7.6 m, against 19–23 m for the players' mean position), but six of eight groups fell by more than 0.01. Rejected.
+- **D52, longer training and wider context** (`length_trial.py`, `context_set.py`), on one seed set of the stack. 8,100 steps gained +0.0088 on the selection score (+0.008 required); a seventh temporal block lost 0.0030.
+- **D48, the stack** (`stack_set.py`, `stack_trial.py`): D49's views, D50's direction of attack, three seeds per slot and the mirror across the line joining the goals, retrained at 8,100 steps after D52.
+  - *Development, cost 14, against D43 at cost 10:* selection score (the mean of the composite and the long-hidden guard mean) 0.6944 → 0.7326, composite 0.7139 → 0.7283 with all eight groups up, long-hidden guard mean 0.675 → 0.737, PFF 0.663 → 0.696, D33's primary 0.7295 → 0.7352. The same stack at 5,400 steps had scored 0.7265 on the selection score.
+  - *Confirmation, once, against D43:* the untouched PFF set (eight fresh matches) 0.6886 → **0.7236 (+0.0350)**; long hidden-ball views of the reused DFL holdout matches WQQ and WR9 0.6714 → **0.7135 (+0.0421)**; the reused holdout's primary 0.72761 → 0.73276 (+0.0052; no loss over 0.01 allowed); N = 1.75 / 4 / 4.5 +0.016 / +0.001 / +0.001, dead ball carried +0.003, team swap +0.018, raw labels +0.013.
+  - *Fresh SkillCorner (D54, measured afterwards):* on the four 2019–20 SkillCorner confirmation matches, which no step had scored, 0.6293 → 0.6248 (**−0.0046**; one match up, three down). Ownership only, on older broadcast tracking; with four matches this is about one standard error. By D54's reading the stack is not supported there.
+  - *The first build refused.* Before reading the competition tracking, the build checks the twelve networks, the trees, its code and the switches against `stack_recipe/confirmation.json`. It then checks each half's direction of attack and refuses if a half has no qualifying frame, if a half's sign disagrees with its first qualifying frame, or if both halves have the same sign. The first build applied D50's rule to each graded half as a whole. It refused with "a half's sign disagrees with its first qualifying frame", and that message is the only output of the build that was read: no number, no frame, not which half. The one known difference from the external halves, which all start at their kick-off, is that the provided second half is graded from about two minutes before its tagged kick-off (D27).
+  - *Aligned to the kick-off.* By Derek's decision, recorded as D48's second adoption amendment before the next build, the build reads each half's sign from its `Kick Off (Start)` tag on (the tag is paired with the half as D27 pairs it, and the build refuses unless each half owns exactly one tag). The three sign checks are unchanged. On external halves the aligned rule reads the whole half, so every record stands. The edited driver reproduced `development_t.json` and `confirmation.json` from their caches and re-forecast the eight development guard halves bit for bit before its digest was locked in `stack_recipe/build_identity.json`.
+  - *The second attempt passed.* Two builds gave the same SHA-256 with the validator's OK line, the only output read, so every sign check passed; `player_trial build` still gives `a56574fe…`.
+  - **Then the stack at cost 14 became the submission** (`stack_trial build`, `f6d7b2933a6210ce0c8a1ee96019f86815288d97368d656f366782345e6fc65d`). The direction is a feature of the input, not a fitted value. C2 was re-declared for it (ranges from the stack's external predictions, `dfl_submission/output_check_ranges_d48.json`); C1 is not run again (C3). The two builds in the repository venv and the four release builds on a copy of the working tree (two fresh macOS venvs, and the pinned image under `linux/arm64` and `linux/amd64`) all gave `f6d7b293…` with the validator's OK line: six identical builds on three platforms. 594 of 594 tests in 72 files pass on the working tree with the documents updated. `release/check.sh` on a commit is pending Derek's approval of a commit (`TBD-COMMIT`).
+- **D53, a fallback that was not used** (`fallback_trial.py`). Prepared after the first build refused: the stack without the direction of attack, its windows mirrored in x and in y with probability ½ each, inference over four mirrors and both team orders.
+  - *Development, cost 14, against D43 at cost 10:* selection score 0.6944 → 0.7249, composite +0.012, long-hidden guard mean +0.049, PFF +0.020.
+  - *Confirmation:* on D48's sets, a second use and so weaker evidence. PFF 0.6886 → 0.7091 (+0.0204), long-hidden holdout views 0.6714 → 0.7037 (+0.0323), holdout primary 0.72761 → 0.73036 (+0.0027).
+  - *Fresh SkillCorner (D54):* 0.6293 → 0.6190 (**−0.0103**), its only fresh result.
+  - Its build (`fallback_trial build`, networks in `dfl_submission/fallback_models/`) gave `769655cad55cfddd00bf2e3a82e9f4330ff7703768a73633194927aa7264a32e` on six builds across macOS, `linux/arm64` and `linux/amd64`. It is not the submission: Derek decided before the aligned build that D53 would not ship, since its only fresh result (D54) is negative.
+- **D54, the last unused matches** (`fresh_trial.py`, measurement only): D43, the stack and D53 on the four 2019–20 SkillCorner confirmation matches (3442, 3518, 3749, 4039), with D6's reader, targets and scoring, after frozen D3 reproduced D6's development row. N = 3 means 0.6293 (D43), 0.6248 (stack) and 0.6190 (D53); every convention and the raw labels point the same way. The test is ownership only, on older broadcast tracking with a target on 62–73% of each timeline. On these halves, whose tracking does not start at a kick-off, one half's first qualifying frame, 64 s in, disagreed with its whole-half sign.
+
+The untouched PFF set is now spent, as are sets A (D15), B (D41) and C (D43), and D54 spent the four 2019–20 SkillCorner confirmation matches. The only external matches still unused are the 24 PFF games of D7's three training slots, which were never parsed because no model may train on PFF; they remain available for measurement and confirmation. D45 stays held and unconfirmed. [D45 vetoes](dfl_submission/refit_recipe/vetoes.json) · [D46](dfl_submission/diagnosis_recipe/d46.json) · [D46a](dfl_submission/diagnosis_recipe/d46a.json) · [D47](dfl_submission/screen_recipe/) · [D49](dfl_submission/hidden_recipe/candidate.json) · [D50](dfl_submission/direction_recipe/) · [D51](dfl_submission/hidden_recipe/ball_candidate.json) · [D52](dfl_submission/stack_recipe/d52_decision.json) · [D48 development, 5,400 steps](dfl_submission/stack_recipe/development.json) · [D48 development, 8,100 steps](dfl_submission/stack_recipe/development_t.json) · [D48 confirmation](dfl_submission/stack_recipe/confirmation.json) · [D53 development](dfl_submission/stack_recipe/development_d53.json) · [D53 confirmation](dfl_submission/stack_recipe/confirmation_d53.json) · [D54](dfl_submission/stack_recipe/fresh_2019.json)
+
+### Round 13 (in progress)
+
+Round 13 started on 13 November with D55, a measurement: views of DFL WPY that hide the ball where the organisers say it goes missing (in the air, in a crowd, around changes of possession), each scored against a view that hides the same amount at random. It has no result yet and changes nothing in the submission.
 
 ## Reproduce the submission
 
@@ -164,12 +196,12 @@ The build is verified to give the same file on Apple Silicon macOS (Homebrew Pyt
 python3.12 -m venv .venv
 .venv/bin/python -m pip install -r dfl_submission/requirements.txt
 export MTAH_DATA_DIR=/path/to/competition-bundle
-.venv/bin/python -m dfl_submission.player_trial build --out data/submission.csv
+.venv/bin/python -m dfl_submission.stack_trial build --out data/submission.csv
 .venv/bin/python evaluation/validate_submission.py data/submission.csv
 shasum -a 256 -c SUBMISSION_SHA256.txt
 ```
 
-Inference takes a few minutes. The build checks every model digest and the D42/D43 records (`dfl_submission/player_recipe/`) before predicting, then applies D27's kick-off rule. Its SHA-256 is `a56574fefd83af81747206e3aedcaf625cdd170e7376d4e00e5f0abee7c431e3` (D43, since 12 November). The file submitted before D43 is still built by `kickoff build`: `0ddbb34216fdab55752a5b46458639f745cc4e88c074ec0787d771f3630fceff`.
+Before it reads the competition tracking, the build checks the twelve networks, the trees, its code and the switches against D48's confirmation record (`dfl_submission/stack_recipe/confirmation.json`, with `adoption_models.json` and `build_identity.json`). It then pairs each half with its `Kick Off (Start)` tag, checks the two halves' directions of attack from the kick-off on (D50's rule, failing closed), runs the twelve networks on both team orders and on the pitch and its mirror image, decodes, and applies D27's kick-off rule. Its SHA-256 is `f6d7b2933a6210ce0c8a1ee96019f86815288d97368d656f366782345e6fc65d` (D48). The file submitted before D48 is still built by `player_trial build`: `a56574fefd83af81747206e3aedcaf625cdd170e7376d4e00e5f0abee7c431e3`. The file C1 checked, submitted before D43, is built by `kickoff build`: `0ddbb34216fdab55752a5b46458639f745cc4e88c074ec0787d771f3630fceff`.
 
 On Linux, the same build runs in the official Python image (`python:3.12.14-slim`, index digest `sha256:f77ac9e44ae96ef2c90b8053ea08c31f8be030f824196b0ae4db6d462c84e51f`):
 
@@ -177,17 +209,18 @@ On Linux, the same build runs in the official Python image (`python:3.12.14-slim
 docker run --rm --platform linux/amd64 -v "$PWD":/repo:ro -v /path/to/competition-bundle:/bundle:ro \
   -v "$PWD/out":/out -e MTAH_DATA_DIR=/bundle -e PYTHONDONTWRITEBYTECODE=1 python:3.12.14-slim bash -c '
   cd /repo && python -m venv /venv && /venv/bin/pip install -q -r dfl_submission/requirements.txt &&
-  /venv/bin/python -m dfl_submission.player_trial build --out /out/submission.csv &&
+  /venv/bin/python -m dfl_submission.stack_trial build --out /out/submission.csv &&
   sha256sum /out/submission.csv'
 ```
 
-On Nov 11 the D15 build gave `14d18a23…` and passed the validator under both `linux/arm64` and `linux/amd64` in this image (Python 3.12.14), matching the two macOS builds. The bundle held only `tactical/`. Later on Nov 11, a fresh clone at commit `9b68a6f` (after D18 and D19) was rebuilt in the same four ways: twice on macOS, each in a fresh venv with Homebrew Python 3.12.13, and once each in the image above (pinned by its digest) under `linux/arm64` and `linux/amd64`. All four gave `14d18a23…` and passed the validator. The bundle must hold real files, because Docker cannot follow a symlink that points outside the mounted folder. After round 5 (D21–D23, which changed shared modules but not the submission), `release/check.sh` rebuilt a fresh clone at commit `2dccb00` the same four ways: all four gave `14d18a23…` and passed the validator, and 199 of 199 tests passed in the clone. After round 7 adopted D27 (`kickoff build`), `release/check.sh` ran again: a fresh clone at commit `17a0312` rebuilt it twice on macOS (fresh venvs, Homebrew Python 3.12.13) and in `python:3.12.14-slim` under `linux/arm64` and `linux/amd64`; all four gave `0ddbb342…` and passed the validator, and 269 of 269 tests passed in the clone. Round 8 then changed code on the build path but not the file, so `release/check.sh` ran once more on the final commit `05de6cc`: all four builds again gave `0ddbb342…` and passed the validator, and 352 of 352 tests passed in the clone.
+On Nov 11 the D15 build gave `14d18a23…` and passed the validator under both `linux/arm64` and `linux/amd64` in this image (Python 3.12.14), matching the two macOS builds. The bundle held only `tactical/`. Later on Nov 11, a fresh clone at commit `9b68a6f` (after D18 and D19) was rebuilt in the same four ways: twice on macOS, each in a fresh venv with Homebrew Python 3.12.13, and once each in the image above (pinned by its digest) under `linux/arm64` and `linux/amd64`. All four gave `14d18a23…` and passed the validator. The bundle must hold real files, because Docker cannot follow a symlink that points outside the mounted folder. After round 5 (D21–D23, which changed shared modules but not the submission), `release/check.sh` rebuilt a fresh clone at commit `2dccb00` the same four ways: all four gave `14d18a23…` and passed the validator, and 199 of 199 tests passed in the clone. After round 7 adopted D27 (`kickoff build`), `release/check.sh` ran again: a fresh clone at commit `17a0312` rebuilt it twice on macOS (fresh venvs, Homebrew Python 3.12.13) and in `python:3.12.14-slim` under `linux/arm64` and `linux/amd64`; all four gave `0ddbb342…` and passed the validator, and 269 of 269 tests passed in the clone. Round 8 then changed code on the build path but not the file, so `release/check.sh` ran once more on the final commit `05de6cc`: all four builds again gave `0ddbb342…` and passed the validator, and 352 of 352 tests passed in the clone. After D43 was adopted, `release/check.sh` ran on commit `6d979c6`: all four builds gave `a56574fe…` and passed the validator, and 398 of 398 tests passed in the clone. After D48 was adopted, the four release builds ran on a copy of the working tree, not yet on a commit: all gave `f6d7b293…` and passed the validator. `release/check.sh` on a commit is pending Derek's approval of a commit (`TBD-COMMIT`).
 
 `release/check.sh --bundle /path/to/competition-bundle` repeats that whole check in one command. It clones `HEAD` into a temporary folder and copies the four tactical files into a minimal bundle. It runs two macOS builds in fresh virtual environments (Homebrew `python3.12`) and one build each under `linux/arm64` and `linux/amd64` in the image above, then runs `tests/run_all.py` in the clone. For each build it prints only the validator's line and the SHA-256, compared with `SUBMISSION_SHA256.txt`. It deletes the outputs and the bundle copy, also on failure, and exits non-zero on any mismatch, validator failure or test failure. `--quick` runs one macOS build and the tests. The build it runs is the single line in [`release/BUILD_COMMAND`](release/BUILD_COMMAND); when the submission changes, change that line and `SUBMISSION_SHA256.txt` together.
 
 For D3, the previous submission, the same command with `retrain_trial build` produced the same SHA-256 under `linux/amd64` and `linux/arm64` as on macOS on Nov 10. On Nov 11, a fresh clone at commit `c8cdcad` (after D7 and D8) was rebuilt in four ways, and all four gave `f0b03d2c…` and passed the validator: twice on macOS in a fresh venv with Homebrew Python 3.12.13, and once each in the image above under `linux/arm64` and `linux/amd64` (Python 3.12.14). For these runs the bundle held only `tactical/`.
 
 Earlier versions remain available as fallbacks:
+- D43, the player-set networks at ownership cost 10 with D27's kick-off rule (submitted until D48): `player_trial build`, SHA-256 `a56574fefd83af81747206e3aedcaf625cdd170e7376d4e00e5f0abee7c431e3`;
 - D15 with D27's kick-off rule (submitted until D43, the file C1 checked): `kickoff build`, SHA-256 `0ddbb34216fdab55752a5b46458639f745cc4e88c074ec0787d771f3630fceff`;
 - D15, without the kick-off rule: `scale_trial build`, SHA-256 `14d18a238afce84b663cc430161240e00c93b62e3a65a0e6aa47577288b7af78`;
 - D3, the equal blend with the original networks: `retrain_trial build --fallback . --model dfl_submission/seed_models --ensemble dfl_submission/ensemble_recipe --decoder dfl_submission/decoder_recipe --retrained dfl_submission/retrain_models --trial dfl_submission/blend_recipe`, SHA-256 `f0b03d2c8a6718ee73b52c786854c3520a6cd4bd22fdedb7475b871510cdbfa5`;
@@ -199,7 +232,7 @@ The submitted file is the build output under the team name. The scorer names eac
 ```sh
 cp data/submission.csv Anfield.csv
 .venv/bin/python evaluation/validate_submission.py Anfield.csv
-shasum -a 256 Anfield.csv  # a56574fefd83af81747206e3aedcaf625cdd170e7376d4e00e5f0abee7c431e3
+shasum -a 256 Anfield.csv  # f6d7b2933a6210ce0c8a1ee96019f86815288d97368d656f366782345e6fc65d
 ```
 
 ## Audit the training and selection
@@ -450,15 +483,157 @@ MTAH_DATA_DIR=/path/to/competition-bundle .venv/bin/python -m dfl_submission.rou
 .venv/bin/python -m dfl_submission.vendor_adaptation develop --parsed data/pff/parsed
 ```
 
-C2 checks the final file without any ground truth (`output_check.py`). Its ranges come from D15's predictions on 28 external match views: possessions per minute, the share of dead ball, and sub-second stoppages per 90 minutes. The check on the competition file prints only PASS or FAIL.
+Round 12 (D45–D54) needs D42's player tokens and development caches first. Earlier sections of this README did not list D42's commands:
+
+```sh
+.venv/bin/python -m dfl_submission.player_trial prepare --set current --source /path/to/train_data \
+  --dfl "$DFL_XML" --dfl-raw --skill data/skillcorner --out data/d42/tokens_current
+.venv/bin/python -m dfl_submission.player_trial prepare --set augmented --source data/d13/sequences_augmented \
+  --dfl "$DFL_XML" --dfl-raw --skill data/skillcorner --out data/d42/tokens_augmented
+.venv/bin/python -m dfl_submission.player_trial develop --dfl "$DFL_XML" --dfl-raw --skill data/skillcorner \
+  --parsed data/pff/parsed --cache data/d42/cache --d15-cache data/d15/cache/w96_s5400
+```
+
+Round 12's commands write each record once. All run with `MTAH_DATA_DIR` set to a nonexistent path except the build. Trainings run one network at a time on MPS, and each new trainer first reproduces a published network bit for bit. Commands that train take `--external /path/to/external`, a folder holding `external_temporal/train_data`.
+
+```sh
+# D45: the 21-match refit (held; vetoes only)
+.venv/bin/python -m dfl_submission.refit_trial prepare --set current --dfl "$DFL_XML" --dfl-raw --skill data/skillcorner \
+  --stored /path/to/train_data --sequences data/d45/sequences_current --tokens data/d45/tokens_current
+.venv/bin/python -m dfl_submission.refit_trial prepare --set augmented --dfl "$DFL_XML" --dfl-raw --skill data/skillcorner \
+  --stored data/d13/sequences_augmented --sequences data/d45/sequences_augmented --tokens data/d45/tokens_augmented
+.venv/bin/python -m dfl_submission.refit_trial networks --set current --sequences data/d45/sequences_current \
+  --tokens data/d45/tokens_current --scratch data/d45/networks          # and --set augmented
+.venv/bin/python -m dfl_submission.refit_trial vetoes --parsed data/pff/parsed --dfl "$DFL_XML" --dfl-raw \
+  --skill data/skillcorner --cache data/d45/cache
+
+# D46 and D46a: measurements of D43 from D42's caches
+.venv/bin/python -m dfl_submission.diagnosis_d43 measure --parsed data/pff/parsed --dfl "$DFL_XML" --dfl-raw \
+  --skill data/skillcorner --cache data/d42/cache
+.venv/bin/python -m dfl_submission.diagnosis_d43 measure-hidden --parsed data/pff/parsed --dfl "$DFL_XML" --dfl-raw \
+  --skill data/skillcorner --cache data/d42/cache
+
+# D47: seeds, mirrors, token noise
+.venv/bin/python -m dfl_submission.screen_trial check-trainer --source /path/to/train_data --tokens data/d42/tokens_current
+.venv/bin/python -m dfl_submission.screen_trial parity --set current --source /path/to/train_data \
+  --dfl "$DFL_XML" --dfl-raw --skill data/skillcorner     # writes data/d47/parity_current.json; and --set augmented
+.venv/bin/python -m dfl_submission.screen_trial parity-record data/d47/parity_current.json data/d47/parity_augmented.json
+.venv/bin/python -m dfl_submission.screen_trial reference --dfl "$DFL_XML" --dfl-raw --skill data/skillcorner --parsed data/pff/parsed
+.venv/bin/python -m dfl_submission.screen_trial networks --candidate F --set current \
+  --source /path/to/train_data --tokens data/d42/tokens_current        # each of S1000, S2000, F, N, FN; both sets
+.venv/bin/python -m dfl_submission.screen_trial score --candidates S1000 S2000 M3 F0 F N FN \
+  --dfl "$DFL_XML" --dfl-raw --skill data/skillcorner --parsed data/pff/parsed
+
+# D49: long hidden-ball views
+.venv/bin/python -m dfl_submission.hidden_trial prepare --set current --source /path/to/train_data \
+  --stored-tokens data/d42/tokens_current --dfl "$DFL_XML" --dfl-raw --skill data/skillcorner \
+  --sequences data/d49/sequences_current --tokens data/d49/tokens_current
+.venv/bin/python -m dfl_submission.hidden_trial prepare --set augmented --source data/d13/sequences_augmented \
+  --stored-tokens data/d42/tokens_augmented --dfl "$DFL_XML" --dfl-raw --skill data/skillcorner \
+  --sequences data/d49/sequences_augmented --tokens data/d49/tokens_augmented --augmented-swaps yes --augmented-skill-ball handled
+.venv/bin/python -m dfl_submission.hidden_trial networks --set current --sequences data/d49/sequences_current \
+  --tokens data/d49/tokens_current --scratch data/d49/networks --models data/d49/models    # and --set augmented
+.venv/bin/python -m dfl_submission.hidden_trial reference --parsed data/pff/parsed --dfl "$DFL_XML" --dfl-raw \
+  --skill data/skillcorner --d42-cache data/d42/cache
+.venv/bin/python -m dfl_submission.hidden_trial candidate --parsed data/pff/parsed --dfl "$DFL_XML" --dfl-raw \
+  --skill data/skillcorner --d42-cache data/d42/cache --models data/d49/models
+
+# D50: the direction of attack
+.venv/bin/python -m dfl_submission.direction_trial signs --set current --source /path/to/train_data \
+  --tokens data/d42/tokens_current --dfl "$DFL_XML" --dfl-raw --skill data/skillcorner    # and --set augmented
+.venv/bin/python -m dfl_submission.direction_trial dev-signs --dfl "$DFL_XML" --dfl-raw --skill data/skillcorner \
+  --parsed data/pff/parsed
+.venv/bin/python -m dfl_submission.direction_trial sign-record
+.venv/bin/python -m dfl_submission.direction_trial check-trainer --source /path/to/train_data --tokens data/d42/tokens_current
+.venv/bin/python -m dfl_submission.direction_trial networks --set current --source /path/to/train_data \
+  --tokens data/d42/tokens_current                                     # and the augmented set
+.venv/bin/python -m dfl_submission.direction_trial develop --dfl "$DFL_XML" --dfl-raw --skill data/skillcorner \
+  --parsed data/pff/parsed
+.venv/bin/python -m dfl_submission.direction_trial guards --dfl "$DFL_XML" --dfl-raw
+
+# D51: the auxiliary ball-location output (rejected)
+.venv/bin/python -m dfl_submission.hidden_ball_trial targets --set current --dfl "$DFL_XML" --dfl-raw \
+  --skill data/skillcorner --sequences data/d49/sequences_current --tokens data/d49/tokens_current \
+  --out data/d51/aux_current                                           # and --set augmented
+.venv/bin/python -m dfl_submission.hidden_ball_trial check-trainer --sequences data/d49/sequences_current \
+  --tokens data/d49/tokens_current --aux data/d51/aux_current --scratch data/d51/check --seed 42
+.venv/bin/python -m dfl_submission.hidden_ball_trial networks --set current --sequences data/d49/sequences_current \
+  --tokens data/d49/tokens_current --aux data/d51/aux_current --scratch data/d51/networks --models data/d51/models
+.venv/bin/python -m dfl_submission.hidden_ball_trial aux-error --dfl "$DFL_XML" --dfl-raw --scratch data/d51/networks
+.venv/bin/python -m dfl_submission.hidden_ball_trial score --parsed data/pff/parsed --dfl "$DFL_XML" --dfl-raw \
+  --skill data/skillcorner --d42-cache data/d42/cache --models data/d51/models
+
+# D48: the stack at 5,400 steps
+.venv/bin/python -m dfl_submission.stack_trial check --name direction --external /path/to/external   # also seed, hidden, mirror
+.venv/bin/python -m dfl_submission.stack_trial signs --set current --external /path/to/external \
+  --dfl "$DFL_XML" --dfl-raw --skill data/skillcorner                  # and --set augmented
+.venv/bin/python -m dfl_submission.stack_trial scoring-signs --dfl "$DFL_XML" --dfl-raw --skill data/skillcorner \
+  --parsed data/pff/parsed
+.venv/bin/python -m dfl_submission.stack_trial sign-record
+.venv/bin/python -m dfl_submission.stack_trial reference --dfl "$DFL_XML" --dfl-raw --skill data/skillcorner \
+  --parsed data/pff/parsed
+.venv/bin/python -m dfl_submission.stack_trial levers --mirror y
+.venv/bin/python -m dfl_submission.stack_trial networks --external /path/to/external --set current   # and augmented
+.venv/bin/python -m dfl_submission.stack_trial develop --dfl "$DFL_XML" --dfl-raw --skill data/skillcorner \
+  --parsed data/pff/parsed
+
+# D52: 8,100 steps (T) and a seventh block (X), first seed set
+.venv/bin/python -m dfl_submission.length_trial queue --external /path/to/external
+.venv/bin/python -m dfl_submission.length_trial score --dfl "$DFL_XML" --dfl-raw --skill data/skillcorner \
+  --parsed data/pff/parsed
+.venv/bin/python -m dfl_submission.length_trial decide
+
+# D48's amendment: the stack retrained at 8,100 steps
+.venv/bin/python -m dfl_submission.stack_trial check-t --external /path/to/external
+.venv/bin/python -m dfl_submission.stack_trial levers-t --external /path/to/external
+.venv/bin/python -m dfl_submission.stack_trial networks-t --external /path/to/external --set current  # and augmented
+.venv/bin/python -m dfl_submission.stack_trial develop-t --dfl "$DFL_XML" --dfl-raw --skill data/skillcorner \
+  --parsed data/pff/parsed
+
+# D48: the one confirmation (the prepare step parses the untouched PFF set)
+.venv/bin/python -m dfl_submission.stack_trial confirm-prepare --dfl "$DFL_XML" --dfl-raw --skill data/skillcorner \
+  --parsed data/pff/parsed --pff-raw data/pff/raw
+.venv/bin/python -m dfl_submission.stack_trial confirm --dfl "$DFL_XML" --dfl-raw --skill data/skillcorner \
+  --parsed data/pff/parsed
+
+# D48's adoption: copy the confirmed networks, then record that the build driver reproduces the confirmed run
+# (run again for the kick-off-aligned driver, whose digest is the one locked in stack_recipe/build_identity.json)
+.venv/bin/python -m dfl_submission.stack_trial adopt-models
+.venv/bin/python -m dfl_submission.stack_trial reproduce-build --dfl "$DFL_XML" --dfl-raw --skill data/skillcorner \
+  --parsed data/pff/parsed
+
+# D53: the fallback without the direction of attack (second use of D48's confirmation sets; not used)
+.venv/bin/python -m dfl_submission.fallback_trial levers
+.venv/bin/python -m dfl_submission.fallback_trial networks --external /path/to/external --set current   # and augmented
+.venv/bin/python -m dfl_submission.fallback_trial develop --dfl "$DFL_XML" --dfl-raw --skill data/skillcorner \
+  --parsed data/pff/parsed
+.venv/bin/python -m dfl_submission.fallback_trial confirm-prepare --dfl "$DFL_XML" --dfl-raw --skill data/skillcorner \
+  --parsed data/pff/parsed
+.venv/bin/python -m dfl_submission.fallback_trial confirm --dfl "$DFL_XML" --dfl-raw --skill data/skillcorner \
+  --parsed data/pff/parsed
+.venv/bin/python -m dfl_submission.fallback_trial adopt-models
+.venv/bin/python -m dfl_submission.fallback_trial reproduce-build --dfl "$DFL_XML" --dfl-raw --skill data/skillcorner \
+  --parsed data/pff/parsed
+
+# D54: D43 and both candidates on the four 2019–20 SkillCorner confirmation matches (measurement only)
+.venv/bin/python -m dfl_submission.fresh_trial reproduce --legacy-raw data/skillcorner_2020/raw
+.venv/bin/python -m dfl_submission.fresh_trial prepare --legacy-raw data/skillcorner_2020/raw
+.venv/bin/python -m dfl_submission.fresh_trial score --legacy-raw data/skillcorner_2020/raw
+```
+
+C2 checks the final file without any ground truth (`output_check.py`). Its ranges come from the submission's predictions on 28 external match views: possessions per minute, the share of dead ball, and sub-second stoppages per 90 minutes. C2 was declared for D15 (`ranges`, `output_check_ranges.json`), then re-declared for D43 (`ranges-d43`, `output_check_ranges_d43.json`) and for the stack (`ranges-d48`, `output_check_ranges_d48.json`: 0.83–4.16 possessions per graded minute, a dead share of 0.15–0.82 and 0–56.5 sub-second stoppages per 90 minutes). `check` reads the stack's ranges. A re-declaration for the unused D53 fallback (`ranges-d53`) was written but applies only if it ships. The check on the competition file prints only PASS or FAIL.
 
 ```sh
 .venv/bin/python -m dfl_submission.output_check ranges --dfl "$DFL_XML" --dfl-raw --skill data/skillcorner \
   --parsed data/pff/parsed --d15-cache data/d15/cache/w96_s5400      # written once, external data only
+.venv/bin/python -m dfl_submission.output_check ranges-d43 --dfl "$DFL_XML" --dfl-raw --skill data/skillcorner \
+  --parsed data/pff/parsed                                          # D43's ranges, written once
+.venv/bin/python -m dfl_submission.output_check ranges-d48 --dfl "$DFL_XML" --dfl-raw --skill data/skillcorner \
+  --parsed data/pff/parsed                                          # the stack's ranges, written once
 python -m dfl_submission.output_check check data/submission.csv     # on the final file
 ```
 
-[D24 measurement](dfl_submission/metrica_recipe/d24_measurement.json) · [D25 development](dfl_submission/stoppage_recipe/development.json) · [D26 development](dfl_submission/timing_recipe/development.json) · [C2 ranges](dfl_submission/output_check_ranges.json)
+[D24 measurement](dfl_submission/metrica_recipe/d24_measurement.json) · [D25 development](dfl_submission/stoppage_recipe/development.json) · [D26 development](dfl_submission/timing_recipe/development.json) · [C2 ranges](dfl_submission/output_check_ranges.json) · [D43's](dfl_submission/output_check_ranges_d43.json) · [D48's](dfl_submission/output_check_ranges_d48.json)
 
 [D20 selection](dfl_submission/zoo_recipe/development.json) · [D21 record](dfl_submission/diagnosis_recipe/d21.json) · [D22 Stage A](dfl_submission/triple_recipe/stage_a.json) · [D22 development](dfl_submission/triple_recipe/development.json) · [D23 evidence](dfl_submission/final_recipe/evidence.json)
 
@@ -482,13 +657,14 @@ Each test file runs in its own process, because PyTorch and XGBoost each bring a
 - **Domain shift.** The external datasets come from other competitions and other tracking systems. Their dead-ball periods carry provider artifacts: DFL freezes the ball, and SkillCorner rarely detects it. The blend halves the weight of models trained with those artifacts, but our dead-ball simulation is itself an approximation.
 - **Possession definitions.** These differ between providers. DFL changes the owning team on any opponent touch. The challenge counts only controlled possession. Brief deflections may therefore appear as short possessions, and the decoder costs only partly absorb them.
 - **Smoothing.** The decoder can merge very short real possessions or shift their boundaries.
-- **Holdout reuse.** The external confirmation matches were reused across model-family decisions.
+- **Long hidden-ball stretches.** On real automatic tracking, a third to two fifths of the hidden-ball frames lie in runs over 10 s, where the decoded owner is right less often (D46a). The long hidden-ball training views (D49) narrow that gap, but they are synthetic, not fitted to the competition tracking.
+- **Holdout reuse.** The external confirmation matches were reused across model-family decisions. D48's confirmation scored new long hidden-ball views of the DFL holdout matches and spent the untouched PFF set, and D54 scored the four 2019–20 SkillCorner confirmation matches. The only external matches still unused are the 24 PFF games of D7's three training slots, which were never parsed because no model may train on PFF; they remain available for measurement and confirmation.
 
 ## Licences and attribution
 
 - The challenge's evaluation code, `games.py`, `starter/` and `DATA.md` come from the organisers' repository under its [MIT licence](LICENSE).
 - DFL data is used under CC BY 4.0 and credited to the DFL and to Bassek et al., *An integrated dataset of spatiotemporal and event data in elite soccer*, Scientific Data 12:195 (2025). We parsed it, resampled it, synthetically degraded it and used it to fit the published weights.
 - SkillCorner Open Data is used under the MIT licence; credit to SkillCorner.
-- The Metrica Sports sample data ([metrica-sports/sample-data](https://github.com/metrica-sports/sample-data)) is credited to Metrica Sports. It is used for evaluation only (D1's convention choice and the D19 benchmark) and is not redistributed.
+- The Metrica Sports sample data ([metrica-sports/sample-data](https://github.com/metrica-sports/sample-data)) is credited to Metrica Sports. It is used for evaluation only (D1's convention choice, the D19 benchmark and, in round 12, groups of the development score) and is not redistributed.
 - PathCRF (Kim et al., KDD 2026) is run from its own repository under MPL-2.0 for the D18 comparison only. None of its code or weights is included here.
 - The match data is not included and must not be committed (see `.gitignore`).

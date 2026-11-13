@@ -1,0 +1,980 @@
+{
+  "caches": {
+    "D43": "18f8cfae86fb7241f90783bb8011be785070c835cf15f97f5df08c33139f1fc4",
+    "stack": "1bb1e47055416964e3f54f13ef5607801d3b93da42180df389641f1a59c9f8bd"
+  },
+  "check_sha256": "26cbef51f6471ea4d179a63208bcb8ac5193ed96b66886ff52bcf2bde02e78d7",
+  "checks": {
+    "models": {
+      "adoption": true,
+      "code": true,
+      "code_changed_since_confirmation": [
+        "stack_trial.py"
+      ],
+      "config": true,
+      "cost": true,
+      "d43": true,
+      "modules": true,
+      "networks": true,
+      "passed": true,
+      "stack_8100": true,
+      "trees": true
+    },
+    "reader": {
+      "firstHalf": {
+        "ball_records": 69131,
+        "ball_xy_equal": true,
+        "dead_frames": 22951,
+        "dead_frames_z_zero": 22951,
+        "frames": 69131,
+        "frames_equal": true,
+        "live_frames": 46180,
+        "live_share_above_air_height": 0.14066695539194457,
+        "numeric_z_on_every_record": true,
+        "status_equal": true
+      },
+      "secondHalf": {
+        "ball_records": 77080,
+        "ball_xy_equal": true,
+        "dead_frames": 41800,
+        "dead_frames_z_zero": 41800,
+        "frames": 77080,
+        "frames_equal": true,
+        "live_frames": 35280,
+        "live_share_above_air_height": 0.253656462585034,
+        "numeric_z_on_every_record": true,
+        "status_equal": true
+      }
+    },
+    "standing_bit_for_bit": {
+      "D43": {
+        "clean/0": true,
+        "clean/1": true,
+        "dead_carried/0": true,
+        "dead_carried/1": true,
+        "masked/0": true,
+        "masked/1": true,
+        "team_swap/0": true,
+        "team_swap/1": true
+      },
+      "stack": {
+        "clean/0": true,
+        "clean/1": true,
+        "dead_carried/0": true,
+        "dead_carried/1": true,
+        "masked/0": true,
+        "masked/1": true,
+        "team_swap/0": true,
+        "team_swap/1": true
+      }
+    },
+    "standing_reproduced": {
+      "D43": {
+        "clean": {
+          "equal": true,
+          "recomputed": 0.7802919708029197,
+          "record": 0.7802919708029197
+        },
+        "dead_carried": {
+          "equal": true,
+          "recomputed": 0.6428318584070796,
+          "record": 0.6428318584070796
+        },
+        "masked": {
+          "equal": true,
+          "recomputed": 0.7218390804597701,
+          "record": 0.7218390804597701
+        },
+        "team_swap": {
+          "equal": true,
+          "recomputed": 0.6938931297709923,
+          "record": 0.6938931297709923
+        }
+      },
+      "stack": {
+        "clean": {
+          "equal": true,
+          "recomputed": 0.7811252268602541,
+          "record": 0.7811252268602541
+        },
+        "dead_carried": {
+          "equal": true,
+          "recomputed": 0.6574545454545454,
+          "record": 0.6574545454545454
+        },
+        "masked": {
+          "equal": true,
+          "recomputed": 0.7281853281853283,
+          "record": 0.7281853281853283
+        },
+        "team_swap": {
+          "equal": true,
+          "recomputed": 0.7066413662239089,
+          "record": 0.7066413662239089
+        }
+      }
+    }
+  },
+  "code": {
+    "augment.py": "3d38e728b6d1e86190dddf116e31c1163355ee309d5fd10d1ab107d82d90f50a",
+    "diagnosis.py": "bb3c509284ccaca6247cbfce6830471c0ba6a57f274ea7af5b685a82621b2ed6",
+    "direction_tokens.py": "a3a6e97d6d528aac780942f05218c7b657be00d79aadb48df192b8a5dc16b6bb",
+    "direction_trial.py": "cfb79a32d000adcb01d35bc88bed1bfaa7b1d034f2fe3e0f776820eb56d0cae1",
+    "hidden_views.py": "196b9632e57487e125e988f85e712b6145e75fe3d41b835fdaf7161e29416706",
+    "joint_decoder.py": "893347726aff678aac2791d02899e1cc683418f47ff6d8b1ab5b6ba5fe10d152",
+    "player_set.py": "4e298e542e4d2a47636f9e6dda50be14e62f8d9c7e96ebe64f1973a1f24ed2cc",
+    "player_set3.py": "6919a8c5c29367ff9a2690716f6265fbe698bb8574119d0c409f4edcf46c6a56",
+    "player_trial.py": "7ec395e78c6524f412856c1628d0d75e192fe221c094ecfdca453517081dbfc6",
+    "situation_trial.py": "35b1bbafd0acbff2fb77ca38fbc2a0cc46252dc191c73c35b7956e046500a846",
+    "situation_views.py": "1f97c779ccfef29b35586808ba799e0b684e80fa1466e33fe306f61bf1972949",
+    "stack_set.py": "d7ee48dc7c90b781da34119c22d82df3ccc5bfa90505e36299a67cb3f1c828e4",
+    "stack_trial.py": "47b36f6d34b64a4669c0b79db705a76ce47568f6751dc24b2a6d07aeed84a614",
+    "temporal_cpu.py": "1562369a1f099095786505c28505f0b80d498d47320c77a4f46242a6f1d7156b",
+    "train.py": "c298efb002426d6a6a99c6cbde76e2b9ac3e2f45dd53e591db3fd3e7f2258b03"
+  },
+  "confirmation_sha256": "dc232ee444fd52239a88c8f93686481269839209fa12444ecf48a3c040aab8df",
+  "constants": {
+    "air_height_m": 1.5,
+    "change_frames": [
+      -25,
+      50
+    ],
+    "crowd_players": 3,
+    "crowd_radius_m": 3.0,
+    "dropout": [
+      0.2,
+      50
+    ],
+    "duplicate_radius_m": 1.0,
+    "duplicate_run_frames": [
+      50,
+      125
+    ],
+    "duplicate_share": 0.1,
+    "noise_m": 0.2,
+    "placement_offset": 5000,
+    "seeds": {
+      "air": 930000,
+      "air_or_crowd": 960000,
+      "change": 950000,
+      "crowd": 940000,
+      "duplicates": 970000
+    }
+  },
+  "match": "WPY",
+  "owner_costs": {
+    "D43": 10,
+    "stack": 14
+  },
+  "protocol": "DECISIONS.md D55",
+  "reading": {
+    "conclusion": "hiding by situation is a real weakness: D56 trains with such views, confirmed on fresh PFF games",
+    "duplicate_fall_limit": 0.02,
+    "duplicates_call_for_own_rule": false,
+    "duplicates_minus_masked": {
+      "D43": 0.0,
+      "stack": -0.004339174339174523
+    },
+    "gap_limit": -0.02,
+    "gaps": {
+      "D43": {
+        "air": -0.03876210448405604,
+        "air_or_crowd": -0.030598767628715273,
+        "change": -0.06830859006264489,
+        "crowd": -0.012243401759530759
+      },
+      "stack": {
+        "air": -0.058239797955978,
+        "air_or_crowd": -0.028404344193817654,
+        "change": -0.0731153438702018,
+        "crowd": -0.0015180265654647362
+      }
+    },
+    "masked_view": {
+      "D43": 0.7218390804597701,
+      "stack": 0.7281853281853283
+    },
+    "real_weakness": true,
+    "stack_gap_air_or_crowd": -0.028404344193817654
+  },
+  "scored_at": "2026-11-13 15:01 EST",
+  "scores": {
+    "D43": {
+      "air": {
+        "agreement": {
+          "hidden": {
+            "agree": 11447,
+            "agreement": 0.798312295139131,
+            "frames": 14339,
+            "target_live_frames": 15445
+          },
+          "seen": {
+            "agree": 61652,
+            "agreement": 0.9417119814260402,
+            "frames": 65468,
+            "target_live_frames": 66015
+          }
+        },
+        "macro_f1": 0.9276648885328442,
+        "owner_cost": 10,
+        "predicted_spells": 215,
+        "spell_f1": 0.7306451612903226
+      },
+      "air_or_crowd": {
+        "agreement": {
+          "hidden": {
+            "agree": 13464,
+            "agreement": 0.8075815738963532,
+            "frames": 16672,
+            "target_live_frames": 17982
+          },
+          "seen": {
+            "agree": 59332,
+            "agreement": 0.9418375769890152,
+            "frames": 62996,
+            "target_live_frames": 63478
+          }
+        },
+        "macro_f1": 0.9250042775986141,
+        "owner_cost": 10,
+        "predicted_spells": 218,
+        "spell_f1": 0.7230460921843688
+      },
+      "air_or_crowd_random": {
+        "agreement": {
+          "hidden": {
+            "agree": 10065,
+            "agreement": 0.905940594059406,
+            "frames": 11110,
+            "target_live_frames": 11292
+          },
+          "seen": {
+            "agree": 64012,
+            "agreement": 0.9183140619171951,
+            "frames": 69706,
+            "target_live_frames": 70168
+          }
+        },
+        "macro_f1": 0.9342883746344725,
+        "owner_cost": 10,
+        "predicted_spells": 254,
+        "spell_f1": 0.753644859813084
+      },
+      "air_random": {
+        "agreement": {
+          "hidden": {
+            "agree": 7164,
+            "agreement": 0.9283400285084877,
+            "frames": 7717,
+            "target_live_frames": 7895
+          },
+          "seen": {
+            "agree": 67421,
+            "agreement": 0.9231706649140103,
+            "frames": 73032,
+            "target_live_frames": 73565
+          }
+        },
+        "macro_f1": 0.9387970374795285,
+        "owner_cost": 10,
+        "predicted_spells": 242,
+        "spell_f1": 0.7694072657743787
+      },
+      "change": {
+        "agreement": {
+          "hidden": {
+            "agree": 8085,
+            "agreement": 0.6512283527990335,
+            "frames": 12415,
+            "target_live_frames": 12974
+          },
+          "seen": {
+            "agree": 64148,
+            "agreement": 0.9464288348898626,
+            "frames": 67779,
+            "target_live_frames": 68486
+          }
+        },
+        "macro_f1": 0.9181423954282305,
+        "owner_cost": 10,
+        "predicted_spells": 235,
+        "spell_f1": 0.6837209302325581
+      },
+      "change_random": {
+        "agreement": {
+          "hidden": {
+            "agree": 6954,
+            "agreement": 0.9100903023164507,
+            "frames": 7641,
+            "target_live_frames": 7760
+          },
+          "seen": {
+            "agree": 67347,
+            "agreement": 0.9210475929978118,
+            "frames": 73120,
+            "target_live_frames": 73700
+          }
+        },
+        "macro_f1": 0.9355999303893098,
+        "owner_cost": 10,
+        "predicted_spells": 261,
+        "spell_f1": 0.752029520295203
+      },
+      "crowd": {
+        "agreement": {
+          "hidden": {
+            "agree": 2701,
+            "agreement": 0.7444873208379272,
+            "frames": 3628,
+            "target_live_frames": 3683
+          },
+          "seen": {
+            "agree": 71220,
+            "agreement": 0.9257766800987911,
+            "frames": 76930,
+            "target_live_frames": 77777
+          }
+        },
+        "macro_f1": 0.9327391514904564,
+        "owner_cost": 10,
+        "predicted_spells": 246,
+        "spell_f1": 0.735483870967742
+      },
+      "crowd_random": {
+        "agreement": {
+          "hidden": {
+            "agree": 2128,
+            "agreement": 0.8474711270410196,
+            "frames": 2511,
+            "target_live_frames": 2798
+          },
+          "seen": {
+            "agree": 71605,
+            "agreement": 0.9205265661357296,
+            "frames": 77787,
+            "target_live_frames": 78662
+          }
+        },
+        "macro_f1": 0.9315477297863293,
+        "owner_cost": 10,
+        "predicted_spells": 247,
+        "spell_f1": 0.7477272727272728
+      },
+      "duplicates": {
+        "agreement": {
+          "hidden": {
+            "agree": 27978,
+            "agreement": 0.9042955493067003,
+            "frames": 30939,
+            "target_live_frames": 32011
+          },
+          "seen": {
+            "agree": 45004,
+            "agreement": 0.9149200024395698,
+            "frames": 49189,
+            "target_live_frames": 49449
+          }
+        },
+        "macro_f1": 0.9231281510414072,
+        "owner_cost": 10,
+        "predicted_spells": 241,
+        "spell_f1": 0.7218390804597701
+      }
+    },
+    "stack": {
+      "air": {
+        "agreement": {
+          "hidden": {
+            "agree": 11889,
+            "agreement": 0.8133123546312765,
+            "frames": 14618,
+            "target_live_frames": 15445
+          },
+          "seen": {
+            "agree": 61876,
+            "agreement": 0.9443257432391184,
+            "frames": 65524,
+            "target_live_frames": 66015
+          }
+        },
+        "macro_f1": 0.9330716625458605,
+        "owner_cost": 14,
+        "predicted_spells": 216,
+        "spell_f1": 0.7372233400402414
+      },
+      "air_or_crowd": {
+        "agreement": {
+          "hidden": {
+            "agree": 13892,
+            "agreement": 0.8213314414094832,
+            "frames": 16914,
+            "target_live_frames": 17982
+          },
+          "seen": {
+            "agree": 59638,
+            "agreement": 0.944850203583707,
+            "frames": 63119,
+            "target_live_frames": 63478
+          }
+        },
+        "macro_f1": 0.9310231919114162,
+        "owner_cost": 14,
+        "predicted_spells": 223,
+        "spell_f1": 0.7460317460317462
+      },
+      "air_or_crowd_random": {
+        "agreement": {
+          "hidden": {
+            "agree": 10292,
+            "agreement": 0.9282106782106783,
+            "frames": 11088,
+            "target_live_frames": 11292
+          },
+          "seen": {
+            "agree": 64332,
+            "agreement": 0.9206858058791539,
+            "frames": 69874,
+            "target_live_frames": 70168
+          }
+        },
+        "macro_f1": 0.9392786149726883,
+        "owner_cost": 14,
+        "predicted_spells": 251,
+        "spell_f1": 0.7744360902255638
+      },
+      "air_random": {
+        "agreement": {
+          "hidden": {
+            "agree": 7235,
+            "agreement": 0.9371761658031088,
+            "frames": 7720,
+            "target_live_frames": 7895
+          },
+          "seen": {
+            "agree": 67977,
+            "agreement": 0.9308602415578013,
+            "frames": 73026,
+            "target_live_frames": 73565
+          }
+        },
+        "macro_f1": 0.9444518334791584,
+        "owner_cost": 14,
+        "predicted_spells": 248,
+        "spell_f1": 0.7954631379962194
+      },
+      "change": {
+        "agreement": {
+          "hidden": {
+            "agree": 8370,
+            "agreement": 0.663443246670894,
+            "frames": 12616,
+            "target_live_frames": 12974
+          },
+          "seen": {
+            "agree": 64767,
+            "agreement": 0.9495513722730472,
+            "frames": 68208,
+            "target_live_frames": 68486
+          }
+        },
+        "macro_f1": 0.9255851106840197,
+        "owner_cost": 14,
+        "predicted_spells": 238,
+        "spell_f1": 0.694412331406551
+      },
+      "change_random": {
+        "agreement": {
+          "hidden": {
+            "agree": 6930,
+            "agreement": 0.910524241229799,
+            "frames": 7611,
+            "target_live_frames": 7760
+          },
+          "seen": {
+            "agree": 67867,
+            "agreement": 0.9243792478786145,
+            "frames": 73419,
+            "target_live_frames": 73700
+          }
+        },
+        "macro_f1": 0.9400156796760458,
+        "owner_cost": 14,
+        "predicted_spells": 261,
+        "spell_f1": 0.7675276752767528
+      },
+      "crowd": {
+        "agreement": {
+          "hidden": {
+            "agree": 2879,
+            "agreement": 0.7953038674033149,
+            "frames": 3620,
+            "target_live_frames": 3683
+          },
+          "seen": {
+            "agree": 71434,
+            "agreement": 0.9268596488951746,
+            "frames": 77071,
+            "target_live_frames": 77777
+          }
+        },
+        "macro_f1": 0.9363461904696911,
+        "owner_cost": 14,
+        "predicted_spells": 246,
+        "spell_f1": 0.7483870967741936
+      },
+      "crowd_random": {
+        "agreement": {
+          "hidden": {
+            "agree": 2088,
+            "agreement": 0.8315412186379928,
+            "frames": 2511,
+            "target_live_frames": 2798
+          },
+          "seen": {
+            "agree": 71975,
+            "agreement": 0.9236682365925336,
+            "frames": 77923,
+            "target_live_frames": 78662
+          }
+        },
+        "macro_f1": 0.9341384260877602,
+        "owner_cost": 14,
+        "predicted_spells": 246,
+        "spell_f1": 0.7499051233396583
+      },
+      "duplicates": {
+        "agreement": {
+          "hidden": {
+            "agree": 28525,
+            "agreement": 0.9167309422804988,
+            "frames": 31116,
+            "target_live_frames": 32011
+          },
+          "seen": {
+            "agree": 44937,
+            "agreement": 0.9127043769676043,
+            "frames": 49235,
+            "target_live_frames": 49449
+          }
+        },
+        "macro_f1": 0.9285401745250863,
+        "owner_cost": 14,
+        "predicted_spells": 239,
+        "spell_f1": 0.7238461538461538
+      }
+    }
+  },
+  "seconds": 841,
+  "signs": {
+    "fallbacks": [],
+    "first_frame_disagrees": [],
+    "halves": 18,
+    "same_sign_views": [],
+    "signs": {
+      "dfl/WPY/air/0": -1,
+      "dfl/WPY/air/1": 1,
+      "dfl/WPY/air_or_crowd/0": -1,
+      "dfl/WPY/air_or_crowd/1": 1,
+      "dfl/WPY/air_or_crowd_random/0": -1,
+      "dfl/WPY/air_or_crowd_random/1": 1,
+      "dfl/WPY/air_random/0": -1,
+      "dfl/WPY/air_random/1": 1,
+      "dfl/WPY/change/0": -1,
+      "dfl/WPY/change/1": 1,
+      "dfl/WPY/change_random/0": -1,
+      "dfl/WPY/change_random/1": 1,
+      "dfl/WPY/crowd/0": -1,
+      "dfl/WPY/crowd/1": 1,
+      "dfl/WPY/crowd_random/0": -1,
+      "dfl/WPY/crowd_random/1": 1,
+      "dfl/WPY/duplicates/0": -1,
+      "dfl/WPY/duplicates/1": 1
+    },
+    "smallest_abs_d_m": 11.27484671511964
+  },
+  "stack_config": {
+    "aux": false,
+    "direction": true,
+    "mirror": "y",
+    "noise": false,
+    "seed_offset": 0
+  },
+  "standing_scores": {
+    "D43": {
+      "clean": {
+        "agreement": {
+          "hidden": {
+            "agree": 0,
+            "agreement": null,
+            "frames": 0,
+            "target_live_frames": 0
+          },
+          "seen": {
+            "agree": 75365,
+            "agreement": 0.9293879715381484,
+            "frames": 81091,
+            "target_live_frames": 81460
+          }
+        },
+        "macro_f1": 0.9458831090557093,
+        "owner_cost": 10,
+        "predicted_spells": 267,
+        "spell_f1": 0.7802919708029197
+      },
+      "dead_carried": {
+        "agreement": {
+          "hidden": {
+            "agree": 28474,
+            "agreement": 0.9066131754067565,
+            "frames": 31407,
+            "target_live_frames": 32011
+          },
+          "seen": {
+            "agree": 45165,
+            "agreement": 0.9169255131250381,
+            "frames": 49257,
+            "target_live_frames": 49449
+          }
+        },
+        "macro_f1": 0.8509900984420641,
+        "owner_cost": 10,
+        "predicted_spells": 284,
+        "spell_f1": 0.6428318584070796
+      },
+      "masked": {
+        "agreement": {
+          "hidden": {
+            "agree": 27997,
+            "agreement": 0.9052315054319711,
+            "frames": 30928,
+            "target_live_frames": 32011
+          },
+          "seen": {
+            "agree": 45035,
+            "agreement": 0.9155874519690163,
+            "frames": 49187,
+            "target_live_frames": 49449
+          }
+        },
+        "macro_f1": 0.9235722917704132,
+        "owner_cost": 10,
+        "predicted_spells": 241,
+        "spell_f1": 0.7218390804597701
+      },
+      "team_swap": {
+        "agreement": {
+          "hidden": {
+            "agree": 27556,
+            "agreement": 0.890396794623239,
+            "frames": 30948,
+            "target_live_frames": 32011
+          },
+          "seen": {
+            "agree": 44391,
+            "agreement": 0.9025863120653898,
+            "frames": 49182,
+            "target_live_frames": 49449
+          }
+        },
+        "macro_f1": 0.9132742674096965,
+        "owner_cost": 10,
+        "predicted_spells": 243,
+        "spell_f1": 0.6938931297709923
+      }
+    },
+    "stack": {
+      "clean": {
+        "agreement": {
+          "hidden": {
+            "agree": 0,
+            "agreement": null,
+            "frames": 0,
+            "target_live_frames": 0
+          },
+          "seen": {
+            "agree": 75733,
+            "agreement": 0.933833956029051,
+            "frames": 81099,
+            "target_live_frames": 81460
+          }
+        },
+        "macro_f1": 0.9491840416135157,
+        "owner_cost": 14,
+        "predicted_spells": 270,
+        "spell_f1": 0.7811252268602541
+      },
+      "dead_carried": {
+        "agreement": {
+          "hidden": {
+            "agree": 28664,
+            "agreement": 0.910806774490801,
+            "frames": 31471,
+            "target_live_frames": 32011
+          },
+          "seen": {
+            "agree": 45222,
+            "agreement": 0.9177287117460833,
+            "frames": 49276,
+            "target_live_frames": 49449
+          }
+        },
+        "macro_f1": 0.8668744389022266,
+        "owner_cost": 14,
+        "predicted_spells": 269,
+        "spell_f1": 0.6574545454545454
+      },
+      "masked": {
+        "agreement": {
+          "hidden": {
+            "agree": 28546,
+            "agreement": 0.9175827708132434,
+            "frames": 31110,
+            "target_live_frames": 32011
+          },
+          "seen": {
+            "agree": 45020,
+            "agreement": 0.9144830387974812,
+            "frames": 49230,
+            "target_live_frames": 49449
+          }
+        },
+        "macro_f1": 0.9294471291504794,
+        "owner_cost": 14,
+        "predicted_spells": 237,
+        "spell_f1": 0.7281853281853283
+      },
+      "team_swap": {
+        "agreement": {
+          "hidden": {
+            "agree": 28334,
+            "agreement": 0.9089275976004876,
+            "frames": 31173,
+            "target_live_frames": 32011
+          },
+          "seen": {
+            "agree": 44673,
+            "agreement": 0.9076188541243397,
+            "frames": 49220,
+            "target_live_frames": 49449
+          }
+        },
+        "macro_f1": 0.9230827995693184,
+        "owner_cost": 14,
+        "predicted_spells": 246,
+        "spell_f1": 0.7066413662239089
+      }
+    }
+  },
+  "views": {
+    "masked_statistics": {
+      "frames": 146211,
+      "halves": 2,
+      "hidden_frames": 56929,
+      "hidden_runs": 1170,
+      "hidden_share_in_runs_over_10s": 0.030406295561137556,
+      "hidden_share_in_runs_over_3s": 0.5243900296861003,
+      "live_frames": 81460,
+      "live_hidden_frames": 32011,
+      "live_visibility": 0.6070341271789835,
+      "mean_hidden_run_s": 1.9462905982905983,
+      "visibility": 0.6106380504886773
+    },
+    "notes": {
+      "changes": {
+        "0": 82,
+        "1": 102
+      },
+      "duplicates": {
+        "0": {
+          "frames": 6980,
+          "largest_offset_m": 0.9954115152359009,
+          "runs": 77,
+          "runs_without_player": 0,
+          "share": 0.1009677279368156
+        },
+        "1": {
+          "frames": 7783,
+          "largest_offset_m": 0.9782986640930176,
+          "runs": 86,
+          "runs_without_player": 0,
+          "share": 0.10097301504929942
+        }
+      },
+      "seeds": {
+        "air/0": {
+          "placement": 935400,
+          "view": 930400
+        },
+        "air/1": {
+          "placement": 935401,
+          "view": 930401
+        },
+        "air_or_crowd/0": {
+          "placement": 965400,
+          "view": 960400
+        },
+        "air_or_crowd/1": {
+          "placement": 965401,
+          "view": 960401
+        },
+        "change/0": {
+          "placement": 955400,
+          "view": 950400
+        },
+        "change/1": {
+          "placement": 955401,
+          "view": 950401
+        },
+        "crowd/0": {
+          "placement": 945400,
+          "view": 940400
+        },
+        "crowd/1": {
+          "placement": 945401,
+          "view": 940401
+        },
+        "duplicates/0": {
+          "duplicates": 970400,
+          "masked_view": 270400
+        },
+        "duplicates/1": {
+          "duplicates": 970401,
+          "masked_view": 270401
+        }
+      },
+      "situation_frames": {
+        "0": {
+          "air": 6496,
+          "air_or_crowd": 7882,
+          "change": 6150,
+          "crowd": 1743
+        },
+        "1": {
+          "air": 8949,
+          "air_or_crowd": 11709,
+          "change": 7650,
+          "crowd": 3549
+        }
+      }
+    },
+    "statistics": {
+      "air": {
+        "frames": 146211,
+        "halves": 2,
+        "hidden_frames": 15445,
+        "hidden_runs": 330,
+        "hidden_share_in_runs_over_10s": 0.01625121398510845,
+        "hidden_share_in_runs_over_3s": 0.5282615733247006,
+        "live_frames": 81460,
+        "live_hidden_frames": 15445,
+        "live_visibility": 0.8103977412226859,
+        "mean_hidden_run_s": 1.872121212121212,
+        "visibility": 0.8943649930579779
+      },
+      "air_or_crowd": {
+        "frames": 146211,
+        "halves": 2,
+        "hidden_frames": 19591,
+        "hidden_runs": 512,
+        "hidden_share_in_runs_over_10s": 0.04384666428462049,
+        "hidden_share_in_runs_over_3s": 0.5196774028890817,
+        "live_frames": 81460,
+        "live_hidden_frames": 17982,
+        "live_visibility": 0.7792536214092807,
+        "mean_hidden_run_s": 1.530546875,
+        "visibility": 0.8660087134346937
+      },
+      "air_or_crowd_random": {
+        "frames": 146211,
+        "halves": 2,
+        "hidden_frames": 19591,
+        "hidden_runs": 512,
+        "hidden_share_in_runs_over_10s": 0.04384666428462049,
+        "hidden_share_in_runs_over_3s": 0.5196774028890817,
+        "live_frames": 81460,
+        "live_hidden_frames": 11292,
+        "live_visibility": 0.8613798183157377,
+        "mean_hidden_run_s": 1.530546875,
+        "visibility": 0.8660087134346937
+      },
+      "air_random": {
+        "frames": 146211,
+        "halves": 2,
+        "hidden_frames": 15445,
+        "hidden_runs": 330,
+        "hidden_share_in_runs_over_10s": 0.01625121398510845,
+        "hidden_share_in_runs_over_3s": 0.5282615733247006,
+        "live_frames": 81460,
+        "live_hidden_frames": 7895,
+        "live_visibility": 0.90308126687945,
+        "mean_hidden_run_s": 1.872121212121212,
+        "visibility": 0.8943649930579779
+      },
+      "change": {
+        "frames": 146211,
+        "halves": 2,
+        "hidden_frames": 13800,
+        "hidden_runs": 184,
+        "hidden_share_in_runs_over_10s": 0.0,
+        "hidden_share_in_runs_over_3s": 0.0,
+        "live_frames": 81460,
+        "live_hidden_frames": 12974,
+        "live_visibility": 0.8407316474343236,
+        "mean_hidden_run_s": 3.0,
+        "visibility": 0.9056158565361019
+      },
+      "change_random": {
+        "frames": 146211,
+        "halves": 2,
+        "hidden_frames": 13800,
+        "hidden_runs": 184,
+        "hidden_share_in_runs_over_10s": 0.0,
+        "hidden_share_in_runs_over_3s": 0.0,
+        "live_frames": 81460,
+        "live_hidden_frames": 7760,
+        "live_visibility": 0.904738521973975,
+        "mean_hidden_run_s": 3.0,
+        "visibility": 0.9056158565361019
+      },
+      "crowd": {
+        "frames": 146211,
+        "halves": 2,
+        "hidden_frames": 5292,
+        "hidden_runs": 321,
+        "hidden_share_in_runs_over_10s": 0.11489040060468632,
+        "hidden_share_in_runs_over_3s": 0.3191609977324263,
+        "live_frames": 81460,
+        "live_hidden_frames": 3683,
+        "live_visibility": 0.9547876258286275,
+        "mean_hidden_run_s": 0.6594392523364486,
+        "visibility": 0.9638057328108008
+      },
+      "crowd_random": {
+        "frames": 146211,
+        "halves": 2,
+        "hidden_frames": 5292,
+        "hidden_runs": 321,
+        "hidden_share_in_runs_over_10s": 0.11489040060468632,
+        "hidden_share_in_runs_over_3s": 0.3191609977324263,
+        "live_frames": 81460,
+        "live_hidden_frames": 2798,
+        "live_visibility": 0.9656518536705131,
+        "mean_hidden_run_s": 0.6594392523364486,
+        "visibility": 0.9638057328108008
+      },
+      "duplicates": {
+        "frames": 146211,
+        "halves": 2,
+        "hidden_frames": 56929,
+        "hidden_runs": 1170,
+        "hidden_share_in_runs_over_10s": 0.030406295561137556,
+        "hidden_share_in_runs_over_3s": 0.5243900296861003,
+        "live_frames": 81460,
+        "live_hidden_frames": 32011,
+        "live_visibility": 0.6070341271789835,
+        "mean_hidden_run_s": 1.9462905982905983,
+        "visibility": 0.6106380504886773
+      }
+    }
+  }
+}

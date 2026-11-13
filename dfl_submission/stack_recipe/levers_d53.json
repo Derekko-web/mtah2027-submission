@@ -1,0 +1,23 @@
+{
+  "config": {
+    "aux": false,
+    "direction": false,
+    "mirror": "xy",
+    "noise": false,
+    "seed_offset": 0
+  },
+  "data": "d49",
+  "note": "No new trainer check: check_mirror (the two-axis mirror, D42's data, 5,400 steps) and check_hidden (D49's data) cover both switches; no bit-for-bit reference exists at 8,100 steps for this combination.",
+  "offsets": [
+    0,
+    1000,
+    2000
+  ],
+  "protocol": "DECISIONS.md D53",
+  "recorded_at": "2026-11-13 07:50 EST",
+  "steps": 8100,
+  "trainer_checks": {
+    "check_hidden.json": "eb69ba86dd0a81ffb67cf6bd0dc9aa815c7ca96b9208a935178b63376732d524",
+    "check_mirror.json": "9ccc36a168a2bf89352acb5ffd83894dadc1719766b85744ae8a2fb912ff521d"
+  }
+}

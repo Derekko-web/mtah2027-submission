@@ -1,0 +1,26 @@
+{
+  "actual": {
+    "temporal_1800.pt": "83a3149bb2ba00ccc84282e359bda4854ba5a760513c0a7884f39d0b1a314bba",
+    "temporal_3600.pt": "2b14a9e1a296b1510080e1325eb6ca3c020574baa6c7fd1c49ac3bd2a2355cb6",
+    "temporal_5400.pt": "040941098a5dea12a7fa4be0d280e38c709c201655ca826bf0738f3f7bc9d769"
+  },
+  "check": "switches-off retrain of D42's original-set seed-42 network",
+  "checked_at": "2026-11-12 21:47 EST",
+  "expected": {
+    "temporal_1800.pt": "83a3149bb2ba00ccc84282e359bda4854ba5a760513c0a7884f39d0b1a314bba",
+    "temporal_3600.pt": "2b14a9e1a296b1510080e1325eb6ca3c020574baa6c7fd1c49ac3bd2a2355cb6",
+    "temporal_5400.pt": "040941098a5dea12a7fa4be0d280e38c709c201655ca826bf0738f3f7bc9d769"
+  },
+  "passed": true,
+  "protocol": "DECISIONS.md D47",
+  "switches": {
+    "mask_probability": 0.1,
+    "mirror": false,
+    "noise": false,
+    "pitch_file": null,
+    "position_sd": 0.3,
+    "seed_offset": 0,
+    "sign_map": null,
+    "velocity_sd": 0.5
+  }
+}

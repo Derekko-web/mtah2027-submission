@@ -238,6 +238,8 @@ These are floors that only a broken pipeline should miss, not targets. A team-or
 
 *Amendment, 2026-11-12 (C3):* development continued after C1 under C3, and D43 changed the file. The submission is now the player-set model of D42 at ownership cost 10, followed by D27's kick-off rule (`player_trial build`, SHA-256 `a56574fefd83af81747206e3aedcaf625cdd170e7376d4e00e5f0abee7c431e3`). C1 is not run again (C3). What C1 checked carries over because the reading, team orientation, frame indexing and half spans are D15's code, unchanged: `tactical_halves` with the same pitch and centring, the same half spans and the same D27 rule; only the networks and the ownership cost changed, and with the old build command (`kickoff build`) the code still writes `0ddbb342…`. C1's PASS applies to `0ddbb342…`; the new file is checked by C2's re-declaration.
 
+*Amendment, 2026-11-13 (C3):* development continued under C3 in round 12, and D48 changed the file again. The submission is now the stack of D48 (D42's player-set networks trained on D49's long-hidden views, with D50's attacking-frame tokens, the y mirror, three seeds per slot and 8,100 steps) at ownership cost 14, followed by D27's kick-off rule (`stack_trial build`, SHA-256 `f6d7b2933a6210ce0c8a1ee96019f86815288d97368d656f366782345e6fc65d`). C1 is not run again (C3). What C1 checked carries over because the reading, centring, pitch, frame indexing, half spans, label assembly and the D27 call are the standing code, unchanged, and with the old build command (`player_trial build`) the code still writes `a56574fe…`. One thing is new on the build path and was not covered by C1: the attacking sign of each graded half, computed from that half's tracking from its tagged kick-off on. It is guarded by three fail-closed checks instead (each half has a sign, it agrees with the first qualifying frame from the kick-off on, the two halves are opposite), which refused once before the rule was aligned to the kick-off and passed afterwards (D48's adoption records). C1's PASS applies to `0ddbb342…`; the new file is checked by C2's re-declaration for D48.
+
 ## D7 — Unseen-vendor benchmark on PFF World Cup tracking (2026-11-11, written before any PFF data is read or scored)
 
 **Question.** How does the frozen D3 submission score on tracking from a vendor that none of its models has seen? The competition match is tracked by Metrica, and every score we have so far is on DFL or SkillCorner, the two vendors the models were trained on. D7 is a measurement only. It changes nothing in the submission and serves as the reference for D8–D10.
@@ -1310,6 +1312,16 @@ What it shows: the lag is real under both marking rules, but moving D15's change
 
 *D43 ranges (computed 2026-11-12, 18:50 EST, before any check of the new file).* Over the 28 external views the player-set model produced 1.53–2.91 possessions per graded minute, a dead share of 0.30–0.58 and 0.92–23.9 sub-second stoppages per 90 minutes. The ranges are therefore 0.77–4.37, 0.15–0.87 and 0.46–35.8. Unlike D15's (0–30.3), the last range starts above zero, because every external view has at least one sub-second stoppage; a file with none would fail. [Ranges](dfl_submission/output_check_ranges_d43.json)
 
+*Amendment for D48, 2026-11-13, 06:37 EST, written before the new ranges are computed, before any stack build has run and before any check of a new file:* D48's confirmation passed, so the stack (D49's long-hidden views, D50's attacking-frame tokens, three seeds, the y mirror, 8,100 steps, ownership cost 14) is to replace D43 in the submission. C2 is re-declared for it as C3 requires. The statistics, the 28 external match views and the factors (½ × the smallest value, 1.5 × the largest) are unchanged; the predictions are the confirmed stack's at ownership cost 14, decoded from the cached inputs its development record (`stack_recipe/development_t.json`) was scored from. The ranges are written once to `dfl_submission/output_check_ranges_d48.json`, and `check` reads that file by default from then on; the D15 and D43 ranges stay in their files for the record. Derek runs `python -m dfl_submission.output_check check data/submission.csv` once, in a terminal outside the AI session, after `shasum -a 256 -c SUBMISSION_SHA256.txt`, and reports PASS or FAIL only.
+
+*D48 ranges (computed 2026-11-13, 06:43 EST, before any stack build ran).* Over the 28 external views the confirmed stack at ownership cost 14 produced 1.65–2.78 possessions per graded minute, a dead share of 0.30–0.55 and 0–37.7 sub-second stoppages per 90 minutes; decoding its caches first reproduced the cost-14 row of `development_t.json`. The ranges are therefore 0.83–4.16, 0.15–0.82 and 0–56.5. `check` reads `output_check_ranges_d48.json` by default from now on and takes `--ranges` for another file; `ranges` and `ranges-d43` still reproduce their files. **While the standing file is still D43's (`a56574fe…`), C2 for it must be run with `--ranges dfl_submission/output_check_ranges_d43.json`.** [Ranges](dfl_submission/output_check_ranges_d48.json)
+
+**Outcome for D48 (2026-11-13, 17:43 EST). PASS.** Run once by the orchestrator under Derek's instruction of 17:42 EST (the amended procedure is in the note "Derek hands over the remaining steps"): `shasum -a 256 -c SUBMISSION_SHA256.txt` printed `data/submission.csv: OK` for `f6d7b2933a6210ce0c8a1ee96019f86815288d97368d656f366782345e6fc65d`, and `python -m dfl_submission.output_check check data/submission.csv`, read with only its verdict line kept, printed `PASS`. No statistic was shown.
+
+*Amendment for D53, 2026-11-13, 12:48 EST, written before these ranges are computed and before any check of any new file; it applies only if Derek chooses to ship the D53 fallback:* the statistics, the 28 external match views and the factors are unchanged; the predictions are the fallback's at ownership cost 14, decoded from the cached inputs `stack_recipe/development_d53.json` was scored from. The ranges are written once to `dfl_submission/output_check_ranges_d53.json` and are not `check`'s default; if the fallback ships, `check` is pointed at them and Derek runs it once, outside the AI session, on that file.
+
+*D53 ranges (computed 2026-11-13, 12:52 EST, before any check of any new file).* Over the 28 external views the fallback at ownership cost 14 produced 1.58–2.83 possessions per graded minute, a dead share of 0.30–0.55 and 0–38.6 sub-second stoppages per 90 minutes; the ranges are 0.79–4.24, 0.15–0.82 and 0–57.9. They are not `check`'s default. [Ranges](dfl_submission/output_check_ranges_d53.json)
+
 ## D27 — Dead ball until the tagged second-half kick-off (2026-11-12, written before any D27 code runs on the competition bundle)
 
 **Question.** FAQ.md says the second half is graded from its first frame, but play starts only at the kick-off about two minutes later. Every external half used for training or scoring starts at its kick-off, so D15's output on that stretch has never been measured. The Laws of the Game settle it without data: no team has possession before the kick-off. This is round 7's step 1.
@@ -2057,3 +2069,630 @@ Code: `dfl_submission/player_set2.py` (configurable tokens, network, trainer and
 | V4, D15's training values | 0.71365 | 0.71686 | 0.71729 | −0.0031 |
 
 What it shows: D42's design is the best of its neighbourhood, and its best cost on the held-out training matches is the cost D43 uses (10). More players changed nothing; a wider encoder and the relative velocity lost, as more inputs and capacity did elsewhere. On these matches a single player-set network scores about the same as a single network with D34's values alone (D34's A2, 0.72160), so the player-set model's confirmed gain (D43) lies on the views these matches do not contain: degraded and swapped tracking, the unseen vendor, and the holdout. The fold runs are kept in `data/d44/cv`. [Stage A](dfl_submission/player2_recipe/stage_a.json)
+
+## D45 — The player-set model refit on the training and development matches (2026-11-12, 20:55 EST, written before any D45 sequence is prepared, any network is trained or anything is scored)
+
+**Question.** D43's player-set networks read raw players and so have more to learn than the hand-made features; they trained on 16 matches. The five development matches (DFL WPY and the four SkillCorner development matches) are labelled, external and no longer needed for selection. Does refitting the four networks on all 21 raise spellF1 on matches neither model trained on?
+
+**Disclosure.** Written after D42–D44. Development cannot score this step (it trains on those matches), so it is judged on vetoes and one confirmation only. D23 asked the same question for D15's networks and stopped at its evidence step; this is the player-set model's version.
+
+**Candidate.** A `train_dev` split (DFL fitting matches plus WPY; SkillCorner training plus development matches), with every match given the training views its set uses (`external_benchmark.halves` for the original set, `augment.training_halves` for the augmented set; each match keeps its seeds). Both sets' prepared sequences and player tokens are built for it, and all four networks are retrained exactly as D42 trained them (seeds 42 and 97, boundary weights 0.5 and 1.4, D36's training values, width 96, 5,400 steps, MPS, last snapshot, the export check). The trees are D3's; the ownership cost is D43's (10). Nothing else changes.
+
+**Pipeline check, before any network is trained.** Every prepared half of the 16 training matches must equal the stored training sequence of its set exactly (values and targets). Otherwise D45 stops and only the pipeline may be fixed.
+
+**Vetoes, before confirmation** (against D43 at cost 10): mean N = 3 spellF1 on the eight PFF development matches, the Metrica mean and the D24 mean each drop by no more than 0.01. Nothing is selected.
+
+**Confirmation, once,** on the reused DFL/SkillCorner holdout and the untouched PFF set (the last fresh PFF matches, parsed only for this step), against D43, which must first reproduce its holdout record. It passes with a holdout primary gain of at least **+0.01** over D43 (C3), N = 1.75, 4 and 4.5 each ≥ −0.01, dead ball carried and team swap each ≥ −0.01, and the untouched set ≥ −0.01.
+
+**If it passes,** the refit networks replace D43's in the build behind a switch (the old command still gives `a56574fe…`), with rebuild checks, `release/check.sh`, C2 re-declared and the records. **If it fails,** `a56574fe…` stays, and the untouched set is spent.
+
+Code: the `train_dev` split in `external_benchmark.py` (the existing splits are unchanged) and `dfl_submission/refit_trial.py` (`prepare`, `networks`, `vetoes`, `confirm`, `build`), reusing `player_set` and `player_trial`. Sequences and tokens go to `data/d45/`, weights to `dfl_submission/refit_models/`, records to `dfl_submission/refit_recipe/`, each written once. Every D45 command runs with `MTAH_DATA_DIR` set to a nonexistent path and calls `require_external_only()`.
+
+**D45 status (2026-11-12, 21:26 EST): vetoes passed; confirmation held.** Both sets' `train_dev` sequences (62 halves each) reproduced every stored training half exactly (`refit_recipe/prepare_current.json`, `prepare_augmented.json`); the four refit networks trained and passed their export checks. Against D43 at cost 10: PFF development −0.0012, Metrica −0.0062, D24 +0.0014, so the vetoes passed (`refit_recipe/vetoes.json`). The confirmation has **not** run and the untouched PFF set is **not** parsed: at 21:26 the orchestration session Derek started tonight asked this session to hold it until Derek decides, so that the refit can be combined with other levers into one candidate and the last fresh PFF set spent once. D45's networks, sequences and tokens are kept unchanged for that use (`dfl_submission/refit_models/`, `data/d45/`). The submission stays `a56574fe…`.
+
+## Note — Round 12 (2026-11-12, 21:28 EST)
+
+Derek opened a second session for the same goal and made it the decision-maker ("orchestrator"): it writes the rules and the records here, and separate coding sessions build and run what the rules describe. Everything standing stays: nothing is fitted on the provided tracking, PFF is measurement only, C1 is never run again, C3's +0.01 on a confirmation and its Sunday freeze hold, and every command runs with `MTAH_DATA_DIR` set to a nonexistent path.
+
+*What changes is the order of work.* Rounds 9 and 10 took levers to confirmation one at a time, and each landed under +0.01 (D41: +0.0018). Round 12 screens several levers on development with a no-harm rule (D47), stacks the ones that hold into one candidate, and spends a confirmation once on the stack (D48, to be written after D46 and D47). D45 belongs to the first session; the orchestrator asked it at 21:24 EST to finish its trainings and vetoes but hold its confirmation, so that the 21-match refit can join the stack and the untouched PFF set is spent once. Whatever D45 has done by then is recorded under D45.
+
+## D46 — Where D43 loses spellF1, and how much of it lies where the ball is hidden (2026-11-12, 21:28 EST, written before anything is decoded or scored for D46)
+
+**Question.** D21 measured D15. D43 reads the players directly and gained most on degraded views. Is ownership still the main loss, and is that loss on frames where the ball is hidden or where it is seen? The answer picks round 12's next lever: inference without the ball (last-seen-ball tokens, an auxiliary ball-location target) or better modelling where the ball is seen. Measurement only; it selects nothing and changes nothing in the submission.
+
+**Candidate.** Frozen D43 (D42's networks, D3's trees, ownership cost 10) decoded afresh from `data/d42/cache` (`development`, `metrica`, `d24`). Holdout, confirmation, training and untouched matches are not read.
+
+**Pipeline check, before any result is read.** D43 decoded from those caches must reproduce the cost-10 row of `player_recipe/development.json` exactly (PFF, Metrica and D24 included). Otherwise D46 stops without a record.
+
+**What is measured,** per group (DFL WPY clean, masked, dead ball carried, team swap; SkillCorner; PFF; Metrica; the three D24 views) against the N = 3 targets:
+1. D21's four measurements, unchanged (spell detection by IoU, the true-stoppage and true-ownership oracles, boundary offsets, recall by spell length).
+2. *Ball visibility.* A frame's ball is seen when the view's tracking has a ball position at that frame. Per group: the share of target-live frames with the ball unseen; frame agreement of the decoded owner with the target on frames both call live, split by seen / unseen and by time since the ball was last seen (0, up to 1 s, 1–3 s, over 3 s).
+3. *Recall by visibility.* Recall at IoU 0.5 of true spells by the share of the spell's frames with the ball seen (under 20%, 20–80%, 80% or more).
+4. *Split oracle.* D11's true-ownership oracle applied only on frames where the ball is unseen, and only where it is seen: mean spellF1 per group for each.
+
+**Record.** `dfl_submission/diagnosis_recipe/d46.json`, written once. Code: a new module `dfl_submission/diagnosis_d43.py` reusing `diagnosis.py` (unchanged).
+
+**How it is read.** If, on the degraded groups (DFL masked, SkillCorner, PFF, D24 views), the unseen-frame oracle recovers at least half of the full ownership oracle's gain, D48's stack includes a ball-free lever; otherwise it does not, and the effort goes to the seen-ball side.
+
+**D46 outcome (2026-11-12, 21:40 EST).** The reproduction check passed (D43's cost-10 development row, PFF, Metrica and D24 included, from `data/d42/cache`). Against the N = 3 targets:
+
+| Group | D43 | True stoppages | True ownership | Live frames with ball unseen | Owner agreement, seen / unseen | Recall at IoU 0.5 by share of spell seen: under 20% / 20–80% / 80%+ (spells) |
+|---|---:|---:|---:|---:|---|---|
+| DFL clean | 0.780 | 0.780 | 0.921 | 0% | 0.929 / – | – / – / 0.77 (281) |
+| DFL masked | 0.722 | 0.729 | 0.913 | 39% | 0.916 / 0.905 | 0.37 (30) / 0.79 (169) / 0.54 (82) |
+| DFL dead ball carried | 0.643 | 0.739 | 0.788 | 39% | 0.917 / 0.907 | 0.37 / 0.79 / 0.49 |
+| DFL team swap | 0.694 | 0.705 | 0.912 | 39% | 0.903 / 0.890 | 0.33 / 0.78 / 0.50 |
+| SkillCorner | 0.718 | 0.766 | 0.842 | 7% | 0.944 / 0.842 | 0.00 (81) / 0.61 (115) / 0.72 (775) |
+| PFF | 0.663 | 0.746 | 0.785 | 36% | 0.957 / 0.851 | 0.17 (414) / 0.72 (996) / 0.76 (373) |
+| Metrica | 0.791 | 0.830 | 0.846 | 0.3% | 0.957 / 0.565 | – / 0.20 (5) / 0.77 (820) |
+| D24 masked | 0.717 | 0.779 | 0.824 | 39% | 0.947 / 0.933 | 0.23 (87) / 0.79 (512) / 0.54 (226) |
+| D24 handled | 0.725 | 0.780 | 0.831 | 39% | 0.947 / 0.932 | 0.23 / 0.80 / 0.57 |
+| D24 team swap | 0.659 | 0.715 | 0.824 | 39% | 0.919 / 0.901 | 0.22 / 0.76 / 0.52 |
+| Standard combined | 0.7295 | 0.7557 | 0.8789 | | | |
+
+- **Ownership is still the main loss** (standard combined: true ownership +0.149, true stoppages +0.026; D15: +0.162 and +0.027). Stoppages weigh more where the dead ball is realistic: dead ball carried +0.096, PFF +0.082, the D24 views +0.055 to +0.062.
+- **The split oracle (point 4) cannot be read, so the reading rule cannot be applied as written.** Putting the true owner on unseen frames only, or on seen frames only, lowered spellF1 on most groups (pooled share of the ownership gain −0.52), because every seam between true and decoded labels adds boundaries. It measures the seams, not the headroom. This is a flaw in the rule, not a finding. The decision below is read from points 2 and 3 instead, and that is a reading made after the results were seen.
+- **On real automatic tracking the loss is where the ball is hidden; the synthetic masks do not show it.** On PFF the owner agrees with the target on 95.7% of seen-ball frames, 85.1% of unseen ones and 76.6% of those more than 3 s after the last sighting; SkillCorner 94.4%, 84.2% and 79.8%. On the DFL masked and D24 views, whose masks are independent of play with hidden runs of 2 s on average, the two figures differ by 0.010 to 0.017. Spells whose ball is seen on under 20% of their frames are 23% of PFF's true spells and are recalled at 0.17 (5–10 s: 0.23; 10–20 s: 0.475), against 0.72–0.76 for the rest.
+- **PFF still has sub-second stoppages** (116 predicted under 1 s against 1 in the targets); D25 found removing them changed almost nothing.
+
+What follows: the next levers act on long hidden-ball stretches (D49, D50), and D46a first measures how long those stretches are and whether the players are visible in them. [Record](dfl_submission/diagnosis_recipe/d46.json)
+
+## D47 — Mirror symmetry, token noise and seed averaging for the player-set networks: screening on development (2026-11-12, 21:28 EST, written before any D47 code exists, any network is trained or anything is scored)
+
+**Question.** D43's four networks train on 16 matches with one augmentation (team order) and one seed per slot. Three cheap levers have not been tried on them: the pitch's mirror symmetries (in training and at inference), noise on the player tokens during training, and averaging seeds. Does each at least do no harm on development, so that it may join D48's stack?
+
+**Disclosure.** Written after D42–D44 and after seeing D43's per-group results. Development has been reused by every step. D22 averaged three seeds of D15's networks and lost 0.0059 on the development primary while both guards and Metrica gained; D47 repeats that question for the player-set networks with the ownership cost re-read, because averaging flattens probabilities.
+
+**Reference.** D43 from `data/d42/cache` at ownership cost 10, which must first reproduce its development, Metrica and D24 records exactly.
+
+**Composite (the screening metric).** The unweighted mean of N = 3 spellF1 over eight development groups: DFL WPY clean, masked, dead ball carried and team swap; the four SkillCorner development matches (mean); the eight PFF development matches (mean); the three Metrica sample matches (mean); the D24 mean. Reason, fixed before scoring: D43's confirmation showed that the development primary, half of which is DFL WPY, understated the holdout gain, and the competition tracking is automatic with a hidden ball, which the degraded and unseen-vendor groups resemble most. D33's primary is reported beside it.
+
+**Candidates.** Each retrains all four networks exactly as D42 did (both sets; seed 42 with boundary weight 0.5 and seed 97 with 1.4; D36's training values; width 96; 5,400 steps; MPS; last snapshot; the export check) except for the stated change. Trees are D3's, mixes D15's.
+- **S (seeds).** D42's recipe at seeds + 1000 and + 2000: two more complete models. With D43 they give three independent models (the seed spread of the composite and the primary at cost 10) and **M3**, the per-slot mean of the three (`zoo.SlotMean`).
+- **F0 (mirror inference only).** D43's own networks, with inference averaged over the four mirrors of the pitch (identity, x, y, both) times the two team orders. Nothing is trained.
+- **F (mirrors).** In training, each window is mirrored in x with probability ½ and in y with probability ½, independently: the token's x offset, x velocity and x position change sign (likewise y). Inference as F0.
+- **N (token noise), training only.** Each present token is masked with probability 0.10 per frame; Gaussian noise of 0.3 m is added to each player's position (offset and pitch position together, distance recomputed) and of 0.5 m/s to each velocity component. These constants are set here by judgement and are not tuned.
+- **FN.** F and N together.
+
+**Pipeline checks, before any candidate is trained.**
+- The new trainer with every switch off retrains D42's original-set seed-42 network on MPS bit for bit.
+- *Mirror parity of the 162 columns.* The columns are re-extracted from mirrored tracking for every prepared training half of both sets and compared with the stored columns. Each column must be unchanged or a pure sign change under each mirror (tolerance 1e-4); the trainer and the inference then apply that sign map with the token signs. If any column is neither, F0, F and FN stop and the orchestrator decides; S and N go on.
+- Every network's NumPy export matches PyTorch within D15's tolerance.
+
+**Grid.** Ownership cost ∈ {8, 10, 12} for every candidate, and 6 as well for M3; cutoff, stoppage cost and discount are D43's.
+
+**Screening rule (no harm).** A lever (M3, F0, F, N, FN) is carried to D48 if, at its best cost by composite, its composite is at least D43's and no group falls by more than 0.01 against D43. Of F0, F and FN at most one is carried: the highest composite. Nothing is confirmed here and the build does not change; D48 sets the gate for the stack.
+
+**Records.** One JSON per candidate in `dfl_submission/screen_recipe/`, each written once, with every group's score at every cost. Code: `dfl_submission/player_set3.py` (the configurable trainer and mirror-averaged NumPy inference; `player_set.py`, `player_trial.py` and everything else on the build path stay byte-identical) and `dfl_submission/screen_trial.py`. Scratch, weights and caches go to `data/d47/`. Every D47 command runs with `MTAH_DATA_DIR` set to a nonexistent path and calls `require_external_only()`.
+
+**D47 outcome (2026-11-13, 01:08 EST).** **Carried to D48: the three-seed average (M3) and mirror training with mirror-averaged inference (F).** F0 failed; N passed without a gain and FN scored below F, so under D48's amendment the token noise is left out.
+
+*Checks.* The trainer with every switch off retrained D42's original-set seed-42 network bit for bit; all 162 columns are unchanged under both mirrors on all 96 prepared training halves (largest difference 0), so only the token signs change; every export matched PyTorch; D43 reproduced its development, Metrica and D24 records (composite 0.71392, primary 0.72952).
+
+| Candidate | Cost | Composite | Change | D33's primary | DFL clean / masked | Dead ball carried / team swap | SkillCorner | PFF | Metrica | D24 mean |
+|---|---:|---:|---:|---:|---|---|---:|---:|---:|---:|
+| D43 | 10 | 0.7139 | | 0.7295 | 0.780 / 0.722 | 0.643 / 0.694 | 0.718 | 0.663 | 0.791 | 0.701 |
+| S1000 (seeds + 1,000) | 10 | 0.7090 | −0.0049 | 0.7269 | 0.767 / 0.715 | 0.645 / 0.680 | 0.721 | 0.662 | 0.782 | 0.700 |
+| S2000 (seeds + 2,000) | 10 | 0.7160 | +0.0020 | 0.7355 | 0.772 / 0.731 | 0.646 / 0.709 | 0.726 | 0.657 | 0.792 | 0.695 |
+| **M3** (mean of the three) | 12 | **0.7172** | **+0.0033** | 0.7335 | 0.775 / 0.729 | 0.661 / 0.698 | 0.722 | 0.663 | 0.790 | 0.699 |
+| M3 | 6 / 8 / 10 | 0.7080 / 0.7106 / 0.7114 | | | | | | | | |
+| F0 (mirror inference only) | 10 | 0.7129 | −0.0010 | 0.7328 | 0.780 / 0.725 | 0.634 / 0.689 | 0.723 | 0.663 | 0.787 | 0.702 |
+| **F** (mirror training and inference) | 8 | **0.7175** | **+0.0036** | 0.7362 | 0.783 / 0.731 | 0.637 / 0.713 | 0.724 | 0.664 | 0.786 | 0.702 |
+| F | 10 / 12 | 0.7163 / 0.7152 | | 0.7345 / 0.7315 | | | | | | |
+| N (token noise) | 10 | 0.7143 | +0.0004 | 0.7305 | 0.774 / 0.724 | 0.640 / 0.697 | 0.720 | 0.665 | 0.793 | 0.701 |
+| N | 8 / 12 | 0.7117 / 0.7113 | | | | | | | | |
+| FN | 12 | 0.7147 | +0.0008 | 0.7348 | 0.786 / 0.726 | 0.635 / 0.701 | 0.723 | 0.663 | 0.786 | 0.697 |
+| FN | 8 / 10 | 0.7128 / 0.7143 | | 0.7333 / 0.7358 | | | | | | |
+
+- **Seed spread.** The three models of D42's recipe score 0.7139, 0.7090 and 0.7160 at cost 10: a standard deviation of 0.0036 on the composite and 0.0044 on the primary; on PFF they lie within 0.006 of each other. A single-model difference under about 0.01 on the composite is not evidence.
+- **M3** passed the no-harm rule at cost 12 (+0.0033; largest fall DFL clean −0.005). At cost 10 it scored below the mean of its three members, so the stack's cost is re-read in D48.
+- **F0** failed (composite −0.0010; dead ball carried −0.009). **F** passed at cost 8 (+0.0036; largest fall dead ball carried −0.006) and is positive at all three costs, with the primary +0.0067 and team swap +0.019. **N** passed with no gain. **FN**'s best composite (0.7147) is below F's (0.7175), so F is the mirror lever and the noise is left out.
+- **What it shows.** None of these levers is large: each sits within about one seed spread of D43 on the composite. They are carried because they do no harm and each has a reason to help (variance, symmetry); the evidence that the stack is better has to come from L and C and from D48's own gate. [Records](dfl_submission/screen_recipe/)
+
+## D46a — How long the ball stays hidden, and whether the players are seen meanwhile (2026-11-12, 21:40 EST, written after D46's results were read and before anything below is computed)
+
+Measurement only, on D46's matches and views, with D43 decoded as in D46.
+1. *Hidden runs.* A hidden run is a maximal run of frames without a ball position inside a half. Per group: the share of unseen target-live frames lying in runs of up to 1 s, 1–3 s, 3–10 s and over 10 s, and the median and 90th percentile of the run length over those frames.
+2. *Agreement by run length.* D46's owner agreement on unseen frames, by the same four bins of the run the frame lies in.
+3. *Players seen (PFF and SkillCorner).* The share of unseen target-live frames with at least 16 visible players (both teams), owner agreement on unseen frames with at least 16 and with fewer, and recall at IoU 0.5 of the under-20%-seen spells split by whether the spell's mean visible-player count is at least 16.
+
+Record: `dfl_submission/diagnosis_recipe/d46a.json`, written once, from `diagnosis_d43.py`. It selects nothing. It is read as context for D49: if PFF's long hidden runs are mostly frames with fewer than 16 players, PFF cannot judge a ball-free lever and D49's long-hidden guard views carry the decision.
+
+**D46a outcome (2026-11-12, 21:48 EST).** Share of unseen target-live frames by the length of their hidden run, and D43's owner agreement there:
+
+| Group | Up to 1 s | 1–3 s | 3–10 s | Over 10 s | Median / 90th percentile run |
+|---|---|---|---|---|---|
+| DFL masked (training-like mask) | 9% / 0.912 | 36% / 0.934 | 52% / 0.888 | 2.5% / 0.810 | 3.2 s / 6.8 s |
+| D24 masked | 9% / 0.908 | 34% / 0.950 | 46% / 0.934 | 11% / 0.887 | 3.6 s / 12.3 s |
+| SkillCorner (real) | 0.2% / 0.625 | 23% / 0.854 | 35% / 0.898 | 42% / 0.774 | 7.2 s / 29.1 s |
+| PFF (real) | 13% / 0.902 | 18% / 0.897 | 36% / 0.838 | 33% / 0.776 | 5.4 s / 34.9 s |
+
+- **Real automatic tracking loses the ball for long.** A third to two fifths of the hidden live frames on PFF and SkillCorner lie in runs over 10 s; under the training mask it is 2.5%. Agreement is lowest in runs over 10 s on every group except SkillCorner, whose few frames in runs up to 1 s (0.2%) score 0.625; in runs over 10 s it is 0.78 on real tracking and 0.81 even on DFL masked.
+- **Players seen.** On PFF only 22% of unseen live frames have at least 16 visible players (SkillCorner 11%). Agreement there is 0.862 against 0.848 with fewer, and the under-20%-seen spells are recalled at 0.175 (57 spells) against 0.174 (357): no better with the players in view.
+- **Reading.** PFF's hidden frames are mostly frames with few players, so PFF cannot by itself judge a ball-free lever; D49's long-hidden guard views, where every player is seen, carry that decision, as D49's rule already allows. [Record](dfl_submission/diagnosis_recipe/d46a.json)
+
+## D49 — Long hidden-ball runs in training (2026-11-12, 21:40 EST, written after D46's results and before any D49 view is built, any network is trained or anything is scored)
+
+**Question.** Every DFL training view hides the ball with a two-state process whose hidden runs last 2 s on average, independent of play (`augment.wide_masking`, `HIDDEN_RUN` = 50 frames), so a run over 10 s almost never occurs in training. D46 shows the model fails exactly there on real automatic tracking, and the competition tracking hides the ball on 41% of graded frames (DATA.md). Does adding training views with long hidden runs raise spellF1 where the ball is hidden for long, without harm elsewhere?
+
+**Disclosure.** Written after D46, whose reading was made after its results were seen. Development has been reused by every step. The mask constants below are set by judgement before anything is scored and are not tuned; nothing is taken from the provided tracking.
+
+**Long hide process (training).** On the 25 Hz frames of a half, visible and hidden runs alternate, starting visible with probability v. A hidden run lasts, with probability ½, a geometric number of frames with mean 50 and otherwise a uniform number between 125 and 750 frames (5–30 s). A visible run is geometric with mean 243.75 · v / (1 − v) frames, so the expected visibility is v; v is drawn per half, uniform on (0.3, 0.9), as in `augment.wide_masking`.
+
+**Candidate L.** Both model sets gain one view per training match, with new seeds:
+- *DFL training matches:* the set's own view construction (`external_benchmark.halves` for the original set; `augment.training_halves`, including its dead-ball handling, for the augmented set) with `wide_masking`'s coordinate noise and player dropout and the long hide process in place of its two-state process.
+- *SkillCorner training matches:* the provider tracking with the long hide process applied to the detected ball, v uniform on (0.5, 0.9), nothing else changed.
+The prepared sequences and tokens of each set are its existing records, which must be reproduced byte for byte, plus the new views. All four networks are retrained exactly as D42 trained them. Trees are D3's, mixes D15's.
+
+**Long-hidden guard views (development only, built differently from training, as D2's guards are).** Hidden runs uniform on 200–500 frames (8–20 s), visible runs uniform on 300–750 frames (12–30 s), starting visible, fixed new seeds: (a) DFL WPY, otherwise as its masked development view; (b) the three Metrica games, otherwise as D24's masked view. D43 is scored on them first, as the reference.
+
+**Grid.** Ownership cost ∈ {8, 10, 12}; the rest is D43's.
+
+**Carried to D48 if,** at the cost with the highest mean of (long-hidden guard mean, PFF development mean): the long-hidden guard mean (the mean of a and b) rises by at least +0.015 over D43, or the PFF development mean by at least +0.005; and D47's composite is no lower than D43's minus 0.003; and no D47 group falls by more than 0.01. Nothing is confirmed here and the build does not change.
+
+**Records.** `dfl_submission/hidden_recipe/` (the reference on the guard views, then the candidate), each written once. Code: `dfl_submission/hidden_views.py` (the hide process, the training views, the guard views) and `dfl_submission/hidden_trial.py`; existing modules stay byte-identical. Sequences, tokens, weights and caches go to `data/d49/`. Every D49 command runs with `MTAH_DATA_DIR` set to a nonexistent path and calls `require_external_only()`.
+
+*Amendment (2026-11-12, 21:55 EST, before any D49 view of the augmented set is built and before anything is scored).* The coding session asked two questions the rule left open for the augmented set. (1) Its new DFL view keeps the set's whole construction, `swap_teams` included, with only the hide process replaced. (2) Its new SkillCorner view is the set's own SkillCorner construction (the dead ball handled by `handle_dead_ball`, as in that set's existing view) followed by the long hide process; "nothing else changed" stands for the original set only. Read literally, the rule would have shown the augmented set SkillCorner's undetected dead ball again, the shortcut D2 built that set to remove. The guard views draw noise, dropout and hide from new seeds, and the new views join their source's records, so each batch stays half DFL and half SkillCorner.
+
+**D49 outcome (2026-11-12, 22:55 EST).** **L is carried to D48.** The checks passed: both sets' 48 stored records were reproduced byte for byte and 32 long-hidden views were added to each; D43 reproduced its development, Metrica and D24 records. The guard views as built: DFL WPY visibility 0.60 with hidden runs of 14 s on average (85% of hidden frames in runs over 10 s); Metrica visibility 0.38 (the long process on top of D24's mask), runs of 18 s.
+
+| | D43, cost 10 | L, cost 8 | L, cost 10 | L, cost 12 |
+|---|---:|---:|---:|---:|
+| **Long-hidden guard mean** | 0.6748 | 0.7149 | **0.7152 (+0.040)** | 0.7174 |
+| DFL WPY long-hidden / Metrica long-hidden | 0.674 / 0.675 | 0.732 / 0.698 | 0.732 / 0.699 | 0.737 / 0.698 |
+| **PFF development mean** | 0.6632 | 0.684 | **0.6868 (+0.024)** | 0.685 |
+| PFF recall of spells seen under 20% | 0.174 | 0.258 | 0.258 | 0.258 |
+| D47's composite | 0.7139 | 0.7097 | 0.7129 (−0.001) | 0.7138 |
+| D33's primary | 0.7295 | 0.7266 | 0.7257 | 0.7259 |
+| DFL clean / masked | 0.780 / 0.722 | 0.769 / 0.712 | 0.774 / 0.716 | 0.779 / 0.716 |
+| Dead ball carried / team swap | 0.643 / 0.694 | 0.631 / 0.679 | 0.635 / 0.690 | 0.639 / 0.688 |
+| SkillCorner / Metrica / D24 mean | 0.718 / 0.791 / 0.701 | 0.722 / 0.777 / 0.703 | 0.716 / 0.783 / 0.702 | 0.715 / 0.790 / 0.699 |
+
+- **The carry rule passed at cost 10** (the cost with the highest mean of guard and PFF): the guard mean rose +0.040 (+0.015 needed), PFF +0.024 (+0.005 needed), the composite fell 0.001 (−0.003 allowed), and no group fell by more than 0.01 (largest: dead ball carried −0.008).
+- **What it shows.** Seeing long hidden runs in training is worth +0.057 on a DFL match whose ball is hidden for 8–20 s at a time and +0.024 on real PFF tracking, where the under-20%-seen spells are recalled at 0.26 instead of 0.17. The other groups moved by less than a second seed set of D43's own recipe did in D47 (S1000: DFL clean −0.013, team swap −0.014), so no harm is visible; PFF's frame agreement on unseen frames barely moved (0.851 → 0.853), so most of the hidden-ball loss on PFF remains. [Reference](dfl_submission/hidden_recipe/reference.json), [candidate](dfl_submission/hidden_recipe/candidate.json)
+
+## D50 — Player tokens in the attacking frame (2026-11-12, 21:40 EST, written before any D50 code exists, any network is trained or anything is scored)
+
+**Question.** Nothing the models read says which way a team attacks: the 162 columns are unsigned and the player tokens carry positions in pitch coordinates. Without the ball, which team is moving towards its opponent's goal is the plainest sign of possession. Does giving the tokens in each team's attacking frame raise spellF1, above all where the ball is hidden?
+
+**Disclosure.** Written after D46. Before D34, a univariate probe of direction-aware team features found no possession signal without the ball; D50 tests the same idea inside the network, where it can combine with the players' positions. Development has been reused by every step.
+
+**Attacking sign, per half, without labels or fitted values.** Over the half's long-context frames with at least seven visible players in each team, D is the mean of (mean x of the away players − mean x of the home players). The home team attacks towards +x when D > 0 and towards −x otherwise. *Pipeline check:* on every external half read (training and development only), the sign must equal the one given by the first frame of the half with at least seven visible players per team; any disagreement stops D50 and is reported.
+
+*Amendment (2026-11-12, 21:58 EST, before any D50 network is scored).* One half read for D50 has no frame with seven visible players in each team (PFF development game 3852, second half: its home team never shows more than six). A half without such a frame takes the opposite of the sign of the same match's other half, because teams change ends at half time; if neither half has a sign, the sign is +1 (the tokens stay in pitch coordinates). The other 151 halves read (96 training, 31 development, 6 Metrica, 18 D24) all have a sign that agrees with their first qualifying frame; the smallest |D| is 2.1 m.
+
+**Candidate C.** The token's x offset, x velocity and x position are multiplied by the half's sign, so the home team always attacks towards +x; when the teams are swapped (the trainer's augmentation and the swap-averaged inference), x is negated as well, so the first team still attacks towards +x. If D47's parity check finds columns that change sign under the x mirror, they are multiplied the same way. Nothing else changes: all four networks are retrained as D42 trained them on the same prepared sequences; trees are D3's, mixes D15's.
+
+**Grid.** Ownership cost ∈ {8, 10, 12}; the rest is D43's.
+
+**Carried to D48 if,** at its best cost by D47's composite, the composite is at least D43's and no group falls by more than 0.01. The PFF development mean, D49's long-hidden guard views (if built by then) and the owner agreement on unseen frames are reported beside it. Nothing is confirmed here and the build does not change.
+
+**Records.** `dfl_submission/direction_recipe/`, each written once. Code: `dfl_submission/direction_tokens.py` and `dfl_submission/direction_trial.py`; existing modules stay byte-identical. Tokens, weights and caches go to `data/d50/`. Every D50 command runs with `MTAH_DATA_DIR` set to a nonexistent path and calls `require_external_only()`.
+
+**D50 outcome (2026-11-12, 23:42 EST).** **C is carried to D48.** Checks: the trainer with the sign forced to +1 and the swap negation off reproduced D42's original-set seed-42 network bit for bit; 151 of 152 halves have a sign and all agree with their first qualifying frame (the one without took the amendment's fallback); D47's parity record lists no sign-changing column, so only the tokens changed; D43 reproduced its records and D47's reference composite.
+
+| | Composite | Change | D33's primary | DFL clean / masked | Dead ball carried / team swap | SkillCorner | PFF | Metrica | D24 mean |
+|---|---:|---:|---:|---|---|---:|---:|---:|---:|
+| D43, cost 10 | 0.7139 | | 0.7295 | 0.780 / 0.722 | 0.643 / 0.694 | 0.718 | 0.663 | 0.791 | 0.701 |
+| C, cost 8 | **0.7208** | **+0.0069** | 0.7324 | 0.773 / 0.732 | 0.654 / 0.702 | 0.719 | 0.681 | 0.791 | 0.715 |
+| C, cost 10 | 0.7200 | +0.0061 | 0.7298 | 0.775 / 0.722 | 0.650 / 0.705 | 0.720 | 0.681 | 0.791 | 0.717 |
+| C, cost 12 | 0.7207 | +0.0068 | 0.7289 | 0.780 / 0.719 | 0.640 / 0.712 | 0.718 | 0.680 | 0.796 | 0.720 |
+
+- **The carry rule passed** at cost 8: the composite rose +0.0069 and the largest fall was DFL clean −0.007.
+- **What it shows.** The gain is the same at all three costs and sits where the hypothesis put it: PFF +0.018, the D24 mean +0.015 to +0.019, team swap +0.008 to +0.018, with the clean and seen-ball groups flat. Three seed sets of D43's recipe spread about ±0.004 on the composite and ±0.003 on PFF (D47), so PFF's gain is well outside noise and the composite's is about 1.7 of those spreads. D49's guard views were scored for C afterwards, outside the carry rule (2026-11-13, 00:13 EST, [guards](dfl_submission/direction_recipe/guards.json)): guard mean 0.6751 / 0.6838 / 0.6864 at cost 8 / 10 / 12 against D43's 0.6748 at cost 10. [Records](dfl_submission/direction_recipe/)
+
+## D51 — An auxiliary ball-location target on the long-hidden views (2026-11-12, 22:55 EST, written after D49's outcome and before any D51 code exists, any network is trained or anything is scored)
+
+**Question.** D49's views taught the networks to keep the owner through long hidden runs, but only through the possession labels. In those views the hidden ball's true position is known. Does also asking the network where the ball is, on the frames where the view hides it, raise spellF1 on hidden-ball tracking beyond L?
+
+**Disclosure.** Written after D49's development results. Development has been reused by every step. The loss weight and scale below are set by judgement and are not tuned.
+
+**Candidate LB.** L's sequences, tokens and training values, with two more network outputs: the ball's x and y offset from the token's reference point (the mean position of the visible players when the ball is hidden), divided by 10 m. They are trained with a Huber loss (δ = 1) on the frames of D49's new views where the view hides a ball the source tracking has; other frames and other views carry no auxiliary loss. The term is added to D42's loss with weight 0.5. Inference is unchanged: the export keeps the four original outputs, so the NumPy path and its check are D42's.
+
+**Pipeline checks.** The auxiliary targets equal the hidden ball of the stored views exactly (re-derived from the same seeds); with the auxiliary weight at 0 the four original outputs' loss is D42's; every export matches PyTorch within D15's tolerance.
+
+**Grid.** Ownership cost ∈ {8, 10, 12}; the rest is D43's.
+
+**LB replaces L in D48's stack if,** at its best cost by the mean of (long-hidden guard mean, PFF development mean), that mean is at least L's best plus 0.005, D47's composite is no lower than L's minus 0.003, and no group falls by more than 0.01 against D43. Otherwise L stays. Nothing is confirmed here and the build does not change.
+
+**Records.** `dfl_submission/hidden_recipe/ball_*.json`, each written once. Code: `dfl_submission/hidden_ball.py` (targets, the network with the extra outputs, the trainer) and a command in `dfl_submission/hidden_trial.py` or a new `hidden_ball_trial.py`; modules written before D51 stay byte-identical. Everything else goes to `data/d51/`. Every D51 command runs with `MTAH_DATA_DIR` set to a nonexistent path and calls `require_external_only()`.
+
+**D51 outcome (2026-11-13, 00:48 EST).** **Failed: L stays, LB is not in the stack.** The checks passed (targets re-derived exactly for both sets; the trainer check; the exports).
+
+| | Composite | Long-hidden guard mean | PFF | D33's primary |
+|---|---:|---:|---:|---:|
+| D43, cost 10 | 0.7139 | 0.6748 | 0.6632 | 0.7295 |
+| L, cost 10 | 0.7129 | 0.7152 | 0.6868 | 0.7257 |
+| LB, cost 8 (its best) | 0.6962 | 0.6999 | 0.6672 | 0.7106 |
+| LB, cost 10 / 12 | 0.6930 / 0.6925 | 0.6969 / 0.6916 | 0.6660 / 0.6661 | 0.7068 / 0.7055 |
+
+- **LB is worse than L everywhere:** the mean of guard and PFF −0.018 (+0.005 was needed), the composite −0.017, and against D43 six of eight groups fell by more than 0.01 (dead ball carried −0.036, D24 −0.025).
+- **The network did learn where the ball is.** On hidden frames of development views its estimate is 5.9–7.6 m off at the median, against 19–23 m between the ball and the players' mean position. That knowledge did not help the possession outputs at this weight; it cost them. The weight was set by judgement and is not searched: a second weight would be a second attempt on the same matches. [Record](dfl_submission/hidden_recipe/ball_candidate.json), [auxiliary error](dfl_submission/hidden_recipe/ball_aux_error.json)
+
+## D48 — The stack: long-hidden views, attacking-frame tokens and three seeds, confirmed once (2026-11-12, 23:42 EST, written after the outcomes of D49 and D50 and D47's seed results, before any stack network is trained or anything below is scored)
+
+**Question.** L (D49) and C (D50) each gained on hidden-ball and unseen-vendor tracking, and averaging three seeds (D47's M3) did no harm. Do they add up, and does the stack clear C3's bar on fresh matches?
+
+**Disclosure.** Written after the development results of D47 (S1000, S2000, M3, F0), D49 and D50 were seen. Development has been reused by every step; the holdout has been used by every confirmation since D3. The confirmation below is the last use of the untouched PFF set. The 21-match refit (D45) is not part of the stack: its vetoes showed no gain, and it would take development away from this step.
+
+**The stack.** D42's player-set recipe with:
+- *L:* D49's training sequences and tokens for both sets;
+- *C:* D50's attacking-frame tokens (with its amendment for a half without a sign), on every view including L's;
+- *three seeds per slot:* seeds 42 and 97 plus 0, 1,000 and 2,000, the three predictions of a slot averaged (`zoo.SlotMean`);
+- *any other lever that passes its own rule before the stack is trained:* N, F or FN under D47's no-harm rule (of F and FN at most one, F0 has failed), and LB in place of L under D51's rule. A lever whose record is not written by then is left out.
+Trees are D3's, mixes D15's, cutoff, stoppage cost and discount D43's.
+
+*Amendment (2026-11-13, 00:17 EST, after D47's F and N were scored and before FN's or LB's score exists or any stack network is trained).* Two points the rule left open. (1) *Mirrors with C.* In the attacking frame a mirror in x changes no token, and no column changes under either mirror (D47's parity check), so with C the mirror lever acts in y only: each training window is mirrored in y with probability ½, and inference averages the two y mirrors times the two team orders. (2) *Token noise.* N alone passed the no-harm rule with no gain (composite +0.0004 at cost 10; −0.002 and −0.003 at the other costs). The rule as written could put F and N into the stack separately even if FN, which is exactly the two together, scores below F. So N enters the stack only as part of FN, and only if FN's best composite is at least F's best (0.7175); otherwise the mirror lever is F and the noise is left out.
+
+**Pipeline checks, before any stack network is trained.** One trainer holds every switch. With only C on and D42's data it must reproduce D50's original-set seed-42 network bit for bit; with only the seed offset 1,000, D47's S1000 original-set seed-42 network; with only L's data, D49's. Every export matches PyTorch within D15's tolerance. D43 reproduces its development, Metrica, D24 and guard-view records.
+
+**Development (it decides only whether the confirmation is spent).** The stack is scored at ownership cost 8, 10, 12 and 14 on D47's eight groups, D49's two guard views and D33's conventions; each seed set alone is scored too, as a measure of spread. The selection score is the mean of D47's composite and the long-hidden guard mean (D43 at cost 10: 0.6944). The cost with the highest selection score goes on if, against D43 at cost 10: the selection score rises by at least +0.015; the PFF development mean by at least +0.015; the composite does not fall; no group falls by more than 0.01; and standard combined spellF1 at N = 1.75, 4 and 4.5 each falls by no more than 0.01. Otherwise the confirmation is not spent and the orchestrator decides what is taken forward.
+
+**Confirmation, once,** at the selected cost, against D43, which must first reproduce its holdout record:
+- the reused DFL/SkillCorner holdout, as D43's confirmation scored it (primary, conventions, dead ball carried, team swap);
+- long-hidden views of the two DFL holdout matches (WQQ, WR9), built as D49's guard view (a) with new fixed seeds;
+- the untouched PFF set, parsed only for this step.
+
+**It passes if all of these hold:** the untouched PFF mean rises by at least **+0.01** N = 3 spellF1 (C3's bar, on fresh real tracking the models never trained on, as PFF set C was D32's confirmation under C3); the holdout long-hidden mean rises by at least +0.01; the holdout primary falls by no more than 0.01; and N = 1.75, 4 and 4.5, dead ball carried and team swap each fall by no more than 0.01. The reason the bar sits on PFF and the long-hidden views: that is where the stack acts and what the competition tracking resembles (the ball is missing on 41% of graded frames); the standard holdout views hide the ball for 2 s at a time and can only show that nothing was lost.
+
+**If it passes,** the stack replaces D43's networks in the build behind a switch (`player_trial build` still gives `a56574fe…`), with two identical rebuilds, `release/check.sh`, C2 re-declared, and the records. In the build the attacking sign of each graded half is computed from that half's tracking by D50's rule; it is a feature of the input, not a fitted value. **If it fails,** `a56574fe…` stays and the untouched PFF set is spent.
+
+**Records.** `dfl_submission/stack_recipe/`, each written once. Code: `dfl_submission/stack_set.py` (the trainer and NumPy inference with every switch) and `dfl_submission/stack_trial.py` (`check`, `networks`, `develop`, `confirm`, `build`); modules written before D48 stay byte-identical. Scratch and caches go to `data/d48/`; the weights of an adopted stack go to `dfl_submission/stack_models/`. Every D48 command except `build` runs with `MTAH_DATA_DIR` set to a nonexistent path and calls `require_external_only()`.
+
+**D48 development (2026-11-13, 03:18 EST).** **The gate passed at ownership cost 14; the confirmation may be spent, after D52 has reported.**
+
+*Levers in the stack.* L, C, three seeds per slot and F acting in y (the 00:17 amendment). The noise is out (FN 0.7147 below F 0.7175) and so is LB (D51 failed). *Checks.* One trainer reproduced D50's, D47's S1000, D49's and D47's F original-set seed-42 networks bit for bit, each with only that switch on; every export matched PyTorch; D43 reproduced its development, Metrica, D24 and guard-view records; 517 of 517 tests passed.
+
+| | Cost | Selection score | Composite | Long-hidden guard mean (DFL / Metrica) | PFF | D33's primary | DFL clean / masked | Dead ball carried / team swap | SkillCorner | Metrica | D24 mean |
+|---|---:|---:|---:|---|---:|---:|---|---|---:|---:|---:|
+| D43 | 10 | 0.6944 | 0.7139 | 0.675 (0.674 / 0.675) | 0.663 | 0.7295 | 0.780 / 0.722 | 0.643 / 0.694 | 0.718 | 0.791 | 0.701 |
+| Stack | 8 | 0.7229 | 0.7190 | 0.727 (0.742 / 0.711) | 0.699 | 0.7286 | 0.767 / 0.725 | 0.651 / 0.687 | 0.718 | 0.785 | 0.721 |
+| Stack | 10 | 0.7236 | 0.7246 | 0.722 (0.730 / 0.715) | 0.698 | 0.7338 | 0.782 / 0.726 | 0.658 / 0.695 | 0.723 | 0.792 | 0.723 |
+| Stack | 12 | 0.7251 | 0.7267 | 0.723 (0.731 / 0.716) | 0.694 | 0.7331 | 0.786 / 0.726 | 0.664 / 0.697 | 0.720 | 0.801 | 0.726 |
+| **Stack** | **14** | **0.7265 (+0.032)** | **0.7279 (+0.014)** | **0.725 (0.731 / 0.720) (+0.050)** | **0.691 (+0.028)** | 0.7357 | 0.788 / 0.730 | 0.661 / 0.706 | 0.722 | 0.799 | 0.726 |
+| Seed set 0 alone | 14 | 0.7223 | 0.7255 | 0.719 | 0.691 | 0.7325 | 0.784 / 0.725 | 0.656 / 0.709 | 0.721 | 0.792 | 0.726 |
+| Seed set 1,000 alone | 14 | 0.7250 | 0.7260 | 0.724 | 0.695 | 0.7344 | 0.786 / 0.725 | 0.660 / 0.702 | 0.723 | 0.799 | 0.717 |
+| Seed set 2,000 alone | 14 | 0.7265 | 0.7261 | 0.727 | 0.689 | 0.7355 | 0.793 / 0.735 | 0.645 / 0.711 | 0.717 | 0.795 | 0.724 |
+
+- **Every gate condition held at cost 14** (the cost with the highest selection score): selection score +0.032 (+0.015 needed), PFF +0.028 (+0.015 needed), composite +0.014 (no fall allowed), all eight groups up (the smallest, SkillCorner, +0.004), N = 1.75, 4 and 4.5 up by +0.005, +0.008 and +0.006.
+- **The levers added up.** L alone lifted the guard mean +0.040 and PFF +0.024 with the composite flat; C alone lifted the composite +0.007 and PFF +0.018. Together with the seeds and the mirror: guard +0.050, PFF +0.028, composite +0.014, and the standard primary +0.006. PFF's spells seen under 20% are recalled at 0.26–0.29 (D43: 0.17).
+- **It does not hang on a seed.** Each seed set alone scores a composite of 0.7255–0.7261 at cost 14, each about +0.012 over D43, where three seed sets of D43's own recipe spread 0.0036.
+- **The selected cost is the grid's largest.** The selection score rises by about 0.001 per step from 8 to 14, less than a seed spread; PFF alone prefers the low costs (0.699 at 8). The grid is not extended: the rule fixed it, and the differences are too small to act on.
+
+D52 (T and X on seed set 0) is still running; under D52's rule the stack is retrained before the confirmation if one of them holds. [Development](dfl_submission/stack_recipe/development.json)
+
+## D52 — Training length and temporal context for the stack's recipe (2026-11-13, 01:09 EST, written while D48's last trainer check runs and before any stack or D52 network is trained or anything of D48 or D52 is scored)
+
+**Question.** D48's stack trains each network for D42's 5,400 steps on two thirds more sequences (D49 added 32 views to each set's 48) with one more augmentation, and D15's whole gain came from networks that had been under-trained. Its networks also see 12.6 s to each side, while D49's views hide the ball for up to 30 s. Does training longer, or seeing further, raise spellF1 for this recipe?
+
+**Disclosure.** Written after D47, D49, D50 and D51. D38 found 10,800 steps worse than 5,400 for D36's values on the original data (by cross-validation); D20's longer-context networks did not help D15. Both were measured without the long-hidden views.
+
+**Base.** The stack's first seed set alone (L, C and the y mirror; seeds 42 and 97), trained and scored by D48.
+
+**Candidates,** each the base with one change, first seed set only (four networks):
+- **T:** 8,100 steps (the schedule stretched, last snapshot), which gives each sequence about as many visits as D42's 5,400 steps gave its 48.
+- **X:** a seventh temporal block with dilation 64, so the network sees 25.4 s to each side (windows of 128 steps plus 127 on each side); 5,400 steps.
+
+**Grid.** Ownership cost ∈ {8, 10, 12, 14}; the rest is D43's. The selection score is D48's (the mean of D47's composite and the long-hidden guard mean).
+
+**A candidate holds if,** at its best cost, its selection score is at least the base's best plus **0.008** (about two seed spreads of the composite), its PFF development mean is no more than 0.005 below the base's, and no group falls by more than 0.01 against the base. If both hold, the higher selection score is taken; they are not combined untested.
+
+**If one holds,** the stack is retrained once with that change (three seeds), and D48's development gate and confirmation are read on the retrained stack; D48's record says so before its confirmation is run. **If neither holds,** D48 goes on as trained.
+
+**Records.** `dfl_submission/stack_recipe/d52_*.json`, each written once. Code: new modules only (`dfl_submission/context_set.py` for the seven-block network and its NumPy inference, `dfl_submission/length_trial.py` for both candidates), reusing `stack_set.py` and `stack_trial.py` unchanged. Scratch goes to `data/d52/`. Every D52 command runs with `MTAH_DATA_DIR` set to a nonexistent path and calls `require_external_only()`.
+
+**D52 outcome (2026-11-13, 03:54 EST).** **T holds; X does not. The stack is retrained at 8,100 steps before the confirmation.** D43 was recomputed bit for bit on all 64 halves; the seven-block network equals `player_set`'s forward at six blocks.
+
+| First seed set alone | Cost | Selection score | Composite | Long-hidden guard mean (DFL / Metrica) | PFF | D33's primary | Dead ball carried / team swap | Metrica | D24 mean |
+|---|---:|---:|---:|---|---:|---:|---|---:|---:|
+| Base (5,400 steps, six blocks) | 14 | 0.7223 | 0.7255 | 0.719 (0.726 / 0.712) | 0.691 | 0.7325 | 0.656 / 0.709 | 0.792 | 0.726 |
+| **T (8,100 steps)** | **14** | **0.7311 (+0.0088)** | 0.7299 | 0.732 (0.743 / 0.721) | 0.695 | 0.7344 | 0.668 / 0.712 | 0.801 | 0.730 |
+| T | 8 / 10 / 12 | 0.7268 / 0.7243 / 0.7271 | 0.7226 / 0.7226 / 0.7251 | 0.731 / 0.726 / 0.729 | 0.701 / 0.699 / 0.697 | | | | |
+| X (seven blocks) | 12 | 0.7192 (−0.0030) | 0.7220 | 0.716 (0.734 / 0.699) | 0.695 | 0.7301 | 0.652 / 0.701 | 0.788 | 0.718 |
+
+- **T passed all three conditions:** selection score +0.0088 over the base's best (+0.008 needed), PFF +0.003 (−0.005 allowed), and the largest fall of a group −0.001 (DFL clean). Its single seed set scores above the three-seed stack at 5,400 steps (0.7265) and above each of that stack's seed sets at any cost (best 0.7284).
+- **X failed:** seeing 25 s to each side lowered the selection score by 0.003 and the Metrica long-hidden view by 0.013. The networks keep D15's six blocks.
+- **A caution.** T clears its bar by 0.0008, and the three seed sets of the 5,400-step stack differ by up to 0.004 in selection score, so the gain is likely real but small. The retrained stack is scored on development again before anything is confirmed (amendment below). [T](dfl_submission/stack_recipe/d52_T.json), [X](dfl_submission/stack_recipe/d52_X.json), [decision](dfl_submission/stack_recipe/d52_decision.json)
+
+*D48 amendment (2026-11-13, 03:54 EST, after D52's outcome and before any further stack network is trained or scored).* Under D52's rule the stack is retrained once at 8,100 steps: the same levers and seeds, with D52's four T networks as its first seed set if the stack's trainer reproduces one of them bit for bit, and eight new networks for the seed offsets 1,000 and 2,000. It is scored on development exactly as the 5,400-step stack was. The confirmation then goes to one stack only: the 8,100-step stack if it passes D48's gate and its selection score at its selected cost is at least the 5,400-step stack's (0.7265); otherwise the 5,400-step stack at cost 14, which has passed. The confirmation's rule is unchanged.
+
+**D48 development of the 8,100-step stack (2026-11-13, 05:53 EST).** **The gate passed at cost 14 and the amendment selects the 8,100-step stack for the confirmation.** The stack's trainer at 8,100 steps reproduced D52's original-set seed-42 T network bit for bit, so D52's four networks are its first seed set; eight networks were trained for the other two; 547 of 547 tests passed.
+
+| | Cost | Selection score | Composite | Long-hidden guard mean (DFL / Metrica) | PFF | D33's primary | DFL clean / masked | Dead ball carried / team swap | SkillCorner | Metrica | D24 mean |
+|---|---:|---:|---:|---|---:|---:|---|---|---:|---:|---:|
+| D43 | 10 | 0.6944 | 0.7139 | 0.675 (0.674 / 0.675) | 0.663 | 0.7295 | 0.780 / 0.722 | 0.643 / 0.694 | 0.718 | 0.791 | 0.701 |
+| 5,400-step stack | 14 | 0.7265 | 0.7279 | 0.725 (0.731 / 0.720) | 0.691 | 0.7357 | 0.788 / 0.730 | 0.661 / 0.706 | 0.722 | 0.799 | 0.726 |
+| 8,100-step stack | 8 / 10 / 12 | 0.7258 / 0.7279 / 0.7311 | 0.7191 / 0.7233 / 0.7257 | 0.733 / 0.733 / 0.736 | 0.698 / 0.698 / 0.699 | | | | | | |
+| **8,100-step stack** | **14** | **0.7326 (+0.038)** | **0.7283 (+0.014)** | **0.737 (0.755 / 0.719) (+0.062)** | **0.696 (+0.033)** | 0.7352 | 0.781 / 0.728 | 0.657 / 0.707 | 0.725 | 0.803 | 0.729 |
+| Its seed sets alone | 14 | 0.7311 / 0.7300 / 0.7338 | 0.7299 / 0.7266 / 0.7270 | 0.732 / 0.733 / 0.741 | 0.695 / 0.694 / 0.691 | | | | | | |
+
+- **Every gate condition held at cost 14:** selection score +0.038 (+0.015 needed), PFF +0.033 (+0.015), composite +0.014 (no fall), all eight groups up (the smallest, DFL clean, +0.001), N = 1.75, 4 and 4.5 up by +0.009, +0.007 and +0.005.
+- **Against the 5,400-step stack** the selection score is +0.006 (0.7326 against 0.7265): the long-hidden guard mean +0.012 and PFF +0.005, with the composite level (0.7283 against 0.7279). All three seed sets at 8,100 steps score above the 5,400-step stack's selection score.
+- **By the amendment the confirmation goes to the 8,100-step stack at ownership cost 14.** [Development](dfl_submission/stack_recipe/development_t.json)
+
+**D48 confirmation (2026-11-13, 06:37 EST).** **Passed.** The stack (8,100 steps, ownership cost 14) is to replace D43 in the submission, after the adoption steps below. The untouched PFF set is spent; no fresh PFF matches remain.
+
+*Before scoring.* D43 reproduced its holdout record. The untouched PFF set (games 3819, 3827, 3835, 3843, 3851, 3859, 10509, 10517) was parsed at 06:03 EST for this step and had never been parsed before. The long-hidden views of DFL WQQ and WR9 were built with new seeds (visibility 0.60, hidden runs of 14.2 s on average, 90% of hidden frames in runs over 10 s). Every half's attacking sign agreed with its first qualifying frame, with no fallback (24 holdout halves, 4 long-hidden, 16 PFF).
+
+| | D43, cost 10 | Stack, cost 14 | Change | Required |
+|---|---:|---:|---:|---|
+| **Untouched PFF set, N = 3 mean (eight fresh matches)** | 0.6886 | **0.7236** | **+0.0350** | ≥ +0.01 |
+| **Holdout long-hidden mean (WQQ / WR9)** | 0.6714 (0.689 / 0.654) | **0.7135** (0.719 / 0.708) | **+0.0421** | ≥ +0.01 |
+| **Holdout primary, N = 3 standard combined** | 0.72761 | 0.73276 | +0.0052 | ≥ −0.01 |
+| DFL WQQ clean / masked | 0.766 / 0.745 | 0.757 / 0.751 | −0.010 / +0.005 | |
+| DFL WR9 clean / masked | 0.788 / 0.725 | 0.794 / 0.721 | +0.006 / −0.004 | |
+| SkillCorner holdout (four matches) | 0.707, 0.670, 0.745, 0.703 | 0.716, 0.691, 0.741, 0.718 | mean +0.010 | |
+| N = 1.75 / 4 / 4.5 | | | +0.016 / +0.001 / +0.001 | each ≥ −0.01 |
+| Dead ball carried / team swap | 0.643 / 0.693 | 0.646 / 0.711 | +0.003 / +0.018 | each ≥ −0.01 |
+| Raw provider labels, standard combined (reported) | | | +0.013 | |
+
+- **Every condition held.** On the eight fresh PFF matches every match gained (+0.021 to +0.063; the weakest match, 3851, rose from 0.614 to 0.678). On the long-hidden views both DFL holdout matches gained (+0.030 and +0.054). The standard holdout did not fall: the primary rose +0.005, inside the seed spread, as the rule expected of views that hide the ball for 2 s at a time.
+- **What it shows.** The gain development found on hidden-ball and unseen-vendor tracking held on matches no step had touched, at about the same size (development: PFF +0.033, long-hidden guard +0.062, primary +0.006). [Confirmation](dfl_submission/stack_recipe/confirmation.json)
+
+*Adoption amendment (2026-11-13, 06:37 EST, written after the confirmation and before any stack build has run).* An independent review of `stack_trial build` (no build was run; `tests/test_stack_build_review.py`) found that everything upstream of the networks is the standing path and that the sign, swap, mirror and seed-averaging code is the code development scored, and three things to change before the build may run:
+1. *Identity.* The build refuses unless all twelve networks, the trees, the code it runs and the lever record equal those written in `confirmation.json`, as `player_trial build` refuses against its record.
+2. *Levers.* The switches are read from the confirmed lever record, not from `levers.json`.
+3. *Signs, fail closed.* The build refuses if a graded half has no sign of its own, if a half's sign disagrees with its first qualifying frame, or if the two halves have the same sign. These are the checks every external half passed. If the build refuses on them, only that fact is read, the stack does not ship, and `a56574fe…` stays unless Derek decides otherwise.
+
+Then, as D48's rule says: the twelve confirmed networks are copied to `dfl_submission/stack_models/`; two builds with `stack_trial build` must give the same SHA-256 with the validator's OK line (only that line and the SHA are read); `player_trial build` must still give `a56574fe…`; the four release builds (two fresh macOS environments and the pinned image under `linux/arm64` and `linux/amd64`) run on a copy of the working tree, and `release/check.sh` on the commit once Derek approves one; C2 is re-declared (amendment under C2) and run once by Derek; C1's record is amended as C3 requires; and the README, CONSTANTS.md, the technical document, `SUBMISSION_SHA256.txt` and `release/BUILD_COMMAND` are updated.
+
+**D48 adoption, first build attempt (2026-11-13, 07:36 EST).** **The stack's build refused: "a half's sign disagrees with its first qualifying frame". No file was written and the submission is unchanged (`a56574fe…`).**
+
+- *Done before the build.* `stack_trial build` now refuses unless the twelve networks, the trees, the lever record and the code it runs equal `confirmation.json` (the build driver itself is locked in `stack_recipe/build_identity.json`, written only after the edited code recomputed `development_t.json` and `confirmation.json` exactly from their caches and re-forecast the eight development guard halves bit for bit with the copied networks); it reads its switches from the confirmed lever record; it carries the three fail-closed sign checks; 553 of 553 tests passed. The twelve confirmed networks were copied to `dfl_submission/stack_models/` and verified against the confirmed identity (`stack_recipe/adoption_models.json`). A first attempt stopped in 0.6 s on a missing import before any data was read; the import order was fixed and the reproduction re-run.
+- *The refusal.* On the second attempt the build stopped at the sign check quoted above. Only that message was read: no number from the tracking, no log, no file. The second stack build, the `player_trial build` check and the release builds did not run. `data/submission.csv`, `Anfield.csv`, `SUBMISSION_SHA256.txt` and `release/BUILD_COMMAND` are untouched.
+- *What it means under the amendment.* The stack does not ship and `a56574fe…` stays, unless Derek decides otherwise. The check did what it was written for: something that held on every external half checked in D48–D50 (268 halves: 224 in `stack_recipe/signs.json` and 44 in the confirmation; the one half without a qualifying frame, PFF 3852's second, took D50's fallback) does not hold on the provided match as the build reads it.
+- *A known difference between the build and the external halves, not examined on the provided data.* Every external half starts at its kick-off, where each team stands in its own half. The build applies D50's rule to a graded half as a whole, and D27 exists because the provided match's second graded half starts before its tagged kick-off. The review of the build had noted this (its finding 6). Whether this is the cause has not been looked at.
+
+## D53 — A fallback: the stack without the attacking frame (2026-11-13, 07:38 EST, written after the stack's build refused and before any D53 network is trained or anything is scored)
+
+**Question.** The attacking-frame tokens (C) are the one part of the confirmed stack that reads something from the provided match at build time, and the build refused on their check. If C cannot be used, how much of the confirmed gain remains without it? D53 prepares that answer while Derek decides about the build; it ships nothing by itself.
+
+**Disclosure.** Written after D48's confirmation and after the build's refusal, of which only the message was read. The matches D53 is confirmed on were scored once for D48's stack, so its confirmation is a second attempt on the same matches and weaker evidence than D48's; the untouched PFF set was fresh for D48 and is not fresh here. Nothing was selected on those matches in D48, and D53's candidate and cost are fixed before it is scored on them.
+
+**Candidate.** D48's stack without C: D49's long-hidden sequences and tokens, tokens in pitch coordinates, D47's mirror lever as screened (each training window mirrored in x and in y with probability ½ each; inference averaged over the four mirrors times the two team orders), three seeds per slot (offsets 0, 1,000, 2,000), 8,100 steps; trees D3's, mixes D15's, cutoff, stoppage cost and discount D43's. Its build needs no attacking sign and reads the provided match exactly as `player_trial build` does.
+
+**Development.** Scored as D48's stack was (the averaged model and each seed set alone; ownership cost 8, 10, 12 and 14; D47's eight groups, D49's two guard views, D33's conventions), with D48's selection score and D48's gate against D43 at cost 10. If the gate fails, D53 stops.
+
+**Confirmation, a second use (see the disclosure),** at the selected cost against D43, on the sets of D48's confirmation as they were built for it: the holdout, the long-hidden views of WQQ and WR9 with D48's seeds, and the eight PFF games parsed for D48. D48's pass rule applies unchanged: PFF mean at least +0.01, holdout long-hidden mean at least +0.01, holdout primary no more than 0.01 lower, N = 1.75, 4 and 4.5, dead ball carried and team swap each no more than 0.01 lower.
+
+**What it is used for.** If D53 passes, it is a fallback that Derek may choose to ship if the stack with C does not ship (he does not approve another build of it, or that build refuses again). Shipping it would follow the same adoption steps as D48, with its weaker evidence stated in the technical document. If the stack with C ships, D53 is recorded and not used.
+
+**Records.** `dfl_submission/stack_recipe/*_d53.json`, each written once. Code: `stack_set.py` and `stack_trial.py` through their switches (direction off, mirror in x and y), with any new command in a new module `dfl_submission/fallback_trial.py`; the confirmed stack's records and the locked build identity are not changed. Scratch goes to `data/d53/`. Every D53 command runs with `MTAH_DATA_DIR` set to a nonexistent path and calls `require_external_only()`.
+
+**D53 outcome (2026-11-13, 11:29 EST).** **The fallback passed its development gate and its second-use confirmation at ownership cost 14.** It ships nothing by itself: it is available to Derek if the stack with C does not ship. No trainer check was added (D48's `check_mirror` and `check_hidden` cover its two switches; no reference exists for the combination at 8,100 steps).
+
+| | D43, cost 10 | Stack with C (D48), cost 14 | Fallback without C (D53), cost 14 |
+|---|---:|---:|---:|
+| *Development:* selection score | 0.6944 | 0.7326 | 0.7249 (+0.031) |
+| Composite / long-hidden guard mean | 0.7139 / 0.675 | 0.7283 / 0.737 | 0.7257 (+0.012) / 0.724 (+0.049) |
+| PFF development / D24 mean | 0.663 / 0.701 | 0.696 / 0.729 | 0.684 (+0.020) / 0.712 |
+| D33's primary | 0.7295 | 0.7352 | 0.7383 |
+| *Confirmation sets:* PFF, the eight games parsed for D48 | 0.6886 | 0.7236 (+0.0350, first use) | 0.7091 (**+0.0204**, second use) |
+| Holdout long-hidden mean | 0.6714 | 0.7135 (+0.0421) | 0.7037 (**+0.0323**) |
+| Holdout primary | 0.72761 | 0.73276 (+0.0052) | 0.73036 (+0.0027) |
+| N = 1.75 / 4 / 4.5 | | +0.016 / +0.001 / +0.001 | +0.003 / +0.002 / +0.004 |
+| Dead ball carried / team swap | | +0.003 / +0.018 | +0.005 / +0.001 |
+
+- **Development:** every gate condition held (selection +0.031, PFF +0.020, composite +0.012, the largest fall of a group Metrica −0.001, conventions +0.005, +0.011 and +0.010). The three seed sets alone score 0.7178–0.7238.
+- **Confirmation sets, second use:** every condition of D48's rule held, and all eight PFF games gained (+0.002 to +0.045). As the rule's disclosure says, these matches had been scored once for D48's stack, so this is weaker evidence than D48's.
+- **What C is worth inside the stack:** on the same sets the stack with C is ahead of the fallback by 0.015 on PFF, 0.010 on the holdout long-hidden views and 0.002 on the holdout primary; on development by 0.012 on PFF and 0.018 on the D24 mean. The fallback keeps about three fifths of the PFF gain and three quarters of the long-hidden gain. [Development](dfl_submission/stack_recipe/development_d53.json), [confirmation](dfl_submission/stack_recipe/confirmation_d53.json)
+
+**D53 build preparation (2026-11-13, 12:48 EST).** In scratch only; nothing was adopted and `data/submission.csv`, `Anfield.csv`, `SUBMISSION_SHA256.txt` and `release/BUILD_COMMAND` are unchanged. The build runs the D53 record through the fixed build path with the same identity checks (its networks, copied to `dfl_submission/fallback_models/` and verified; the trees; the code; its lever record; the driver locked in `stack_recipe/build_identity_d53.json` after it recomputed `development_d53.json` and `confirmation_d53.json` exactly). With direction off no attacking sign is computed.
+- Two builds in the repository venv gave `769655cad55cfddd00bf2e3a82e9f4330ff7703768a73633194927aa7264a32e` with the validator's OK line each time, and `player_trial build` still gave `a56574fe…`.
+- The four release builds on a copy of the working tree (two fresh macOS venvs from Homebrew Python 3.12.13 with `dfl_submission/requirements.txt`; the pinned `python:3.12.14-slim` image under `linux/arm64` and `linux/amd64`) all gave `769655ca…` and validated. Only the validator lines and the SHA-256s were read.
+- So the new inference (twelve networks averaged per slot, mirror-averaged) is byte-identical on six builds across three platforms. The kick-off-aligned build of the stack with C is prepared behind a switch and has not run.
+
+**Audit of round 12's record (2026-11-13, 13:27 EST).** A coding session recomputed every table cell, gate and stated number of round 12 from the records they cite (716 checks; `data/d48/audit_round12.md`). No pass or fail statement was wrong. It found 25 discrepancies in this file, almost all a last digit from rounding twice, and they are corrected in place above: among them D46's and D46a's rounded cells, the count of signed development halves in D50 (31 of 32), C's scores on D49's guard views (they were scored afterwards and are now cited), the range of LB's ball error (5.9–7.6 m), the number of external halves the sign rule was checked on (268, not 196), and D45's status paragraph, which had been filed under D47 and now sits under D45. The whole test suite passes on the working tree as it stands: 581 tests in 71 files.
+
+## D54 — Both candidates on the last unused matches (2026-11-13, 13:28 EST, written before any of the four matches is read or scored)
+
+**Question.** D53's confirmation was a second use of its matches, and Derek has to choose between it, the stack with C and D43. The four 2019–20 SkillCorner confirmation matches (3442, 3518, 3749, 4039; D6) are the only external matches no model has trained on and no step has scored. How do D43, the stack with C and the D53 fallback score on them? Measurement only: it selects nothing, changes nothing, and is one more piece of evidence for Derek's choice.
+
+**Disclosure.** Written after D48's confirmation, the stack's refused build and D53's outcome. These are the last unused external matches, and this spends them. They are a weaker test than the PFF set was: older broadcast tracking, provider ownership only (no dead-ball label, so stoppages are not scored), with a target on about 60–72% of the timeline on the release's development matches. D14 found the release harmful as training data, and D6 found label-free adaptation flat on its development matches; neither used these four.
+
+**What is scored.** D43 at ownership cost 10, the stack with C at cost 14 and the D53 fallback at cost 14, each as confirmed (the stack with D50's whole-half sign and its fallback; whether each half's sign agrees with its first qualifying frame is reported, not enforced). Inputs, targets and scoring are D6's: roster players and the ball, the metadata pitch, 25 Hz interpolation and the five-metre outlier limit; provider home and away possession as the target, null or unrecognised ownership excluded, ownership gaps splitting the scoring runs; spellF1 per match over its two halves, then the mean of the four matches. The primary is N = 3; N = 1.75, 4 and 4.5 and the raw provider labels are reported, with the share of the timeline that has a target.
+
+**How it is read.** A candidate is supported on fresh matches if its N = 3 mean is at least D43's, and clearly supported if it is at least D43's plus 0.01. Per-match changes are reported. Whatever the result, the choice of what ships stays Derek's.
+
+**Record.** `dfl_submission/stack_recipe/fresh_2019.json`, written once. Code: a new module `dfl_submission/fresh_trial.py`, reusing `skillcorner_2020.py` and the readers and scoring D6 used, and the confirmed models' inference unchanged. Scratch goes to `data/d54/`. Every D54 command runs with `MTAH_DATA_DIR` set to a nonexistent path and calls `require_external_only()`.
+
+**D54 outcome (2026-11-13, 13:52 EST).** **Neither candidate is supported on the four fresh matches: both score below D43 there.** The reproduction check passed first (frozen D3 through this reader and scoring gave D6's row on the five development matches: 0.62374, raw 0.54793). A target covers 62–73% of each match's timeline.
+
+| N = 3 spellF1 | 3442 | 3518 | 3749 | 4039 | Mean | Change | Raw (mean) | N = 1.75 / 4 / 4.5 (mean) |
+|---|---:|---:|---:|---:|---:|---:|---:|---|
+| D43, cost 10 | 0.629 | 0.649 | 0.595 | 0.644 | 0.6293 | | 0.537 | 0.594 / 0.632 / 0.626 |
+| Stack with C, cost 14 | 0.625 | 0.653 | 0.592 | 0.628 | 0.6248 | **−0.0046** | 0.531 | 0.588 / 0.629 / 0.623 |
+| Fallback without C (D53), cost 14 | 0.629 | 0.646 | 0.568 | 0.632 | 0.6190 | **−0.0103** | 0.528 | 0.585 / 0.622 / 0.619 |
+
+- **By D54's reading neither is supported** (a mean at least D43's was needed). The stack is 0.005 below D43, one match up and three down, the largest fall 0.017; the fallback is 0.010 below, with one match level and one down 0.026. Every convention and the raw labels point the same way, by 0.003–0.011.
+- **How much weight it carries.** Four matches, whose per-match changes spread about 0.009 (stack) and 0.012 (fallback), so the stack's deficit is about one standard error and the fallback's under two. The test is ownership only on old broadcast tracking: no stoppage is scored, and a target is missing on about a third of the timeline. It is the least like the provided match of the external sets, which are tracked from a camera that sees every player. But it is fresh, and it is the only fresh evidence the fallback has.
+- **Against the rest.** The stack gained on the eight fresh PFF games (+0.035, all eight up), on long-hidden views of the DFL holdout matches (+0.042) and on the standard holdout (+0.005); the fallback, on a second use of those sets, +0.020, +0.032 and +0.003. The stack is ahead of the fallback on every set, this one included (+0.006).
+- **The sign rule on real tracking.** All eight halves have a sign (|D| 3.3–4.7 m), no half needed the fallback, and the two halves of every match have opposite signs. One half (4039, second) disagrees with its first qualifying frame, which lies 64 s into the half's tracking: on tracking that does not start at a kick-off, the first-frame check misfires while the whole-half sign is plain. That is the brittleness the kick-off alignment was written for.
+
+The last unused external matches are now spent. The choice of what ships stays Derek's, with this result in front of him. [Record](dfl_submission/stack_recipe/fresh_2019.json)
+
+*Second adoption amendment (2026-11-13, 13:56 EST, Derek's decision, written before any further build runs on the provided match).* Derek was given the three options (the stack with C after a build whose sign rule starts at the tagged kick-off; the D53 fallback; D43), with D54's result and the recommendation: try the kick-off-aligned build of the stack, and keep D43 if it refuses again. He answered "Yes then do this".
+- *The change.* In the build, a graded half's attacking sign is D50's D taken over the half's long-context frames at or after the frame of that half's Smart Tagging `Kick Off (Start)` tag, and the first qualifying frame is the first such frame at or after the tag. The build refuses unless each graded half owns exactly one such tag, paired with its half as D27 pairs it. The three fail-closed checks are unchanged and are applied to those frames. The sign still applies to every frame of the half, the frames before the kick-off included, and D27 still sets the labels before the kick-off to D. The networks, weights, levers, cost and every other value are the confirmed ones.
+- *Why this form.* It is the form the rule was validated in. Every external half the rule and its first-frame check were written for starts at its kick-off, where each team stands in its own half. The organisers' FAQ.md says the provided second half is graded from its first frame while play starts at the kick-off about two minutes later (D27's premise), and the review of the build noted before the first attempt that these frames enter the sign rule (its finding 6). D54 then showed the first-frame check misfiring on external tracking that does not start at a kick-off (one half of eight), with the whole-half sign plain. On an external half, which has no frames before its kick-off, the two forms are the same rule, so the confirmed records are unchanged: the edited driver recomputed `development_t.json` and `confirmation.json` exactly before its lock was written.
+- *What has been read from the provided match so far.* One refusal message from the first attempt, and nothing else. This attempt adds either the validator's OK line and a SHA-256, or one more refusal message.
+- *If this build refuses on any check,* the stack does not ship and `a56574fe…` stays (Derek's decision). The D53 fallback is not shipped either: its only fresh result (D54) is negative.
+- *If it passes,* the adoption steps of the first amendment follow. C2's D48 ranges stand, because they come from external views, where the alignment changes nothing.
+
+**D48 adoption, second build attempt (2026-11-13, 14:16 EST).** **The kick-off-aligned build passed.** The edited driver first recomputed `development_t.json` and `confirmation.json` exactly and re-forecast the eight development guard halves bit for bit, and its lock was written (`stack_recipe/build_identity.json`, the kick-off form; the earlier locks are kept in `data/d48/build/`). Then, with only the validator's OK line and the SHA-256 read:
+- two builds with `stack_trial build` gave `f6d7b2933a6210ce0c8a1ee96019f86815288d97368d656f366782345e6fc65d`, each with the validator's OK line; so every sign check passed (each graded half owns one kick-off tag and has a sign, each sign agrees with its first qualifying frame from the kick-off on, and the two halves have opposite signs);
+- `player_trial build` still gave `a56574fefd83af81747206e3aedcaf625cdd170e7376d4e00e5f0abee7c431e3`.
+The four release builds on a copy of the working tree follow; the standing files change only after them.
+
+**Correction (2026-11-13, 14:20 EST): 24 PFF matches are still unused.** D48's confirmation record says "no fresh PFF matches remain" and D54's says "the last unused external matches are now spent". Both are wrong about PFF. D7's split deals the 64 games to eight slots, three of them named `train`; those 24 games were pinned but never parsed, because no model may train on PFF (Derek, 12 November). Checked now with `pff.split` over the 64 pinned ids against `data/pff/parsed`: development, sets A, B and C and the untouched set are parsed (8 each), and the 24 `train` games are not. A researcher session Derek started found this. What stands: the untouched set of eight is spent (D48), and the four 2019–20 SkillCorner matches are spent (D54). What changes: the 24 games remain available as measurement and confirmation matches under the same ruling, and a rule must name which of them it uses before any is parsed.
+
+## Note — Round 13 (2026-11-13, 14:26 EST)
+
+The stack is being adopted (its build passed; the release builds are finishing). The goal still stands, 24 PFF games are unused (the correction above), and a researcher session's brief (`data/research/RESEARCH_BRIEF_2026-11-13.md`) points at one thing no view simulates. The organisers write that the ball "is absent on 41% of graded frames, and disproportionately on the interesting ones — crowded boxes, aerial duels, tackles" (FAQ.md) and that "occlusions, crowded boxes and balls in the air all lose it" (DATA.md). Every mask so far, D49's long runs included, hides the ball at random times. Round 13 first measures whether that matters (D55) and trains for it only if it does. Everything standing stays: nothing is fitted on the provided tracking, constants come from judgement or external matches, PFF is measurement and confirmation only, C3's bar holds, and the Sunday freeze holds. The adopted stack is the reference from here on.
+
+## D55 — The ball hidden where it really goes missing: a measurement on guard views (2026-11-13, 14:26 EST, written before any D55 view is built or anything is scored)
+
+**Question.** Do D43 and the stack lose more when the ball is hidden in the situations the organisers name (in the air, in a crowd, around a change of possession) than when the same amount is hidden at random? Measurement only; it selects nothing and changes nothing in the submission.
+
+**Disclosure.** Written after D48's confirmation and D54. The situations come from the organisers' published documents, not from the provided tracking. The constants below are set by judgement and are not tuned. DFL's tracking gives the ball's height, which this repository's reader has dropped until now; no other external source has it, so the views are on DFL WPY only.
+
+**Views of DFL WPY,** each built as its masked development view is (the same coordinate noise and player dropout, new fixed seeds) with the hide process replaced:
+- **(a) air:** the ball is hidden on every frame where its height is above 1.5 m;
+- **(b) crowd:** the ball is hidden on every frame where at least three players are within 3 m of it;
+- **(c) change:** the ball is hidden from 1 s before to 2 s after each ownership change of the N = 3 targets;
+- **(d) air or crowd:** the union of (a) and (b), the two mechanisms that need no label;
+- **(e) duplicates:** the masked development view with a duplicate track: in runs of 2–5 s covering about a tenth of the half, the player nearest the ball is given a second track of the same team within 1 m of the first.
+For each of (a)–(d) a **matched random view** hides the same hidden runs (the same lengths, so the same visibility) at positions drawn at random in the same half, without overlap. Dead-ball frames are treated as in the masked development view.
+
+**Scored.** D43 at cost 10 and the adopted stack at cost 14, N = 3 spellF1 on each view and its matched random view; the visibility and hidden-run statistics of each view; owner agreement on hidden frames.
+
+**Pipeline checks.** The new reader's ball x and y equal the existing reader's exactly on every WPY frame; D43 and the stack reproduce their development records on the standing views.
+
+**How it is read.** For the stack, the gap is its score on a view minus its score on that view's matched random view. If the gap on (d) is −0.02 or lower, hiding by situation is a real weakness and D56 will train with such views, confirmed on fresh PFF games; otherwise no training follows from D55. (c) and (e) are reported for understanding; a fall of 0.02 or more on (e) against the masked development view would call for its own rule.
+
+**Record.** `dfl_submission/stack_recipe/situation_views.json`, written once. Code: new modules `dfl_submission/situation_views.py` (the height-aware DFL reader path and the views) and `dfl_submission/situation_trial.py`; existing modules stay byte-identical. Scratch goes to `data/d55/`. Every D55 command runs with `MTAH_DATA_DIR` set to a nonexistent path and calls `require_external_only()`.
+
+**D48 adopted (2026-11-13, 14:28 EST). The submission is now `f6d7b2933a6210ce0c8a1ee96019f86815288d97368d656f366782345e6fc65d`.**
+- *Release builds on a copy of the working tree:* two fresh macOS venvs (Homebrew Python 3.12.13, `dfl_submission/requirements.txt`) and the pinned `python:3.12.14-slim` image under `linux/arm64` and `linux/amd64` all gave `f6d7b293…` with the validator's OK line. With the two builds in the repository venv that is six identical builds on three platforms. Only the validator lines and the SHA-256s were read.
+- *Standing files:* `data/submission.csv` and `Anfield.csv` are copies of the built file (SHA-256 checked, not opened); `SUBMISSION_SHA256.txt` names it; `release/BUILD_COMMAND` is `-m dfl_submission.stack_trial build --out {out}`. `player_trial build` still writes `a56574fe…`, which stays the first fallback.
+- *C1 and C2:* C1's record is amended (above, under C1). C2 is re-declared for D48 with `output_check_ranges_d48.json`, which `check` reads by default; the ranges come from external views, where the kick-off alignment changes nothing, so they stand.
+- *Still to do:* the documents (README, CONSTANTS.md, the technical document, from the drafts in `data/d48/docs_draft/A/`); then Derek: approve a commit so that `release/check.sh` can run on it, run C2 once in a terminal outside the AI session, re-read the technical document, and decide on the push.
+- *The evidence this rests on, in one place:* fresh PFF (eight games) +0.035 with every game up; long-hidden views of the DFL holdout matches +0.042; the standard holdout +0.005; and, against, the four 2019–20 SkillCorner games −0.005 (about one standard error), on ownership-only labels and the tracking least like the provided match's. The D53 fallback is recorded and not shipped.
+
+**D55 outcome (2026-11-13, 15:03 EST).** **Hiding the ball by situation is a real weakness: the stack's gap on the air-or-crowd view is −0.028 (−0.02 was the line), so D56 follows.** The checks passed: the height-aware reader's ball x and y equal the existing reader's on every WPY frame (every ball record has a height; dead frames are at 0; 14% and 25% of the two halves' live frames are above 1.5 m), and D43 and the stack reproduced their standing WPY scores bit for bit.
+
+| View of DFL WPY (N = 3 spellF1) | Live visibility | D43: view / matched random / gap | Stack: view / matched random / gap | Stack, owner agreement on hidden frames: view / matched random |
+|---|---:|---|---|---|
+| (a) air, height above 1.5 m | 0.81 | 0.731 / 0.769 / −0.039 | 0.737 / 0.795 / **−0.058** | 0.813 / 0.937 |
+| (b) crowd, three players within 3 m | 0.95 | 0.735 / 0.748 / −0.012 | 0.748 / 0.750 / −0.002 | 0.795 / 0.832 |
+| (c) change, 1 s before to 2 s after | 0.84 | 0.684 / 0.752 / −0.068 | 0.694 / 0.768 / **−0.073** | 0.663 / 0.911 |
+| **(d) air or crowd** | 0.78 | 0.723 / 0.754 / −0.031 | 0.746 / 0.774 / **−0.028** | 0.821 / 0.928 |
+| (e) duplicates, against the masked view | 0.61 | 0.722 / 0.722 / 0.000 | 0.724 / 0.728 / −0.004 | |
+
+- **Where the ball is hidden matters more than how much.** The air view hides 19% of live frames and the stack scores 0.737 on it; the standing masked view hides 39% of live frames at random and the stack scores 0.728. On frames hidden while the ball is in the air the stack names the owner right 81% of the time, against 94% on frames hidden at random; around a change of possession 66% against 91%.
+- **The crowd rule alone hides little** (5% of live frames, in runs of 0.7 s) and costs the stack nothing; the weakness is the ball in the air. **Duplicate tracks cost nothing** (−0.004 for the stack, none for D43), so no rule follows from (e).
+- **A caution on the size of the gaps.** A matched random view hides the same runs anywhere in the half, dead ball included, so it hides about half as many live frames as its situation view (air: 7,895 against 15,445). The gaps therefore overstate the effect of *where*; the comparison with the standing masked view in the first bullet does not have this flaw and points the same way.
+- **The stack did not close this gap.** Its gap on (a) is larger than D43's (−0.058 against −0.039) because it gained more on the random view than on the air view: the long-hidden training helped with hiding at random times, not with hiding in the air. [Record](dfl_submission/stack_recipe/situation_views.json)
+
+## D56 — Training views that hide the ball in the air and in a crowd (2026-11-13, 15:03 EST, written after D55's outcome and before any D56 view is built, any network is trained or anything is scored)
+
+**Question.** D55 shows the stack is weak where the organisers say the provided ball goes missing. Does adding training views that hide the ball by situation raise spellF1 on such views and on real automatic tracking (PFF), without harm elsewhere?
+
+**Disclosure.** Written after D55, on the same development match (WPY) that D55's views use, so the situation view is no longer an untouched guard for this step; PFF, whose ball is lost by a real tracker, is the judge that was not built by us. The constants are set by judgement from the organisers' published text and D55's definitions, and are not tuned. The reference is the adopted stack.
+
+**Situation hide (training).** On the frames of a half, the ball is hidden while its height is above 1.5 m (DFL only: no other source has the height) or at least three players are within 3 m of it; each such hidden run is extended by a delay drawn uniformly from 0 to 1 s, for a tracker's time to find the ball again; on top, the standing two-state random process (`augment.wide_masking`) hides the ball with a visibility drawn per half from 0.6 to 0.95.
+
+**Candidates,** each the adopted stack's recipe (D49's views, attacking-frame tokens, the y mirror) on its first seed set only (four networks), with one more view per training match in each set:
+- *DFL training matches:* the set's own view construction with `wide_masking`'s coordinate noise and player dropout and the situation hide;
+- *SkillCorner training matches:* the set's own SkillCorner construction (the original set's provider tracking; the augmented set's handled dead ball) with the situation hide's crowd rule, delay and random part (no height).
+The existing records of D49's folders must be reproduced byte for byte, and the new views added.
+- **S:** 8,100 steps.
+- **SL:** 10,800 steps, which gives each sequence about as many visits as 8,100 steps gave D49's 80 records.
+
+**Base.** The adopted stack's first seed set alone (D52's T networks), scored on the same views.
+
+**Scored** at ownership cost 8, 10, 12 and 14 on D47's eight groups, D49's two long-hidden guard views and D55's (d) view of WPY. The round-13 selection score is the mean of D47's composite, the long-hidden guard mean and the (d) view.
+
+**A candidate holds if,** at its best cost by the selection score: the selection score is at least the base's best plus 0.008; the PFF development mean is at least the base's at its best cost; and no group falls by more than 0.01 against the base. If both hold, the higher selection score is taken.
+
+**If one holds,** the stack is retrained with it (three seeds), scored on development against the adopted stack with the same three conditions, and then confirmed once on twelve fresh PFF games (set D: of the 24 unparsed games, the twelve dealt to the first and second `train` slots of D7's split, parsed only for that step) and the holdout: it replaces the adopted stack if set D's N = 3 mean rises by at least **+0.01** (C3), the holdout primary and the holdout long-hidden mean each fall by no more than 0.01, and N = 1.75, 4 and 4.5, dead ball carried and team swap each fall by no more than 0.01. The other twelve unparsed games stay in reserve. **If neither holds,** the adopted stack stands.
+
+**Records.** `dfl_submission/stack_recipe/d56_*.json`, each written once. Code: new modules only (`dfl_submission/situation_train.py` for the training views and the prepare step, `dfl_submission/situation_fit.py` for the candidates), reusing `situation_views.py`, `hidden_views.py`, `stack_set.py`, `stack_trial.py` and `length_trial.py` unchanged. Scratch goes to `data/d56/`. Every D56 command runs with `MTAH_DATA_DIR` set to a nonexistent path and calls `require_external_only()`.
+
+*Correction to D55 and D56 (2026-11-13, 16:06 EST, while D56's first trainings run; nothing of D56 is scored yet).* Both say that no external source other than DFL gives the ball's height. That is wrong: the researcher session found that the 2024–25 SkillCorner tracking carries a ball height on every detected frame (7–18% of detected frames above 1.5 m on the training matches, comparable to DFL's live frames), although its documentation does not say how the height is made and this repository's SkillCorner reader keeps x and y only. D56's rule is not changed by this: its SkillCorner views keep the crowd rule, the delay and the random part, as written before anything was scored. Using SkillCorner's height for the air rule, and hiding around changes of possession (D55's largest gap), would each need a rule of their own after D56's outcome.
+
+*Disclosure for Derek (2026-11-13, 16:07 EST): PFF's part in round 12's selection.* Derek's ruling of 12 November makes PFF "a veto and a confirmation source". In round 12 the orchestrator used the eight PFF development games as more than a veto: their mean is one of the eight groups of D47's composite, D49's carry rule could pass on the PFF mean alone, D48's gate required a PFF gain, and the ownership cost (14) and the 8,100 steps were chosen with selection scores that contain the composite. No model was trained on PFF and the build reads none of it, but the shipped cost and training length were selected on scores that PFF is part of. The technical document now says so (sections 3, 7 and 10, replacing "no value in the submission comes from it"). Whether that is within the ruling and PFF's terms is Derek's judgement; the alternative wording and the numbers without PFF can be produced from the records if he wants them.
+
+*Documents (2026-11-13, 14:31 EST).* The README, CONSTANTS.md, PROVENANCE.md and the technical document carry outcome A; `Anfield.md` is an exact copy of the technical document; 594 of 594 tests pass in 72 files. One placeholder remains in four places: the release check on a commit, pending Derek's approval of a commit.
+
+## D57 — The air rule on the SkillCorner training matches too (2026-11-13, 16:19 EST, written while D56's last candidate trains, before anything of D56 or D57 is scored)
+
+**Question.** D56's situation views hide the ball in the air on the four DFL training matches only, because this repository's SkillCorner reader drops the ball's height. The 2024–25 SkillCorner tracking has a height on every detected frame (the correction above), and on both providers the ball is in the air about twice as often in the seconds around a change of possession as elsewhere (the researcher session's count on the training matches: DFL 33% against 15%, SkillCorner 22% against 9%). Does applying the air rule to the twelve SkillCorner training matches as well do better than D56's S?
+
+**Disclosure.** Written after D55's outcome and the researcher session's read-only counts on the training matches, before any score of D56. SkillCorner's documentation does not say how its ball height is made. The constants are D56's.
+
+**Candidate SZ.** D56's S (8,100 steps, first seed set), with one change: in the new SkillCorner views the ball is also hidden on detected frames whose height is above 1.5 m, the height read from the provider's tracking and resampled to 25 Hz as x and y are. The crowd rule, the delay and the random part are D56's. The reader path is new; the existing records of D56's folders must be reproduced byte for byte.
+
+**Scored** as D56's candidates are, plus, reported only, an air view of the four SkillCorner development matches (their tracking with the ball hidden on detected frames above 1.5 m), which D55's WPY view cannot give: a second view of the weakness, on another provider. The base, S and SL are scored on it too.
+
+**SZ holds** under D56's three conditions against the base (selection score at least the base's best plus 0.008; PFF development mean at least the base's; no group more than 0.01 lower). Of the candidates of D56 and D57 that hold, the one with the highest selection score is taken to D56's retraining and its one confirmation on PFF set D; D56's rule for that confirmation is unchanged.
+
+**Records.** `dfl_submission/stack_recipe/d57_*.json`, each written once. Code: new modules only (`dfl_submission/skill_height.py` for the reader path and the views, `dfl_submission/height_fit.py` for the candidate), reusing D56's modules unchanged. Scratch goes to `data/d57/`. Every D57 command runs with `MTAH_DATA_DIR` set to a nonexistent path and calls `require_external_only()`.
+
+*Amendment to D56 and D57 (2026-11-13, 16:23 EST, before any candidate of either is scored and before any of the 24 games is parsed).* Two corrections, both prompted by the researcher session.
+1. *Set D.* D56 says "twelve fresh PFF games … the twelve dealt to the first and second `train` slots", which is a contradiction: D7 deals eight games to each slot, so those two slots hold sixteen. **Set D is the sixteen games of the first and second `train` slots** (3816, 3824, 3832, 3840, 3848, 3856, 10506, 10514 and 3817, 3825, 3833, 3841, 3849, 3857, 10507, 10515), and **set E is the eight games of the third** (3818, 3826, 3834, 3842, 3850, 3858, 10508, 10516), kept in reserve. Both spread over the whole range of game ids.
+2. *When set D is spent.* On the eight games of D48's confirmation the per-game changes spread 0.013, so on sixteen games the standard error of a mean change is about 0.003–0.004, and a candidate whose true gain equals C3's +0.01 would pass only about half the time. PFF development has forecast the fresh gain closely (D48: +0.033 on development, +0.035 fresh). So the three-seed retrain goes to set D only if, besides D56's three conditions against the adopted stack, **its PFF development mean is at least the adopted stack's plus 0.010**. Below that the confirmation is not spent and the adopted stack stands; the orchestrator may then write a further rule.
+
+*Addition to the disclosure on PFF's part in round 12's selection (2026-11-13, 16:27 EST; arithmetic on the records, checked by the orchestrator for the cost).* The researcher session recomputed round 12's shipped choices without PFF, taking D47's composite as the mean of its other seven groups (the long-hidden guard has no PFF in it). None changes. The ownership cost: the stack's selection score without PFF is 0.7273, 0.7298, 0.7331 and 0.7349 at cost 8, 10, 12 and 14, still highest at 14, and PFF alone is lowest at 14 (0.6958), so PFF pulled slightly against the shipped cost. The 8,100 steps: T's gain without PFF is +0.0089 against its bar of +0.008. L: the long-hidden guard rose +0.040 against the +0.015 that carried it without PFF. So in every shipped choice PFF acted as a veto and a confirmation, which is what Derek's ruling allows; the wording in the technical document stays as it is unless Derek prefers otherwise.
+
+**D56 outcome (2026-11-13, 17:05 EST).** **Neither candidate holds.** D49's records were reproduced byte for byte and 32 situation views added to each set; the base reproduced D52's T record. In the new views the DFL halves have the ball hidden by height on 10.8% of frames, the SkillCorner halves on none (crowd 2.5–3.1%, delay 2.0–4.0%, the random part 23–25%).
+
+| First seed set alone | Best cost | Round-13 selection score | Composite | Long-hidden guard mean | (d) air or crowd | (a) air | PFF | D33's primary |
+|---|---:|---:|---:|---:|---:|---:|---:|---:|
+| Base (the adopted stack's first seed set) | 14 | 0.7378 | 0.7299 | 0.732 | 0.751 | 0.740 | 0.695 | 0.7344 |
+| S (8,100 steps) | 10 | 0.7382 (+0.0004) | 0.7227 | 0.726 | 0.766 | 0.739 | 0.694 | 0.7307 |
+| SL (10,800 steps) | 12 | 0.7402 (+0.0024) | 0.7267 | 0.736 | 0.758 | 0.750 | 0.695 | 0.7345 |
+| SL at the base's cost | 14 | 0.7376 | 0.7327 | 0.737 | 0.743 | 0.755 | 0.697 | 0.7396 |
+
+- **S failed all three conditions** (selection +0.0004 against +0.008; PFF −0.001; DFL clean and team swap −0.019 against the base at its best cost). **SL failed two** (selection +0.0024; team swap −0.018) and met the PFF condition by +0.0004.
+- **What it shows.** The situation views lift the view they imitate (the (d) view +0.007 to +0.015 at the candidates' best costs) and move nothing else: PFF, whose tracker really loses the ball in the air, is unchanged, and the differences elsewhere are the size of a seed set's spread. The air rule reached only the eight DFL halves of the 32 new ones, so this was a small dose; D57's SZ applies it to all 32. [S](dfl_submission/stack_recipe/d56_S.json), [SL](dfl_submission/stack_recipe/d56_SL.json), [decision](dfl_submission/stack_recipe/d56_decision.json)
+
+**D57 outcome (2026-11-13, 17:33 EST).** **SZ does not hold, so nothing is taken from D56 or D57: the adopted stack stands and PFF set D is not spent.** The height-aware SkillCorner reader reproduced the stored ball exactly on every training half, and D56's records were reproduced byte for byte with only the SkillCorner situation views changed (the ball hidden by height on 4–10% of their frames).
+
+| First seed set alone | Cost | Round-13 selection score | Composite | Long-hidden guard mean | (d) air or crowd | PFF | D33's primary |
+|---|---:|---:|---:|---:|---:|---:|---:|
+| Base | 14 (its best) | 0.7378 | 0.7299 | 0.732 | 0.751 | 0.695 | 0.7344 |
+| SZ | 8 (its best) | 0.7392 (+0.0014) | 0.7207 | 0.730 | 0.767 | 0.707 | 0.7269 |
+| SZ | 14 | 0.7365 | 0.7313 | 0.737 | 0.741 | 0.701 | 0.7371 |
+| Base, PFF at cost 8 / 10 / 12 / 14 | | | | | | 0.7005 / 0.6989 / 0.6967 / 0.6946 | |
+| SZ, PFF at cost 8 / 10 / 12 / 14 | | | | | | 0.7074 / 0.7052 / 0.7033 / 0.7011 | |
+
+- **The rule's conditions:** selection +0.0014 (+0.008 needed); PFF +0.013 against the base at its best cost; DFL clean −0.037 against the base at its best cost. Two of three failed.
+- **A flaw in the rule's third condition, noted for honesty and not acted on:** it compares the candidate at its best cost with the base at its best cost, so SZ at cost 8 is set against the base at cost 14 and the fall on DFL clean is mostly the cost. At equal cost DFL clean changes by −0.027, −0.010, +0.003 and +0.002 (cost 8 to 14). The first condition fails at every cost, so the outcome does not hang on this.
+- **What it shows.** With the air rule on all 32 new halves, PFF rises by +0.006 to +0.007 at every cost: a steady gain on the tracker that really loses the ball in the air, where D56's two candidates were flat. It is about half of what a confirmation on set D would need (the amendment's +0.010 on PFF development), and nothing else moves by more than a seed set's spread. Round 13's situation views are a real but small lever, and it stops here. [SZ](dfl_submission/stack_recipe/d57_SZ.json)
+
+## D58 — Where the adopted stack loses spellF1 now, and what kind of stoppage error costs most (2026-11-13, 17:33 EST, written before anything is decoded or scored for D58)
+
+**Question.** Rounds 12 and 13 worked on ownership where the ball is hidden. D46 also showed that true stoppages are worth +0.06 to +0.10 where the dead ball is realistic (dead ball carried, PFF, the D24 views), and nothing since has aimed at them. For the adopted stack: how much is still lost in stoppages on those groups, and is it stoppages the model misses or stoppages it invents? Measurement only; it selects nothing and changes nothing in the submission.
+
+**Candidate.** The adopted stack at ownership cost 14, decoded from the caches its development record was scored from (D47's eight groups, D49's two long-hidden guard views, the three D24 views separately).
+
+**Pipeline check.** The decode must reproduce the cost-14 row of `stack_recipe/development_t.json` exactly, or D58 stops without a record.
+
+**Measured,** per group, against the N = 3 targets:
+1. D21's four measurements, unchanged (spell detection, the true-stoppage and true-ownership oracles, boundary offsets, recall by spell length).
+2. *Stoppages by length* (under 3 s, 3–10 s, 10–30 s, over 30 s): of the true stoppages, the share found (a predicted stoppage covering at least half of it); of the predicted stoppages, the share that are real (at least half inside a true stoppage); and for the invented ones, the share whose ball is hidden on at least 80% of their frames.
+3. *Two one-sided oracles:* the true-stoppage oracle applied only where it adds a stoppage the model missed, and only where it removes one the model invented; mean spellF1 for each.
+4. Stop and restart offsets (median and quartiles) for the stoppages that are found.
+
+**How it is read.** On the groups with a realistic dead ball (dead ball carried, PFF, the D24 views, the long-hidden guard views), if the true-stoppage oracle is worth at least 0.04 on average and one side (missed or invented) carries at least two thirds of that gain, a stoppage rule is written for that side; otherwise round 13 ends with the adopted stack.
+
+**Record.** `dfl_submission/diagnosis_recipe/d58.json`, written once. Code: a new module `dfl_submission/diagnosis_stack.py`, reusing `diagnosis.py` and `diagnosis_d43.py` unchanged. Every D58 command runs with `MTAH_DATA_DIR` set to a nonexistent path and calls `require_external_only()`.
+
+*Amendment to D58 (2026-11-13, 17:36 EST, before anything is decoded).* The coding session asked how the one-sided oracles are defined. They are at the level of whole stoppages, as point 2 counts them: the "missed" side puts the true-stoppage oracle's output on the frames of true stoppages that no predicted stoppage covers by at least half, and the "invented" side on the frames of predicted stoppages that are not at least half inside a true stoppage. Corrections to the edges of stoppages that were found fall on neither side, so the two shares need not add up to the full oracle's gain; the remainder is reported as "edges". The frame-level split (all live-to-dead changes against all dead-to-live changes, which add up exactly) is reported as supplementary and is not what D58 is read on.
+
+*Second amendment to D58 (2026-11-13, 17:37 EST, before anything is decoded).* "On average" in D58's reading means the mean over four families, so that the views built from the Metrica games do not count five times: dead ball carried; PFF; the three D24 views averaged into one; the two long-hidden guard views averaged into one. Each side's share is its mean gain over those four divided by the full oracle's mean gain over the same four. The plain mean over the seven views is reported as supplementary.
+
+## Note — Derek hands over the remaining steps (2026-11-13, 17:42 EST)
+
+Derek's instruction, in full: "You may commit round 12 if that is what you recommend. From now on only do what you recommend. Do not leave anything for me." From here the orchestrator takes the steps that were held for him, on its own recommendation, and records each one here: committing, running `release/check.sh` on the commit, running C2, the final reading of the technical document, and pushing. What stays his because only he can do it: submitting the organisers' form with `Anfield.csv`, `Anfield.md` and the repository URL. The rules that protect the provided data do not change: nothing of the provided match, its outputs or its statistics is opened or printed in an AI session beyond a validator's OK line, a SHA-256 and a check's one-line verdict.
+
+*C2's procedure, amended (same time, before C2 is run on `f6d7b293…`).* C2 was to be run by Derek in a terminal outside the AI session, reporting PASS or FAIL only. Under his instruction the orchestrator runs it once instead, after `shasum -a 256 -c SUBMISSION_SHA256.txt`, and reads exactly what he would have reported: the word PASS, or FAIL with the names of the statistics outside their ranges. The check prints no number, and none is read. Everything else in C2 stands: the ranges are D48's (`output_check_ranges_d48.json`), and after a FAIL only a pipeline investigation follows; models, recipes and thresholds do not change.
+
+**D58 outcome (2026-11-13, 17:46 EST).** **No stoppage rule follows: round 13 ends with the adopted stack.** The decode reproduced the cost-14 row of `development_t.json` exactly.
+
+| Family (realistic dead ball) | Stack | True stoppages | Gain | From stoppages missed | From stoppages invented | From the edges of found ones |
+|---|---:|---:|---:|---:|---:|---:|
+| DFL dead ball carried | 0.657 | 0.734 | +0.076 | +0.015 | 0.000 | +0.061 |
+| PFF | 0.696 | 0.775 | +0.079 | +0.024 | +0.014 | +0.041 |
+| D24 views (mean of three) | | | +0.060 | +0.025 | +0.012 | +0.023 |
+| Long-hidden guard views (mean of two) | | | +0.043 | +0.015 | +0.007 | +0.021 |
+| **Mean of the four families** | | | **+0.065** | **+0.020 (31%)** | **+0.008 (13%)** | **+0.037 (57%)** |
+
+- **By D58's reading** the true stoppages are worth enough (+0.065 against the 0.04 line), but neither side carries two thirds of it: missed stoppages 31%, invented ones 13%. So no rule is written for either side.
+- **Most of the loss is in when a found stoppage starts.** With the dead ball carried the model calls the stop a median of 25 frames late (a quarter of them more than 4 s late): the ball is still moving with a player, and the model waits. On PFF it calls the stop a median of 17 frames early (a quarter more than 1.7 s early), and predicts 917 stoppages for 748 true ones, 230 of them under 3 s of which 32 are real: there the ball vanishes and the model stops play. The two errors point in opposite directions, so no single shift or cost corrects both, and DATA.md does not say which behaviour the provided tracking has during a dead ball. Restarts are timed well everywhere (medians within 2 frames).
+- **Ownership is still the larger loss** on the standard views (true ownership +0.144, true stoppages +0.025 on the standard combined; D43: +0.149 and +0.026).
+- The frame-level split, supplementary: of the oracle's frame changes, live-to-dead carry 66% and dead-to-live 33% on the same families. [Record](dfl_submission/diagnosis_recipe/d58.json)
+
+## Note — Round 13 ends (2026-11-13, 17:46 EST)
+
+Round 13 measured two things and adopted nothing. D55: the stack is weaker where the ball is hidden in the air than where it is hidden at random. D56 and D57: training views that hide it there raise PFF by +0.006 to +0.007 at best and no candidate met its gate. D58: stoppages still cost about 0.065 on the realistic dead-ball views, mostly in when a stoppage starts, late on one kind of tracking and early on the other. The submission stays D48's stack (`f6d7b293…`). PFF sets D (sixteen games) and E (eight) are unparsed and unused. The search is closed by the orchestrator under Derek's instruction of 17:42 EST: what remains is the commit, the release check on it, the final reading of the documents and the push.

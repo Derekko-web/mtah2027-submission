@@ -1,0 +1,23 @@
+{
+  "adoption_models_sha256": "ebb16dcf074ff392d351c94aa7d48ae75026fd09a7184e0a271b5399228d27a3",
+  "checks": {
+    "confirmation_recomputed": true,
+    "development_t_recomputed": true,
+    "guard_halves": 8,
+    "guard_halves_reforecast_bit_for_bit": true
+  },
+  "code": {
+    "direction_tokens.py": "a3a6e97d6d528aac780942f05218c7b657be00d79aadb48df192b8a5dc16b6bb",
+    "direction_trial.py": "cfb79a32d000adcb01d35bc88bed1bfaa7b1d034f2fe3e0f776820eb56d0cae1",
+    "player_set.py": "4e298e542e4d2a47636f9e6dda50be14e62f8d9c7e96ebe64f1973a1f24ed2cc",
+    "player_set3.py": "6919a8c5c29367ff9a2690716f6265fbe698bb8574119d0c409f4edcf46c6a56",
+    "player_trial.py": "7ec395e78c6524f412856c1628d0d75e192fe221c094ecfdca453517081dbfc6",
+    "stack_set.py": "d7ee48dc7c90b781da34119c22d82df3ccc5bfa90505e36299a67cb3f1c828e4",
+    "temporal_cpu.py": "1562369a1f099095786505c28505f0b80d498d47320c77a4f46242a6f1d7156b"
+  },
+  "confirmation_sha256": "dc232ee444fd52239a88c8f93686481269839209fa12444ecf48a3c040aab8df",
+  "passed": true,
+  "protocol": "DECISIONS.md D48",
+  "recorded_at": "2026-11-13 14:07 EST",
+  "stack_trial_sha256": "47b36f6d34b64a4669c0b79db705a76ce47568f6751dc24b2a6d07aeed84a614"
+}

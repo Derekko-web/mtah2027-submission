@@ -1,0 +1,19 @@
+{
+  "aux_folder": null,
+  "config": {
+    "aux": false,
+    "direction": true,
+    "mirror": "y",
+    "noise": false,
+    "seed_offset": 0
+  },
+  "data": "d49",
+  "note": "Orchestrator's final lever list (2026-11-13): L, C, three seeds (0/1000/2000), F acting in y only with C (D48 amendment 00:17 EST); token noise out (FN 0.7147 < F 0.7175); LB out (D51 failed).",
+  "offsets": [
+    0,
+    1000,
+    2000
+  ],
+  "protocol": "DECISIONS.md D48",
+  "recorded_at": "2026-11-13 01:10 EST"
+}

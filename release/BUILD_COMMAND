@@ -1,4 +1,4 @@
 # The command that writes the submission file, as arguments to `python`, run from the repository root.
 # `{out}` is replaced by the output path. release/check.sh reads this file from the commit it checks.
 # When the submission changes, change this line and SUBMISSION_SHA256.txt together.
--m dfl_submission.player_trial build --out {out}
+-m dfl_submission.stack_trial build --out {out}
