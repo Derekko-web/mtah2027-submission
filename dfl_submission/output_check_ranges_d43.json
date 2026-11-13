@@ -1,0 +1,164 @@
+{
+  "candidate": "D43 player-set model, cost 10",
+  "external": {
+    "dfl/WPY/clean": {
+      "dead_share": 0.4441252710124409,
+      "possessions_per_minute": 2.7391919896587806,
+      "sub_second_stoppages_per_90": 0.9233231425816115
+    },
+    "dfl/WPY/dead_carried": {
+      "dead_share": 0.36352258038040913,
+      "possessions_per_minute": 2.9135974721464186,
+      "sub_second_stoppages_per_90": 11.079877710979337
+    },
+    "dfl/WPY/masked": {
+      "dead_share": 0.44802374650334104,
+      "possessions_per_minute": 2.472454192912982,
+      "sub_second_stoppages_per_90": 1.846646285163223
+    },
+    "dfl/WPY/team_swap": {
+      "dead_share": 0.4477501692759095,
+      "possessions_per_minute": 2.492972484970351,
+      "sub_second_stoppages_per_90": 0.9233231425816115
+    },
+    "metrica/1/handled": {
+      "dead_share": 0.42205839758354824,
+      "possessions_per_minute": 2.2550791001751653,
+      "sub_second_stoppages_per_90": 3.723983835151649
+    },
+    "metrica/1/masked": {
+      "dead_share": 0.4312649131760065,
+      "possessions_per_minute": 2.2240459015489016,
+      "sub_second_stoppages_per_90": 4.654979793939561
+    },
+    "metrica/1/observed": {
+      "dead_share": 0.429161551935782,
+      "possessions_per_minute": 2.534377887811539,
+      "sub_second_stoppages_per_90": 4.654979793939561
+    },
+    "metrica/1/team_swap": {
+      "dead_share": 0.4237479828420893,
+      "possessions_per_minute": 2.3481786960539566,
+      "sub_second_stoppages_per_90": 3.723983835151649
+    },
+    "metrica/2/handled": {
+      "dead_share": 0.4041344328260931,
+      "possessions_per_minute": 2.3697186091983338,
+      "sub_second_stoppages_per_90": 3.825554705432287
+    },
+    "metrica/2/masked": {
+      "dead_share": 0.4075349258975885,
+      "possessions_per_minute": 2.3272124458046415,
+      "sub_second_stoppages_per_90": 3.825554705432287
+    },
+    "metrica/2/observed": {
+      "dead_share": 0.40257587350165774,
+      "possessions_per_minute": 2.49723709937941,
+      "sub_second_stoppages_per_90": 0.9563886763580718
+    },
+    "metrica/2/team_swap": {
+      "dead_share": 0.39814814814814814,
+      "possessions_per_minute": 2.571622885318371,
+      "sub_second_stoppages_per_90": 5.738332058148431
+    },
+    "metrica/3/handled": {
+      "dead_share": 0.304533218327641,
+      "possessions_per_minute": 2.681533934794555,
+      "sub_second_stoppages_per_90": 6.573410034710387
+    },
+    "metrica/3/masked": {
+      "dead_share": 0.3018551623875738,
+      "possessions_per_minute": 2.608496045519995,
+      "sub_second_stoppages_per_90": 7.512468611097586
+    },
+    "metrica/3/observed": {
+      "dead_share": 0.3119065671496442,
+      "possessions_per_minute": 2.8276097133436746,
+      "sub_second_stoppages_per_90": 4.695292881935991
+    },
+    "metrica/3/team_swap": {
+      "dead_share": 0.306967814636793,
+      "possessions_per_minute": 2.639797998066235,
+      "sub_second_stoppages_per_90": 6.573410034710387
+    },
+    "pff/10502/observed": {
+      "dead_share": 0.41142607996620956,
+      "possessions_per_minute": 1.7167732837376606,
+      "sub_second_stoppages_per_90": 20.23339941547957
+    },
+    "pff/10510/observed": {
+      "dead_share": 0.3610477160212071,
+      "possessions_per_minute": 1.6853340823707033,
+      "sub_second_stoppages_per_90": 9.480004213335205
+    },
+    "pff/3812/observed": {
+      "dead_share": 0.48920564717479137,
+      "possessions_per_minute": 1.6634133371378914,
+      "sub_second_stoppages_per_90": 9.630287741324635
+    },
+    "pff/3820/observed": {
+      "dead_share": 0.4113222189697543,
+      "possessions_per_minute": 1.9401349244708879,
+      "sub_second_stoppages_per_90": 10.109124080137784
+    },
+    "pff/3828/observed": {
+      "dead_share": 0.515084197418071,
+      "possessions_per_minute": 1.7928324249231868,
+      "sub_second_stoppages_per_90": 12.671852218043467
+    },
+    "pff/3836/observed": {
+      "dead_share": 0.4084654706922307,
+      "possessions_per_minute": 1.6034645798785754,
+      "sub_second_stoppages_per_90": 10.175832910767882
+    },
+    "pff/3844/observed": {
+      "dead_share": 0.579787578524707,
+      "possessions_per_minute": 1.5348746842821062,
+      "sub_second_stoppages_per_90": 8.742957062366427
+    },
+    "pff/3852/observed": {
+      "dead_share": 0.35249271653007325,
+      "possessions_per_minute": 1.9297791815285759,
+      "sub_second_stoppages_per_90": 23.892504152258553
+    },
+    "skillcorner/2007448/observed": {
+      "dead_share": 0.4718076970774255,
+      "possessions_per_minute": 1.8188582530693234,
+      "sub_second_stoppages_per_90": 3.720391881278161
+    },
+    "skillcorner/2007721/observed": {
+      "dead_share": 0.3941437370521252,
+      "possessions_per_minute": 2.106419365154401,
+      "sub_second_stoppages_per_90": 4.692518387720201
+    },
+    "skillcorner/2010085/observed": {
+      "dead_share": 0.42377273251436365,
+      "possessions_per_minute": 1.8111395255764104,
+      "sub_second_stoppages_per_90": 0.9157447039431289
+    },
+    "skillcorner/2011166/observed": {
+      "dead_share": 0.5220987579357851,
+      "possessions_per_minute": 2.1150849069969846,
+      "sub_second_stoppages_per_90": 2.7324063391827065
+    }
+  },
+  "factors": [
+    0.5,
+    1.5
+  ],
+  "protocol": "DECISIONS.md C2 (amendment for D43)",
+  "ranges": {
+    "dead_share": [
+      0.1509275811937869,
+      0.8696813677870605
+    ],
+    "possessions_per_minute": [
+      0.7674373421410531,
+      4.370396208219628
+    ],
+    "sub_second_stoppages_per_90": [
+      0.45787235197156445,
+      35.83875622838783
+    ]
+  }
+}

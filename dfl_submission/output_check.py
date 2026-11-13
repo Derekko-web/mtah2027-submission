@@ -16,7 +16,8 @@ from evaluation import possession_metrics as pm
 
 
 PACKAGE = Path(__file__).resolve().parent
-RANGES = PACKAGE / "output_check_ranges.json"
+D15_RANGES = PACKAGE / "output_check_ranges.json"        # C2 as first declared (D15, then D27)
+RANGES = PACKAGE / "output_check_ranges_d43.json"       # C2 re-declared for D43, the standing submission
 PROTOCOL = "DECISIONS.md C2"
 FPS = 25
 MINUTE = 60 * FPS
@@ -71,7 +72,7 @@ def external_predictions(dfl, skill, parsed, *, raw, d15_cache):
     return found
 
 
-def write_ranges(dfl, skill, parsed, *, raw, d15_cache, output=RANGES):
+def write_ranges(dfl, skill, parsed, *, raw, d15_cache, output=D15_RANGES):
     from dfl_submission.external_only import require_external_only
     require_external_only()
     if output.exists():
@@ -89,6 +90,44 @@ def write_ranges(dfl, skill, parsed, *, raw, d15_cache, output=RANGES):
     return ranges
 
 
+def d43_predictions(dfl, skill, parsed, *, raw):
+    """{view name: the player-set model's labels at cost 10} for the same 28 external match views (C2's D43 amendment)."""
+    from dfl_submission import diagnosis, hyper_trial as ht, metrica_sample as ms, metrica_views as mv, player_trial
+    from dfl_submission import stoppage_trial, vendor_trial
+    cache = PACKAGE.parent / "data" / "d42" / "cache"
+    halves = player_trial.candidate_halves(dfl, skill, parsed, vendor_trial.development(), "development", raw=raw,
+                                           cache=cache / "development")
+    model = player_trial.teacher()
+    _, metrica = ms.reference_halves("D15", cache=cache / "metrica", model=model, signals_of=player_trial.half_signals,
+                                     variant="D42 player set")
+    views = mv.view_halves(cache=cache / "d24", signals_of=lambda _, *t: player_trial.half_signals(model, *t),
+                           variant="D42 player set")
+    predict = stoppage_trial.predictor(ht.recipe_at(player_trial.D43_COST))
+    found = {}
+    for group in (halves, metrica, views):
+        for key, (_, prediction, _) in diagnosis.matches(group, predict).items():
+            found["/".join(key)] = prediction
+    return found
+
+
+def write_d43_ranges(dfl, skill, parsed, *, raw, output=RANGES):
+    from dfl_submission.external_only import require_external_only
+    require_external_only()
+    if output.exists():
+        raise FileExistsError(f"{output} exists; C2's D43 ranges are written once")
+    predictions = d43_predictions(dfl, skill, parsed, raw=raw)
+    if len(predictions) != 28:
+        raise ValueError(f"C2 names 28 external match views, found {len(predictions)}")
+    values = {name: statistics(codes) for name, codes in sorted(predictions.items())}
+    ranges = ranges_from(list(values.values()))
+    output.write_text(json.dumps({"protocol": PROTOCOL + " (amendment for D43)", "candidate": "D43 player-set model, cost 10",
+                                  "factors": [LOW, HIGH], "ranges": ranges, "external": values}, indent=2, sort_keys=True) + "\n")
+    for name in STATISTICS:
+        print(f"C2 (D43) {name}: external {min(v[name] for v in values.values()):.4f} to "
+              f"{max(v[name] for v in values.values()):.4f}; range {ranges[name][0]:.4f} to {ranges[name][1]:.4f}")
+    return ranges
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__.splitlines()[0])
     commands = parser.add_subparsers(dest="command", required=True)
@@ -98,11 +137,18 @@ def main():
     computed.add_argument("--skill", type=Path, required=True)
     computed.add_argument("--parsed", type=Path, required=True)
     computed.add_argument("--d15-cache", type=Path, required=True)
+    later = commands.add_parser("ranges-d43")
+    later.add_argument("--dfl", type=Path, required=True)
+    later.add_argument("--dfl-raw", action="store_true")
+    later.add_argument("--skill", type=Path, required=True)
+    later.add_argument("--parsed", type=Path, required=True)
     checked = commands.add_parser("check")
     checked.add_argument("csv", type=Path)
     args = parser.parse_args()
     if args.command == "ranges":
-        write_ranges(args.dfl, args.skill, args.parsed, raw=args.dfl_raw, d15_cache=args.d15_cache)
+        write_ranges(args.dfl, args.skill, args.parsed, raw=args.dfl_raw, d15_cache=args.d15_cache, output=D15_RANGES)
+    elif args.command == "ranges-d43":
+        write_d43_ranges(args.dfl, args.skill, args.parsed, raw=args.dfl_raw)
     else:
         raise SystemExit(0 if check(args.csv) else 1)
 

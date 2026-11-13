@@ -236,6 +236,8 @@ These are floors that only a broken pipeline should miss, not targets. A team-or
 
 *Disclosure.* The steps were run from inside the AI coding session, so their printed output reached the AI assistant. That output was the validator's label and possession counts for the file, and `run_evaluation.py`'s full scoreboard and per-file reports against the public window. This breaks the reporting clause above. The assistant had wrongly said the validator prints only an OK line, and the evaluation was run in the session despite advice to use a separate terminal. The file had been frozen, rebuilt four ways and checked by C2 before any of this was shown. Nothing has been or will be changed, chosen or tuned because of it, and no number from that output is written to this repository.
 
+*Amendment, 2026-11-12 (C3):* development continued after C1 under C3, and D43 changed the file. The submission is now the player-set model of D42 at ownership cost 10, followed by D27's kick-off rule (`player_trial build`, SHA-256 `a56574fefd83af81747206e3aedcaf625cdd170e7376d4e00e5f0abee7c431e3`). C1 is not run again (C3). What C1 checked carries over because the reading, team orientation, frame indexing and half spans are D15's code, unchanged: `tactical_halves` with the same pitch and centring, the same half spans and the same D27 rule; only the networks and the ownership cost changed, and with the old build command (`kickoff build`) the code still writes `0ddbb342…`. C1's PASS applies to `0ddbb342…`; the new file is checked by C2's re-declaration.
+
 ## D7 — Unseen-vendor benchmark on PFF World Cup tracking (2026-11-11, written before any PFF data is read or scored)
 
 **Question.** How does the frozen D3 submission score on tracking from a vendor that none of its models has seen? The competition match is tracked by Metrica, and every score we have so far is on DFL or SkillCorner, the two vendors the models were trained on. D7 is a measurement only. It changes nothing in the submission and serves as the reference for D8–D10.
@@ -1304,6 +1306,10 @@ What it shows: the lag is real under both marking rules, but moving D15's change
 
 **Outcome (2026-11-12).** **PASS.** Derek ran it on the frozen file, `data/submission.csv` with SHA-256 `0ddbb34216fdab55752a5b46458639f745cc4e88c074ec0787d771f3630fceff` (D27; the SHA was checked against `SUBMISSION_SHA256.txt` first). The check printed only `PASS`; no statistic was shown. D28 was not adopted, so the ranges were not recomputed. Later the same day, after C1, it was run a second time on the same file and again printed only `PASS`. The check is deterministic, so this adds no information and changed nothing.
 
+*Amendment for D43, 2026-11-12, 18:48 EST, written before the new ranges are computed or any check runs on the new file:* D43 replaced the submission with the player-set model (`a56574fe…`). C2 is re-declared for it as C3 requires. The statistics, the 28 external match views and the factors (½ × the smallest value, 1.5 × the largest) are unchanged; the predictions are the player-set model's at ownership cost 10, decoded from the cached inputs its D42 development record was scored from (`data/d42/cache`). The ranges are written once to `dfl_submission/output_check_ranges_d43.json` (`python -m dfl_submission.output_check ranges-d43`), and `check` reads that file by default; the D15 ranges stay in `output_check_ranges.json` for the record. Derek runs `python -m dfl_submission.output_check check data/submission.csv` once, in a terminal outside the AI session, after checking the file's SHA-256 against `SUBMISSION_SHA256.txt`, and reports PASS or FAIL only.
+
+*D43 ranges (computed 2026-11-12, 18:50 EST, before any check of the new file).* Over the 28 external views the player-set model produced 1.53–2.91 possessions per graded minute, a dead share of 0.30–0.58 and 0.92–23.9 sub-second stoppages per 90 minutes. The ranges are therefore 0.77–4.37, 0.15–0.87 and 0.46–35.8. Unlike D15's (0–30.3), the last range starts above zero, because every external view has at least one sub-second stoppage; a file with none would fail. [Ranges](dfl_submission/output_check_ranges_d43.json)
+
 ## D27 — Dead ball until the tagged second-half kick-off (2026-11-12, written before any D27 code runs on the competition bundle)
 
 **Question.** FAQ.md says the second half is graded from its first frame, but play starts only at the kick-off about two minutes later. Every external half used for training or scoring starts at its kick-off, so D15's output on that stretch has never been measured. The Laws of the Game settle it without data: no team has possession before the kick-off. This is round 7's step 1.
@@ -1598,3 +1604,423 @@ What it shows: on the harness, an alignment strict enough to be right 99% of the
 1. *Label-free fitting on the provided tracking is closed for good.* It is not on the allowed list, so it is not permitted. D5 and D6 stay external-only results, D32 needed the same permission, and D10 (adaptation on the provided tracking, planned to wait for a written yes) is never written. Nothing is fitted, calibrated or tuned on the provided tracking.
 2. *The 60% ball visibility stays, disclosed* (Derek, 12 November). The original model set's degraded view keeps the ball visible 60% of the time, which matches DATA.md's published figure; the retrained set draws visibility from 30–90%, and the two sets are blended equally. The constant is unchanged and is disclosed in the technical document (section 7) and CONSTANTS.md.
 3. *The search is closed* (Derek, 12 November). No further step is written or run. PFF confirmation sets B and C, the untouched PFF set and the four 2019–20 SkillCorner confirmation matches stay unused. The submission stays `0ddbb342…`; C1 and C2 are not run again.
+
+## Note — The search reopens (2026-11-12, 13:15 EST)
+
+Derek reopened the search on 12 November ("the model is still nowhere good enough"), after the note above closed it. Everything else in that note stands: nothing is fitted on the provided tracking, the 60% constant stays, and C1 is never run again. Every new step follows C3: a rule written here first, development on external matches, one external confirmation with a gain of at least +0.01 N = 3 spellF1 against the standing model (`0ddbb342…`, D15 then D27), a switch in the build so that with every new step off the build still gives `0ddbb342…`, and C2 re-declared for any new file. C3's hard freeze (Sun 15 Nov, EST) stays.
+
+*PFF (Derek, 12 November, 13:25 EST):* PFF data stays measurement only: a veto and a confirmation source. No network or tree is trained on PFF tracking, because Gradient Sports has not replied and its website terms bar derivative works. D9 stays unwritten.
+
+## D33 — Spell-balanced network training (2026-11-12, 13:15 EST, written before any D33 network is trained or anything is scored)
+
+**Question.** D21 places the loss in ownership: D15 recovers under half of the true spells shorter than 5 s. spellF1 counts every possession once, whatever its length, but each network's loss counts frames, so a 2 s possession weighs a tenth of a 20 s one. Does weighting each frame's ownership loss by the inverse of its possession's length, and giving the boundary heads more weight, raise spellF1? Neither has been tried: D13 changed the targets, D15, D20 and D22 the size, length and seeds.
+
+**What was seen before this rule.** The records of D1–D32 and the D21 measurement. No D33 code has run.
+
+**Reference.** D15 as it stands in the submission (D3's trees and blends, D15's four networks at width 96 and 5,400 steps, cutoff 0.53, ownership cost 8, stoppage cost 2, discount 0.8). D27 acts after decoding and is unchanged.
+
+**Candidate networks.** For each objective setting, all four networks are retrained exactly as D15 trained them (both model sets; seed 42 with boundary weight 0.5 and seed 97 with 1.4; width 96; 5,400 steps; D15's prepared sequences, manifests `d3891c24…` and `2828b0c3…`; Apple MPS; last snapshot; the NumPy export and its check). Only the loss weights change. The trees are D3's and are not refit.
+- *Spell weight, α.* At the prepared 5 Hz frames, each sequence's labels are rebuilt from its stored targets (dead, home, known, live). A–B–A spells whose interior lasts under 3 s are merged, inside live segments (`conventions.collapse_brief_changes` at 5 fps), as in the N = 3 targets. A live frame's possession length L is the length in seconds of its run of one team in those merged labels. Its raw weight is (10 / max(L, 2))^α when L < 10 s, otherwise 1. Raw weights are then divided by their mean over the live frames of all the set's sequences from the same source (DFL, SkillCorner), so the total ownership weight per source is unchanged and only its spread over frames changes. The weight multiplies the ownership head's and the ownership-boundary head's terms. The stoppage heads are unchanged. α = 0 gives D15's loss.
+- *Boundary weight, e.* The weight of both boundary heads' terms, 0.2 in D15.
+- *Pipeline check, before any candidate is trained.* The new trainer at α = 0 and e = 0.2 retrains D15's original-set seed-42 network on MPS. It must reproduce D15's published checkpoint bit for bit, or D33 stops and only the trainer may be fixed.
+
+**Grid (36 points).** Objective (α, e) ∈ {0, 0.5, 1} × {0.2, 0.6}; (0, 0.2) is D15's own networks and is not retrained. Decoder: ownership cost ∈ {8, 10, 12} × discount ∈ {0.8, 0.9}, with D15's cutoff and stoppage cost. Every point is eligible, D15's networks at other decoder settings included.
+
+**Pipeline check on scoring.** D15, decoded from its cached development inputs, must reproduce its development record exactly, and its Metrica and D24 records. Otherwise D33 stops without writing a record.
+
+**Primary.** Standard combined N = 3 spellF1 on DFL WPY and the four SkillCorner development matches, as in D15.
+
+**Eligible if,** compared with D15 on development:
+- the primary rises by at least +0.01;
+- standard combined spellF1 at N = 1.75, 4 and 4.5 s each drops by no more than 0.01;
+- DFL dead ball carried and team swap, at N = 3, each drop by no more than 0.01;
+- *PFF veto:* mean N = 3 spellF1 on the eight PFF development matches drops by no more than 0.01;
+- *Metrica veto (D19, reference D15):* mean N = 3 spellF1 on the three Metrica sample matches is at least 0.77004;
+- *D24 veto:* the D24 mean drops by no more than 0.01.
+
+**Selection.** The eligible point with the highest primary, then N = 3 standard macroF1, then grid order. None eligible → D15 stays and nothing is confirmed.
+
+**Confirmation, once,** on the reused DFL/SkillCorner holdout (WQQ, WR9 and their guard views; the four SkillCorner holdout matches) and PFF confirmation set B, parsed only for this step. D15 must first reproduce its holdout record (`scale_recipe/confirmation.json`); it is then scored on set B as the reference. It passes if, against D15: the holdout primary rises by at least **+0.01** (C3); N = 1.75, 4 and 4.5 each drop by no more than 0.01; dead ball carried and team swap each drop by no more than 0.01; and mean N = 3 spellF1 on set B drops by no more than 0.01. The holdout has confirmed D1, D3 and D15 before, so it is reused evidence; set B is fresh.
+
+**If it passes,** the selected networks and decoder setting replace D15's inside the D27 build, behind a switch; with the switch off the build must still give `0ddbb342…`. The new file then gets the rebuild checks (twice on macOS in fresh virtual environments, then `python:3.12.14-slim` under `linux/arm64` and `linux/amd64`), C2 is re-declared with ranges recomputed from the new model's external predictions, and the records and technical document are updated. PFF and Metrica only veto; no value is chosen on them. **If it fails,** `0ddbb342…` stays.
+
+Code: `dfl_submission/objective_network.py` (the trainer; `temporal_network.py` stays byte-identical) and `dfl_submission/objective_trial.py` (`check`, `networks`, `develop`, `confirm`, `build`). Weights go to `dfl_submission/objective_models/`, records to `dfl_submission/objective_recipe/`, each written once. Every D33 command runs with `MTAH_DATA_DIR` set to a nonexistent path and calls `require_external_only()`.
+
+**Outcome (2026-11-12, 13:55 EST).** No point was eligible, so **D15 stays** and nothing was confirmed. PFF confirmation set B was neither parsed nor scored.
+- **Pipeline checks all passed.** The trainer at α = 0 and e = 0.2 retrained D15's original-set seed-42 network bit for bit on MPS (`objective_recipe/check.json`). D15 reproduced its development, Metrica and D24 records from its caches.
+- **Development, compared with D15** (N = 3 standard 0.72280), at discount 0.8; the discount 0.9 rows, none of them better than +0.0031, are in the record:
+
+| α | e | Cost | N = 3 standard | Change | DFL clean / masked | SkillCorner | PFF | Metrica | D24 |
+|---:|---:|---:|---:|---:|---|---:|---:|---:|---:|
+| 0 | 0.2 | 8 | 0.72280 | — (D15) | 0.778 / 0.723 | 0.704 | 0.656 | — | — |
+| 0 | 0.2 | 12 | 0.71918 | −0.0036 | 0.782 / 0.698 | 0.713 | 0.652 | +0.0034 | +0.0070 |
+| 0 | 0.6 | 10 | 0.71739 | −0.0054 | 0.784 / 0.705 | 0.703 | 0.653 | +0.0038 | −0.0000 |
+| 0.5 | 0.2 | 12 | 0.72584 | +0.0030 | 0.789 / 0.720 | 0.709 | 0.649 | +0.0140 | +0.0028 |
+| 0.5 | 0.6 | 12 | 0.71523 | −0.0076 | 0.793 / 0.702 | 0.698 | 0.650 | +0.0099 | −0.0018 |
+| 1 | 0.2 | 10 | 0.72743 | +0.0046 | 0.781 / 0.736 | 0.704 | 0.643 | +0.0132 | −0.0040 |
+| **1** | **0.6** | **10** | **0.73049** | **+0.0077** | 0.782 / 0.742 | 0.705 | **0.639** | +0.0178 | −0.0019 |
+
+  The best primary, +0.0077, was under the +0.01 gate, and that point also failed the PFF veto (−0.0173). Every α = 1 point lost 0.012–0.021 on PFF. All 36 rows are in the record.
+
+What it shows: weighting short possessions moves the networks towards finer segmentation, as D20 and D22 found for longer training. It gains where possessions are short and the labels follow them (DFL masked +0.019, Metrica +0.018) and loses where they are coarse (PFF's possession sequences, −0.017). SkillCorner is flat. A larger boundary weight helped only together with α = 1. The networks are kept in `dfl_submission/objective_models/` for reference. [Development](dfl_submission/objective_recipe/development.json) · [Trainer check](dfl_submission/objective_recipe/check.json)
+
+## D34 — Optimisation hyperparameters by cross-validation (2026-11-12, 14:12 EST, written before any D34 network is trained or anything is scored)
+
+**Question.** D15's gain came from a training value nobody had searched: the networks were under-trained at 1,800 steps. Four other optimisation values have never been searched either: the learning rate (a cosine schedule from 0.0015 to 0.0002), the batch (16 windows of 25.6 s), AdamW's weight decay (0.01) and the blocks' dropout (0.08). Does changing one of them raise spellF1? All four act only in training: the NumPy inference is unchanged.
+
+**What was seen before this rule.** The records of D1–D33, including D33's outcome and D22's Stage A table. After D33, a univariate probe on the external training halves (AUC of direction-aware team features against home possession on live frames; nothing trained or decoded) found no possession signal without the ball. Nothing was built from it.
+
+**Stage A — on the training matches only, D22 Stage A's method.**
+- *Folds.* D20's four match-grouped folds of the 16 training matches, from the original set's prepared sequences (manifest `d3891c24…`). Each fold's network trains on the other three folds.
+- *Network.* Original set, seed 42, boundary weight 0.5, width 96, 5,400 steps, last snapshot. It is decoded alone (no trees, no second set, no phase averaging) on its held-out training halves, exactly as D22 Stage A decoded D20's fold networks.
+- *Anchor.* D20's fold networks at width 96 and 5,400 steps: D15's values, D22's anchor. They scored 0.71293 at cost 8 and 0.71409 at cost 10, their best.
+- *Pipeline check, before any candidate is trained.* The D34 trainer at its defaults, on fold 0's training folder, must reproduce D20's fold-0 checkpoint bit for bit (`ac3620e0…`). Otherwise D34 stops and only the trainer may be fixed.
+- *Grid A1 (7 settings), one change from D15's values at a time:* learning rate × 2, learning rate × 0.5, batch 32, batch 64, weight decay 0.1, dropout 0.2, dropout 0. The batch splits equally between DFL and SkillCorner, as now.
+- *Grid A2 (at most 1 setting):* if two or more of the four hyperparameters have a level whose best primary over the costs beats the anchor's best (0.71409), one more setting combines each such hyperparameter's best level.
+- *Costs.* Every setting is decoded at ownership cost 8, 10 and 12, with D15's cutoff, stoppage cost and discount.
+- *Primary.* Standard combined N = 3 spellF1 over the 16 training matches, each scored once by the fold network that did not train on it (DFL 1/3 clean + 2/3 masked per match, then the mean over the four; the mean over the 12 SkillCorner matches; then the mean of the two). This is D22 Stage A's primary.
+- *Selection.* The point with the highest primary, then N = 3 macroF1, then grid order (A1 in the order above, then A2; costs ascending). Stage B runs only if this point's primary is at least **+0.008** above the anchor's best, 0.71409. Otherwise D34 stops and D15 stays.
+
+**Stage B — development, once.** All four networks (both model sets; seed 42 with boundary weight 0.5 and seed 97 with 1.4; width 96; 5,400 steps; D15's prepared sequences, manifests `d3891c24…` and `2828b0c3…`; MPS; last snapshot; the NumPy export and its check) are retrained at the selected hyperparameters. The trees are D3's. The grid is ownership cost ∈ {8, 10, 12}, discount 0.8. A point is eligible under D33's conditions against D15: primary +0.01; N = 1.75, 4 and 4.5 each ≥ −0.01; dead ball carried and team swap each ≥ −0.01; the PFF veto (≥ −0.01); the Metrica veto (≥ 0.77004); the D24 veto (≥ −0.01). The eligible point with the highest primary is selected, then macroF1, then cost order. None → D15 stays.
+
+**Confirmation, once,** exactly as D33's would have run: the reused DFL/SkillCorner holdout and PFF confirmation set B (parsed only for this step), with D15 first reproducing its holdout record. It passes with a holdout primary gain of at least **+0.01** (C3), the conventions and guards each ≥ −0.01, and set B ≥ −0.01.
+
+**If it passes,** the new networks and cost replace D15's inside the D27 build behind a switch (with the switch off the build still gives `0ddbb342…`), followed by the rebuild checks, a re-declared C2, and the records. **If it fails,** `0ddbb342…` stays.
+
+Code: `dfl_submission/hyper_network.py` (the trainer; `temporal_network.py` stays byte-identical) and `dfl_submission/hyper_trial.py` (`check`, `stage-a`, `networks`, `develop`, `confirm`, `build`). Weights go to `dfl_submission/hyper_models/`, records to `dfl_submission/hyper_recipe/`, each written once. Every D34 command runs with `MTAH_DATA_DIR` set to a nonexistent path and calls `require_external_only()`.
+
+## D35 — The tree share, re-selected for D15's networks (2026-11-12, 14:24 EST, written before any D35 member output is computed or anything is scored)
+
+**Question.** In each model set the trees' ownership and stoppage outputs are mixed with the seed-42 network's at 0.5 (`owner_mix`, `dead_mix`), and that mix with the phase-averaged seed-97 network at 0.5, so the trees carry a quarter of each output. The 0.5 was chosen in the original ensemble, when the networks were 48 wide and trained for 1,800 steps (section 4 of the technical document); D15 replaced the networks without re-selecting it. Does another tree share, with a re-selected ownership cost, raise spellF1? Nothing is trained.
+
+**What was seen before this rule.** The records of D1–D34 as written so far (D34's Stage A is training; none of its points has been scored).
+
+**Members.** For every half of the development matches (DFL WPY in its four views, the four SkillCorner development matches, the eight PFF development matches), the three Metrica games and the D24 views, the outputs of every member of both model sets (trees, seed-42 network, phase-averaged seed-97 network) are computed with D15's models and mixed across the two sets at D3's 0.5, leaf by leaf, exactly as the build mixes them (`mix_trial members`).
+
+**Pipeline check, before anything is scored.** Re-blended at owner_mix = dead_mix = 0.5, the members must reproduce D15's cached decoder inputs exactly on every development half, every Metrica half and every D24 view. D15 must also reproduce its development, Metrica and D24 records. Otherwise D35 stops and only the pipeline may be fixed.
+
+**Grid (48 points).** owner_mix ∈ {0.25, 0.5, 0.75, 1} × dead_mix ∈ {0.25, 0.5, 0.75, 1} × ownership cost ∈ {6, 8, 10}. owner_mix 1 drops the trees from ownership (their share 0.375, 0.25, 0.125, 0 in that order); dead_mix likewise for the stoppage output. The second-level mixes, the set weight, the boundary signals, cutoff 0.53, stoppage cost 2 and discount 0.8 stay. (0.5, 0.5, 8) is D15.
+
+**Primary, gates and selection: D33's.** Standard combined N = 3 spellF1 on DFL WPY and the four SkillCorner development matches. A point is eligible against D15 with: primary +0.01; N = 1.75, 4 and 4.5 each ≥ −0.01; dead ball carried and team swap each ≥ −0.01; the PFF veto (≥ −0.01); the Metrica veto (≥ 0.77004); the D24 veto (≥ −0.01). The eligible point with the highest primary is selected, then macroF1, then grid order. None → D15 stays.
+
+**Confirmation, once,** on the reused DFL/SkillCorner holdout and PFF confirmation set C (set B stays with D34), parsed only for this step. D15 must first reproduce its holdout record, and the members at D15's mixes must reproduce D15's holdout inputs. It passes with a holdout primary gain of at least **+0.01** (C3), the conventions and guards each ≥ −0.01, and set C ≥ −0.01.
+
+**If it passes,** the selected mixes and cost replace D15's inside the D27 build behind a switch (with the switch off the build still gives `0ddbb342…`), followed by the rebuild checks, a re-declared C2 and the records. If D34 is also confirmed, the two are not combined without a new rule. **If it fails,** `0ddbb342…` stays.
+
+Code: `dfl_submission/mix_trial.py` (`members`, `develop`, `confirm`, `build`). Records go to `dfl_submission/mix_recipe/`, each written once. Every D35 command runs with `MTAH_DATA_DIR` set to a nonexistent path and calls `require_external_only()`.
+
+**Outcome (2026-11-12, 14:31 EST).** No point was eligible, so **D15 stays** and nothing was confirmed. PFF confirmation set C was neither parsed nor scored.
+- **Pipeline checks passed.** Re-blended at D15's mixes, the members reproduced D15's cached inputs exactly on every development half, Metrica half and D24 view, and D15 reproduced its three records.
+- **Development, compared with D15** (N = 3 standard 0.72280). The best point, owner_mix 1 (no trees in ownership), dead_mix 0.25, cost 10, gained +0.0030 (PFF −0.0008, Metrica +0.0036, D24 +0.0011), against the +0.01 required. The best point at each owner_mix: 0.25 −0.0017, 0.5 0.0000 (D15), 0.75 +0.0014, 1 +0.0030. All 48 rows are in the record.
+
+What it shows: the trees' quarter share is close to the best mix for D15's networks; dropping them from ownership changes spellF1 by less than D15's seed spread. The ensemble's weights are not where the loss is. [Development](dfl_submission/mix_recipe/development.json)
+
+**Outcome (2026-11-12, 15:23 EST).** Stage A stopped D34: the best point was +0.0075 over the anchor's best, under the +0.008 bar, so **D15 stays**. Stage B, development and confirmation did not run; PFF set B stays unparsed.
+- **Pipeline checks passed.** The D34 trainer at its defaults reproduced D20's fold-0 checkpoint bit for bit (`hyper_recipe/check.json`), and D20's fold networks reproduced D22's Stage A anchor exactly (0.71293, 0.71409 and 0.71363 at costs 8, 10 and 12).
+- **Stage A, standard combined N = 3 spellF1 over the 16 training matches, each network decoded alone:**
+
+| Setting | Cost 8 | Cost 10 | Cost 12 | Best − anchor's best |
+|---|---:|---:|---:|---:|
+| Anchor (D15's values) | 0.71293 | **0.71409** | 0.71363 | — |
+| Learning rate × 2 | 0.71328 | 0.71482 | 0.71510 | +0.0010 |
+| Learning rate × 0.5 | 0.71141 | 0.71355 | 0.71477 | +0.0007 |
+| Batch 32 | 0.71418 | 0.71816 | 0.71860 | +0.0045 |
+| Batch 64 | 0.70918 | 0.71239 | 0.71635 | +0.0023 |
+| Weight decay 0.1 | 0.71038 | 0.71246 | 0.71191 | −0.0016 |
+| Dropout 0.2 | 0.71132 | 0.71296 | 0.71663 | +0.0025 |
+| Dropout 0 | 0.71180 | 0.71343 | 0.71455 | +0.0005 |
+| **A2: learning rate × 2, batch 32, dropout 0.2** | 0.71548 | 0.72034 | **0.72160** | **+0.0075** |
+
+  Three hyperparameters beat the anchor's best (learning rate, batch, dropout), so the rule's A2 combination of their best levels was trained and scored; weight decay did not.
+
+What it shows: no single optimisation value moved the held-out score by more than D15's seed spread; the combination of a higher learning rate, a larger batch and more dropout gained +0.0075, with the best cost at the grid's top (12). The fold runs are kept in `data/d34/cv` and the record in `dfl_submission/hyper_recipe/stage_a.json`. [Stage A](dfl_submission/hyper_recipe/stage_a.json) · [Trainer check](dfl_submission/hyper_recipe/check.json)
+
+## D36 — D34's combined setting, taken to development (2026-11-12, 15:25 EST, written after D34's Stage A and before any D36 network is trained or anything is scored)
+
+**Question.** D34's A2 combination (learning rate × 2, batch 32, dropout 0.2) gained +0.0075 on the held-out training matches with single networks, just under D34's +0.008 pre-filter, with its best cost at the top of the grid. Does it raise spellF1 with the full ensemble on development, and then on a fresh confirmation?
+
+**Disclosure.** This is a second decision on D34's evidence, written after its Stage A results were seen; the setting was chosen on training-match cross-validation, not on development. It is weaker evidence than a step whose setting was fixed before any of its results existed, and the record says so. The development and confirmation bars stay where D33 set them.
+
+**Candidate.** All four networks retrained at learning rate × 2, batch 32 and dropout 0.2, otherwise exactly as D15 (width 96, 5,400 steps, D15's seeds, boundary weights and prepared sequences, MPS, last snapshot, the NumPy export and its check), with `hyper_network`, whose defaults D34 checked bit for bit. The trees are D3's.
+
+**Grid (4 points).** Ownership cost ∈ {8, 10, 12, 14}, discount 0.8, D15's cutoff and stoppage cost.
+
+**Primary, gates and selection: D33's,** against D15 on development: primary +0.01; N = 1.75, 4 and 4.5 each ≥ −0.01; dead ball carried and team swap each ≥ −0.01; the PFF veto (≥ −0.01); the Metrica veto (≥ 0.77004); the D24 veto (≥ −0.01). The eligible point with the highest primary, then macroF1, then cost order. None → D15 stays.
+
+**Confirmation, once,** on the reused DFL/SkillCorner holdout and PFF confirmation set B (D34, whose set it was, never reached confirmation), parsed only for this step, with D15 first reproducing its holdout record. It passes with a holdout primary gain of at least **+0.01** (C3), the conventions and guards each ≥ −0.01, and set B ≥ −0.01.
+
+**If it passes,** the networks and cost replace D15's inside the D27 build behind a switch (with the switch off the build still gives `0ddbb342…`), with the rebuild checks, a re-declared C2 and the records. **If it fails,** `0ddbb342…` stays.
+
+Code: `dfl_submission/second_trial.py` (`networks`, `develop`, `confirm`, `build`, reusing `hyper_trial`). Weights go to `dfl_submission/second_models/`, records to `dfl_submission/second_recipe/`, each written once. Every D36 command runs with `MTAH_DATA_DIR` set to a nonexistent path and calls `require_external_only()`.
+
+**Outcome (2026-11-12, 15:37 EST).** No point was eligible, so **D15 stays** and nothing was confirmed. PFF confirmation set B is still unparsed.
+- The four networks trained and passed their NumPy export checks. D15 reproduced its development, Metrica and D24 records.
+- **Development, compared with D15** (N = 3 standard 0.72280; DFL clean 0.778, masked 0.723, SkillCorner 0.704, PFF 0.656):
+
+| Cost | N = 3 standard | Change | DFL clean / masked | SkillCorner | PFF | Dead ball carried | Team swap | Metrica | D24 |
+|---:|---:|---:|---|---:|---:|---:|---:|---:|---:|
+| **8** | **0.72984** | **+0.0070** | 0.780 / 0.725 | 0.717 | 0.655 | +0.0082 | +0.0053 | +0.0072 | +0.0072 |
+| 10 | 0.72707 | +0.0043 | 0.778 / 0.720 | 0.715 | 0.652 | +0.0090 | +0.0018 | +0.0084 | +0.0082 |
+| 12 | 0.72320 | +0.0004 | 0.767 / 0.719 | 0.711 | 0.650 | +0.0148 | −0.0007 | +0.0089 | +0.0098 |
+| 14 | 0.72130 | −0.0015 | 0.773 / 0.708 | 0.713 | 0.650 | +0.0103 | −0.0094 | +0.0064 | +0.0055 |
+
+  The best point, cost 8, gained +0.0070 against the +0.01 required.
+
+What it shows: the combined setting carries over from single networks to the full ensemble at about the same size (+0.0075 held out, +0.0070 on development), and unlike D33 it gains on every guard and on Metrica and the D24 views with PFF flat. The gain sits almost entirely on SkillCorner (+0.0125); DFL changed little. It is still under the bar. The networks are kept in `dfl_submission/second_models/`. [Development](dfl_submission/second_recipe/development.json)
+
+## D37 — D36's training with spell weighting and touch inputs (2026-11-12, 15:38 EST, written after D36's development and before any D37 network is trained or anything is scored)
+
+**Question.** D36's training values gained mostly on SkillCorner (+0.0125) and D33's spell weighting mostly on DFL masked (+0.019 at α = 1, with PFF −0.017); D16's touch features were never given to the networks. Do D36's networks gain more with a milder spell weight (α = 0.5) or with the touch features?
+
+**Disclosure.** Written after D33's, D34's, D35's and D36's results were seen; every element was chosen from them, and the development matches have been used by every step. This is the weakest kind of evidence in this record, and only the confirmation on fresh PFF matches can carry it.
+
+**Candidates.** All four networks retrained with D36's training values (learning rate × 2, batch 32, dropout 0.2; width 96; 5,400 steps; D15's seeds and boundary weights; MPS; last snapshot; NumPy export and its check), in three variants:
+- *spell:* D33's spell weight at α = 0.5 with boundary weight 0.2, on D15's prepared sequences;
+- *touch:* α = 0, on D16's extended prepared sequences (the 162 columns plus D16's 22 touch columns, manifests checked against D16's);
+- *touch + spell:* both.
+The fourth corner (α = 0, 162 columns) is D36's networks, reused. The trees are D3's. Inference gives each model exactly the columns it was trained on (`touch_trial.half_signals`).
+
+**Pipeline check, before any candidate is trained.** `hyper_network` with the new spell options at α = 0 and boundary weight 0.2 keeps D34's default path, so it must reproduce D20's fold-0 checkpoint bit for bit again.
+
+**Grid (8 points).** The four variants × ownership cost ∈ {8, 10}, discount 0.8.
+
+**Primary, gates and selection: D33's,** against D15 on development (primary +0.01; conventions and guards ≥ −0.01; PFF, Metrica and D24 vetoes). The eligible point with the highest primary, then macroF1, then grid order.
+
+**Confirmation, once,** on the reused holdout and PFF confirmation set B (parsed only for this step), with D15 first reproducing its holdout record: holdout primary at least **+0.01** (C3), conventions and guards ≥ −0.01, set B ≥ −0.01.
+
+**If it passes,** the networks and cost replace D15's inside the D27 build behind a switch, with the rebuild checks, a re-declared C2 and the records. **If it fails,** `0ddbb342…` stays, and round 9 ends.
+
+Code: spell options in `dfl_submission/hyper_network.py` (`--alpha`, `--edge`), and `dfl_submission/third_trial.py` (`check`, `networks`, `develop`, `confirm`, `build`). Weights go to `dfl_submission/third_models/`, records to `dfl_submission/third_recipe/`, each written once. Every D37 command runs with `MTAH_DATA_DIR` set to a nonexistent path and calls `require_external_only()`.
+
+**Outcome (2026-11-12, 16:19 EST).** No point was eligible, so **D15 stays**, nothing was confirmed and round 9 ends. PFF confirmation set B is still unparsed.
+- **Pipeline checks passed.** `hyper_network` with the spell options at their defaults reproduced D20's fold-0 checkpoint bit for bit (`third_recipe/check.json`); every new network passed its NumPy export check; D15 reproduced its development, Metrica and D24 records.
+- **Development, compared with D15** (N = 3 standard 0.72280), best cost per variant:
+
+| Variant | Cost | N = 3 standard | Change | N = 1.75 / 4 / 4.5 | Dead ball carried | Team swap | PFF | Metrica | D24 |
+|---|---:|---:|---:|---|---:|---:|---:|---:|---:|
+| plain (D36's networks) | 8 | 0.72984 | +0.0070 | +0.009 / +0.001 / +0.000 | +0.0082 | +0.0053 | −0.0014 | +0.0072 | +0.0072 |
+| spell (α = 0.5) | 10 | 0.72963 | +0.0068 | +0.010 / +0.003 / +0.000 | +0.0150 | +0.0103 | −0.0019 | +0.0139 | +0.0057 |
+| touch | 8 | 0.72561 | +0.0028 | +0.011 / −0.004 / −0.004 | +0.0097 | +0.0071 | −0.0096 | +0.0105 | +0.0071 |
+| touch + spell | 8 | 0.72623 | +0.0034 | +0.017 / −0.004 / −0.008 | +0.0137 | +0.0108 | −0.0065 | +0.0174 | +0.0039 |
+
+What it shows: neither addition improved on D36's networks. The milder spell weight kept D36's primary and raised the guards and Metrica without D33's PFF loss; the touch inputs raised N = 1.75 and Metrica but lost on PFF and at N = 4 and 4.5, as D16 found with the trees. The networks are kept in `dfl_submission/third_models/`. [Development](dfl_submission/third_recipe/development.json) · [Trainer check](dfl_submission/third_recipe/check.json)
+
+## Note — Round 9 ends (2026-11-12, 16:19 EST)
+
+Round 9 (D33–D37) ends with the submission unchanged: `0ddbb342…` (D15, then D27). No step reached +0.01 on development, so no confirmation ran and no PFF set was parsed. Every candidate stayed within +0.008 of D15 on development, inside the spread of single networks across seeds (about ±0.007, D23), whichever lever it moved: the loss weights (D33), the optimisation values (D34, D36), the ensemble weights (D35) and the inputs (D37). PFF confirmation sets B and C, the untouched PFF set and the four 2019–20 SkillCorner confirmation matches stay unused. The build path did not change, so no release check was needed: a rebuild with `kickoff build` after round 9 gave `0ddbb342…` with the validator passing (only the validator line and the SHA-256 were read). C1 and C2 stand as recorded. Tests: 382 of 382 (46 files).
+
+## Note — Round 10 (2026-11-12, 16:25 EST)
+
+The goal set for this session ("get as much of an improvement in the spellF1 as you can") stands after round 9, so development continues under the same rules: C3's +0.01 on a fresh confirmation, D33's development gates, a switch in the build, and the hard freeze on Sunday 15 November (EST). PFF stays measurement only.
+
+## D38 — Beyond D34's combination: longer, more regularised, larger (2026-11-12, 16:25 EST, written before any D38 network is trained or anything is scored)
+
+**Question.** Training scale is the only lever that has moved spellF1 by more than seed noise (D15: +0.04). D34's combination (learning rate × 2, batch 32, dropout 0.2) added +0.0075 on held-out training matches and +0.0070 on development (D36), gaining on every guard, with its best cross-validated cost at the top of the grid. Does going further in that direction (longer training, more dropout, a larger batch, a higher learning rate or a wider network) gain more, and does the result clear development and confirmation, alone or without the trees in the ownership blend (D35's best mix)?
+
+**Disclosure.** Written after round 9's results, which chose the direction; development has been used by every step.
+
+**Stage A — on the training matches only, D34's method.**
+- Folds, network slot (original set, seed 42, boundary weight 0.5), decoding alone on held-out training halves and the primary are D34's.
+- *Anchor.* D34's A2 fold networks (learning rate × 2, batch 32, dropout 0.2, width 96, 5,400 steps), which must first reproduce their D34 Stage A scores (0.71548, 0.72034 and 0.72160 at costs 8, 10 and 12).
+- *Grid B1 (5 settings), one change from the anchor at a time:* 10,800 steps (the schedule stretched); dropout 0.3; batch 64; learning rate × 3; width 128.
+- *Costs.* 10, 12, 14 and 16 for the anchor and every setting.
+- *Selection.* The point with the highest primary, then N = 3 macroF1, then grid order (anchor first, then B1 in the order above; costs ascending). Stage B runs only if the selected point is a B1 setting whose primary is at least **+0.003** above the anchor's best over the same costs. Otherwise D38 stops (D36 already scored the anchor's full models).
+
+**Pipeline check.** `hyper_network` already reproduced D20's fold-0 network at its defaults (D34, D37). The width and length options are `temporal_network`'s, checked in D15.
+
+**Stage B — development, once.** All four networks retrained at the selected setting (both model sets, D15's seeds, boundary weights and prepared sequences, MPS, last snapshot, the NumPy export and its check); the trees are D3's. Member outputs are cached and re-blended (D35's method) so that the grid can include the tree share. Grid (8 points): owner_mix ∈ {0.5 (D15's), 1 (no trees in ownership)} × ownership cost ∈ {6, 8, 10, 12}; dead_mix 0.5, discount 0.8. D33's gates against D15 (primary +0.01; conventions and guards ≥ −0.01; PFF, Metrica and D24 vetoes); the eligible point with the highest primary is selected, then macroF1, then grid order.
+
+**Confirmation, once,** on the reused holdout and PFF confirmation set B (parsed only for this step), with D15 first reproducing its holdout record: holdout primary at least **+0.01** (C3), conventions and guards ≥ −0.01, set B ≥ −0.01.
+
+**If it passes,** the networks, mix and cost replace D15's inside the D27 build behind a switch, with the rebuild checks, a re-declared C2 and the records. **If it fails,** `0ddbb342…` stays.
+
+Code: `dfl_submission/fourth_trial.py` (`stage-a`, `networks`, `develop`, `confirm`, `build`), reusing `hyper_network`, `hyper_trial` and `mix_trial`. Weights go to `dfl_submission/fourth_models/`, records to `dfl_submission/fourth_recipe/`, each written once. Every D38 command runs with `MTAH_DATA_DIR` set to a nonexistent path and calls `require_external_only()`.
+
+## D39 — Pressure and support around the ball (2026-11-12, 16:29 EST, written before any pressure column is computed on external data, any D39 network is trained or anything is scored)
+
+**Question.** The 162 columns describe each team's nearest player to the ball (distance, contact strength, its speed relative to the ball) and whole-team shape, but nothing about the other players around the ball: how many of each team are close, how far the second player is, whether they are closing in, or whether the nearest player moves with the ball. Do such columns, given to the networks, raise spellF1?
+
+**What was seen before this rule.** Round 9 and D38's rule (D38's Stage A is training; nothing of it is scored). The columns below were tested only on synthetic tracks (`tests/test_pressure.py`).
+
+**New columns** (`dfl_submission/pressure_features.py`, 12 columns, an `h__`/`a__` pair each; computed at 25 Hz and sampled at the long-context frames; all missing where the ball is unseen at the frame, and the motion columns also where it was unseen five frames earlier; thresholds hand-set, not tuned):
+- the distance from the ball to the team's second-nearest visible player;
+- the number of the team's visible players within 5 m and within 10 m of the ball;
+- the mean speed at which the team's three nearest players close in on the ball over the last 5 frames (m/s, negative when receding; displacements above 12 m/s ignored);
+- the speed of the team's nearest player over the last 5 frames;
+- the cosine between that player's velocity and the ball's over the last 5 frames (missing if either is under 0.5 m/s).
+
+**Candidate.** D15's prepared training sequences of both sets, extended with the 12 columns (174 in all). All four networks retrained on them with D36's training values (learning rate × 2, batch 32, dropout 0.2; width 96; 5,400 steps; D15's seeds and boundary weights; MPS; last snapshot; the NumPy export and its check). The trees are D3's. Inference gives each model exactly the columns it was trained on.
+
+**Pipeline check, before any network is trained.** For every prepared training half of both sets, the 162 re-extracted columns must equal the stored sequence exactly (D16's check). Otherwise D39 stops and only the pipeline may be fixed.
+
+**Grid (2 points).** Ownership cost ∈ {8, 10}, discount 0.8, D15's mixes.
+
+**Primary, gates and selection: D33's,** against D15 on development (primary +0.01; conventions and guards ≥ −0.01; PFF, Metrica and D24 vetoes).
+
+**Confirmation, once,** on the reused holdout and PFF confirmation set C (set B is D38's), parsed only for this step, with D15 first reproducing its holdout record: holdout primary at least **+0.01** (C3), conventions and guards ≥ −0.01, set C ≥ −0.01.
+
+**If it passes,** the columns, networks and cost replace D15's inside the D27 build behind a switch, with the rebuild checks, a re-declared C2 and the records. If D38 also passes, the two are not combined without a new rule. **If it fails,** `0ddbb342…` stays.
+
+Code: `dfl_submission/pressure_features.py` and `dfl_submission/pressure_trial.py` (`prepare`, `networks`, `develop`, `confirm`, `build`). Sequences go to `data/d39/`, weights to `dfl_submission/pressure_models/`, records to `dfl_submission/pressure_recipe/`, each written once. Every D39 command runs with `MTAH_DATA_DIR` set to a nonexistent path and calls `require_external_only()`.
+
+**Outcome (2026-11-12, 16:52 EST).** No point was eligible, so **D15 stays** and nothing was confirmed. PFF confirmation set C is still unparsed.
+- **Pipeline checks passed.** All 96 prepared training halves (48 per set) re-extracted their 162 columns exactly before the pressure columns were appended; the four networks passed their NumPy export checks; D15 reproduced its development, Metrica and D24 records.
+- **Development, compared with D15** (N = 3 standard 0.72280; DFL clean 0.778, masked 0.723, SkillCorner 0.704, PFF 0.656):
+
+| Cost | N = 3 standard | Change | DFL clean / masked | SkillCorner | PFF | N = 1.75 / 4 / 4.5 | Dead ball carried | Team swap | Metrica | D24 |
+|---:|---:|---:|---|---:|---:|---|---:|---:|---:|---:|
+| 8 | 0.72401 | +0.0012 | 0.777 / 0.711 | 0.715 | 0.654 | +0.006 / −0.002 / −0.003 | +0.0131 | +0.0155 | +0.0083 | +0.0141 |
+| 10 | 0.72304 | +0.0002 | 0.780 / 0.705 | 0.716 | 0.655 | +0.001 / −0.002 / −0.003 | +0.0079 | +0.0086 | +0.0129 | +0.0171 |
+
+What it shows: with D36's training values, the pressure columns kept SkillCorner's gain but lost it on DFL masked (0.725 → 0.711 against D36), so the primary fell from D36's +0.0070 to +0.0012. They raised both guard views and the D24 views more than any earlier step (+0.014 to +0.017), but the primary is the gate. The networks are kept in `dfl_submission/pressure_models/`. [Development](dfl_submission/pressure_recipe/development.json)
+
+## D40 — D36's networks with the tree share re-selected (2026-11-12, 17:14 EST, written after D39's outcome, before any D40 member output is computed or anything is scored)
+
+**Question.** D36's networks gained +0.0070 at D15's mixes, and dropping the trees from ownership gained +0.0030 with D15's networks (D35). Does re-selecting the tree share for D36's networks clear development and confirmation?
+
+**Disclosure.** Both ingredients were chosen from development results already seen (D35, D36); this is a further look at reused development data and the record says so. Only the confirmation on fresh PFF matches can carry it.
+
+**Members and pipeline check.** D36's member outputs on the development halves, the Metrica games and the D24 views are cached (D35's method, `fourth_trial`'s member functions with D36's networks). Re-blended at owner_mix = dead_mix = 0.5 they must reproduce D36's cached decoder inputs exactly (`data/d36/cache`); otherwise D40 stops.
+
+**Grid (9 points).** owner_mix ∈ {0.5, 0.75, 1} × ownership cost ∈ {6, 8, 10}; dead_mix 0.5, discount 0.8.
+
+**Primary, gates and selection: D33's,** against D15 on development (primary +0.01; conventions and guards ≥ −0.01; PFF, Metrica and D24 vetoes).
+
+**Confirmation, once,** on the reused holdout and PFF confirmation set C (parsed only for this step; D39 never reached it), with D15 first reproducing its holdout record: holdout primary at least **+0.01** (C3), conventions and guards ≥ −0.01, set C ≥ −0.01.
+
+**If it passes,** D36's networks with the selected mix and cost replace D15's inside the D27 build behind a switch, with the rebuild checks, a re-declared C2 and the records; it is not combined with D38 without a new rule. **If it fails,** `0ddbb342…` stays.
+
+Code: `dfl_submission/fifth_trial.py` (`develop`, `confirm`, `build`). Records go to `dfl_submission/fifth_recipe/`, each written once. Every D40 command runs with `MTAH_DATA_DIR` set to a nonexistent path and calls `require_external_only()`.
+
+**Outcome (2026-11-12, 17:20 EST).** No point was eligible, so **D15 stays** and nothing was confirmed. PFF confirmation set C is still unparsed.
+- **Pipeline checks passed.** Re-blended at D15's mixes, D36's member outputs reproduced D36's cached inputs exactly on every development half, Metrica half and D24 view; D15 reproduced its three records.
+- **Development, compared with D15:** the best point stayed D36's own mix, owner_mix 0.5 at cost 8 (+0.0070). The best at owner_mix 0.75 was +0.0052 (cost 10) and at owner_mix 1 +0.0051 (cost 10). All 9 rows are in the record.
+
+What it shows: dropping the trees from ownership does not add to D36's gain; with D36's networks the trees' quarter share is again the best of the grid. [Development](dfl_submission/fifth_recipe/development.json)
+
+**Outcome (2026-11-12, 17:35 EST).** Stage A stopped D38: its best point was +0.0029 over the anchor's best, under the +0.003 bar, so **D15 stays**. Stage B, development and confirmation did not run; PFF set B stays unparsed.
+- **Pipeline check passed.** D34's A2 fold networks reproduced their D34 scores (0.71548, 0.72034 and 0.72160 at costs 8, 10 and 12).
+- **Stage A, standard combined N = 3 spellF1 over the 16 training matches, each network decoded alone:**
+
+| Setting (one change from the anchor) | Cost 10 | Cost 12 | Cost 14 | Cost 16 | Best − anchor's best |
+|---|---:|---:|---:|---:|---:|
+| Anchor (learning rate × 2, batch 32, dropout 0.2) | 0.72034 | 0.72160 | **0.72168** | 0.72148 | — |
+| 10,800 steps | 0.70991 | 0.71055 | 0.71259 | 0.71274 | −0.0089 |
+| **Dropout 0.3** | 0.72160 | 0.72309 | 0.72342 | **0.72458** | **+0.0029** |
+| Batch 64 | 0.71141 | 0.71196 | 0.71421 | 0.71510 | −0.0066 |
+| Learning rate × 3 | 0.71233 | 0.71679 | 0.71875 | 0.71995 | −0.0017 |
+| Width 128 | 0.70945 | 0.71079 | 0.71354 | 0.71566 | −0.0060 |
+
+What it shows: the anchor is close to the best of its neighbourhood. Longer training, a larger batch, a higher learning rate and a wider network all lost; only more dropout gained, by less than the bar, again with its best cost at the top of the grid. The fold runs are kept in `data/d38/cv`. [Stage A](dfl_submission/fourth_recipe/stage_a.json)
+
+## D41 — The best-evidenced candidate to confirmation (2026-11-12, 17:36 EST, written after D38's Stage A, before any D41 network is trained or anything new is scored)
+
+**Question.** Rounds 9 and 10 found one direction with consistent evidence on two independent sets of matches: D34's training values gained +0.0075 on the 16 held-out training matches and +0.0070 on development (D36), gaining on every guard, Metrica and D24 view; more dropout added +0.0029 on the training matches (D38). Every step's own development pre-filter (+0.01) stopped them before C3's actual test, a fresh external confirmation. Does the best of these candidates clear C3's +0.01 on confirmation?
+
+**Disclosure.** Written after every result above was seen. The development gate below (+0.005) is lower than D33–D40's (+0.01) and was set knowing that the candidates sit near +0.007; it decides only whether a confirmation set is spent. C3's bar on confirmation is unchanged, and so is every other gate. Development has been reused by every step.
+
+**Candidates.**
+- *D36:* D36's networks (learning rate × 2, batch 32, dropout 0.2) at ownership cost 8, as scored in D36 (+0.0070; not rescored).
+- *D41:* all four networks retrained at learning rate × 2, batch 32, dropout 0.3 (width 96, 5,400 steps, D15's seeds, boundary weights and prepared sequences, MPS, last snapshot, the NumPy export and its check), trees D3's, at ownership cost ∈ {8, 10, 12}, discount 0.8, D15's mixes.
+
+**Development, once (D41's three points; D36's row is taken from its record).** A point is eligible against D15 with: primary at least **+0.005**; N = 1.75, 4 and 4.5 each ≥ −0.01; dead ball carried and team swap each ≥ −0.01; the PFF veto (≥ −0.01); the Metrica veto (≥ 0.77004); the D24 veto (≥ −0.01). Of the eligible points, D36's included, the one with the highest primary is selected, then macroF1, then the order D36, then D41 by cost.
+
+**Confirmation, once,** on the reused DFL/SkillCorner holdout and PFF confirmation set B (parsed only for this step), with D15 first reproducing its holdout record. It passes with a holdout primary gain of at least **+0.01** (C3), N = 1.75, 4 and 4.5 each ≥ −0.01, dead ball carried and team swap each ≥ −0.01, and set B ≥ −0.01.
+
+**If it passes,** the selected networks and cost replace D15's inside the D27 build behind a switch (with the switch off the build still gives `0ddbb342…`), followed by two identical macOS rebuilds, `release/check.sh`, a re-declared C2 run once by Derek, and the records and technical document. **If it fails,** `0ddbb342…` stays, set B is spent, and the record says so.
+
+Code: `dfl_submission/sixth_trial.py` (`networks`, `develop`, `confirm`, `build`), reusing `hyper_trial` and `second_trial`. Weights go to `dfl_submission/sixth_models/`, records to `dfl_submission/sixth_recipe/`, each written once. Every D41 command runs with `MTAH_DATA_DIR` set to a nonexistent path and calls `require_external_only()`.
+
+**Outcome (2026-11-12, 17:57 EST).** Development selected D36's networks at cost 8; confirmation **failed**, so **D15 stays**. PFF confirmation set B is now spent.
+- **Development.** D36's row (from its record) +0.0070 was eligible under D41's gates. The dropout-0.3 networks scored +0.0027, +0.0035 and −0.0017 at costs 8, 10 and 12 (none eligible). D15 reproduced its development, Metrica and D24 records first, and D36's record was scored against the same D15 reference.
+- **Confirmation, once** (D15 first reproduced its holdout record; set B parsed only for this step):
+
+| | D15 | D36's networks, cost 8 | Change | Required |
+|---|---:|---:|---:|---|
+| N = 3 standard combined, holdout | 0.70874 | 0.71054 | **+0.0018** | ≥ +0.01 |
+| DFL WQQ clean / masked | 0.764 / 0.727 | 0.753 / 0.705 | | |
+| DFL WR9 clean / masked | 0.759 / 0.702 | 0.777 / 0.704 | | |
+| SkillCorner holdout (mean of four) | 0.687 | 0.696 | +0.009 | |
+| N = 1.75 / 4 / 4.5 | | | +0.014 / −0.003 / −0.006 | each ≥ −0.01 |
+| Dead ball carried / team swap | | | +0.0038 / +0.0199 | each ≥ −0.01 |
+| PFF set B (fresh) | 0.655 | 0.659 | +0.0039 | ≥ −0.01 |
+
+What it shows: D36's training values carry a small real gain, positive on SkillCorner, on fresh PFF matches and on both guards, but about a quarter of their development gain on the holdout primary, far under C3's +0.01. The development pre-filters of D33–D40 were right to stop these candidates. [Development](dfl_submission/sixth_recipe/development.json) · [Confirmation](dfl_submission/sixth_recipe/confirmation.json)
+
+## Note — Round 10 ends (2026-11-12, 17:59 EST)
+
+Round 10 (D38–D41) ends with the submission unchanged: `0ddbb342…` (D15, then D27). D38 and D39 stopped at their gates, D40 found nothing to add, and D41 sent the best-evidenced candidate (D36's networks) to one confirmation, which it failed: +0.0018 on the holdout and +0.0039 on PFF set B against C3's +0.01. Across rounds 9 and 10, nine steps moved the loss weights, the optimisation values, the ensemble weights and the inputs; the one candidate measured on fresh matches is at most marginally better than D15. PFF set B is spent; PFF set C, the untouched PFF set and the four 2019–20 SkillCorner confirmation matches remain. The build path did not change (`kickoff build` still gives `0ddbb342…`). Tests: 395 of 395 (50 files).
+
+## Note — Round 11 (2026-11-12, 18:04 EST)
+
+The session goal still stands after round 10. Rounds 9 and 10 showed that re-weighting, re-tuning and hand-made inputs move spellF1 by less than seed noise, and that the best of them is at most marginally better on fresh matches (D41). Round 11 tries the one representational change not yet made: a network that reads the players themselves instead of team summaries. Same rules: C3's +0.01 on a fresh confirmation, D33's development gates, a build switch, the Sunday freeze, PFF measurement only.
+
+## D42 — A player-set network (2026-11-12, 18:04 EST, written before any D42 code runs on external data, any network is trained or anything is scored)
+
+**Question.** Every network input is a hand-made team summary (nearest-player distances, contact strength, team shape and motion). Does a network that also reads every nearby player's position and velocity relative to the ball, through a small learned per-player encoder pooled per team, raise spellF1?
+
+**Disclosure.** Written after rounds 9 and 10; development has been reused by every step.
+
+**Player tokens** (`dfl_submission/player_set.py`), at the long-context frames (every fifth frame). The reference point is the ball when it is seen at the frame, otherwise the mean position of all visible players. For each team, its visible players nearest the reference point, at most 11, each give eight values: offset from the reference point (x and y, ÷ 10 m), distance (÷ 10 m), velocity over the previous 5 frames (x and y, ÷ 5 m/s; 0 when the player was not visible then or moved faster than 12 m/s), position on the pitch (÷ half-length and half-width) and whether the ball is seen. Missing players are masked. Nothing here is fitted.
+
+**Network.** D15's temporal network (width 96, six blocks), with one addition: a per-player encoder (8 → 32 → 32, GELU) whose outputs are pooled per team (masked mean and max), concatenated (home, away; 128 values), projected to the network width and added to the input projection. Swapping the teams swaps the two pools and the feature columns together, as the trainer's swap augmentation and the swap-averaged inference already do. Inference is NumPy only; the export must match PyTorch within D15's tolerance (2e-5 absolute plus 1e-5 relative).
+
+**Training.** All four networks (both model sets; D15's seeds and boundary weights; D15's prepared sequences plus the tokens; D36's training values: learning rate × 2, batch 32, dropout 0.2; 5,400 steps; MPS; last snapshot). The trees are D3's.
+
+**Pipeline checks, before any network is trained.** For every prepared training half of both sets, the 162 re-extracted columns must equal the stored sequence exactly, and the token frames must be the stored frames. Otherwise D42 stops and only the pipeline may be fixed.
+
+**Grid (2 points).** Ownership cost ∈ {8, 10}, discount 0.8, D15's mixes.
+
+**Primary, gates and selection: D33's,** against D15 on development (primary +0.01; conventions and guards ≥ −0.01; PFF, Metrica and D24 vetoes).
+
+**Confirmation, once,** on the reused holdout and PFF confirmation set C (parsed only for this step), with D15 first reproducing its holdout record: holdout primary at least **+0.01** (C3), conventions and guards ≥ −0.01, set C ≥ −0.01.
+
+**If it passes,** the player-set networks and cost replace D15's inside the D27 build behind a switch, with the rebuild checks, `release/check.sh`, a re-declared C2 and the records. **If it fails,** `0ddbb342…` stays.
+
+Code: `dfl_submission/player_set.py` (tokens, network, trainer, export, NumPy inference) and `dfl_submission/player_trial.py` (`prepare`, `networks`, `develop`, `confirm`, `build`). Tokens go to `data/d42/`, weights to `dfl_submission/player_models/`, records to `dfl_submission/player_recipe/`, each written once. Every D42 command runs with `MTAH_DATA_DIR` set to a nonexistent path and calls `require_external_only()`.
+
+**Outcome (2026-11-12, 18:35 EST).** No point was eligible, so **D15 stays** and nothing was confirmed under D42's own rule. PFF set C is still unparsed.
+- **Pipeline checks passed.** All 96 prepared training halves re-extracted their 162 columns and frames exactly before their tokens were written; every network's NumPy export matched PyTorch (largest logit difference 7e-6); D15 reproduced its development, Metrica and D24 records.
+- **Development, compared with D15** (DFL clean 0.778, masked 0.723, dead ball carried 0.608, team swap 0.659, SkillCorner 0.704, PFF 0.656, D24 mean 0.674):
+
+| Cost | N = 3 standard | Change | DFL clean / masked | Dead ball carried | Team swap | SkillCorner | PFF | Metrica | D24 mean |
+|---:|---:|---:|---|---:|---:|---:|---:|---:|---:|
+| 8 | 0.72859 | +0.0058 | 0.771 / 0.718 | 0.644 (+0.036) | 0.695 (+0.036) | 0.721 | 0.664 (+0.008) | +0.0034 | 0.703 (+0.029) |
+| 10 | 0.72952 | +0.0067 | 0.780 / 0.722 | 0.643 (+0.034) | 0.694 (+0.035) | 0.718 | 0.663 (+0.007) | +0.0109 | 0.701 (+0.027) |
+
+What it shows: reading the players directly is the first change that gains on every degraded or unseen view at once: both guards by about +0.035, PFF (a vendor no model trained on) by +0.007, Metrica under competition-like tracking by +0.027, SkillCorner by +0.014, with DFL WPY flat. The primary, which weighs DFL WPY as half, rose +0.0067, under the +0.01 gate. [Development](dfl_submission/player_recipe/development.json)
+
+## D43 — The player-set network to confirmation (2026-11-12, 18:36 EST, written after D42's development, before anything new is scored)
+
+**Question.** Does D42's player-set model clear C3's +0.01 on a fresh confirmation?
+
+**Disclosure.** Written after D42's development results were seen, as D41 was after D36's. The development gate is lowered to +0.005, knowing D42 scored +0.0067; it decides only whether a confirmation set is spent. C3's bar on confirmation and every other gate are unchanged.
+
+**Candidate.** D42's four networks with D3's trees at ownership cost 10 (D42's best development point; +0.0067, every other D33 gate passed). Nothing is retrained.
+
+**Confirmation, once,** on the reused DFL/SkillCorner holdout and PFF confirmation set C (parsed only for this step), with D15 first reproducing its holdout record. It passes with a holdout primary gain of at least **+0.01** (C3), N = 1.75, 4 and 4.5 each ≥ −0.01, dead ball carried and team swap each ≥ −0.01, and set C ≥ −0.01.
+
+**If it passes,** the player-set networks at cost 10 replace D15's inside the D27 build behind a switch (with the switch off the build still gives `0ddbb342…`), followed by two identical macOS rebuilds, `release/check.sh`, a re-declared C2 run once by Derek, and the records and technical document. **If it fails,** `0ddbb342…` stays and set C is spent; the untouched PFF set remains.
+
+Code: `player_trial confirm` and `player_trial build`, with the selection read from a D43 development record that takes D42's cost-10 row under the +0.005 gate (`dfl_submission/player_recipe/development_d43.json`).
+
+**Outcome (2026-11-12, 18:45 EST).** **Passed.** The player-set model at ownership cost 10 replaces D15 in the submission, after the adoption steps below. PFF set C is spent; the untouched PFF set and the four 2019–20 SkillCorner confirmation matches remain.
+- **Selection.** D42's cost-10 row (+0.0067) passed D43's gates (`player_recipe/development_d43.json`).
+- **Confirmation, once** (D15 first reproduced its holdout record; set C parsed only for this step; `player_recipe/confirmation.json`):
+
+| | D15 | Player-set model, cost 10 | Change | Required |
+|---|---:|---:|---:|---|
+| **N = 3 standard combined, holdout** | 0.70874 | **0.72761** | **+0.0189** | ≥ +0.01 |
+| DFL WQQ clean / masked | 0.764 / 0.727 | 0.766 / 0.745 | +0.002 / +0.019 | |
+| DFL WR9 clean / masked | 0.759 / 0.702 | 0.788 / 0.725 | +0.028 / +0.023 | |
+| SkillCorner holdout (mean of four) | 0.687 | 0.706 | +0.019 | |
+| N = 1.75 / 4 / 4.5 | | | +0.027 / +0.015 / +0.008 | each ≥ −0.01 |
+| Dead ball carried / team swap | | | +0.033 / +0.061 | each ≥ −0.01 |
+| PFF set C (eight fresh matches) | 0.711 | 0.721 | +0.0108 | ≥ −0.01 |
+| Raw provider labels, standard combined (reported) | 0.618 | 0.640 | +0.022 | |
+
+What it shows: the player-set model's development profile carried over and grew on the holdout: every DFL view, SkillCorner, the fresh PFF matches, raw labels and both guards gained, and the primary cleared C3's bar with room. It is the first step since D15 to do so. Development had understated it because DFL WPY, half of the development primary, was flat.
+
+**Adoption (D43's rule, C3).** The build switch is the build command: `player_trial build` writes the new file; `kickoff build`, unchanged, still writes `0ddbb342…`. Then: two identical macOS rebuilds, `release/check.sh`, C2 re-declared with ranges recomputed from the new model's external predictions and run once by Derek, C1's record amended as C3 requires, and the README, CONSTANTS.md, technical document and SHA files updated.
+
+*Adoption checks (2026-11-12, 18:56 EST).* Two builds with `player_trial build` in the repository venv gave `a56574fefd83af81747206e3aedcaf625cdd170e7376d4e00e5f0abee7c431e3` with the validator passing; `release/BUILD_COMMAND` and `SUBMISSION_SHA256.txt` now name it, and `data/submission.csv` and `Anfield.csv` hold it (the validator printed OK; only the OK line and the SHA-256 were read). `release/check.sh` clones `HEAD`, and round 9–11 is not yet committed, so its builds were first run on a copy of the working tree (its tracked and untracked, non-ignored files) with the same steps: two fresh macOS venvs from Homebrew `python3.12` and `dfl_submission/requirements.txt`, then the pinned `python:3.12.14-slim` image under `linux/arm64` and `linux/amd64`. All four gave `a56574fe…` and printed the validator's OK line. Tests: 398 of 398 (51 files). Still to run: `release/check.sh` itself once the work is committed, and C2 on the new file (Derek, once, outside the AI session).

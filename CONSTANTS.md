@@ -11,8 +11,10 @@ This file lists every constant that affects the submitted file and records where
 The submission build loads two sets of the same three model groups, and averages their outputs with equal weight:
 
 - the extended-context XGBoost heads (`long_models/`, `retrain_models/long_models/`)
-- the first temporal networks (`scale_models/w96_s5400/current/temporal_models/`, `scale_models/w96_s5400/augmented/temporal_models/`; D15)
-- the seed-97 network (`scale_models/w96_s5400/current/seed_models/`, `scale_models/w96_s5400/augmented/seed_models/`; D15)
+- the first networks (`player_models/current/temporal_models/`, `player_models/augmented/temporal_models/`; D42/D43, player-set networks)
+- the seed-97 networks (`player_models/current/seed_models/`, `player_models/augmented/seed_models/`; D42/D43)
+
+Since D43 (12 November) the networks are D42's player-set networks and the ownership cost is 10 (`player_trial build`). D15's networks (`scale_models/w96_s5400/`) and cost 8 remain the fallback (`kickoff build`, `0ddbb342…`).
 
 The build still loads D3's frozen recipes and checks every digest they name (`competition_adaptation.reference`), then replaces each network with its D15 counterpart. The weights of D3's networks (`temporal_models/`, `seed_models/` and their `retrain_models/` counterparts) no longer enter the submission.
 
@@ -46,6 +48,9 @@ The context stage's island-suppression settings (`island_frames`, `island_confid
 | Boundary loss weight | 0.5 for the first networks, 1.4 for the seed-97 network | `temporal_network.loss`, `scale_models/w96_s5400/*/*/fit.json` (`boundary_boost`) | Hand-set; there is no search record. The ensemble that uses the seed-97 network was then accepted or rejected on external data. |
 | Network seeds | 42 and 97, one network per slot | `scale_models/w96_s5400/*/*/fit.json` (`seed`) | Hand-set. DECISIONS.md D22 tested the mean of three seeds per slot (s, s + 1000, s + 2000), which failed development; one seed per slot stays. |
 | 5 Hz phase offsets | 0, 2, 4 frames | `ensemble_trial.PHASES` | Hand-set (covers the 5-frame stride) |
+| Player tokens (D42) | per team the 11 visible players nearest the ball (the mean visible position when the ball is unseen); 8 values each: offset (÷ 10 m), distance (÷ 10 m), velocity over 5 frames (÷ 5 m/s; 0 above 12 m/s or when unseen 5 frames earlier), pitch position (÷ half-length, half-width), ball seen | `player_set.tokens` | Hand-set in DECISIONS.md D42 before any external computation; never searched. |
+| Player-set encoder (D42) | 8 → 32 → 32 with GELU, masked mean and max per team, projected to the network width and added to the input projection | `player_set.torch_network`, `player_set.forward` | Hand-set in D42; never searched. |
+| Player-set training (D42) | learning rate × 2 (cosine 0.003 → 0.0004), batch 32, dropout 0.2, weight decay 0.01, width 96, 5,400 steps; seeds 42 and 97, boundary weights 0.5 and 1.4 | `player_models/*/*/fit.json` | D34's training values (cross-validation on the training matches, then D36 on development); D15's seeds, boundary weights, width and length. |
 
 ## Training-data degradation (DFL views only)
 
@@ -74,7 +79,7 @@ All values are hand-set and were not tuned. The architecture, features, hyperpar
 | Decoder | joint three-state Viterbi | `joint_decoder.py`, `ensemble_recipe` | External grid: joint, separate or reference |
 | Stoppage cutoff | 0.53 | `ensemble_recipe`, re-selected for the blend in `blend_recipe` | External grid (0.53, 0.57, 0.61); re-selected for the blend from (0.45, 0.49, 0.53, 0.57, 0.61) under DECISIONS.md D3 |
 | Model blend | 0.5 original, 0.5 retrained, applied to every model output | `blend_recipe` | Fixed in DECISIONS.md D3 before scoring, not tuned |
-| Ownership switch cost | 8 | `scale_recipe/recipe.json` | External grid (4, 6, 8) under DECISIONS.md D15, chosen with the D15 networks and confirmed once. D22 Stage A re-scored 8, 10 and 12 on held-out training matches; none beat 8 by the required +0.005. Before D15: 6, from the D1 grid (2, 3, 4, 6, 8, 12, 16) against controlled-possession targets with N = 3 s, replacing the original ensemble value of 2. |
+| Ownership switch cost | 10 (D43; 8 before) | `player_trial.D43_COST`, `player_recipe/development_d43.json` | Since D43: 10, the better of D42's development grid (8, 10), confirmed once (holdout +0.0189, PFF set C +0.0108). D15's value, 8: external grid (4, 6, 8) under DECISIONS.md D15, chosen with the D15 networks and confirmed once. D22 Stage A re-scored 8, 10 and 12 on held-out training matches; none beat 8 by the required +0.005. Before D15: 6, from the D1 grid (2, 3, 4, 6, 8, 12, 16) against controlled-possession targets with N = 3 s, replacing the original ensemble value of 2. |
 | Stoppage switch cost | 2 | `ensemble_recipe`, kept by `decoder_recipe` | External grid (ensemble: 1–4; retune: 2, 3, 4) |
 | Controlled-possession convention | N = 3 s (merge an A–B–A whose interior B lasts under 3 s) | `conventions.py`, DECISIONS.md D1 | Minimax over the externally derived interval of 1.75–4.5 s (Metrica sample events, SkillCorner phases). Used only to score external candidates, not at inference. |
 | Boundary discount | 0.8 | `ensemble_recipe` | External grid (0.55, 0.8) |

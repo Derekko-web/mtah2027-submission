@@ -1,0 +1,24 @@
+{
+  "actual": "f70572728877a422a097bb895b296d529b77636454da161bc5c9cb995e3ece77",
+  "checked_at": "2026-11-12 13:17 EST",
+  "expected": "f70572728877a422a097bb895b296d529b77636454da161bc5c9cb995e3ece77",
+  "fit": {
+    "alpha": 0.0,
+    "boundary_boost": 0.5,
+    "edge": 0.2,
+    "models": {
+      "temporal_1800.pt": "5347019f2923e145688ee206656396672e1ccb6c9820c8b8e0b9bd68c9fccd4d",
+      "temporal_3600.pt": "6a1ecd4bb872f56334286de065ee7d75196c8aea25102662419cc2b0a809d474",
+      "temporal_5400.pt": "f70572728877a422a097bb895b296d529b77636454da161bc5c9cb995e3ece77"
+    },
+    "normalization": "e665665d917e00927cb0e092247bd36d673abb23bd99d94317d49f5b9ba93450",
+    "seed": 42,
+    "steps": 5400,
+    "torch": "2.15.0",
+    "train_manifest": "d3891c24c478584b2ad587c5e3efcc112cb1bef67405046b8db8da953545c2fc",
+    "training_device": "mps",
+    "width": 96
+  },
+  "passed": true,
+  "protocol": "DECISIONS.md D33"
+}

@@ -15,13 +15,13 @@ This repository regenerates team Anfield's possession file, `Anfield.csv`, for t
    - context windows of 3, 9 and 18 seconds
 3. **Models.**
    - An extended-context XGBoost model estimates home ownership given live play, and the probability of a stoppage.
-   - Two temporal convolutional networks estimate ownership, stoppage and possession-boundary probabilities. Each has 96 channels per block and is trained for 5,400 steps (D15, below). The second network is trained independently with seed 97 and a heavier weight near labelled boundaries. Inference uses NumPy exports of their weights, so the build does not need PyTorch.
+   - Two player-set temporal networks estimate ownership, stoppage and possession-boundary probabilities (D42, D43, below). Besides the 162 features, each reads the eleven players of each team nearest the ball one by one (offset, distance and velocity relative to the ball, pitch position) through a small shared encoder pooled per team. Each has 96 channels per block and is trained for 5,400 steps with a learning rate × 2, batch 32 and dropout 0.2. The second network is trained independently with seed 97 and a heavier weight near labelled boundaries. Inference uses NumPy exports of their weights, so the build does not need PyTorch.
    - The seed-97 network predicts on three 5 Hz grids, offset by 0, 2 and 4 frames. Its predictions are interpolated back to 25 Hz and averaged with the reference signals using equal weights.
    - The whole set of models exists twice: once trained on the external data as provided, and once retrained after removing the providers' dead-ball artifacts. Every output of the two sets is averaged with equal weight. See "Dead-ball artifacts and the model blend" below.
 4. **Decoder.** One three-state Viterbi decoder picks the `H`/`A`/`D` sequence for each half.
    - The stoppage cutoff is 0.53.
-   - A direct ownership change costs 8, and a transition into or out of a stoppage costs 2. Each cost is cut by up to 80% when the matching boundary signal is strong.
-   - The high ownership cost reflects the challenge's definition: only *controlled* possession changes hands, so a brief touch or deflection should not split a possession. See "Decoder retune" below; D15 re-selected the cost for the larger networks.
+   - A direct ownership change costs 10, and a transition into or out of a stoppage costs 2. Each cost is cut by up to 80% when the matching boundary signal is strong.
+   - The high ownership cost reflects the challenge's definition: only *controlled* possession changes hands, so a brief touch or deflection should not split a possession. See "Decoder retune" below; D15 re-selected the cost for the larger networks, and D42/D43 for the player-set networks.
    - In loose or contested play, the last team in possession keeps the ball unless the evidence supports a change.
 5. **Kick-off rule (D27).** No team has possession before the kick-off. Every graded frame from the start of a half up to the start of that half's `Kick Off (Start)` tag becomes `D`. The tag is a window of about 5 s that contains the real kick-off, so its start is never later than the kick. This changes only the second half, which is graded from about two minutes before its kick-off; the first half is graded from the kick-off itself.
 
@@ -118,7 +118,7 @@ The rule cannot be scored on external data, so it was adopted on tests (`tests/t
 
 ### Ball-gap fill (D28)
 
-A hidden ball is the submission's largest measured loss (clean to masked: −0.055 on DFL, −0.075 on Metrica). D28 filled each missing-ball run of at most K frames, between two sightings in the same half, with a straight line before the models see it, for K = 6, 12 and 25 frames (`dfl_submission/gap_trial.py`). Nothing was retrained. The fill reached little: at K = 25 it covered 9.5% of hidden live-ball frames on the masked DFL views, 13% on PFF and none on SkillCorner, whose gaps are all longer than 1 s. On development the best K (12) gained +0.0016 against the +0.005 required, and every K lowered the D24 mean slightly, so it was not adopted. Confirmation did not run, and PFF set B is still unparsed. [Protocol and outcome](DECISIONS.md#d28--fill-short-ball-dropouts-2026-11-12-written-before-any-d28-fill-is-computed-or-scored) · [Coverage](dfl_submission/gap_recipe/coverage.json) · [Development](dfl_submission/gap_recipe/development.json)
+A hidden ball is the submission's largest measured loss (clean to masked: −0.055 on DFL, −0.075 on Metrica). D28 filled each missing-ball run of at most K frames, between two sightings in the same half, with a straight line before the models see it, for K = 6, 12 and 25 frames (`dfl_submission/gap_trial.py`). Nothing was retrained. The fill reached little: at K = 25 it covered 9.5% of hidden live-ball frames on the masked DFL views, 13% on PFF and none on SkillCorner, whose gaps are all longer than 1 s. On development the best K (12) gained +0.0016 against the +0.005 required, and every K lowered the D24 mean slightly, so it was not adopted. Confirmation did not run, and PFF set B was not used by D28. [Protocol and outcome](DECISIONS.md#d28--fill-short-ball-dropouts-2026-11-12-written-before-any-d28-fill-is-computed-or-scored) · [Coverage](dfl_submission/gap_recipe/coverage.json) · [Development](dfl_submission/gap_recipe/development.json)
 
 ### Round 8: four long shots after C1 (D29–D32)
 
@@ -128,7 +128,31 @@ After C1 passed, round 8 tried four long shots under C3: a step could change the
 - **D32, label-free adaptation on PFF** (`vendor_adaptation.py`). D6's per-match adaptation with D15 as teacher, extended to the stoppage head, lowered mean N = 3 on the eight PFF development matches at every multiplier (best −0.0004). PFF set C was not used.
 - **D29, dead ball from a tagged goal to the kick-off after it** (`kickoff.goal_spans`), cannot be scored externally and could ship only alongside a step that cleared its bar, so it is not in the build.
 
-PFF sets B and C, the untouched PFF set and the four 2019–20 confirmation matches are still unused. [C3](DECISIONS.md#c3--what-may-change-after-c1-2026-11-12-written-before-any-round-8-step-is-built-fitted-or-scored) · [D30](dfl_submission/metrica_fit_recipe/logo.json) · [D31a](dfl_submission/broadcast_recipe/a_development.json) · [D32](dfl_submission/vendor_adaptation_recipe/development.json)
+### Round 9: the search reopened (D33–D37)
+
+On 12 November the search reopened under the same rules (DECISIONS.md, the note before D33). PFF stays measurement only. Each step had a rule written first, with D33's gates on development (+0.01 N = 3 spellF1 over D15, no convention or guard down by more than 0.01, and the PFF, Metrica and D24 vetoes) and C3's +0.01 on a fresh confirmation. Every new trainer first reproduced a published network bit for bit at its defaults. **The submission is unchanged.**
+- **D33, spell-balanced training** (`objective_network.py`, `objective_trial.py`). Each live frame's ownership loss was weighted by the inverse of its possession's length, and the boundary heads got more weight. Best +0.0077 on development, which also failed the PFF veto (−0.017): it gains where labels follow short possessions (DFL masked, Metrica) and loses on PFF.
+- **D34, optimisation values by cross-validation** (`hyper_network.py`, `hyper_trial.py`). Learning rate, batch, weight decay and dropout, on the 16 training matches, each fold network decoded on the matches it did not see. Best single change +0.0045 (batch 32); the combination (learning rate × 2, batch 32, dropout 0.2) +0.0075, under the +0.008 pre-filter.
+- **D35, the trees' share** (`mix_trial.py`). Re-blending cached member outputs (exactly D15's inputs at the old weights): best +0.0030.
+- **D36, D34's combination on the full models** (`second_trial.py`), disclosed as a second look at D34's evidence: +0.0070 on development, gaining on every guard, Metrica and D24 with PFF flat, mostly on SkillCorner.
+- **D37, D36's training with a milder spell weight and with D16's touch features as network inputs** (`third_trial.py`): none beat D36's own networks (spell +0.0068, touch +0.0028, both +0.0034). Round 9 ended here; no step reached a confirmation.
+
+Every candidate stayed within +0.008 of D15 on development, about the spread of single networks across seeds. [D33](dfl_submission/objective_recipe/development.json) · [D34](dfl_submission/hyper_recipe/stage_a.json) · [D35](dfl_submission/mix_recipe/development.json) · [D36](dfl_submission/second_recipe/development.json) · [D37](dfl_submission/third_recipe/development.json)
+
+### Round 10 (D38–D39)
+
+The session goal stood after round 9, so development continued under the same rules.
+- **D38, beyond D34's combination** (`fourth_trial.py`): cross-validation on the training matches around it. Longer training, a larger batch, a higher learning rate and a wider network all lost; dropout 0.3 gained +0.0029, just under the +0.003 pre-filter.
+- **D39, pressure and support around the ball** (`pressure_features.py`, `pressure_trial.py`): 12 columns on the players around the ball, given to networks trained with D36's values. +0.0012 on development; the guard views and the D24 views gained +0.014 to +0.017, but DFL masked lost D36's level.
+- **D40, D36's networks with the tree share re-selected** (`fifth_trial.py`): the old share stayed best (+0.0070).
+- **D41, the best-evidenced candidate to confirmation** (`sixth_trial.py`): with a development gate of +0.005 (disclosed) and C3's +0.01 on confirmation, D36's networks were selected and confirmed once: +0.0018 on the holdout, +0.0039 on PFF set B (fresh), both guards up. Failed; set B is spent.
+
+### Round 11: a network that reads the players (D42–D43), adopted
+
+- **D42, a player-set network** (`player_set.py`, `player_trial.py`). D15's temporal network with one addition: each team's eleven players nearest the ball (the mean visible position when the ball is unseen), each described by eight values, go through a shared encoder (8 → 32 → 32) pooled per team by mean and maximum, and are added to the input projection. Trained with D36's values; the NumPy export matched PyTorch on every snapshot. Development +0.0067 (under the +0.01 gate), but both guards +0.035, PFF +0.007, D24 +0.027, SkillCorner +0.014.
+- **D43, to confirmation** (development gate +0.005, disclosed; C3's +0.01 unchanged): holdout **+0.0189** (0.70874 → 0.72761), PFF set C +0.0108 (fresh), dead ball carried +0.033, team swap +0.061, raw labels +0.022. **Passed: the player-set model at cost 10 is the submission** (`player_trial build`, `a56574fe…`). C2 was re-declared for it (ranges from the new model's external predictions, `dfl_submission/output_check_ranges_d43.json`); C1 is not run again (C3).
+
+The untouched PFF set and the four 2019–20 confirmation matches are still unused; set B was spent by D41 and set C by D43. [C3](DECISIONS.md#c3--what-may-change-after-c1-2026-11-12-written-before-any-round-8-step-is-built-fitted-or-scored) · [D30](dfl_submission/metrica_fit_recipe/logo.json) · [D31a](dfl_submission/broadcast_recipe/a_development.json) · [D32](dfl_submission/vendor_adaptation_recipe/development.json)
 
 ## Reproduce the submission
 
@@ -138,12 +162,12 @@ The build is verified to give the same file on Apple Silicon macOS (Homebrew Pyt
 python3.12 -m venv .venv
 .venv/bin/python -m pip install -r dfl_submission/requirements.txt
 export MTAH_DATA_DIR=/path/to/competition-bundle
-.venv/bin/python -m dfl_submission.kickoff build --out data/submission.csv
+.venv/bin/python -m dfl_submission.player_trial build --out data/submission.csv
 .venv/bin/python evaluation/validate_submission.py data/submission.csv
 shasum -a 256 -c SUBMISSION_SHA256.txt
 ```
 
-Inference takes under a minute. The build checks every model digest against the confirmed D15 recipe (`dfl_submission/scale_recipe/`) before predicting, then applies D27's kick-off rule. Its SHA-256 is `0ddbb34216fdab55752a5b46458639f745cc4e88c074ec0787d771f3630fceff`.
+Inference takes a few minutes. The build checks every model digest and the D42/D43 records (`dfl_submission/player_recipe/`) before predicting, then applies D27's kick-off rule. Its SHA-256 is `a56574fefd83af81747206e3aedcaf625cdd170e7376d4e00e5f0abee7c431e3` (D43, since 12 November). The file submitted before D43 is still built by `kickoff build`: `0ddbb34216fdab55752a5b46458639f745cc4e88c074ec0787d771f3630fceff`.
 
 On Linux, the same build runs in the official Python image (`python:3.12.14-slim`, index digest `sha256:f77ac9e44ae96ef2c90b8053ea08c31f8be030f824196b0ae4db6d462c84e51f`):
 
@@ -151,7 +175,7 @@ On Linux, the same build runs in the official Python image (`python:3.12.14-slim
 docker run --rm --platform linux/amd64 -v "$PWD":/repo:ro -v /path/to/competition-bundle:/bundle:ro \
   -v "$PWD/out":/out -e MTAH_DATA_DIR=/bundle -e PYTHONDONTWRITEBYTECODE=1 python:3.12.14-slim bash -c '
   cd /repo && python -m venv /venv && /venv/bin/pip install -q -r dfl_submission/requirements.txt &&
-  /venv/bin/python -m dfl_submission.kickoff build --out /out/submission.csv &&
+  /venv/bin/python -m dfl_submission.player_trial build --out /out/submission.csv &&
   sha256sum /out/submission.csv'
 ```
 
@@ -162,6 +186,7 @@ On Nov 11 the D15 build gave `14d18a23…` and passed the validator under both `
 For D3, the previous submission, the same command with `retrain_trial build` produced the same SHA-256 under `linux/amd64` and `linux/arm64` as on macOS on Nov 10. On Nov 11, a fresh clone at commit `c8cdcad` (after D7 and D8) was rebuilt in four ways, and all four gave `f0b03d2c…` and passed the validator: twice on macOS in a fresh venv with Homebrew Python 3.12.13, and once each in the image above under `linux/arm64` and `linux/amd64` (Python 3.12.14). For these runs the bundle held only `tactical/`.
 
 Earlier versions remain available as fallbacks:
+- D15 with D27's kick-off rule (submitted until D43, the file C1 checked): `kickoff build`, SHA-256 `0ddbb34216fdab55752a5b46458639f745cc4e88c074ec0787d771f3630fceff`;
 - D15, without the kick-off rule: `scale_trial build`, SHA-256 `14d18a238afce84b663cc430161240e00c93b62e3a65a0e6aa47577288b7af78`;
 - D3, the equal blend with the original networks: `retrain_trial build --fallback . --model dfl_submission/seed_models --ensemble dfl_submission/ensemble_recipe --decoder dfl_submission/decoder_recipe --retrained dfl_submission/retrain_models --trial dfl_submission/blend_recipe`, SHA-256 `f0b03d2c8a6718ee73b52c786854c3520a6cd4bd22fdedb7475b871510cdbfa5`;
 - original models with the retuned decoder: `decoder_trial build` with `--trial dfl_submission/decoder_recipe`, SHA-256 `1cc8a858354df9c8ffc024540793caa045d845d321e144b6223ba1421a56ecc1`;
@@ -172,7 +197,7 @@ The submitted file is the build output under the team name. The scorer names eac
 ```sh
 cp data/submission.csv Anfield.csv
 .venv/bin/python evaluation/validate_submission.py Anfield.csv
-shasum -a 256 Anfield.csv  # 0ddbb34216fdab55752a5b46458639f745cc4e88c074ec0787d771f3630fceff
+shasum -a 256 Anfield.csv  # a56574fefd83af81747206e3aedcaf625cdd170e7376d4e00e5f0abee7c431e3
 ```
 
 ## Audit the training and selection

@@ -1,0 +1,46 @@
+{
+  "eligible": true,
+  "entry": {
+    "changes": {
+      "conventions": {
+        "aba1.75": 0.012910867103278933,
+        "aba4": 0.0025090175376319968,
+        "aba4.5": 1.940874837402795e-06
+      },
+      "guards": {
+        "dead_carried": 0.03438115418172738,
+        "team_swap": 0.03457754041738015
+      },
+      "pff": 0.007077317130471994,
+      "primary": 0.0067149500418610675
+    },
+    "point": {
+      "owner_cost": 10
+    }
+  },
+  "from": "DECISIONS.md D42 development",
+  "gain": 0.005,
+  "models": {
+    "networks": {
+      "augmented": {
+        "seed_models": "336d562a48379b838c7278b9b335978987a3e9a1ee78ee481267fb1d1e118d9c",
+        "temporal_models": "c0447a54ded2a38c1bb64b7ce14f991dfe465068864573fcd65f5353bb10eaca"
+      },
+      "current": {
+        "seed_models": "10e359651a6241b545b9b197eb3662038f263e3553aadd500687033db4d3c461",
+        "temporal_models": "0ae6d4339da6996aa7a266b2b50993f0d92ff78457cecf3cadc1e3ba6f823b2f"
+      }
+    },
+    "player_set_sha256": "4e298e542e4d2a47636f9e6dda50be14e62f8d9c7e96ebe64f1973a1f24ed2cc",
+    "protocol": "DECISIONS.md D42",
+    "trees": {
+      "augmented": "af0a9153b994cec629c7afb30cd26fe084ef5a0e966ada6814895b5adde7cdc3",
+      "current": "b313e25ee0ecf28490cb8f6d191b40ab2fb3d28c44019f05963a5effb2a7a19c"
+    }
+  },
+  "protocol": "DECISIONS.md D43",
+  "recorded_at": "2026-11-12 18:36 EST",
+  "selected": {
+    "owner_cost": 10
+  }
+}
