@@ -1,0 +1,73 @@
+{
+  "check_reproduces_d3_trees": {
+    "augmented": {
+      "dead.ubj": true,
+      "ownership.ubj": true
+    },
+    "current": {
+      "dead.ubj": true,
+      "ownership.ubj": true
+    }
+  },
+  "code": {
+    "aligned_trial.py": "c75ca4847b5553ebab1b0c5be330ed845b475a7616623b81822bb710fd0b134c",
+    "long_context.py": "eab4b527ecf332f70046bbca45a2cbe3f824bfdde5cd8de82d963d37ecfb456a",
+    "touch_trial.py": "3d5bfbda6f0a82a620d51d806b1abcb7bc9b7eb5f2721896f31fc2cb6578fbcc",
+    "tree_share_trial.py": "0cc3c36a6a170adaa0f8233127458e54c801ede756cf67aaafb6169eabd04622"
+  },
+  "passed": true,
+  "protocol": "DECISIONS.md D59",
+  "published": {
+    "augmented": {
+      "dead.ubj": "3a6643c5e076c8947e9b2396b34c194025032ad8dcec44caa969dae1f6f5c476",
+      "ownership.ubj": "11a5527207d0db576c5375465324912bd8c837394297baf8d2758acc37fbbf7a"
+    },
+    "current": {
+      "dead.ubj": "66a12423854091ae952139c1e718fdc39a35d09816528a04dbbeea95271a9a03",
+      "ownership.ubj": "57b283f4eb595e795e3665d5fba3d5e70ace547b5076918aaf8e7982bb4a783f"
+    }
+  },
+  "refits": {
+    "augmented": {
+      "dead.ubj": "407a7bd44d6aa484ec774598a261f3b84c388d518da191122a029f1684d660e5",
+      "ownership.ubj": "a42168d0d5dbc63015744826e56b19cd92b2aae95ebc1d1b757929e19eda1e6d"
+    },
+    "current": {
+      "dead.ubj": "5f58c4fd3ecd17cbbd7bb2fa412b88db315230a3457b1b73761c531c2ef3d3e5",
+      "ownership.ubj": "802c0bfde67ce33c0916c99f3fa5fde25c601b779c3c7c5dfa3450242e0ad0c9"
+    }
+  },
+  "refitted_at": "2026-11-13 18:25 EST",
+  "sources": {
+    "augmented": {
+      "d49_manifest": "60e4b8d0bacde81b4764442b37244a7758a0d5e9cdc6c6563faeccc45c359c1d",
+      "d49_records": 80,
+      "original_manifest": "2828b0c31e527426e762251a207c505a75cd740a9c213f8a44ef4c25d57539ed",
+      "original_records": 48,
+      "original_rows": {
+        "dead.ubj": 696959,
+        "ownership.ubj": 763244
+      },
+      "refit_fit_sha256": "6e9f2896c93040cd330d20fe5d9ccfef7b526d2971f5c64ef102ea138da2a133",
+      "rows": {
+        "dead.ubj": 1167002,
+        "ownership.ubj": 1284932
+      }
+    },
+    "current": {
+      "d49_manifest": "d3b3363fa3f08cb6126e1a9083c480664136edb8467df76225ccfc9124339728",
+      "d49_records": 80,
+      "original_manifest": "d3891c24c478584b2ad587c5e3efcc112cb1bef67405046b8db8da953545c2fc",
+      "original_records": 48,
+      "original_rows": {
+        "dead.ubj": 696959,
+        "ownership.ubj": 763244
+      },
+      "refit_fit_sha256": "f476a214155e64be58bf8dded81693b01d63d95d9c8da3cad39d704fb6533cd3",
+      "rows": {
+        "dead.ubj": 1167002,
+        "ownership.ubj": 1284932
+      }
+    }
+  }
+}

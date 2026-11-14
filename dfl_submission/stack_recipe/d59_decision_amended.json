@@ -1,0 +1,1309 @@
+{
+  "decided_at": "2026-11-13 19:18 EST",
+  "first_decision_taken": null,
+  "note": "D59's amendment of 18:18 EST (HT, RHT) reached the coding session after d59_scores.json and d59_decision.json were written at 19:12 EST; those records hold the five original candidates. This record scores all nine from the same cached members, the five equal to the first records, and applies the unchanged rule to all nine.",
+  "passed_checks": true,
+  "per_cost": {
+    "H(0)": {
+      "12": {
+        "changes": {
+          "composite": -0.0006672165171534017,
+          "conventions": {
+            "aba1.75": 0.01297669136645585,
+            "aba4": -0.006326247576727173,
+            "aba4.5": -0.006340671528096142
+          },
+          "groups": {
+            "d24": 0.001126093603114553,
+            "dfl_clean": -0.003507898340398441,
+            "dfl_dead_carried": 0.006616251005631568,
+            "dfl_masked": -0.002481763457373387,
+            "dfl_team_swap": -0.014390443714683787,
+            "metrica": -0.002940998973363751,
+            "pff": 0.006232688144953813,
+            "skillcorner": 0.004008339594891885
+          },
+          "guard_mean": -0.0033604300219078898,
+          "pff": 0.006232688144953813,
+          "pff_unseen_agreement": 0.0030107970168875564,
+          "primary": 0.000592265588255092,
+          "selection": -0.00201382326953059,
+          "situation_d": 0.013579904453690728
+        },
+        "conditions": {
+          "composite": false,
+          "conventions": true,
+          "groups": false,
+          "pff": false,
+          "selection": false
+        },
+        "holds": false,
+        "owner_cost": 12
+      },
+      "14": {
+        "changes": {
+          "composite": -9.753129526812732e-05,
+          "conventions": {
+            "aba1.75": 0.004273119804995229,
+            "aba4": -0.0015795064714987372,
+            "aba4.5": -0.0015460650142318233
+          },
+          "groups": {
+            "d24": 0.004012888562893835,
+            "dfl_clean": 0.0,
+            "dfl_dead_carried": -0.0031688311688311543,
+            "dfl_masked": -0.0019495867404614176,
+            "dfl_team_swap": -0.004402560253759735,
+            "metrica": -0.0023910482921083442,
+            "pff": 0.0055447619212951604,
+            "skillcorner": 0.0015741256088261935
+          },
+          "guard_mean": -0.0011408666454121308,
+          "pff": 0.0055447619212951604,
+          "pff_unseen_agreement": 0.003070538202890938,
+          "primary": 0.0001372005575925872,
+          "selection": -0.000619198970340129,
+          "situation_d": 0.012723117781483384
+        },
+        "conditions": {
+          "composite": false,
+          "conventions": true,
+          "groups": true,
+          "pff": false,
+          "selection": false
+        },
+        "holds": false,
+        "owner_cost": 14
+      },
+      "16": {
+        "changes": {
+          "composite": 0.0011837945982691167,
+          "conventions": {
+            "aba1.75": 0.002254247470001469,
+            "aba4": -0.0005901100733580744,
+            "aba4.5": -0.0005725679238418602
+          },
+          "groups": {
+            "d24": 0.004340968919750554,
+            "dfl_clean": 0.0034901577551306184,
+            "dfl_dead_carried": -0.0031688311688311543,
+            "dfl_masked": -0.002090090090090313,
+            "dfl_team_swap": 0.001629310467820333,
+            "metrica": -0.0005183504604100442,
+            "pff": 0.003551763589482615,
+            "skillcorner": 0.0022354277732999916
+          },
+          "guard_mean": -0.005319543600747378,
+          "pff": 0.003551763589482615,
+          "pff_unseen_agreement": 0.0026573481229773543,
+          "primary": 0.0010027101491416612,
+          "selection": -0.002067874501239131,
+          "situation_d": -0.00927285275111378
+        },
+        "conditions": {
+          "composite": true,
+          "conventions": true,
+          "groups": true,
+          "pff": false,
+          "selection": false
+        },
+        "holds": false,
+        "owner_cost": 16
+      }
+    },
+    "H(0.25)": {
+      "12": {
+        "changes": {
+          "composite": -0.0036297701611330835,
+          "conventions": {
+            "aba1.75": 0.011269328642930954,
+            "aba4": -0.004044264161185751,
+            "aba4.5": -0.0040221834599798445
+          },
+          "groups": {
+            "d24": 0.002424610879687039,
+            "dfl_clean": -0.003507898340398441,
+            "dfl_dead_carried": -0.00939800835207194,
+            "dfl_masked": -0.008034669051618426,
+            "dfl_team_swap": -0.01902583942169067,
+            "metrica": -0.0027038292261345465,
+            "pff": 0.0071991326282695445,
+            "skillcorner": 0.004008339594891885
+          },
+          "guard_mean": -0.002060850241156764,
+          "pff": 0.0071991326282695445,
+          "pff_unseen_agreement": 0.003107301200914736,
+          "primary": -0.001258702943159884,
+          "selection": -0.0028453102011449793,
+          "situation_d": 0.003087627745161914
+        },
+        "conditions": {
+          "composite": false,
+          "conventions": true,
+          "groups": false,
+          "pff": false,
+          "selection": false
+        },
+        "holds": false,
+        "owner_cost": 12
+      },
+      "14": {
+        "changes": {
+          "composite": 0.002552458539378355,
+          "conventions": {
+            "aba1.75": 0.0025242076006185554,
+            "aba4": 0.0010743841663134468,
+            "aba4.5": 0.000846312712160513
+          },
+          "groups": {
+            "d24": 0.0037045963930593118,
+            "dfl_clean": 0.0,
+            "dfl_dead_carried": 0.0008188358404187523,
+            "dfl_masked": 0.005787800413520117,
+            "dfl_team_swap": 0.006402112036960728,
+            "metrica": -0.0011981020166073053,
+            "pff": 0.0034990911453040008,
+            "skillcorner": 0.001405334502371458
+          },
+          "guard_mean": 0.003147823973934649,
+          "pff": 0.0034990911453040008,
+          "pff_unseen_agreement": 0.0017990215218833816,
+          "primary": 0.0026319340556923976,
+          "selection": 0.002850141256656502,
+          "situation_d": -0.004529769747161239
+        },
+        "conditions": {
+          "composite": true,
+          "conventions": true,
+          "groups": true,
+          "pff": false,
+          "selection": false
+        },
+        "holds": false,
+        "owner_cost": 14
+      },
+      "16": {
+        "changes": {
+          "composite": 0.002594229481481025,
+          "conventions": {
+            "aba1.75": 0.0005435356196373808,
+            "aba4": 0.0038800368978626487,
+            "aba4.5": 0.003674560119177328
+          },
+          "groups": {
+            "d24": 0.00044367220298857646,
+            "dfl_clean": 0.0034901577551306184,
+            "dfl_dead_carried": 0.0008188358404187523,
+            "dfl_masked": 0.00643005643005623,
+            "dfl_team_swap": 0.006666618566965599,
+            "metrica": -0.0007450453689563652,
+            "pff": 0.0019249531711602597,
+            "skillcorner": 0.0017245872540841978
+          },
+          "guard_mean": 0.0034235055924217717,
+          "pff": 0.0019249531711602597,
+          "pff_unseen_agreement": 0.001862855250140738,
+          "primary": 0.003587338729582612,
+          "selection": 0.0030088675369513984,
+          "situation_d": -0.010445264918426123
+        },
+        "conditions": {
+          "composite": true,
+          "conventions": true,
+          "groups": true,
+          "pff": false,
+          "selection": false
+        },
+        "holds": false,
+        "owner_cost": 16
+      }
+    },
+    "HT(0)": {
+      "12": {
+        "changes": {
+          "composite": -0.0024921102230005543,
+          "conventions": {
+            "aba1.75": 0.007357999673098026,
+            "aba4": -0.003956944062776024,
+            "aba4.5": -0.00371356612821383
+          },
+          "groups": {
+            "d24": 0.0005549985697846926,
+            "dfl_clean": -0.003507898340398441,
+            "dfl_dead_carried": -0.0058416422287389524,
+            "dfl_masked": -0.008185328185328355,
+            "dfl_team_swap": -0.007764961729526898,
+            "metrica": -0.0027038292261345465,
+            "pff": 0.0032598168179840403,
+            "skillcorner": 0.004251962538353582
+          },
+          "guard_mean": 0.0013126653364978758,
+          "pff": 0.0032598168179840403,
+          "pff_unseen_agreement": 0.0018194622868151766,
+          "primary": -0.0011871111826657899,
+          "selection": -0.0005897224432513948,
+          "situation_d": 0.009960395422084933
+        },
+        "conditions": {
+          "composite": false,
+          "conventions": true,
+          "groups": true,
+          "pff": false,
+          "selection": false
+        },
+        "holds": false,
+        "owner_cost": 12
+      },
+      "14": {
+        "changes": {
+          "composite": 8.163863882693079e-05,
+          "conventions": {
+            "aba1.75": 3.740445600908249e-05,
+            "aba4": 3.724210665090322e-05,
+            "aba4.5": 3.5296624843472735e-05
+          },
+          "groups": {
+            "d24": 0.0003950936587345799,
+            "dfl_clean": 0.0,
+            "dfl_dead_carried": 0.0,
+            "dfl_masked": 0.0,
+            "dfl_team_swap": 0.0,
+            "metrica": 0.0,
+            "pff": 0.00018655819631197001,
+            "skillcorner": 7.145725556889637e-05
+          },
+          "guard_mean": 0.0018644214291674288,
+          "pff": 0.00018655819631197001,
+          "pff_unseen_agreement": 0.00011857445118956811,
+          "primary": 3.5728627784448186e-05,
+          "selection": 0.0009730300339971798,
+          "situation_d": 0.0
+        },
+        "conditions": {
+          "composite": true,
+          "conventions": true,
+          "groups": true,
+          "pff": false,
+          "selection": false
+        },
+        "holds": false,
+        "owner_cost": 14
+      },
+      "16": {
+        "changes": {
+          "composite": 0.0018857730476129486,
+          "conventions": {
+            "aba1.75": -0.0020826939156520785,
+            "aba4": 0.0036531514702540235,
+            "aba4.5": 0.0034067444887125875
+          },
+          "groups": {
+            "d24": -0.0016721966602581961,
+            "dfl_clean": 0.0034901577551306184,
+            "dfl_dead_carried": 0.0011975492631230988,
+            "dfl_masked": 0.006698392744904247,
+            "dfl_team_swap": 0.006268075009231766,
+            "metrica": 0.0004577645889836113,
+            "pff": -0.002049801293114162,
+            "skillcorner": 0.0006962429729019393
+          },
+          "guard_mean": 0.0008168635284062642,
+          "pff": -0.002049801293114162,
+          "pff_unseen_agreement": -0.0010122810107540126,
+          "primary": 0.003162612027274192,
+          "selection": 0.0013513182880096064,
+          "situation_d": 0.0008495416946119327
+        },
+        "conditions": {
+          "composite": true,
+          "conventions": true,
+          "groups": true,
+          "pff": false,
+          "selection": false
+        },
+        "holds": false,
+        "owner_cost": 16
+      }
+    },
+    "HT(0.25)": {
+      "12": {
+        "changes": {
+          "composite": -0.0025498917256741027,
+          "conventions": {
+            "aba1.75": 0.007357999673098026,
+            "aba4": -0.003956944062776024,
+            "aba4.5": -0.00371356612821383
+          },
+          "groups": {
+            "d24": 0.0007261142439805024,
+            "dfl_clean": -0.003507898340398441,
+            "dfl_dead_carried": -0.0058416422287389524,
+            "dfl_masked": -0.008185328185328355,
+            "dfl_team_swap": -0.007764961729526898,
+            "metrica": -0.0027038292261345465,
+            "pff": 0.0026264491224001763,
+            "skillcorner": 0.004251962538353582
+          },
+          "guard_mean": -0.0004244703812605888,
+          "pff": 0.0026264491224001763,
+          "pff_unseen_agreement": 0.0006831234832673783,
+          "primary": -0.0011871111826657899,
+          "selection": -0.0014871810534673457,
+          "situation_d": 0.0034751573213110953
+        },
+        "conditions": {
+          "composite": false,
+          "conventions": true,
+          "groups": true,
+          "pff": false,
+          "selection": false
+        },
+        "holds": false,
+        "owner_cost": 12
+      },
+      "14": {
+        "changes": {
+          "composite": 0.00012248225777233834,
+          "conventions": {
+            "aba1.75": 3.740445600908249e-05,
+            "aba4": 3.724210665090322e-05,
+            "aba4.5": 3.5296624843472735e-05
+          },
+          "groups": {
+            "d24": 0.00034200110505666625,
+            "dfl_clean": 0.0,
+            "dfl_dead_carried": 0.0,
+            "dfl_masked": 0.0,
+            "dfl_team_swap": 0.0,
+            "metrica": 0.0,
+            "pff": 0.000566399701552811,
+            "skillcorner": 7.145725556889637e-05
+          },
+          "guard_mean": 0.0037593082462310523,
+          "pff": 0.000566399701552811,
+          "pff_unseen_agreement": -0.0006226310788923772,
+          "primary": 3.5728627784448186e-05,
+          "selection": 0.0019408952520016953,
+          "situation_d": 0.0
+        },
+        "conditions": {
+          "composite": true,
+          "conventions": true,
+          "groups": true,
+          "pff": false,
+          "selection": false
+        },
+        "holds": false,
+        "owner_cost": 14
+      },
+      "16": {
+        "changes": {
+          "composite": 0.0018238278188851265,
+          "conventions": {
+            "aba1.75": -0.0020826939156520785,
+            "aba4": 0.0036531514702540235,
+            "aba4.5": 0.0034067444887125875
+          },
+          "groups": {
+            "d24": -0.00213257968691416,
+            "dfl_clean": 0.0034901577551306184,
+            "dfl_dead_carried": 0.0011975492631230988,
+            "dfl_masked": 0.006698392744904247,
+            "dfl_team_swap": 0.006268075009231766,
+            "metrica": 0.0004577645889836113,
+            "pff": -0.002084980096279998,
+            "skillcorner": 0.0006962429729019393
+          },
+          "guard_mean": -0.0010752725314632228,
+          "pff": -0.002084980096279998,
+          "pff_unseen_agreement": -0.0014346059935022026,
+          "primary": 0.003162612027274192,
+          "selection": 0.00037427764371100736,
+          "situation_d": 0.0008495416946119327
+        },
+        "conditions": {
+          "composite": true,
+          "conventions": true,
+          "groups": true,
+          "pff": false,
+          "selection": false
+        },
+        "holds": false,
+        "owner_cost": 16
+      }
+    },
+    "R": {
+      "12": {
+        "changes": {
+          "composite": -0.002873726358365025,
+          "conventions": {
+            "aba1.75": 0.007958794141401104,
+            "aba4": -0.004587348805813907,
+            "aba4.5": -0.004622344431972292
+          },
+          "groups": {
+            "d24": -0.00015689487818404402,
+            "dfl_clean": -0.002785876679748611,
+            "dfl_dead_carried": -0.006826179206789518,
+            "dfl_masked": -0.008185328185328355,
+            "dfl_team_swap": -0.0070158980591149556,
+            "metrica": -0.0064352321099053755,
+            "pff": 0.005646389353524017,
+            "skillcorner": 0.0027692088986260854
+          },
+          "guard_mean": -0.0008107316748569016,
+          "pff": 0.005646389353524017,
+          "pff_unseen_agreement": 0.0009773622099154,
+          "primary": -0.0018081510590879368,
+          "selection": -0.0018422290166109079,
+          "situation_d": 0.0011082934159856173
+        },
+        "conditions": {
+          "composite": false,
+          "conventions": true,
+          "groups": true,
+          "pff": false,
+          "selection": false
+        },
+        "holds": false,
+        "owner_cost": 12
+      },
+      "14": {
+        "changes": {
+          "composite": -0.0016548702485504885,
+          "conventions": {
+            "aba1.75": 0.00139137712805526,
+            "aba4": -0.0031945499497744168,
+            "aba4.5": -0.0032100252168540955
+          },
+          "groups": {
+            "d24": -0.0025381143937210915,
+            "dfl_clean": 0.0,
+            "dfl_dead_carried": -0.0019191552549082669,
+            "dfl_masked": -0.007112531250462517,
+            "dfl_team_swap": -0.004368638951181558,
+            "metrica": -0.0015190900416468534,
+            "pff": 0.003197178896556907,
+            "skillcorner": 0.001021389006958806
+          },
+          "guard_mean": 0.0004950418498512743,
+          "pff": 0.003197178896556907,
+          "pff_unseen_agreement": -8.050766969047718e-05,
+          "primary": -0.0018601492466747693,
+          "selection": -0.0005799141993496626,
+          "situation_d": -0.0007936507936509019
+        },
+        "conditions": {
+          "composite": false,
+          "conventions": true,
+          "groups": true,
+          "pff": false,
+          "selection": false
+        },
+        "holds": false,
+        "owner_cost": 14
+      },
+      "16": {
+        "changes": {
+          "composite": 0.0015382880275025546,
+          "conventions": {
+            "aba1.75": -0.0026602207214679874,
+            "aba4": 0.0026933865371515653,
+            "aba4.5": 0.0026850408156494643
+          },
+          "groups": {
+            "d24": -0.0016083281696981366,
+            "dfl_clean": 0.0034901577551306184,
+            "dfl_dead_carried": -0.001250165892501598,
+            "dfl_masked": 0.0012720361557569948,
+            "dfl_team_swap": 0.007809500828114158,
+            "metrica": 6.754895634930591e-05,
+            "pff": 1.8984812765632242e-05,
+            "skillcorner": 0.002506569774102796
+          },
+          "guard_mean": -0.0075406637544324084,
+          "pff": 1.8984812765632242e-05,
+          "pff_unseen_agreement": -0.0014862185431910868,
+          "primary": 0.0022589898981588696,
+          "selection": -0.003001187863464927,
+          "situation_d": -0.004548780099882466
+        },
+        "conditions": {
+          "composite": true,
+          "conventions": true,
+          "groups": true,
+          "pff": false,
+          "selection": false
+        },
+        "holds": false,
+        "owner_cost": 16
+      }
+    },
+    "RH(0)": {
+      "12": {
+        "changes": {
+          "composite": -0.0013003748699416118,
+          "conventions": {
+            "aba1.75": 0.013186294798621767,
+            "aba4": -0.007005003124291864,
+            "aba4.5": -0.007293174096617117
+          },
+          "groups": {
+            "d24": 0.0007620220410008427,
+            "dfl_clean": -0.002785876679748611,
+            "dfl_dead_carried": 0.005442981047221407,
+            "dfl_masked": -0.002481763457373276,
+            "dfl_team_swap": -0.013652436334610107,
+            "metrica": -0.0072084157988840936,
+            "pff": 0.00709482068670253,
+            "skillcorner": 0.0024256695361579705
+          },
+          "guard_mean": -0.00485805052210031,
+          "pff": 0.00709482068670253,
+          "pff_unseen_agreement": 0.002081510412969223,
+          "primary": -7.873249767020862e-05,
+          "selection": -0.003079212696020961,
+          "situation_d": 0.012723117781483384
+        },
+        "conditions": {
+          "composite": false,
+          "conventions": true,
+          "groups": false,
+          "pff": false,
+          "selection": false
+        },
+        "holds": false,
+        "owner_cost": 12
+      },
+      "14": {
+        "changes": {
+          "composite": 0.0005446009693542697,
+          "conventions": {
+            "aba1.75": 0.007320472219123242,
+            "aba4": -0.002857938914308189,
+            "aba4.5": -0.003104953896636675
+          },
+          "groups": {
+            "d24": 0.0027813751269388787,
+            "dfl_clean": 0.0,
+            "dfl_dead_carried": -0.0045974025974026,
+            "dfl_masked": -0.006824269584194131,
+            "dfl_team_swap": 7.505168653876293e-05,
+            "metrica": -0.0012915508317650204,
+            "pff": 0.009474639778719096,
+            "skillcorner": 0.004738964175998617
+          },
+          "guard_mean": 0.000491903065168775,
+          "pff": 0.009474639778719096,
+          "pff_unseen_agreement": 0.0023045768896525765,
+          "primary": 9.47255599346164e-05,
+          "selection": 0.0005182520172615224,
+          "situation_d": 0.01194490766475187
+        },
+        "conditions": {
+          "composite": true,
+          "conventions": true,
+          "groups": true,
+          "pff": false,
+          "selection": false
+        },
+        "holds": false,
+        "owner_cost": 14
+      },
+      "16": {
+        "changes": {
+          "composite": 0.0014511456581418614,
+          "conventions": {
+            "aba1.75": 0.0026444937638178123,
+            "aba4": -0.000579695951155923,
+            "aba4.5": -0.0005725347547237414
+          },
+          "groups": {
+            "d24": 0.0034371949428336768,
+            "dfl_clean": 0.0034901577551306184,
+            "dfl_dead_carried": -0.002974258716194167,
+            "dfl_masked": -0.004230955561754235,
+            "dfl_team_swap": 0.0038849495655647326,
+            "metrica": -0.0009120553753385607,
+            "pff": 0.004984514276610508,
+            "skillcorner": 0.003929618378282984
+          },
+          "guard_mean": -0.005229094841190163,
+          "pff": 0.004984514276610508,
+          "pff_unseen_agreement": 0.0011661737998746036,
+          "primary": 0.0011361836277452575,
+          "selection": -0.0018889745915241507,
+          "situation_d": -0.002724659417572828
+        },
+        "conditions": {
+          "composite": true,
+          "conventions": true,
+          "groups": true,
+          "pff": false,
+          "selection": false
+        },
+        "holds": false,
+        "owner_cost": 16
+      }
+    },
+    "RH(0.25)": {
+      "12": {
+        "changes": {
+          "composite": -0.003706636328985713,
+          "conventions": {
+            "aba1.75": 0.010557154988232065,
+            "aba4": -0.005756541637324419,
+            "aba4.5": -0.0060249056256792555
+          },
+          "groups": {
+            "d24": 0.0016841411913074422,
+            "dfl_clean": -0.002785876679748611,
+            "dfl_dead_carried": -0.007543041029766662,
+            "dfl_masked": -0.009541260388718165,
+            "dfl_team_swap": -0.01458961021651528,
+            "metrica": -0.0064352321099053755,
+            "pff": 0.008082237830148276,
+            "skillcorner": 0.0014755507713124505
+          },
+          "guard_mean": -0.00432476573894891,
+          "pff": 0.008082237830148276,
+          "pff_unseen_agreement": 0.0011011539880599885,
+          "primary": -0.002906957523874598,
+          "selection": -0.004015701033967312,
+          "situation_d": -0.0009337068160598649
+        },
+        "conditions": {
+          "composite": false,
+          "conventions": true,
+          "groups": false,
+          "pff": false,
+          "selection": false
+        },
+        "holds": false,
+        "owner_cost": 12
+      },
+      "14": {
+        "changes": {
+          "composite": 0.001439694022155269,
+          "conventions": {
+            "aba1.75": 0.007235690906979175,
+            "aba4": -0.0029143178588750818,
+            "aba4.5": -0.003175663818642538
+          },
+          "groups": {
+            "d24": 0.003005567442314838,
+            "dfl_clean": 0.0,
+            "dfl_dead_carried": -0.0006200130804445703,
+            "dfl_masked": -0.004991411835518433,
+            "dfl_team_swap": 0.007158255704257432,
+            "metrica": -0.0015190900416468534,
+            "pff": 0.00508771756776194,
+            "skillcorner": 0.003396526420517354
+          },
+          "guard_mean": 0.00039210559460123307,
+          "pff": 0.00508771756776194,
+          "pff_unseen_agreement": -0.0003474063370246805,
+          "primary": 3.445926508582886e-05,
+          "selection": 0.000915899808378251,
+          "situation_d": -0.0021582282451849677
+        },
+        "conditions": {
+          "composite": true,
+          "conventions": true,
+          "groups": true,
+          "pff": false,
+          "selection": false
+        },
+        "holds": false,
+        "owner_cost": 14
+      },
+      "16": {
+        "changes": {
+          "composite": 0.0019433682004177388,
+          "conventions": {
+            "aba1.75": -0.00022263228680208247,
+            "aba4": 0.002719966802676943,
+            "aba4.5": 0.002753005068293235
+          },
+          "groups": {
+            "d24": -0.0001495596498328755,
+            "dfl_clean": 0.0034901577551306184,
+            "dfl_dead_carried": 4.9975341114616434e-05,
+            "dfl_masked": 0.0018146718146716534,
+            "dfl_team_swap": 0.005145706019437091,
+            "metrica": -0.0011382882172298325,
+            "pff": 0.003720404185069248,
+            "skillcorner": 0.0026138783549806144
+          },
+          "guard_mean": 0.000269860336270189,
+          "pff": 0.003720404185069248,
+          "pff_unseen_agreement": 0.00024720256547694497,
+          "primary": 0.0024935227415692207,
+          "selection": 0.0011066142683440194,
+          "situation_d": -0.011500807907993571
+        },
+        "conditions": {
+          "composite": true,
+          "conventions": true,
+          "groups": true,
+          "pff": false,
+          "selection": false
+        },
+        "holds": false,
+        "owner_cost": 16
+      }
+    },
+    "RHT(0)": {
+      "12": {
+        "changes": {
+          "composite": -0.002900485875746428,
+          "conventions": {
+            "aba1.75": 0.007992753369429395,
+            "aba4": -0.004553172888443702,
+            "aba4.5": -0.004590059557915249
+          },
+          "groups": {
+            "d24": 7.669908976359885e-05,
+            "dfl_clean": -0.002785876679748611,
+            "dfl_dead_carried": -0.006826179206789518,
+            "dfl_masked": -0.008185328185328355,
+            "dfl_team_swap": -0.0070158980591149556,
+            "metrica": -0.0064352321099053755,
+            "pff": 0.005132802665095526,
+            "skillcorner": 0.0028351254800558223
+          },
+          "guard_mean": 5.75972137644154e-05,
+          "pff": 0.005132802665095526,
+          "pff_unseen_agreement": 0.00032778773801833694,
+          "primary": -0.0017751927683730129,
+          "selection": -0.0014214443309910063,
+          "situation_d": 0.007602831571397295
+        },
+        "conditions": {
+          "composite": false,
+          "conventions": true,
+          "groups": true,
+          "pff": false,
+          "selection": false
+        },
+        "holds": false,
+        "owner_cost": 12
+      },
+      "14": {
+        "changes": {
+          "composite": -0.0015653051886442837,
+          "conventions": {
+            "aba1.75": 0.0014289563712420739,
+            "aba4": -0.003157115873501648,
+            "aba4.5": -0.0031745457079440653
+          },
+          "groups": {
+            "d24": -0.0021090216372461335,
+            "dfl_clean": 0.0,
+            "dfl_dead_carried": -0.0019191552549082669,
+            "dfl_masked": -0.007112531250462517,
+            "dfl_team_swap": -0.004368638951181558,
+            "metrica": -0.0015190900416468534,
+            "pff": 0.0034128007917844094,
+            "skillcorner": 0.001093194834506095
+          },
+          "guard_mean": 0.003189409284975242,
+          "pff": 0.0034128007917844094,
+          "pff_unseen_agreement": 0.0003952127595249211,
+          "primary": -0.001824246332901125,
+          "selection": 0.0008120520481654792,
+          "situation_d": -0.0007936507936509019
+        },
+        "conditions": {
+          "composite": false,
+          "conventions": true,
+          "groups": true,
+          "pff": false,
+          "selection": false
+        },
+        "holds": false,
+        "owner_cost": 14
+      },
+      "16": {
+        "changes": {
+          "composite": 0.0012092614750476294,
+          "conventions": {
+            "aba1.75": -0.002623039811367911,
+            "aba4": 0.0027285596973246617,
+            "aba4.5": 0.0027181905155934105
+          },
+          "groups": {
+            "d24": -0.0012796450289171979,
+            "dfl_clean": 0.0034901577551306184,
+            "dfl_dead_carried": -0.001250165892501598,
+            "dfl_masked": 0.0012720361557569948,
+            "dfl_team_swap": 0.003531378497780069,
+            "metrica": 6.754895634930591e-05,
+            "pff": 0.00126843220455497,
+            "skillcorner": 0.0025743491522268735
+          },
+          "guard_mean": -0.0007860780115800381,
+          "pff": 0.00126843220455497,
+          "pff_unseen_agreement": -0.00023779663907641524,
+          "primary": 0.0022928795872207974,
+          "selection": 0.00021159173173379564,
+          "situation_d": -0.004548780099882466
+        },
+        "conditions": {
+          "composite": true,
+          "conventions": true,
+          "groups": true,
+          "pff": false,
+          "selection": false
+        },
+        "holds": false,
+        "owner_cost": 16
+      }
+    },
+    "RHT(0.25)": {
+      "12": {
+        "changes": {
+          "composite": -0.0027535962209845888,
+          "conventions": {
+            "aba1.75": 0.007992753369429395,
+            "aba4": -0.004553172888443702,
+            "aba4.5": -0.004590059557915249
+          },
+          "groups": {
+            "d24": 5.937789738241772e-05,
+            "dfl_clean": -0.002785876679748611,
+            "dfl_dead_carried": -0.006826179206789518,
+            "dfl_masked": -0.008185328185328355,
+            "dfl_team_swap": -0.0070158980591149556,
+            "metrica": -0.0064352321099053755,
+            "pff": 0.006325241095570977,
+            "skillcorner": 0.0028351254800558223
+          },
+          "guard_mean": -0.0033443989493004977,
+          "pff": 0.006325241095570977,
+          "pff_unseen_agreement": 0.0016551916893572383,
+          "primary": -0.0017751927683730129,
+          "selection": -0.0030489975851425433,
+          "situation_d": 0.0011082934159856173
+        },
+        "conditions": {
+          "composite": false,
+          "conventions": true,
+          "groups": true,
+          "pff": false,
+          "selection": false
+        },
+        "holds": false,
+        "owner_cost": 12
+      },
+      "14": {
+        "changes": {
+          "composite": -0.0015406258667556294,
+          "conventions": {
+            "aba1.75": 0.0014289563712420739,
+            "aba4": -0.003157115873501648,
+            "aba4.5": -0.0031745457079440653
+          },
+          "groups": {
+            "d24": -0.002127107042758425,
+            "dfl_clean": 0.0,
+            "dfl_dead_carried": -0.0019191552549082669,
+            "dfl_masked": -0.007112531250462517,
+            "dfl_team_swap": -0.004368638951181558,
+            "metrica": -0.0015190900416468534,
+            "pff": 0.003628320772405602,
+            "skillcorner": 0.001093194834506095
+          },
+          "guard_mean": -0.0005766729803278192,
+          "pff": 0.003628320772405602,
+          "pff_unseen_agreement": 0.0001008462582378078,
+          "primary": -0.001824246332901125,
+          "selection": -0.0010586494235417243,
+          "situation_d": -0.0007936507936509019
+        },
+        "conditions": {
+          "composite": false,
+          "conventions": true,
+          "groups": true,
+          "pff": false,
+          "selection": false
+        },
+        "holds": false,
+        "owner_cost": 14
+      },
+      "16": {
+        "changes": {
+          "composite": 0.0010025369966577546,
+          "conventions": {
+            "aba1.75": -0.002623039811367911,
+            "aba4": 0.0027285596973246617,
+            "aba4.5": 0.0027181905155934105
+          },
+          "groups": {
+            "d24": -0.0019311298801207855,
+            "dfl_clean": 0.0034901577551306184,
+            "dfl_dead_carried": -0.001250165892501598,
+            "dfl_masked": 0.0012720361557569948,
+            "dfl_team_swap": 0.003531378497780069,
+            "metrica": 6.754895634930591e-05,
+            "pff": 0.00026612122864067,
+            "skillcorner": 0.0025743491522268735
+          },
+          "guard_mean": -0.005685606702507728,
+          "pff": 0.00026612122864067,
+          "pff_unseen_agreement": -0.0009303412375070153,
+          "primary": 0.0022928795872207974,
+          "selection": -0.002341534852924987,
+          "situation_d": -0.004548780099882466
+        },
+        "conditions": {
+          "composite": true,
+          "conventions": true,
+          "groups": true,
+          "pff": false,
+          "selection": false
+        },
+        "holds": false,
+        "owner_cost": 16
+      }
+    }
+  },
+  "protocol": "DECISIONS.md D59",
+  "results": {
+    "H(0)": {
+      "changes": {
+        "composite": -9.753129526812732e-05,
+        "conventions": {
+          "aba1.75": 0.004273119804995229,
+          "aba4": -0.0015795064714987372,
+          "aba4.5": -0.0015460650142318233
+        },
+        "groups": {
+          "d24": 0.004012888562893835,
+          "dfl_clean": 0.0,
+          "dfl_dead_carried": -0.0031688311688311543,
+          "dfl_masked": -0.0019495867404614176,
+          "dfl_team_swap": -0.004402560253759735,
+          "metrica": -0.0023910482921083442,
+          "pff": 0.0055447619212951604,
+          "skillcorner": 0.0015741256088261935
+        },
+        "guard_mean": -0.0011408666454121308,
+        "pff": 0.0055447619212951604,
+        "pff_unseen_agreement": 0.003070538202890938,
+        "primary": 0.0001372005575925872,
+        "selection": -0.000619198970340129,
+        "situation_d": 0.012723117781483384
+      },
+      "conditions": {
+        "composite": false,
+        "conventions": true,
+        "groups": true,
+        "pff": false,
+        "selection": false
+      },
+      "holds": false,
+      "owner_cost": 14,
+      "selection": 0.7319581475746151
+    },
+    "H(0.25)": {
+      "changes": {
+        "composite": 0.002594229481481025,
+        "conventions": {
+          "aba1.75": 0.0005435356196373808,
+          "aba4": 0.0038800368978626487,
+          "aba4.5": 0.003674560119177328
+        },
+        "groups": {
+          "d24": 0.00044367220298857646,
+          "dfl_clean": 0.0034901577551306184,
+          "dfl_dead_carried": 0.0008188358404187523,
+          "dfl_masked": 0.00643005643005623,
+          "dfl_team_swap": 0.006666618566965599,
+          "metrica": -0.0007450453689563652,
+          "pff": 0.0019249531711602597,
+          "skillcorner": 0.0017245872540841978
+        },
+        "guard_mean": 0.0034235055924217717,
+        "pff": 0.0019249531711602597,
+        "pff_unseen_agreement": 0.001862855250140738,
+        "primary": 0.003587338729582612,
+        "selection": 0.0030088675369513984,
+        "situation_d": -0.010445264918426123
+      },
+      "conditions": {
+        "composite": true,
+        "conventions": true,
+        "groups": true,
+        "pff": false,
+        "selection": false
+      },
+      "holds": false,
+      "owner_cost": 16,
+      "selection": 0.7355862140819066
+    },
+    "HT(0)": {
+      "changes": {
+        "composite": 0.0018857730476129486,
+        "conventions": {
+          "aba1.75": -0.0020826939156520785,
+          "aba4": 0.0036531514702540235,
+          "aba4.5": 0.0034067444887125875
+        },
+        "groups": {
+          "d24": -0.0016721966602581961,
+          "dfl_clean": 0.0034901577551306184,
+          "dfl_dead_carried": 0.0011975492631230988,
+          "dfl_masked": 0.006698392744904247,
+          "dfl_team_swap": 0.006268075009231766,
+          "metrica": 0.0004577645889836113,
+          "pff": -0.002049801293114162,
+          "skillcorner": 0.0006962429729019393
+        },
+        "guard_mean": 0.0008168635284062642,
+        "pff": -0.002049801293114162,
+        "pff_unseen_agreement": -0.0010122810107540126,
+        "primary": 0.003162612027274192,
+        "selection": 0.0013513182880096064,
+        "situation_d": 0.0008495416946119327
+      },
+      "conditions": {
+        "composite": true,
+        "conventions": true,
+        "groups": true,
+        "pff": false,
+        "selection": false
+      },
+      "holds": false,
+      "owner_cost": 16,
+      "selection": 0.7339286648329648
+    },
+    "HT(0.25)": {
+      "changes": {
+        "composite": 0.00012248225777233834,
+        "conventions": {
+          "aba1.75": 3.740445600908249e-05,
+          "aba4": 3.724210665090322e-05,
+          "aba4.5": 3.5296624843472735e-05
+        },
+        "groups": {
+          "d24": 0.00034200110505666625,
+          "dfl_clean": 0.0,
+          "dfl_dead_carried": 0.0,
+          "dfl_masked": 0.0,
+          "dfl_team_swap": 0.0,
+          "metrica": 0.0,
+          "pff": 0.000566399701552811,
+          "skillcorner": 7.145725556889637e-05
+        },
+        "guard_mean": 0.0037593082462310523,
+        "pff": 0.000566399701552811,
+        "pff_unseen_agreement": -0.0006226310788923772,
+        "primary": 3.5728627784448186e-05,
+        "selection": 0.0019408952520016953,
+        "situation_d": 0.0
+      },
+      "conditions": {
+        "composite": true,
+        "conventions": true,
+        "groups": true,
+        "pff": false,
+        "selection": false
+      },
+      "holds": false,
+      "owner_cost": 14,
+      "selection": 0.7345182417969569
+    },
+    "R": {
+      "changes": {
+        "composite": -0.0016548702485504885,
+        "conventions": {
+          "aba1.75": 0.00139137712805526,
+          "aba4": -0.0031945499497744168,
+          "aba4.5": -0.0032100252168540955
+        },
+        "groups": {
+          "d24": -0.0025381143937210915,
+          "dfl_clean": 0.0,
+          "dfl_dead_carried": -0.0019191552549082669,
+          "dfl_masked": -0.007112531250462517,
+          "dfl_team_swap": -0.004368638951181558,
+          "metrica": -0.0015190900416468534,
+          "pff": 0.003197178896556907,
+          "skillcorner": 0.001021389006958806
+        },
+        "guard_mean": 0.0004950418498512743,
+        "pff": 0.003197178896556907,
+        "pff_unseen_agreement": -8.050766969047718e-05,
+        "primary": -0.0018601492466747693,
+        "selection": -0.0005799141993496626,
+        "situation_d": -0.0007936507936509019
+      },
+      "conditions": {
+        "composite": false,
+        "conventions": true,
+        "groups": true,
+        "pff": false,
+        "selection": false
+      },
+      "holds": false,
+      "owner_cost": 14,
+      "selection": 0.7319974323456055
+    },
+    "RH(0)": {
+      "changes": {
+        "composite": 0.0005446009693542697,
+        "conventions": {
+          "aba1.75": 0.007320472219123242,
+          "aba4": -0.002857938914308189,
+          "aba4.5": -0.003104953896636675
+        },
+        "groups": {
+          "d24": 0.0027813751269388787,
+          "dfl_clean": 0.0,
+          "dfl_dead_carried": -0.0045974025974026,
+          "dfl_masked": -0.006824269584194131,
+          "dfl_team_swap": 7.505168653876293e-05,
+          "metrica": -0.0012915508317650204,
+          "pff": 0.009474639778719096,
+          "skillcorner": 0.004738964175998617
+        },
+        "guard_mean": 0.000491903065168775,
+        "pff": 0.009474639778719096,
+        "pff_unseen_agreement": 0.0023045768896525765,
+        "primary": 9.47255599346164e-05,
+        "selection": 0.0005182520172615224,
+        "situation_d": 0.01194490766475187
+      },
+      "conditions": {
+        "composite": true,
+        "conventions": true,
+        "groups": true,
+        "pff": false,
+        "selection": false
+      },
+      "holds": false,
+      "owner_cost": 14,
+      "selection": 0.7330955985622167
+    },
+    "RH(0.25)": {
+      "changes": {
+        "composite": 0.0019433682004177388,
+        "conventions": {
+          "aba1.75": -0.00022263228680208247,
+          "aba4": 0.002719966802676943,
+          "aba4.5": 0.002753005068293235
+        },
+        "groups": {
+          "d24": -0.0001495596498328755,
+          "dfl_clean": 0.0034901577551306184,
+          "dfl_dead_carried": 4.9975341114616434e-05,
+          "dfl_masked": 0.0018146718146716534,
+          "dfl_team_swap": 0.005145706019437091,
+          "metrica": -0.0011382882172298325,
+          "pff": 0.003720404185069248,
+          "skillcorner": 0.0026138783549806144
+        },
+        "guard_mean": 0.000269860336270189,
+        "pff": 0.003720404185069248,
+        "pff_unseen_agreement": 0.00024720256547694497,
+        "primary": 0.0024935227415692207,
+        "selection": 0.0011066142683440194,
+        "situation_d": -0.011500807907993571
+      },
+      "conditions": {
+        "composite": true,
+        "conventions": true,
+        "groups": true,
+        "pff": false,
+        "selection": false
+      },
+      "holds": false,
+      "owner_cost": 16,
+      "selection": 0.7336839608132992
+    },
+    "RHT(0)": {
+      "changes": {
+        "composite": -0.0015653051886442837,
+        "conventions": {
+          "aba1.75": 0.0014289563712420739,
+          "aba4": -0.003157115873501648,
+          "aba4.5": -0.0031745457079440653
+        },
+        "groups": {
+          "d24": -0.0021090216372461335,
+          "dfl_clean": 0.0,
+          "dfl_dead_carried": -0.0019191552549082669,
+          "dfl_masked": -0.007112531250462517,
+          "dfl_team_swap": -0.004368638951181558,
+          "metrica": -0.0015190900416468534,
+          "pff": 0.0034128007917844094,
+          "skillcorner": 0.001093194834506095
+        },
+        "guard_mean": 0.003189409284975242,
+        "pff": 0.0034128007917844094,
+        "pff_unseen_agreement": 0.0003952127595249211,
+        "primary": -0.001824246332901125,
+        "selection": 0.0008120520481654792,
+        "situation_d": -0.0007936507936509019
+      },
+      "conditions": {
+        "composite": false,
+        "conventions": true,
+        "groups": true,
+        "pff": false,
+        "selection": false
+      },
+      "holds": false,
+      "owner_cost": 14,
+      "selection": 0.7333893985931207
+    },
+    "RHT(0.25)": {
+      "changes": {
+        "composite": -0.0015406258667556294,
+        "conventions": {
+          "aba1.75": 0.0014289563712420739,
+          "aba4": -0.003157115873501648,
+          "aba4.5": -0.0031745457079440653
+        },
+        "groups": {
+          "d24": -0.002127107042758425,
+          "dfl_clean": 0.0,
+          "dfl_dead_carried": -0.0019191552549082669,
+          "dfl_masked": -0.007112531250462517,
+          "dfl_team_swap": -0.004368638951181558,
+          "metrica": -0.0015190900416468534,
+          "pff": 0.003628320772405602,
+          "skillcorner": 0.001093194834506095
+        },
+        "guard_mean": -0.0005766729803278192,
+        "pff": 0.003628320772405602,
+        "pff_unseen_agreement": 0.0001008462582378078,
+        "primary": -0.001824246332901125,
+        "selection": -0.0010586494235417243,
+        "situation_d": -0.0007936507936509019
+      },
+      "conditions": {
+        "composite": false,
+        "conventions": true,
+        "groups": true,
+        "pff": false,
+        "selection": false
+      },
+      "holds": false,
+      "owner_cost": 14,
+      "selection": 0.7315186971214135
+    }
+  },
+  "rule": {
+    "against": "the adopted stack at cost 14",
+    "composite": "not lower",
+    "conventions_loss": 0.01,
+    "cost": "each candidate at its cost with the highest selection score (ties to the lower), as D48's gate",
+    "group_loss": 0.01,
+    "pff_gain": 0.01,
+    "selection_gain": 0.008
+  },
+  "scores_sha256": "6aa3bb25b92fce16dd0f4407b6f913965347a34a36699bdebc5f81ea16dc3b94",
+  "taken": null
+}

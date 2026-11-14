@@ -2700,3 +2700,58 @@ Round 13 measured two things and adopted nothing. D55: the stack is weaker where
 **Release check of `49cec0d` (2026-11-13, 18:06 EST). Passed.** Rounds 12 and 13 were committed as `49cec0d` at 17:48 EST (668 of 668 tests on the working tree first; the commit was scanned for data files, CSVs, internal documents, home paths and credentials, by the orchestrator and independently by the researcher session: none). `release/check.sh --bundle …` then ran on that commit: a fresh clone was rebuilt twice on macOS (fresh venvs, Homebrew Python 3.12.13, `dfl_submission/requirements.txt`) and in `python:3.12.14-slim@sha256:f77ac9e4…` under `linux/arm64` and `linux/amd64`; all four builds gave `f6d7b2933a6210ce0c8a1ee96019f86815288d97368d656f366782345e6fc65d` with the validator's OK line, and 668 of 668 tests passed in the clone (79 files). Only the validator lines and the SHA-256s were read.
 
 *Documents, final (same time).* The README, CONSTANTS.md, PROVENANCE.md and the technical document carry round 13's outcome (rows D55–D58, two more limitations), C2's PASS, the hand-over and the release check; no placeholder remains. A last reading of the technical document as an organiser would read it found seven points, all corrected: the opening claim now says that some constants were set by judgement; the claim that every decision had fixed gates now names its exceptions; the sentence on the blend's 238 recipes is tied to the first ensemble; "Derek" is introduced as the team's lead and the decision times carry their date; the heading "The one correctness check" is now "Correctness checks"; the sentence that match data is out of any AI tool's reach now says what an AI session does read (a validator's OK line, a SHA-256, a check's verdict or refusal); and section 7 discloses that the AI session ran C2. `Anfield.md` is an exact copy of the technical document.
+
+## Note — Round 14 (2026-11-13, 18:15 EST)
+
+The stack is committed, release-checked and pushed (`1ddaeb7`). The goal still stands, Derek has left the decisions to the orchestrator, and one part of the adopted model has not been touched since D3: its trees. Half of the stack's ownership probability comes from them. They read summaries built around the ball, and they were fitted before any long hidden-ball view existed, while rounds 12 and 13 showed the networks, which read the players, carry what is known when the ball is hidden. Round 14 tests that one lever (D59) and nothing else. It needs no network training. Everything standing stays, the adopted stack is the reference, the Sunday freeze holds, and if D59 does not pass the search closes for good.
+
+## D59 — The trees' share where the ball is hidden, and trees refitted on the long-hidden views (2026-11-13, 18:15 EST, written before any D59 code exists, any tree is refitted or anything is scored)
+
+**Question.** Does lowering the trees' share of the ownership probability on frames where the ball is unseen, or refitting the trees on D49's views, raise spellF1 on hidden-ball and real automatic tracking without harm elsewhere?
+
+**Disclosure.** Written after rounds 12 and 13. D35 and D40 re-selected one tree share for all frames (D15's and D36's networks) and found 0.5 best; neither tried a share that depends on whether the ball is seen, and neither had networks trained on long hidden runs. Development has been reused by every step.
+
+**Candidates.** The adopted stack's twelve networks, unchanged, with D43's cutoff, stoppage cost and discount:
+- **H(w):** the trees' share of the ownership probability is 0.5 on frames where the ball is seen and w on frames where it is not, w ∈ {0.25, 0}. The stoppage mix is unchanged.
+- **R:** both sets' trees (ownership and stoppage) refitted exactly as D3 fitted them (`long_context.fit_head`, the same parameters and weights) on D49's prepared sequences, which add the long-hidden views; share 0.5 everywhere.
+- **RH(w):** R with H(w), w ∈ {0.25, 0}.
+Each at ownership cost 12, 14 and 16.
+
+**Pipeline checks.** With D3's trees and a share of 0.5 everywhere the scorer reproduces the cost-14 row of `stack_recipe/development_t.json` exactly. The refit, run on the sequences D3's trees were fitted on, reproduces D3's trees byte for byte before it is run on D49's.
+
+**Scored** on D47's eight groups, D49's two long-hidden guard views and D33's conventions, with D55's (d) view and PFF's visibility figures reported. The selection score is D48's (the mean of the composite and the long-hidden guard mean; the adopted stack at cost 14: 0.7326).
+
+**A candidate holds if,** against the adopted stack at cost 14: its selection score is at least 0.008 higher; its PFF development mean at least 0.010 higher (the amendment of 16:23 EST on when set D is spent); the composite is not lower; no group falls by more than 0.01; and N = 1.75, 4 and 4.5 each fall by no more than 0.01. Of those that hold, the highest selection score is taken.
+
+**Confirmation, once,** if one holds: against the adopted stack, on PFF set D (the sixteen games named in the amendment of 16:23 EST, parsed only for this step) and the holdout. It replaces the adopted stack if set D's N = 3 mean rises by at least **+0.01** (C3), the holdout primary and the holdout long-hidden mean each fall by no more than 0.01, and N = 1.75, 4 and 4.5, dead ball carried and team swap each fall by no more than 0.01. **If it passes,** the adoption steps of D48 follow (a build switch with the identity checks, two builds, the release check, C2 re-declared, the records, a commit and a push). **If none holds or the confirmation fails,** the adopted stack stands and the search is closed.
+
+**Records.** `dfl_submission/stack_recipe/d59_*.json`, each written once. Code: new modules only (`dfl_submission/tree_share.py`, `dfl_submission/tree_share_trial.py`); existing modules stay byte-identical. Scratch goes to `data/d59/`. Every D59 command except a build runs with `MTAH_DATA_DIR` set to a nonexistent path and calls `require_external_only()`.
+
+*Amendment to D59 (2026-11-13, 18:18 EST, before any member output is cached or anything is scored).* The researcher session read the saved trees' feature lists: over 90% of their gain is in ball-relative columns, many of them means over a few seconds or the last and next sighting, so on a hidden frame the trees still know roughly where the ball was across a short gap and almost nothing deep inside a long one. H(w) switches on the frame's own visibility and so also removes the trees in short flickers, where they still help. Two candidates are added, and nothing else changes:
+- **HT(w):** the trees' share of the ownership probability is w on frames whose nearest ball sighting, earlier or later in the half, is more than 3 s away, and 0.5 on every other frame; w ∈ {0.25, 0}. The 3 s is set by judgement from the windows the trees' strongest columns average over, and is not tuned.
+- **RHT(w):** R with HT(w), w ∈ {0.25, 0}.
+The grid is therefore H(0.25), H(0), HT(0.25), HT(0), R, RH(0.25), RH(0), RHT(0.25), RHT(0), each at ownership cost 12, 14 and 16. The rule for what holds and the confirmation are unchanged.
+
+*Correction to the round-14 note and D59 (2026-11-13, 18:58 EST, before anything is scored).* The note says half of the stack's ownership probability comes from the trees. It is a quarter. Each model set blends its trees with one of its two network slots at 0.5, and that blend is then mixed at 0.5 with the other slot (the seed-97 networks, phase-averaged), so the final ownership probability is ¼ trees, ¼ the first slot's networks and ½ the second slot's. The researcher session checked this numerically on the code D59's scorer uses. D59's shares are therefore shares of the first blend: H(w), HT(w) and their R forms move the trees' part of the final probability on the affected frames from 0.25 to 0.5 × w, that is to 0.125 or 0. The candidates, the grid and the rule are unchanged; only the wording was wrong.
+
+**D59 outcome (2026-11-13, 19:25 EST).** **None of the nine candidates holds at any cost. The adopted stack stands, PFF set D is not spent, and the search is closed.** Both checks passed: with D3's trees and the standing mix the scorer reproduced the cost-14 row of `development_t.json` exactly from its cached members (68 halves), and the refit reproduced D3's trees byte for byte on their own sequences before it ran on D49's.
+
+| Candidate, at its best cost by selection score | Selection score, change | PFF, change | Composite, change | Long-hidden guard mean, change | Largest fall of a group |
+|---|---:|---:|---:|---:|---|
+| Adopted stack, cost 14 | 0.7326 | 0.6958 | 0.7283 | 0.7369 | |
+| H(0.25): trees halved on unseen frames | +0.0030 | +0.0019 | +0.0026 | +0.0034 | Metrica −0.001 |
+| H(0): trees removed on unseen frames | −0.0006 | +0.0055 | −0.0001 | −0.0011 | team swap −0.004 |
+| HT(0.25): halved beyond 3 s from a sighting | +0.0019 | +0.0006 | +0.0001 | +0.0038 | none |
+| HT(0): removed beyond 3 s from a sighting | +0.0014 | −0.0020 | +0.0019 | +0.0008 | PFF −0.002 |
+| R: trees refitted on D49's views | −0.0006 | +0.0032 | −0.0017 | +0.0005 | DFL masked −0.007 |
+| RH(0.25) | +0.0011 | +0.0037 | +0.0019 | +0.0003 | Metrica −0.001 |
+| RH(0) | +0.0005 | +0.0095 | +0.0005 | +0.0005 | DFL masked −0.007 |
+| RHT(0.25) | −0.0011 | +0.0036 | −0.0015 | −0.0006 | DFL masked −0.007 |
+| RHT(0) | +0.0008 | +0.0034 | −0.0016 | +0.0032 | DFL masked −0.007 |
+
+- **The rule:** +0.008 on the selection score and +0.010 on PFF development were needed. The best selection gain is +0.0030 and the best PFF gain +0.0095; no candidate meets either.
+- **What it shows.** Taking the trees out of the ownership probability on unseen frames (H, RH) raises PFF at every cost, by up to +0.010 with the refitted trees, which is the direction their dependence on the ball predicts; keyed to 3 s from a sighting (HT) it does not. Nothing else moves by more than a seed set's spread. The trees are a quarter of the final ownership probability (the correction above), and they cost little where the ball is hidden. [Scores](dfl_submission/stack_recipe/d59_scores.json), [amended scores](dfl_submission/stack_recipe/d59_scores_amended.json), [decisions](dfl_submission/stack_recipe/d59_decision_amended.json), [refit](dfl_submission/stack_recipe/d59_refit.json)
+
+## Note — The search is closed (2026-11-13, 19:25 EST)
+
+Round 14 tried its one lever and adopted nothing. The submission is D48's stack, `f6d7b2933a6210ce0c8a1ee96019f86815288d97368d656f366782345e6fc65d`, release-checked on `49cec0d`. Rounds 13 and 14 leave three small, consistent signals on PFF that no rule could confirm at C3's bar (the air rule on every training match +0.006 to +0.007; refitted trees removed on unseen frames +0.010; 10,800 steps about +0.002 on the selection score); they are recorded for whoever continues, not combined untested. PFF sets D and E are unparsed. The orchestrator closes the search here under Derek's instruction of 17:42 EST; what remains is recording this round in the documents, a commit and a push.

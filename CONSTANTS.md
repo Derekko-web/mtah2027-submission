@@ -138,6 +138,16 @@ These values were set by judgement in their rules, from the organisers' publishe
 | Training length of the situation candidates (D56) | S 8,100 steps; SL 10,800 | `situation_fit.CANDIDATES` (`situation_fit.py:42`) | As above. |
 | Air rule on SkillCorner (D57's SZ) | D56's S, with the SkillCorner views also hiding the ball on detected frames whose provider height is above 1.5 m (resampled to 25 Hz like x and y). Seeds 1,130,000 / 1,140,000 for the delays of the runs the air rule makes or changes | `skill_height.AIR_SEEDS` (`skill_height.py:55`), `skill_height.skill_view` (`:313`) | Failed D57's rule: selection score +0.0014; PFF +0.006 to +0.007 at every cost, short of the +0.010 a confirmation required. |
 
+## Tried in round 14 and not in the build
+
+D59's values were set in its rule (the shares, the costs) or by judgement in its amendment (the 3 s), and nothing beyond them was searched. None affects the submitted file, which keeps the trees' share of 0.5 in the first blend on every frame (a quarter of the final ownership probability) and ownership cost 14. D59 also refitted both tree heads of both sets exactly as D3 fitted them, on D49's training sequences (`tree_share_trial.refit`, `tree_share_trial.py:80`); that adds no constant.
+
+| Constant | Value | Where | Outcome |
+|---|---|---|---|
+| Trees' share of the first ownership blend where the ball is unseen (D59's H and RH) | 0.25 or 0 instead of 0.5, on frames whose ball position is missing in the tracking the forecast receives (after any hiding); the second blend, the stoppage blend and the boundary signals unchanged. On those frames the trees' part of the final ownership probability falls from 0.25 to 0.125 or 0 | `tree_share.SHARES`, `CANDIDATES` (`tree_share.py:45–46`; HT and RHT in `tree_share_trial.TIMED`, `tree_share_trial.py:41`), `tree_share.seen` (`:67`), `tree_share.blend_h` (`:73`) | Failed D59's rule: best selection score change +0.0030 (H(0.25)) and best PFF change +0.0095 (RH(0)), against +0.008 and +0.010. |
+| Distance from the nearest sighting (D59's HT and RHT) | the same shares on frames whose nearest ball sighting, earlier or later in the half, is more than 3 s (75 frames at 25 Hz) away, and 0.5 elsewhere; a half with no sighting counts as far everywhere. Set by judgement from the windows the trees' strongest columns average over | `tree_share_trial.GAP` (`tree_share_trial.py:40`), `tree_share_trial.far_from_sighting` (`:133`) | As above. |
+| Ownership costs scored (D59) | 12, 14 and 16; each candidate judged at its cost with the highest selection score, against the stack at 14 | `tree_share.COSTS`, `REFERENCE_COST` (`tree_share.py:43–44`) | As above. |
+
 ## Notes
 
 - **Pitch size.** The submission now uses the metadata's 105 × 68 m. Only the two earlier fallback builds still use the 105.3 × 68.0 m from `games.py`.
