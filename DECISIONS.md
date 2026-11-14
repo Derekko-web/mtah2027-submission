@@ -2823,3 +2823,87 @@ The note above closed the search. The orchestrator reopens it for one step, and 
 - **Set D is the condition that failed.** Eight of the fifteen games rose and seven fell (from +0.025 on 3856 to −0.012 on 10515); the mean change is +0.0051 with a standard error of about 0.003. Every no-harm condition held.
 - **What it shows.** The development figure this rule was written on, +0.0133 on PFF, shrank to +0.0051 on fresh games. That is what choosing the best row after the fact predicts, and it is unlike D48, whose development figure was not chosen that way and held (+0.033 on development, +0.035 fresh). The air rule on every training match is a real but small gain on real tracking, about +0.005, and not one that clears C3's bar; on the standard holdout it gave back about as much.
 - **Where things stand.** The submission is D48's stack, `f6d7b2933a6210ce0c8a1ee96019f86815288d97368d656f366782345e6fc65d`, unchanged since it was adopted. PFF set D is spent; set E (eight games) is unparsed. As D61 said, no further rule is written. [Confirmation](dfl_submission/stack_recipe/confirmation_d61.json)
+
+## Note — Round 16: Derek reopens the search (2026-11-14, 09:46 EST)
+
+D61 said the orchestrator would write no further rule. On 14 November Derek asked twice. First: "do your best to maximize the odds of winning the competition." The orchestrator answered that the search should stay closed (rounds 13 to 15 found +0.003 to +0.005 on fresh games, the organisers put the score's noise near 0.04, and the form had opened), checked the submission files and prepared them for upload. Derek then wrote: "theres still a few days left. thats still more than enough time to do something to improve performance." That is his decision, and round 16 follows it.
+
+What is left to try. Every lever that an external confirmation can measure has been tried, and the last three rounds stayed under C3's bar. Two larger levers are closed by rules: training on PFF (its terms; Gradient Sports has not replied) and anything fitted on the provided tracking. One input has never been used at all: the teams on Smart Tagging's phases. D4 used only the times of the set-piece tags and ignored every team; section 7 of the technical document says the phases were dropped because no external match has them, so nothing about them can be scored. The organisers' DATA.md says of them: "Every phase carries a team tag and every possession has a team ... That is a strong prior, for free, on both halves of the label you are producing", and warns that they are inferred, that the intervals are phases and not possessions, and that a tag is evidence and not an answer. The 3 November email lists "the smart tagging" among the inputs an algorithm may use.
+
+Round 16 tests that one input, in the one place where the stack is known to be weak: where the ball has been hidden for long (D46, D46a: on real automatic tracking the decoded owner is right on 96% of seen-ball frames and on 78% of frames in hidden runs over 10 s). It is a different kind of step from every earlier one, and the rule below says so: the real tags' accuracy cannot be measured, so the evidence is a sensitivity analysis on simulated tags, and the design is built to bound the loss if the real tags are poor. The standing file stays submitted throughout; it is replaced only if every condition below holds. D29 (dead ball from a tagged goal to the next kick-off) stays out.
+
+## D62 — Smart Tagging's phase teams as ownership evidence where the ball is long hidden (2026-11-14, 09:46 EST, written before any D62 code exists, any tag is simulated or anything is scored)
+
+**Question.** If the team named by a Smart Tagging attacking phase is added as weak evidence of who has the ball, only on frames far from any ball sighting, does spellF1 rise when the tags are of moderate quality, and is the loss small when they are poor or carry no information?
+
+**Disclosure.** No external match has Smart Tagging, so this step cannot be confirmed on real tags, and C3's +0.01 can be met only on simulated ones. The tag profiles below are stress scenarios set by judgement before anything is scored, as D4's were; they do not establish how accurate the real tags are. D27 is the only earlier step adopted without an external score, and it rests on the Laws; this one rests on the organisers' description of the tags and on a bound on the loss. Development has been reused by every step. All of this goes into the technical document if the step ships.
+
+**The rule applied to a half (the candidate).** The adopted stack, unchanged (networks, trees, blends, cutoff, costs, ownership cost 14, the kick-off rule), with one addition before decoding:
+- *Tags read.* Only the instances whose code is `BUILD UP`, `PROGRESSION`, `CREATING CHANCES` or `ATTACKING TRANSITION` (the four phases in which the tagged team has the ball), with their start, end and `Team`. An instance whose team is `N/A` is ignored. The defending phases mirror these and are not read; the ball-zone tags, long balls, set pieces and goals are not read.
+- *Tag state of a frame.* +1 if at least one such instance covering the frame names the home team and none names the away team; −1 for the reverse; 0 otherwise.
+- *Where it acts.* Only on frames whose nearest ball sighting, earlier or later in the half, is more than 3 s away (D59's HT mask, set by judgement there), and whose tag state is not 0.
+- *What it does.* On those frames the log-odds of home control given live play move by w × the tag state before the decoder runs. Nothing else changes: the stoppage probability, the boundary signals and every cost are as they are.
+- *Grid.* w ∈ {0.5, 1, 2} (the decoder needs 14 units of summed evidence to change team, so with the models neutral a tag alone changes the team after about 5.6 s, 2.8 s or 1.4 s).
+
+**Simulated tags on external halves.** From the N = 3 targets of each half. Each true possession lasting at least 5 s becomes a phase with probability c; its start is the true start plus a uniform delay of 0 to a seconds, its end the true end plus a uniform offset of −1 to b seconds, clipped to the half, and it is dropped if shorter than 2 s; with probability q it names the wrong team.
+
+| Profile | c | a | b | q | Extra |
+|---|---:|---:|---:|---:|---|
+| Good | 0.8 | 1 s | 1 s | 0.05 | |
+| Moderate | 0.6 | 2 s | 3 s | 0.15 | |
+| Poor | 0.6 | 3 s | 5 s | 0.30 | |
+| Carry | 0.6 | 2 s | 3 s | 0.15 | On frames more than 3 s from a ball sighting, the tag state is replaced by the team that truly had the ball at the last sighting before the hidden run (0 if play was dead there): a tagger that learns nothing while the ball is hidden. |
+
+Three draws per half and profile, the same draws for every w, from NumPy default generators seeded `620000 + 1000 × half index in the scored order + 10 × profile index + draw index` (zero-based). Scores are averaged over the draws.
+
+**Pipeline checks.** With no tags the scorer reproduces the cost-14 row of `stack_recipe/development_t.json` exactly from the stack's cached decoder inputs. A tag state of 0 everywhere, and w = 0, each give the standing labels on every scored half.
+
+**Development.** Scored as D59 scored its candidates (D47's eight groups, D49's two long-hidden guard views, D33's conventions), against the adopted stack at cost 14 with no tags.
+- *Bounded loss.* A weight is safe if, under Poor and under Carry alike: the composite falls by no more than 0.003; PFF development and the long-hidden guard mean each fall by no more than 0.005; no group falls by more than 0.01; and N = 1.75, 4 and 4.5 each fall by no more than 0.01.
+- *Selection.* The largest safe weight is taken. It is not chosen by its gain.
+- *Gate.* Under Moderate, the selected weight must raise PFF development by at least 0.010 and the long-hidden guard mean by at least 0.010, with the composite not lower. Good is reported and decides nothing.
+If no weight is safe or the gate fails, nothing ships and set E is not parsed.
+
+**The check the build will run, fixed on development.** For the selected weight the record stores, per profile, the share of frames on which the tag's team equals the standing decode's team, over frames where the ball is seen, the standing decode is `H` or `A` and the tag state is not 0. **θ is the midpoint of that share under Moderate and under Poor.**
+
+**Confirmation, once,** if the gate passes: PFF set E (3818, 3826, 3834, 3842, 3850, 3858, 10508, 10516, parsed only for this step; a game the standing reader refuses is left out and named, and at least six must be read) and the holdout as D48's confirmation scored it, with the same profiles and the same seed rule, against the adopted stack, which must first reproduce its holdout numbers of D48's confirmation. **The step holds if:** under Moderate, set E's N = 3 mean rises by at least **+0.01** (C3, on simulated tags) and the long-hidden holdout mean is not lower; and under Poor and under Carry, set E, the holdout primary and the long-hidden holdout mean each fall by no more than 0.005, and N = 1.75, 4 and 4.5, dead ball carried and team swap each fall by no more than 0.01.
+
+**The build, if the step holds.** A new build command behind the stack's identity checks, with these added checks, each failing closed (the build writes nothing and prints only the name of the check):
+1. the Smart Tagging file holds exactly the documented numbers of the four codes (22, 66, 30, 24; DATA.md);
+2. every team on them is `Barcelona`, `Atletic Club` or `N/A`, compared after trimming and lower-casing; `Barcelona` is the home team;
+3. every instance read lies inside the video and has a positive length;
+4. over both graded halves, the share defined above (tag team equal to the standing decode's team, ball seen, decode `H` or `A`, tag state not 0) is at least θ.
+With the weight set to 0 the new command must reproduce `f6d7b293…` byte for byte. If the build refuses, or its file equals the standing one, the standing file stays and nothing further is tried: the checks, θ and the weight are not changed after a build has run. If it gives a new file: two agreeing builds, `stack_trial build` still `f6d7b293…`, four release builds, C2 re-declared with ranges from the stack's external predictions with and without the simulated tags, the records and documents, a commit and a push. In an AI session only a validator's OK line, a SHA-256, a check's verdict or a refusal's name is read.
+
+**What this cannot show, stated before it runs.** Check 4 measures the real tags only where the ball is seen, and the rule acts only where it is not. If the real tags are right where the ball is seen and wrong where it is hidden in a way none of the four profiles covers, the step can lose more than the bound. The weight is the protection against that, and the reason the rule acts nowhere else.
+
+**Records.** `dfl_submission/stack_recipe/d62_development.json`, `d62_decision.json`, `confirmation_d62.json`, each written once. Code: new modules only (`dfl_submission/phase_evidence.py`, `dfl_submission/phase_trial.py`, and for the build `dfl_submission/phase_build.py`); existing modules stay byte-identical. Scratch goes to `data/d62/`. Every D62 command except a build runs with `MTAH_DATA_DIR` set to a nonexistent path and calls `require_external_only()`.
+
+**D62 outcome (2026-11-14, 10:26 EST).** **The development gate failed. Nothing ships, PFF set E is not parsed, no build code was written, and the submission is unchanged.** Both pipeline checks passed: with no tags the scorer reproduced the cost-14 row of `development_t.json` exactly, and a zero tag state at each weight, and w = 0 under every profile and draw, each gave the standing labels on all 64 scored halves. `develop` ran once.
+
+Changes against the adopted stack at cost 14 with no tags, averaged over three draws:
+
+| w | Profile | Composite | PFF development | Long-hidden guard mean | Largest fall of a group |
+|---|---|---:|---:|---:|---|
+| 0.5 | Good | +0.0006 | +0.0037 | +0.0024 | none |
+| 0.5 | Moderate | +0.0003 | +0.0013 | −0.0021 | DFL masked −0.0003 |
+| 0.5 | Poor | +0.0003 | +0.0013 | +0.0012 | DFL masked −0.0003 |
+| 0.5 | Carry | −0.0004 | −0.0017 | −0.0038 | PFF −0.0017 |
+| 1 | Good | +0.0013 | +0.0075 | +0.0027 | none |
+| 1 | Moderate | +0.0010 | +0.0048 | −0.0013 | DFL masked −0.0005 |
+| 1 | Poor | +0.0004 | +0.0031 | −0.0012 | DFL team swap −0.0012 |
+| 1 | Carry | −0.0008 | −0.0026 | −0.0080 | DFL dead ball carried −0.0026 |
+| 2 | Good | +0.0009 | +0.0076 | −0.0003 | DFL masked −0.0019 |
+| 2 | Moderate | +0.0009 | +0.0041 | −0.0093 | DFL masked −0.0011 |
+| 2 | Poor | −0.0002 | +0.0025 | −0.0144 | DFL masked −0.0039 |
+| 2 | Carry | −0.0031 | −0.0060 | −0.0569 | DFL masked −0.0071 |
+
+- **Bounded loss:** only w = 0.5 is safe. w = 1 loses 0.0080 on the guard mean under Carry (0.005 allowed); w = 2 loses 0.0144 on it under Poor and fails on the composite, PFF and the guard mean under Carry. N = 1.75, 4 and 4.5 moved by at most 0.003 everywhere.
+- **Gate, w = 0.5 under Moderate:** PFF +0.0013 and the guard mean −0.0021, against +0.010 each; the composite +0.0003. **Failed.** No weight would have met it: the best PFF under Moderate is +0.0048 (w = 1), and the guard mean is lower at every weight.
+- **Even good tags gain little.** Under Good (four phases in five, 95% naming the right team, edges within a second) the best gain is +0.0076 on PFF and +0.0027 on the guard mean. The rule acts on 3–5% of live frames overall (PFF 3.5–5.2%; the guard views 12–23%): on PFF 32% of all frames are more than 3 s from a ball sighting, but only 7% of the live ones, since most long hidden runs are stoppages.
+- **What it shows.** Knowing the team where the ball is long hidden is no longer where the stack loses. D58's record says where it does: on degraded and real automatic tracking the stack finds 4–13% of the true possessions shorter than 1.75 s and 22–52% of those lasting 1.75–3 s, and on PFF its detection F1 falls from 0.80 at the loosest overlap (0.3) to 0.56 at the strictest (0.7). A phase names a team over many seconds; it cannot place a short possession or its edges, and evidence that outlasts a change by a second or two costs about what the right team gains (Good at w = 2: the DFL guard view −0.003). Under Carry at w = 2 the guard mean falls 0.057: the networks do find changes while the ball is hidden, and evidence saying "no change" removes them.
+- **For the record:** the agreement shares were Good 0.918, Moderate 0.815, Poor 0.669 and Carry 0.809, so θ would have been 0.742; it is not used. The coding session's readings of the rule: under Carry the tag state is replaced on every frame more than 3 s from a sighting, whether or not a simulated phase covers it (so its three draws score alike there, and it acts on more frames than Moderate); the last sighting is the last seen frame strictly before; θ is pooled over all halves and draws. None changes the verdict. The provided match's Smart Tagging file was not read for this step. [Development](dfl_submission/stack_recipe/d62_development.json), [decision](dfl_submission/stack_recipe/d62_decision.json); code `phase_evidence.py`, `phase_trial.py`.
+
+## Note — Round 16 ends (2026-11-14, 10:26 EST)
+
+Round 16 tested the one input the project had never used, the teams on Smart Tagging's phases, in the place where it could matter most, and adopted nothing: on simulated tags even good ones add under +0.008 on PFF, and only the smallest weight keeps the loss bounded. The submission stays D48's stack, `f6d7b2933a6210ce0c8a1ee96019f86815288d97368d656f366782345e6fc65d`. PFF set E is unparsed. The phases, like the rest of Smart Tagging apart from the kick-off tags, stay unread by the build. What the round leaves is a sharper statement of the remaining loss: short possessions and the timing of their edges, not which team has a hidden ball. Nothing in the allowed data teaches that in the time left, so the orchestrator closes the search again; the two larger levers stay closed by rules (training on PFF, for which Gradient Sports' written permission is still missing, and anything fitted on the provided tracking).

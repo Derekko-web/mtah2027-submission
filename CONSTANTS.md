@@ -152,6 +152,18 @@ D59's values were set in its rule (the shares, the costs) or by judgement in its
 
 D60 and D61 introduced no value that is not listed above, and neither is in the build. D60's candidate P reused D57's training views (the air rule on SkillCorner, round 13 above), the stack's three seeds per slot and 8,100 steps, D59's share of 0 on unseen frames, D59's tree refit (here on D57's sequences) and the costs 12, 14 and 16. D61's candidate Q is the same twelve networks with D3's trees, the standing shares and the adopted cost 14.
 
+## Tried in round 16 and not in the build
+
+D62's values were all written in its rule before any code existed, by judgement; none was searched beyond the three weights, and none affects the submitted file, whose build reads only the kick-off tags of the Smart Tagging file. The tag profiles are stress scenarios, not measurements of the real tags.
+
+| Constant | Value | Where | Outcome |
+|---|---|---|---|
+| Phase codes whose team would count as ownership evidence (D62) | `BUILD UP`, `PROGRESSION`, `CREATING CHANCES`, `ATTACKING TRANSITION`; an `N/A` team ignored; a frame covered by both teams counts for neither | DECISIONS.md D62; on external data the phases are simulated (`phase_evidence.py`) | Development gate failed; not in the build. |
+| Where the evidence acts (D62) | frames whose nearest ball sighting is more than 3 s away, D59's distance (`tree_share_trial.GAP`) | `phase_evidence.py` | As above. |
+| Weight on the log-odds of home control (D62) | 0.5, 1 or 2; the largest whose loss stays bounded under the Poor and Carry profiles is taken (0.5) | `phase_evidence.WEIGHTS` (`phase_evidence.py:44`) | As above: 0.5 gained +0.0013 on PFF under Moderate, against +0.010. |
+| Simulated tag profiles (D62) | share of true possessions of at least 5 s that become a phase, latest start delay, latest end offset (from −1 s), wrong-team rate: Good 0.8, 1 s, 1 s, 0.05; Moderate 0.6, 2 s, 3 s, 0.15; Poor 0.6, 3 s, 5 s, 0.30; Carry as Moderate, with the tag replaced far from a sighting by the team that had the ball at the last sighting. Phases under 2 s dropped; three draws per half and profile, seeds `620000 + 1000 × half + 10 × profile + draw` | `phase_evidence.PROFILES`, `MIN_POSSESSION`, `MIN_PHASE`, `SEED_BASE`, `DRAWS` (`phase_evidence.py:38–56`) | As above. |
+| Loss bounds and gate (D62) | bounds under Poor and Carry: composite −0.003, PFF development and the long-hidden guard mean −0.005, any group and N = 1.75, 4, 4.5 −0.01; gate under Moderate: +0.010 on PFF development and on the guard mean, composite not lower | `phase_trial.py` (`SAFETY_PROFILES`, `GATE_PROFILE`) | As above. |
+
 ## Notes
 
 - **Pitch size.** The submission now uses the metadata's 105 × 68 m. Only the two earlier fallback builds still use the 105.3 × 68.0 m from `games.py`.

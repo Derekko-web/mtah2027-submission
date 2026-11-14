@@ -236,7 +236,20 @@ Round 15 (13 November) reopened the search for one combination of the two small 
   - Two amendments before any score: set D's game 3840, which the standing PFF reader refuses (a repeated frame with differing content), is left out; the check that a half's attacking sign agrees with its first qualifying frame is reported, not enforced (3841's second half), while every match's two halves must still have opposite signs.
   - Set D, fifteen fresh games: 0.7039 → 0.7090 (+0.0051; eight games up, seven down). Long-hidden holdout views +0.0030, holdout primary 0.73276 → 0.72760 (−0.0052), conventions −0.005 to −0.006, dead ball carried +0.005, team swaps +0.004. **Failed on set D;** every no-harm condition held.
 
-Nothing changed: the submission stays the stack (`f6d7b293…`). PFF set D is spent; set E (eight games) is unparsed. The search was closed again. 690 of 690 tests in 82 files pass on the working tree with these documents. [D60 trainer check](dfl_submission/stack_recipe/d60_check.json) · [D60 refit](dfl_submission/stack_recipe/d60_refit.json) · [D60 development](dfl_submission/stack_recipe/d60_development.json) · [D61 confirmation](dfl_submission/stack_recipe/confirmation_d61.json)
+Nothing changed: the submission stays the stack (`f6d7b293…`). PFF set D is spent; set E (eight games) is unparsed. The search was closed again. 690 of 690 tests in 82 files passed on the working tree with round 15's documents. [D60 trainer check](dfl_submission/stack_recipe/d60_check.json) · [D60 refit](dfl_submission/stack_recipe/d60_refit.json) · [D60 development](dfl_submission/stack_recipe/d60_development.json) · [D61 confirmation](dfl_submission/stack_recipe/confirmation_d61.json)
+
+### Round 16 (D62): nothing adopted
+
+On 14 November Derek, the team's lead, reopened the search once more. Round 16 tested the one input the project had never used: the teams on Smart Tagging's phases. The rule is in DECISIONS.md (the note "Round 16: Derek reopens the search", D62 and its outcome).
+
+- **D62, the phases' teams where the ball is long hidden** (`phase_evidence.py`, `phase_trial.py`). The team named by a `BUILD UP`, `PROGRESSION`, `CREATING CHANCES` or `ATTACKING TRANSITION` tag would move the log-odds of home control by a weight w (0.5, 1 or 2), only on frames more than 3 s from any ball sighting; the stack is otherwise unchanged.
+  - No external match has Smart Tagging, so the tags were simulated from the N = 3 targets under four profiles fixed before scoring: Good, Moderate, Poor (wrong team three times in ten, edges up to 5 s late) and Carry (a tagger that learns nothing while the ball is hidden). This is a sensitivity analysis, not a confirmation on real tags, and the rule says so.
+  - The rule took the largest weight whose loss stayed bounded under Poor and Carry, and required +0.010 on PFF development and on the long-hidden guard mean under Moderate before PFF set E could be spent.
+  - Checks first: with no tags the scorer reproduced the stack's cost-14 development row exactly, and a zero tag state and w = 0 each gave the standing labels on every half.
+  - Only w = 0.5 was safe (w = 1 lost 0.0080 on the guard mean under Carry; w = 2 lost 0.057). Under Moderate it gave PFF +0.0013 and the guard mean −0.0021. **The gate failed.** Even under Good the best gain was +0.0076 on PFF: the rule acts on 3–5% of live frames, because most long hidden runs are stoppages.
+  - What it shows: which team has a long-hidden ball is no longer where the stack loses. The loss is in short possessions and the timing of their edges (D58's record), which a phase lasting many seconds cannot place.
+
+Nothing changed: the submission stays the stack (`f6d7b293…`). PFF set E is unparsed, no build code was written, and the build still reads only the kick-off tags of the Smart Tagging file. The search was closed again. 722 of 722 tests in 84 files pass on the working tree with these documents. [D62 development](dfl_submission/stack_recipe/d62_development.json) · [D62 decision](dfl_submission/stack_recipe/d62_decision.json)
 
 ## Reproduce the submission
 
@@ -711,6 +724,9 @@ Round 12's commands write each record once. All run with `MTAH_DATA_DIR` set to 
 .venv/bin/python -m dfl_submission.confirm_d61 prepare --dfl "$DFL_XML" --skill data/skillcorner --parsed data/pff/parsed \
   --pff-raw data/pff/raw
 .venv/bin/python -m dfl_submission.confirm_d61 confirm --dfl "$DFL_XML" --skill data/skillcorner --parsed data/pff/parsed
+
+# D62: simulated Smart Tagging phase teams as ownership evidence far from a ball sighting (gate failed)
+.venv/bin/python -m dfl_submission.phase_trial develop --dfl "$DFL_XML" --dfl-raw --skill data/skillcorner --parsed data/pff/parsed
 ```
 
 C2 checks the final file without any ground truth (`output_check.py`). Its ranges come from the submission's predictions on 28 external match views: possessions per minute, the share of dead ball, and sub-second stoppages per 90 minutes. C2 was declared for D15 (`ranges`, `output_check_ranges.json`), then re-declared for D43 (`ranges-d43`, `output_check_ranges_d43.json`) and for the stack (`ranges-d48`, `output_check_ranges_d48.json`: 0.83–4.16 possessions per graded minute, a dead share of 0.15–0.82 and 0–56.5 sub-second stoppages per 90 minutes). `check` reads the stack's ranges. A re-declaration for the unused D53 fallback (`ranges-d53`) was written but applies only if it ships. The check on the competition file prints only PASS or FAIL. On the stack's file (`f6d7b293…`) it was run once, on 13 November at 17:43 EST, after `shasum -a 256 -c SUBMISSION_SHA256.txt`, by the AI session under Derek's instruction of 17:42 EST (DECISIONS.md), and only its verdict line was read: PASS.
@@ -748,7 +764,7 @@ Each test file runs in its own process, because PyTorch and XGBoost each bring a
 
 - **Domain shift.** The external datasets come from other competitions and other tracking systems. Their dead-ball periods carry provider artifacts: DFL freezes the ball, and SkillCorner rarely detects it. The blend halves the weight of models trained with those artifacts, but our dead-ball simulation is itself an approximation.
 - **Possession definitions.** These differ between providers. DFL changes the owning team on any opponent touch. The challenge counts only controlled possession. Brief deflections may therefore appear as short possessions, and the decoder costs only partly absorb them.
-- **Smoothing.** The decoder can merge very short real possessions or shift their boundaries.
+- **Smoothing.** The decoder can merge very short real possessions or shift their boundaries. On degraded and real automatic tracking the stack finds 4–13% of the true possessions shorter than 1.75 s and 22–52% of those lasting 1.75–3 s (D58's record). This, not the team of a long-hidden ball, is where most of the remaining loss lies (D62).
 - **Long hidden-ball stretches.** On real automatic tracking, a third to two fifths of the hidden-ball frames lie in runs over 10 s, where the decoded owner is right less often (D46a). The long hidden-ball training views (D49) narrow that gap, but they are synthetic, not fitted to the competition tracking.
 - **The ball hidden in the air.** On views that hide the ball while it is above 1.5 m, the stack names the owner right on 81% of hidden frames, against 94% when the same runs are hidden at random (D55). Training views that hide it there raised PFF development by only +0.006 to +0.007 and met no gate (D56, D57); with three seeds per slot they gained +0.0051 on fifteen fresh PFF games, below the +0.01 required (D61).
 - **When a stoppage starts.** On the views with a realistic dead ball, true stoppages would still add about 0.065 (D58), mostly through when a found stoppage starts: late when a player carries the dead ball, early on PFF, whose tracker loses it. No single shift or cost corrects both.
