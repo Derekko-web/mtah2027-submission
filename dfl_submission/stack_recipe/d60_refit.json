@@ -1,0 +1,51 @@
+{
+  "code_path_same_as_d59": {
+    "aligned_trial.py": true,
+    "long_context.py": true,
+    "touch_trial.py": true
+  },
+  "d59_check": {
+    "augmented": {
+      "dead.ubj": true,
+      "ownership.ubj": true
+    },
+    "current": {
+      "dead.ubj": true,
+      "ownership.ubj": true
+    }
+  },
+  "d59_refit_sha256": "8969d75cece5a4d622bea263b33363e4d9afc44130d4a6df60ffd1c5cf9dbbde",
+  "passed": true,
+  "protocol": "DECISIONS.md D60",
+  "refits": {
+    "augmented": {
+      "dead.ubj": "a08aaa53dd1478726020bccc5a18329298090e8d8291a5e96b64f82430f76bf8",
+      "ownership.ubj": "2c9af1ad0e43a435fbd1797c7db0b0b74d4baf83dbc3109d53d5d34080d5ae96"
+    },
+    "current": {
+      "dead.ubj": "2ee12997a00d10beaf237a106e57303d4b1346b0b345794d05e9fef47c91a82b",
+      "ownership.ubj": "c68925a4ac9bee5a35c68cecf8e0fd29b4717a46f44d79674386912e5e961db4"
+    }
+  },
+  "refitted_at": "2026-11-13 20:13 EST",
+  "sources": {
+    "augmented": {
+      "fit_sha256": "a957f4d8d15a733ed1719a35336d75f24475c35f8557ba6d1fa0525658ba5ce4",
+      "manifest": "775cf11f150c1c9eabebba4dcf68715f9f2aa36707169b550275d8c828922c45",
+      "records": 112,
+      "rows": {
+        "dead.ubj": 1637045,
+        "ownership.ubj": 1806620
+      }
+    },
+    "current": {
+      "fit_sha256": "19225760fe03e66a2a0fb12ef81652bded39c09fc57a5156e3cedf6fc5936bdd",
+      "manifest": "f4a9e907c2eb8e3f1e17973a7b1ca237be6303f4c4e8ccef558257dcb354c5a1",
+      "records": 112,
+      "rows": {
+        "dead.ubj": 1637045,
+        "ownership.ubj": 1806620
+      }
+    }
+  }
+}

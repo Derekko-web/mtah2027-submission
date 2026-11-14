@@ -1,0 +1,3093 @@
+{
+  "candidate": "Q: D60's twelve networks (D57's views, three seeds), D3's trees, the standing mix",
+  "changes": {
+    "conventions": {
+      "aba1.75": -0.004664999603242848,
+      "aba4": -0.005864746602864845,
+      "aba4.5": -0.005446246489790307
+    },
+    "guards": {
+      "dead_carried": 0.004788386902927155,
+      "team_swap": 0.0040496403646309576
+    },
+    "long_hidden": 0.0030240293682133323,
+    "pff": 0.005057966043202966,
+    "primary": -0.005161437094234889,
+    "raw_standard": -0.0039744364444394,
+    "set_d_means": {
+      "aba1.75": 0.006174686183147315,
+      "aba3": 0.005057966043202966,
+      "aba4": 0.006185832856558937,
+      "aba4.5": 0.005328426839642519,
+      "raw": 0.005786426854578419
+    }
+  },
+  "code": {
+    "combined_trial.py": "4e2703b152bed85292b8515a2f05ff7c9c52472cb689450e3ef14aa980ec7491",
+    "confirm_d61.py": "391d358b6dfc9bea2b829c2fd2eb8071ff3a7a70307b0201f802a54120d061c3",
+    "direction_tokens.py": "a3a6e97d6d528aac780942f05218c7b657be00d79aadb48df192b8a5dc16b6bb",
+    "direction_trial.py": "cfb79a32d000adcb01d35bc88bed1bfaa7b1d034f2fe3e0f776820eb56d0cae1",
+    "height_fit.py": "d6ef5305bad46e5519d196b49db90b21d93d56c053197eaabb42615eb15e0ae6",
+    "hidden_trial.py": "993597172c87bdf43b56bf299e1f2e629634ba76dd3080bfbac6c1010141302c",
+    "hidden_views.py": "196b9632e57487e125e988f85e712b6145e75fe3d41b835fdaf7161e29416706",
+    "player_set.py": "4e298e542e4d2a47636f9e6dda50be14e62f8d9c7e96ebe64f1973a1f24ed2cc",
+    "player_set3.py": "6919a8c5c29367ff9a2690716f6265fbe698bb8574119d0c409f4edcf46c6a56",
+    "player_trial.py": "7ec395e78c6524f412856c1628d0d75e192fe221c094ecfdca453517081dbfc6",
+    "skill_height.py": "4505024078440f168ffcafbe8eb644ed5e2654a8f2ae8640f4ce883454f41bc9",
+    "stack_set.py": "d7ee48dc7c90b781da34119c22d82df3ccc5bfa90505e36299a67cb3f1c828e4",
+    "stack_trial.py": "47b36f6d34b64a4669c0b79db705a76ce47568f6751dc24b2a6d07aeed84a614",
+    "temporal_cpu.py": "1562369a1f099095786505c28505f0b80d498d47320c77a4f46242a6f1d7156b",
+    "tree_share.py": "22fab16b0e939dc7089ea39008f159c08687759eca99de9fa6ef54c2ed123da3"
+  },
+  "conditions": {
+    "conventions": true,
+    "guards": true,
+    "long_hidden": true,
+    "primary": true,
+    "set_d": false
+  },
+  "identity": {
+    "Q": {
+      "config": {
+        "aux": false,
+        "direction": true,
+        "mirror": "y",
+        "noise": false,
+        "seed_offset": 0
+      },
+      "d57_prepare": {
+        "augmented": "4d902936d48b13a55c901a6eec980c912dad50a76d23e755b43b4c53d73a3f22",
+        "current": "5180ca5cc401763d78c2e0d8d09ad085077f14dcc5e7f5b399f146ac6d6a0136"
+      },
+      "d60_check_sha256": "24f2fd7cb5a3a9d27d4fc5e8007b0f9f71f830a57faaf951b233280efbb8b307",
+      "d60_development_sha256": "1d0117b42373e587cc0dd853fe7db481cdd85bc28f13aaa778f984658f0358ef",
+      "networks": {
+        "0": {
+          "augmented": {
+            "seed_models": "c5006bec964ba40c35cd560e9af3035f93213a9d3243ce1c394d70aaab09625a",
+            "temporal_models": "253f3c8bd9d48114b2bab9d57fe5ffd2ba7b4b9032e60d015804df8a935daa2d"
+          },
+          "current": {
+            "seed_models": "e8f4dbedab0ea40f86cd2d05a62daf775ed0b190ab3ad41ae02cb2263b2ae916",
+            "temporal_models": "b2633ec3ebf43980be23e55e66f5fd74ffa5123b1bd1be63315fcc49766e1267"
+          }
+        },
+        "1000": {
+          "augmented": {
+            "seed_models": "aea2e785d680b1696bbd80f545ab8a1d8d7f64f3fa8dd286cd495c8f74d4e4a6",
+            "temporal_models": "568e216923471820b9115ed3568a8e04e6a3a0533addd86a5a6fa22fdc2c4a19"
+          },
+          "current": {
+            "seed_models": "119cdda91c7b8fc5b7c0d4b81d7beb24542d056477f096d5cbebeb59ad9b467b",
+            "temporal_models": "7bd2c4ad788941f52084ab8f4c05af99142c663dbace0e8b9e3549aa5123220f"
+          }
+        },
+        "2000": {
+          "augmented": {
+            "seed_models": "86d9e32c64c6ecfa2f7da7256847db773a45856558b985f5d9e3cff6c8fcc664",
+            "temporal_models": "151a6d685bb55f3a0238915fec83520bdfcdc22e66caf978547b8f3ac592c23c"
+          },
+          "current": {
+            "seed_models": "dec06d7d6b22e019a99bea2a9c1b0454f5da11e2db5201d10f6ecb14a87859d7",
+            "temporal_models": "871e49d2cd787d694c735cab24cef2d73ee285974c626e312fa65b788fb23d7e"
+          }
+        }
+      },
+      "raw_fit_sha256": {
+        "0": {
+          "augmented": {
+            "seed_models": "2ee8b087b6ede6c02246078acadefe723ceae67e8fdba78281864bbd56b78eb8",
+            "temporal_models": "29705e7a201986cf9fe2afdc7a614c8a036c9b1571b76184b2e01d1fd9164551"
+          },
+          "current": {
+            "seed_models": "e1758da788693a399d9aec1467473c32de9bc88b6dbad5c9f2ae2be590a59625",
+            "temporal_models": "668fca951c0a370265318c2a745a8040df005b450ea022ab4883dce55fa03581"
+          }
+        },
+        "1000": {
+          "augmented": {
+            "seed_models": "db4f8b4785829061f2576de5406f8fc68f1e2fb0809ee39048d7941e2f84d05b",
+            "temporal_models": "da70fdc3c9845cb9685ce712ece0c69a476470aba29ac13b7c7750fd3175846a"
+          },
+          "current": {
+            "seed_models": "7f4a7161a991c96ab89e4d270023561ddaf43eaad343b267d29afcf8d25134ad",
+            "temporal_models": "f0f085adf43be3bda9ea2f8f792f1a97471c5402357af9e31de8527caf60cbe8"
+          }
+        },
+        "2000": {
+          "augmented": {
+            "seed_models": "305da064e5408b65a0b05162105675f783c5b320caf8e75b36c65eeaaa324bdf",
+            "temporal_models": "ca47183363d22f1d0a169cb21ba385c1a9681115f6270bff128ea0668441b142"
+          },
+          "current": {
+            "seed_models": "0ff63dcf0992ccd838bf02976be4fa9dc9123805117dabc652194094cac3a71f",
+            "temporal_models": "a6fb1da3effa96764b6fb9645b25816b7095213ba265434a48908e05629d2dec"
+          }
+        }
+      },
+      "trees": {
+        "augmented": "af0a9153b994cec629c7afb30cd26fe084ef5a0e966ada6814895b5adde7cdc3",
+        "current": "b313e25ee0ecf28490cb8f6d191b40ab2fb3d28c44019f05963a5effb2a7a19c"
+      }
+    },
+    "adopted_stack": {
+      "code": {
+        "direction_tokens.py": "a3a6e97d6d528aac780942f05218c7b657be00d79aadb48df192b8a5dc16b6bb",
+        "player_set.py": "4e298e542e4d2a47636f9e6dda50be14e62f8d9c7e96ebe64f1973a1f24ed2cc",
+        "player_set3.py": "6919a8c5c29367ff9a2690716f6265fbe698bb8574119d0c409f4edcf46c6a56",
+        "stack_set.py": "d7ee48dc7c90b781da34119c22d82df3ccc5bfa90505e36299a67cb3f1c828e4",
+        "temporal_cpu.py": "1562369a1f099095786505c28505f0b80d498d47320c77a4f46242a6f1d7156b"
+      },
+      "config": {
+        "aux": false,
+        "direction": true,
+        "mirror": "y",
+        "noise": false,
+        "seed_offset": 0
+      },
+      "networks": {
+        "0": {
+          "augmented": {
+            "seed_models": "3652d4b8eec1bd6d6cc18c33835287e0b36285a4ad15f1df9a49ad4133289fac",
+            "temporal_models": "58b94b076141762de6bde8c15c9f0c34671b4bfb3f2c95231e6c898794269c0b"
+          },
+          "current": {
+            "seed_models": "8536ceaa315558a870337c98b501e8ce57dddb2d888bd405c66bcc32b21a71d5",
+            "temporal_models": "13dc2821e8ead76bc22d18549323a120725b0d17139d11cd6467e8dcb172eb66"
+          }
+        },
+        "1000": {
+          "augmented": {
+            "seed_models": "99b09d8c95ed496cf617ed96c34853776b78310bda7a603965f27c84b2595efa",
+            "temporal_models": "d739453ee78116a113e3c820a8db88ba5f5101b7d291be687acef3e894352587"
+          },
+          "current": {
+            "seed_models": "4f1107b1c04734becac1037d5bd9c90140dc6cb19030a90bae836cffc56b437c",
+            "temporal_models": "d4b832307b5ab8d4a2dcc91daa826cbcf3e6bfe0bd610126f03f0af47e24244c"
+          }
+        },
+        "2000": {
+          "augmented": {
+            "seed_models": "f0c26afef21bbf99144e2c5ddd20bc2f6aa26cbfd93c6047e9184c5c9c3975c1",
+            "temporal_models": "98f5cdc664a5cf6bcf19758395d9580b760a5d8b22e629e6208bc180ceba6236"
+          },
+          "current": {
+            "seed_models": "4caafeb854f61499870b13996e0fe6b2ab1c10a1b85bc6da730cf036f0004b02",
+            "temporal_models": "6d5ba838f71cc0afd2a4ddd32bef928ca4a81817cfe9c6657bc4816718972bc4"
+          }
+        }
+      },
+      "trees": {
+        "augmented": "af0a9153b994cec629c7afb30cd26fe084ef5a0e966ada6814895b5adde7cdc3",
+        "current": "b313e25ee0ecf28490cb8f6d191b40ab2fb3d28c44019f05963a5effb2a7a19c"
+      }
+    }
+  },
+  "inputs": {
+    "dfl_raw": true,
+    "pff_set_d": {
+      "parsed": {
+        "10506_1.npz": [
+          5784480,
+          "029dc5cfcb0c1c7f5bf24e565a2a0c4193798a4655048018a302d11a15444de8"
+        ],
+        "10506_2.npz": [
+          4938205,
+          "40dd523cd99a09e99fea2a5369d874e7cc1e6e217196eede482c8e3c23704574"
+        ],
+        "10507_1.npz": [
+          5758059,
+          "0becf66bfc7595055ef1e1eb582b0851842e62609e504e05c0f085eb4d130688"
+        ],
+        "10507_2.npz": [
+          5960080,
+          "8499676cc3b7a5afa303773031d3cc95c44b8a30575a96353a4dbac25b0b24ea"
+        ],
+        "10514_1.npz": [
+          5969751,
+          "49976a89a19e0d5ae3af7ed394c581c21a4a4193f543db1d3f182aaf404c5308"
+        ],
+        "10514_2.npz": [
+          5202389,
+          "9fbff52800f731e48df5e49366e293bfb0634f43a6a6b46a600ab4636b37f82b"
+        ],
+        "10515_1.npz": [
+          5003090,
+          "3a52b20bdcba6b0e25ae69b1f3b091bd00e8fb1dad61fca2680834291d8e2df4"
+        ],
+        "10515_2.npz": [
+          5371526,
+          "ee5e477bece0ed6980df4add169baa3a9621bcb87c46c8fecddf04ac21645287"
+        ],
+        "3816_1.npz": [
+          5446238,
+          "7620a2cd0af02a2fe50dd501258a8f4670b670e14b5778edf253d68bc4ec5509"
+        ],
+        "3816_2.npz": [
+          4828600,
+          "17bbb20fe1b9a8b66763c6cdd931ef2e6d78d75e0296afe5ef1a9249c33914f3"
+        ],
+        "3817_1.npz": [
+          4256601,
+          "aacec1e2cfddcef8d65906104e1d129bda02988995c723ac8b1268dd1da75a43"
+        ],
+        "3817_2.npz": [
+          3645789,
+          "b4db5f9b6ce21b05551495d1a3c5f2faeb193a6b887e9653edfca2c7e2ceecd1"
+        ],
+        "3824_1.npz": [
+          5657404,
+          "0e031179057ffa1fd2516fd73cf6077d1205e7d14be935e6680517ddab8f3282"
+        ],
+        "3824_2.npz": [
+          5179667,
+          "c71828f47f5b1490bc2563869df118c8d0419f7e8641bd6380be17166450b619"
+        ],
+        "3825_1.npz": [
+          4469303,
+          "8dc939171ff79755c0733a6b646b4ac7970fcaf89335447f9a0ca89b5fced276"
+        ],
+        "3825_2.npz": [
+          4401375,
+          "998aaa96bd84421186cf776ebdd237d5997ad75a8515da5b4b05dae9438e3b55"
+        ],
+        "3832_1.npz": [
+          4436311,
+          "4a0ff457652c82c58950e67fa4665aec9d1c1163f497d55302d5fd855360db9e"
+        ],
+        "3832_2.npz": [
+          4896839,
+          "c7013da89bbf6963d6a3b3bbacab5ffb6281e199b12c801e68c792f6520282b6"
+        ],
+        "3833_1.npz": [
+          4555362,
+          "5ef12c42196ab9a4b1824c1b104ef6f60c60f68142813e0b45c6c3422eae3b65"
+        ],
+        "3833_2.npz": [
+          4540406,
+          "aa3ab6465087ec1c676e62efb3b009daa2e0c835470176b1b26af81f0b659840"
+        ],
+        "3841_1.npz": [
+          4162683,
+          "404fdafd1dcfdc764a54896aaa16270d3dc0332c38f9143a759cd48e625eb4d4"
+        ],
+        "3841_2.npz": [
+          3539841,
+          "af4c2466bae172371ef40714c60f0e910bf1bdeb07a8eb47dcfc5b060a812caa"
+        ],
+        "3848_1.npz": [
+          5362338,
+          "ad1d0945a748bf22d6ebf4052bbb2d10628abfa98a09d5afe48e55839a4cce15"
+        ],
+        "3848_2.npz": [
+          5477114,
+          "18750511de9731a7573d0b938bc6bd26eb008cdef37b45e22adc2a8e81dfb7c2"
+        ],
+        "3849_1.npz": [
+          4846626,
+          "0a584066305e420c7414feb8942512dfd825ba4e35bda3e704a9bb99aae4744d"
+        ],
+        "3849_2.npz": [
+          5199313,
+          "05f8a3c305e53e33b2649525d6ac4cf8c361e6a46c50bf9d76974076f2650f6e"
+        ],
+        "3856_1.npz": [
+          4344248,
+          "fc871eac2e685559b880420f85072777fb9bff3e56adea980dbced7d7ba02bd7"
+        ],
+        "3856_2.npz": [
+          5170470,
+          "ed065ad288fb419e9df5d1cf7c287bfcea49a7973c1bc5c571c66daef10cf7e3"
+        ],
+        "3857_1.npz": [
+          4852684,
+          "5975453e78f0033a1d62fa14383405da7155f158ee80696675cb035824af10f5"
+        ],
+        "3857_2.npz": [
+          4808758,
+          "26237cf25c1c16ecc2a8884a1632902fb50fae3bc33cae1c24ed2cf81e2e8f2a"
+        ]
+      },
+      "sources_sha256": "9c28e02db8a01c7b14593b14236185d36255286b991358c4ce0567bf30f9d8fe"
+    },
+    "skill_manifest_sha256": "21f02036ba5b9cf9e16c44bf9eefefc0c717ecf5f6bb95938981f4a7f720f3e5"
+  },
+  "levers": {
+    "base_levers_sha256": "9b9d3961dfc8741e08720ac77f6b3ae7a580c462a015310c59e143e841af9c64",
+    "check_t_sha256": "3bce0c89faed8abb4ed04066e12dc3c7485e5853d4ae74b1d0fae06d665d6444",
+    "config": {
+      "aux": false,
+      "direction": true,
+      "mirror": "y",
+      "noise": false,
+      "seed_offset": 0
+    },
+    "d52_T_sha256": "3ab373f30bdc691e6687ff4006f33f5d9994ca884550f85448dda5473b46986e",
+    "data": "d49",
+    "offsets": [
+      0,
+      1000,
+      2000
+    ],
+    "protocol": "DECISIONS.md D48",
+    "recorded_at": "2026-11-13 04:12 EST",
+    "reuse": {
+      "0": {
+        "augmented": {
+          "seed_models": {
+            "export": "data/d52/networks/T/export/augmented/seed_models",
+            "export_fit_sha256": "3652d4b8eec1bd6d6cc18c33835287e0b36285a4ad15f1df9a49ad4133289fac",
+            "raw_fit_sha256": "9596b472fd1eb6ffb9321ec37273d45648a12a7df42d8c56a83bad7a73afb27a"
+          },
+          "temporal_models": {
+            "export": "data/d52/networks/T/export/augmented/temporal_models",
+            "export_fit_sha256": "58b94b076141762de6bde8c15c9f0c34671b4bfb3f2c95231e6c898794269c0b",
+            "raw_fit_sha256": "03f62673ffcf4016a1aee08b0d67a5288ffd27328452ed1ef3111e4b37f5d021"
+          }
+        },
+        "current": {
+          "seed_models": {
+            "export": "data/d52/networks/T/export/current/seed_models",
+            "export_fit_sha256": "8536ceaa315558a870337c98b501e8ce57dddb2d888bd405c66bcc32b21a71d5",
+            "raw_fit_sha256": "9d893c81452a86a53c63cf3133d0a587a1f658901eafb5bcfa786d696b6df949"
+          },
+          "temporal_models": {
+            "export": "data/d52/networks/T/export/current/temporal_models",
+            "export_fit_sha256": "13dc2821e8ead76bc22d18549323a120725b0d17139d11cd6467e8dcb172eb66",
+            "raw_fit_sha256": "d1bf702fce9cda8b8fdbdd5592145a11fd207029e31059d704b5c77f48433b6c"
+          }
+        }
+      }
+    },
+    "steps": 8100,
+    "trained_offsets": [
+      1000,
+      2000
+    ],
+    "variant": "t"
+  },
+  "levers_sha256": "c5cb072757b77e3e7e0c823511d37251fb4dd5417380d1f3472a82232fb2ddd2",
+  "long_hidden": {
+    "Q": {
+      "matches": {
+        "WQQ": 0.7173745173745173,
+        "WR9": 0.7156626506024096
+      },
+      "mean": 0.7165185839884635
+    },
+    "stack": {
+      "matches": {
+        "WQQ": 0.7186046511627907,
+        "WR9": 0.7083844580777096
+      },
+      "mean": 0.7134945546202501
+    }
+  },
+  "owner_cost": 14,
+  "passed": false,
+  "per_game_set_d": {
+    "10506": {
+      "Q": 0.7205357142857144,
+      "change": 0.01332850707850719,
+      "stack": 0.7072072072072072
+    },
+    "10507": {
+      "Q": 0.7966759002770083,
+      "change": -0.009972299168975018,
+      "stack": 0.8066481994459833
+    },
+    "10514": {
+      "Q": 0.7546174142480211,
+      "change": 0.008872733396957266,
+      "stack": 0.7457446808510638
+    },
+    "10515": {
+      "Q": 0.7242666666666666,
+      "change": -0.011949549549549632,
+      "stack": 0.7362162162162162
+    },
+    "3816": {
+      "Q": 0.65,
+      "change": 0.024331550802139112,
+      "stack": 0.6256684491978609
+    },
+    "3817": {
+      "Q": 0.7342592592592594,
+      "change": 0.008333333333333415,
+      "stack": 0.725925925925926
+    },
+    "3824": {
+      "Q": 0.762,
+      "change": -0.0018190954773869006,
+      "stack": 0.7638190954773869
+    },
+    "3825": {
+      "Q": 0.6978494623655913,
+      "change": -0.0005111933721135831,
+      "stack": 0.6983606557377049
+    },
+    "3832": {
+      "Q": 0.6136,
+      "change": 0.019291056910569204,
+      "stack": 0.5943089430894308
+    },
+    "3833": {
+      "Q": 0.7313432835820896,
+      "change": -0.0028339316077838905,
+      "stack": 0.7341772151898734
+    },
+    "3841": {
+      "Q": 0.6381201044386424,
+      "change": -0.0010443864229763289,
+      "stack": 0.6391644908616188
+    },
+    "3848": {
+      "Q": 0.69004329004329,
+      "change": -0.004099876984909545,
+      "stack": 0.6941431670281996
+    },
+    "3849": {
+      "Q": 0.719111111111111,
+      "change": 0.007200998751560439,
+      "stack": 0.7119101123595506
+    },
+    "3856": {
+      "Q": 0.6946004319654426,
+      "change": 0.024752275783230027,
+      "stack": 0.6698481561822126
+    },
+    "3857": {
+      "Q": 0.707871720116618,
+      "change": 0.0019893671754416253,
+      "stack": 0.7058823529411764
+    }
+  },
+  "prepared_sha256": "87682a592d86785d7d572ed042b4869b2ea160472953fb4dde5cae725c29d70c",
+  "protocol": "DECISIONS.md D61",
+  "recipe": {
+    "cutoff": 0.53,
+    "dead_cost": 2,
+    "dead_mix": 0.5,
+    "discount": 0.8,
+    "method": "joint",
+    "owner_cost": 14,
+    "owner_mix": 0.5,
+    "variant": "seed_phase"
+  },
+  "reference": {
+    "external": {
+      "conventions": {
+        "aba1.75": {
+          "dead_carried": 0.6244198238501328,
+          "matches": {
+            "dfl/WQQ/clean": {
+              "macro_f1": 0.9491955589960587,
+              "spell_f1": 0.7894573643410853,
+              "spells": 306
+            },
+            "dfl/WQQ/dead_carried": {
+              "macro_f1": 0.8677775963516661,
+              "spell_f1": 0.6205787781350482,
+              "spells": 283
+            },
+            "dfl/WQQ/masked": {
+              "macro_f1": 0.9306653069702552,
+              "spell_f1": 0.7249169435215947,
+              "spells": 263
+            },
+            "dfl/WQQ/team_swap": {
+              "macro_f1": 0.9202523933486937,
+              "spell_f1": 0.6880794701986755,
+              "spells": 265
+            },
+            "dfl/WR9/clean": {
+              "macro_f1": 0.9564156551856513,
+              "spell_f1": 0.7768421052631578,
+              "spells": 264
+            },
+            "dfl/WR9/dead_carried": {
+              "macro_f1": 0.8818124349090755,
+              "spell_f1": 0.6282608695652174,
+              "spells": 246
+            },
+            "dfl/WR9/masked": {
+              "macro_f1": 0.9335413598205533,
+              "spell_f1": 0.697378277153558,
+              "spells": 228
+            },
+            "dfl/WR9/team_swap": {
+              "macro_f1": 0.9259932326636161,
+              "spell_f1": 0.6786516853932584,
+              "spells": 228
+            },
+            "skillcorner/2013725/observed": {
+              "macro_f1": 0.90669275220646,
+              "spell_f1": 0.6968197879858657,
+              "spells": 239
+            },
+            "skillcorner/2015213/observed": {
+              "macro_f1": 0.9002648720906882,
+              "spell_f1": 0.6829787234042553,
+              "spells": 239
+            },
+            "skillcorner/2016236/observed": {
+              "macro_f1": 0.9184839278557618,
+              "spell_f1": 0.7207547169811321,
+              "spells": 229
+            },
+            "skillcorner/2017461/observed": {
+              "macro_f1": 0.9150174860557089,
+              "spell_f1": 0.6551724137931035,
+              "spells": 214
+            }
+          },
+          "standard": {
+            "macro_f1": 0.9245594254230212,
+            "spell_f1": 0.7120398645167569
+          },
+          "team_swap": 0.683365577795967
+        },
+        "aba3": {
+          "dead_carried": 0.6460366478353775,
+          "matches": {
+            "dfl/WQQ/clean": {
+              "macro_f1": 0.9457130467178492,
+              "spell_f1": 0.7565062388591799,
+              "spells": 306
+            },
+            "dfl/WQQ/dead_carried": {
+              "macro_f1": 0.8706382627130586,
+              "spell_f1": 0.6408921933085502,
+              "spells": 283
+            },
+            "dfl/WQQ/masked": {
+              "macro_f1": 0.9329616756105628,
+              "spell_f1": 0.7505791505791507,
+              "spells": 263
+            },
+            "dfl/WQQ/team_swap": {
+              "macro_f1": 0.9244575560136618,
+              "spell_f1": 0.7253846153846154,
+              "spells": 265
+            },
+            "dfl/WR9/clean": {
+              "macro_f1": 0.9564159953736668,
+              "spell_f1": 0.793916349809886,
+              "spells": 264
+            },
+            "dfl/WR9/dead_carried": {
+              "macro_f1": 0.8849500247774925,
+              "spell_f1": 0.6511811023622048,
+              "spells": 246
+            },
+            "dfl/WR9/masked": {
+              "macro_f1": 0.9357431398975936,
+              "spell_f1": 0.7208163265306122,
+              "spells": 228
+            },
+            "dfl/WR9/team_swap": {
+              "macro_f1": 0.9274173709523392,
+              "spell_f1": 0.6971428571428572,
+              "spells": 228
+            },
+            "skillcorner/2013725/observed": {
+              "macro_f1": 0.9084776202892849,
+              "spell_f1": 0.7164179104477613,
+              "spells": 239
+            },
+            "skillcorner/2015213/observed": {
+              "macro_f1": 0.8999792572669415,
+              "spell_f1": 0.6911111111111111,
+              "spells": 239
+            },
+            "skillcorner/2016236/observed": {
+              "macro_f1": 0.9215439600079002,
+              "spell_f1": 0.7412698412698412,
+              "spells": 229
+            },
+            "skillcorner/2017461/observed": {
+              "macro_f1": 0.9224669978267662,
+              "spell_f1": 0.7178423236514523,
+              "spells": 214
+            }
+          },
+          "standard": {
+            "macro_f1": 0.9265200355161807,
+            "spell_f1": 0.7327646102174034
+          },
+          "team_swap": 0.7112637362637363
+        },
+        "aba4": {
+          "dead_carried": 0.6529369007114134,
+          "matches": {
+            "dfl/WQQ/clean": {
+              "macro_f1": 0.9444058241561728,
+              "spell_f1": 0.7428571428571429,
+              "spells": 306
+            },
+            "dfl/WQQ/dead_carried": {
+              "macro_f1": 0.8718061185266835,
+              "spell_f1": 0.6460377358490565,
+              "spells": 283
+            },
+            "dfl/WQQ/masked": {
+              "macro_f1": 0.93296573883657,
+              "spell_f1": 0.7435294117647058,
+              "spells": 263
+            },
+            "dfl/WQQ/team_swap": {
+              "macro_f1": 0.9245268763942853,
+              "spell_f1": 0.71796875,
+              "spells": 265
+            },
+            "dfl/WR9/clean": {
+              "macro_f1": 0.9492497926315258,
+              "spell_f1": 0.7351778656126482,
+              "spells": 264
+            },
+            "dfl/WR9/dead_carried": {
+              "macro_f1": 0.8856575581068581,
+              "spell_f1": 0.6598360655737704,
+              "spells": 246
+            },
+            "dfl/WR9/masked": {
+              "macro_f1": 0.9365516220191817,
+              "spell_f1": 0.7344680851063831,
+              "spells": 228
+            },
+            "dfl/WR9/team_swap": {
+              "macro_f1": 0.9267648294478724,
+              "spell_f1": 0.6953191489361702,
+              "spells": 228
+            },
+            "skillcorner/2013725/observed": {
+              "macro_f1": 0.9083446252268631,
+              "spell_f1": 0.7166023166023165,
+              "spells": 239
+            },
+            "skillcorner/2015213/observed": {
+              "macro_f1": 0.9025120403770707,
+              "spell_f1": 0.7042801556420233,
+              "spells": 239
+            },
+            "skillcorner/2016236/observed": {
+              "macro_f1": 0.9207244601155172,
+              "spell_f1": 0.741908713692946,
+              "spells": 229
+            },
+            "skillcorner/2017461/observed": {
+              "macro_f1": 0.9194335380449851,
+              "spell_f1": 0.694273127753304,
+              "spells": 214
+            }
+          },
+          "standard": {
+            "macro_f1": 0.9257676945121547,
+            "spell_f1": 0.7266355393956545
+          },
+          "team_swap": 0.7066439494680852
+        },
+        "aba4.5": {
+          "dead_carried": 0.6336887374229145,
+          "matches": {
+            "dfl/WQQ/clean": {
+              "macro_f1": 0.9413741205936326,
+              "spell_f1": 0.7219152854511972,
+              "spells": 306
+            },
+            "dfl/WQQ/dead_carried": {
+              "macro_f1": 0.8709984312264053,
+              "spell_f1": 0.6361538461538461,
+              "spells": 283
+            },
+            "dfl/WQQ/masked": {
+              "macro_f1": 0.9305087076199788,
+              "spell_f1": 0.7216,
+              "spells": 263
+            },
+            "dfl/WQQ/team_swap": {
+              "macro_f1": 0.9220518119290245,
+              "spell_f1": 0.7075697211155378,
+              "spells": 265
+            },
+            "dfl/WR9/clean": {
+              "macro_f1": 0.944887783680875,
+              "spell_f1": 0.7056910569105691,
+              "spells": 264
+            },
+            "dfl/WR9/dead_carried": {
+              "macro_f1": 0.8823056905047665,
+              "spell_f1": 0.631223628691983,
+              "spells": 246
+            },
+            "dfl/WR9/masked": {
+              "macro_f1": 0.9331114816560611,
+              "spell_f1": 0.706140350877193,
+              "spells": 228
+            },
+            "dfl/WR9/team_swap": {
+              "macro_f1": 0.9231301560466911,
+              "spell_f1": 0.6710526315789472,
+              "spells": 228
+            },
+            "skillcorner/2013725/observed": {
+              "macro_f1": 0.9084444784245758,
+              "spell_f1": 0.7184,
+              "spells": 239
+            },
+            "skillcorner/2015213/observed": {
+              "macro_f1": 0.8983459615832948,
+              "spell_f1": 0.6733067729083665,
+              "spells": 239
+            },
+            "skillcorner/2016236/observed": {
+              "macro_f1": 0.9191120630366089,
+              "spell_f1": 0.7235294117647059,
+              "spells": 229
+            },
+            "skillcorner/2017461/observed": {
+              "macro_f1": 0.9183918817983528,
+              "spell_f1": 0.6866071428571429,
+              "spells": 214
+            }
+          },
+          "standard": {
+            "macro_f1": 0.9233286550075697,
+            "spell_f1": 0.7071543362842896
+          },
+          "team_swap": 0.6893111763472426
+        },
+        "raw": {
+          "dead_carried": 0.5556675780359991,
+          "matches": {
+            "dfl/WQQ/clean": {
+              "macro_f1": 0.9487914053529423,
+              "spell_f1": 0.736067892503536,
+              "spells": 306
+            },
+            "dfl/WQQ/dead_carried": {
+              "macro_f1": 0.8658451869946203,
+              "spell_f1": 0.5561403508771929,
+              "spells": 283
+            },
+            "dfl/WQQ/masked": {
+              "macro_f1": 0.9283257362721195,
+              "spell_f1": 0.6457831325301204,
+              "spells": 263
+            },
+            "dfl/WQQ/team_swap": {
+              "macro_f1": 0.9186659151513258,
+              "spell_f1": 0.6276276276276276,
+              "spells": 265
+            },
+            "dfl/WR9/clean": {
+              "macro_f1": 0.9547257400672757,
+              "spell_f1": 0.7078864353312303,
+              "spells": 264
+            },
+            "dfl/WR9/dead_carried": {
+              "macro_f1": 0.8800670454952407,
+              "spell_f1": 0.5551948051948052,
+              "spells": 246
+            },
+            "dfl/WR9/masked": {
+              "macro_f1": 0.9316698353192051,
+              "spell_f1": 0.614715719063545,
+              "spells": 228
+            },
+            "dfl/WR9/team_swap": {
+              "macro_f1": 0.9238348346562151,
+              "spell_f1": 0.5953177257525084,
+              "spells": 228
+            },
+            "skillcorner/2013725/observed": {
+              "macro_f1": 0.90569797088784,
+              "spell_f1": 0.6543624161073825,
+              "spells": 239
+            },
+            "skillcorner/2015213/observed": {
+              "macro_f1": 0.898851291883497,
+              "spell_f1": 0.6445945945945946,
+              "spells": 239
+            },
+            "skillcorner/2016236/observed": {
+              "macro_f1": 0.916182483699267,
+              "spell_f1": 0.6545454545454545,
+              "spells": 229
+            },
+            "skillcorner/2017461/observed": {
+              "macro_f1": 0.9133784527803185,
+              "spell_f1": 0.6287822878228783,
+              "spells": 214
+            }
+          },
+          "standard": {
+            "macro_f1": 0.9228894656232709,
+            "spell_f1": 0.6531982633856301
+          },
+          "team_swap": 0.611472676690068
+        }
+      },
+      "recipe": {
+        "cutoff": 0.53,
+        "dead_cost": 2,
+        "dead_mix": 0.5,
+        "discount": 0.8,
+        "method": "joint",
+        "owner_cost": 14,
+        "owner_mix": 0.5,
+        "variant": "seed_phase"
+      }
+    },
+    "pff": {
+      "matches": {
+        "10506": {
+          "aba1.75": {
+            "macro_f1": 0.8757820609900154,
+            "spell_f1": 0.6677966101694914,
+            "spells": 201
+          },
+          "aba3": {
+            "macro_f1": 0.8784759447894696,
+            "spell_f1": 0.7072072072072072,
+            "spells": 201
+          },
+          "aba4": {
+            "macro_f1": 0.8789481288507902,
+            "spell_f1": 0.6990291262135921,
+            "spells": 201
+          },
+          "aba4.5": {
+            "macro_f1": 0.8774848894790486,
+            "spell_f1": 0.6871287128712871,
+            "spells": 201
+          },
+          "raw": {
+            "macro_f1": 0.8739599155804695,
+            "spell_f1": 0.6223107569721116,
+            "spells": 201
+          }
+        },
+        "10507": {
+          "aba1.75": {
+            "macro_f1": 0.9221701711807363,
+            "spell_f1": 0.7657142857142857,
+            "spells": 173
+          },
+          "aba3": {
+            "macro_f1": 0.9244094123403018,
+            "spell_f1": 0.8066481994459833,
+            "spells": 173
+          },
+          "aba4": {
+            "macro_f1": 0.9244813252602461,
+            "spell_f1": 0.8124645892351274,
+            "spells": 173
+          },
+          "aba4.5": {
+            "macro_f1": 0.9235671550131132,
+            "spell_f1": 0.8,
+            "spells": 173
+          },
+          "raw": {
+            "macro_f1": 0.9203415431219618,
+            "spell_f1": 0.7104622871046228,
+            "spells": 173
+          }
+        },
+        "10514": {
+          "aba1.75": {
+            "macro_f1": 0.8842340075251102,
+            "spell_f1": 0.7029702970297029,
+            "spells": 170
+          },
+          "aba3": {
+            "macro_f1": 0.8871390270903529,
+            "spell_f1": 0.7457446808510638,
+            "spells": 170
+          },
+          "aba4": {
+            "macro_f1": 0.8864376048015007,
+            "spell_f1": 0.7416216216216216,
+            "spells": 170
+          },
+          "aba4.5": {
+            "macro_f1": 0.8857646090668195,
+            "spell_f1": 0.7326086956521738,
+            "spells": 170
+          },
+          "raw": {
+            "macro_f1": 0.8812058118036014,
+            "spell_f1": 0.6365296803652969,
+            "spells": 170
+          }
+        },
+        "10515": {
+          "aba1.75": {
+            "macro_f1": 0.9054830006711919,
+            "spell_f1": 0.716062176165803,
+            "spells": 164
+          },
+          "aba3": {
+            "macro_f1": 0.9054206413956245,
+            "spell_f1": 0.7362162162162162,
+            "spells": 164
+          },
+          "aba4": {
+            "macro_f1": 0.9082642937956228,
+            "spell_f1": 0.7575418994413409,
+            "spells": 164
+          },
+          "aba4.5": {
+            "macro_f1": 0.9073728623183897,
+            "spell_f1": 0.751685393258427,
+            "spells": 164
+          },
+          "raw": {
+            "macro_f1": 0.9032643893032836,
+            "spell_f1": 0.6429906542056074,
+            "spells": 164
+          }
+        },
+        "3816": {
+          "aba1.75": {
+            "macro_f1": 0.8734541997261185,
+            "spell_f1": 0.5797979797979798,
+            "spells": 155
+          },
+          "aba3": {
+            "macro_f1": 0.8775605185825722,
+            "spell_f1": 0.6256684491978609,
+            "spells": 155
+          },
+          "aba4": {
+            "macro_f1": 0.878890324344929,
+            "spell_f1": 0.6428571428571429,
+            "spells": 155
+          },
+          "aba4.5": {
+            "macro_f1": 0.8820056842471784,
+            "spell_f1": 0.6542372881355932,
+            "spells": 155
+          },
+          "raw": {
+            "macro_f1": 0.8706371206468245,
+            "spell_f1": 0.49285714285714277,
+            "spells": 155
+          }
+        },
+        "3817": {
+          "aba1.75": {
+            "macro_f1": 0.8869746242668325,
+            "spell_f1": 0.6493617021276596,
+            "spells": 193
+          },
+          "aba3": {
+            "macro_f1": 0.8932229993742821,
+            "spell_f1": 0.725925925925926,
+            "spells": 193
+          },
+          "aba4": {
+            "macro_f1": 0.8959183408451579,
+            "spell_f1": 0.7504761904761905,
+            "spells": 193
+          },
+          "aba4.5": {
+            "macro_f1": 0.8960399245796705,
+            "spell_f1": 0.754066985645933,
+            "spells": 193
+          },
+          "raw": {
+            "macro_f1": 0.8843228711452218,
+            "spell_f1": 0.6040322580645161,
+            "spells": 193
+          }
+        },
+        "3824": {
+          "aba1.75": {
+            "macro_f1": 0.9202319362018893,
+            "spell_f1": 0.7279620853080568,
+            "spells": 181
+          },
+          "aba3": {
+            "macro_f1": 0.9224654754539615,
+            "spell_f1": 0.7638190954773869,
+            "spells": 181
+          },
+          "aba4": {
+            "macro_f1": 0.924393770298011,
+            "spell_f1": 0.7884210526315789,
+            "spells": 181
+          },
+          "aba4.5": {
+            "macro_f1": 0.922966995755855,
+            "spell_f1": 0.7776595744680852,
+            "spells": 181
+          },
+          "raw": {
+            "macro_f1": 0.9185719557381268,
+            "spell_f1": 0.6628318584070796,
+            "spells": 181
+          }
+        },
+        "3825": {
+          "aba1.75": {
+            "macro_f1": 0.9008046964602858,
+            "spell_f1": 0.6408163265306123,
+            "spells": 157
+          },
+          "aba3": {
+            "macro_f1": 0.9033753458039976,
+            "spell_f1": 0.6983606557377049,
+            "spells": 157
+          },
+          "aba4": {
+            "macro_f1": 0.9051278070554717,
+            "spell_f1": 0.7260115606936417,
+            "spells": 157
+          },
+          "aba4.5": {
+            "macro_f1": 0.9059293464729183,
+            "spell_f1": 0.7290697674418605,
+            "spells": 157
+          },
+          "raw": {
+            "macro_f1": 0.8981613094846308,
+            "spell_f1": 0.5533632286995516,
+            "spells": 157
+          }
+        },
+        "3832": {
+          "aba1.75": {
+            "macro_f1": 0.8309237949849787,
+            "spell_f1": 0.5766536964980544,
+            "spells": 195
+          },
+          "aba3": {
+            "macro_f1": 0.8319007095477522,
+            "spell_f1": 0.5943089430894308,
+            "spells": 195
+          },
+          "aba4": {
+            "macro_f1": 0.8357168079294274,
+            "spell_f1": 0.6188841201716738,
+            "spells": 195
+          },
+          "aba4.5": {
+            "macro_f1": 0.8357646734028115,
+            "spell_f1": 0.6201754385964913,
+            "spells": 195
+          },
+          "raw": {
+            "macro_f1": 0.8289256407263373,
+            "spell_f1": 0.5179856115107913,
+            "spells": 195
+          }
+        },
+        "3833": {
+          "aba1.75": {
+            "macro_f1": 0.8875840237370168,
+            "spell_f1": 0.6925659472422063,
+            "spells": 180
+          },
+          "aba3": {
+            "macro_f1": 0.8923526781501471,
+            "spell_f1": 0.7341772151898734,
+            "spells": 180
+          },
+          "aba4": {
+            "macro_f1": 0.8919697127820937,
+            "spell_f1": 0.734190231362468,
+            "spells": 180
+          },
+          "aba4.5": {
+            "macro_f1": 0.8930322281578587,
+            "spell_f1": 0.7415143603133159,
+            "spells": 180
+          },
+          "raw": {
+            "macro_f1": 0.8856528501817958,
+            "spell_f1": 0.6331125827814569,
+            "spells": 180
+          }
+        },
+        "3841": {
+          "aba1.75": {
+            "macro_f1": 0.8853074862795923,
+            "spell_f1": 0.6167088607594936,
+            "spells": 164
+          },
+          "aba3": {
+            "macro_f1": 0.8881213820584661,
+            "spell_f1": 0.6391644908616188,
+            "spells": 164
+          },
+          "aba4": {
+            "macro_f1": 0.8908037652946424,
+            "spell_f1": 0.6677685950413222,
+            "spells": 164
+          },
+          "aba4.5": {
+            "macro_f1": 0.8927750394462954,
+            "spell_f1": 0.6659154929577464,
+            "spells": 164
+          },
+          "raw": {
+            "macro_f1": 0.8833174269004922,
+            "spell_f1": 0.5775656324582339,
+            "spells": 164
+          }
+        },
+        "3848": {
+          "aba1.75": {
+            "macro_f1": 0.8606249692736823,
+            "spell_f1": 0.63420523138833,
+            "spells": 201
+          },
+          "aba3": {
+            "macro_f1": 0.8640245924180253,
+            "spell_f1": 0.6941431670281996,
+            "spells": 201
+          },
+          "aba4": {
+            "macro_f1": 0.8654225716531655,
+            "spell_f1": 0.7063457330415754,
+            "spells": 201
+          },
+          "aba4.5": {
+            "macro_f1": 0.8679240560434357,
+            "spell_f1": 0.7253932584269662,
+            "spells": 201
+          },
+          "raw": {
+            "macro_f1": 0.856941601782322,
+            "spell_f1": 0.5699443413729128,
+            "spells": 201
+          }
+        },
+        "3849": {
+          "aba1.75": {
+            "macro_f1": 0.8766457147573901,
+            "spell_f1": 0.6545454545454545,
+            "spells": 191
+          },
+          "aba3": {
+            "macro_f1": 0.8823353460362586,
+            "spell_f1": 0.7119101123595506,
+            "spells": 191
+          },
+          "aba4": {
+            "macro_f1": 0.8843248535017191,
+            "spell_f1": 0.7375291375291375,
+            "spells": 191
+          },
+          "aba4.5": {
+            "macro_f1": 0.8853005345758859,
+            "spell_f1": 0.7437939110070257,
+            "spells": 191
+          },
+          "raw": {
+            "macro_f1": 0.8735257030546976,
+            "spell_f1": 0.5948919449901767,
+            "spells": 191
+          }
+        },
+        "3856": {
+          "aba1.75": {
+            "macro_f1": 0.8640797055779134,
+            "spell_f1": 0.6191446028513238,
+            "spells": 199
+          },
+          "aba3": {
+            "macro_f1": 0.8699680000363289,
+            "spell_f1": 0.6698481561822126,
+            "spells": 199
+          },
+          "aba4": {
+            "macro_f1": 0.8740893460920681,
+            "spell_f1": 0.7069977426636569,
+            "spells": 199
+          },
+          "aba4.5": {
+            "macro_f1": 0.8730850421128169,
+            "spell_f1": 0.7113163972286375,
+            "spells": 199
+          },
+          "raw": {
+            "macro_f1": 0.8617737084113547,
+            "spell_f1": 0.5568480300187618,
+            "spells": 199
+          }
+        },
+        "3857": {
+          "aba1.75": {
+            "macro_f1": 0.8931716813975399,
+            "spell_f1": 0.6146596858638744,
+            "spells": 146
+          },
+          "aba3": {
+            "macro_f1": 0.8967546380115986,
+            "spell_f1": 0.7058823529411764,
+            "spells": 146
+          },
+          "aba4": {
+            "macro_f1": 0.8999663159830038,
+            "spell_f1": 0.7267080745341615,
+            "spells": 146
+          },
+          "aba4.5": {
+            "macro_f1": 0.9008478454087591,
+            "spell_f1": 0.73375,
+            "spells": 146
+          },
+          "raw": {
+            "macro_f1": 0.8923801941168024,
+            "spell_f1": 0.5771144278606964,
+            "spells": 146
+          }
+        }
+      },
+      "means": {
+        "aba1.75": {
+          "macro_f1": 0.8844981382020195,
+          "spell_f1": 0.6572643294661552
+        },
+        "aba3": {
+          "macro_f1": 0.8878351140726092,
+          "spell_f1": 0.7039349911807607
+        },
+        "aba4": {
+          "macro_f1": 0.8896503312325234,
+          "spell_f1": 0.7211231211676155
+        },
+        "aba4.5": {
+          "macro_f1": 0.8899907257387237,
+          "spell_f1": 0.7218876850669028
+        },
+        "raw": {
+          "macro_f1": 0.8821988027998614,
+          "spell_f1": 0.5968560291779306
+        }
+      }
+    },
+    "recipe": {
+      "cutoff": 0.53,
+      "dead_cost": 2,
+      "dead_mix": 0.5,
+      "discount": 0.8,
+      "method": "joint",
+      "owner_cost": 14,
+      "owner_mix": 0.5,
+      "variant": "seed_phase"
+    }
+  },
+  "reproduction": {
+    "halves_bit_for_bit": {
+      "holdout": "24/24",
+      "long_hidden": "4/4"
+    },
+    "numbers": {
+      "holdout_external_equal": true,
+      "long_hidden_equal": true,
+      "same_number_of_halves": true
+    },
+    "passed": true
+  },
+  "reproduction_sha256": "9eccb0117b503dfada32c1c4b2b1132b7056823e261438ab732db0317d5abfa9",
+  "rule": {
+    "against": "the adopted stack at cost 14",
+    "losses": 0.01,
+    "set_d_gain": 0.01
+  },
+  "scored_at": "2026-11-13 23:26 EST",
+  "set_d_parse": {
+    "amendment": "DECISIONS.md D61, amendment of 22:25 EST",
+    "checked_before_parsing_now": {
+      "10506": {
+        "files": [],
+        "in_manifest": []
+      },
+      "10507": {
+        "files": [],
+        "in_manifest": []
+      },
+      "10514": {
+        "files": [],
+        "in_manifest": []
+      },
+      "10515": {
+        "files": [],
+        "in_manifest": []
+      },
+      "3840": {
+        "files": [],
+        "in_manifest": []
+      },
+      "3841": {
+        "files": [],
+        "in_manifest": []
+      },
+      "3848": {
+        "files": [],
+        "in_manifest": []
+      },
+      "3849": {
+        "files": [],
+        "in_manifest": []
+      },
+      "3856": {
+        "files": [],
+        "in_manifest": []
+      },
+      "3857": {
+        "files": [],
+        "in_manifest": []
+      }
+    },
+    "first_attempt": {
+      "checked_before_parsing": "none of the sixteen in the parsed manifest or folder (the check raises otherwise)",
+      "log": "data/d61/prepare_first_attempt.log",
+      "parsed": [
+        3816,
+        3817,
+        3824,
+        3825,
+        3832,
+        3833
+      ],
+      "refused": {
+        "3840": "ValueError: Repeated PFF frame 180900 with different tracking or events"
+      },
+      "when": "2026-11-13, 22:22-22:24 EST (after the reproduction, from `prepare`'s first run)"
+    },
+    "games": [
+      3816,
+      3817,
+      3824,
+      3825,
+      3832,
+      3833,
+      3841,
+      3848,
+      3849,
+      3856,
+      3857,
+      10506,
+      10507,
+      10514,
+      10515
+    ],
+    "inputs": {
+      "parsed": {
+        "10506_1.npz": [
+          5784480,
+          "029dc5cfcb0c1c7f5bf24e565a2a0c4193798a4655048018a302d11a15444de8"
+        ],
+        "10506_2.npz": [
+          4938205,
+          "40dd523cd99a09e99fea2a5369d874e7cc1e6e217196eede482c8e3c23704574"
+        ],
+        "10507_1.npz": [
+          5758059,
+          "0becf66bfc7595055ef1e1eb582b0851842e62609e504e05c0f085eb4d130688"
+        ],
+        "10507_2.npz": [
+          5960080,
+          "8499676cc3b7a5afa303773031d3cc95c44b8a30575a96353a4dbac25b0b24ea"
+        ],
+        "10514_1.npz": [
+          5969751,
+          "49976a89a19e0d5ae3af7ed394c581c21a4a4193f543db1d3f182aaf404c5308"
+        ],
+        "10514_2.npz": [
+          5202389,
+          "9fbff52800f731e48df5e49366e293bfb0634f43a6a6b46a600ab4636b37f82b"
+        ],
+        "10515_1.npz": [
+          5003090,
+          "3a52b20bdcba6b0e25ae69b1f3b091bd00e8fb1dad61fca2680834291d8e2df4"
+        ],
+        "10515_2.npz": [
+          5371526,
+          "ee5e477bece0ed6980df4add169baa3a9621bcb87c46c8fecddf04ac21645287"
+        ],
+        "3816_1.npz": [
+          5446238,
+          "7620a2cd0af02a2fe50dd501258a8f4670b670e14b5778edf253d68bc4ec5509"
+        ],
+        "3816_2.npz": [
+          4828600,
+          "17bbb20fe1b9a8b66763c6cdd931ef2e6d78d75e0296afe5ef1a9249c33914f3"
+        ],
+        "3817_1.npz": [
+          4256601,
+          "aacec1e2cfddcef8d65906104e1d129bda02988995c723ac8b1268dd1da75a43"
+        ],
+        "3817_2.npz": [
+          3645789,
+          "b4db5f9b6ce21b05551495d1a3c5f2faeb193a6b887e9653edfca2c7e2ceecd1"
+        ],
+        "3824_1.npz": [
+          5657404,
+          "0e031179057ffa1fd2516fd73cf6077d1205e7d14be935e6680517ddab8f3282"
+        ],
+        "3824_2.npz": [
+          5179667,
+          "c71828f47f5b1490bc2563869df118c8d0419f7e8641bd6380be17166450b619"
+        ],
+        "3825_1.npz": [
+          4469303,
+          "8dc939171ff79755c0733a6b646b4ac7970fcaf89335447f9a0ca89b5fced276"
+        ],
+        "3825_2.npz": [
+          4401375,
+          "998aaa96bd84421186cf776ebdd237d5997ad75a8515da5b4b05dae9438e3b55"
+        ],
+        "3832_1.npz": [
+          4436311,
+          "4a0ff457652c82c58950e67fa4665aec9d1c1163f497d55302d5fd855360db9e"
+        ],
+        "3832_2.npz": [
+          4896839,
+          "c7013da89bbf6963d6a3b3bbacab5ffb6281e199b12c801e68c792f6520282b6"
+        ],
+        "3833_1.npz": [
+          4555362,
+          "5ef12c42196ab9a4b1824c1b104ef6f60c60f68142813e0b45c6c3422eae3b65"
+        ],
+        "3833_2.npz": [
+          4540406,
+          "aa3ab6465087ec1c676e62efb3b009daa2e0c835470176b1b26af81f0b659840"
+        ],
+        "3841_1.npz": [
+          4162683,
+          "404fdafd1dcfdc764a54896aaa16270d3dc0332c38f9143a759cd48e625eb4d4"
+        ],
+        "3841_2.npz": [
+          3539841,
+          "af4c2466bae172371ef40714c60f0e910bf1bdeb07a8eb47dcfc5b060a812caa"
+        ],
+        "3848_1.npz": [
+          5362338,
+          "ad1d0945a748bf22d6ebf4052bbb2d10628abfa98a09d5afe48e55839a4cce15"
+        ],
+        "3848_2.npz": [
+          5477114,
+          "18750511de9731a7573d0b938bc6bd26eb008cdef37b45e22adc2a8e81dfb7c2"
+        ],
+        "3849_1.npz": [
+          4846626,
+          "0a584066305e420c7414feb8942512dfd825ba4e35bda3e704a9bb99aae4744d"
+        ],
+        "3849_2.npz": [
+          5199313,
+          "05f8a3c305e53e33b2649525d6ac4cf8c361e6a46c50bf9d76974076f2650f6e"
+        ],
+        "3856_1.npz": [
+          4344248,
+          "fc871eac2e685559b880420f85072777fb9bff3e56adea980dbced7d7ba02bd7"
+        ],
+        "3856_2.npz": [
+          5170470,
+          "ed065ad288fb419e9df5d1cf7c287bfcea49a7973c1bc5c571c66daef10cf7e3"
+        ],
+        "3857_1.npz": [
+          4852684,
+          "5975453e78f0033a1d62fa14383405da7155f158ee80696675cb035824af10f5"
+        ],
+        "3857_2.npz": [
+          4808758,
+          "26237cf25c1c16ecc2a8884a1632902fb50fae3bc33cae1c24ed2cf81e2e8f2a"
+        ]
+      },
+      "sources_sha256": "9c28e02db8a01c7b14593b14236185d36255286b991358c4ce0567bf30f9d8fe"
+    },
+    "left_out": {
+      "3840": "ValueError: Repeated PFF frame 180900 with different tracking or events"
+    },
+    "minimum_games": 12,
+    "never_parsed_before": true,
+    "parse_started": "2026-11-13 22:26:56 EST",
+    "parsed_at": "2026-11-13 22:29:42 EST",
+    "set_d": [
+      3816,
+      3817,
+      3824,
+      3825,
+      3832,
+      3833,
+      3840,
+      3841,
+      3848,
+      3849,
+      3856,
+      3857,
+      10506,
+      10507,
+      10514,
+      10515
+    ],
+    "set_e_not_parsed": [
+      3818,
+      3826,
+      3834,
+      3842,
+      3850,
+      3858,
+      10508,
+      10516
+    ],
+    "slots": {
+      "set_d_is_slots_1_and_2": true,
+      "set_e_is_slot_3": true,
+      "slots": {
+        "1": [
+          3816,
+          3824,
+          3832,
+          3840,
+          3848,
+          3856,
+          10506,
+          10514
+        ],
+        "2": [
+          3817,
+          3825,
+          3833,
+          3841,
+          3849,
+          3857,
+          10507,
+          10515
+        ],
+        "3": [
+          3818,
+          3826,
+          3834,
+          3842,
+          3850,
+          3858,
+          10508,
+          10516
+        ]
+      },
+      "slots_are_pff_split_train": true
+    }
+  },
+  "signs": {
+    "fallbacks": [],
+    "first_frame_disagrees": [
+      "pff/3841/observed/1"
+    ],
+    "groups": {
+      "holdout": {
+        "fallback_halves": [],
+        "first_frame_disagrees": [],
+        "halves": 24,
+        "over_per_team": [
+          "dfl/WQQ/team_swap/1"
+        ],
+        "passed": true,
+        "smallest_abs_d_m": 3.5899731276811364
+      },
+      "holdout_long_hidden": {
+        "fallback_halves": [],
+        "first_frame_disagrees": [],
+        "halves": 4,
+        "over_per_team": [],
+        "passed": true,
+        "smallest_abs_d_m": 11.75870744256986
+      },
+      "pff_set_d": {
+        "fallback_halves": [],
+        "first_frame_disagrees": [
+          "pff/3841/observed/1"
+        ],
+        "halves": 30,
+        "over_per_team": [],
+        "passed": false,
+        "smallest_abs_d_m": 3.1503488461102136
+      }
+    },
+    "opposite_halves": {
+      "dfl/WQQ/clean": true,
+      "dfl/WQQ/dead_carried": true,
+      "dfl/WQQ/long_hidden": true,
+      "dfl/WQQ/masked": true,
+      "dfl/WQQ/team_swap": true,
+      "dfl/WR9/clean": true,
+      "dfl/WR9/dead_carried": true,
+      "dfl/WR9/long_hidden": true,
+      "dfl/WR9/masked": true,
+      "dfl/WR9/team_swap": true,
+      "pff/10506/observed": true,
+      "pff/10507/observed": true,
+      "pff/10514/observed": true,
+      "pff/10515/observed": true,
+      "pff/3816/observed": true,
+      "pff/3817/observed": true,
+      "pff/3824/observed": true,
+      "pff/3825/observed": true,
+      "pff/3832/observed": true,
+      "pff/3833/observed": true,
+      "pff/3841/observed": true,
+      "pff/3848/observed": true,
+      "pff/3849/observed": true,
+      "pff/3856/observed": true,
+      "pff/3857/observed": true,
+      "skillcorner/2013725/observed": true,
+      "skillcorner/2015213/observed": true,
+      "skillcorner/2016236/observed": true,
+      "skillcorner/2017461/observed": true
+    },
+    "per_half": {
+      "dfl/WQQ/clean/0": {
+        "agrees": true,
+        "d": -12.24512029236976,
+        "fallback": null,
+        "first_frame": 0,
+        "first_sign": -1,
+        "frames": 13841,
+        "group": "holdout",
+        "sign": -1,
+        "sign_used": -1
+      },
+      "dfl/WQQ/clean/1": {
+        "agrees": true,
+        "d": 12.025707350709942,
+        "fallback": null,
+        "first_frame": 0,
+        "first_sign": 1,
+        "frames": 14629,
+        "group": "holdout",
+        "sign": 1,
+        "sign_used": 1
+      },
+      "dfl/WQQ/dead_carried/0": {
+        "agrees": true,
+        "d": -12.19564557955506,
+        "fallback": null,
+        "first_frame": 0,
+        "first_sign": -1,
+        "frames": 12551,
+        "group": "holdout",
+        "sign": -1,
+        "sign_used": -1
+      },
+      "dfl/WQQ/dead_carried/1": {
+        "agrees": true,
+        "d": 11.962291771482015,
+        "fallback": null,
+        "first_frame": 0,
+        "first_sign": 1,
+        "frames": 12519,
+        "group": "holdout",
+        "sign": 1,
+        "sign_used": 1
+      },
+      "dfl/WQQ/long_hidden/0": {
+        "agrees": true,
+        "d": -12.242295498218944,
+        "fallback": null,
+        "first_frame": 0,
+        "first_sign": -1,
+        "frames": 12391,
+        "group": "holdout_long_hidden",
+        "sign": -1,
+        "sign_used": -1
+      },
+      "dfl/WQQ/long_hidden/1": {
+        "agrees": true,
+        "d": 12.026660652156183,
+        "fallback": null,
+        "first_frame": 0,
+        "first_sign": 1,
+        "frames": 12559,
+        "group": "holdout_long_hidden",
+        "sign": 1,
+        "sign_used": 1
+      },
+      "dfl/WQQ/masked/0": {
+        "agrees": true,
+        "d": -12.19564557955506,
+        "fallback": null,
+        "first_frame": 0,
+        "first_sign": -1,
+        "frames": 12551,
+        "group": "holdout",
+        "sign": -1,
+        "sign_used": -1
+      },
+      "dfl/WQQ/masked/1": {
+        "agrees": true,
+        "d": 11.962291771482015,
+        "fallback": null,
+        "first_frame": 0,
+        "first_sign": 1,
+        "frames": 12519,
+        "group": "holdout",
+        "sign": 1,
+        "sign_used": 1
+      },
+      "dfl/WQQ/team_swap/0": {
+        "agrees": true,
+        "d": -9.899828995284118,
+        "fallback": null,
+        "first_frame": 0,
+        "first_sign": -1,
+        "frames": 12478,
+        "group": "holdout",
+        "sign": -1,
+        "sign_used": -1
+      },
+      "dfl/WQQ/team_swap/1": {
+        "agrees": true,
+        "d": 10.10985976936191,
+        "fallback": null,
+        "first_frame": 0,
+        "first_sign": 1,
+        "frames": 12629,
+        "group": "holdout",
+        "sign": 1,
+        "sign_used": 1
+      },
+      "dfl/WR9/clean/0": {
+        "agrees": true,
+        "d": 12.397997288152446,
+        "fallback": null,
+        "first_frame": 0,
+        "first_sign": 1,
+        "frames": 13671,
+        "group": "holdout",
+        "sign": 1,
+        "sign_used": 1
+      },
+      "dfl/WR9/clean/1": {
+        "agrees": true,
+        "d": -11.944297615962988,
+        "fallback": null,
+        "first_frame": 0,
+        "first_sign": -1,
+        "frames": 15692,
+        "group": "holdout",
+        "sign": -1,
+        "sign_used": -1
+      },
+      "dfl/WR9/dead_carried/0": {
+        "agrees": true,
+        "d": 12.424467131394463,
+        "fallback": null,
+        "first_frame": 0,
+        "first_sign": 1,
+        "frames": 12271,
+        "group": "holdout",
+        "sign": 1,
+        "sign_used": 1
+      },
+      "dfl/WR9/dead_carried/1": {
+        "agrees": true,
+        "d": -11.960741209752873,
+        "fallback": null,
+        "first_frame": 0,
+        "first_sign": -1,
+        "frames": 14094,
+        "group": "holdout",
+        "sign": -1,
+        "sign_used": -1
+      },
+      "dfl/WR9/long_hidden/0": {
+        "agrees": true,
+        "d": 12.442126196260803,
+        "fallback": null,
+        "first_frame": 0,
+        "first_sign": 1,
+        "frames": 12391,
+        "group": "holdout_long_hidden",
+        "sign": 1,
+        "sign_used": 1
+      },
+      "dfl/WR9/long_hidden/1": {
+        "agrees": true,
+        "d": -11.75870744256986,
+        "fallback": null,
+        "first_frame": 0,
+        "first_sign": -1,
+        "frames": 14212,
+        "group": "holdout_long_hidden",
+        "sign": -1,
+        "sign_used": -1
+      },
+      "dfl/WR9/masked/0": {
+        "agrees": true,
+        "d": 12.424467131394463,
+        "fallback": null,
+        "first_frame": 0,
+        "first_sign": 1,
+        "frames": 12271,
+        "group": "holdout",
+        "sign": 1,
+        "sign_used": 1
+      },
+      "dfl/WR9/masked/1": {
+        "agrees": true,
+        "d": -11.960741209752873,
+        "fallback": null,
+        "first_frame": 0,
+        "first_sign": -1,
+        "frames": 14094,
+        "group": "holdout",
+        "sign": -1,
+        "sign_used": -1
+      },
+      "dfl/WR9/team_swap/0": {
+        "agrees": true,
+        "d": 10.39079704694871,
+        "fallback": null,
+        "first_frame": 0,
+        "first_sign": 1,
+        "frames": 12329,
+        "group": "holdout",
+        "sign": 1,
+        "sign_used": 1
+      },
+      "dfl/WR9/team_swap/1": {
+        "agrees": true,
+        "d": -9.905344381349135,
+        "fallback": null,
+        "first_frame": 0,
+        "first_sign": -1,
+        "frames": 14164,
+        "group": "holdout",
+        "sign": -1,
+        "sign_used": -1
+      },
+      "pff/10506/observed/0": {
+        "agrees": true,
+        "d": 5.549332528690076,
+        "fallback": null,
+        "first_frame": 0,
+        "first_sign": 1,
+        "frames": 4197,
+        "group": "pff_set_d",
+        "sign": 1,
+        "sign_used": 1
+      },
+      "pff/10506/observed/1": {
+        "agrees": true,
+        "d": -4.752957997123015,
+        "fallback": null,
+        "first_frame": 0,
+        "first_sign": -1,
+        "frames": 3393,
+        "group": "pff_set_d",
+        "sign": -1,
+        "sign_used": -1
+      },
+      "pff/10507/observed/0": {
+        "agrees": true,
+        "d": 5.464920221798509,
+        "fallback": null,
+        "first_frame": 0,
+        "first_sign": 1,
+        "frames": 5718,
+        "group": "pff_set_d",
+        "sign": 1,
+        "sign_used": 1
+      },
+      "pff/10507/observed/1": {
+        "agrees": true,
+        "d": -5.246333744215421,
+        "fallback": null,
+        "first_frame": 0,
+        "first_sign": -1,
+        "frames": 5624,
+        "group": "pff_set_d",
+        "sign": -1,
+        "sign_used": -1
+      },
+      "pff/10514/observed/0": {
+        "agrees": true,
+        "d": 6.027070964005445,
+        "fallback": null,
+        "first_frame": 15,
+        "first_sign": 1,
+        "frames": 6102,
+        "group": "pff_set_d",
+        "sign": 1,
+        "sign_used": 1
+      },
+      "pff/10514/observed/1": {
+        "agrees": true,
+        "d": -5.744891179899363,
+        "fallback": null,
+        "first_frame": 0,
+        "first_sign": -1,
+        "frames": 4401,
+        "group": "pff_set_d",
+        "sign": -1,
+        "sign_used": -1
+      },
+      "pff/10515/observed/0": {
+        "agrees": true,
+        "d": 5.1957576086684645,
+        "fallback": null,
+        "first_frame": 0,
+        "first_sign": 1,
+        "frames": 3690,
+        "group": "pff_set_d",
+        "sign": 1,
+        "sign_used": 1
+      },
+      "pff/10515/observed/1": {
+        "agrees": true,
+        "d": -5.78691908542575,
+        "fallback": null,
+        "first_frame": 0,
+        "first_sign": -1,
+        "frames": 3917,
+        "group": "pff_set_d",
+        "sign": -1,
+        "sign_used": -1
+      },
+      "pff/3816/observed/0": {
+        "agrees": true,
+        "d": 4.8149296073954915,
+        "fallback": null,
+        "first_frame": 0,
+        "first_sign": 1,
+        "frames": 4475,
+        "group": "pff_set_d",
+        "sign": 1,
+        "sign_used": 1
+      },
+      "pff/3816/observed/1": {
+        "agrees": true,
+        "d": -5.7755177569364795,
+        "fallback": null,
+        "first_frame": 0,
+        "first_sign": -1,
+        "frames": 2146,
+        "group": "pff_set_d",
+        "sign": -1,
+        "sign_used": -1
+      },
+      "pff/3817/observed/0": {
+        "agrees": true,
+        "d": 4.6812182025731905,
+        "fallback": null,
+        "first_frame": 0,
+        "first_sign": 1,
+        "frames": 995,
+        "group": "pff_set_d",
+        "sign": 1,
+        "sign_used": 1
+      },
+      "pff/3817/observed/1": {
+        "agrees": true,
+        "d": -4.4471235379180865,
+        "fallback": null,
+        "first_frame": 20,
+        "first_sign": -1,
+        "frames": 196,
+        "group": "pff_set_d",
+        "sign": -1,
+        "sign_used": -1
+      },
+      "pff/3824/observed/0": {
+        "agrees": true,
+        "d": 4.33712913829366,
+        "fallback": null,
+        "first_frame": 0,
+        "first_sign": 1,
+        "frames": 3579,
+        "group": "pff_set_d",
+        "sign": 1,
+        "sign_used": 1
+      },
+      "pff/3824/observed/1": {
+        "agrees": true,
+        "d": -4.4272311729061515,
+        "fallback": null,
+        "first_frame": 0,
+        "first_sign": -1,
+        "frames": 2838,
+        "group": "pff_set_d",
+        "sign": -1,
+        "sign_used": -1
+      },
+      "pff/3825/observed/0": {
+        "agrees": true,
+        "d": -4.266771471720796,
+        "fallback": null,
+        "first_frame": 20,
+        "first_sign": -1,
+        "frames": 1707,
+        "group": "pff_set_d",
+        "sign": -1,
+        "sign_used": -1
+      },
+      "pff/3825/observed/1": {
+        "agrees": true,
+        "d": 4.999203623618094,
+        "fallback": null,
+        "first_frame": 0,
+        "first_sign": 1,
+        "frames": 999,
+        "group": "pff_set_d",
+        "sign": 1,
+        "sign_used": 1
+      },
+      "pff/3832/observed/0": {
+        "agrees": true,
+        "d": -4.208008912404459,
+        "fallback": null,
+        "first_frame": 0,
+        "first_sign": -1,
+        "frames": 2698,
+        "group": "pff_set_d",
+        "sign": -1,
+        "sign_used": -1
+      },
+      "pff/3832/observed/1": {
+        "agrees": true,
+        "d": 3.2205647159269275,
+        "fallback": null,
+        "first_frame": 5,
+        "first_sign": 1,
+        "frames": 2827,
+        "group": "pff_set_d",
+        "sign": 1,
+        "sign_used": 1
+      },
+      "pff/3833/observed/0": {
+        "agrees": true,
+        "d": 4.200855725014556,
+        "fallback": null,
+        "first_frame": 0,
+        "first_sign": 1,
+        "frames": 2133,
+        "group": "pff_set_d",
+        "sign": 1,
+        "sign_used": 1
+      },
+      "pff/3833/observed/1": {
+        "agrees": true,
+        "d": -4.389043829102399,
+        "fallback": null,
+        "first_frame": 0,
+        "first_sign": -1,
+        "frames": 1773,
+        "group": "pff_set_d",
+        "sign": -1,
+        "sign_used": -1
+      },
+      "pff/3841/observed/0": {
+        "agrees": true,
+        "d": 3.766210768959317,
+        "fallback": null,
+        "first_frame": 5,
+        "first_sign": 1,
+        "frames": 1355,
+        "group": "pff_set_d",
+        "sign": 1,
+        "sign_used": 1
+      },
+      "pff/3841/observed/1": {
+        "agrees": false,
+        "d": -4.219104552312942,
+        "fallback": null,
+        "first_frame": 190,
+        "first_sign": 1,
+        "frames": 283,
+        "group": "pff_set_d",
+        "sign": -1,
+        "sign_used": -1
+      },
+      "pff/3848/observed/0": {
+        "agrees": true,
+        "d": 4.088440430968758,
+        "fallback": null,
+        "first_frame": 0,
+        "first_sign": 1,
+        "frames": 3383,
+        "group": "pff_set_d",
+        "sign": 1,
+        "sign_used": 1
+      },
+      "pff/3848/observed/1": {
+        "agrees": true,
+        "d": -4.180903258419468,
+        "fallback": null,
+        "first_frame": 0,
+        "first_sign": -1,
+        "frames": 3557,
+        "group": "pff_set_d",
+        "sign": -1,
+        "sign_used": -1
+      },
+      "pff/3849/observed/0": {
+        "agrees": true,
+        "d": 4.705116093423902,
+        "fallback": null,
+        "first_frame": 0,
+        "first_sign": 1,
+        "frames": 2810,
+        "group": "pff_set_d",
+        "sign": 1,
+        "sign_used": 1
+      },
+      "pff/3849/observed/1": {
+        "agrees": true,
+        "d": -5.531751896636793,
+        "fallback": null,
+        "first_frame": 40,
+        "first_sign": -1,
+        "frames": 2363,
+        "group": "pff_set_d",
+        "sign": -1,
+        "sign_used": -1
+      },
+      "pff/3856/observed/0": {
+        "agrees": true,
+        "d": 4.296526097741203,
+        "fallback": null,
+        "first_frame": 0,
+        "first_sign": 1,
+        "frames": 2821,
+        "group": "pff_set_d",
+        "sign": 1,
+        "sign_used": 1
+      },
+      "pff/3856/observed/1": {
+        "agrees": true,
+        "d": -3.1503488461102136,
+        "fallback": null,
+        "first_frame": 0,
+        "first_sign": -1,
+        "frames": 3339,
+        "group": "pff_set_d",
+        "sign": -1,
+        "sign_used": -1
+      },
+      "pff/3857/observed/0": {
+        "agrees": true,
+        "d": 4.127238796450577,
+        "fallback": null,
+        "first_frame": 0,
+        "first_sign": 1,
+        "frames": 2428,
+        "group": "pff_set_d",
+        "sign": 1,
+        "sign_used": 1
+      },
+      "pff/3857/observed/1": {
+        "agrees": true,
+        "d": -5.211036758580725,
+        "fallback": null,
+        "first_frame": 0,
+        "first_sign": -1,
+        "frames": 1728,
+        "group": "pff_set_d",
+        "sign": -1,
+        "sign_used": -1
+      },
+      "skillcorner/2013725/observed/0": {
+        "agrees": true,
+        "d": 4.733893346726275,
+        "fallback": null,
+        "first_frame": 15,
+        "first_sign": 1,
+        "frames": 4108,
+        "group": "holdout",
+        "sign": 1,
+        "sign_used": 1
+      },
+      "skillcorner/2013725/observed/1": {
+        "agrees": true,
+        "d": -4.588683777000906,
+        "fallback": null,
+        "first_frame": 5,
+        "first_sign": -1,
+        "frames": 4129,
+        "group": "holdout",
+        "sign": -1,
+        "sign_used": -1
+      },
+      "skillcorner/2015213/observed/0": {
+        "agrees": true,
+        "d": 4.723632477971251,
+        "fallback": null,
+        "first_frame": 25,
+        "first_sign": 1,
+        "frames": 4495,
+        "group": "holdout",
+        "sign": 1,
+        "sign_used": 1
+      },
+      "skillcorner/2015213/observed/1": {
+        "agrees": true,
+        "d": -4.521944484573553,
+        "fallback": null,
+        "first_frame": 15,
+        "first_sign": -1,
+        "frames": 4403,
+        "group": "holdout",
+        "sign": -1,
+        "sign_used": -1
+      },
+      "skillcorner/2016236/observed/0": {
+        "agrees": true,
+        "d": 4.137199575167151,
+        "fallback": null,
+        "first_frame": 0,
+        "first_sign": 1,
+        "frames": 2972,
+        "group": "holdout",
+        "sign": 1,
+        "sign_used": 1
+      },
+      "skillcorner/2016236/observed/1": {
+        "agrees": true,
+        "d": -3.5899731276811364,
+        "fallback": null,
+        "first_frame": 0,
+        "first_sign": -1,
+        "frames": 2699,
+        "group": "holdout",
+        "sign": -1,
+        "sign_used": -1
+      },
+      "skillcorner/2017461/observed/0": {
+        "agrees": true,
+        "d": 4.3550681674441565,
+        "fallback": null,
+        "first_frame": 0,
+        "first_sign": 1,
+        "frames": 3622,
+        "group": "holdout",
+        "sign": 1,
+        "sign_used": 1
+      },
+      "skillcorner/2017461/observed/1": {
+        "agrees": true,
+        "d": -5.063981698505748,
+        "fallback": null,
+        "first_frame": 0,
+        "first_sign": -1,
+        "frames": 2707,
+        "group": "holdout",
+        "sign": -1,
+        "sign_used": -1
+      }
+    },
+    "rule": "DECISIONS.md D61, second amendment of 22:32 EST: first-frame agreement reported, opposite halves enforced"
+  },
+  "trial": {
+    "external": {
+      "conventions": {
+        "aba1.75": {
+          "dead_carried": 0.6245638327333148,
+          "matches": {
+            "dfl/WQQ/clean": {
+              "macro_f1": 0.9471957422192618,
+              "spell_f1": 0.77425431711146,
+              "spells": 298
+            },
+            "dfl/WQQ/dead_carried": {
+              "macro_f1": 0.8656357581013481,
+              "spell_f1": 0.6273885350318471,
+              "spells": 289
+            },
+            "dfl/WQQ/masked": {
+              "macro_f1": 0.9279795211301151,
+              "spell_f1": 0.7201309328968903,
+              "spells": 272
+            },
+            "dfl/WQQ/team_swap": {
+              "macro_f1": 0.9186167463844509,
+              "spell_f1": 0.6853420195439739,
+              "spells": 275
+            },
+            "dfl/WR9/clean": {
+              "macro_f1": 0.9566820432539975,
+              "spell_f1": 0.7795053003533569,
+              "spells": 260
+            },
+            "dfl/WR9/dead_carried": {
+              "macro_f1": 0.8776297986874665,
+              "spell_f1": 0.6217391304347826,
+              "spells": 246
+            },
+            "dfl/WR9/masked": {
+              "macro_f1": 0.9343805945882476,
+              "spell_f1": 0.6966292134831461,
+              "spells": 228
+            },
+            "dfl/WR9/team_swap": {
+              "macro_f1": 0.9261060212648338,
+              "spell_f1": 0.6848598130841121,
+              "spells": 229
+            },
+            "skillcorner/2013725/observed": {
+              "macro_f1": 0.9042831543357086,
+              "spell_f1": 0.686619718309859,
+              "spells": 241
+            },
+            "skillcorner/2015213/observed": {
+              "macro_f1": 0.9044897814599114,
+              "spell_f1": 0.6858156028368795,
+              "spells": 239
+            },
+            "skillcorner/2016236/observed": {
+              "macro_f1": 0.9198244623499701,
+              "spell_f1": 0.7181988742964351,
+              "spells": 232
+            },
+            "skillcorner/2017461/observed": {
+              "macro_f1": 0.9113975678426889,
+              "spell_f1": 0.6435114503816793,
+              "spells": 216
+            }
+          },
+          "standard": {
+            "macro_f1": 0.9240492054910336,
+            "spell_f1": 0.7073748649135141
+          },
+          "team_swap": 0.685100916314043
+        },
+        "aba3": {
+          "dead_carried": 0.6508250347383047,
+          "matches": {
+            "dfl/WQQ/clean": {
+              "macro_f1": 0.9453503322139247,
+              "spell_f1": 0.755877034358047,
+              "spells": 298
+            },
+            "dfl/WQQ/dead_carried": {
+              "macro_f1": 0.868509168736343,
+              "spell_f1": 0.6433823529411764,
+              "spells": 289
+            },
+            "dfl/WQQ/masked": {
+              "macro_f1": 0.9294698234904167,
+              "spell_f1": 0.72865275142315,
+              "spells": 272
+            },
+            "dfl/WQQ/team_swap": {
+              "macro_f1": 0.9228557926725625,
+              "spell_f1": 0.7169811320754718,
+              "spells": 275
+            },
+            "dfl/WR9/clean": {
+              "macro_f1": 0.9565595345246308,
+              "spell_f1": 0.7961685823754789,
+              "spells": 260
+            },
+            "dfl/WR9/dead_carried": {
+              "macro_f1": 0.8812021348864413,
+              "spell_f1": 0.6582677165354329,
+              "spells": 246
+            },
+            "dfl/WR9/masked": {
+              "macro_f1": 0.9370724127820261,
+              "spell_f1": 0.7297959183673469,
+              "spells": 228
+            },
+            "dfl/WR9/team_swap": {
+              "macro_f1": 0.9275768938972231,
+              "spell_f1": 0.7136456211812627,
+              "spells": 229
+            },
+            "skillcorner/2013725/observed": {
+              "macro_f1": 0.9060673224198625,
+              "spell_f1": 0.7055762081784387,
+              "spells": 241
+            },
+            "skillcorner/2015213/observed": {
+              "macro_f1": 0.9042093653948534,
+              "spell_f1": 0.6940740740740742,
+              "spells": 239
+            },
+            "skillcorner/2016236/observed": {
+              "macro_f1": 0.9229195759113344,
+              "spell_f1": 0.7360946745562129,
+              "spells": 232
+            },
+            "skillcorner/2017461/observed": {
+              "macro_f1": 0.9188220963965351,
+              "spell_f1": 0.7057851239669422,
+              "spells": 216
+            }
+          },
+          "standard": {
+            "macro_f1": 0.9260851566222765,
+            "spell_f1": 0.7276031731231685
+          },
+          "team_swap": 0.7153133766283672
+        },
+        "aba4": {
+          "dead_carried": 0.6513029116711524,
+          "matches": {
+            "dfl/WQQ/clean": {
+              "macro_f1": 0.9440427764214573,
+              "spell_f1": 0.7420183486238533,
+              "spells": 298
+            },
+            "dfl/WQQ/dead_carried": {
+              "macro_f1": 0.8696836111967764,
+              "spell_f1": 0.6485074626865671,
+              "spells": 289
+            },
+            "dfl/WQQ/masked": {
+              "macro_f1": 0.929465014375369,
+              "spell_f1": 0.7267822736030829,
+              "spells": 272
+            },
+            "dfl/WQQ/team_swap": {
+              "macro_f1": 0.9228408936681075,
+              "spell_f1": 0.7149425287356321,
+              "spells": 275
+            },
+            "dfl/WR9/clean": {
+              "macro_f1": 0.9508430594578424,
+              "spell_f1": 0.7513944223107569,
+              "spells": 260
+            },
+            "dfl/WR9/dead_carried": {
+              "macro_f1": 0.8805166446049372,
+              "spell_f1": 0.6540983606557377,
+              "spells": 246
+            },
+            "dfl/WR9/masked": {
+              "macro_f1": 0.936416366497188,
+              "spell_f1": 0.7293617021276596,
+              "spells": 228
+            },
+            "dfl/WR9/team_swap": {
+              "macro_f1": 0.9254827647695189,
+              "spell_f1": 0.7006369426751592,
+              "spells": 229
+            },
+            "skillcorner/2013725/observed": {
+              "macro_f1": 0.9059352700871238,
+              "spell_f1": 0.706923076923077,
+              "spells": 241
+            },
+            "skillcorner/2015213/observed": {
+              "macro_f1": 0.9067184316530202,
+              "spell_f1": 0.7066147859922178,
+              "spells": 239
+            },
+            "skillcorner/2016236/observed": {
+              "macro_f1": 0.9221660840125953,
+              "spell_f1": 0.7356701030927835,
+              "spells": 232
+            },
+            "skillcorner/2017461/observed": {
+              "macro_f1": 0.9158854222757354,
+              "spell_f1": 0.6798245614035088,
+              "spells": 216
+            }
+          },
+          "standard": {
+            "macro_f1": 0.925225534138927,
+            "spell_f1": 0.7207707927927897
+          },
+          "team_swap": 0.7077897357053957
+        },
+        "aba4.5": {
+          "dead_carried": 0.6291748888995844,
+          "matches": {
+            "dfl/WQQ/clean": {
+              "macro_f1": 0.9412523791278459,
+              "spell_f1": 0.7214953271028037,
+              "spells": 298
+            },
+            "dfl/WQQ/dead_carried": {
+              "macro_f1": 0.8673672023140808,
+              "spell_f1": 0.629657794676806,
+              "spells": 289
+            },
+            "dfl/WQQ/masked": {
+              "macro_f1": 0.9270054208513856,
+              "spell_f1": 0.7049115913555992,
+              "spells": 272
+            },
+            "dfl/WQQ/team_swap": {
+              "macro_f1": 0.9202880962100105,
+              "spell_f1": 0.703125,
+              "spells": 275
+            },
+            "dfl/WR9/clean": {
+              "macro_f1": 0.9464824131206542,
+              "spell_f1": 0.7221311475409836,
+              "spells": 260
+            },
+            "dfl/WR9/dead_carried": {
+              "macro_f1": 0.8770784798259333,
+              "spell_f1": 0.6286919831223627,
+              "spells": 246
+            },
+            "dfl/WR9/masked": {
+              "macro_f1": 0.9327603139500794,
+              "spell_f1": 0.7035087719298245,
+              "spells": 228
+            },
+            "dfl/WR9/team_swap": {
+              "macro_f1": 0.9219401220761183,
+              "spell_f1": 0.6783369803063458,
+              "spells": 229
+            },
+            "skillcorner/2013725/observed": {
+              "macro_f1": 0.9060360124556784,
+              "spell_f1": 0.7083665338645418,
+              "spells": 241
+            },
+            "skillcorner/2015213/observed": {
+              "macro_f1": 0.902567059142959,
+              "spell_f1": 0.6764940239043824,
+              "spells": 239
+            },
+            "skillcorner/2016236/observed": {
+              "macro_f1": 0.9204791641032405,
+              "spell_f1": 0.7164926931106471,
+              "spells": 232
+            },
+            "skillcorner/2017461/observed": {
+              "macro_f1": 0.91484771906548,
+              "spell_f1": 0.672,
+              "spells": 216
+            }
+          },
+          "standard": {
+            "macro_f1": 0.922763432833539,
+            "spell_f1": 0.7017080897944993
+          },
+          "team_swap": 0.6907309901531729
+        },
+        "raw": {
+          "dead_carried": 0.5561246000376436,
+          "matches": {
+            "dfl/WQQ/clean": {
+              "macro_f1": 0.9463271915766936,
+              "spell_f1": 0.7135908440629471,
+              "spells": 298
+            },
+            "dfl/WQQ/dead_carried": {
+              "macro_f1": 0.8637027335497413,
+              "spell_f1": 0.5628985507246377,
+              "spells": 289
+            },
+            "dfl/WQQ/masked": {
+              "macro_f1": 0.9256445169860177,
+              "spell_f1": 0.6436849925705795,
+              "spells": 272
+            },
+            "dfl/WQQ/team_swap": {
+              "macro_f1": 0.9171759312057866,
+              "spell_f1": 0.6289940828402367,
+              "spells": 275
+            },
+            "dfl/WR9/clean": {
+              "macro_f1": 0.9546099929182669,
+              "spell_f1": 0.6996825396825397,
+              "spells": 260
+            },
+            "dfl/WR9/dead_carried": {
+              "macro_f1": 0.875929868950858,
+              "spell_f1": 0.5493506493506495,
+              "spells": 246
+            },
+            "dfl/WR9/masked": {
+              "macro_f1": 0.9326777849855393,
+              "spell_f1": 0.6147157190635453,
+              "spells": 228
+            },
+            "dfl/WR9/team_swap": {
+              "macro_f1": 0.9246486657551842,
+              "spell_f1": 0.6056761268781302,
+              "spells": 229
+            },
+            "skillcorner/2013725/observed": {
+              "macro_f1": 0.903934212334914,
+              "spell_f1": 0.6535117056856187,
+              "spells": 241
+            },
+            "skillcorner/2015213/observed": {
+              "macro_f1": 0.9030673435749028,
+              "spell_f1": 0.6466216216216216,
+              "spells": 239
+            },
+            "skillcorner/2016236/observed": {
+              "macro_f1": 0.9181509615487822,
+              "spell_f1": 0.6566956521739131,
+              "spells": 232
+            },
+            "skillcorner/2017461/observed": {
+              "macro_f1": 0.9097639485597947,
+              "spell_f1": 0.6169117647058823,
+              "spells": 216
+            }
+          },
+          "standard": {
+            "macro_f1": 0.9224963739554721,
+            "spell_f1": 0.6492238269411907
+          },
+          "team_swap": 0.6173351048591835
+        }
+      },
+      "recipe": {
+        "cutoff": 0.53,
+        "dead_cost": 2,
+        "dead_mix": 0.5,
+        "discount": 0.8,
+        "method": "joint",
+        "owner_cost": 14,
+        "owner_mix": 0.5,
+        "variant": "seed_phase"
+      }
+    },
+    "pff": {
+      "matches": {
+        "10506": {
+          "aba1.75": {
+            "macro_f1": 0.8790174906466875,
+            "spell_f1": 0.680672268907563,
+            "spells": 205
+          },
+          "aba3": {
+            "macro_f1": 0.881591770184781,
+            "spell_f1": 0.7205357142857144,
+            "spells": 205
+          },
+          "aba4": {
+            "macro_f1": 0.8820754038145169,
+            "spell_f1": 0.7076923076923077,
+            "spells": 205
+          },
+          "aba4.5": {
+            "macro_f1": 0.8806153411386064,
+            "spell_f1": 0.6960784313725491,
+            "spells": 205
+          },
+          "raw": {
+            "macro_f1": 0.8771636226623224,
+            "spell_f1": 0.6324110671936759,
+            "spells": 205
+          }
+        },
+        "10507": {
+          "aba1.75": {
+            "macro_f1": 0.9207437018671064,
+            "spell_f1": 0.7553246753246754,
+            "spells": 173
+          },
+          "aba3": {
+            "macro_f1": 0.922977528238423,
+            "spell_f1": 0.7966759002770083,
+            "spells": 173
+          },
+          "aba4": {
+            "macro_f1": 0.9230498991237583,
+            "spell_f1": 0.8045325779036829,
+            "spells": 173
+          },
+          "aba4.5": {
+            "macro_f1": 0.9221383977775842,
+            "spell_f1": 0.7918840579710145,
+            "spells": 173
+          },
+          "raw": {
+            "macro_f1": 0.9189195117517482,
+            "spell_f1": 0.6997566909975669,
+            "spells": 173
+          }
+        },
+        "10514": {
+          "aba1.75": {
+            "macro_f1": 0.8814331671918746,
+            "spell_f1": 0.7125307125307125,
+            "spells": 173
+          },
+          "aba3": {
+            "macro_f1": 0.8841550374320247,
+            "spell_f1": 0.7546174142480211,
+            "spells": 173
+          },
+          "aba4": {
+            "macro_f1": 0.8835389953115143,
+            "spell_f1": 0.7517426273458445,
+            "spells": 173
+          },
+          "aba4.5": {
+            "macro_f1": 0.8828723391016405,
+            "spell_f1": 0.7428571428571427,
+            "spells": 173
+          },
+          "raw": {
+            "macro_f1": 0.8787764163375015,
+            "spell_f1": 0.6448979591836735,
+            "spells": 173
+          }
+        },
+        "10515": {
+          "aba1.75": {
+            "macro_f1": 0.9004236016634352,
+            "spell_f1": 0.7099744245524297,
+            "spells": 169
+          },
+          "aba3": {
+            "macro_f1": 0.9003617891159948,
+            "spell_f1": 0.7242666666666666,
+            "spells": 169
+          },
+          "aba4": {
+            "macro_f1": 0.9031763584715894,
+            "spell_f1": 0.7449035812672177,
+            "spells": 169
+          },
+          "aba4.5": {
+            "macro_f1": 0.9022934232540804,
+            "spell_f1": 0.7390581717451523,
+            "spells": 169
+          },
+          "raw": {
+            "macro_f1": 0.8978630436430209,
+            "spell_f1": 0.63094688221709,
+            "spells": 169
+          }
+        },
+        "3816": {
+          "aba1.75": {
+            "macro_f1": 0.8799432017302635,
+            "spell_f1": 0.6030150753768844,
+            "spells": 157
+          },
+          "aba3": {
+            "macro_f1": 0.883986179285213,
+            "spell_f1": 0.65,
+            "spells": 157
+          },
+          "aba4": {
+            "macro_f1": 0.885028063957229,
+            "spell_f1": 0.6655737704918032,
+            "spells": 157
+          },
+          "aba4.5": {
+            "macro_f1": 0.8881199178348211,
+            "spell_f1": 0.6775280898876405,
+            "spells": 157
+          },
+          "raw": {
+            "macro_f1": 0.8772144867869534,
+            "spell_f1": 0.5208888888888888,
+            "spells": 157
+          }
+        },
+        "3817": {
+          "aba1.75": {
+            "macro_f1": 0.8864741495884165,
+            "spell_f1": 0.6578723404255318,
+            "spells": 193
+          },
+          "aba3": {
+            "macro_f1": 0.8922402835221881,
+            "spell_f1": 0.7342592592592594,
+            "spells": 193
+          },
+          "aba4": {
+            "macro_f1": 0.8949380768512104,
+            "spell_f1": 0.761904761904762,
+            "spells": 193
+          },
+          "aba4.5": {
+            "macro_f1": 0.8950530385565028,
+            "spell_f1": 0.7655502392344498,
+            "spells": 193
+          },
+          "raw": {
+            "macro_f1": 0.8837717164387467,
+            "spell_f1": 0.6112903225806452,
+            "spells": 193
+          }
+        },
+        "3824": {
+          "aba1.75": {
+            "macro_f1": 0.9206856556361872,
+            "spell_f1": 0.7245283018867925,
+            "spells": 183
+          },
+          "aba3": {
+            "macro_f1": 0.9229120013853939,
+            "spell_f1": 0.762,
+            "spells": 183
+          },
+          "aba4": {
+            "macro_f1": 0.9248333269134328,
+            "spell_f1": 0.7853403141361257,
+            "spells": 183
+          },
+          "aba4.5": {
+            "macro_f1": 0.9234104461805351,
+            "spell_f1": 0.7746031746031746,
+            "spells": 183
+          },
+          "raw": {
+            "macro_f1": 0.9190313612247282,
+            "spell_f1": 0.6599118942731277,
+            "spells": 183
+          }
+        },
+        "3825": {
+          "aba1.75": {
+            "macro_f1": 0.8995889224010618,
+            "spell_f1": 0.6432160804020101,
+            "spells": 163
+          },
+          "aba3": {
+            "macro_f1": 0.9025720719734144,
+            "spell_f1": 0.6978494623655913,
+            "spells": 163
+          },
+          "aba4": {
+            "macro_f1": 0.9054351071843403,
+            "spell_f1": 0.7329545454545454,
+            "spells": 163
+          },
+          "aba4.5": {
+            "macro_f1": 0.9062308352995284,
+            "spell_f1": 0.7360000000000001,
+            "spells": 163
+          },
+          "raw": {
+            "macro_f1": 0.8974525794646458,
+            "spell_f1": 0.5575221238938053,
+            "spells": 163
+          }
+        },
+        "3832": {
+          "aba1.75": {
+            "macro_f1": 0.8339870977052581,
+            "spell_f1": 0.5992337164750958,
+            "spells": 203
+          },
+          "aba3": {
+            "macro_f1": 0.8351192936170171,
+            "spell_f1": 0.6136,
+            "spells": 203
+          },
+          "aba4": {
+            "macro_f1": 0.8388390525278427,
+            "spell_f1": 0.6362869198312235,
+            "spells": 203
+          },
+          "aba4.5": {
+            "macro_f1": 0.838711317932705,
+            "spell_f1": 0.6370689655172413,
+            "spells": 203
+          },
+          "raw": {
+            "macro_f1": 0.8319852903368389,
+            "spell_f1": 0.5382978723404255,
+            "spells": 203
+          }
+        },
+        "3833": {
+          "aba1.75": {
+            "macro_f1": 0.8843171368988405,
+            "spell_f1": 0.6981132075471698,
+            "spells": 187
+          },
+          "aba3": {
+            "macro_f1": 0.8879398646537903,
+            "spell_f1": 0.7313432835820896,
+            "spells": 187
+          },
+          "aba4": {
+            "macro_f1": 0.8875602502448513,
+            "spell_f1": 0.7313131313131314,
+            "spells": 187
+          },
+          "aba4.5": {
+            "macro_f1": 0.8874683639234946,
+            "spell_f1": 0.7241025641025641,
+            "spells": 187
+          },
+          "raw": {
+            "macro_f1": 0.8829146329289758,
+            "spell_f1": 0.6365217391304347,
+            "spells": 187
+          }
+        },
+        "3841": {
+          "aba1.75": {
+            "macro_f1": 0.886216808609344,
+            "spell_f1": 0.6156962025316455,
+            "spells": 164
+          },
+          "aba3": {
+            "macro_f1": 0.8890124318050817,
+            "spell_f1": 0.6381201044386424,
+            "spells": 164
+          },
+          "aba4": {
+            "macro_f1": 0.8916703311405607,
+            "spell_f1": 0.6666666666666666,
+            "spells": 164
+          },
+          "aba4.5": {
+            "macro_f1": 0.8936332077493301,
+            "spell_f1": 0.6647887323943662,
+            "spells": 164
+          },
+          "raw": {
+            "macro_f1": 0.8842009264415257,
+            "spell_f1": 0.5747016706443914,
+            "spells": 164
+          }
+        },
+        "3848": {
+          "aba1.75": {
+            "macro_f1": 0.8602165109977556,
+            "spell_f1": 0.629718875502008,
+            "spells": 202
+          },
+          "aba3": {
+            "macro_f1": 0.8638814137466303,
+            "spell_f1": 0.69004329004329,
+            "spells": 202
+          },
+          "aba4": {
+            "macro_f1": 0.8652722529504295,
+            "spell_f1": 0.7021834061135371,
+            "spells": 202
+          },
+          "aba4.5": {
+            "macro_f1": 0.8677597348268674,
+            "spell_f1": 0.7201793721973094,
+            "spells": 202
+          },
+          "raw": {
+            "macro_f1": 0.8570207178305521,
+            "spell_f1": 0.5711111111111111,
+            "spells": 202
+          }
+        },
+        "3849": {
+          "aba1.75": {
+            "macro_f1": 0.8812309358946249,
+            "spell_f1": 0.6627615062761506,
+            "spells": 196
+          },
+          "aba3": {
+            "macro_f1": 0.8868946264048594,
+            "spell_f1": 0.719111111111111,
+            "spells": 196
+          },
+          "aba4": {
+            "macro_f1": 0.888792537233828,
+            "spell_f1": 0.7447004608294931,
+            "spells": 196
+          },
+          "aba4.5": {
+            "macro_f1": 0.8897629767013971,
+            "spell_f1": 0.750925925925926,
+            "spells": 196
+          },
+          "raw": {
+            "macro_f1": 0.8781259567919714,
+            "spell_f1": 0.6046692607003891,
+            "spells": 196
+          }
+        },
+        "3856": {
+          "aba1.75": {
+            "macro_f1": 0.8727895160099357,
+            "spell_f1": 0.6417849898580122,
+            "spells": 201
+          },
+          "aba3": {
+            "macro_f1": 0.8786073844690482,
+            "spell_f1": 0.6946004319654426,
+            "spells": 201
+          },
+          "aba4": {
+            "macro_f1": 0.8826451452072587,
+            "spell_f1": 0.731685393258427,
+            "spells": 201
+          },
+          "aba4.5": {
+            "macro_f1": 0.8817500233824078,
+            "spell_f1": 0.7383908045977012,
+            "spells": 201
+          },
+          "raw": {
+            "macro_f1": 0.8698540749969729,
+            "spell_f1": 0.5779439252336449,
+            "spells": 201
+          }
+        },
+        "3857": {
+          "aba1.75": {
+            "macro_f1": 0.8957685041646543,
+            "spell_f1": 0.617142857142857,
+            "spells": 149
+          },
+          "aba3": {
+            "macro_f1": 0.8985271788826775,
+            "spell_f1": 0.707871720116618,
+            "spells": 149
+          },
+          "aba4": {
+            "macro_f1": 0.9029896955664998,
+            "spell_f1": 0.7421538461538463,
+            "spells": 149
+          },
+          "aba4.5": {
+            "macro_f1": 0.9038646196031758,
+            "spell_f1": 0.7492260061919505,
+            "spells": 149
+          },
+          "raw": {
+            "macro_f1": 0.8949813520731645,
+            "spell_f1": 0.5787654320987654,
+            "spells": 149
+          }
+        }
+      },
+      "means": {
+        "aba1.75": {
+          "macro_f1": 0.8855224267336964,
+          "spell_f1": 0.6634390156493025
+        },
+        "aba3": {
+          "macro_f1": 0.8887185903144358,
+          "spell_f1": 0.7089929572239637
+        },
+        "aba4": {
+          "macro_f1": 0.8906562997665907,
+          "spell_f1": 0.7273089540241744
+        },
+        "aba4.5": {
+          "macro_f1": 0.8909122655508451,
+          "spell_f1": 0.7272161119065453
+        },
+        "raw": {
+          "macro_f1": 0.8832850459806446,
+          "spell_f1": 0.602642456032509
+        }
+      }
+    },
+    "recipe": {
+      "cutoff": 0.53,
+      "dead_cost": 2,
+      "dead_mix": 0.5,
+      "discount": 0.8,
+      "method": "joint",
+      "owner_cost": 14,
+      "owner_mix": 0.5,
+      "variant": "seed_phase"
+    }
+  }
+}

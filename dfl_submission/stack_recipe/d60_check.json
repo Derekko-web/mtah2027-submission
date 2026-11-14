@@ -1,0 +1,18 @@
+{
+  "actual": {
+    "temporal_2700.pt": "4c4035119808a484166e670b176dc3efc9f8eff1ad2cf9222c7f1c50fcc3d76e",
+    "temporal_5400.pt": "0ae44650160493e8d3bd80de8f54a0f5d5bbd3eaf0fc6b95bd2e12dd51b58c80",
+    "temporal_8100.pt": "b59ec6875e2bc62190dbc5d97980044d2a942582bf9a82113fdba88f0000c14a"
+  },
+  "check": "the stack's trainer, offset 0, D57's original set, seed 42, 8,100 steps",
+  "checked_at": "2026-11-13 20:21 EST",
+  "differing_fit_keys": [],
+  "expected": {
+    "temporal_2700.pt": "4c4035119808a484166e670b176dc3efc9f8eff1ad2cf9222c7f1c50fcc3d76e",
+    "temporal_5400.pt": "0ae44650160493e8d3bd80de8f54a0f5d5bbd3eaf0fc6b95bd2e12dd51b58c80",
+    "temporal_8100.pt": "b59ec6875e2bc62190dbc5d97980044d2a942582bf9a82113fdba88f0000c14a"
+  },
+  "passed": true,
+  "protocol": "DECISIONS.md D60",
+  "reference": "data/d57/networks/SZ/raw/current/temporal_models"
+}
