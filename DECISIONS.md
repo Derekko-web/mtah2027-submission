@@ -2907,3 +2907,86 @@ Changes against the adopted stack at cost 14 with no tags, averaged over three d
 ## Note — Round 16 ends (2026-11-14, 10:26 EST)
 
 Round 16 tested the one input the project had never used, the teams on Smart Tagging's phases, in the place where it could matter most, and adopted nothing: on simulated tags even good ones add under +0.008 on PFF, and only the smallest weight keeps the loss bounded. The submission stays D48's stack, `f6d7b2933a6210ce0c8a1ee96019f86815288d97368d656f366782345e6fc65d`. PFF set E is unparsed. The phases, like the rest of Smart Tagging apart from the kick-off tags, stay unread by the build. What the round leaves is a sharper statement of the remaining loss: short possessions and the timing of their edges, not which team has a hidden ball. Nothing in the allowed data teaches that in the time left, so the orchestrator closes the search again; the two larger levers stay closed by rules (training on PFF, for which Gradient Sports' written permission is still missing, and anything fitted on the provided tracking).
+
+## Note — Round 17: Derek reopens the search (2026-11-15, about 01:30 EST)
+
+Derek, 15 Nov: "there is no point in submitting something that we can't be confident about. also we still have time. so lets try our best!" The orchestrator reopens the search for one round. The standing file `f6d7b293…` stays the submission unless a step passes its rule. Training on PFF and anything fitted on the provided tracking stay closed.
+
+*What the round aims at.* D58 and round 16's closing note located the remaining loss in short possessions. D58's record (`diagnosis_recipe/d58.json`, `length_recall`) has a detail no step has used. Under the N = 3 targets a possession shorter than 3 s survives only next to a stoppage or at the edge of a half, because D1's merge removes every interior A–B–A whose B lasts under 3 s. Those possessions are many: true possessions under 1.75 s are 14% of all true possessions on DFL masked, 17% on SkillCorner, 16% on the Metrica games and 5% on PFF, and the adopted stack finds 3–18% of them; those of 1.75–3 s are another 5–6% and are found at 22–60%. The decoder charges the same ownership cost (14) everywhere, although the targets allow a short possession only next to a stoppage.
+
+*Disclosure: a table in EVALUATION.md.* While re-reading the organisers' documents for this round, the orchestrator noticed that EVALUATION.md's table of delayed copies of the ground truth ("perfect but 3 / 8 frames late", "perfect but 1 s late") constrains how long the ground truth's possessions are, which the same document says is not published. RULES.md section 2 bars "the full-match ground truth, or anything derived from it". Nothing is fitted to, chosen from or checked against that table. This round's lever, grid, targets and gates come from D58's record and D1's conventions, which are external, and no convention or constant is changed because of the table.
+
+## D63 — A lower ownership cost next to stoppages (2026-11-15, about 01:30 EST, written before any D63 code exists or anything is scored)
+
+**Question.** Does lowering the ownership switch cost only within 3 s of a stoppage recover the short possessions that the targets keep there, without inventing more than it finds?
+
+**Candidate.** Two passes of the standing decoder over the adopted stack's standing signals. No model, blend, cutoff or cost outside the windows changes.
+1. *Pass 1* is the standing decode: cutoff 0.53, stoppage cost 2, ownership cost 14, discount 0.8, on the 5 Hz grid.
+2. *Windows,* from pass 1's labels. Let *t* be the first dead step of a pass-1 stoppage and *r* the first live step after one. Steps *t* − 15 … *t* − 1 are *before a stop*; steps *r* + 1 … *r* + 15 are *after a restart* (15 steps are 3 s, D1's N: the only place the targets keep a possession under 3 s). A half that starts live in pass 1 has a restart at its first step, and a half that ends live has a stop after its last step.
+3. *Pass 2* runs the same Viterbi path with the per-step ownership cost multiplied by ρ_pre on the steps before a stop and by ρ_post on the steps after a restart (the smaller factor where both apply). Its path is the output. With ρ_pre = ρ_post = 1 it is pass 1 exactly.
+
+**Grid.** ρ_pre, ρ_post ∈ {1, 0.75, 0.5, 0.25}: fifteen candidates beside the standing decode.
+
+**Pipeline checks, before any result is read.** With both factors at 1 the code reproduces the cost-14 row of `stack_recipe/development_t.json` exactly (every group, guard view, convention, PFF, Metrica and D24), and pass 2 equals pass 1 label for label on every cached half. Modules written before D63 stay byte-identical.
+
+**Development.** The adopted stack's caches (`data/d48/t/cache`): D47's eight groups, D49's two long-hidden guard views, D33's conventions, and D19's control-rule targets on the Metrica games and the three D24 views. The control rule is scored here because the side before a stop adds exactly the kind of spell that rule removes (a last touch before the ball goes out), and CHALLENGE.md says a touch without control does not change possession.
+
+*Conditions,* each against the standing decode:
+- (a) the composite does not fall;
+- (b) none of the eight groups falls by more than 0.01;
+- (c) the long-hidden guard mean falls by no more than 0.005;
+- (d) standard combined spellF1 at N = 1.75, 4 and 4.5 each falls by no more than 0.01;
+- (e) the PFF development mean falls by no more than 0.005;
+- (f) against the control-rule targets, the mean over the Metrica games and the mean over the three D24 views each fall by no more than 0.01.
+
+*Selection.* Among the candidates that meet (a)–(f), the one with the highest D48 selection score (the mean of the composite and the long-hidden guard mean). Ties go to the factors nearer 1, ρ_pre first.
+
+*Gate.* The selected candidate goes to the confirmation only if its selection score rises by at least **+0.008** and the mean of the Metrica group's and the D24 group's N = 3 changes is at least **+0.008**. The second line is there because the ground truth is derived from Metrica's corrected tracking, and those games are the only external ones in that vendor's convention.
+
+*Reported, not gated:* each side alone; raw targets; per group, the true possessions under 1.75 s and of 1.75–3 s with their recall, the number of predicted possessions added, and the share of the added ones that match a true possession at IoU 0.5.
+
+**Confirmation, once,** at the selected factors, against the adopted stack, which must first reproduce its holdout record (`stack_recipe/confirmation.json`):
+- the reused DFL/SkillCorner holdout as D48's confirmation scored it: the primary rises by at least **+0.01** (C3's bar, on matches no model trained on);
+- the holdout long-hidden views fall by no more than 0.005; N = 1.75, 4 and 4.5, dead ball carried and team swap each fall by no more than 0.01;
+- PFF set E (3818, 3826, 3834, 3842, 3850, 3858, 10508, 10516; parsed only for this step, the last fresh external matches): its mean falls by no more than 0.005.
+
+*Why the bar sits on the holdout.* The lever acts on short possessions next to stoppages, and PFF has few (5% under 1.75 s, against 14–17% elsewhere) because its stoppages start at the event, earlier than the other sources'. Set E is the fresh check that real automatic tracking loses nothing. The holdout has served every confirmation since D3; that is weaker than a fresh set and is disclosed as such.
+
+**If it passes,** the two-pass decode enters the build behind a switch (`edge_trial build`: the stack's signals, pass 1, pass 2, then D27's kick-off rule). With both factors at 1 the build must reproduce `f6d7b293…` byte for byte. Then two identical rebuilds, C2 re-declared on ranges recomputed from the candidate's external predictions and run once (verdict line only), `release/check.sh`, and the records. **If it fails** at any stage, `f6d7b293…` stays the submission; set E is spent only if it was parsed.
+
+**What this cannot show.** Whether the provided match's ground truth keeps a short spell before a stoppage (condition (f) is the guard for the convention in which it does not), and how well pass 1 places stoppages on the provided tracking (D58: late with a carried ball, early where the ball vanishes).
+
+**Records.** `dfl_submission/stack_recipe/d63_development.json`, `d63_decision.json`, `d63_confirmation.json`, each written once. Code: new modules `dfl_submission/edge_cost.py` and `dfl_submission/edge_trial.py`, with tests. Every D63 command except `build` runs with `MTAH_DATA_DIR` set to a nonexistent path and calls `require_external_only()`.
+
+*Correction of the times above (2026-11-15, 01:50 EST).* The round's note and D63's heading first read "02:30 EST", an error of one hour by the orchestrator. The machine's clock read 01:22 EST shortly before they were written, and D63's first code file is stamped 01:36 EST, so both were written at about 01:30 EST, before any D63 code existed. The headings now say so; nothing else changed.
+
+**D63 outcome (2026-11-15, 01:50 EST).** **The gate failed. Nothing goes to the confirmation, PFF set E stays unparsed, and the submission is unchanged.**
+
+*Checks.* With both factors at 1 the code reproduced the cost-14 row of `development_t.json` exactly; pass 2 equalled pass 1 on all 64 cached halves, and the module's own pass 1 equalled `joint_decoder.decode` on all 64; every module written before D63 is byte-identical.
+
+Changes against the standing decode (N = 3 unless stated):
+
+| ρ_pre / ρ_post | Selection | Composite | Long-hidden guard mean | PFF | Metrica | D24 | Control rule: Metrica / D24 | Conditions (a)–(f) |
+|---|---:|---:|---:|---:|---:|---:|---|---|
+| 0.75 / 1 | +0.0027 | +0.0021 | +0.0034 | +0.0006 | +0.0038 | +0.0001 | −0.0036 / +0.0002 | all hold |
+| **0.5 / 1 (selected)** | **+0.0028** | +0.0030 | +0.0026 | +0.0008 | +0.0079 | +0.0016 | −0.0071 / −0.0017 | all hold |
+| 0.25 / 1 | −0.0010 | +0.0009 | −0.0028 | −0.0011 | +0.0088 | −0.0002 | −0.0138 / −0.0102 | (b) and (f) fail |
+| 1 / 0.75 | −0.0005 | +0.0005 | −0.0015 | +0.0018 | +0.0005 | −0.0014 | −0.0008 / −0.0012 | all hold |
+| 1 / 0.5 | −0.0014 | −0.0012 | −0.0016 | +0.0003 | +0.0012 | −0.0013 | −0.0028 / −0.0017 | (a) fails |
+| 1 / 0.25 | −0.0049 | −0.0018 | −0.0080 | −0.0024 | +0.0011 | −0.0038 | −0.0050 / −0.0057 | (a) and (c) fail |
+| 0.5 / 0.5 | −0.0000 | +0.0015 | −0.0015 | +0.0021 | +0.0072 | +0.0004 | −0.0078 / −0.0030 | all hold |
+| 0.25 / 0.25 | −0.0066 | −0.0018 | −0.0115 | −0.0021 | +0.0066 | −0.0038 | −0.0161 / −0.0133 | (a), (b), (c) and (f) fail |
+
+- **The gate.** Seven of the fifteen candidates met (a)–(f). The selected one, ρ_pre 0.5 with ρ_post 1, raised the selection score by +0.0028 (+0.008 needed) and the Metrica-convention mean by +0.0047 (Metrica +0.0079, D24 +0.0016; +0.008 needed). Both lines failed.
+- **After a restart, a lower cost never helped:** every ρ_post below 1 on its own lowered the selection score.
+- **Before a stop, it helped a little and only on some sources:** at ρ_pre 0.5 the Metrica games gained +0.008, DFL masked +0.008 and team swap +0.011, while DFL clean lost 0.004 and SkillCorner and PFF did not move. Against the control-rule targets it cost 0.007 on the Metrica games, as the rule expected: these are touches the control rule does not count.
+- **Why it is small: the stack's signals rarely contain the short possession.** At ρ_pre 0.5 the second pass added only 4–21 possessions per group (Metrica 21, of which 15 match a true one at IoU 0.5; SkillCorner 9, of which 2; PFF 13, of which 6). At 0.25, an ownership cost of 3.5, it added 11–39, of which 20–73% match. Recall of true possessions under 1.75 s went from 0.18 to 0.26 and 0.32 on the Metrica games (ρ_pre 1, 0.5, 0.25), from 0.12 to 0.14 and 0.17 on the D24 masked view, and stayed at 0.03–0.05 on SkillCorner and at 0.06 on PFF.
+- **What follows.** The loss in short possessions sits in the models' outputs, not in the decoder's cost: on real automatic tracking no cost recovers them. The decoder-side levers (D12, D25, D26, D28, D62 and this one) are exhausted.
+- **Reach and conventions.** The windows cover about 8–10% of live steps in every group. No candidate lowered N = 1.75, 4 or 4.5 by more than 0.0029.
+- **The coding session's interpretations,** none of which changes the verdict: the selection is among the fifteen candidates, without the standing decode; only exact ties count as ties (none occurred); condition (f) for D24 is the mean over the three views of each view's mean over its games, against D19's control targets as the standing scoring code already scores them; an "added" possession is a candidate possession that the metric's one-to-one match at IoU 0.5 does not pair with a same-team possession of pass 1; while a candidate was scored, the standing decoder was replaced in memory by the two-pass one (every candidate made the same 80 decoder calls as the standing row) and restored afterwards. The session also found that `DECISIONS.md` was last saved at 01:31:59 EST and scoring began at about 01:42 EST, which confirms the corrected time above.
+
+[Development](dfl_submission/stack_recipe/d63_development.json), [decision](dfl_submission/stack_recipe/d63_decision.json); code `edge_cost.py`, `edge_trial.py`.
+
+## Note — Round 17 ends (2026-11-15, 01:50 EST)
+
+Round 17 aimed at the one documented gap that no step had addressed, the short possessions next to stoppages, with a change that needed no training, and adopted nothing. The submission stays D48's stack, `f6d7b2933a6210ce0c8a1ee96019f86815288d97368d656f366782345e6fc65d`. PFF set E is unparsed and no build code was written. Recovering those possessions would take models that see them, which means new training signal: the allowed external data has been used in every way the rounds could find, and the two larger sources stay closed by rules (training on PFF without Gradient Sports' written permission, and anything read from the ground truth, the EVALUATION.md table included).

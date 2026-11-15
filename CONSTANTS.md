@@ -164,6 +164,16 @@ D62's values were all written in its rule before any code existed, by judgement;
 | Simulated tag profiles (D62) | share of true possessions of at least 5 s that become a phase, latest start delay, latest end offset (from −1 s), wrong-team rate: Good 0.8, 1 s, 1 s, 0.05; Moderate 0.6, 2 s, 3 s, 0.15; Poor 0.6, 3 s, 5 s, 0.30; Carry as Moderate, with the tag replaced far from a sighting by the team that had the ball at the last sighting. Phases under 2 s dropped; three draws per half and profile, seeds `620000 + 1000 × half + 10 × profile + draw` | `phase_evidence.PROFILES`, `MIN_POSSESSION`, `MIN_PHASE`, `SEED_BASE`, `DRAWS` (`phase_evidence.py:38–56`) | As above. |
 | Loss bounds and gate (D62) | bounds under Poor and Carry: composite −0.003, PFF development and the long-hidden guard mean −0.005, any group and N = 1.75, 4, 4.5 −0.01; gate under Moderate: +0.010 on PFF development and on the guard mean, composite not lower | `phase_trial.py` (`SAFETY_PROFILES`, `GATE_PROFILE`) | As above. |
 
+## Tried in round 17 and not in the build
+
+D63's values were written in its rule before any code existed, by judgement. The two factors were searched on a grid of four values each. None affects the submitted file.
+
+| Constant | Value | Where | Outcome |
+|---|---|---|---|
+| Window next to a stoppage (D63) | 15 steps of the 5 Hz grid (3 s, D1's N) before each stoppage of the first pass and after each restart; a half that starts live has a restart at its first step, and one that ends live a stop after its last | `edge_cost.WINDOW` (`edge_cost.py:34`) | Development gate failed; not in the build. |
+| Factors on the ownership cost inside the windows (D63) | ρ_pre (before a stop) and ρ_post (after a restart), each from 1, 0.75, 0.5, 0.25; the smaller where both apply; selected 0.5 and 1 | `edge_cost.FACTORS` (`edge_cost.py:35`) | As above: +0.0028 on the selection score and +0.0047 on the Metrica-convention mean, against +0.008 each. |
+| Limits and gate (D63) | composite not lower; no group below −0.01; the long-hidden guard mean and PFF development not below −0.005; N = 1.75, 4, 4.5 and the control-rule means on the Metrica games and on the D24 views not below −0.01; gate: +0.008 on the selection score and on the mean of the Metrica and D24 changes | `edge_trial.py` | As above. |
+
 ## Notes
 
 - **Pitch size.** The submission now uses the metadata's 105 × 68 m. Only the two earlier fallback builds still use the 105.3 × 68.0 m from `games.py`.

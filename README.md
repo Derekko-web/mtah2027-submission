@@ -251,6 +251,19 @@ On 14 November Derek, the team's lead, reopened the search once more. Round 16 t
 
 Nothing changed: the submission stays the stack (`f6d7b293…`). PFF set E is unparsed, no build code was written, and the build still reads only the kick-off tags of the Smart Tagging file. The search was closed again. 722 of 722 tests in 84 files pass on the working tree with these documents. [D62 development](dfl_submission/stack_recipe/d62_development.json) · [D62 decision](dfl_submission/stack_recipe/d62_decision.json)
 
+### Round 17 (D63): nothing adopted
+
+On 15 November Derek reopened the search again. Round 17 aimed at the one documented gap that no step had addressed: the short possessions next to stoppages. The rule is in DECISIONS.md (the note "Round 17: Derek reopens the search", D63 and its outcome).
+
+- **D63, a lower ownership cost next to stoppages** (`edge_cost.py`, `edge_trial.py`). Under the N = 3 targets a possession under 3 s survives only next to a stoppage or at the edge of a half. Those under 1.75 s are 14–17% of the true possessions on DFL, SkillCorner and the Metrica games (5% on PFF), and the stack finds 3–18% of them (D58's record), while the decoder charges the same ownership cost (14) everywhere.
+  - The candidate decodes twice: the standing decode, then the same decode with the ownership cost multiplied by ρ_pre on the 3 s before each first-pass stoppage and by ρ_post on the 3 s after each restart (each from 1, 0.75, 0.5, 0.25). No model changes and nothing is trained.
+  - A candidate had to keep the composite, every group, the long-hidden guards, N = 1.75, 4 and 4.5, PFF and the control-rule targets on the Metrica games within fixed limits. The selected one needed +0.008 on the selection score and on the Metrica-convention mean (the Metrica games and their degraded views) before the holdout and PFF set E could be spent.
+  - Checks first: with both factors at 1 the code reproduced the stack's cost-14 development row exactly, and the second pass equalled the first on all 64 cached halves.
+  - Seven of fifteen candidates stayed within the limits. The selected one (ρ_pre 0.5, ρ_post 1) gained +0.0028 on the selection score and +0.0047 on the Metrica-convention mean. **The gate failed.** A lower cost after a restart never helped; before a stop the second pass added only 4–21 possessions per group at 0.5, and recall of the true possessions under 1.75 s rose from 0.18 to at most 0.32 on the Metrica games and did not move on SkillCorner or PFF.
+  - What it shows: the short possessions are missing from the models' outputs, not suppressed by the decoder's cost. The decoder-side levers are exhausted.
+
+Nothing changed: the submission stays the stack (`f6d7b293…`). PFF set E is unparsed and no build code was written. The search was closed again. 745 of 745 tests in 86 files pass on the working tree with these documents. [D63 development](dfl_submission/stack_recipe/d63_development.json) · [D63 decision](dfl_submission/stack_recipe/d63_decision.json)
+
 ## Reproduce the submission
 
 The build is verified to give the same file on Apple Silicon macOS (Homebrew Python 3.12.13) and on Linux (x86_64 and arm64, Python 3.12.14), with the pinned CPU dependencies. On macOS, XGBoost needs the system OpenMP runtime. Point `MTAH_DATA_DIR` at a directory containing `tactical/` with `BAR-ATH_tactical_atd.xml`, `BAR-ATH_tactical_atd.txt`, `BAR-ATH_tactical_homography.csv` and `BAR-ATH_tactical_smart_tagging.xml`; no other files are needed.
@@ -727,6 +740,9 @@ Round 12's commands write each record once. All run with `MTAH_DATA_DIR` set to 
 
 # D62: simulated Smart Tagging phase teams as ownership evidence far from a ball sighting (gate failed)
 .venv/bin/python -m dfl_submission.phase_trial develop --dfl "$DFL_XML" --dfl-raw --skill data/skillcorner --parsed data/pff/parsed
+
+# D63: a lower ownership switch cost within 3 s of a stoppage, two-pass decode (gate failed)
+.venv/bin/python -m dfl_submission.edge_trial develop --dfl "$DFL_XML" --dfl-raw --skill data/skillcorner --parsed data/pff/parsed
 ```
 
 C2 checks the final file without any ground truth (`output_check.py`). Its ranges come from the submission's predictions on 28 external match views: possessions per minute, the share of dead ball, and sub-second stoppages per 90 minutes. C2 was declared for D15 (`ranges`, `output_check_ranges.json`), then re-declared for D43 (`ranges-d43`, `output_check_ranges_d43.json`) and for the stack (`ranges-d48`, `output_check_ranges_d48.json`: 0.83–4.16 possessions per graded minute, a dead share of 0.15–0.82 and 0–56.5 sub-second stoppages per 90 minutes). `check` reads the stack's ranges. A re-declaration for the unused D53 fallback (`ranges-d53`) was written but applies only if it ships. The check on the competition file prints only PASS or FAIL. On the stack's file (`f6d7b293…`) it was run once, on 13 November at 17:43 EST, after `shasum -a 256 -c SUBMISSION_SHA256.txt`, by the AI session under Derek's instruction of 17:42 EST (DECISIONS.md), and only its verdict line was read: PASS.
@@ -764,7 +780,7 @@ Each test file runs in its own process, because PyTorch and XGBoost each bring a
 
 - **Domain shift.** The external datasets come from other competitions and other tracking systems. Their dead-ball periods carry provider artifacts: DFL freezes the ball, and SkillCorner rarely detects it. The blend halves the weight of models trained with those artifacts, but our dead-ball simulation is itself an approximation.
 - **Possession definitions.** These differ between providers. DFL changes the owning team on any opponent touch. The challenge counts only controlled possession. Brief deflections may therefore appear as short possessions, and the decoder costs only partly absorb them.
-- **Smoothing.** The decoder can merge very short real possessions or shift their boundaries. On degraded and real automatic tracking the stack finds 4–13% of the true possessions shorter than 1.75 s and 22–52% of those lasting 1.75–3 s (D58's record). This, not the team of a long-hidden ball, is where most of the remaining loss lies (D62).
+- **Smoothing.** The decoder can merge very short real possessions or shift their boundaries. On degraded and real automatic tracking the stack finds 4–13% of the true possessions shorter than 1.75 s and 22–52% of those lasting 1.75–3 s (D58's record). This, not the team of a long-hidden ball, is where most of the remaining loss lies (D62). Lowering the decoder's cost next to stoppages, the one place where the targets keep such possessions, recovered few of them (D63): the models' outputs rarely contain them.
 - **Long hidden-ball stretches.** On real automatic tracking, a third to two fifths of the hidden-ball frames lie in runs over 10 s, where the decoded owner is right less often (D46a). The long hidden-ball training views (D49) narrow that gap, but they are synthetic, not fitted to the competition tracking.
 - **The ball hidden in the air.** On views that hide the ball while it is above 1.5 m, the stack names the owner right on 81% of hidden frames, against 94% when the same runs are hidden at random (D55). Training views that hide it there raised PFF development by only +0.006 to +0.007 and met no gate (D56, D57); with three seeds per slot they gained +0.0051 on fifteen fresh PFF games, below the +0.01 required (D61).
 - **When a stoppage starts.** On the views with a realistic dead ball, true stoppages would still add about 0.065 (D58), mostly through when a found stoppage starts: late when a player carries the dead ball, early on PFF, whose tracker loses it. No single shift or cost corrects both.

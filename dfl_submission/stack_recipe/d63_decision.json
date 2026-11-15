@@ -1,0 +1,279 @@
+{
+  "candidates": {
+    "0.25/0.25": {
+      "conditions": {
+        "a_composite": false,
+        "b_groups": false,
+        "c_guard_mean": false,
+        "d_conventions": true,
+        "e_pff": true,
+        "f_control": false
+      },
+      "holds": false,
+      "rho_post": 0.25,
+      "rho_pre": 0.25,
+      "selection_change": -0.006643955498149889
+    },
+    "0.25/0.5": {
+      "conditions": {
+        "a_composite": false,
+        "b_groups": false,
+        "c_guard_mean": true,
+        "d_conventions": true,
+        "e_pff": true,
+        "f_control": false
+      },
+      "holds": false,
+      "rho_post": 0.5,
+      "rho_pre": 0.25,
+      "selection_change": -0.002845146274612631
+    },
+    "0.25/0.75": {
+      "conditions": {
+        "a_composite": true,
+        "b_groups": false,
+        "c_guard_mean": true,
+        "d_conventions": true,
+        "e_pff": true,
+        "f_control": false
+      },
+      "holds": false,
+      "rho_post": 0.75,
+      "rho_pre": 0.25,
+      "selection_change": -0.001960670537827447
+    },
+    "0.25/1": {
+      "conditions": {
+        "a_composite": true,
+        "b_groups": false,
+        "c_guard_mean": true,
+        "d_conventions": true,
+        "e_pff": true,
+        "f_control": false
+      },
+      "holds": false,
+      "rho_post": 1.0,
+      "rho_pre": 0.25,
+      "selection_change": -0.0009629280713342458
+    },
+    "0.5/0.25": {
+      "conditions": {
+        "a_composite": true,
+        "b_groups": true,
+        "c_guard_mean": false,
+        "d_conventions": true,
+        "e_pff": true,
+        "f_control": false
+      },
+      "holds": false,
+      "rho_post": 0.25,
+      "rho_pre": 0.5,
+      "selection_change": -0.003282653132511859
+    },
+    "0.5/0.5": {
+      "conditions": {
+        "a_composite": true,
+        "b_groups": true,
+        "c_guard_mean": true,
+        "d_conventions": true,
+        "e_pff": true,
+        "f_control": true
+      },
+      "holds": true,
+      "rho_post": 0.5,
+      "rho_pre": 0.5,
+      "selection_change": -2.362783042397787e-05
+    },
+    "0.5/0.75": {
+      "conditions": {
+        "a_composite": true,
+        "b_groups": true,
+        "c_guard_mean": true,
+        "d_conventions": true,
+        "e_pff": true,
+        "f_control": true
+      },
+      "holds": true,
+      "rho_post": 0.75,
+      "rho_pre": 0.5,
+      "selection_change": 0.002342988814682423
+    },
+    "0.5/1": {
+      "conditions": {
+        "a_composite": true,
+        "b_groups": true,
+        "c_guard_mean": true,
+        "d_conventions": true,
+        "e_pff": true,
+        "f_control": true
+      },
+      "holds": true,
+      "rho_post": 1.0,
+      "rho_pre": 0.5,
+      "selection_change": 0.0027894260204678334
+    },
+    "0.75/0.25": {
+      "conditions": {
+        "a_composite": true,
+        "b_groups": true,
+        "c_guard_mean": false,
+        "d_conventions": true,
+        "e_pff": true,
+        "f_control": true
+      },
+      "holds": false,
+      "rho_post": 0.25,
+      "rho_pre": 0.75,
+      "selection_change": -0.003558350847318481
+    },
+    "0.75/0.5": {
+      "conditions": {
+        "a_composite": true,
+        "b_groups": true,
+        "c_guard_mean": true,
+        "d_conventions": true,
+        "e_pff": true,
+        "f_control": true
+      },
+      "holds": true,
+      "rho_post": 0.5,
+      "rho_pre": 0.75,
+      "selection_change": -9.81826563007937e-05
+    },
+    "0.75/0.75": {
+      "conditions": {
+        "a_composite": true,
+        "b_groups": true,
+        "c_guard_mean": true,
+        "d_conventions": true,
+        "e_pff": true,
+        "f_control": true
+      },
+      "holds": true,
+      "rho_post": 0.75,
+      "rho_pre": 0.75,
+      "selection_change": 0.001230107743210196
+    },
+    "0.75/1": {
+      "conditions": {
+        "a_composite": true,
+        "b_groups": true,
+        "c_guard_mean": true,
+        "d_conventions": true,
+        "e_pff": true,
+        "f_control": true
+      },
+      "holds": true,
+      "rho_post": 1.0,
+      "rho_pre": 0.75,
+      "selection_change": 0.002737262971042931
+    },
+    "1/0.25": {
+      "conditions": {
+        "a_composite": false,
+        "b_groups": true,
+        "c_guard_mean": false,
+        "d_conventions": true,
+        "e_pff": true,
+        "f_control": true
+      },
+      "holds": false,
+      "rho_post": 0.25,
+      "rho_pre": 1.0,
+      "selection_change": -0.004893262459277126
+    },
+    "1/0.5": {
+      "conditions": {
+        "a_composite": false,
+        "b_groups": true,
+        "c_guard_mean": true,
+        "d_conventions": true,
+        "e_pff": true,
+        "f_control": true
+      },
+      "holds": false,
+      "rho_post": 0.5,
+      "rho_pre": 1.0,
+      "selection_change": -0.0013957588276609645
+    },
+    "1/0.75": {
+      "conditions": {
+        "a_composite": true,
+        "b_groups": true,
+        "c_guard_mean": true,
+        "d_conventions": true,
+        "e_pff": true,
+        "f_control": true
+      },
+      "holds": true,
+      "rho_post": 0.75,
+      "rho_pre": 1.0,
+      "selection_change": -0.00051007000654546
+    }
+  },
+  "decided_at": "2026-11-15 01:45 EST",
+  "development_sha256": "bc90fdd9e77996ac824f57e482d70b8db3d284b05364edcdd9f2b0c20e1addea",
+  "eligible": [
+    "1/0.75",
+    "0.75/1",
+    "0.75/0.75",
+    "0.75/0.5",
+    "0.5/1",
+    "0.5/0.75",
+    "0.5/0.5"
+  ],
+  "gate": {
+    "conditions": {
+      "metrica_d24_mean": false,
+      "selection": false
+    },
+    "numbers": {
+      "d24": 0.0015623933012289815,
+      "metrica": 0.007876128072695443,
+      "metrica_d24_mean": 0.004719260686962212,
+      "selection": 0.0027894260204678334
+    },
+    "passed": false
+  },
+  "outcome": "0.5/1 is selected and fails the gate: nothing goes to the confirmation and set E is not parsed",
+  "passed": false,
+  "protocol": "DECISIONS.md D63",
+  "rule": {
+    "against": "the standing decode (cutoff 0.53, stoppage cost 2, ownership cost 14, discount 0.8)",
+    "conditions": {
+      "a_composite": 0.0,
+      "b_groups": -0.01,
+      "c_guard_mean": -0.005,
+      "d_conventions": {
+        "aba1.75": -0.01,
+        "aba4": -0.01,
+        "aba4.5": -0.01
+      },
+      "e_pff": -0.005,
+      "f_control": {
+        "d24": -0.01,
+        "metrica": -0.01
+      },
+      "groups": [
+        "dfl_clean",
+        "dfl_masked",
+        "dfl_dead_carried",
+        "dfl_team_swap",
+        "skillcorner",
+        "pff",
+        "metrica",
+        "d24"
+      ]
+    },
+    "gate": {
+      "metrica_d24_mean": 0.008,
+      "selection": 0.008
+    },
+    "selection": "among the candidates meeting (a)-(f), the highest D48 selection score (mean of the composite and the long-hidden guard mean); ties to the factors nearer 1, rho_pre first"
+  },
+  "selected": "0.5/1",
+  "selected_factors": {
+    "rho_post": 1.0,
+    "rho_pre": 0.5
+  }
+}
